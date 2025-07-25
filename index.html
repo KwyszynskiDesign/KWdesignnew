@@ -1,178 +1,297 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Karol Wyszyński – Brand Design</title>
-  <!-- Fonty -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/CSS/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karol Wyszyński – Grafik & Brand Designer</title>
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/scripts.js" defer></script>
+  </head>
+  <body>
+    <!-- Sticky header with navigation -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">KW</div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#hero" class="smooth">Start</a></li>
+            <li><a href="#portfolio" class="smooth">Portfolio</a></li>
+            <li><a href="#why" class="smooth">Dlaczego ja</a></li>
+            <li><a href="#packages" class="smooth">Pakiety</a></li>
+            <li><a href="#contact" class="smooth">Kontakt</a></li>
+          </ul>
+          <!-- Hamburger menu for mobile -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-<header>
-  <div class="logo"><a href="#hero">KW</a></div>
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#pakiety">Pakiety</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-  </nav>
-  <div class="hamburger">&#9776;</div>
-</header>
+    <!-- Hero section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-content">
+        <h1 class="hero-title">Tworzę marki, które budzą emocje</h1>
+        <p class="hero-subtitle">
+          Pomagam firmom wyróżnić się dzięki unikalnemu brandingowi i
+          skutecznym rozwiązaniom cyfrowym.
+        </p>
+        <div class="cta-group">
+          <a href="#packages" class="btn btn-primary smooth">Pakiety</a>
+          <a href="#portfolio" class="btn btn-secondary smooth">Portfolio</a>
+        </div>
+      </div>
+    </section>
 
-<section id="hero" class="section hero" style="background: url('aktywa/images/hero.png') center/cover no-repeat;">
-  <h1>Cześć, jestem Karol Wyszyński</h1>
-  <h2>Brand design | Strony | Automatyzacje</h2>
-  <p>Pomagam nowoczesnym markom rosnąć dzięki przemyślanemu designowi.</p>
-  <div class="cta-buttons">
-    <a href="#pakiety" class="btn primary">Zobacz pakiety</a>
-    <a href="#portfolio" class="btn secondary">Zobacz portfolio</a>
-  </div>
-</section>
+    <!-- Portfolio section -->
+    <section id="portfolio" class="portfolio-section section-gray">
+      <div class="container">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">Wszystkie</button>
+          <button class="filter-btn" data-filter="logo">Logo</button>
+          <button class="filter-btn" data-filter="strony">Strony</button>
+          <button class="filter-btn" data-filter="pakiety">Pakiety</button>
+        </div>
+        <div class="portfolio-grid">
+          <!-- Mockup items - replace placeholders with real projects -->
+          <div class="portfolio-item" data-category="logo">
+            <img src="assets/images/branding.png" alt="Projekt logo" />
+            <h3>Logo – Marka A</h3>
+          </div>
+          <div class="portfolio-item" data-category="strony">
+            <img src="assets/images/webdesign.png" alt="Projekt strony" />
+            <h3>Strona – Marka B</h3>
+          </div>
+          <div class="portfolio-item" data-category="pakiety">
+            <img src="assets/images/moodboard.png" alt="Projekt pakietu" />
+            <h3>Pakiet – Marka C</h3>
+          </div>
+          <div class="portfolio-item" data-category="logo">
+            <img src="assets/images/automation.png" alt="Projekt logo" />
+            <h3>Logo – Marka D</h3>
+          </div>
+          <div class="portfolio-item" data-category="strony">
+            <img src="assets/images/hero.png" alt="Projekt strony" />
+            <h3>Strona – Marka E</h3>
+          </div>
+          <div class="portfolio-item" data-category="pakiety">
+            <img src="assets/images/branding.png" alt="Projekt pakietu" />
+            <h3>Pakiet – Marka F</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="portfolio" class="section portfolio">
-  <h2>Portfolio</h2>
-  <div class="filter">
-    <button data-filter="all">Wszystko</button>
-    <button data-filter="logo">Logo</button>
-    <button data-filter="website">Strony</button>
-    <button data-filter="pakiety">Pakiety</button>
-  </div>
-  <div class="grid">
-    <!-- przykładowe mockupy -->
-    <div class="item" data-category="logo"><img src="aktywa/images/image1.png" alt="Mockup 1"><p>Logo A</p></div>
-    <div class="item" data-category="website"><img src="aktywa/images/image2.png" alt="Mockup 2"><p>Strona B</p></div>
-    <div class="item" data-category="pakiety"><img src="aktywa/images/image3.png" alt="Mockup 3"><p>Pakiet Start</p></div>
-    <div class="item" data-category="logo"><img src="aktywa/images/image4.png" alt="Mockup 4"><p>Logo C</p></div>
-    <div class="item" data-category="website"><img src="aktywa/images/image5.png" alt="Mockup 5"><p>Strona D</p></div>
-    <div class="item" data-category="pakiety"><img src="aktywa/images/image6.png" alt="Mockup 6"><p>Pakiet Premium</p></div>
-  </div>
-</section>
+    <!-- Why Me section -->
+    <section id="why" class="why-section">
+      <div class="container">
+        <h2 class="section-title">Dlaczego ja?</h2>
+        <div class="why-cards">
+          <div class="why-card">
+            <div class="icon">✨</div>
+            <h3>Kreatywność</h3>
+            <p>
+              Każdy projekt traktuję jak dzieło sztuki, tworząc unikalny
+              charakter Twojej marki.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="icon">🤝</div>
+            <h3>Partnerstwo</h3>
+            <p>
+              Współpracuję z Tobą na każdym etapie, słuchając Twoich
+              potrzeb i inspiracji.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="icon">📈</div>
+            <h3>Efektywność</h3>
+            <p>
+              Projektuję rozwiązania, które nie tylko wyglądają świetnie,
+              lecz także wspierają rozwój Twojego biznesu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="dlaczego-ja" class="section dlaczego-ja gray-bg">
-  <h2>Dlaczego warto wybrać mnie?</h2>
-  <div class="icons">
-    <div class="icon">
-      <img src="aktywa/images/icon1.svg" alt="Ikona">
-      <h3>Doświadczenie</h3>
-    </div>
-    <div class="icon">
-      <img src="aktywa/images/icon2.svg" alt="Ikona">
-      <h3>Indywidualne projekty</h3>
-    </div>
-    <div class="icon">
-      <img src="aktywa/images/icon3.svg" alt="Ikona">
-      <h3>Wyniki biznesowe</h3>
-    </div>
-  </div>
-</section>
+    <!-- Packages section -->
+    <section id="packages" class="packages-section section-gray">
+      <div class="container">
+        <h2 class="section-title">Pakiety</h2>
+        <div class="packages-grid">
+          <div class="package-card">
+            <h3>Start</h3>
+            <p>Idealny dla początkujących marek potrzebujących solidnej bazy.</p>
+            <ul>
+              <li>Projekt logo</li>
+              <li>Podstawowa paleta kolorów</li>
+              <li>Karta wizytowa</li>
+            </ul>
+            <div class="package-meta">Czas: 1–2 tygodnie</div>
+            <div class="package-price">Cena: od 1500 zł</div>
+          </div>
+          <div class="package-card">
+            <h3>Widoczność</h3>
+            <p>
+              Dla firm, które chcą zwiększyć swoją obecność w sieci dzięki
+              stronie internetowej.
+            </p>
+            <ul>
+              <li>Logo i identyfikacja wizualna</li>
+              <li>Strona internetowa (do 5 podstron)</li>
+              <li>Podstawowe SEO</li>
+            </ul>
+            <div class="package-meta">Czas: 3–4 tygodnie</div>
+            <div class="package-price">Cena: od 3500 zł</div>
+          </div>
+          <div class="package-card">
+            <h3>Pełny Start</h3>
+            <p>
+              Kompleksowy pakiet dla ambitnych biznesów chcących wejść na rynek
+              z rozmachem.
+            </p>
+            <ul>
+              <li>Pełny branding</li>
+              <li>Serwis internetowy z blogiem</li>
+              <li>Materiały marketingowe</li>
+              <li>Konsultacje strategiczne</li>
+            </ul>
+            <div class="package-meta">Czas: 5–6 tygodni</div>
+            <div class="package-price">Cena: od 7000 zł</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="pakiety" class="section pakiety">
-  <h2>Pakiety</h2>
-  <div class="packages">
-    <div class="package">
-      <h3>Start</h3>
-      <p>Idealny na początek</p>
-      <ul>
-        <li>Logo podstawowe</li>
-        <li>Prosta strona wizytówkowa</li>
-      </ul>
-      <p>Czas realizacji: 2–3 tygodnie<br> Cena: 3000 PLN</p>
-    </div>
-    <div class="package">
-      <h3>Widoczność</h3>
-      <p>Zwiększ markę</p>
-      <ul>
-        <li>Logo + CI</li>
-        <li>Strona responsywna</li>
-        <li>Materiały promocyjne</li>
-      </ul>
-      <p>Czas realizacji: 4–5 tygodni<br> Cena: 6000 PLN</p>
-    </div>
-    <div class="package">
-      <h3>Pełny Start</h3>
-      <p>Kompleksowy branding</p>
-      <ul>
-        <li>Logo, CI, strona, automatyzacje</li>
-      </ul>
-      <p>Czas realizacji: 6–8 tygodni<br> Cena: 10 000 PLN</p>
-    </div>
-  </div>
-</section>
+    <!-- Who is it for section -->
+    <section id="whofor" class="whofor-section">
+      <div class="container">
+        <h2 class="section-title">Dla kogo to jest?</h2>
+        <ul class="whofor-list">
+          <li><span class="check-icon">✔</span> Startupy potrzebujące wyrazistego wizerunku</li>
+          <li><span class="check-icon">✔</span> Małe firmy chcące ujednolicić komunikację</li>
+          <li><span class="check-icon">✔</span> Osoby prywatne budujące markę osobistą</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="dla-kogo" class="section dla-kogo gray-bg">
-  <h2>Dla kogo to jest?</h2>
-  <ul class="checklist">
-    <li>Nowe marki startujące z wizerunkiem</li>
-    <li>Firmy, które chcą profesjonalnie zaistnieć online</li>
-    <li>Przedsiębiorcy bez działu marketingu</li>
-    <li>Biznesy szukające automatyzacji</li>
-  </ul>
-</section>
+    <!-- Testimonials section -->
+    <section id="testimonials" class="testimonials-section section-gray">
+      <div class="container">
+        <h2 class="section-title">Opinie klientów</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial-slide active">
+            <blockquote>
+              „Karol odmienił oblicze naszej marki – współpraca przebiegała
+              sprawnie, a efekty przerosły nasze oczekiwania.”
+            </blockquote>
+            <cite>Anna K., CEO Startup</cite>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              „Profesjonalizm i kreatywność w jednym. Polecam każdej firmie,
+              która chce podkreślić swoją tożsamość.”
+            </blockquote>
+            <cite>Marcin D., Właściciel agencji</cite>
+          </div>
+          <div class="testimonial-slide">
+            <blockquote>
+              „Świetny kontakt, szybka realizacja i niesamowite pomysły.
+              Współpraca godna polecenia.”
+            </blockquote>
+            <cite>Monika P., Freelancer</cite>
+          </div>
+          <button class="slider-btn prev">‹</button>
+          <button class="slider-btn next">›</button>
+        </div>
+      </div>
+    </section>
 
-<section id="opinie" class="section opinie">
-  <h2>Opinie klientów</h2>
-  <div class="slider">
-    <div class="slide active">
-      <blockquote>“Świetna współpraca, znak graficzny zgodny z oczekiwaniami...”</blockquote>
-      <cite>– Anna K.</cite>
-    </div>
-    <div class="slide">
-      <blockquote>“Strona wygląda profesjonalnie i przyciąga klientów...”</blockquote>
-      <cite>– Firma XYZ</cite>
-    </div>
-    <div class="slider-controls">
-      <button class="prev">&lt;</button>
-      <button class="next">&gt;</button>
-    </div>
-  </div>
-</section>
+    <!-- FAQ section -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-item">
+          <button class="faq-question">Ile kosztuje projekt logo?</button>
+          <div class="faq-answer">
+            Koszt zależy od zakresu pracy i wymagań projektu – skontaktuj się,
+            aby uzyskać indywidualną wycenę.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Jak długo trwa realizacja pakietu?</button>
+          <div class="faq-answer">
+            Czas realizacji waha się od 1 do 6 tygodni w zależności od wybranego
+            pakietu i stopnia skomplikowania.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Czy oferujesz utrzymanie strony?</button>
+          <div class="faq-answer">
+            Tak, oferuję obsługę powdrożeniową oraz pakiety serwisowe dostosowane
+            do potrzeb klienta.
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section id="faq" class="section faq gray-bg">
-  <h2>FAQ</h2>
-  <div class="qa">
-    <div class="question">
-      <button class="q-btn">Jak wygląda proces projektowy?</button>
-      <div class="answer">Po wstępnej konsultacji... (rozwiń)</div>
-    </div>
-    <div class="question">
-      <button class="q-btn">Ile kosztuje dodatkowy projekt?</button>
-      <div class="answer">Każdy pakiet zawiera... (rozwiń)</div>
-    </div>
-    <div class="question">
-      <button class="q-btn">Czy oferujesz wsparcie po realizacji?</button>
-      <div class="answer">Tak, dostępne są pakiety serwisowe.</div>
-    </div>
-  </div>
-</section>
+    <!-- Contact section -->
+    <section id="contact" class="contact-section section-gray">
+      <div class="container">
+        <h2 class="section-title">Kontakt</h2>
+        <form id="contactForm" class="contact-form" method="POST">
+          <div class="form-group">
+            <label for="name">Imię</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="packageSelect">Pakiet (opcjonalnie)</label>
+            <select id="packageSelect" name="package">
+              <option value="">-- wybierz pakiet --</option>
+              <option value="start">Start</option>
+              <option value="widocznosc">Widoczność</option>
+              <option value="pelny">Pełny Start</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Wyślij</button>
+        </form>
+      </div>
+    </section>
 
-<section id="kontakt" class="section kontakt">
-  <h2>Kontakt</h2>
-  <form id="contactForm">
-    <label>Imię:<input type="text" name="name" required></label>
-    <label>E‑mail:<input type="email" name="email" required></label>
-    <label>Wiadomość:<textarea name="message" required></textarea></label>
-    <label>Pakiet (opcjonalnie):
-      <select name="package">
-        <option value="">– wybierz –</option>
-        <option value="Start">Start</option>
-        <option value="Widoczność">Widoczność</option>
-        <option value="Pełny Start">Pełny Start</option>
-      </select>
-    </label>
-    <button type="submit" class="btn primary">Wyślij</button>
-  </form>
-</section>
-
-<footer class="section footer gray-bg">
-  <p>&copy; 2025 Karol Wyszyński | NIP: 123-456-78-90</p>
-  <p>Social: <a href="#">Behance</a> · <a href="#">LinkedIn</a> · <a href="#">Instagram</a></p>
-</footer>
-
-<script src="assets/JS/scripts.js"></script>
-</body>
+    <!-- Footer section -->
+    <footer id="footer" class="footer">
+      <div class="container footer-inner">
+        <div class="footer-info">
+          <p>Karol Wyszyński</p>
+          <p>
+            Email:
+            <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a>
+          </p>
+          <p>NIP: 1234567890</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
