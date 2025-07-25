@@ -343,3 +343,78 @@ footer {
     position: relative;
   }
 }
+
+/* Reset and base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Lato', sans-serif; color:#000; background:#fff; line-height:1.6; }
+h1,h2,h3 { font-family: 'Fairplay Display', serif; color:#0d1b3e; margin-bottom:1rem; }
+h2 { font-family: 'Fairplay Display', serif; font-size:2rem; }
+p, ul, li { font-size:1rem; }
+.section { padding:4rem 2rem; }
+.gray-bg { background:#f5f5f5; }
+
+/* Header */
+header { position:fixed; width:100%; top:0; background:#fff; display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; border-bottom:1px solid #ddd; z-index:1000; }
+header .logo a { font-size:1.5rem; font-weight:700; color:#0d1b3e; text-decoration:none; }
+nav ul { display:flex; gap:1.5rem; }
+nav a { text-decoration:none; color:#0d1b3e; font-weight:600; }
+.hamburger { display:none; cursor:pointer; font-size:2rem; }
+
+/* Hero */
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; height:100vh; justify-content:center; background:#fff; }
+.hero h1 { font-size:3rem; }
+.hero h2 { font-size:1.5rem; color:#0d1b3e; margin:1rem 0; }
+.cta-buttons .btn { margin:0.5rem; padding:0.75rem 1.5rem; text-decoration:none; font-family:'Roboto',sans-serif; font-weight:500; border-radius:4px; transition:0.3s; }
+.btn.primary { background:#0d1b3e; color:#fff; }
+.btn.secondary { background:#fff; color:#0d1b3e; border:2px solid #0d1b3e; }
+
+/* Portfolio grid & filter */
+.portfolio .filter { text-align:center; margin-bottom:2rem; }
+.portfolio .filter button { margin:0 0.5rem; padding:0.5rem 1rem; border:none; background:#ddd; color:#0d1b3e; cursor:pointer; }
+.portfolio .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; }
+.portfolio .grid .item img { width:100%; display:block; border-radius:8px; }
+.portfolio .grid .item p { text-align:center; margin-top:0.5rem; }
+
+/* Dlaczego-Ja icons */
+.icons { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+.icon { text-align:center; max-width:200px; }
+.icon img { width:60px; margin-bottom:1rem; }
+.icon h3 { font-family:'Roboto',sans-serif; }
+
+/* Pakiety */
+.packages { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+.package { background:#fff; padding:2rem; border-radius:8px; flex:1 1 250px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+.package h3 { font-family:'Roboto',sans-serif; }
+.package ul { margin:1rem 0; }
+
+/* Checklist */
+.checklist { list-style: none; }
+.checklist li::before { content:'✓'; color:#0d1b3e; margin-right:.5rem; }
+.checklist li { margin-bottom:.5rem; }
+
+/* Opinie slider */
+.slider { position:relative; overflow:hidden; max-width:600px; margin:0 auto; }
+.slide { display:none; text-align:center; padding:2rem; }
+.slide.active { display:block; }
+.slider-controls { margin-top:1rem; display:flex; justify-content:center; gap:1rem; }
+
+/* FAQ */
+.question { margin-bottom:1rem; }
+.q-btn { width:100%; text-align:left; background:#ddd; border:none; padding:1rem; font-family:'Roboto',sans-serif; cursor:pointer; }
+.answer { display:none; padding:1rem; background:#fff; }
+
+/* Kontakt */
+form { display:flex; flex-direction:column; gap:1rem; max-width:400px; margin:0 auto; }
+label { display:flex; flex-direction:column; font-size:1rem; }
+input, textarea, select { padding:0.5rem; border:1px solid #ccc; border-radius:4px; }
+form button { width:100%; }
+
+/* Footer */
+.footer p, .footer a { font-size:.9rem; color:#0d1b3e; text-decoration:none; }
+
+/* Responsive */
+@media(max-width:768px){
+  nav ul { display:none; flex-direction:column; background:#fff; position:absolute; top:60px; right:2rem; padding:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  nav.open ul { display:flex; }
+  .hamburger { display:block; }
+}
