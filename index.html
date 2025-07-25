@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Karol Wyszyński – Brand Design</title>
-  <!-- Fonts -->
+  <!-- Fonty -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Fairplay+Display:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 <body>
 
@@ -25,7 +24,7 @@
   <div class="hamburger">&#9776;</div>
 </header>
 
-<section id="hero" class="section hero">
+<section id="hero" class="section hero" style="background: url('aktywa/images/hero.png') center/cover no-repeat;">
   <h1>Cześć, jestem Karol Wyszyński</h1>
   <h2>Brand design | Strony | Automatyzacje</h2>
   <p>Pomagam nowoczesnym markom rosnąć dzięki przemyślanemu designowi.</p>
@@ -44,11 +43,13 @@
     <button data-filter="pakiety">Pakiety</button>
   </div>
   <div class="grid">
-    <!-- 6 mockup items -->
-    <div class="item" data-category="logo"><img src="assets/images/image1.png" alt="Mockup 1"><p>Logo A</p></div>
-    <div class="item" data-category="website"><img src="assets/images/image2.png" alt="Mockup 2"><p>Strona B</p></div>
-    <div class="item" data-category="pakiety"><img src="assets/images/image3.png" alt="Mockup 3"><p>Pakiet Start</p></div>
-    <!-- trzy kolejne analogicznie -->
+    <!-- przykładowe mockupy -->
+    <div class="item" data-category="logo"><img src="aktywa/images/image1.png" alt="Mockup 1"><p>Logo A</p></div>
+    <div class="item" data-category="website"><img src="aktywa/images/image2.png" alt="Mockup 2"><p>Strona B</p></div>
+    <div class="item" data-category="pakiety"><img src="aktywa/images/image3.png" alt="Mockup 3"><p>Pakiet Start</p></div>
+    <div class="item" data-category="logo"><img src="aktywa/images/image4.png" alt="Mockup 4"><p>Logo C</p></div>
+    <div class="item" data-category="website"><img src="aktywa/images/image5.png" alt="Mockup 5"><p>Strona D</p></div>
+    <div class="item" data-category="pakiety"><img src="aktywa/images/image6.png" alt="Mockup 6"><p>Pakiet Premium</p></div>
   </div>
 </section>
 
@@ -56,15 +57,15 @@
   <h2>Dlaczego warto wybrać mnie?</h2>
   <div class="icons">
     <div class="icon">
-      <img src="assets/images/icon1.svg" alt="">
+      <img src="aktywa/images/icon1.svg" alt="Ikona">
       <h3>Doświadczenie</h3>
     </div>
     <div class="icon">
-      <img src="assets/images/icon2.svg" alt="">
+      <img src="aktywa/images/icon2.svg" alt="Ikona">
       <h3>Indywidualne projekty</h3>
     </div>
     <div class="icon">
-      <img src="assets/images/icon3.svg" alt="">
+      <img src="aktywa/images/icon3.svg" alt="Ikona">
       <h3>Wyniki biznesowe</h3>
     </div>
   </div>
@@ -80,7 +81,7 @@
         <li>Logo podstawowe</li>
         <li>Prosta strona wizytówkowa</li>
       </ul>
-      <p>Czas realizacji: 2‑3 tygodnie<br> Cena: 3000 PLN</p>
+      <p>Czas realizacji: 2–3 tygodnie<br> Cena: 3000 PLN</p>
     </div>
     <div class="package">
       <h3>Widoczność</h3>
@@ -90,7 +91,7 @@
         <li>Strona responsywna</li>
         <li>Materiały promocyjne</li>
       </ul>
-      <p>Czas realizacji: 4‑5 tygodni<br> Cena: 6000 PLN</p>
+      <p>Czas realizacji: 4–5 tygodni<br> Cena: 6000 PLN</p>
     </div>
     <div class="package">
       <h3>Pełny Start</h3>
@@ -98,17 +99,17 @@
       <ul>
         <li>Logo, CI, strona, automatyzacje</li>
       </ul>
-      <p>Czas realizacji: 6‑8 tygodni<br> Cena: 10 000 PLN</p>
+      <p>Czas realizacji: 6–8 tygodni<br> Cena: 10 000 PLN</p>
     </div>
   </div>
 </section>
 
-<section id="dla-kogo" class="section dla‑kogo gray-bg">
+<section id="dla-kogo" class="section dla-kogo gray-bg">
   <h2>Dla kogo to jest?</h2>
   <ul class="checklist">
     <li>Nowe marki startujące z wizerunkiem</li>
     <li>Firmy, które chcą profesjonalnie zaistnieć online</li>
-    <li>Przedsiębiorcy bez własnego działu marketingu</li>
+    <li>Przedsiębiorcy bez działu marketingu</li>
     <li>Biznesy szukające automatyzacji</li>
   </ul>
 </section>
@@ -124,7 +125,6 @@
       <blockquote>“Strona wygląda profesjonalnie i przyciąga klientów...”</blockquote>
       <cite>– Firma XYZ</cite>
     </div>
-    <!-- kolejne slide’y -->
     <div class="slider-controls">
       <button class="prev">&lt;</button>
       <button class="next">&gt;</button>
@@ -143,7 +143,10 @@
       <button class="q-btn">Ile kosztuje dodatkowy projekt?</button>
       <div class="answer">Każdy pakiet zawiera... (rozwiń)</div>
     </div>
-    <!-- jeszcze 1‑2 -->
+    <div class="question">
+      <button class="q-btn">Czy oferujesz wsparcie po realizacji?</button>
+      <div class="answer">Tak, dostępne są pakiety serwisowe.</div>
+    </div>
   </div>
 </section>
 
@@ -170,6 +173,6 @@
   <p>Social: <a href="#">Behance</a> · <a href="#">LinkedIn</a> · <a href="#">Instagram</a></p>
 </footer>
 
-<script src="assets/js/scripts.js"></script>
+<script src="assets/JS/scripts.js"></script>
 </body>
 </html>
