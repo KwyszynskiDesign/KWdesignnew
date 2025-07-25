@@ -1,71 +1,100 @@
 /*
- * Simple JavaScript to handle mobile navigation toggling.
- * When the hamburger icon is clicked, it toggles the visibility of
- * the navigation menu by adding or removing the `.open` class on the
- * `<ul>` element. Additional interactions could be added here later.
+ * JavaScript interactions for the one-page portfolio.
+ *
+ * Features implemented:
+ *   - Mobile navigation toggle via hamburger icon
+ *   - Closing mobile menu when a navigation link is clicked
+ *   - Filtering portfolio items by category
+ *   - Simple testimonials slider with previous/next buttons
+ *   - FAQ accordions toggling open/closed
+ *   - Contact form submission using Fetch to Google Apps Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile navigation toggling
   const hamburger = document.querySelector('.hamburger');
-  const navList = document.querySelector('header nav ul');
-
+  const navList = document.querySelector('.nav-list');
   if (hamburger && navList) {
     hamburger.addEventListener('click', () => {
       navList.classList.toggle('open');
     });
+    // Close menu on navigation link click
+    navList.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navList.classList.remove('open');
+      });
+    });
   }
-});
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener('click', e=>{
-    e.preventDefault();
-    document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-      behavior:'smooth'
+  // Portfolio filtering
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      // Update active state
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      // Show/hide items
+      portfolioItems.forEach((item) => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
     });
   });
-});
 
-// Hamburger toggle
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('nav');
-hamburger.addEventListener('click', ()=> nav.classList.toggle('open'));
+  // Testimonials slider
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.querySelector('.slider-btn.prev');
+  const nextBtn = document.querySelector('.slider-btn.next');
+  let currentSlide = 0;
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  if (prevBtn && nextBtn && slides.length) {
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+  }
 
-// Portfolio filter
-document.querySelectorAll('.portfolio .filter button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const filter = btn.getAttribute('data-filter');
-    document.querySelectorAll('.portfolio .grid .item').forEach(item=>{
-      item.style.display = (filter==='all' || item.getAttribute('data-category')===filter) ? 'block' : 'none';
+  // FAQ accordions
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      item.classList.toggle('active');
     });
   });
-});
 
-// Slider
-let current = 0;
-const slides = document.querySelectorAll('.slide');
-document.querySelector('.next').addEventListener('click', () => changeSlide(1));
-document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
-function changeSlide(dir){
-  slides[current].classList.remove('active');
-  current = (current + dir + slides.length) % slides.length;
-  slides[current].classList.add('active');
-}
-
-// FAQ toggle
-document.querySelectorAll('.q-btn').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    const ans = btn.nextElementSibling;
-    ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-  });
-});
-
-// Kontakt – integracja Google Apps Script (przykładowy URL)
-document.getElementById('contactForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  const url = 'https://script.google.com/macros/s/🧩/exec';
-  const data = new FormData(e.target);
-  fetch(url, { method:'POST', body:data })
-    .then(r => alert('Wiadomość wysłana!'))
-    .catch(err => alert('Coś poszło nie tak.'));
+  // Contact form submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Replace with your Google Apps Script deployment URL
+      const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(contactForm),
+      })
+        .then((response) => {
+          alert('Dziękuję za wiadomość! Skontaktuję się wkrótce.');
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error('Error!', error.message);
+          alert('Wystąpił błąd podczas wysyłki. Spróbuj ponownie później.');
+        });
+    });
+  }
 });
