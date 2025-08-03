@@ -205,10 +205,10 @@ body {
 /* Desktop: hero-content przesunięte w lewo */
 @media (min-width: 1024px) {
   .hero-content {
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
     max-width: 600px;
-    margin-left: 6vw;
+    margin-left: 8vw;
      transform: translateY(5vh);
   }
 }
