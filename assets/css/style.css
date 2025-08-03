@@ -133,7 +133,7 @@ body {
    position: relative;
   padding-top: 6rem;
   padding-bottom: 4rem;
-   padding-left: 4vw;
+   padding-left: 8vw;
   padding-right: 4vw;
 }
 .hero-section::before {
