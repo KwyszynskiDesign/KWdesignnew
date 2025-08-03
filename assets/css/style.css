@@ -131,6 +131,8 @@ body {
   z-index: 0;
   overflow: hidden;
    position: relative;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
 }
 .hero-section::before {
   content: "";
@@ -185,7 +187,24 @@ body {
   margin: 0 auto 2rem;
   color: #f0f0f0;
 }
+/* Desktop: hero-content przesunięte w lewo */
+@media (min-width: 1024px) {
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 800px;
+    margin-left: 6rem;
+  }
+}
 
+/* Mobile i tablet: nadal na środku */
+@media (max-width: 1023px) {
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+}
 /* CTA przyciski */
 .cta-group .btn-primary {
   background-color: var(--color-primary, #002f4b);
