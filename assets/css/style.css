@@ -115,27 +115,22 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Hero section */
 .hero-section {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   min-height: 90vh;
-  padding: 4rem 0;
- background-image: url('/KWdesignnew/assets/images/ja-skupiony.png');
+  background-image: url('/KWdesignnew/assets/images/ja-skupiony.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
+  padding: 6rem 4vw 4rem 8vw;
   text-align: center;
   z-index: 0;
-  overflow: hidden;
-   position: relative;
-  padding-top: 6rem;
-  padding-bottom: 4rem;
-   padding-left: 8vw;
-  padding-right: 4vw;
 }
+
 .hero-section::before {
   content: "";
   position: absolute;
@@ -144,6 +139,7 @@ body {
   backdrop-filter: blur(1px);
   z-index: 1;
 }
+
 .hero-section::after {
   content: "";
   position: absolute;
@@ -154,18 +150,15 @@ body {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
   animation: fadeUp 1s ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
-   position: relative;
-  z-index: 2;
   text-align: center;
-    max-width: 700px;
 }
-.hero-section > * {
-  position: relative;
-  z-index: 2;
-}
+
 .hero-title,
 .hero-subtitle,
 .cta-group {
@@ -184,49 +177,53 @@ body {
     transform: translateY(0);
   }
 }
-.hero-title .highlight {
-  color: var(--color-primary, #003366); /* Twój ciemny niebieski */
-  font-weight: 800;
-}
 
 .hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: white; /* zamiast var(--color-primary), jeśli ciemne tło */
+  color: white;
 }
+
+.hero-title .highlight {
+  color: var(--color-primary, #003366);
+  font-weight: 800;
+}
+
 .hero-subtitle {
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
   color: #f0f0f0;
 }
-/* Desktop: hero-content przesunięte w lewo */
+
+/* Desktop (od 1024px) */
 @media (min-width: 1024px) {
   .hero-content {
-    align-items: center;
-    text-align: center;
-    max-width: 600px;
+    align-items: flex-start;
+    text-align: left;
     margin-left: 8vw;
-     transform: translateY(5vh);
+    transform: translateY(5vh);
   }
-}
-@media (min-width: 1024px) {
+
   .hero-section {
     padding-top: 8vh;
     padding-bottom: 4vh;
   }
 }
 
-/* Mobile i tablet: nadal na środku */
+/* Mobile i tablet */
 @media (max-width: 1023px) {
   .hero-content {
     align-items: center;
     text-align: center;
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(0);
   }
 }
+
 /* CTA przyciski */
 .cta-group .btn-primary {
   background-color: var(--color-primary, #002f4b);
