@@ -122,7 +122,7 @@ body {
   justify-content: center;
   min-height: 85vh;
   padding: 4rem 0;
-  background-image: url('assets/images/ja-skupiony.png'); /* Twoje zdjęcie */
+ background-image: url('/KWdesignnew/assets/images/ja-skupiony.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
