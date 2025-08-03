@@ -133,6 +133,8 @@ body {
    position: relative;
   padding-top: 6rem;
   padding-bottom: 4rem;
+   padding-left: 4vw;
+  padding-right: 4vw;
 }
 .hero-section::before {
   content: "";
@@ -192,8 +194,8 @@ body {
   .hero-content {
     align-items: flex-start;
     text-align: left;
-    max-width: 800px;
-    margin-left: 6rem;
+    max-width: 600px;
+    margin-left: 6vw;
      transform: translateY(5vh);
   }
 }
