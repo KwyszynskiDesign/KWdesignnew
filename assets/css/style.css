@@ -132,12 +132,16 @@ body {
   overflow: hidden;
 }
 .hero-section::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4); /* ciemna warstwa */
-  filter: grayscale(60%) brightness(0.8);
+  filter: grayscale(60%) brightness(0.8); /* wyszarzenie */
   z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 .hero-section > * {
   position: relative;
@@ -156,7 +160,20 @@ body {
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: #f0f0f0; /* delikatna biel, zamiast muted */
+  color: #f0f0f0;
+}
+
+/* CTA przyciski */
+.cta-group .btn-primary {
+  background-color: var(--color-primary, #002f4b);
+  color: white;
+  border: none;
+}
+
+.cta-group .btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
 }
 
 .cta-group {
