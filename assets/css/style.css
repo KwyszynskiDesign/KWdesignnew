@@ -187,8 +187,8 @@ body {
   color: white;
 }
 
-.hero-title .highlight {
-  color: #2c8cde;
+.hero-title span.highlight {
+  color: #2c8cde !important;
   font-weight: 800;
 }
 
