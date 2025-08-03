@@ -26,6 +26,7 @@
   --font-body: 'Lato', sans-serif;
   --font-heading: 'Playfair Display', serif;
   --font-cta: 'Roboto', sans-serif;
+  
 }
 
 /* Reset and global styles */
@@ -187,7 +188,7 @@ body {
 }
 
 .hero-title .highlight {
-  color: var(--color-primary, #2c8cde);
+  color: #2c8cde;
   font-weight: 800;
 }
 
