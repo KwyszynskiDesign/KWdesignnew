@@ -135,13 +135,20 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* ciemna warstwa */
-  filter: grayscale(60%) brightness(0.8); /* wyszarzenie */
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
   z-index: 1;
 }
 .hero-content {
-  position: relative;
-  z-index: 2;
+  animation: fadeUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .hero-section > * {
   position: relative;
