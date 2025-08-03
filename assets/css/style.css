@@ -187,7 +187,7 @@ body {
 }
 
 .hero-title .highlight {
-  color: var(--color-primary, #003366);
+  color: var(--color-primary, #2173B9);
   font-weight: 800;
 }
 
