@@ -119,8 +119,8 @@ body {
 .hero-section {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 85vh;
+  justify-content: flex-start;
+  min-height: 90vh;
   padding: 4rem 0;
  background-image: url('/KWdesignnew/assets/images/ja-skupiony.png');
   background-size: cover;
@@ -184,7 +184,10 @@ body {
     transform: translateY(0);
   }
 }
-
+.hero-title .highlight {
+  color: var(--color-primary, #003366); /* Twój ciemny niebieski */
+  font-weight: 800;
+}
 
 .hero-title {
   font-family: var(--font-heading);
