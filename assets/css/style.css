@@ -122,23 +122,41 @@ body {
   justify-content: center;
   min-height: 85vh;
   padding: 4rem 0;
-  background: var(--color-bg);
+  background-image: url('assets/images/ja-skupiony.png'); /* Twoje zdjęcie */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
   text-align: center;
+  z-index: 0;
+  overflow: hidden;
 }
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* ciemna warstwa */
+  filter: grayscale(60%) brightness(0.8);
+  z-index: 1;
+}
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 .hero-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   margin-bottom: 1rem;
-  color: var(--color-primary);
+  color: white; /* zamiast var(--color-primary), jeśli ciemne tło */
 }
-
 .hero-subtitle {
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: var(--color-muted);
+  color: #f0f0f0; /* delikatna biel, zamiast muted */
 }
 
 .cta-group {
