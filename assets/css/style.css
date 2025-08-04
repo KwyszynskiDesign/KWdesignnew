@@ -213,6 +213,13 @@ body {
     padding-bottom: 4vh;
   }
 }
+.hero-eyebrow {
+  color: #ddd;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 /* Mobile i tablet */
 @media (max-width: 1023px) {
