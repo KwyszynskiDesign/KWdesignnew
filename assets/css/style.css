@@ -214,12 +214,17 @@ body {
   }
 }
 .hero-eyebrow {
-  color: #ddd;
+  color: #ccc;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.1s;
 }
+
 
 /* Mobile i tablet */
 @media (max-width: 1023px) {
