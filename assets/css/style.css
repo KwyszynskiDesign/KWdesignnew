@@ -711,3 +711,88 @@ section {
     align-items: flex-start;
   }
 }
+
+/* Portfolio page horizontal accordion styles */
+.portfolio-accordion {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+.accordion-item {
+  flex: 0 0 240px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: #ffffff;
+}
+
+.accordion-item img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.accordion-item h3 {
+  margin: 0;
+  padding: 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  background: #fafafa;
+}
+
+.accordion-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-item.active {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+/* Project viewer and controls */
+.project-viewer {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+}
+
+.project-viewer.hidden {
+  display: none;
+}
+
+.close-button {
+  display: inline-block;
+  background: #e74c3c;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+}
+
+.close-button:hover {
+  background: #c0392b;
+}
+
+.project-content {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+}
