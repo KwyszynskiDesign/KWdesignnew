@@ -1,3 +1,256 @@
+/* === PORTFOLIO PAGE & KARUZELA === */
+
+/* Hero section na portfolio.html – żeby nie nadpisywać innych sekcji */
+.hero-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: url('/KWdesignnew/assets/images/ja-skupiony.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding: 6rem 4vw 4rem 8vw;
+  z-index: 0;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  text-align: left;
+  padding-top: 5vw;
+  padding-left: 4vw;
+  padding-bottom: 3vw;
+  color: #fff;
+}
+.eyebrow {
+  color: #ccc;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  opacity: 0.85;
+}
+.hero-section h1,
+.hero-section .subtitle {
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.12);
+}
+.subtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 0 2rem 0;
+  color: #eaeaea;
+}
+
+/* --- PORTFOLIO KARUZELA --- */
+.carousel-outer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: center;
+  margin: 0 auto 40px auto;
+  max-width: 1120px;
+  position: absolute;
+  left: 50%;
+  bottom: 90px; /* Ustaw wysokość karuzeli względem sekcji */
+  transform: translateX(-50%);
+  z-index: 6;
+}
+.carousel-track {
+  display: flex;
+  gap: 36px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 2vw 12px 2vw;
+  width: 100%;
+  max-width: 920px;
+  min-height: 172px;
+  scroll-snap-type: x mandatory;
+  align-items: flex-end;
+  position: relative;
+  z-index: 6;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-item {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgba(24, 52, 88, 0.09);
+  min-width: 200px;
+  max-width: 230px;
+  width: 100%;
+  padding: 22px 12px 18px 12px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid transparent;
+  transition: box-shadow .22s, border-color .22s, transform .24s cubic-bezier(.41,.89,.52,1.2);
+  will-change: transform;
+  scroll-snap-align: center;
+  position: relative;
+  z-index: 7;
+}
+.carousel-item img {
+  width: 86px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 20px rgba(31, 89, 221, 0.04);
+  background: #f6faff;
+}
+.carousel-item h3 {
+  margin: 0;
+  font-size: 1.13rem;
+  color: #19356d;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: color .22s;
+}
+.carousel-item:hover,
+.carousel-item:focus-visible {
+  border-color: #175bf7;
+  box-shadow: 0 10px 36px 0 rgba(23,91,247,0.13);
+  transform: translateY(-7px) scale(1.055) rotate(-1.2deg);
+  z-index: 8;
+}
+.carousel-item.active {
+  border-color: #175bf7;
+  box-shadow: 0 12px 42px 0 rgba(23,91,247,0.20);
+  transform: translateY(-14px) scale(1.12) rotate(-1.8deg);
+  color: #133b7b;
+  z-index: 9;
+}
+.carousel-nav {
+  background: #f4f7fc;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.1rem;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  cursor: pointer;
+  transition: background .18s, box-shadow .18s;
+  box-shadow: 0 2px 10px rgba(40, 86, 170, 0.08);
+  color: #194c92;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  bottom: -48px;
+  z-index: 12;
+}
+.carousel-nav.prev { transform: translateX(-120px); }
+.carousel-nav.next { transform: translateX(120px); }
+.carousel-nav:hover, .carousel-nav:focus-visible {
+  background: #e3ecff;
+  outline: none;
+}
+
+/* --- PROJECT VIEWER (opis po kliknięciu) --- */
+.project-viewer {
+  margin: 0 auto 66px auto;
+  padding: 0 16px 48px 16px;
+  max-width: 850px;
+  transition: max-height .42s;
+  position: relative;
+  background: none;
+}
+.project-viewer.hidden { display: none; }
+.project-content {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 46px 0 rgba(25,61,154,0.10);
+  padding: 42px 30px 36px 30px;
+  animation: fadeInUp .66s cubic-bezier(.51,.87,.32,1.3);
+}
+@media (max-width: 650px) {
+  .project-content { padding: 18px 6vw 12px 6vw; }
+}
+.close-button {
+  background: #f4f7fa;
+  border: none;
+  border-radius: 22px;
+  font-size: 1rem;
+  color: #133b7b;
+  margin: 0 0 22px auto;
+  display: block;
+  padding: 7px 22px;
+  cursor: pointer;
+  box-shadow: 0 1px 8px rgba(23,91,247,0.04);
+  transition: background .2s;
+}
+.close-button:hover, .close-button:focus-visible {
+  background: #e3ecff;
+  outline: none;
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform: translateY(46px) scale(0.96);}
+  to   { opacity:1; transform: none;}
+}
+.error-msg {
+  color: #d52b1e;
+  background: #ffeded;
+  border-radius: 12px;
+  padding: 24px 14px;
+  margin: 32px auto;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* --- UX: gradient na końcu karuzeli --- */
+.carousel-track:after {
+  content: '';
+  pointer-events: none;
+  display: none; /* Możesz zmienić na block jeśli chcesz gradient */
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 900px) {
+  .carousel-track { max-width: 96vw; }
+  .carousel-item { min-width: 170px; max-width: 210px; padding: 18px 6px 15px 6px; }
+  .carousel-outer { max-width: 99vw; }
+  .carousel-nav.prev { transform: translateX(-72px); }
+  .carousel-nav.next { transform: translateX(72px); }
+}
+@media (max-width: 700px) {
+  .carousel-outer { bottom: 60px; }
+  .carousel-nav { bottom: -32px; }
+}
+@media (max-width: 650px) {
+  .carousel-track { gap: 19px; min-height: 128px; }
+  .carousel-item { min-width: 130px; max-width: 155px; }
+  .carousel-item img { width: 62px; height: 62px; margin-bottom: 7px; }
+  .carousel-nav { width: 34px; height: 34px; font-size: 1.3rem; min-width: 34px; min-height: 34px; }
+}
+
+/* --- DOTYCZY TYLKO PODSTRONY PORTFOLIO --- */
+
+
 /* --- PORTFOLIO CAROUSEL --- */
 .carousel-outer {
   display: flex;
