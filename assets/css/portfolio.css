@@ -1,14 +1,14 @@
 /* === PORTFOLIO PAGE & KARUZELA === */
 
-/* Hero section na portfolio.html – nie nadpisuje innych sekcji */
+/* --- HERO SECTION NA PORTFOLIO --- */
 .hero-section {
   position: relative;
   min-height: 75vh;
   display: flex;
-   align-items: flex-start;
   flex-direction: column;
-  justify-content: flex-start;
-  background-image: url('/assets/images/ja-skupiony.png');
+  justify-content: space-between;   /* Karuzela zawsze na dole */
+  align-items: flex-start;
+  background-image: url('/assets/images/ja-skupiony.png'); /* <-- dostosuj ścieżkę! */
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -36,14 +36,11 @@
   position: relative;
   z-index: 2;
 }
+
+/* --- HERO CONTENT --- */
 .hero-content {
-  position: relative;
-  z-index: 2;
   max-width: 700px;
   text-align: left;
-  padding-top: 5vw;
-  padding-left: 4vw;
-  padding-bottom: 3vw;
   margin: 10vh 0 0 5vw;
   color: #fff;
 }
@@ -69,24 +66,16 @@
 
 /* --- PORTFOLIO KARUZELA --- */
 .carousel-outer {
-  position: absolute;
-  left: 50%;
-  bottom: 36px;  /* Odległość od dolnej krawędzi hero */
-  transform: translateX(-50%);
   width: 100%;
   max-width: 1120px;
   display: flex;
   flex-direction: column;
   align-items: center;
-    margin-top: auto;
-  margin-bottom: 4vh;
-  z-index: 6;
-  margin: 0;
+  margin: 0 auto 4vh auto;
   background: transparent;
-  pointer-events: none; /* pozwala .carousel-track i .carousel-navs być klikalnym, ale nie tło */
+  z-index: 6;
+  pointer-events: none; /* dzięki temu klikalne są tylko dzieci, nie tło */
 }
-
-/* Karty - środek sekcji */
 .carousel-track {
   display: flex;
   gap: 36px;
@@ -157,7 +146,7 @@
   z-index: 9;
 }
 
-/* Strzałki pod karuzelą */
+/* --- STRZAŁKI POD KARUZELĄ --- */
 .carousel-navs {
   margin-top: 18px;
   width: 100%;
@@ -192,7 +181,7 @@
   outline: none;
 }
 
-/* --- PROJECT VIEWER (opis po kliknięciu) --- */
+/* --- PROJECT VIEWER --- */
 .project-viewer {
   margin: 0 auto 66px auto;
   padding: 0 16px 48px 16px;
@@ -244,21 +233,21 @@
   font-size: 1.1rem;
 }
 
-/* --- UX: gradient na końcu karuzeli --- */
+/* --- GRADIENT NA KOŃCU KARUZELI (opcjonalnie wyłączony) --- */
 .carousel-track:after {
   content: '';
   pointer-events: none;
   display: none;
 }
 
-/* RESPONSYWNOŚĆ */
+/* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 900px) {
   .carousel-track { max-width: 96vw; }
   .carousel-item { min-width: 170px; max-width: 210px; padding: 18px 6px 15px 6px; }
   .carousel-outer { max-width: 99vw; }
 }
 @media (max-width: 700px) {
-  .carousel-outer { bottom: 16px; }
+  .carousel-outer { margin-bottom: 1.5vh; }
   .carousel-navs { gap: 10px; }
 }
 @media (max-width: 650px) {
