@@ -3,11 +3,12 @@
 /* Hero section na portfolio.html – nie nadpisuje innych sekcji */
 .hero-section {
   position: relative;
-  min-height: 70vh;
+  min-height: 75vh;
   display: flex;
+   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  background-image: url('assets/images/ja-skupiony.png');
+  background-image: url('/assets/images/ja-skupiony.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -31,6 +32,10 @@
   z-index: 1;
   pointer-events: none;
 }
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
 .hero-content {
   position: relative;
   z-index: 2;
@@ -39,11 +44,12 @@
   padding-top: 5vw;
   padding-left: 4vw;
   padding-bottom: 3vw;
+  margin: 10vh 0 0 5vw;
   color: #fff;
 }
 .eyebrow {
   color: #ccc;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.8rem;
@@ -55,9 +61,9 @@
   text-shadow: 0 1px 8px rgba(0,0,0,0.12);
 }
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1.16rem;
   max-width: 600px;
-  margin: 0 0 2rem 0;
+  margin: 0 0 2.5rem 0;
   color: #eaeaea;
 }
 
@@ -72,8 +78,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+    margin-top: auto;
+  margin-bottom: 4vh;
   z-index: 6;
   margin: 0;
+  background: transparent;
   pointer-events: none; /* pozwala .carousel-track i .carousel-navs być klikalnym, ale nie tło */
 }
 
