@@ -4,69 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio projektów | KWdesignnew</title>
-  <!-- Import main stylesheet from the existing style path.  -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Import Google fonts to match the typography used on the home page. -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header: replicate the structure of the home page header with logo and navigation. -->
   <header class="header">
     <div class="container header-inner">
-      <a href="../index.html" class="logo">KWdesignnew</a>
+      <a href="index.html" class="logo">KWdesignnew</a>
       <nav class="nav nav-list">
-        <!-- Adjust links to match the main sections on the home page. -->
-        <a href="../index.html#about">O mnie</a>
+        <a href="index.html#about">O mnie</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="../index.html#services">Usługi</a>
-        <a href="../index.html#contact">Kontakt</a>
+        <a href="index.html#services">Usługi</a>
+        <a href="index.html#contact">Kontakt</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section: headline introducing the portfolio. -->
   <section class="hero-section">
     <div class="container hero-content">
       <p class="eyebrow">Moje realizacje</p>
       <h1>Portfolio projektów</h1>
       <p class="subtitle">Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.</p>
     </div>
-  </section>
-
-  <!-- Portfolio Grid: list of clickable projects using data-project attribute. -->
-  <section class="portfolio">
-    <div class="container">
-      <div class="portfolio-grid">
-        <!-- Each portfolio-item points to a specific HTML file in the projects folder. -->
-        <div class="portfolio-item" data-project="pakiet-marka-f.html">
-          <!-- Use a placeholder image; replace with actual thumbnails if available. -->
-          <img src="../placeholder_light_gray_block.png" alt="Pakiet marki F">
-          <h3>Pakiet marki F</h3>
-        </div>
-        <div class="portfolio-item" data-project="power-of-mind.html">
-          <img src="../placeholder_light_gray_block.png" alt="Power of mind">
-          <h3>Power of Mind</h3>
-        </div>
-        <div class="portfolio-item" data-project="strona-karoma.html">
-          <img src="../placeholder_light_gray_block.png" alt="Strona Karoma">
-          <h3>Strona Karoma</h3>
-        </div>
-        <div class="portfolio-item" data-project="logo-marka-d.html">
-          <img src="../placeholder_light_gray_block.png" alt="Logo marki D">
-          <h3>Logo marki D</h3>
-        </div>
-        <div class="portfolio-item" data-project="strona-marka-e.html">
-          <img src="../placeholder_light_gray_block.png" alt="Strona marki E">
-          <h3>Strona marki E</h3>
-        </div>
+    <div class="portfolio-accordion">
+      <div id="pakiet-marka-f" class="accordion-item" data-project="pakiet-marka-f.html">
+        <img src="placeholder_light_gray_block.png" alt="Pakiet marki F">
+        <h3>Pakiet marki F</h3>
+      </div>
+      <div id="power-of-mind" class="accordion-item" data-project="power-of-mind.html">
+        <img src="placeholder_light_gray_block.png" alt="Power of mind">
+        <h3>Power of Mind</h3>
+      </div>
+      <div id="strona-karoma" class="accordion-item" data-project="strona-karoma.html">
+        <img src="placeholder_light_gray_block.png" alt="Strona Karoma">
+        <h3>Strona Karoma</h3>
+      </div>
+      <div id="logo-marka-d" class="accordion-item" data-project="logo-marka-d.html">
+        <img src="placeholder_light_gray_block.png" alt="Logo marki D">
+        <h3>Logo marki D</h3>
+      </div>
+      <div id="strona-marka-e" class="accordion-item" data-project="strona-marka-e.html">
+        <img src="placeholder_light_gray_block.png" alt="Strona marki E">
+        <h3>Strona marki E</h3>
+      </div>
+      <div id="logo-karoma" class="accordion-item" data-project="logo-karoma.html">
+        <img src="placeholder_light_gray_block.png" alt="Logo Karoma">
+        <h3>Logo – Karoma</h3>
       </div>
     </div>
   </section>
 
-  <!-- Dynamic project viewer. Content is injected here on item click. -->
-  <div id="project-viewer" class="project-viewer hidden"></div>
+  <section id="project-viewer" class="project-viewer hidden"></section>
 
-  <!-- Footer: consistent with the home page layout. -->
   <footer class="footer">
     <div class="container">
       <p>&copy; <span id="year"></span> KWdesignnew. Wszelkie prawa zastrzeżone.</p>
@@ -74,70 +63,65 @@
   </footer>
 
 <script>
-// Set current year automatically.
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Project loader: attach click listener to grid.
-const portfolioGrid = document.querySelector('.portfolio-grid');
-const projectViewer  = document.getElementById('project-viewer');
+const accordion = document.querySelector('.portfolio-accordion');
+const projectViewer = document.getElementById('project-viewer');
 
-portfolioGrid.addEventListener('click', async (e) => {
-  const item = e.target.closest('.portfolio-item[data-project]');
+async function loadProject(file) {
+  const prefixes = ['projects/', './projects/', '../projects/'];
+  for (const prefix of prefixes) {
+    try {
+      const response = await fetch(prefix + file);
+      if (response.ok) {
+        return response.text();
+      }
+    } catch (_) {
+    }
+  }
+  throw new Error('Błąd ładowania projektu');
+}
+
+accordion.addEventListener('click', async (e) => {
+  const item = e.target.closest('.accordion-item[data-project]');
   if (!item) return;
+
+  accordion.querySelectorAll('.accordion-item.active').forEach(el => el.classList.remove('active'));
+  item.classList.add('active');
+
   const projectFile = item.getAttribute('data-project');
   if (!projectFile) return;
-
-  /**
-   * Próbuje pobrać zawartość projektu z różnych ścieżek. W środowisku
-   * deweloperskim pliki mogą być serwowane jako statyczne pliki HTTP lub
-   * poprzez protokół file://. Poniższa funkcja iteracyjnie testuje możliwe
-   * lokalizacje. Jeśli żadna nie powiedzie się, zgłasza błąd.
-   */
-  async function loadProject(file) {
-    const prefixes = ['projects/', './projects/', '../projects/'];
-    for (const prefix of prefixes) {
-      try {
-        const response = await fetch(prefix + file);
-        if (response.ok) {
-          return response.text();
-        }
-      } catch (_) {
-        // Ignoruj błędy i próbuj kolejnej ścieżki
-      }
-    }
-    throw new Error('Błąd ładowania projektu');
-  }
-
   try {
     const html = await loadProject(projectFile);
-
-    // Usuń poprzednią zawartość.
     projectViewer.innerHTML = '';
-
-    // Utwórz przycisk zamykania.
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Zamknij';
     closeBtn.className = 'close-button';
     closeBtn.addEventListener('click', () => {
       projectViewer.classList.add('hidden');
-      projectViewer.innerHTML = '';
-      // Przywróć widok do siatki portfolio.
-      portfolioGrid.scrollIntoView({ behavior: 'smooth' });
+      accordion.querySelectorAll('.accordion-item.active').forEach(el => el.classList.remove('active'));
     });
-
-    // Wstaw wczytane HTML i przycisk zamykania do kontenera.
-    projectViewer.appendChild(closeBtn);
     const contentDiv = document.createElement('div');
     contentDiv.className = 'project-content';
     contentDiv.innerHTML = html;
+    projectViewer.appendChild(closeBtn);
     projectViewer.appendChild(contentDiv);
-
-    // Pokaż kontener i przewiń do niego płynnie.
     projectViewer.classList.remove('hidden');
-    projectViewer.scrollIntoView({ behavior: 'smooth' });
+    projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (err) {
     console.error(err);
     alert('Nie udało się wczytać projektu.');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash ? window.location.hash.substring(1) : '';
+  if (!hash) return;
+  const targetItem = document.getElementById(hash);
+  if (targetItem) {
+    setTimeout(() => {
+      targetItem.click();
+    }, 100);
   }
 });
 </script>
