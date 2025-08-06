@@ -53,6 +53,11 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 /* Header */
 .header {
@@ -341,6 +346,7 @@ section {
 
 .portfolio-item {
   background: #fff;
+   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -362,7 +368,7 @@ section {
 }
 
 .portfolio-item:hover {
-  transform: translateY(-4px);
+  transform: scale(1.02);
 }
 
 /* Why section */
