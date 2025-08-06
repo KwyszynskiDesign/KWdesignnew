@@ -796,3 +796,19 @@ section {
   font-family: 'Lato', sans-serif;
   line-height: 1.6;
 }
+/* Position accordion within hero image area on portfolio page */
+.hero-section {
+  position: relative;
+}
+.hero-section .portfolio-accordion {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
