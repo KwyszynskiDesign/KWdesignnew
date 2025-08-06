@@ -1,116 +1,145 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio – Karol Wyszyński</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/KWdesignnew/assets/css/style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container header-inner">
-        <div class="logo">KW</div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="index.html">Start</a></li>
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="oferta.html">Oferta</a></li>
-            <li><a href="omnie.html">O mnie</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio projektów | KWdesignnew</title>
+  <!-- Import main stylesheet from the existing style path.  -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Import Google fonts to match the typography used on the home page. -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header: replicate the structure of the home page header with logo and navigation. -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">KWdesignnew</a>
+      <nav class="nav nav-list">
+        <!-- Adjust links to match the main sections on the home page. -->
+        <a href="../index.html#about">O mnie</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="../index.html#services">Usługi</a>
+        <a href="../index.html#contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero-section">
-      <div class="container hero-content">
-        <p class="hero-eyebrow">Moje realizacje</p>
-        <h1 class="hero-title">Portfolio projektów</h1>
-        <p class="hero-subtitle">
-          Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.
-        </p>
-      </div>
-    </section>
+  <!-- Hero Section: headline introducing the portfolio. -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <p class="eyebrow">Moje realizacje</p>
+      <h1>Portfolio projektów</h1>
+      <p class="subtitle">Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.</p>
+    </div>
+  </section>
 
-    <section class="portfolio-section section-gray">
-      <div class="container">
-        <div class="portfolio-grid">
-          <div class="portfolio-item" data-project="pakiet-marka-f.html">
-            <img src="assets/images/branding.png" alt="Pakiet Marka F" />
-            <h3>Pakiet – Marka F</h3>
-          </div>
-          <div class="portfolio-item" data-project="power-of-mind.html">
-            <img src="assets/images/moodboard.png" alt="Power of Mind" />
-            <h3>Pakiet – Power of Mind</h3>
-          </div>
-          <div class="portfolio-item" data-project="strona-karoma.html">
-            <img src="assets/images/webdesign.png" alt="Strona Karoma" />
-            <h3>Strona – Karoma</h3>
-          </div>
-          <div class="portfolio-item" data-project="logo-marka-d.html">
-            <img src="assets/images/automation.png" alt="Logo Marka D" />
-            <h3>Logo – Marka D</h3>
-          </div>
-          <div class="portfolio-item" data-project="strona-marka-e.html">
-            <img src="assets/images/hero.png" alt="Strona Marka E" />
-            <h3>Strona – Marka E</h3>
-          </div>
+  <!-- Portfolio Grid: list of clickable projects using data-project attribute. -->
+  <section class="portfolio">
+    <div class="container">
+      <div class="portfolio-grid">
+        <!-- Each portfolio-item points to a specific HTML file in the projects folder. -->
+        <div class="portfolio-item" data-project="pakiet-marka-f.html">
+          <!-- Use a placeholder image; replace with actual thumbnails if available. -->
+          <img src="../placeholder_light_gray_block.png" alt="Pakiet marki F">
+          <h3>Pakiet marki F</h3>
         </div>
-        <div id="project-viewer" class="project-viewer hidden"></div>
-      </div>
-    </section>
-
-    <footer id="footer" class="footer">
-      <div class="container footer-inner">
-        <div class="footer-info">
-          <p>Karol Wyszyński</p>
-          <p>
-            Email:
-            <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a>
-          </p>
-          <p>NIP: 1234567890</p>
+        <div class="portfolio-item" data-project="power-of-mind.html">
+          <img src="../placeholder_light_gray_block.png" alt="Power of mind">
+          <h3>Power of Mind</h3>
         </div>
-        <div class="footer-social">
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <div class="portfolio-item" data-project="strona-karoma.html">
+          <img src="../placeholder_light_gray_block.png" alt="Strona Karoma">
+          <h3>Strona Karoma</h3>
+        </div>
+        <div class="portfolio-item" data-project="logo-marka-d.html">
+          <img src="../placeholder_light_gray_block.png" alt="Logo marki D">
+          <h3>Logo marki D</h3>
+        </div>
+        <div class="portfolio-item" data-project="strona-marka-e.html">
+          <img src="../placeholder_light_gray_block.png" alt="Strona marki E">
+          <h3>Strona marki E</h3>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const items = document.querySelectorAll('.portfolio-item[data-project]');
-        const viewer = document.getElementById('project-viewer');
+  <!-- Dynamic project viewer. Content is injected here on item click. -->
+  <div id="project-viewer" class="project-viewer hidden"></div>
 
-        items.forEach(item => {
-          item.addEventListener('click', function () {
-            const projectFile = this.getAttribute('data-project');
-            fetch('projects/' + projectFile)
-              .then(res => res.text())
-              .then(html => {
-                viewer.innerHTML = '<button onclick="closeViewer()" class="close-btn">Zamknij</button>' + html;
-                viewer.classList.remove('hidden');
-                viewer.scrollIntoView({ behavior: 'smooth' });
-              })
-              .catch(err => {
-                viewer.innerHTML = '<p>Błąd wczytywania projektu.</p>';
-                viewer.classList.remove('hidden');
-              });
-          });
-        });
-      });
+  <!-- Footer: consistent with the home page layout. -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> KWdesignnew. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
 
-      function closeViewer() {
-        const viewer = document.getElementById('project-viewer');
-        viewer.innerHTML = '';
-        viewer.classList.add('hidden');
+<script>
+// Set current year automatically.
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Project loader: attach click listener to grid.
+const portfolioGrid = document.querySelector('.portfolio-grid');
+const projectViewer  = document.getElementById('project-viewer');
+
+portfolioGrid.addEventListener('click', async (e) => {
+  const item = e.target.closest('.portfolio-item[data-project]');
+  if (!item) return;
+  const projectFile = item.getAttribute('data-project');
+  if (!projectFile) return;
+
+  /**
+   * Próbuje pobrać zawartość projektu z różnych ścieżek. W środowisku
+   * deweloperskim pliki mogą być serwowane jako statyczne pliki HTTP lub
+   * poprzez protokół file://. Poniższa funkcja iteracyjnie testuje możliwe
+   * lokalizacje. Jeśli żadna nie powiedzie się, zgłasza błąd.
+   */
+  async function loadProject(file) {
+    const prefixes = ['projects/', './projects/', '../projects/'];
+    for (const prefix of prefixes) {
+      try {
+        const response = await fetch(prefix + file);
+        if (response.ok) {
+          return response.text();
+        }
+      } catch (_) {
+        // Ignoruj błędy i próbuj kolejnej ścieżki
       }
-    </script>
-  </body>
+    }
+    throw new Error('Błąd ładowania projektu');
+  }
+
+  try {
+    const html = await loadProject(projectFile);
+
+    // Usuń poprzednią zawartość.
+    projectViewer.innerHTML = '';
+
+    // Utwórz przycisk zamykania.
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Zamknij';
+    closeBtn.className = 'close-button';
+    closeBtn.addEventListener('click', () => {
+      projectViewer.classList.add('hidden');
+      projectViewer.innerHTML = '';
+      // Przywróć widok do siatki portfolio.
+      portfolioGrid.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Wstaw wczytane HTML i przycisk zamykania do kontenera.
+    projectViewer.appendChild(closeBtn);
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'project-content';
+    contentDiv.innerHTML = html;
+    projectViewer.appendChild(contentDiv);
+
+    // Pokaż kontener i przewiń do niego płynnie.
+    projectViewer.classList.remove('hidden');
+    projectViewer.scrollIntoView({ behavior: 'smooth' });
+  } catch (err) {
+    console.error(err);
+    alert('Nie udało się wczytać projektu.');
+  }
+});
+</script>
+</body>
 </html>
