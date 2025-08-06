@@ -6,93 +6,111 @@
     <title>Portfolio – Karol Wyszyński</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/KWdesignnew/assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <div class="logo">KW</div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="oferta.html">Oferta</a></li>
-          <li><a href="omnie.html">O&nbsp;mnie</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-      <div class="hamburger">&#9776;</div>
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">KW</div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="oferta.html">Oferta</a></li>
+            <li><a href="omnie.html">O mnie</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- Hero section for portfolio page -->
-    <section
-      class="hero"
-      style="background-image: url('assets/images/moodboard.png');"
-    >
-      <div class="hero-overlay">
-        <h1>Portfolio</h1>
-        <p>Poznaj moje projekty i realizacje.</p>
+    <section class="hero-section">
+      <div class="container hero-content">
+        <p class="hero-eyebrow">Moje realizacje</p>
+        <h1 class="hero-title">Portfolio projektów</h1>
+        <p class="hero-subtitle">
+          Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.
+        </p>
       </div>
     </section>
 
-    <section class="portfolio">
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img
-            src="assets/images/branding.png"
-            alt="Projekt identyfikacji wizualnej"
-          />
-          <h3>Branding</h3>
-          <p>
-            Kompleksowa identyfikacja wizualna marki obejmująca logo,
-            kolorystykę i materiały marketingowe.
-          </p>
+    <section class="portfolio-section section-gray">
+      <div class="container">
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-project="pakiet-marka-f.html">
+            <img src="assets/images/branding.png" alt="Pakiet Marka F" />
+            <h3>Pakiet – Marka F</h3>
+          </div>
+          <div class="portfolio-item" data-project="power-of-mind.html">
+            <img src="assets/images/moodboard.png" alt="Power of Mind" />
+            <h3>Pakiet – Power of Mind</h3>
+          </div>
+          <div class="portfolio-item" data-project="strona-karoma.html">
+            <img src="assets/images/webdesign.png" alt="Strona Karoma" />
+            <h3>Strona – Karoma</h3>
+          </div>
+          <div class="portfolio-item" data-project="logo-marka-d.html">
+            <img src="assets/images/automation.png" alt="Logo Marka D" />
+            <h3>Logo – Marka D</h3>
+          </div>
+          <div class="portfolio-item" data-project="strona-marka-e.html">
+            <img src="assets/images/hero.png" alt="Strona Marka E" />
+            <h3>Strona – Marka E</h3>
+          </div>
         </div>
-        <div class="portfolio-item">
-          <img
-            src="assets/images/webdesign.png"
-            alt="Projekt strony internetowej"
-          />
-          <h3>Strona&nbsp;WWW</h3>
-          <p>
-            Nowoczesny, responsywny serwis internetowy z unikalnym wyglądem
-            i intuicyjnym interfejsem.
-          </p>
-        </div>
-        <div class="portfolio-item">
-          <img
-            src="assets/images/automation.png"
-            alt="Automatyzacja biznesowa"
-          />
-          <h3>Automatyzacja</h3>
-          <p>
-            Integracja narzędzi i procesów, która zwiększy efektywność oraz
-            zredukuje powtarzalne zadania.
-          </p>
-        </div>
-        <div class="portfolio-item">
-          <img
-            src="assets/images/moodboard.png"
-            alt="Kreatywne inspiracje"
-          />
-          <h3>Kreatywne&nbsp;inspiracje</h3>
-          <p>
-            Moodboardy i koncepty, które stanowią punkt wyjścia dla
-            najciekawszych realizacji.
-          </p>
-        </div>
+        <div id="project-viewer" class="project-viewer hidden"></div>
       </div>
     </section>
 
-    <footer>
-      <p>
-        &copy; 2025&nbsp;Karol&nbsp;Wyszyński&nbsp;&ndash; kontakt:
-        <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a>
-      </p>
+    <footer id="footer" class="footer">
+      <div class="container footer-inner">
+        <div class="footer-info">
+          <p>Karol Wyszyński</p>
+          <p>
+            Email:
+            <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a>
+          </p>
+          <p>NIP: 1234567890</p>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
     </footer>
 
-    <script src="assets/js/scripts.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const items = document.querySelectorAll('.portfolio-item[data-project]');
+        const viewer = document.getElementById('project-viewer');
+
+        items.forEach(item => {
+          item.addEventListener('click', function () {
+            const projectFile = this.getAttribute('data-project');
+            fetch('projects/' + projectFile)
+              .then(res => res.text())
+              .then(html => {
+                viewer.innerHTML = '<button onclick="closeViewer()" class="close-btn">Zamknij</button>' + html;
+                viewer.classList.remove('hidden');
+                viewer.scrollIntoView({ behavior: 'smooth' });
+              })
+              .catch(err => {
+                viewer.innerHTML = '<p>Błąd wczytywania projektu.</p>';
+                viewer.classList.remove('hidden');
+              });
+          });
+        });
+      });
+
+      function closeViewer() {
+        const viewer = document.getElementById('project-viewer');
+        viewer.innerHTML = '';
+        viewer.classList.add('hidden');
+      }
+    </script>
   </body>
 </html>
