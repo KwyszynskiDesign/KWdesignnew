@@ -15,7 +15,6 @@
     <div class="container header-inner">
       <a href="../index.html" class="logo">KWdesignnew</a>
       <nav class="nav nav-list">
-        <!-- Adjust links to match the main sections on the home page. -->
         <a href="../index.html#about">O mnie</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="../index.html#services">Usługi</a>
@@ -24,49 +23,42 @@
     </div>
   </header>
 
-  <!-- Hero Section: headline introducing the portfolio along with a horizontal list
-       of project thumbnails. The thumbnails are embedded in the hero so they
-       appear just below the heading. -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="container hero-content">
       <p class="eyebrow">Moje realizacje</p>
       <h1>Portfolio projektów</h1>
       <p class="subtitle">Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.</p>
     </div>
-    <!-- Portfolio thumbnails: horizontally scrollable list of projects embedded in the hero section.
-         Each item acts as a trigger to load the corresponding project content below. Wrapped in a carousel with navigation arrows. -->
-    <div class="carousel">
-      <!-- Left navigation arrow -->
+    <div class="carousel-outer">
       <button class="carousel-nav prev" aria-label="Poprzedni projekt">&#10094;</button>
-      <!-- Track containing all accordion items (thumbnails) -->
-      <div class="portfolio-accordion carousel-track">
-        <div id="pakiet-marka-f" class="accordion-item" data-project="pakiet-marka-f.html">
+      <div class="carousel-track" tabindex="0">
+        <div id="pakiet-marka-f" class="carousel-item" data-project="pakiet-marka-f.html">
           <img src="../placeholder_light_gray_block.png" alt="Pakiet marki F">
           <h3>Pakiet marki F</h3>
         </div>
-        <div id="power-of-mind" class="accordion-item" data-project="power-of-mind.html">
+        <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
           <img src="../placeholder_light_gray_block.png" alt="Power of mind">
           <h3>Power of Mind</h3>
         </div>
-        <div id="strona-karoma" class="accordion-item" data-project="strona-karoma.html">
+        <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
           <img src="../placeholder_light_gray_block.png" alt="Strona Karoma">
           <h3>Strona Karoma</h3>
         </div>
-        <div id="logo-marka-d" class="accordion-item" data-project="logo-marka-d.html">
+        <div id="logo-marka-d" class="carousel-item" data-project="logo-marka-d.html">
           <img src="../placeholder_light_gray_block.png" alt="Logo marki D">
           <h3>Logo marki D</h3>
         </div>
-        <div id="strona-marka-e" class="accordion-item" data-project="strona-marka-e.html">
+        <div id="strona-marka-e" class="carousel-item" data-project="strona-marka-e.html">
           <img src="../placeholder_light_gray_block.png" alt="Strona marki E">
           <h3>Strona marki E</h3>
         </div>
-        <!-- Dodatkowy projekt: Logo – Karoma -->
-        <div id="logo-karoma" class="accordion-item" data-project="logo-karoma.html">
+        <div id="logo-karoma" class="carousel-item" data-project="logo-karoma.html">
           <img src="../placeholder_light_gray_block.png" alt="Logo Karoma">
           <h3>Logo – Karoma</h3>
         </div>
+        <!-- Dodawaj kolejne projekty wg tej samej konwencji -->
       </div>
-      <!-- Right navigation arrow -->
       <button class="carousel-nav next" aria-label="Następny projekt">&#10095;</button>
     </div>
   </section>
@@ -85,103 +77,96 @@
 // Set current year automatically.
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Akordeon projektów: obsługuje kliknięcia na miniaturach projektów i dynamicznie
-// wczytuje zawartość projektu do sekcji poniżej hero.  Elementy akordeonu
-// wyświetlane są w jednym rzędzie i przewijane w poziomie.
-const accordion = document.querySelector('.portfolio-accordion');
-const projectViewer = document.getElementById('project-viewer');
-
-// Add simple carousel navigation: scroll the thumbnail strip left or right when
-// the user clicks the arrow buttons. The carousel uses the same accordion
-// element, which is horizontally scrollable. Scrolling is smooth for better UX.
+// KARUZELA - logika i ładowanie projektów
+const track = document.querySelector('.carousel-track');
 const prevBtn = document.querySelector('.carousel-nav.prev');
 const nextBtn = document.querySelector('.carousel-nav.next');
-if (prevBtn && nextBtn && accordion) {
-  // Scroll amount equals the width of one accordion card plus its gap. This
-  // moves roughly one card at a time. If gap or card width changes, this
-  // calculation still provides a reasonable scroll increment.
-  const scrollAmount = () => {
-    const item = accordion.querySelector('.accordion-item');
-    if (!item) return accordion.clientWidth / 2;
-    const styles = window.getComputedStyle(item);
-    const gap = parseFloat(getComputedStyle(accordion).gap || '0');
-    return item.offsetWidth + gap;
-  };
-  prevBtn.addEventListener('click', () => {
-    accordion.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-  });
-  nextBtn.addEventListener('click', () => {
-    accordion.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-  });
+const projectViewer = document.getElementById('project-viewer');
+
+function scrollToActive(item) {
+  const trackRect = track.getBoundingClientRect();
+  const itemRect = item.getBoundingClientRect();
+  const scrollLeft = track.scrollLeft + (itemRect.left - trackRect.left) - (trackRect.width - itemRect.width) / 2;
+  track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
 }
 
-// Ładuje treść projektu z możliwych ścieżek (file:// lub http).  Sprawdza
-// kilka prefiksów, aby działać zarówno lokalnie jak i na serwerze.
-async function loadProject(file) {
-  const prefixes = ['projects/', './projects/', '../projects/'];
-  for (const prefix of prefixes) {
-    try {
-      const response = await fetch(prefix + file);
-      if (response.ok) {
-        return response.text();
-      }
-    } catch (_) {
-      // ignoruj błąd i próbuj kolejnej ścieżki
-    }
-  }
-  throw new Error('Błąd ładowania projektu');
-}
+prevBtn.addEventListener('click', () => {
+  const scrollAmount = track.offsetWidth * 0.6;
+  track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+});
+nextBtn.addEventListener('click', () => {
+  const scrollAmount = track.offsetWidth * 0.6;
+  track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+});
 
-// Obsłuż kliknięcie na dowolny element akordeonu.
-accordion.addEventListener('click', async (e) => {
-  const item = e.target.closest('.accordion-item[data-project]');
+// Klik w projekt
+track.addEventListener('click', async (e) => {
+  const item = e.target.closest('.carousel-item[data-project]');
   if (!item) return;
-
-  // Usuń zaznaczenie z wszystkich elementów i ustaw aktywny element.
-  accordion.querySelectorAll('.accordion-item.active').forEach(el => el.classList.remove('active'));
+  track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
   item.classList.add('active');
-
+  scrollToActive(item);
   const projectFile = item.getAttribute('data-project');
-  if (!projectFile) return;
   try {
     const html = await loadProject(projectFile);
-    // Stwórz zawartość widoku projektu wraz z przyciskiem zamykania.
     projectViewer.innerHTML = '';
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'Zamknij';
     closeBtn.className = 'close-button';
     closeBtn.addEventListener('click', () => {
-      // Ukryj widok projektu i odznacz aktywne elementy.
       projectViewer.classList.add('hidden');
-      accordion.querySelectorAll('.accordion-item.active').forEach(el => el.classList.remove('active'));
+      track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
     });
     const contentDiv = document.createElement('div');
     contentDiv.className = 'project-content';
     contentDiv.innerHTML = html;
     projectViewer.appendChild(closeBtn);
     projectViewer.appendChild(contentDiv);
-    // Pokaż widok projektu i przewiń do niego.
     projectViewer.classList.remove('hidden');
     projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (err) {
-    console.error(err);
-    alert('Nie udało się wczytać projektu.');
+    projectViewer.innerHTML = '<div class="error-msg">Nie udało się wczytać projektu.</div>';
+    projectViewer.classList.remove('hidden');
   }
 });
 
-// Po załadowaniu strony sprawdź, czy w adresie URL podano kotwicę (#id).
-// Jeśli tak, znajdź odpowiadający element akordeonu i otwórz jego treść.
+// Touch swipe (mobile)
+let startX = null, scrollLeftStart = 0;
+track.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  scrollLeftStart = track.scrollLeft;
+}, { passive: true });
+track.addEventListener('touchmove', e => {
+  if (startX === null) return;
+  const dx = e.touches[0].clientX - startX;
+  track.scrollLeft = scrollLeftStart - dx;
+}, { passive: true });
+track.addEventListener('touchend', () => { startX = null; });
+
+// Keyboard navigation
+track.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') prevBtn.click();
+  if (e.key === 'ArrowRight') nextBtn.click();
+});
+
+// Loader projektów
+async function loadProject(file) {
+  const prefixes = ['projects/', './projects/', '../projects/'];
+  for (const prefix of prefixes) {
+    try {
+      const response = await fetch(prefix + file);
+      if (response.ok) return response.text();
+    } catch (e) {}
+  }
+  throw new Error('Błąd ładowania projektu');
+}
+
+// Hash navigation
 document.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash ? window.location.hash.substring(1) : '';
   if (!hash) return;
   const targetItem = document.getElementById(hash);
-  if (targetItem) {
-    // Poczekaj aż zdarzenia zostaną zainicjowane, następnie zasymuluj kliknięcie
-    // na miniaturę.  Kliknięcie zostanie przechwycone przez obsługę akordeonu.
-    setTimeout(() => {
-      targetItem.click();
-    }, 100);
-  }
+  if (targetItem) setTimeout(() => targetItem.click(), 120);
 });
 </script>
 </body>
