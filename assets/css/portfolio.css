@@ -1,6 +1,10 @@
 /* === PORTFOLIO PAGE & KARUZELA === */
 
 /* --- HERO SECTION NA PORTFOLIO --- */
+body.portfolio-page .hero-section {
+  background-image: url('assets/images/ja-skupiony.png');
+  /* ...tu inne zmiany tylko dla portfolio */
+}
 .hero-section {
   position: relative;
   min-height: 75vh;
