@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-between;   /* Karuzela zawsze na dole */
   align-items: flex-start;
-  background-image: url('/images/ja-skupiony.png'); /* <-- dostosuj ścieżkę! */
+  background-image: url('assets/images/ja-skupiony.png'); /* <-- dostosuj ścieżkę! */
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
