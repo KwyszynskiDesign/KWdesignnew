@@ -2,8 +2,7 @@
 
 /* --- HERO SECTION NA PORTFOLIO --- */
 body.portfolio-page .hero-section {
-  background-image: url('assets/images/ja-skupiony.png');
-  /* ...tu inne zmiany tylko dla portfolio */
+  background-image: url('../images/ja-skupiony.png') !important;
 }
 .hero-section {
   position: relative;
