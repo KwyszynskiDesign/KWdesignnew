@@ -1,177 +1,230 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio projektów | KWdesignnew</title>
-  <!-- Import main stylesheet from the existing style path.  -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/portfolio.css">
-  <!-- Import Google fonts to match the typography used on the home page. -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts + style (ścieżki względne) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body class="portfolio-page">
-  <!-- Header: replicate the structure of the home page header with logo and navigation. -->
+
+  <!-- Header -->
   <header class="header">
     <div class="container header-inner">
-      <a href="../index.html" class="logo">KWdesignnew</a>
-      <nav class="nav nav-list">
-        <a href="../index.html#about">O mnie</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="../index.html#services">Usługi</a>
-        <a href="../index.html#contact">Kontakt</a>
+      <a href="index.html" class="logo">KW</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html#hero" class="smooth">Start</a></li>
+          <li><a href="index.html#portfolio" class="smooth">Portfolio (home)</a></li>
+          <li><a href="index.html#why" class="smooth">Dlaczego ja</a></li>
+          <li><a href="index.html#packages" class="smooth">Pakiety</a></li>
+          <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-<section class="hero-section">
-  <div class="container hero-content">
-    <p class="eyebrow">Moje realizacje</p>
-    <h1>Portfolio projektów</h1>
-    <p class="subtitle">Zobacz wybrane projekty brandingowe, strony internetowe i automatyzacje.</p>
-  </div>
-  <div class="carousel-outer">
-    <div class="carousel-track" tabindex="0">
-      <div id="pakiet-marka-f" class="carousel-item" data-project="pakiet-marka-f.html">
-        <img src="../placeholder_light_gray_block.png" alt="Pakiet marki F">
-        <h3>Pakiet marki F</h3>
-      </div>
-      <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
-        <img src="../placeholder_light_gray_block.png" alt="Power of mind">
-        <h3>Power of Mind</h3>
-      </div>
-      <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
-        <img src="../placeholder_light_gray_block.png" alt="Strona Karoma">
-        <h3>Strona Karoma</h3>
-      </div>
-      <div id="logo-marka-d" class="carousel-item" data-project="logo-marka-d.html">
-        <img src="../placeholder_light_gray_block.png" alt="Logo marki D">
-        <h3>Logo marki D</h3>
-      </div>
-      <div id="strona-marka-e" class="carousel-item" data-project="strona-marka-e.html">
-        <img src="../placeholder_light_gray_block.png" alt="Strona marki E">
-        <h3>Strona marki E</h3>
-      </div>
-      <div id="logo-karoma" class="carousel-item" data-project="logo-karoma.html">
-        <img src="../placeholder_light_gray_block.png" alt="Logo Karoma">
-        <h3>Logo – Karoma</h3>
-      </div>
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <p class="hero-eyebrow">Moje realizacje</p>
+      <h1 class="hero-title">Portfolio projektów</h1>
+      <p class="hero-subtitle">Wybrane projekty: branding, strony WWW, automatyzacje.</p>
     </div>
-    <div class="carousel-navs">
-      <button class="carousel-nav prev" aria-label="Poprzedni projekt">&#10094;</button>
-      <button class="carousel-nav next" aria-label="Następny projekt">&#10095;</button>
+
+    <!-- Karuzela skrótów projektów -->
+    <div class="carousel-outer" aria-label="Lista projektów">
+      <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
+
+      <div class="carousel-track" tabindex="0">
+        <!-- ID = slug, data-project = plik w /projects -->
+        <div id="logo-karoma" class="carousel-item" data-project="logo-karoma.html">
+          <img src="assets/images/branding.png" alt="Logo – Karoma" />
+          <h3>Logo – Karoma</h3>
+        </div>
+
+        <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
+          <img src="assets/images/webdesign.png" alt="Strona – Karoma" />
+          <h3>Strona – Karoma</h3>
+        </div>
+
+        <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
+          <img src="assets/images/moodboard.png" alt="Pakiet – Power of Mind" />
+          <h3>Pakiet – Power of Mind</h3>
+        </div>
+
+        <div id="logo-marka-d" class="carousel-item" data-project="logo-marka-d.html">
+          <img src="assets/images/automation.png" alt="Logo – Marka D" />
+          <h3>Logo – Marka D</h3>
+        </div>
+
+        <div id="strona-marka-e" class="carousel-item" data-project="strona-marka-e.html">
+          <img src="assets/images/hero.png" alt="Strona – Marka E" />
+          <h3>Strona – Marka E</h3>
+        </div>
+
+        <div id="marka-f" class="carousel-item" data-project="marka-f.html">
+          <img src="assets/images/branding.png" alt="Pakiet – Marka F" />
+          <h3>Pakiet – Marka F</h3>
+        </div>
+      </div>
+
+      <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Viewer (tutaj ładujemy treść projektu) -->
+  <section id="project-viewer" class="project-viewer hidden" aria-live="polite" aria-busy="false"></section>
 
-
-  <!-- Viewer for loaded projects. This container is shown below the hero after a thumbnail is clicked. -->
-  <section id="project-viewer" class="project-viewer hidden"></section>
-
-  <!-- Footer: consistent with the home page layout. -->
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> KWdesignnew. Wszelkie prawa zastrzeżone.</p>
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <p>&copy; <span id="year"></span> KWdesignnew. Wszelkie prawa zastrzeżone.</p>
+      </div>
     </div>
   </footer>
 
-<script>
-// Set current year automatically.
-document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- JS -->
+  <script>
+    // Rok w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-// KARUZELA - logika i ładowanie projektów
-const track = document.querySelector('.carousel-track');
-const prevBtn = document.querySelector('.carousel-nav.prev');
-const nextBtn = document.querySelector('.carousel-nav.next');
-const projectViewer = document.getElementById('project-viewer');
+    // Hamburger (opcjonalnie, jeśli używasz mobilnego menu z .nav-list)
+    (function(){
+      const burger = document.querySelector('.hamburger');
+      const navList = document.querySelector('.nav-list');
+      if(burger && navList){
+        burger.addEventListener('click', () => navList.classList.toggle('open'));
+      }
+    })();
 
-function scrollToActive(item) {
-  const trackRect = track.getBoundingClientRect();
-  const itemRect = item.getBoundingClientRect();
-  const scrollLeft = track.scrollLeft + (itemRect.left - trackRect.left) - (trackRect.width - itemRect.width) / 2;
-  track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-}
+    // ---- Karuzela i ładowanie projektów ----
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-nav.prev');
+    const nextBtn = document.querySelector('.carousel-nav.next');
+    const projectViewer = document.getElementById('project-viewer');
 
-prevBtn.addEventListener('click', () => {
-  const scrollAmount = track.offsetWidth * 0.6;
-  track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-});
-nextBtn.addEventListener('click', () => {
-  const scrollAmount = track.offsetWidth * 0.6;
-  track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-});
+    function scrollToActive(item) {
+      const trackRect = track.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      const left = track.scrollLeft + (itemRect.left - trackRect.left) - (trackRect.width - itemRect.width) / 2;
+      track.scrollTo({ left, behavior: 'smooth' });
+    }
 
-// Klik w projekt
-track.addEventListener('click', async (e) => {
-  const item = e.target.closest('.carousel-item[data-project]');
-  if (!item) return;
-  track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
-  item.classList.add('active');
-  scrollToActive(item);
-  const projectFile = item.getAttribute('data-project');
-  try {
-    const html = await loadProject(projectFile);
-    projectViewer.innerHTML = '';
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'Zamknij';
-    closeBtn.className = 'close-button';
-    closeBtn.addEventListener('click', () => {
-      projectViewer.classList.add('hidden');
-      track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -track.offsetWidth * 0.6, behavior: 'smooth' });
     });
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'project-content';
-    contentDiv.innerHTML = html;
-    projectViewer.appendChild(closeBtn);
-    projectViewer.appendChild(contentDiv);
-    projectViewer.classList.remove('hidden');
-    projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } catch (err) {
-    projectViewer.innerHTML = '<div class="error-msg">Nie udało się wczytać projektu.</div>';
-    projectViewer.classList.remove('hidden');
-  }
-});
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: track.offsetWidth * 0.6, behavior: 'smooth' });
+    });
 
-// Touch swipe (mobile)
-let startX = null, scrollLeftStart = 0;
-track.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-  scrollLeftStart = track.scrollLeft;
-}, { passive: true });
-track.addEventListener('touchmove', e => {
-  if (startX === null) return;
-  const dx = e.touches[0].clientX - startX;
-  track.scrollLeft = scrollLeftStart - dx;
-}, { passive: true });
-track.addEventListener('touchend', () => { startX = null; });
+    // Klik w miniaturę projektu
+    track.addEventListener('click', async (e) => {
+      const item = e.target.closest('.carousel-item[data-project]');
+      if (!item) return;
 
-// Keyboard navigation
-track.addEventListener('keydown', e => {
-  if (e.key === 'ArrowLeft') prevBtn.click();
-  if (e.key === 'ArrowRight') nextBtn.click();
-});
+      // Aktywacja wizualna
+      track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      scrollToActive(item);
 
-// Loader projektów
-async function loadProject(file) {
-  const prefixes = ['projects/', './projects/', '../projects/'];
-  for (const prefix of prefixes) {
-    try {
-      const response = await fetch(prefix + file);
-      if (response.ok) return response.text();
-    } catch (e) {}
-  }
-  throw new Error('Błąd ładowania projektu');
-}
+      // Wczytaj treść projektu
+      const file = item.getAttribute('data-project');
+      await openProject(file);
+      // Dopisz hash do URL (deep-link)
+      history.replaceState(null, '', '#' + item.id);
+    });
 
-// Hash navigation
-document.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash ? window.location.hash.substring(1) : '';
-  if (!hash) return;
-  const targetItem = document.getElementById(hash);
-  if (targetItem) setTimeout(() => targetItem.click(), 120);
-});
-</script>
+    async function openProject(file){
+      setBusy(true);
+      try {
+        const html = await loadProject(file);
+        renderProject(html);
+      } catch (err) {
+        renderError('Nie udało się wczytać projektu.');
+        console.error(err);
+      } finally {
+        setBusy(false);
+      }
+    }
+
+    // Loader projektów: próbuje z /projects (obok portfolio.html)
+    async function loadProject(file) {
+      const url = 'projects/' + file;
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    }
+
+    function renderProject(html){
+      projectViewer.innerHTML = '';
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-button';
+      closeBtn.type = 'button';
+      closeBtn.textContent = 'Zamknij';
+      closeBtn.addEventListener('click', () => {
+        projectViewer.classList.add('hidden');
+        track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
+        // reset hash
+        history.replaceState(null, '', location.pathname);
+      });
+
+      const content = document.createElement('div');
+      content.className = 'project-content';
+      content.innerHTML = html;
+
+      projectViewer.appendChild(closeBtn);
+      projectViewer.appendChild(content);
+      projectViewer.classList.remove('hidden');
+      projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderError(msg){
+      projectViewer.innerHTML = '<div class="error-msg">'+ msg +'</div>';
+      projectViewer.classList.remove('hidden');
+    }
+
+    function setBusy(state){
+      projectViewer.setAttribute('aria-busy', state ? 'true' : 'false');
+    }
+
+    // Touch swipe (mobile)
+    let startX = null, scrollStart = 0;
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      scrollStart = track.scrollLeft;
+    }, { passive: true });
+    track.addEventListener('touchmove', e => {
+      if (startX === null) return;
+      const dx = e.touches[0].clientX - startX;
+      track.scrollLeft = scrollStart - dx;
+    }, { passive: true });
+    track.addEventListener('touchend', () => { startX = null; });
+
+    // Klawisze
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+
+    // Deep-link z hash: portfolio.html#marka-f => kliknie właściwy kafel
+    document.addEventListener('DOMContentLoaded', () => {
+      const slug = location.hash ? location.hash.slice(1) : '';
+      if (!slug) return;
+      const item = document.getElementById(slug);
+      if (item) {
+        // auto-scroll i auto-open
+        setTimeout(() => item.click(), 120);
+      }
+    });
+  </script>
 </body>
 </html>
