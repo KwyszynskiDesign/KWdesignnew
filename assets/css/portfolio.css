@@ -366,6 +366,7 @@ body.portfolio-page .hero-section {
   }
 }
 /* --- CASE STUDY GRID --- */
+/* --- CASE STUDY GRID --- */
 .case-study {
   font-family: 'Lato', sans-serif;
   background: #fff;
@@ -410,6 +411,29 @@ body.portfolio-page .hero-section {
 .btn-case:hover {
   background: #0f44b7;
 }
+
+/* --- Obrazek w prawej kolumnie --- */
+.case-image img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  margin: 0 auto;
+  height: auto;
+}
+
+/* --- Responsywność --- */
+@media (max-width: 900px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .case-image img {
+    max-width: 100%;
+  }
+}
+
 
 /* --- Obrazek w prawej kolumnie --- */
 .case-image img {
