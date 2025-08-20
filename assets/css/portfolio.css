@@ -1,4 +1,31 @@
 /* === PORTFOLIO PAGE & KARUZELA === */
+/* === LOKALNE FONTY POPPINS === */
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.woff2') format('woff2'),
+       url('../fonts/Poppins-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-SemiBold.woff2') format('woff2'),
+       url('../fonts/Poppins-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Bold.woff2') format('woff2'),
+       url('../fonts/Poppins-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* --- HERO SECTION NA PORTFOLIO --- */
 body.portfolio-page .hero-section {
@@ -17,6 +44,7 @@ body.portfolio-page .hero-section {
   overflow: hidden;
   padding: 6rem 4vw 4rem 8vw;
   z-index: 0;
+  font-family: 'Poppins', sans-serif;
 }
 .hero-section::before {
   content: "";
@@ -58,6 +86,7 @@ body.portfolio-page .hero-section {
 .hero-section .subtitle {
   color: #fff;
   text-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  font-family: 'Poppins', sans-serif;
 }
 .subtitle {
   font-size: 1.16rem;
@@ -76,7 +105,7 @@ body.portfolio-page .hero-section {
   margin: 0 auto 4vh auto;
   background: transparent;
   z-index: 6;
-  pointer-events: none; /* dzięki temu klikalne są tylko dzieci, nie tło */
+  pointer-events: none;
 }
 .carousel-track {
   display: flex;
@@ -114,6 +143,7 @@ body.portfolio-page .hero-section {
   scroll-snap-align: center;
   position: relative;
   z-index: 7;
+  font-family: 'Poppins', sans-serif;
 }
 .carousel-item img {
   width: 86px;
@@ -128,11 +158,12 @@ body.portfolio-page .hero-section {
   margin: 0;
   font-size: 1.13rem;
   color: #19356d;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.01em;
   transition: color .22s;
 }
+
+/* Hover & Active */
 .carousel-item:hover,
 .carousel-item:focus-visible {
   border-color: #175bf7;
@@ -173,7 +204,6 @@ body.portfolio-page .hero-section {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: static;
   margin: 0 12px;
   pointer-events: auto;
   z-index: 10;
@@ -191,6 +221,7 @@ body.portfolio-page .hero-section {
   transition: max-height .42s;
   position: relative;
   background: none;
+  font-family: 'Poppins', sans-serif;
 }
 .project-viewer.hidden { display: none; }
 .project-content {
@@ -215,6 +246,7 @@ body.portfolio-page .hero-section {
   cursor: pointer;
   box-shadow: 0 1px 8px rgba(23,91,247,0.04);
   transition: background .2s;
+  font-family: 'Poppins', sans-serif;
 }
 .close-button:hover, .close-button:focus-visible {
   background: #e3ecff;
@@ -233,6 +265,7 @@ body.portfolio-page .hero-section {
   text-align: center;
   font-weight: 600;
   font-size: 1.1rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* --- GRADIENT NA KOŃCU KARUZELI (opcjonalnie wyłączony) --- */
@@ -257,12 +290,11 @@ body.portfolio-page .hero-section {
   .carousel-item { min-width: 130px; max-width: 155px; }
   .carousel-item img { width: 62px; height: 62px; margin-bottom: 7px; }
   .carousel-nav { width: 34px; height: 34px; font-size: 1.3rem; min-width: 34px; min-height: 34px; }
+  .project-content { padding: 18px 6vw 12px 6vw; }
 }
-
 
 /* --- Case Study --- */
 .case-study {
-  font-family: 'Lato', sans-serif;
   background: #fff;
   padding: 40px 30px;
   margin: 40px auto;
@@ -270,40 +302,35 @@ body.portfolio-page .hero-section {
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
   max-width: 900px;
   line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
 }
-
 .case-header h2 {
   font-size: 2rem;
   margin-bottom: 0.4em;
-  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
-
 .case-header .subtitle {
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 1.5em;
 }
-
 .case-section {
   margin-bottom: 2em;
 }
-
 .case-section h3 {
   font-size: 1.4rem;
   margin-bottom: 0.6em;
+  font-weight: 600;
 }
-
 .case-section ul {
   list-style: none;
   padding-left: 0;
 }
-
 .case-section ul li::before {
   content: "• ";
   color: #0077cc;
   font-weight: bold;
 }
-
 .case-image {
   display: block;
   max-width: 100%;
@@ -311,7 +338,6 @@ body.portfolio-page .hero-section {
   border-radius: 12px;
   box-shadow: 0 4px 18px rgba(0,0,0,0.1);
 }
-
 .close-button {
   background: #f5f5f5;
   border: none;
@@ -325,6 +351,3 @@ body.portfolio-page .hero-section {
 .close-button:hover {
   background: #ddd;
 }
-
-
-/* --- DOTYCZY TYLKO PODSTRONY PORTFOLIO --- */
