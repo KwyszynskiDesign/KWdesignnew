@@ -29,7 +29,7 @@
 
 /* --- HERO SECTION NA PORTFOLIO --- */
 body.portfolio-page .hero-section {
-  background-image: url('../images/ja-skupiony2.webp') !important;
+background-image: url('../images/ja-skupiony2.webp') !important;
 }
 .hero-section {
   position: relative;
