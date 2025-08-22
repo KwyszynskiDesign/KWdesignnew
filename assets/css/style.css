@@ -189,6 +189,26 @@ section{padding:4rem 0;scroll-margin-top:80px}
 .portfolio-item h3{font-size:1.1rem;padding:1rem;color:var(--color-primary)}
 .portfolio-item:hover{transform:scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,.08)}
 
+
+.portfolio-thumb {
+  width: 100%;
+  height: 180px;          /* dostosuj wysokość do designu */
+  display: flex;
+  align-items: center;    /* wyśrodkuj pionowo */
+  justify-content: center;/* wyśrodkuj poziomo */
+  overflow: hidden;       /* obetnie to, co wychodzi */
+  background: #fff;       /* tło pod logo */
+  border-radius: 8px;     /* opcjonalnie */
+}
+
+/* Samo logo */
+.portfolio-logo {
+  max-width: 90%;   /* dopasuj, żeby nie zajmowało 100% szerokości */
+  max-height: 100%; /* logo nigdy nie wyjdzie ponad box */
+  object-fit: contain;
+}
+
+
 /* =================== Why =================== */
 .why-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 .why-card{
