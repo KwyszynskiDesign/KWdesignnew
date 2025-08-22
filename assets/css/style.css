@@ -207,11 +207,30 @@ section{padding:4rem 0;scroll-margin-top:80px}
   max-height: 100%; /* logo nigdy nie wyjdzie ponad box */
   object-fit: contain;
 }
-.portfolio-item .portfolio-thumb img.portfolio-logo {
-  width: auto !important;        /* zamiast width:100% */
-  height: 100% !important;       /* dopasuj do wysokości thumb */
-  max-width: 100% !important;    /* ale nie wychodź poza ramkę */
-  object-fit: contain !important;/* nie przycinaj */
+.portfolio-item .portfolio-thumb {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.portfolio-item .portfolio-thumb img.portfolio-logo{
+  width: auto !important;       /* zamiast width:100% */
+  height: 100% !important;      /* wypełnij wysokość ramki */
+  max-width: 95% !important;    /* nie wychodź na szerokość */
+  object-fit: contain !important;/* bez przycinania */
+  display: block;
+}
+Opcjonalnie (mobile, mniejsza ramka):
+
+css
+Kopiuj
+Edytuj
+@media (max-width: 600px){
+  .portfolio-item .portfolio-thumb { height: 140px; }
 }
 
 
