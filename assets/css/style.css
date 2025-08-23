@@ -234,6 +234,17 @@ Edytuj
   .portfolio-item .portfolio-thumb { height: 140px; }
 }
 
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
 
 /* =================== Why =================== */
 .why-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
