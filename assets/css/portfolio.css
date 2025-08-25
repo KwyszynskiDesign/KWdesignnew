@@ -456,3 +456,39 @@ background-image: url('../images/ja-skupiony2.webp') !important;
     max-width: 100%;
   }
 }
+
+
+/* === Voucher – Salon u Magdy (podstrona) === */
+body.portfolio-page.page-voucher-magdy .breadcrumbs{
+  max-width:1100px;margin:14px auto 0;padding:0 24px;
+  font:500 14px/1.4 Poppins,system-ui,sans-serif;opacity:.85;
+}
+body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7;text-decoration:none}
+
+/* HERO dla tej podstrony – używa globalnych reguł .hero-section z portfolio.css */
+.voucher-hero{
+  min-height:60vh;
+  background-image:url('../images/salon%20Magdy%20mockup%20copy.png');
+  background-position:center 20%;
+}
+
+/* Drobne utility do meta/układu na stronie case study */
+.meta-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 20px;margin:.6rem 0 0;padding:0}
+.meta-list li{list-style:none;color:#333}
+.badge{display:inline-block;background:#eef3ff;color:#133b7b;border:1px solid #cfe0ff;padding:.28rem .6rem;border-radius:999px;font-size:.85rem;font-weight:600}
+
+.two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0 0}
+@media (max-width:900px){.gallery{grid-template-columns:1fr}}
+.gallery img{cursor:zoom-in}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:9999}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:90vh;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.lightbox__close{position:fixed;top:20px;right:24px;background:#fff;border:0;border-radius:999px;font-size:14px;padding:8px 11px;cursor:pointer}
+
+.cta-center{text-align:center;margin-top:40px}
+
