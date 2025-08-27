@@ -230,3 +230,61 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .lightbox__close{position:fixed; top:20px; right:24px; background:#fff; border:0; border-radius:999px; font-size:14px; padding:8px 11px; cursor:pointer}
 
 .cta-center{text-align:center; margin-top:40px}
+
+/* ===== KWCS – Case Study Skeleton (Power of Mind) ===== */
+:root{
+  --kwcs-accent:#2563eb;
+  --kwcs-ink:#0f172a;
+  --kwcs-mute:#64748b;
+  --kwcs-bg:#f8fafc;
+  --kwcs-wrap:1180px;
+  --kwcs-padX:clamp(16px,4vw,32px);
+}
+.kwcs{color:var(--kwcs-ink); font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;}
+.kwcs .wrap{max-width:var(--kwcs-wrap); margin:0 auto; padding:0 var(--kwcs-padX);}
+
+/* Hero */
+.kwcs-hero{position:relative; min-height:56vh; background:#0b1220; color:#fff; overflow:hidden; display:grid; place-items:end start;}
+.kwcs-hero::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(2,6,23,.35),rgba(2,6,23,.65));}
+.kwcs-hero .cover{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:contrast(1.05) saturate(1.05) brightness(.92);}
+.kwcs-hero .inner{position:relative; width:100%; max-width:var(--kwcs-wrap); margin:0 auto; padding:clamp(24px,6vw,64px) var(--kwcs-padX);}
+.kwcs-hero .eyebrow{font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.9}
+.kwcs-hero h1{font-size:clamp(28px,4vw,44px); line-height:1.15; margin:.4em 0 .3em}
+.kwcs-hero p.sub{max-width:720px; font-size:clamp(16px,2vw,18px); opacity:.94}
+.kwcs-cta{display:inline-block; margin-top:1rem; padding:.85rem 1.1rem; border-radius:12px; background:var(--kwcs-accent); color:#fff; font-weight:700; text-decoration:none;}
+.kwcs-cta:hover{opacity:.92}
+
+/* Chips meta */
+.kwcs-chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:18px 0 6px}
+.kwcs-chip{display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; padding:.5rem .75rem; background:#fff; border:1px solid #e5e7eb; border-radius:999px; box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.kwcs-chip b{font-weight:700}
+
+/* Sekcje */
+.kwcs-sec{padding:clamp(28px,6vw,56px) 0}
+.kwcs-sec h2{font-size:clamp(20px,3vw,26px); margin:0 0 .6rem}
+
+/* Wyzwanie / Cele / Rozwiązanie – trio */
+.kwcs-trio{display:grid; gap:20px; grid-template-columns:repeat(3,1fr); margin:28px 0}
+@media (max-width:980px){ .kwcs-trio{grid-template-columns:1fr} }
+.kwcs-card{background:#fff; border:1px solid #e6e9ef; border-radius:16px; padding:20px; box-shadow:0 6px 30px rgba(2,6,23,.04)}
+.kwcs-card h3{margin:0 0 .4rem; font-size:1.05rem}
+.kwcs-card ul{margin:.35rem 0 0 1.1rem}
+.kwcs-card li{margin:.25rem 0; color:var(--kwcs-mute)}
+
+/* Stepper – Etapy I–V */
+.kwcs-steps{margin:10px 0 8px}
+.kwcs-step{display:grid; grid-template-columns:44px 1fr; gap:14px; padding:16px; background:#fff; border:1px solid #e6e9ef; border-radius:14px; margin:12px 0; transition:box-shadow .2s,border-color .2s}
+.kwcs-step:hover{box-shadow:0 10px 26px rgba(2,6,23,.06); border-color:#dbe1ea}
+.kwcs-step .num{width:44px; height:44px; border-radius:50%; display:grid; place-items:center; background:var(--kwcs-bg); font-weight:800; color:var(--kwcs-accent)}
+.kwcs-step h4{margin:0; font-size:1rem}
+.kwcs-step p,.kwcs-step li{color:var(--kwcs-mute)}
+.kwcs-step ul{margin:.25rem 0 0 1.1rem}
+
+/* Galeria (opcjonalnie) */
+.kwcs-gallery{display:grid; gap:16px; grid-template-columns:repeat(2,1fr)}
+@media (max-width:780px){ .kwcs-gallery{grid-template-columns:1fr} }
+.kwcs-gallery img{width:100%; border-radius:14px; border:1px solid #e6e9ef; box-shadow:0 8px 30px rgba(2,6,23,.06)}
+
+/* Rezultat */
+.kwcs-result{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px; background:linear-gradient(180deg,#ffffff,#f4f7fb); border:1px solid #e6e9ef; border-radius:16px; padding:18px}
+.kwcs-result p{margin:0; font-weight:600}
