@@ -29,7 +29,7 @@
 
 /* --- HERO SECTION NA PORTFOLIO --- */
 body.portfolio-page .hero-section {
-background-image: url('../images/ja-skupiony2.webp') !important;
+  background-image: url('../images/ja-skupiony2.webp') !important;
 }
 .hero-section {
   position: relative;
@@ -95,6 +95,17 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   color: #eaeaea;
 }
 
+/* =========================
+   KARUZELA – USTAWIENIA
+   ========================= */
+:root{
+  --ci-w: 230px;     /* szerokość kafla (desktop) */
+  --ci-h: 180px;     /* wysokość kafla */
+  --ci-thumb: 96px;  /* bok kwadratu na logo */
+  --ci-pad: 12px;    /* padding w kaflu */
+  --ci-gap: 15px;    /* odstęp między thumb a tytułem */
+}
+
 /* --- PORTFOLIO KARUZELA --- */
 .carousel-outer {
   width: 100%;
@@ -126,14 +137,15 @@ background-image: url('../images/ja-skupiony2.webp') !important;
 }
 .carousel-track::-webkit-scrollbar { display: none; }
 
+/* Kafelek – równe wymiary, bez rotacji */
 .carousel-item {
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 2px 20px rgba(24, 52, 88, 0.09);
-  min-width: 200px;
-  max-width: 230px;
-  width: 100%;
-  padding: 22px 12px 18px 12px;
+  width: var(--ci-w);
+  min-width: var(--ci-w);
+  height: var(--ci-h);
+  padding: var(--ci-pad);
   text-align: center;
   cursor: pointer;
   user-select: none;
@@ -144,37 +156,72 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   position: relative;
   z-index: 7;
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--ci-gap);
 }
-.carousel-item img {
-  width: 86px;
-  height: 86px;
-  object-fit: cover;
+
+/* Thumb-box – preferowany układ (HTML z <div class="ci-thumb"><img/></div>) */
+.ci-thumb{
+  width: var(--ci-thumb);
+  height: var(--ci-thumb);
+  padding: 8px;                      /* „pare px od brzegów” */
   border-radius: 16px;
-  margin-bottom: 15px;
+  background: #f6faff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(31, 89, 221, 0.04);
+  overflow: hidden;                   /* nic nie wycieknie */
+}
+.ci-thumb img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Fallback: gdy obrazek jest bez .ci-thumb (działa z obecnym HTML-em) */
+.carousel-item > img{
+  width: var(--ci-thumb);
+  height: var(--ci-thumb);
+  object-fit: contain;
+  border-radius: 16px;
+  padding: 8px;
+  margin: 0;
   box-shadow: 0 4px 20px rgba(31, 89, 221, 0.04);
   background: #f6faff;
+  display: block;
 }
+
+/* Tytuł */
 .carousel-item h3 {
   margin: 0;
   font-size: 1.13rem;
   color: #19356d;
   font-weight: 600;
   letter-spacing: 0.01em;
+  line-height: 1.2;
   transition: color .22s;
 }
 
-/* Hover & Active */
+/* Hover & Active – bez rotate */
 .carousel-item:hover,
 .carousel-item:focus-visible {
   border-color: #175bf7;
   box-shadow: 0 10px 36px 0 rgba(23,91,247,0.13);
-  transform: translateY(-7px) scale(1.055) rotate(-1.2deg);
+  transform: translateY(-7px) scale(1.055);
   z-index: 8;
+  outline: none;
 }
 .carousel-item.active {
   border-color: #175bf7;
   box-shadow: 0 12px 42px 0 rgba(23,91,247,0.20);
-  transform: translateY(-14px) scale(1.12) rotate(-1.8deg);
+  transform: translateY(-10px) scale(1.08);
   color: #133b7b;
   z-index: 9;
 }
@@ -275,11 +322,15 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   display: none;
 }
 
-/* --- RESPONSYWNOŚĆ --- */
+/* --- RESPONSYWNOŚĆ KARUZELI (zmiana zmiennych) --- */
 @media (max-width: 900px) {
   .carousel-track { max-width: 96vw; }
-  .carousel-item { min-width: 170px; max-width: 210px; padding: 18px 6px 15px 6px; }
   .carousel-outer { max-width: 99vw; }
+  :root{
+    --ci-w: 210px;
+    --ci-h: 170px;
+    --ci-thumb: 84px;
+  }
 }
 @media (max-width: 700px) {
   .carousel-outer { margin-bottom: 1.5vh; }
@@ -287,10 +338,16 @@ background-image: url('../images/ja-skupiony2.webp') !important;
 }
 @media (max-width: 650px) {
   .carousel-track { gap: 19px; min-height: 128px; }
-  .carousel-item { min-width: 130px; max-width: 155px; }
-  .carousel-item img { width: 62px; height: 62px; margin-bottom: 7px; }
+  :root{
+    --ci-w: 155px;
+    --ci-h: 140px;
+    --ci-thumb: 62px;
+    --ci-pad: 10px;
+    --ci-gap: 10px;
+  }
   .carousel-nav { width: 34px; height: 34px; font-size: 1.3rem; min-width: 34px; min-height: 34px; }
   .project-content { padding: 18px 6vw 12px 6vw; }
+  .carousel-item h3{ font-size:.95rem; }
 }
 
 /* --- Case Study --- */
@@ -365,7 +422,7 @@ background-image: url('../images/ja-skupiony2.webp') !important;
     max-width: 500px;
   }
 }
-/* --- CASE STUDY GRID --- */
+
 /* --- CASE STUDY GRID --- */
 .case-study {
   font-family: 'Lato', sans-serif;
@@ -377,7 +434,6 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   max-width: 1100px;
   line-height: 1.6;
 }
-
 .case-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -385,19 +441,16 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   align-items: center;
   margin-bottom: 3rem;
 }
-
 .case-text h2 {
   font-size: 2rem;
   margin-bottom: 0.5em;
   font-family: 'Playfair Display', serif;
 }
-
 .case-text .subtitle {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 1.8em;
 }
-
 .btn-case {
   display: inline-block;
   background: #175bf7;
@@ -434,30 +487,6 @@ background-image: url('../images/ja-skupiony2.webp') !important;
   }
 }
 
-
-/* --- Obrazek w prawej kolumnie --- */
-.case-image img {
-  display: block;
-  width: 100%;
-  max-width: 460px;
-  border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-  margin: 0 auto;
-  height: auto;
-}
-
-/* --- Responsywność --- */
-@media (max-width: 900px) {
-  .case-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .case-image img {
-    max-width: 100%;
-  }
-}
-
-
 /* === Voucher – Salon u Magdy (podstrona) === */
 body.portfolio-page.page-voucher-magdy .breadcrumbs{
   max-width:1100px;margin:14px auto 0;padding:0 24px;
@@ -491,4 +520,3 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7;text-decorat
 .lightbox__close{position:fixed;top:20px;right:24px;background:#fff;border:0;border-radius:999px;font-size:14px;padding:8px 11px;cursor:pointer}
 
 .cta-center{text-align:center;margin-top:40px}
-
