@@ -244,34 +244,115 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .kwcs .wrap{max-width:var(--kwcs-wrap); margin:0 auto; padding:0 var(--kwcs-padX);}
 
 /* Hero */
-.kwcs-hero{position:relative; min-height:56vh; background:#0b1220; color:#fff; overflow:hidden; display:grid; place-items:end start;}
-.kwcs-hero::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(2,6,23,.35),rgba(2,6,23,.65));}
-.kwcs-hero .cover {
-  position: relative;   /* nie absolute */
-  max-width: 800px;     /* limit szerokości */
-  width: 100%;          /* skaluje się responsywnie */
-  height: auto;         /* proporcje */
-  display: block;
-  margin: 0 auto;       /* wyśrodkowanie */
-  filter: contrast(1.05) saturate(1.05) brightness(.92); /* możesz zostawić efekt */
+/* === HERO CASE STUDY === */
+.kwcs-hero {
+  position: relative;
+  background: #0b1220;
+  color: #fff;
+  padding: clamp(24px, 6vw, 64px) var(--kwcs-padX);
 }
-.kwcs-hero .inner{position:relative; width:100%; max-width:var(--kwcs-wrap); margin:0 auto; padding:clamp(24px,6vw,64px) var(--kwcs-padX);}
-.kwcs-hero .eyebrow{font-size:.9rem; letter-spacing:.08em; text-transform:uppercase; opacity:.9}
-.kwcs-hero h1{font-size:clamp(28px,4vw,44px); line-height:1.15; margin:.4em 0 .3em}
-.kwcs-hero p.sub{max-width:720px; font-size:clamp(16px,2vw,18px); opacity:.94}
-.kwcs-cta{display:inline-block; margin-top:1rem; padding:.85rem 1.1rem; border-radius:12px; background:var(--kwcs-accent); color:#fff; font-weight:700; text-decoration:none;}
-.kwcs-cta:hover{opacity:.92}
-.kwcs-hero img.cover {
-  max-width: 800px;   /* albo np. 70% */
-  width: 100%;        /* żeby się dopasowało do mniejszego ekranu */
-  height: auto;       /* zachowanie proporcji */
-  display: block;
-  margin: 0 auto;     /* ładne wyśrodkowanie */
+
+.kwcs-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.65));
+  pointer-events: none;
 }
-/* Chips meta */
-.kwcs-chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:18px 0 6px}
-.kwcs-chip{display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; padding:.5rem .75rem; background:#fff; border:1px solid #e5e7eb; border-radius:999px; box-shadow:0 1px 0 rgba(0,0,0,.03)}
-.kwcs-chip b{font-weight:700}
+
+.kwcs-hero .inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* tekst i mockup */
+  gap: 2rem;
+  align-items: center;
+  max-width: var(--kwcs-wrap);
+  margin: 0 auto;
+}
+
+/* TEKST */
+.kwcs-hero .hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kwcs-hero .eyebrow {
+  font-size: .9rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.kwcs-hero h1 {
+  font-size: clamp(28px,4vw,44px);
+  line-height: 1.15;
+  margin: .4em 0 .3em;
+}
+
+.kwcs-hero p.sub {
+  max-width: 720px;
+  font-size: clamp(16px,2vw,18px);
+  opacity: .94;
+}
+
+/* CTA */
+.kwcs-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .85rem 1.1rem;
+  border-radius: 12px;
+  background: var(--kwcs-accent);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity .25s ease;
+}
+.kwcs-cta:hover { opacity:.92; }
+
+/* OBRAZEK MOCKUP */
+.kwcs-hero .hero-image .cover {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  display: block;
+  margin: 0 auto;
+  filter: contrast(1.05) saturate(1.05) brightness(.96);
+}
+
+/* CHIPS META */
+.kwcs-chips {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.kwcs-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: .85rem;
+  padding: .45rem .9rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.kwcs-chip b { font-weight:700; }
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 900px) {
+  .kwcs-hero .inner {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
+  }
+  .kwcs-hero .hero-image {
+    margin-top: 1.5rem;
+  }
+  .kwcs-chips { justify-content: center; }
+}
 
 /* Sekcje */
 .kwcs-sec{padding:clamp(28px,6vw,56px) 0}
