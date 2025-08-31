@@ -256,7 +256,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(2,6,23,.35), rgba(2,6,23,.65));
+  background: #fff;
   pointer-events: none;
 }
 
@@ -337,7 +337,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   border: 1px solid rgba(255,255,255,.15);
   border-radius: 999px;
   backdrop-filter: blur(4px);
-  color: #fff;
+  color: ##B0E0E6;
   box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 .kwcs-chip b { font-weight:700; }
