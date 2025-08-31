@@ -231,33 +231,17 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 
 .cta-center{text-align:center; margin-top:40px}
 
-/* ===== KWCS – Case Study Skeleton (Power of Mind) ===== */
-:root{
-  --kwcs-accent:#2563eb;
-  --kwcs-ink:#0f172a;
-  --kwcs-mute:#64748b;
-  --kwcs-bg:#ffff;
-  --kwcs-wrap:1180px;
-  --kwcs-padX:clamp(16px,4vw,32px);
-}
-.kwcs{color:var(--kwcs-ink); font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;}
-.kwcs .wrap{max-width:var(--kwcs-wrap); margin:0 auto; padding:0 var(--kwcs-padX);}
-
-/* Hero */
-/* === HERO CASE STUDY === */
+/* === HERO CASE STUDY (jasna wersja) === */
 .kwcs-hero {
   position: relative;
-  background: #0b1220;
-  color: #fff;
+  background: #fff;     /* tło białe */
+  color: var(--kwcs-ink); /* domyślnie ciemny tekst */
   padding: clamp(24px, 6vw, 64px) var(--kwcs-padX);
 }
 
+/* nie nadpisujemy tła ::before, bo zakrywa wszystko */
 .kwcs-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: #fff;
-  pointer-events: none;
+  content: none; 
 }
 
 .kwcs-hero .inner {
@@ -281,19 +265,20 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   font-size: .9rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  opacity: .9;
+  color: var(--kwcs-mute); /* delikatnie wyszarzony */
 }
 
 .kwcs-hero h1 {
   font-size: clamp(28px,4vw,44px);
   line-height: 1.15;
   margin: .4em 0 .3em;
+  color: var(--kwcs-ink);
 }
 
 .kwcs-hero p.sub {
   max-width: 720px;
   font-size: clamp(16px,2vw,18px);
-  opacity: .94;
+  color: var(--kwcs-mute);
 }
 
 /* CTA */
@@ -315,10 +300,9 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
   display: block;
   margin: 0 auto;
-  filter: contrast(1.05) saturate(1.05) brightness(.96);
 }
 
 /* CHIPS META */
@@ -333,12 +317,11 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   align-items: center;
   font-size: .85rem;
   padding: .45rem .9rem;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.15);
+  background: #f3f4f6; /* jasnoszary chip */
+  border: 1px solid #e5e7eb;
   border-radius: 999px;
-  backdrop-filter: blur(4px);
-  color: ##B0E0E6;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  color: var(--kwcs-ink); /* ciemny tekst */
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 .kwcs-chip b { font-weight:700; }
 
@@ -353,7 +336,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   }
   .kwcs-chips { justify-content: center; }
 }
-
 /* Sekcje */
 .kwcs-sec{padding:clamp(28px,6vw,56px) 0}
 .kwcs-sec h2{font-size:clamp(20px,3vw,26px); margin:0 0 .6rem}
