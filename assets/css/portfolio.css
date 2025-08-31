@@ -253,7 +253,13 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .kwcs-hero p.sub{max-width:720px; font-size:clamp(16px,2vw,18px); opacity:.94}
 .kwcs-cta{display:inline-block; margin-top:1rem; padding:.85rem 1.1rem; border-radius:12px; background:var(--kwcs-accent); color:#fff; font-weight:700; text-decoration:none;}
 .kwcs-cta:hover{opacity:.92}
-
+.kwcs-hero img.cover {
+  max-width: 800px;   /* albo np. 70% */
+  width: 100%;        /* żeby się dopasowało do mniejszego ekranu */
+  height: auto;       /* zachowanie proporcji */
+  display: block;
+  margin: 0 auto;     /* ładne wyśrodkowanie */
+}
 /* Chips meta */
 .kwcs-chips{display:flex; flex-wrap:wrap; gap:.5rem; padding:18px 0 6px}
 .kwcs-chip{display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; padding:.5rem .75rem; background:#fff; border:1px solid #e5e7eb; border-radius:999px; box-shadow:0 1px 0 rgba(0,0,0,.03)}
