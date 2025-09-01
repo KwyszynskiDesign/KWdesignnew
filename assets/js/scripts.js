@@ -1,7 +1,7 @@
 /*
  * JavaScript interactions for the one-page portfolio.
  */
-
+console.log("scripts.js działa ✅");
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile navigation toggling
   const hamburger = document.querySelector('.hamburger');
@@ -19,23 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // === KWCS Accordion ===
   const items = document.querySelectorAll(".kwcs-item");
-  items.forEach(item => {
-    const header = item.querySelector(".kwcs-header");
-    const content = item.querySelector(".kwcs-content");
+console.log("Znaleziono elementów akordeonu:", items.length);
 
-    header.addEventListener("click", () => {
-      item.classList.toggle("active");
+items.forEach(item => {
+  const header = item.querySelector(".kwcs-header");
+  console.log("Header znaleziony:", header); // test
 
-      if (item.classList.contains("active")) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        content.style.padding = "15px 20px";
-      } else {
-        content.style.maxHeight = null;
-        content.style.padding = "0 20px";
-      }
-    });
+  const content = item.querySelector(".kwcs-content");
+
+  header.addEventListener("click", () => {
+    console.log("Klik w:", header.innerText); // test
+    item.classList.toggle("active");
+
+    if (item.classList.contains("active")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.padding = "15px 20px";
+    } else {
+      content.style.maxHeight = null;
+      content.style.padding = "0 20px";
+    }
   });
-
+});
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
