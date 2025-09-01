@@ -352,29 +352,28 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   font-weight: bold;
   font-size: 1.2rem;
   transition: transform 0.3s;
+  pointer-events: none; /* żeby kliknięcie zawsze działało na całym headerze */
 }
 
 .kwcs-content {
-  max-height: 0;
+  max-height: 0; /* startowo zwinięte */
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0 20px; /* tylko boczne */
+  transition: max-height 0.35s ease;
+  padding: 0 20px; /* tylko boczne odstępy */
   background: #fff;
 }
 
 .kwcs-content ul {
-  padding: 15px 20px;
+  padding: 15px 0; /* odstęp pionowy wewnątrz */
   margin: 0;
   list-style: disc;
 }
 
 .kwcs-item.active .kwcs-content {
+  /* max-height ustawiane przez JS → tutaj tylko padding */
   padding: 15px 20px;
 }
 
 .kwcs-item.active .kwcs-header .icon {
-  transform: rotate(45deg); /* + zmienia się w × */
-}
-.kwcs-header .icon {
-  pointer-events: none;
+  transform: rotate(45deg); /* plus → krzyżyk */
 }
