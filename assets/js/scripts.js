@@ -46,6 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+  document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll(".kwcs-item");
+
+  items.forEach(item => {
+    const header = item.querySelector(".kwcs-header");
+    const content = item.querySelector(".kwcs-content");
+
+    header.addEventListener("click", () => {
+      item.classList.toggle("active");
+
+      if (item.classList.contains("active")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.padding = "15px 20px";
+      } else {
+        content.style.maxHeight = null;
+        content.style.padding = "0 20px";
+      }
+    });
+  });
+});
 
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
