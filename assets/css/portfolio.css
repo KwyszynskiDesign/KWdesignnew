@@ -314,3 +314,65 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   .hero-image{margin-top:1.5rem}
 }
 /* === END: HERO sekcja KWCS === */
+.kwcs-accordion {
+  margin-top: 30px;
+}
+
+.kwcs-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.kwcs-header {
+  width: 100%;
+  background: #f7f7f7;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kwcs-header .num {
+  font-weight: 700;
+  margin-right: 10px;
+  color: #0077cc;
+}
+
+.kwcs-header .icon {
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.kwcs-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.kwcs-content ul {
+  padding: 15px 20px;
+  margin: 0;
+  list-style: disc;
+}
+
+.kwcs-item.active .kwcs-content {
+  max-height: 500px; /* wystarczy na tekst */
+  padding: 15px 20px;
+}
+
+.kwcs-item.active .kwcs-header .icon {
+  transform: rotate(45deg); /* + zmienia się w × */
+}
