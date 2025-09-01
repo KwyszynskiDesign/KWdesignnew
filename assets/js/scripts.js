@@ -98,3 +98,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// === KWCS Accordion ===
+const items = document.querySelectorAll(".kwcs-item");
+
+items.forEach(item => {
+  const header = item.querySelector(".kwcs-header");
+  header.addEventListener("click", () => {
+    // zamknij wszystkie inne
+    items.forEach(i => {
+      if (i !== item) i.classList.remove("active");
+    });
+    // toggle klikniętego
+    item.classList.toggle("active");
+  });
+});
