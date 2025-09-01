@@ -1,13 +1,5 @@
 /*
  * JavaScript interactions for the one-page portfolio.
- *
- * Features implemented:
- *   - Mobile navigation toggle via hamburger icon
- *   - Closing mobile menu when a navigation link is clicked
- *   - Filtering portfolio items by category
- *   - Simple testimonials slider with previous/next buttons
- *   - FAQ accordions toggling open/closed
- *   - Contact form submission using Fetch to Google Apps Script
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       navList.classList.toggle('open');
     });
-    // Close menu on navigation link click
     navList.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navList.classList.remove('open');
@@ -26,29 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
- // === KWCS Accordion (wiele otwartych naraz) ===
-document.addEventListener('DOMContentLoaded', () => {
+  // === KWCS Accordion ===
   const items = document.querySelectorAll(".kwcs-item");
-
-  items.forEach(item => {
-    const header = item.querySelector(".kwcs-header");
-    const content = item.querySelector(".kwcs-content");
-
-    header.addEventListener("click", () => {
-      item.classList.toggle("active");
-
-      // płynne rozwijanie/zamykanie
-      if (item.classList.contains("active")) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      } else {
-        content.style.maxHeight = null;
-      }
-    });
-  });
-});
-  document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll(".kwcs-item");
-
   items.forEach(item => {
     const header = item.querySelector(".kwcs-header");
     const content = item.querySelector(".kwcs-content");
@@ -65,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-});
 
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -73,16 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      // Update active state
       filterButtons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-      // Show/hide items
       portfolioItems.forEach((item) => {
-        if (filter === 'all' || item.dataset.category === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
       });
     });
   });
@@ -93,9 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('.slider-btn.next');
   let currentSlide = 0;
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
   }
   if (prevBtn && nextBtn && slides.length) {
     prevBtn.addEventListener('click', () => {
@@ -122,13 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      // Replace with your Google Apps Script deployment URL
       const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
       fetch(scriptURL, {
         method: 'POST',
         body: new FormData(contactForm),
       })
-        .then((response) => {
+        .then(() => {
           alert('Dziękuję za wiadomość! Skontaktuję się wkrótce.');
           contactForm.reset();
         })
@@ -139,4 +99,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
