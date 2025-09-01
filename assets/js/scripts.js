@@ -27,18 +27,16 @@ items.forEach(item => {
 
   const content = item.querySelector(".kwcs-content");
 
-  header.addEventListener("click", () => {
-    console.log("Klik w:", header.innerText); // test
-    item.classList.toggle("active");
+header.addEventListener("click", () => {
+  console.log("Klik w:", header.innerText); // test
+  item.classList.toggle("active");
 
-    if (item.classList.contains("active")) {
-      content.style.maxHeight = content.scrollHeight + "px";
-      content.style.padding = "15px 20px";
-    } else {
-      content.style.maxHeight = null;
-      content.style.padding = "0 20px";
-    }
-  });
+  if (item.classList.contains("active")) {
+    content.style.maxHeight = content.scrollHeight + "px";
+  } else {
+    content.style.maxHeight = null;
+  }
+});
 });
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
