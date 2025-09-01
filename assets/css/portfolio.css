@@ -376,3 +376,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .kwcs-item.active .kwcs-header .icon {
   transform: rotate(45deg); /* + zmienia się w × */
 }
+.kwcs-header .icon {
+  pointer-events: none;
+}
