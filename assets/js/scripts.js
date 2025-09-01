@@ -26,6 +26,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // === KWCS Accordion ===
+const items = document.querySelectorAll(".kwcs-item");
+
+items.forEach(item => {
+  const header = item.querySelector(".kwcs-header");
+  header.addEventListener("click", () => {
+    // zamknij wszystkie inne
+    items.forEach(i => {
+      if (i !== item) i.classList.remove("active");
+    });
+    // toggle klikniętego
+    item.classList.toggle("active");
+  });
+});
+
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -99,17 +114,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// === KWCS Accordion ===
-const items = document.querySelectorAll(".kwcs-item");
-
-items.forEach(item => {
-  const header = item.querySelector(".kwcs-header");
-  header.addEventListener("click", () => {
-    // zamknij wszystkie inne
-    items.forEach(i => {
-      if (i !== item) i.classList.remove("active");
-    });
-    // toggle klikniętego
-    item.classList.toggle("active");
-  });
-});
