@@ -357,8 +357,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .kwcs-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 20px;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 20px; /* tylko boczne */
   background: #fff;
 }
 
@@ -369,7 +369,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 }
 
 .kwcs-item.active .kwcs-content {
-  max-height: 500px; /* wystarczy na tekst */
   padding: 15px 20px;
 }
 
