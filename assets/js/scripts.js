@@ -17,27 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === KWCS Accordion ===
-  const items = document.querySelectorAll(".kwcs-item");
+ // === KWCS Accordion ===
+const items = document.querySelectorAll(".kwcs-item");
 console.log("Znaleziono elementów akordeonu:", items.length);
 
 items.forEach(item => {
   const header = item.querySelector(".kwcs-header");
-  console.log("Header znaleziony:", header); // test
-
   const content = item.querySelector(".kwcs-content");
 
-header.addEventListener("click", () => {
-  console.log("Klik w:", header.innerText); // test
-  item.classList.toggle("active");
+  header.addEventListener("click", () => {
+    // zamykanie innych, jeśli chcesz tylko jeden otwarty
+    items.forEach(i => {
+      if (i !== item) {
+        i.classList.remove("active");
+        i.querySelector(".kwcs-content").style.maxHeight = null;
+      }
+    });
 
-  if (item.classList.contains("active")) {
-    content.style.maxHeight = content.scrollHeight + "px";
-  } else {
-    content.style.maxHeight = null;
-  }
+    item.classList.toggle("active");
+
+    if (item.classList.contains("active")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
+  });
 });
-});
+
   // Portfolio filtering
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioItems = document.querySelectorAll('.portfolio-item');
