@@ -203,7 +203,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
    KWCS CASE STUDY HERO
    ========================= */
 /* === START: HERO sekcja KWCS === */
-:root{
+:root {
   --kwcs-accent:#2563eb;
   --kwcs-ink:#0f172a;
   --kwcs-mute:#64748b;
@@ -211,9 +211,19 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   --kwcs-wrap:1180px;
   --kwcs-padX:clamp(16px,4vw,32px);
 }
-.kwcs{color:var(--kwcs-ink); font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;}
-.kwcs .wrap{max-width:var(--kwcs-wrap); margin:0 auto; padding:0 var(--kwcs-padX);}
 
+.kwcs {
+  color:var(--kwcs-ink);
+  font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif;
+}
+
+.kwcs .wrap {
+  max-width:var(--kwcs-wrap);
+  margin:0 auto;
+  padding:0 var(--kwcs-padX);
+}
+
+/* === HERO HEAD === */
 .kwcs-hero-head {
   text-align:center;
   padding:clamp(28px,6vw,56px) var(--kwcs-padX) 0;
@@ -230,6 +240,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   color:var(--kwcs-mute);
 }
 
+/* === HERO BODY === */
 .kwcs-hero-body {
   padding:clamp(28px,6vw,56px) var(--kwcs-padX);
 }
@@ -279,41 +290,68 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 }
 
 /* Sekcje */
-.kwcs-sec{padding:clamp(28px,6vw,56px) 0}
-.kwcs-sec h2{font-size:clamp(20px,3vw,26px); margin:0 0 .6rem}
-.kwcs-trio{display:grid; gap:20px; grid-template-columns:repeat(3,1fr); margin:28px 0}
-@media (max-width:980px){ .kwcs-trio{grid-template-columns:1fr} }
-.kwcs-card{background:#fff; border:1px solid #e6e9ef; border-radius:16px; padding:20px; box-shadow:0 6px 30px rgba(2,6,23,.04)}
-.kwcs-card h3{margin:0 0 .4rem; font-size:1.05rem}
-.kwcs-card ul{margin:.35rem 0 0 1.1rem}
-.kwcs-card li{margin:.25rem 0; color:var(--kwcs-mute)}
-
-.kwcs-steps{margin:10px 0 8px}
-.kwcs-step{display:grid; grid-template-columns:44px 1fr; gap:14px; padding:16px;
-  background:#fff; border:1px solid #e6e9ef; border-radius:14px; margin:12px 0;
-  transition:box-shadow .2s,border-color .2s}
-.kwcs-step:hover{box-shadow:0 10px 26px rgba(2,6,23,.06); border-color:#dbe1ea}
-.kwcs-step .num{
-  width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
-  background:var(--kwcs-bg); font-weight:800; color:var(--kwcs-accent)
+.kwcs-sec {
+  padding:clamp(28px,6vw,56px) 0;
 }
-.kwcs-step h4{margin:0; font-size:1rem}
-.kwcs-step li{color:var(--kwcs-mute)}
-.kwcs-step ul{margin:.25rem 0 0 1.1rem}
-
-.kwcs-result{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-  gap:18px; background:linear-gradient(180deg,#ffffff,#f4f7fb);
-  border:1px solid #e6e9ef; border-radius:16px; padding:18px
+.kwcs-sec h2 {
+  font-size:clamp(20px,3vw,26px);
+  margin:0 0 .6rem;
 }
-.kwcs-result p{margin:0; font-weight:600}
+.kwcs-trio {
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(3,1fr);
+  margin:28px 0;
+}
+@media (max-width:980px){
+  .kwcs-trio{grid-template-columns:1fr;}
+}
+.kwcs-card {
+  background:#fff;
+  border:1px solid #e6e9ef;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 6px 30px rgba(2,6,23,.04);
+}
+.kwcs-card h3 {
+  margin:0 0 .4rem;
+  font-size:1.05rem;
+}
+.kwcs-card ul {
+  margin:.35rem 0 0 1.1rem;
+}
+.kwcs-card li {
+  margin:.25rem 0;
+  color:var(--kwcs-mute);
+}
+
+/* Result */
+.kwcs-result {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  background:linear-gradient(180deg,#ffffff,#f4f7fb);
+  border:1px solid #e6e9ef;
+  border-radius:16px;
+  padding:18px;
+}
+.kwcs-result p {
+  margin:0;
+  font-weight:600;
+}
 
 @media (max-width:900px){
   .kwcs-hero-body .inner{grid-template-columns:1fr; text-align:center;}
   .hero-buttons{align-items:center;}
-  .hero-image{margin-top:1.5rem}
+  .hero-image{margin-top:1.5rem;}
 }
+
 /* === END: HERO sekcja KWCS === */
+
+
+/* === START: ACCORDION === */
 .kwcs-accordion {
   margin-top: 30px;
 }
@@ -325,6 +363,10 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   overflow: hidden;
   background: #fff;
   box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+}
+.kwcs-item.active {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
 .kwcs-header {
@@ -341,39 +383,37 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   align-items: center;
   justify-content: space-between;
 }
-
 .kwcs-header .num {
   font-weight: 700;
   margin-right: 10px;
   color: #0077cc;
 }
-
 .kwcs-header .icon {
   font-weight: bold;
   font-size: 1.2rem;
   transition: transform 0.3s;
-  pointer-events: none; /* żeby kliknięcie zawsze działało na całym headerze */
+  pointer-events: none;
 }
 
+/* Kontent akordeonu */
 .kwcs-content {
-  max-height: 0; /* startowo zwinięte */
+  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease;
-  padding: 0 20px; /* tylko boczne odstępy */
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 20px;
   background: #fff;
 }
-
 .kwcs-content ul {
-  padding: 15px 0; /* odstęp pionowy wewnątrz */
+  padding: 15px 0;
   margin: 0;
   list-style: disc;
 }
 
+/* Po rozwinięciu */
 .kwcs-item.active .kwcs-content {
-  /* max-height ustawiane przez JS → tutaj tylko padding */
   padding: 15px 20px;
 }
-
 .kwcs-item.active .kwcs-header .icon {
-  transform: rotate(45deg); /* plus → krzyżyk */
+  transform: rotate(45deg);
 }
+/* === END: ACCORDION === */
