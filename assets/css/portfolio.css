@@ -417,3 +417,25 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   transform: rotate(45deg);
 }
 /* === END: ACCORDION === */
+/* Akordeon – stan ukryty/animacje */
+.kwcs-accordion .kwcs-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .3s ease;
+}
+
+/* (opcjonalnie) estetyka nagłówka akordeonu */
+.kwcs-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  cursor: pointer;
+  user-select: none;
+}
+.kwcs-header .icon {
+  margin-left: auto;
+  font-weight: 700;
+}
+.kwcs-item.open .kwcs-header .icon {
+  /* ikona nadpisywana JS-em na „–”, CSS niekonieczny */
+}
