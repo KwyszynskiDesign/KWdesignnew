@@ -2,21 +2,31 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Case Study – Power of Mind</title>
 
-  <!-- STYLE -->
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/portfolio.css">
-<script src="assets/js/scripts.js" defer></script>
+  <!--
+    USTAWIAMY JEDEN KORZEŃ ŚCIEŻEK (ważne dla GitHub Pages).
+    Dzięki <base> wszystkie ścieżki względne typu "assets/..." będą liczone
+    od repo: https://kwyszynskidesign.github.io/KWdesignnew/
+    Jeśli hostujesz gdzie indziej – podmień href poniżej.
+  -->
+  <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
 
+  <!-- STYLE (bez wiodącego / – bo mamy <base>) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
 
-
+  <!-- Minimalne style akordeonu na wypadek, gdyby portfolio.css nie doszedł -->
+  <style>
+    .kwcs-accordion .kwcs-content{overflow:hidden;max-height:0;transition:max-height .3s ease}
+    .kwcs-header{display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
+    .kwcs-header .icon{margin-left:auto;font-weight:700}
+  </style>
 </head>
 <body class="portfolio-page page-powerofmind">
 
-<section class="kwcs" id="case-powerofmind">
-
+<section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind">
   <!-- Nagłówek globalny -->
   <div class="kwcs-hero-head">
     <div class="wrap">
@@ -42,7 +52,8 @@
 
       <!-- Prawa kolumna: mockup -->
       <div class="hero-image">
-        <img class="cover" src="assets/images/stronaPower.png" alt="Podgląd strony Power of Mind">
+        <!-- Ścieżka względem <base> -->
+        <img class="cover" src="assets/images/stronaPower.png" alt="Podgląd strony Power of Mind" loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -83,15 +94,14 @@
       <h2>Proces w 5 etapach</h2>
 
       <div class="kwcs-accordion">
-
         <!-- ETAP I -->
         <div class="kwcs-item">
-          <button class="kwcs-header">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">I</span>
             🎯 Przygotowania do projektowania
             <span class="icon">+</span>
           </button>
-          <div class="kwcs-content">
+          <div class="kwcs-content" role="region" aria-hidden="true">
             <ul>
               <li>Zbieranie informacji o potrzebach klientki.</li>
               <li>Poznanie wizji i oczekiwań; pytania angażujące.</li>
@@ -102,12 +112,12 @@
 
         <!-- ETAP II -->
         <div class="kwcs-item">
-          <button class="kwcs-header">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">II</span>
             🧠 Pierwsze kroki w projektach
             <span class="icon">+</span>
           </button>
-          <div class="kwcs-content">
+          <div class="kwcs-content" role="region" aria-hidden="true">
             <ul>
               <li>Wykonanie pierwszych przykładów.</li>
               <li>Podsumowanie informacji i wstępna struktura.</li>
@@ -118,12 +128,12 @@
 
         <!-- ETAP III -->
         <div class="kwcs-item">
-          <button class="kwcs-header">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">III</span>
             ⚙️ Proces
             <span class="icon">+</span>
           </button>
-          <div class="kwcs-content">
+          <div class="kwcs-content" role="region" aria-hidden="true">
             <ul>
               <li>Wykup domeny i hostingu.</li>
               <li>Konfiguracja poczty/serwera i elementów wymaganych.</li>
@@ -136,12 +146,12 @@
 
         <!-- ETAP IV -->
         <div class="kwcs-item">
-          <button class="kwcs-header">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">IV</span>
             ✨ Prezentacja
             <span class="icon">+</span>
           </button>
-          <div class="kwcs-content">
+          <div class="kwcs-content" role="region" aria-hidden="true">
             <ul>
               <li>Omówienie prac i podsumowanie procesu.</li>
               <li>Szacunek czasu na kolejne kroki, analiza zawartości.</li>
@@ -152,12 +162,12 @@
 
         <!-- ETAP V -->
         <div class="kwcs-item">
-          <button class="kwcs-header">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">V</span>
             🛠️ Poprawki I
             <span class="icon">+</span>
           </button>
-          <div class="kwcs-content">
+          <div class="kwcs-content" role="region" aria-hidden="true">
             <ul>
               <li>Analiza struktur i doprecyzowanie informacji.</li>
               <li>Prezentacja procesów, podpięcie do struktur.</li>
@@ -177,5 +187,57 @@
   </div>
 </section>
 
+<!--
+  JS:
+  1) Łączymy globalny scripts.js (jeśli używasz go w całym serwisie).
+  2) Dodajemy mini-init akordeonu INLINE (działa solo i po wstrzyknięciu).
+-->
+<script src="assets/js/scripts.js" defer></script>
+<script>
+/* Akordeon – działa nawet, gdy ta sekcja jest wstrzyknięta innerHTML.
+   - Jeśli masz window.KW.initCaseStudy (z mojej poprzedniej wiadomości), to go wywołujemy.
+   - W przeciwnym razie podpinamy prostą obsługę tutaj. */
+(function(){
+  function bindAccordion(root){
+    const acc = root.querySelector('.kwcs-accordion');
+    if (!acc || acc.__bound) return;
+    acc.__bound = true;
+
+    acc.addEventListener('click', (e) => {
+      const btn = e.target.closest('.kwcs-header');
+      if (!btn) return;
+      const item = btn.closest('.kwcs-item');
+      const content = item.querySelector('.kwcs-content');
+      const icon = btn.querySelector('.icon');
+
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      content.setAttribute('aria-hidden', open ? 'false' : 'true');
+      content.style.maxHeight = open ? (content.scrollHeight + 'px') : '';
+      if (icon) icon.textContent = open ? '–' : '+';
+    });
+
+    // stan początkowy
+    acc.querySelectorAll('.kwcs-item').forEach(item => {
+      const btn = item.querySelector('.kwcs-header');
+      const content = item.querySelector('.kwcs-content');
+      const icon = item.querySelector('.kwcs-header .icon');
+      item.classList.remove('open');
+      btn && btn.setAttribute('aria-expanded','false');
+      content && content.setAttribute('aria-hidden','true');
+      content && (content.style.maxHeight = '');
+      icon && (icon.textContent = '+');
+    });
+  }
+
+  // Jeśli istnieje globalny init – użyj go
+  if (window.KW && typeof window.KW.initCaseStudy === 'function') {
+    window.KW.initCaseStudy(document);
+  } else {
+    // Fallback: podpinamy tylko akordeon
+    bindAccordion(document);
+  }
+})();
+</script>
 </body>
 </html>
