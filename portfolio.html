@@ -5,17 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio projektów | KWdesignnew</title>
 
-  <!-- 1) Ustal bazę ścieżek dla całego serwisu (GH Pages) -->
-  <!-- Jeśli zmienisz nazwę repo lub domenę – zaktualizuj href poniżej -->
+  <!-- Baza ścieżek (GH Pages) -->
   <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
 
-  <!-- 2) Fonts + style (krótkie ścieżki działają dzięki <base>) -->
+  <!-- Fonts + style -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
 
-  <!-- (opcjonalny) minimalny fallback dla animacji viewera -->
+  <!-- Dodatkowe style dla karuzeli (3 widoczne kafle + strzałki na dole) -->
   <style>
+    :root{
+      --car-gap: 16px;          /* odstęp między kaflami */
+      --car-pad: 0px;           /* wewnętrzne paddingi lewy/prawy toru; zwykle 0 */
+      --car-arrow-gap: 10px;    /* odstęp między strzałkami */
+    }
+
+    .carousel-outer{
+      position: relative;
+      overflow: hidden;           /* tniemy nadmiar */
+      padding-bottom: 56px;       /* miejsce na strzałki na dole */
+    }
+
+    /* Tor jako grid kolumnowy – zawsze 3 kolumny mieszczą się w 100% szerokości toru */
+    .carousel-track{
+      display: grid;
+      grid-auto-flow: column;
+      gap: var(--car-gap);
+      grid-auto-columns: calc((100% - (var(--car-gap) * 2)) / 3);
+      overflow-x: auto;
+      padding-inline: var(--car-pad);
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    /* ukrycie pasków przewijania */
+    .carousel-track::-webkit-scrollbar{ display: none; }
+    .carousel-track{ scrollbar-width: none; }
+
+    .carousel-item{
+      scroll-snap-align: start;
+    }
+
+    /* Strzałki – na dole i wycentrowane */
+    .carousel-controls{
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--car-arrow-gap);
+      z-index: 2;
+    }
+    .carousel-nav{
+      width: 42px; height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.1);
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      user-select: none;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .carousel-nav:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+    .carousel-nav:active{ transform: translateY(0); }
+    .carousel-nav[disabled]{ opacity: .45; cursor: not-allowed; }
+
+    /* Viewer – miękkie wejście + przycisk Zamknij */
     .project-viewer{opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
     .project-viewer.open{opacity:1;transform:none}
     .close-button{position:sticky;top:0;margin:0 0 16px auto;padding:10px 14px;border-radius:999px;border:1px solid rgba(0,0,0,.1);background:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06)}
@@ -52,7 +113,7 @@
 
     <!-- Karuzela skrótów projektów -->
     <div class="carousel-outer" aria-label="Lista projektów">
-      <div class="carousel-track" tabindex="0">
+      <div class="carousel-track" tabindex="0" aria-live="polite">
         <!-- ID = slug, data-project = plik w /projects -->
         <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.php">
           <div class="ci-thumb">
@@ -97,8 +158,11 @@
         </div>
       </div>
 
-      <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
-      <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
+      <!-- Strzałki przeniesione na dół i wycentrowane -->
+      <div class="carousel-controls" aria-hidden="false">
+        <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
+        <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
+      </div>
     </div>
   </section>
 
@@ -114,7 +178,7 @@
     </div>
   </footer>
 
-  <!-- JS (inline – zero zależności, wszystko w tym pliku) -->
+  <!-- JS -->
   <script>
     // Rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -134,19 +198,40 @@
     const nextBtn = document.querySelector('.carousel-nav.next');
     const projectViewer = document.getElementById('project-viewer');
 
+    // ZAWSZE 3 widoczne – liczymy realną szerokość jednego kafla (uwzględnia gap)
+    function getItemWidth(){
+      const first = track.querySelector('.carousel-item');
+      if (!first) return 0;
+      // offsetWidth kafla już zawiera padding/border, gap doliczamy osobno przy przewijaniu wielu
+      return first.offsetWidth + parseFloat(getComputedStyle(track).gap || 0);
+    }
+    const VISIBLE_COUNT = 3;
+
+    function updateArrows(){
+      // Blokujemy wstecz jeśli jesteśmy na początku, dalej jeśli na końcu
+      const maxScroll = track.scrollWidth - track.clientWidth - 1; // -1 dla ułamków
+      prevBtn.disabled = track.scrollLeft <= 0;
+      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    }
+
+    function scrollByItems(count){
+      const delta = getItemWidth() * count;
+      track.scrollBy({ left: delta, behavior: 'smooth' });
+      // po animacji jeszcze raz zaktualizuj (małe opóźnienie)
+      setTimeout(updateArrows, 350);
+    }
+
     function scrollToActive(item) {
       const trackRect = track.getBoundingClientRect();
       const itemRect = item.getBoundingClientRect();
       const left = track.scrollLeft + (itemRect.left - trackRect.left) - (trackRect.width - itemRect.width) / 2;
       track.scrollTo({ left, behavior: 'smooth' });
+      setTimeout(updateArrows, 350);
     }
 
-    prevBtn.addEventListener('click', () => {
-      track.scrollBy({ left: -track.offsetWidth * 0.6, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      track.scrollBy({ left: track.offsetWidth * 0.6, behavior: 'smooth' });
-    });
+    // Strzałki przewijają o 3 kafle
+    prevBtn.addEventListener('click', () => scrollByItems(-VISIBLE_COUNT));
+    nextBtn.addEventListener('click', () => scrollByItems(+VISIBLE_COUNT));
 
     // Klik w miniaturę projektu
     track.addEventListener('click', async (e) => {
@@ -162,7 +247,7 @@
       const file = item.getAttribute('data-project');
       await openProject(file);
 
-      // Dopisz hash do URL (deep-link)
+      // Deep-link
       history.replaceState(null, '', '#' + item.id);
     });
 
@@ -192,14 +277,11 @@
       const scripts = Array.from(container.querySelectorAll('script'));
       scripts.forEach(old => {
         const s = document.createElement('script');
-        // przenieś atrybuty
         Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
-        // przenieś inline code
         if (old.textContent) s.textContent = old.textContent;
 
         const src = s.getAttribute('src');
         if (src) {
-          // uniknij duplikacji tego samego zewn. skryptu
           const already = Array.from(document.scripts).some(x => x.src && x.src.endsWith(src));
           if (!already) document.body.appendChild(s);
         } else {
@@ -208,7 +290,7 @@
       });
     }
 
-    // Fallback: akordeon dla treści case study (gdy projekt nie ma własnego JS)
+    // Fallback: akordeon w treści case study
     function bindKWAccordion(root){
       const acc = root.querySelector('.kwcs-accordion');
       if (!acc || acc.__bound) return;
@@ -254,14 +336,13 @@
         projectViewer.classList.add('hidden');
         projectViewer.classList.remove('open');
         track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
-        // reset hash
         history.replaceState(null, '', location.pathname + location.search);
       });
 
       const content = document.createElement('div');
       content.className = 'project-content';
 
-      // Jeśli przypadkiem przyszła cała strona HTML – wytnij tylko sekcję z projektem
+      // Jeśli przyszedł pełny HTML – wytnij tylko sekcję projektu
       const maybeSection = html.match(/<section[^>]*class=["'][^"']*kwcs[^"']*["'][^>]*>[\s\S]*?<\/section>/i);
       content.innerHTML = maybeSection ? maybeSection[0] : html;
 
@@ -269,24 +350,17 @@
       projectViewer.appendChild(content);
       projectViewer.classList.remove('hidden');
 
-      // animacja wejścia
       requestAnimationFrame(() => projectViewer.classList.add('open'));
 
-      // 1) Jeśli załadowany HTML zawierał <script> – odpal je
       executeScripts(content);
 
-      // 2) Jeśli masz globalny init case study – użyj go
       if (window.KW && typeof window.KW.initCaseStudy === 'function') {
         window.KW.initCaseStudy(content);
       } else {
-        // 3) Fallback: podłącz akordeon
         bindKWAccordion(content);
       }
 
-      // ESC zamyka viewer
-      const onEsc = (e) => {
-        if (e.key === 'Escape') { closeBtn.click(); document.removeEventListener('keydown', onEsc); }
-      };
+      const onEsc = (e) => { if (e.key === 'Escape') { closeBtn.click(); document.removeEventListener('keydown', onEsc); } };
       document.addEventListener('keydown', onEsc);
 
       projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -320,8 +394,11 @@
       if (e.key === 'ArrowRight') nextBtn.click();
     });
 
-    // Deep-link z hash: portfolio.html#marka-f => kliknie właściwy kafel
+    // Aktualizacja stanu strzałek przy przewijaniu i na starcie
+    track.addEventListener('scroll', () => { updateArrows(); });
+    window.addEventListener('resize', () => { updateArrows(); });
     document.addEventListener('DOMContentLoaded', () => {
+      updateArrows();
       const slug = location.hash ? location.hash.slice(1) : '';
       if (!slug) return;
       const item = document.getElementById(slug);
