@@ -189,3 +189,56 @@ function initDynamicContent() {
   // Tutaj można dodać inne skrypty, które są potrzebne dla dynamicznie ładowanych projektów
   // np. Lightbox, galerii, itp.
 }
+
+/* Akordeon dla .kwcs-accordion  -----------------------------------------
+   Działa dla markup:
+   .kwcs-accordion
+     .kwcs-item
+       button.kwcs-header > .icon (+/-)
+       .kwcs-content (ukryta na start)
+------------------------------------------------------------------------- */
+
+(function initKWAccordion(){
+  // Szukamy wszystkich akordeonów na stronie
+  const accordions = document.querySelectorAll('.kwcs-accordion');
+  if (!accordions.length) return;
+
+  accordions.forEach(acc => {
+    // unikamy podwójnego bindowania
+    if (acc.__bound) return;
+    acc.__bound = true;
+
+    acc.addEventListener('click', (e) => {
+      const header = e.target.closest('.kwcs-header');
+      if (!header || !acc.contains(header)) return;
+
+      const item = header.closest('.kwcs-item');
+      const content = item.querySelector('.kwcs-content');
+      const icon = header.querySelector('.icon');
+
+      const isOpen = item.classList.toggle('open');
+      if (isOpen) {
+        // płynne rozwinięcie – ustawiamy max-height na realną wysokość
+        content.style.maxHeight = content.scrollHeight + 'px';
+        if (icon) icon.textContent = '–';
+      } else {
+        // zwijanie
+        content.style.maxHeight = '';
+        if (icon) icon.textContent = '+';
+      }
+    });
+
+    // (opcjonalnie) zamknij inne po otwarciu jednego
+    // acc.addEventListener('click', (e) => { ... })
+
+    // Inicjalny stan: wszystko zamknięte (upewniamy się)
+    acc.querySelectorAll('.kwcs-item').forEach(item => {
+      const content = item.querySelector('.kwcs-content');
+      const icon = item.querySelector('.kwcs-header .icon');
+      item.classList.remove('open');
+      if (content) content.style.maxHeight = '';
+      if (icon) icon.textContent = '+';
+    });
+  });
+})();
+
