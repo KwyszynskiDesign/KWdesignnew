@@ -51,32 +51,57 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   --ci-thumb:112px;    /* bok kwadratu na logo */
   --ci-pad:14px;       /* padding w kaflu */
   --ci-gap:16px;       /* odstęp między thumb a tytułem */
+  --ci-gap-track:36px; /* odstęp między kaflami */
 }
 
 /* --- PORTFOLIO KARUZELA --- */
 .carousel-outer{
   width:100%; max-width:1120px;
-  display:flex; align-items:center; justify-content:center; gap:18px;
-  margin:0 auto 4vh auto; background:transparent; z-index:6; pointer-events:none;
+  margin:0 auto 4vh auto;
+  background:transparent;
+  z-index:6;
+  position:relative; /* potrzebne pod strzałki */
+  pointer-events:none;
+  padding-bottom:70px; /* miejsce na strzałki */
+  display:flex;
+  justify-content:center;
 }
 .carousel-outer>.carousel-nav,
 .carousel-outer>.carousel-track{pointer-events:auto;}
 
 .carousel-track{
-  display:flex; gap:36px; overflow:auto; scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none;
-  padding:0 2vw 12px; width:100%; max-width:920px; min-height:172px; scroll-snap-type:x mandatory; align-items:flex-end;
-  position:relative; z-index:6;
-  overflow:visible; isolation:isolate;
+  display:flex;
+  gap:var(--ci-gap-track);
+  scroll-behavior:smooth;
+  scrollbar-width:none; -ms-overflow-style:none;
+  width:100%;
+  max-width:920px;
+  min-height:var(--ci-h);
+  align-items:flex-end;
+  position:relative;
+  z-index:6;
+  overflow:hidden; /* ukrywa nadmiar, widoczne tylko 3 kafle */
+  isolation:isolate;
 }
 .carousel-track::-webkit-scrollbar{display:none}
 
 .carousel-item{
-  background:#fff; border-radius:20px; box-shadow:0 2px 20px rgba(24,52,88,.09);
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 2px 20px rgba(24,52,88,.09);
   width:var(--ci-w); min-width:var(--ci-w); height:var(--ci-h);
-  padding:var(--ci-pad); text-align:center; cursor:pointer; user-select:none; border:2px solid transparent;
+  padding:var(--ci-pad);
+  text-align:center;
+  cursor:pointer; user-select:none;
+  border:2px solid transparent;
   transition:box-shadow .22s, border-color .22s, transform .24s cubic-bezier(.41,.89,.52,1.2);
-  will-change:transform; scroll-snap-align:center; position:relative; z-index:7; font-family:'Poppins',sans-serif;
-  display:flex; flex-direction:column; justify-content:flex-start; align-items:center; gap:var(--ci-gap);
+  will-change:transform;
+  scroll-snap-align:center;
+  position:relative; z-index:7;
+  font-family:'Poppins',sans-serif;
+  display:flex; flex-direction:column; justify-content:flex-start; align-items:center;
+  gap:var(--ci-gap);
+  flex:0 0 auto;
 }
 .ci-thumb{
   width:var(--ci-thumb); height:var(--ci-thumb); padding:8px; border-radius:16px;
@@ -102,13 +127,28 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   border-color:#175bf7; box-shadow:0 12px 42px rgba(23,91,247,.20);
   transform:translateY(-12px) scale(1.05); z-index:9;
 }
+
+/* --- STRZAŁKI NA DOLE, CENTER --- */
 .carousel-nav{
-  background:#f4f7fc; border:none; border-radius:50%; font-size:2.1rem; width:46px; height:46px; min-width:46px; min-height:46px;
-  cursor:pointer; transition:background .18s, box-shadow .18s; box-shadow:0 2px 10px rgba(40,86,170,.08); color:#194c92;
-  display:flex; align-items:center; justify-content:center; margin:0 12px; z-index:10;
+  background:#f4f7fc;
+  border:none; border-radius:50%;
+  font-size:2.1rem;
+  width:46px; height:46px;
+  min-width:46px; min-height:46px;
+  cursor:pointer;
+  transition:background .18s, box-shadow .18s;
+  box-shadow:0 2px 10px rgba(40,86,170,.08);
+  color:#194c92;
+  display:flex; align-items:center; justify-content:center;
+  position:absolute;
+  bottom:10px;
+  z-index:10;
 }
+.carousel-nav.prev{ left:50%; transform:translateX(-120%); }
+.carousel-nav.next{ left:50%; transform:translateX(20%); }
 .carousel-nav:hover,.carousel-nav:focus-visible{background:#e3ecff; outline:none}
 
+/* --- PROJECT VIEWER --- */
 .project-viewer{
   margin:0 auto 66px auto; padding:0 16px 48px; max-width:850px; transition:max-height .42s;
   position:relative; background:none; font-family:'Poppins',sans-serif;
@@ -127,6 +167,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .error-msg{color:#d52b1e; background:#ffeded; border-radius:12px; padding:24px 14px; margin:32px auto; text-align:center; font-weight:600; font-size:1.1rem; font-family:'Poppins',sans-serif;}
 .carousel-track:after{content:''; display:none; pointer-events:none;}
 
+/* --- RESPONSYWNOŚĆ --- */
 @media (max-width:900px){
   .carousel-track{max-width:96vw}
   .carousel-outer{max-width:99vw}
@@ -198,6 +239,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 .lightbox img{max-width:92vw; max-height:90vh; border-radius:14px; box-shadow:0 10px 40px rgba(0,0,0,.45)}
 .lightbox__close{position:fixed; top:20px; right:24px; background:#fff; border:0; border-radius:999px; font-size:14px; padding:8px 11px; cursor:pointer}
 .cta-center{text-align:center; margin-top:40px}
+
 
 /* =========================
    KWCS CASE STUDY HERO
