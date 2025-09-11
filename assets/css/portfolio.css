@@ -49,12 +49,12 @@ body.portfolio-page .hero-section{
   --car-gap: 18px;      
   --car-pad: 0px;       
   --car-arrow-gap: 10px;
-  --card-h: 320px;
+  --card-h: 360px;
 }
 .carousel-outer{
   position: relative;
   overflow: hidden;
-  padding-bottom: 72px;
+  padding-bottom: 0; /* nie robimy sztucznej przestrzeni, bo strzałki są osobno */
 }
 .carousel-track{
   display: grid;
@@ -99,7 +99,7 @@ body.portfolio-page .hero-section{
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 60%;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -118,16 +118,13 @@ body.portfolio-page .hero-section{
   transform: scale(1.02);
 }
 
-/* --- STRZAŁKI --- */
+/* --- STRZAŁKI POD KARUZELOM --- */
 .carousel-controls{
-  position: absolute;
-  left: 50%;
-  bottom: 16px;
-  transform: translateX(-50%);
-  display: inline-flex;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: var(--car-arrow-gap);
-  z-index: 2;
 }
 .carousel-nav{
   width: 42px; height: 42px;
@@ -204,6 +201,14 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
 /* =========================
    KWCS CASE STUDY HERO
    ========================= */
+:root {
+  --kwcs-accent:#2563eb;
+  --kwcs-ink:#0f172a;
+  --kwcs-mute:#64748b;
+  --kwcs-bg:#fff;
+  --kwcs-wrap:1180px;
+  --kwcs-padX:clamp(16px,4vw,32px);
+}
 .kwcs { color:var(--kwcs-ink); font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,sans-serif; }
 .kwcs .wrap { max-width:var(--kwcs-wrap); margin:0 auto; padding:0 var(--kwcs-padX); }
 .kwcs-hero-head { text-align:center; padding:clamp(28px,6vw,56px) var(--kwcs-padX) 0; }
