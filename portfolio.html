@@ -12,70 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
-
-  <!-- Dodatkowe style: 3 kafle + strzałki na dole -->
-  <style>
-    :root{
-      --car-gap: 16px;      /* odstęp między kaflami */
-      --car-pad: 0px;       /* wewnętrzne paddingi lewy/prawy toru */
-      --car-arrow-gap: 10px;
-    }
-
-    .carousel-outer{
-      position: relative;
-      overflow: hidden;
-      padding-bottom: 56px; /* miejsce na strzałki na dole */
-    }
-
-    /* tor: grid kolumnowy => zawsze 3 widać */
-    .carousel-track{
-      display: grid;
-      grid-auto-flow: column;
-      gap: var(--car-gap);
-      grid-auto-columns: calc((100% - (var(--car-gap) * 2)) / 3);
-      overflow-x: auto;
-      padding-inline: var(--car-pad);
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-    }
-    .carousel-track::-webkit-scrollbar{ display: none; }
-    .carousel-track{ scrollbar-width: none; }
-
-    .carousel-item{ scroll-snap-align: start; }
-
-    /* strzałki na dole, wycentrowane */
-    .carousel-controls{
-      position: absolute;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%);
-      display: inline-flex;
-      align-items: center;
-      gap: var(--car-arrow-gap);
-      z-index: 2;
-    }
-    .carousel-nav{
-      width: 42px; height: 42px;
-      display: inline-grid; place-items: center;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.1);
-      background: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,.08);
-      cursor: pointer;
-      font-size: 20px; line-height: 1;
-      user-select: none;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .carousel-nav:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
-    .carousel-nav[disabled]{ opacity:.45; cursor:not-allowed; }
-
-    /* viewer – subtelne wejście */
-    .project-viewer{opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
-    .project-viewer.open{opacity:1;transform:none}
-    .close-button{position:sticky;top:0;margin:0 0 16px auto;padding:10px 14px;border-radius:999px;border:1px solid rgba(0,0,0,.1);background:#fff;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.06)}
-    .close-button:hover{transform:translateY(-1px)}
-  </style>
 </head>
 <body class="portfolio-page">
 
@@ -108,53 +44,72 @@
     <!-- Karuzela -->
     <div class="carousel-outer" aria-label="Lista projektów">
       <div class="carousel-track" tabindex="0" aria-live="polite">
-        <!-- ID = slug, data-project = NAZWA PLIKU W /projects/ -->
+
+        <!-- DUPLIKATY NA POCZĄTEK -->
+        <div class="carousel-item clone">
+          <h3>Strona – Karoma</h3>
+          <div class="ci-image">
+            <img src="assets/images/Karoma_NewLogo.png" alt="Strona – Karoma" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="carousel-item clone">
+          <h3>Pakiet – Power of Mind</h3>
+          <div class="ci-image">
+            <img src="assets/images/do SEO 1200x630.png" alt="Pakiet – Power of Mind" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div class="carousel-item clone">
+          <h3>Logo – Marka D</h3>
+          <div class="ci-image">
+            <img src="assets/images/placeholder.jpg" alt="Logo – Marka D" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        <!-- ORYGINALNE KARTY -->
         <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.php">
-          <div class="ci-thumb">
+          <h3>Voucher – Salon u Magdy</h3>
+          <div class="ci-image">
             <img src="assets/images/Voucher Fryzjer_druk_KW-1.png" alt="Voucher – Salon u Magdy" loading="lazy" decoding="async" />
           </div>
-          <h3>Voucher – Salon u Magdy</h3>
         </div>
 
         <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
-          <div class="ci-thumb">
+          <h3>Strona – Karoma</h3>
+          <div class="ci-image">
             <img src="assets/images/Karoma_NewLogo.png" alt="Strona – Karoma" loading="lazy" decoding="async" />
           </div>
-          <h3>Strona – Karoma</h3>
         </div>
 
-        <!-- UPEWNIJ SIĘ, że plik w /projects/ nazywa się dokładnie tak: power-of-mind.html -->
         <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
-          <div class="ci-thumb">
+          <h3>Pakiet – Power of Mind</h3>
+          <div class="ci-image">
             <img src="assets/images/do SEO 1200x630.png" alt="Pakiet – Power of Mind" loading="lazy" decoding="async" />
           </div>
-          <h3>Pakiet – Power of Mind</h3>
         </div>
 
         <div id="logo-marka-d" class="carousel-item" data-project="logo-marka-d.html">
-          <div class="ci-thumb">
+          <h3>Logo – Marka D</h3>
+          <div class="ci-image">
             <img src="assets/images/placeholder.jpg" alt="Logo – Marka D" loading="lazy" decoding="async" />
           </div>
-          <h3>Logo – Marka D</h3>
         </div>
 
         <div id="strona-marka-e" class="carousel-item" data-project="strona-marka-e.html">
-          <div class="ci-thumb">
+          <h3>Strona – Marka E</h3>
+          <div class="ci-image">
             <img src="assets/images/placeholder.jpg" alt="Strona – Marka E" loading="lazy" decoding="async" />
           </div>
-          <h3>Strona – Marka E</h3>
         </div>
 
-        <!-- UPEWNIJ SIĘ: projects/marka-f.html faktycznie istnieje -->
         <div id="marka-f" class="carousel-item" data-project="marka-f.html">
-          <div class="ci-thumb">
+          <h3>Pakiet – Marka F</h3>
+          <div class="ci-image">
             <img src="assets/images/placeholder.jpg" alt="Pakiet – Marka F" loading="lazy" decoding="async" />
           </div>
-          <h3>Pakiet – Marka F</h3>
         </div>
       </div>
 
-      <!-- Strzałki na dole, środek -->
+      <!-- Strzałki -->
       <div class="carousel-controls" aria-hidden="false">
         <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
         <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
@@ -176,10 +131,7 @@
 
   <!-- JS -->
   <script>
-    // Rok w stopce
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Hamburger
     (function(){
       const burger = document.querySelector('.hamburger');
       const navList = document.querySelector('.nav-list');
@@ -188,13 +140,11 @@
       }
     })();
 
-    // ---- Karuzela + viewer ----
     const track = document.querySelector('.carousel-track');
     const prevBtn = document.querySelector('.carousel-nav.prev');
     const nextBtn = document.querySelector('.carousel-nav.next');
     const projectViewer = document.getElementById('project-viewer');
 
-    // Szerokość jednego kafla (z gapem)
     function getItemWidth(){
       const first = track.querySelector('.carousel-item');
       if (!first) return 0;
@@ -214,179 +164,28 @@
       setTimeout(updateArrows, 350);
     }
 
-    function scrollToActive(item) {
-      const trackRect = track.getBoundingClientRect();
-      const itemRect = item.getBoundingClientRect();
-      const left = track.scrollLeft + (itemRect.left - trackRect.left) - (trackRect.width - itemRect.width) / 2;
-      track.scrollTo({ left, behavior: 'smooth' });
-      setTimeout(updateArrows, 350);
-    }
-
-    // Strzałki przewijają o 3
     prevBtn.addEventListener('click', () => scrollByItems(-VISIBLE_COUNT));
     nextBtn.addEventListener('click', () => scrollByItems(+VISIBLE_COUNT));
 
-    // Klik w kafel
     track.addEventListener('click', async (e) => {
       const item = e.target.closest('.carousel-item[data-project]');
       if (!item) return;
-
       track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
       item.classList.add('active');
-      scrollToActive(item);
 
       const file = item.getAttribute('data-project');
-      await openProject(file);
-
+      if(file) {
+        const res = await fetch('projects/' + file, { cache: 'no-store' });
+        if (res.ok) {
+          const html = await res.text();
+          projectViewer.innerHTML = html;
+          projectViewer.classList.remove('hidden');
+          projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
       history.replaceState(null, '', '#' + item.id);
     });
 
-    async function openProject(file){
-      setBusy(true);
-      try {
-        const html = await loadProject(file);
-        renderProject(html);
-      } catch (err) {
-        renderError('Nie udało się wczytać projektu: <b>'+ file +'</b>. Sprawdź nazwę pliku w <code>/projects/</code>.');
-        console.error(err);
-      } finally {
-        setBusy(false);
-      }
-    }
-
-    // Loader z /projects/
-    async function loadProject(file) {
-      const url = 'projects/' + file;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status + ' @ ' + url);
-      return res.text();
-    }
-
-    // „Ożyw” <script> z wstrzykniętego HTML
-    function executeScripts(container) {
-      const scripts = Array.from(container.querySelectorAll('script'));
-      scripts.forEach(old => {
-        const s = document.createElement('script');
-        Array.from(old.attributes).forEach(a => s.setAttribute(a.name, a.value));
-        if (old.textContent) s.textContent = old.textContent;
-
-        const src = s.getAttribute('src');
-        if (src) {
-          const already = Array.from(document.scripts).some(x => x.src && x.src.endsWith(src));
-          if (!already) document.body.appendChild(s);
-        } else {
-          old.parentNode.replaceChild(s, old);
-        }
-      });
-    }
-
-    // Fallback akordeonu (gdy projekt nie ma własnego JS)
-    function bindKWAccordion(root){
-      const acc = root.querySelector('.kwcs-accordion');
-      if (!acc || acc.__bound) return;
-      acc.__bound = true;
-
-      acc.addEventListener('click', (e) => {
-        const btn = e.target.closest('.kwcs-header');
-        if (!btn) return;
-        const item = btn.closest('.kwcs-item');
-        const content = item.querySelector('.kwcs-content');
-        const icon = btn.querySelector('.icon');
-
-        const open = item.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (content){
-          content.setAttribute('aria-hidden', open ? 'false' : 'true');
-          content.style.maxHeight = open ? (content.scrollHeight + 'px') : '';
-        }
-        if (icon) icon.textContent = open ? '–' : '+';
-      });
-
-      // stan startowy
-      acc.querySelectorAll('.kwcs-item').forEach(item => {
-        const btn = item.querySelector('.kwcs-header');
-        const content = item.querySelector('.kwcs-content');
-        const icon = item.querySelector('.kwcs-header .icon');
-        item.classList.remove('open');
-        btn && btn.setAttribute('aria-expanded','false');
-        content && content.setAttribute('aria-hidden','true');
-        content && (content.style.maxHeight = '');
-        icon && (icon.textContent = '+');
-      });
-    }
-
-    function renderProject(html){
-      projectViewer.innerHTML = '';
-
-      const closeBtn = document.createElement('button');
-      closeBtn.className = 'close-button';
-      closeBtn.type = 'button';
-      closeBtn.textContent = 'Zamknij';
-      closeBtn.addEventListener('click', () => {
-        projectViewer.classList.add('hidden');
-        projectViewer.classList.remove('open');
-        track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
-        history.replaceState(null, '', location.pathname + location.search);
-      });
-
-      const content = document.createElement('div');
-      content.className = 'project-content';
-
-      // Jeśli przyszła pełna strona – wytnij samą sekcję projektu
-      const maybeSection = html.match(/<section[^>]*class=["'][^"']*kwcs[^"']*["'][^>]*>[\s\S]*?<\/section>/i);
-      content.innerHTML = maybeSection ? maybeSection[0] : html;
-
-      projectViewer.appendChild(closeBtn);
-      projectViewer.appendChild(content);
-      projectViewer.classList.remove('hidden');
-
-      requestAnimationFrame(() => projectViewer.classList.add('open'));
-
-      // 1) odpal skrypty we wstrzykniętym HTML
-      executeScripts(content);
-      // 2) lub fallback akordeon
-      if (window.KW && typeof window.KW.initCaseStudy === 'function') {
-        window.KW.initCaseStudy(content);
-      } else {
-        bindKWAccordion(content);
-      }
-
-      // ESC = zamknij
-      const onEsc = (e) => { if (e.key === 'Escape') { closeBtn.click(); document.removeEventListener('keydown', onEsc); } };
-      document.addEventListener('keydown', onEsc);
-
-      projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function renderError(msg){
-      projectViewer.innerHTML = '<div class="error-msg" style="padding:16px;border-radius:12px;background:#fee;border:1px solid #f88;color:#a00;">'+ msg +'</div>';
-      projectViewer.classList.remove('hidden');
-    }
-
-    function setBusy(state){
-      projectViewer.setAttribute('aria-busy', state ? 'true' : 'false');
-    }
-
-    // Touch swipe
-    let startX = null, scrollStart = 0;
-    track.addEventListener('touchstart', e => {
-      startX = e.touches[0].clientX;
-      scrollStart = track.scrollLeft;
-    }, { passive: true });
-    track.addEventListener('touchmove', e => {
-      if (startX === null) return;
-      const dx = e.touches[0].clientX - startX;
-      track.scrollLeft = scrollStart - dx;
-    }, { passive: true });
-    track.addEventListener('touchend', () => { startX = null; });
-
-    // Klawisze
-    track.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'ArrowRight') nextBtn.click();
-    });
-
-    // Aktualizacje strzałek
     track.addEventListener('scroll', updateArrows);
     window.addEventListener('resize', updateArrows);
     document.addEventListener('DOMContentLoaded', () => {
