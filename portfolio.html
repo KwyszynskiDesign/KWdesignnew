@@ -119,40 +119,44 @@
         burger.addEventListener('click', () => navList.classList.toggle('open'));
       }
     })();
-
+    
     const track = document.querySelector('.carousel-track');
     const prevBtn = document.querySelector('.carousel-nav.prev');
     const nextBtn = document.querySelector('.carousel-nav.next');
     const projectViewer = document.getElementById('project-viewer');
-
+    
     function getItemWidth(){
       const first = track.querySelector('.carousel-item');
       if (!first) return 0;
       const gap = parseFloat(getComputedStyle(track).gap || 0);
       return first.offsetWidth + gap;
     }
+    
     const VISIBLE_COUNT = 3;
-
+    
     function updateArrows(){
       const maxScroll = track.scrollWidth - track.clientWidth - 1;
       prevBtn.disabled = track.scrollLeft <= 0;
       nextBtn.disabled = track.scrollLeft >= maxScroll;
     }
-
+    
     function scrollByItems(count){
       track.scrollBy({ left: getItemWidth() * count, behavior: 'smooth' });
       setTimeout(updateArrows, 350);
     }
-
+    
     prevBtn.addEventListener('click', () => scrollByItems(-VISIBLE_COUNT));
     nextBtn.addEventListener('click', () => scrollByItems(+VISIBLE_COUNT));
-
+    
+    // POPRAWIONY CLICK HANDLER - BEZ DODAWANIA ACTIVE
     track.addEventListener('click', async (e) => {
       const item = e.target.closest('.carousel-item[data-project]');
       if (!item) return;
-      track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
-      item.classList.add('active');
-
+      
+      // USUNIĘTE: dodawanie klasy active
+      // track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
+      // item.classList.add('active');
+      
       const file = item.getAttribute('data-project');
       if(file) {
         const res = await fetch('projects/' + file, { cache: 'no-store' });
@@ -165,16 +169,28 @@
       }
       history.replaceState(null, '', '#' + item.id);
     });
-
+    
     track.addEventListener('scroll', updateArrows);
     window.addEventListener('resize', updateArrows);
+    
+    // POPRAWIONY DOM CONTENT LOADED - BEZ AUTO-KLIKANIA
     document.addEventListener('DOMContentLoaded', () => {
       updateArrows();
-      const slug = location.hash ? location.hash.slice(1) : '';
-      if (!slug) return;
-      const item = document.getElementById(slug);
-      if (item) setTimeout(() => item.click(), 120);
+      
+      // WYŁĄCZONE: automatyczne klikanie na podstawie URL hash
+      // const slug = location.hash ? location.hash.slice(1) : '';
+      // if (!slug) return;
+      // const item = document.getElementById(slug);
+      // if (item) setTimeout(() => item.click(), 120);
+      
+      // FORCE REMOVE ACTIVE - usuwa każdą klasę active co 100ms
+      setInterval(() => {
+        document.querySelectorAll('.carousel-item.active').forEach(el => {
+          el.classList.remove('active');
+        });
+      }, 100);
     });
-  </script>
+</script>
+
 </body>
 </html>
