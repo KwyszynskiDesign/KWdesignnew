@@ -1,5 +1,4 @@
 /* === PORTFOLIO PAGE (pełny plik po scaleniu) === */
-
 /* === LOKALNE FONTY POPPINS === */
 @font-face{
   font-family:'Poppins';
@@ -34,8 +33,9 @@ body.portfolio-page .hero-section{
   content:""; position:absolute; inset:0; background:rgba(0,0,0,.55);
   backdrop-filter:blur(1px); z-index:1;
 }
+/* NAPRAWIONE: Gradient tylko do 60% wysokości - nie wpływa na carousel */
 .hero-section::after{
-  content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+  content:""; position:absolute; top:0; left:0; right:0; height:60%; pointer-events:none; z-index:1;
   background:linear-gradient(to right, rgba(0,0,0,.5) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,0) 70%);
 }
 .hero-section>*{position:relative; z-index:2}
@@ -51,12 +51,17 @@ body.portfolio-page .hero-section{
   --card-h: 280px;
 }
 
+/* NAPRAWIONE: Carousel outer z lepszą izolacją */
 .carousel-outer{
   position: relative;
   overflow: hidden;
   padding: 12px 0;
+  z-index: 20; /* Wysoki z-index nad hero */
+  background: transparent;
+  isolation: isolate; /* Izoluje od hero gradientów */
 }
 
+/* NAPRAWIONE: Carousel track z pełną izolacją */
 .carousel-track {
   display: grid;
   grid-auto-flow: column;
@@ -68,8 +73,13 @@ body.portfolio-page .hero-section{
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding-block: 8px;
+  /* NAPRAWIONE: Kompletna izolacja od hero */
+  background: none !important;
+  background-image: none !important;
+  position: relative;
+  z-index: 21;
+  isolation: isolate;
 }
-
 .carousel-track::-webkit-scrollbar{ display: none; }
 .carousel-track{ scrollbar-width: none; }
 
@@ -89,8 +99,9 @@ body.portfolio-page .hero-section{
   text-align: center;
   transition: transform .25s ease, box-shadow .3s ease;
   cursor: pointer;
+  position: relative;
+  z-index: 22; /* Najwyższy z-index */
 }
-
 .carousel-item h3{
   font-size: 1rem;
   font-weight: 600;
@@ -98,7 +109,6 @@ body.portfolio-page .hero-section{
   color: #111;
   flex: 0 0 auto;
 }
-
 .carousel-item .ci-image {
   flex: 1 1 auto;
   display: flex;
@@ -109,7 +119,6 @@ body.portfolio-page .hero-section{
   overflow: hidden;
   padding: 6px;
 }
-
 .carousel-item img {
   max-height: 90%;
   max-width: 100%;
@@ -120,17 +129,14 @@ body.portfolio-page .hero-section{
   transition: opacity .25s ease;
 }
 
-/* === HOVER EFFECTS - BEZ OBROTÓW === */
+/* === HOVER EFFECTS - DZIAŁAJĄCE === */
 .carousel-item:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(37,99,235,.15);
 }
-
 .carousel-item:hover img {
   opacity: 0.95;
 }
-
-
 
 /* === STRZAŁKI === */
 .carousel-controls{
@@ -141,8 +147,9 @@ body.portfolio-page .hero-section{
   gap: 16px;
   width: 100%;
   max-width: 200px;
+  z-index: 20;
+  position: relative;
 }
-
 .carousel-nav{
   width: 44px; 
   height: 44px;
@@ -160,19 +167,16 @@ body.portfolio-page .hero-section{
   transition: transform .2s ease, box-shadow .25s ease, background .2s ease;
   color: #333;
 }
-
 .carousel-nav:hover { 
   transform: translateY(-2px); 
   box-shadow: 0 8px 24px rgba(0,0,0,.12); 
   background: #f8f9fa;
 }
-
 .carousel-nav[disabled] { 
   opacity: .35; 
   cursor: not-allowed; 
   transform: none;
 }
-
 .carousel-nav[disabled]:hover {
   transform: none;
   background: #fff;
@@ -322,7 +326,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   .project-content{padding:18px 6vw 12px}
 }
 
-/* === FORCE OVERRIDE - KONIEC PLIKU === */
+/* === NAPRAWIONE FORCE OVERRIDE - KONIEC PLIKU === */
 .carousel-item,
 .carousel-item.active,
 #power-of-mind,
@@ -332,24 +336,23 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a{color:#175bf7; text-decora
   background-gradient: none !important;
   border: none !important;
   filter: none !important;
-  transform: none !important;
+  /* USUNIĘTE: transform: none - to blokowało hover */
 }
 
 .carousel-item:hover,
 .carousel-item.active:hover {
-  transform: translateY(-3px) !important;
+  transform: translateY(-3px) !important; /* NAPRAWIONE: hover działa */
   box-shadow: 0 8px 25px rgba(37,99,235,.15) !important;
   background: #fff !important;
   border: none !important;
 }
 
-.carousel-item img,
-.carousel-item:hover img {
+.carousel-item img {
   transform: none !important;
   opacity: 1 !important;
 }
 
 .carousel-item:hover img {
   opacity: 0.95 !important;
+  transform: none !important;
 }
-
