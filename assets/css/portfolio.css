@@ -49,7 +49,7 @@ body.portfolio-page .hero-section{
   --car-gap: 18px;      
   --car-pad: 0px;       
   --car-arrow-gap: 10px;
-  --card-h: 360px;
+  --card-h: 280px;
 }
 .carousel-outer{
   position: relative;
@@ -111,11 +111,8 @@ body.portfolio-page .hero-section{
   transition: transform .25s ease;
 }
 .carousel-item:hover{
-  transform: scale(1.06);
-  box-shadow: 0 8px 28px rgba(37,99,235,.25);
-}
-.carousel-item:hover img{
-  transform: scale(1.02);
+box-shadow: 0 12px 32px rgba(37,99,235,.15); /* Zwiększony cień zamiast skalowania */
+  transform: translateY(-2px); 
 }
 
 /* --- STRZAŁKI POD KARUZELOM --- */
