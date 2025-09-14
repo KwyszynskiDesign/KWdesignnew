@@ -54,9 +54,9 @@ body.portfolio-page .hero-section{
 .carousel-outer{
   position: relative;
   overflow: hidden;
-  padding-bottom: 0; /* nie robimy sztucznej przestrzeni, bo strzałki są osobno */
+  padding: 8px 0;
 }
-.carousel-track{
+.carousel-track {
   display: grid;
   grid-auto-flow: column;
   gap: var(--car-gap);
@@ -66,6 +66,7 @@ body.portfolio-page .hero-section{
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  padding-block: 4px; /* Miejsce na shadow przy hover */
 }
 .carousel-track::-webkit-scrollbar{ display: none; }
 .carousel-track{ scrollbar-width: none; }
@@ -110,33 +111,72 @@ body.portfolio-page .hero-section{
   display: block;
   transition: transform .25s ease;
 }
-.carousel-item:hover{
-box-shadow: 0 12px 32px rgba(37,99,235,.15); /* Zwiększony cień zamiast skalowania */
-  transform: translateY(-2px); 
+.carousel-item:hover {
+  transform: translateY(-4px); /* Tylko subtelne uniesienie */
+  box-shadow: 0 12px 32px rgba(37,99,235,.2); /* Zwiększony cień */
+  /* USUNIĘTE: scale() - to powodowało "wypływanie" */
+}
+
+.carousel-item:hover img {
+  /* Bez skalowania obrazka - pozostaje stabilny */
+  opacity: 0.95; /* Subtelna zmiana przezroczystości */
 }
 
 /* --- STRZAŁKI POD KARUZELOM --- */
 .carousel-controls{
-  margin-top: 24px;
+ margin: 32px auto 0 auto; /* Zwiększony margines + wyśrodkowanie */
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Główne wyśrodkowanie */
   align-items: center;
-  gap: var(--car-arrow-gap);
+  gap: 16px; /* Odstęp między strzałkami */
+  width: 100%; /* Pełna szerokość dla pewności */
+  max-width: 200px; /* Ograniczenie szerokości kontenera strzałek */
+}
 }
 .carousel-nav{
-  width: 42px; height: 42px;
-  display: inline-grid; place-items: center;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.1);
+ width: 44px; 
+  height: 44px;
+  display: flex; /* Lepsze od inline-grid */
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px; /* Bardziej nowoczesne zaokrąglenie */
+  border: 1px solid rgba(0,0,0,.08);
   background: #fff;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
   cursor: pointer;
-  font-size: 20px; line-height: 1;
+  font-size: 18px;
+  line-height: 1;
   user-select: none;
-  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .2s ease, box-shadow .25s ease, background .2s ease;
+  color: #333; /* Wyraźniejszy kolor strzałek */
 }
-.carousel-nav:hover{ transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
-.carousel-nav[disabled]{ opacity:.45; cursor:not-allowed; }
+.carousel-nav:hover { 
+  transform: translateY(-2px); 
+  box-shadow: 0 8px 24px rgba(0,0,0,.12); 
+  background: #f8f9fa;
+}
+.carousel-nav[disabled] { 
+  opacity: .35; 
+  cursor: not-allowed; 
+  transform: none;
+}
+.carousel-nav[disabled]:hover {
+  transform: none;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+@media (max-width: 768px) {
+  .carousel-controls {
+    margin: 24px auto 0 auto;
+    gap: 20px; /* Większy odstęp na mobile */
+  }
+  
+  .carousel-nav {
+    width: 48px; /* Jeszcze większe na dotyk */
+    height: 48px;
+    font-size: 20px;
+  }
+}
 
 /* --- PROJECT VIEWER --- */
 .project-viewer{
