@@ -522,5 +522,5 @@ section{padding:4rem 0;scroll-margin-top:80px}
 /* UX: wskazówka przewijania karuzeli */
 .carousel-track:after{
   content:'';pointer-events:none;display:block;position:absolute;top:0;right:0;bottom:0;width:80px;
-  background:linear-gradient(to right,rgba(255,255,255,0) 0%,#fff 99%);z-index:8
+;z-index:8
 }
