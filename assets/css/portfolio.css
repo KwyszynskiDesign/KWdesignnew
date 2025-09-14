@@ -114,7 +114,7 @@ body.portfolio-page .hero-section{
   display: block;
   transition: opacity .25s ease, transform .25s ease;
 }
-carousel-item:hover {
+.carousel-item:hover {
   transform: translateY(-2px); /* Bardzo subtelne uniesienie */
   box-shadow: 0 8px 25px rgba(37,99,235,.12); /* Delikatny cień */
   background: #fff; /* Upewnij się że tło pozostaje białe */
@@ -134,7 +134,6 @@ carousel-item:hover {
   gap: 16px; /* Odstęp między strzałkami */
   width: 100%; /* Pełna szerokość dla pewności */
   max-width: 200px; /* Ograniczenie szerokości kontenera strzałek */
-}
 }
 .carousel-nav{
  width: 44px; 
