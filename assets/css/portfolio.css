@@ -130,15 +130,7 @@ body.portfolio-page .hero-section{
   opacity: 0.95;
 }
 
-/* === KLASA ACTIVE === */
-.carousel-item.active {
-  box-shadow: 0 6px 20px rgba(37,99,235,.1);
-}
 
-.carousel-item.active:hover {
-  transform: translateY(-3px);
-  border: 2px solid #2563eb;
-}
 
 /* === STRZAŁKI === */
 .carousel-controls{
