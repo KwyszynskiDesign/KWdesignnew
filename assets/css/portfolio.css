@@ -180,6 +180,20 @@ carousel-item:hover {
     font-size: 20px;
   }
 }
+#power-of-mind {
+  background: #fff !important;
+  background-image: none !important;
+  background-gradient: none !important;
+  filter: none !important;
+}
+
+/* Upewnij się że wszystkie karty mają czyste tło */
+.carousel-item {
+  background: #fff !important;
+  background-image: none !important;
+}
+
+
 
 /* --- PROJECT VIEWER --- */
 .project-viewer{
