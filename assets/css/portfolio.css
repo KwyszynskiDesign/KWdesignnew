@@ -192,7 +192,17 @@ body.portfolio-page .hero-section{
   background-image: none !important;
 }
 
+.carousel-item.active {
+  background: #fff !important;
+  background-image: none !important;
+  background-gradient: none !important;
+  border: 2px solid #2563eb !important; /* Opcjonalnie: niebieska ramka dla aktywnej */
+}
 
+.carousel-item.active:hover {
+  background: #fff !important;
+  border: 2px solid #2563eb !important;
+}
 
 /* --- PROJECT VIEWER --- */
 .project-viewer{
