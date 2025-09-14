@@ -95,7 +95,7 @@ body.portfolio-page .hero-section{
   color: #111;
   flex: 0 0 auto;
 }
-.carousel-item .ci-image{
+.carousel-item .ci-image {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
@@ -103,23 +103,26 @@ body.portfolio-page .hero-section{
   height: 100%;
   width: 100%;
   overflow: hidden;
+  padding: 4px; /* Minimalne odstępy od krawędzi */
 }
-.carousel-item img{
-  max-height: 100%;
-  max-width: 90%;
-  object-fit: contain;
+.carousel-item img {
+  max-height: 90%; /* Zwiększone z poprzedniego */
+  max-width: 100%; /* Pełna szerokość kontenera */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Zachowaj proporcje, nie obcinaj */
   display: block;
-  transition: transform .25s ease;
+  transition: opacity .25s ease, transform .25s ease;
 }
-.carousel-item:hover {
-  transform: translateY(-4px); /* Tylko subtelne uniesienie */
-  box-shadow: 0 12px 32px rgba(37,99,235,.2); /* Zwiększony cień */
-  /* USUNIĘTE: scale() - to powodowało "wypływanie" */
+carousel-item:hover {
+  transform: translateY(-2px); /* Bardzo subtelne uniesienie */
+  box-shadow: 0 8px 25px rgba(37,99,235,.12); /* Delikatny cień */
+  background: #fff; /* Upewnij się że tło pozostaje białe */
 }
 
 .carousel-item:hover img {
-  /* Bez skalowania obrazka - pozostaje stabilny */
-  opacity: 0.95; /* Subtelna zmiana przezroczystości */
+  opacity: 0.9; /* Bardzo subtelna zmiana przezroczystości */
+  transform: scale(1.01); /* Minimalny zoom - prawie niezauważalny */
 }
 
 /* --- STRZAŁKI POD KARUZELOM --- */
