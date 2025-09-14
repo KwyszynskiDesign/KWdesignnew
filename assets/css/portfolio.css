@@ -44,18 +44,19 @@ body.portfolio-page .hero-section{
 .hero-title{color:#fff; text-shadow:0 1px 8px rgba(0,0,0,.12);}
 .hero-subtitle{color:#eaeaea; font-size:1.16rem; max-width:600px; margin:0 0 2.5rem 0;}
 
-/* --- KARUZELA --- */
+/* === KARUZELA - CZYSTA WERSJA === */
 :root{
   --car-gap: 18px;      
   --car-pad: 0px;       
-  --car-arrow-gap: 10px;
   --card-h: 280px;
 }
+
 .carousel-outer{
   position: relative;
   overflow: hidden;
-  padding: 8px 0;
+  padding: 12px 0;
 }
+
 .carousel-track {
   display: grid;
   grid-auto-flow: column;
@@ -66,12 +67,13 @@ body.portfolio-page .hero-section{
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding-block: 4px; /* Miejsce na shadow przy hover */
+  padding-block: 8px;
 }
+
 .carousel-track::-webkit-scrollbar{ display: none; }
 .carousel-track{ scrollbar-width: none; }
 
-/* --- KARTA --- */
+/* === KARTY PORTFOLIO === */
 .carousel-item{
   scroll-snap-align: start;
   background: #fff;
@@ -88,6 +90,7 @@ body.portfolio-page .hero-section{
   transition: transform .25s ease, box-shadow .3s ease;
   cursor: pointer;
 }
+
 .carousel-item h3{
   font-size: 1rem;
   font-weight: 600;
@@ -95,6 +98,7 @@ body.portfolio-page .hero-section{
   color: #111;
   flex: 0 0 auto;
 }
+
 .carousel-item .ci-image {
   flex: 1 1 auto;
   display: flex;
@@ -103,45 +107,58 @@ body.portfolio-page .hero-section{
   height: 100%;
   width: 100%;
   overflow: hidden;
-  padding: 4px; /* Minimalne odstępy od krawędzi */
+  padding: 6px;
 }
+
 .carousel-item img {
-  max-height: 90%; /* Zwiększone z poprzedniego */
-  max-width: 100%; /* Pełna szerokość kontenera */
+  max-height: 90%;
+  max-width: 100%;
   width: auto;
   height: auto;
-  object-fit: contain; /* Zachowaj proporcje, nie obcinaj */
+  object-fit: contain;
   display: block;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: opacity .25s ease;
 }
+
+/* === HOVER EFFECTS - BEZ OBROTÓW === */
 .carousel-item:hover {
-  transform: translateY(-2px); /* Bardzo subtelne uniesienie */
-  box-shadow: 0 8px 25px rgba(37,99,235,.12); /* Delikatny cień */
-  background: #fff; /* Upewnij się że tło pozostaje białe */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37,99,235,.15);
 }
 
 .carousel-item:hover img {
-  opacity: 0.9; /* Bardzo subtelna zmiana przezroczystości */
-  transform: scale(1.01); /* Minimalny zoom - prawie niezauważalny */
+  opacity: 0.95;
 }
 
-/* --- STRZAŁKI POD KARUZELOM --- */
-.carousel-controls{
- margin: 32px auto 0 auto; /* Zwiększony margines + wyśrodkowanie */
-  display: flex;
-  justify-content: center; /* Główne wyśrodkowanie */
-  align-items: center;
-  gap: 16px; /* Odstęp między strzałkami */
-  width: 100%; /* Pełna szerokość dla pewności */
-  max-width: 200px; /* Ograniczenie szerokości kontenera strzałek */
+/* === KLASA ACTIVE === */
+.carousel-item.active {
+  border: 2px solid #2563eb;
+  box-shadow: 0 6px 20px rgba(37,99,235,.2);
 }
-.carousel-nav{
- width: 44px; 
-  height: 44px;
-  display: flex; /* Lepsze od inline-grid */
+
+.carousel-item.active:hover {
+  transform: translateY(-3px);
+  border: 2px solid #2563eb;
+}
+
+/* === STRZAŁKI === */
+.carousel-controls{
+  margin: 32px auto 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px; /* Bardziej nowoczesne zaokrąglenie */
+  gap: 16px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.carousel-nav{
+  width: 44px; 
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
   border: 1px solid rgba(0,0,0,.08);
   background: #fff;
   box-shadow: 0 4px 16px rgba(0,0,0,.08);
@@ -150,58 +167,40 @@ body.portfolio-page .hero-section{
   line-height: 1;
   user-select: none;
   transition: transform .2s ease, box-shadow .25s ease, background .2s ease;
-  color: #333; /* Wyraźniejszy kolor strzałek */
+  color: #333;
 }
+
 .carousel-nav:hover { 
   transform: translateY(-2px); 
   box-shadow: 0 8px 24px rgba(0,0,0,.12); 
   background: #f8f9fa;
 }
+
 .carousel-nav[disabled] { 
   opacity: .35; 
   cursor: not-allowed; 
   transform: none;
 }
+
 .carousel-nav[disabled]:hover {
   transform: none;
   background: #fff;
   box-shadow: 0 4px 16px rgba(0,0,0,.08);
 }
+
 @media (max-width: 768px) {
   .carousel-controls {
     margin: 24px auto 0 auto;
-    gap: 20px; /* Większy odstęp na mobile */
+    gap: 20px;
   }
-  
   .carousel-nav {
-    width: 48px; /* Jeszcze większe na dotyk */
+    width: 48px;
     height: 48px;
     font-size: 20px;
   }
-}
-#power-of-mind {
-  background: #fff !important;
-  background-image: none !important;
-  background-gradient: none !important;
-  filter: none !important;
-}
-
-/* Upewnij się że wszystkie karty mają czyste tło */
-.carousel-item {
-  background: #fff !important;
-  background-image: none !important;
-}
-
-.carousel-item.active {
-  background: #fff !important;
-  background-image: none !important;
-  background-gradient: none !important;
-  border: 2px solid #2563eb !important; /* Opcjonalnie: niebieska ramka dla aktywnej */
-}
-
-.carousel-item.active:hover {
-  background: #fff !important;
-  border: 2px solid #2563eb !important;
+  .carousel-item img {
+    max-height: 85%;
+  }
 }
 
 /* --- PROJECT VIEWER --- */
