@@ -518,9 +518,3 @@ section{padding:4rem 0;scroll-margin-top:80px}
   .carousel-item img{width:62px;height:62px;margin-bottom:7px}
   .carousel-nav{width:34px;height:34px;font-size:1.3rem;min-width:34px;min-height:34px}
 }
-
-/* UX: wskazówka przewijania karuzeli */
-.carousel-track:after{
-  content:'';pointer-events:none;display:block;position:absolute;top:0;right:0;bottom:0;width:80px;
-;z-index:8
-}
