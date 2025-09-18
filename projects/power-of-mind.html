@@ -16,10 +16,46 @@
   <link rel="stylesheet" href="assets/css/portfolio.css" />
   <!-- Minimalne style akordeonu na wypadek, gdyby portfolio.css nie doszedł -->
   <style>
-    .kwcs-accordion .kwcs-content{overflow:hidden;max-height:0;transition:max-height .3s ease}
-    .kwcs-header{display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
-    .kwcs-header .icon{margin-left:auto;font-weight:700}
-    .kwcs-item.open .kwcs-content{max-height:500px !important;}
+    .kwcs-accordion .kwcs-content{
+      overflow:hidden;
+      max-height:0;
+      transition:max-height .3s ease;
+      padding: 0 20px;
+    }
+    .kwcs-header{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      cursor:pointer;
+      user-select:none;
+      background: #f7f7f7;
+      padding: 15px 20px;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .kwcs-header:hover{
+      background: #eee;
+    }
+    .kwcs-header .icon{
+      margin-left:auto;
+      font-weight:700;
+      transition: transform 0.3s;
+    }
+    .kwcs-header .num{
+      font-weight: 700;
+      margin-right: 10px;
+      color: #0077cc;
+    }
+    .kwcs-item.open .kwcs-content{
+      max-height:500px !important;
+      padding: 15px 20px;
+    }
+    .kwcs-item.open .kwcs-header .icon{
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 <body class="portfolio-page page-powerofmind">
@@ -85,10 +121,10 @@
   <div class="kwcs-sec" id="dostarczone">
     <div class="wrap">
       <h2>Proces w 5 etapach</h2>
-      <div class="kwcs-accordion">
+      <div class="kwcs-accordion" id="mainAccordion">
         <!-- ETAP I -->
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-index="0">
+          <button class="kwcs-header" type="button" aria-expanded="false" onclick="toggleAccordionItem(0)">
             <span class="num">I</span>
             🎯 Przygotowania do projektowania
             <span class="icon">+</span>
@@ -102,8 +138,8 @@
           </div>
         </div>
         <!-- ETAP II -->
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-index="1">
+          <button class="kwcs-header" type="button" aria-expanded="false" onclick="toggleAccordionItem(1)">
             <span class="num">II</span>
             🧠 Pierwsze kroki w projektach
             <span class="icon">+</span>
@@ -117,8 +153,8 @@
           </div>
         </div>
         <!-- ETAP III -->
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-index="2">
+          <button class="kwcs-header" type="button" aria-expanded="false" onclick="toggleAccordionItem(2)">
             <span class="num">III</span>
             ⚙️ Proces
             <span class="icon">+</span>
@@ -134,8 +170,8 @@
           </div>
         </div>
         <!-- ETAP IV -->
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-index="3">
+          <button class="kwcs-header" type="button" aria-expanded="false" onclick="toggleAccordionItem(3)">
             <span class="num">IV</span>
             ✨ Prezentacja
             <span class="icon">+</span>
@@ -149,8 +185,8 @@
           </div>
         </div>
         <!-- ETAP V -->
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-index="4">
+          <button class="kwcs-header" type="button" aria-expanded="false" onclick="toggleAccordionItem(4)">
             <span class="num">V</span>
             🛠️ Poprawki I
             <span class="icon">+</span>
@@ -177,125 +213,93 @@
 <!-- SKRYPT MAIN (jeśli istnieje) -->
 <script src="assets/js/scripts.js" defer></script>
 
-<!-- AKORDEON - DZIAŁAJĄCY KOD JAVASCRIPT -->
+<!-- DZIAŁAJĄCY AKORDEON - NIEZALEŻNY OD INNYCH SKRYPTÓW -->
 <script>
-console.log("🚀 Inicjalizuję akordeony...");
-
-// Czekaj na załadowanie DOM
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("✅ DOM załadowany, uruchamiam akordeony");
+// Globalna funkcja dla akordeonu
+function toggleAccordionItem(index) {
+    console.log('🎯 Przełączam akordeon:', index);
     
-    // Znajdź wszystkie akordeony
-    const accordions = document.querySelectorAll('.kwcs-accordion');
+    // Znajdź wszystkie elementy akordeonu
+    const items = document.querySelectorAll('.kwcs-item');
+    const targetItem = items[index];
     
-    accordions.forEach(function(accordion) {
-        console.log("📦 Znaleziono akordeon:", accordion);
-        
-        // Znajdź wszystkie buttony w tym akordeonie
-        const headers = accordion.querySelectorAll('.kwcs-header');
-        
-        headers.forEach(function(header) {
-            console.log("🎯 Dodaję event listener do:", header);
+    if (!targetItem) {
+        console.error('❌ Nie znaleziono elementu o indeksie:', index);
+        return;
+    }
+    
+    const targetHeader = targetItem.querySelector('.kwcs-header');
+    const targetContent = targetItem.querySelector('.kwcs-content');
+    const targetIcon = targetItem.querySelector('.icon');
+    
+    // Sprawdź aktualny stan
+    const isOpen = targetItem.classList.contains('open');
+    
+    // ZAMKNIJ WSZYSTKIE INNE AKORDEONY
+    items.forEach(function(item, i) {
+        if (i !== index) {
+            const header = item.querySelector('.kwcs-header');
+            const content = item.querySelector('.kwcs-content');
+            const icon = item.querySelector('.icon');
             
-            header.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                console.log("🖱️ Kliknięto header akordeonu");
-                
-                // Znajdź elementy
-                const item = header.closest('.kwcs-item');
-                const content = item.querySelector('.kwcs-content');
-                const icon = header.querySelector('.icon');
-                
-                if (!content) {
-                    console.error("❌ Nie znaleziono .kwcs-content");
-                    return;
-                }
-                
-                // Sprawdź czy jest otwarty
-                const isOpen = item.classList.contains('open');
-                console.log("📊 Stan przed kliknięciem - otwarty:", isOpen);
-                
-                // ZAMKNIJ INNE AKORDEONY W TEJ SAMEJ GRUPIE
-                accordion.querySelectorAll('.kwcs-item.open').forEach(function(openItem) {
-                    if (openItem !== item) {
-                        openItem.classList.remove('open');
-                        const openContent = openItem.querySelector('.kwcs-content');
-                        const openIcon = openItem.querySelector('.kwcs-header .icon');
-                        const openHeader = openItem.querySelector('.kwcs-header');
-                        
-                        if (openContent) {
-                            openContent.style.maxHeight = '0px';
-                            openContent.setAttribute('aria-hidden', 'true');
-                        }
-                        if (openIcon) openIcon.textContent = '+';
-                        if (openHeader) openHeader.setAttribute('aria-expanded', 'false');
-                    }
-                });
-                
-                // TOGGLE AKTUALNEGO ELEMENTU
-                if (isOpen) {
-                    // ZAMYKANIE
-                    console.log("🔽 Zamykam akordeon");
-                    item.classList.remove('open');
-                    content.style.maxHeight = '0px';
-                    content.setAttribute('aria-hidden', 'true');
-                    header.setAttribute('aria-expanded', 'false');
-                    if (icon) icon.textContent = '+';
-                } else {
-                    // OTWIERANIE
-                    console.log("🔼 Otwieram akordeon");
-                    item.classList.add('open');
-                    
-                    // Ustaw max-height na rzeczywistą wysokość zawartości
-                    const scrollHeight = content.scrollHeight;
-                    console.log("📏 Wysokość zawartości:", scrollHeight + "px");
-                    
-                    content.style.maxHeight = scrollHeight + 'px';
-                    content.setAttribute('aria-hidden', 'false');
-                    header.setAttribute('aria-expanded', 'true');
-                    if (icon) icon.textContent = '–';
-                    
-                    // Backup - ustaw większą wysokość dla pewności
-                    setTimeout(function() {
-                        if (item.classList.contains('open')) {
-                            content.style.maxHeight = (scrollHeight + 50) + 'px';
-                        }
-                    }, 50);
-                }
-            });
-        });
+            item.classList.remove('open');
+            if (header) header.setAttribute('aria-expanded', 'false');
+            if (content) content.setAttribute('aria-hidden', 'true');
+            if (icon) icon.textContent = '+';
+        }
     });
     
-    // INICJALNY STAN - wszystkie akordeony zamknięte
-    document.querySelectorAll('.kwcs-item').forEach(function(item) {
-        const content = item.querySelector('.kwcs-content');
-        const icon = item.querySelector('.kwcs-header .icon');
+    // TOGGLE WYBRANEGO AKORDEONU
+    if (isOpen) {
+        // ZAMKNIJ
+        targetItem.classList.remove('open');
+        targetHeader.setAttribute('aria-expanded', 'false');
+        targetContent.setAttribute('aria-hidden', 'true');
+        targetIcon.textContent = '+';
+        console.log('❌ Zamknięto akordeon', index);
+    } else {
+        // OTWÓRZ
+        targetItem.classList.add('open');
+        targetHeader.setAttribute('aria-expanded', 'true');
+        targetContent.setAttribute('aria-hidden', 'false');
+        targetIcon.textContent = '–';
+        console.log('✅ Otwarto akordeon', index);
+    }
+}
+
+// Inicjalizacja po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Inicjalizuję akordeony...');
+    
+    // Ustaw początkowy stan wszystkich akordeonów (zamknięte)
+    const items = document.querySelectorAll('.kwcs-item');
+    items.forEach(function(item, index) {
         const header = item.querySelector('.kwcs-header');
+        const content = item.querySelector('.kwcs-content');
+        const icon = item.querySelector('.icon');
         
         item.classList.remove('open');
-        if (content) {
-            content.style.maxHeight = '0px';
-            content.setAttribute('aria-hidden', 'true');
-        }
-        if (icon) icon.textContent = '+';
         if (header) header.setAttribute('aria-expanded', 'false');
+        if (content) content.setAttribute('aria-hidden', 'true');
+        if (icon) icon.textContent = '+';
+        
+        console.log('📝 Zainicjalizowano akordeon', index);
     });
     
-    console.log("✅ Akordeony zainicjalizowane pomyślnie!");
+    console.log('✅ Wszystkie akordeony gotowe!');
 });
 
-// BACKUP - gdyby DOM już był załadowany
-if (document.readyState === 'loading') {
-    console.log("⏳ DOM się jeszcze ładuje...");
-} else {
-    console.log("🎯 DOM już załadowany, uruchamiam backup init");
+// Backup dla przypadku gdy DOM już załadowany
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log('🔄 DOM już gotowy, uruchamiam natychmiast');
     setTimeout(function() {
         const event = new Event('DOMContentLoaded');
         document.dispatchEvent(event);
-    }, 100);
+    }, 50);
 }
+
+// Eksport funkcji na globalny obiekt dla kompatybilności
+window.toggleAccordionItem = toggleAccordionItem;
 </script>
 </body>
 </html>
