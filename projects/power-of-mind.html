@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case Study – Power of Mind</title>
-  <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/portfolio.css" />
-  
+<section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind">
   <style>
-    .kwcs-accordion .kwcs-content{
+    .kwcs-content{
       overflow:hidden;
       max-height:0;
-      transition:max-height .4s ease;
-      padding: 0 20px;
+      transition:max-height .3s ease;
       background: #fff;
     }
     .kwcs-header{
@@ -21,21 +11,15 @@
       align-items:center;
       gap:.75rem;
       cursor:pointer;
-      user-select:none;
       background: #f7f7f7;
       padding: 15px 20px;
-      border: none;
-      width: 100%;
-      text-align: left;
       font-weight: 600;
-      font-size: 1.05rem;
     }
     .kwcs-header:hover{ background: #eee; }
     .kwcs-header .icon{
       margin-left:auto;
       font-weight:700;
       font-size: 1.2rem;
-      transition: transform 0.3s ease;
     }
     .kwcs-header .num{
       font-weight: 700;
@@ -44,24 +28,16 @@
     }
     .kwcs-item{
       border: 1px solid #ddd;
-      border-radius: 8px;
       margin-bottom: 12px;
       overflow: hidden;
       background: #fff;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
     }
-    .kwcs-item.active .kwcs-content{
-      max-height: 800px !important;
+    .kwcs-item.open .kwcs-content{
+      max-height: 500px !important;
       padding: 15px 20px;
     }
-    .kwcs-item.active .kwcs-header .icon{
-      transform: rotate(45deg);
-    }
   </style>
-</head>
-<body class="portfolio-page page-powerofmind">
 
-<section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind">
   <div class="kwcs-hero-head">
     <div class="wrap">
       <div class="eyebrow">CASE STUDY</div>
@@ -121,8 +97,8 @@
       <h2>Proces w 5 etapach</h2>
       <div class="kwcs-accordion">
         
-        <div class="kwcs-item" data-id="acc1">
-          <div class="kwcs-header" onclick="toggleAcc('acc1')">
+        <div class="kwcs-item">
+          <div class="kwcs-header">
             <span class="num">I</span>
             🎯 Przygotowania do projektowania
             <span class="icon">+</span>
@@ -136,8 +112,8 @@
           </div>
         </div>
         
-        <div class="kwcs-item" data-id="acc2">
-          <div class="kwcs-header" onclick="toggleAcc('acc2')">
+        <div class="kwcs-item">
+          <div class="kwcs-header">
             <span class="num">II</span>
             🧠 Pierwsze kroki w projektach
             <span class="icon">+</span>
@@ -151,8 +127,8 @@
           </div>
         </div>
         
-        <div class="kwcs-item" data-id="acc3">
-          <div class="kwcs-header" onclick="toggleAcc('acc3')">
+        <div class="kwcs-item">
+          <div class="kwcs-header">
             <span class="num">III</span>
             ⚙️ Proces
             <span class="icon">+</span>
@@ -168,8 +144,8 @@
           </div>
         </div>
         
-        <div class="kwcs-item" data-id="acc4">
-          <div class="kwcs-header" onclick="toggleAcc('acc4')">
+        <div class="kwcs-item">
+          <div class="kwcs-header">
             <span class="num">IV</span>
             ✨ Prezentacja
             <span class="icon">+</span>
@@ -183,8 +159,8 @@
           </div>
         </div>
         
-        <div class="kwcs-item" data-id="acc5">
-          <div class="kwcs-header" onclick="toggleAcc('acc5')">
+        <div class="kwcs-item">
+          <div class="kwcs-header">
             <span class="num">V</span>
             🛠️ Poprawki I
             <span class="icon">+</span>
@@ -208,38 +184,3 @@
     </div>
   </div>
 </section>
-
-<script>
-function toggleAcc(id) {
-    const clickedItem = document.querySelector(`[data-id="${id}"]`);
-    const clickedIcon = clickedItem.querySelector('.icon');
-    const isActive = clickedItem.classList.contains('active');
-    
-    // Zamknij wszystkie inne
-    document.querySelectorAll('.kwcs-item').forEach(item => {
-        if (item !== clickedItem) {
-            item.classList.remove('active');
-            item.querySelector('.icon').textContent = '+';
-        }
-    });
-    
-    // Toggle klikniętego
-    if (isActive) {
-        clickedItem.classList.remove('active');
-        clickedIcon.textContent = '+';
-    } else {
-        clickedItem.classList.add('active');
-        clickedIcon.textContent = '–';
-    }
-}
-
-// Ustaw początkowy stan po załadowaniu
-setTimeout(function() {
-    document.querySelectorAll('.kwcs-item').forEach(item => {
-        item.classList.remove('active');
-        item.querySelector('.icon').textContent = '+';
-    });
-}, 100);
-</script>
-</body>
-</html>
