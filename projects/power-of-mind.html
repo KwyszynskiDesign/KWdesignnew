@@ -7,7 +7,8 @@
   <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
-  <!-- KOMPLETNE STYLE AKORDEONU -->
+  
+  <!-- WSZYSTKIE STYLE W JEDNYM MIEJSCU -->
   <style>
     .kwcs-accordion .kwcs-content{
       overflow:hidden;
@@ -53,14 +54,14 @@
       box-shadow: 0 3px 8px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s;
     }
-    .kwcs-item.open{
+    .kwcs-item.active{
       box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
-    .kwcs-item.open .kwcs-content{
-      max-height: 600px !important;
+    .kwcs-item.active .kwcs-content{
+      max-height: 800px !important;
       padding: 15px 20px;
     }
-    .kwcs-item.open .kwcs-header .icon{
+    .kwcs-item.active .kwcs-header .icon{
       transform: rotate(45deg);
     }
   </style>
@@ -73,7 +74,7 @@
       <div class="eyebrow">CASE STUDY</div>
       <h1>Strona internetowa wraz z logo</h1>
       <p class="sub">
-        Projekt identyfikacji wizualnej dla nowej marki prowadzonej przez Ewę Bugaj.
+        Projekt identyfikacji wizualnej dla nowej marki prowadzonej przez Ewą Bugaj.
         Strona rozwojowa o oddechu 9D i testach MTQ/MTQ+ odporności psychicznej.
       </p>
     </div>
@@ -122,19 +123,18 @@
     </div>
   </div>
   
-  <!-- AKORDEON BEZ ONCLICK - UŻYWA EVENT LISTENERÓW Z SCRIPTS.JS -->
   <div class="kwcs-sec" id="dostarczone">
     <div class="wrap">
       <h2>Proces w 5 etapach</h2>
-      <div class="kwcs-accordion">
+      <div class="kwcs-accordion" id="mainAccordion">
         
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-id="acc1">
+          <div class="kwcs-header" onclick="toggleAcc('acc1')">
             <span class="num">I</span>
             🎯 Przygotowania do projektowania
             <span class="icon">+</span>
-          </button>
-          <div class="kwcs-content" role="region" aria-hidden="true">
+          </div>
+          <div class="kwcs-content">
             <ul>
               <li>Zbieranie informacji o potrzebach klientki.</li>
               <li>Poznanie wizji i oczekiwań; pytania angażujące.</li>
@@ -143,13 +143,13 @@
           </div>
         </div>
         
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-id="acc2">
+          <div class="kwcs-header" onclick="toggleAcc('acc2')">
             <span class="num">II</span>
             🧠 Pierwsze kroki w projektach
             <span class="icon">+</span>
-          </button>
-          <div class="kwcs-content" role="region" aria-hidden="true">
+          </div>
+          <div class="kwcs-content">
             <ul>
               <li>Wykonanie pierwszych przykładów.</li>
               <li>Podsumowanie informacji i wstępna struktura.</li>
@@ -158,13 +158,13 @@
           </div>
         </div>
         
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-id="acc3">
+          <div class="kwcs-header" onclick="toggleAcc('acc3')">
             <span class="num">III</span>
             ⚙️ Proces
             <span class="icon">+</span>
-          </button>
-          <div class="kwcs-content" role="region" aria-hidden="true">
+          </div>
+          <div class="kwcs-content">
             <ul>
               <li>Wykup domeny i hostingu.</li>
               <li>Konfiguracja poczty/serwera i elementów wymaganych.</li>
@@ -175,13 +175,13 @@
           </div>
         </div>
         
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-id="acc4">
+          <div class="kwcs-header" onclick="toggleAcc('acc4')">
             <span class="num">IV</span>
             ✨ Prezentacja
             <span class="icon">+</span>
-          </button>
-          <div class="kwcs-content" role="region" aria-hidden="true">
+          </div>
+          <div class="kwcs-content">
             <ul>
               <li>Omówienie prac i podsumowanie procesu.</li>
               <li>Szacunek czasu na kolejne kroki, analiza zawartości.</li>
@@ -190,13 +190,13 @@
           </div>
         </div>
         
-        <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false">
+        <div class="kwcs-item" data-id="acc5">
+          <div class="kwcs-header" onclick="toggleAcc('acc5')">
             <span class="num">V</span>
             🛠️ Poprawki I
             <span class="icon">+</span>
-          </button>
-          <div class="kwcs-content" role="region" aria-hidden="true">
+          </div>
+          <div class="kwcs-content">
             <ul>
               <li>Analiza struktur i doprecyzowanie informacji.</li>
               <li>Prezentacja procesów, podpięcie do struktur.</li>
@@ -216,6 +216,47 @@
   </div>
 </section>
 
-<script src="assets/js/scripts.js" defer></script>
+<!-- KURWA PROSTY JAVASCRIPT BEZ ŻADNYCH ZEWNĘTRZNYCH ZALEŻNOŚCI -->
+<script>
+function toggleAcc(id) {
+    console.log('Klikam akordeon:', id);
+    
+    // Znajdź kliknięty element
+    const clickedItem = document.querySelector(`[data-id="${id}"]`);
+    const clickedContent = clickedItem.querySelector('.kwcs-content');
+    const clickedIcon = clickedItem.querySelector('.icon');
+    
+    // Sprawdź czy jest aktywny
+    const isActive = clickedItem.classList.contains('active');
+    
+    // Zamknij wszystkie inne
+    document.querySelectorAll('.kwcs-item').forEach(item => {
+        if (item !== clickedItem) {
+            item.classList.remove('active');
+            item.querySelector('.icon').textContent = '+';
+        }
+    });
+    
+    // Toggle klikniętego
+    if (isActive) {
+        clickedItem.classList.remove('active');
+        clickedIcon.textContent = '+';
+        console.log('Zamknięto');
+    } else {
+        clickedItem.classList.add('active');
+        clickedIcon.textContent = '–';
+        console.log('Otwarto');
+    }
+}
+
+// Ustaw początkowy stan
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Power of Mind loaded');
+    document.querySelectorAll('.kwcs-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.icon').textContent = '+';
+    });
+});
+</script>
 </body>
 </html>
