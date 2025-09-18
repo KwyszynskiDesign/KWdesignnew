@@ -7,7 +7,6 @@
   <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
-  
   <!-- KOMPLETNE STYLE AKORDEONU -->
   <style>
     .kwcs-accordion .kwcs-content{
@@ -68,7 +67,6 @@
 </head>
 <body class="portfolio-page page-powerofmind">
 
-<!-- CAŁA TREŚĆ CASE STUDY POZOSTAJE TAK SAMA -->
 <section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind">
   <div class="kwcs-hero-head">
     <div class="wrap">
@@ -124,14 +122,14 @@
     </div>
   </div>
   
-  <!-- AKORDEON Z ONCLICK -->
+  <!-- AKORDEON BEZ ONCLICK - UŻYWA EVENT LISTENERÓW Z SCRIPTS.JS -->
   <div class="kwcs-sec" id="dostarczone">
     <div class="wrap">
       <h2>Proces w 5 etapach</h2>
       <div class="kwcs-accordion">
         
         <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false" onclick="acc(this)">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">I</span>
             🎯 Przygotowania do projektowania
             <span class="icon">+</span>
@@ -146,7 +144,7 @@
         </div>
         
         <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false" onclick="acc(this)">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">II</span>
             🧠 Pierwsze kroki w projektach
             <span class="icon">+</span>
@@ -161,7 +159,7 @@
         </div>
         
         <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false" onclick="acc(this)">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">III</span>
             ⚙️ Proces
             <span class="icon">+</span>
@@ -178,7 +176,7 @@
         </div>
         
         <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false" onclick="acc(this)">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">IV</span>
             ✨ Prezentacja
             <span class="icon">+</span>
@@ -193,7 +191,7 @@
         </div>
         
         <div class="kwcs-item">
-          <button class="kwcs-header" type="button" aria-expanded="false" onclick="acc(this)">
+          <button class="kwcs-header" type="button" aria-expanded="false">
             <span class="num">V</span>
             🛠️ Poprawki I
             <span class="icon">+</span>
@@ -218,9 +216,6 @@
   </div>
 </section>
 
-<!-- SKRYPTY NA SAMYM KOŃCU -->
 <script src="assets/js/scripts.js" defer></script>
-
-
 </body>
 </html>
