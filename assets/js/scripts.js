@@ -375,3 +375,36 @@ function acc(btn) {
 if (typeof window !== 'undefined') {
   window.acc = acc;
 }
+// AKORDEON DLA DYNAMICZNIE ŁADOWANYCH PROJEKTÓW - NAJPROSTSZY SPOSÓB
+document.addEventListener('click', function(e) {
+    const header = e.target.closest('.kwcs-header');
+    if (!header) return;
+    
+    const item = header.parentNode;
+    const content = item.querySelector('.kwcs-content');
+    const icon = header.querySelector('.icon');
+    
+    if (!content || !icon) return;
+    
+    const isOpen = item.classList.contains('open');
+    
+    // Zamknij wszystkie inne w tym samym akordeonie
+    const accordion = header.closest('.kwcs-accordion');
+    if (accordion) {
+        accordion.querySelectorAll('.kwcs-item.open').forEach(function(openItem) {
+            if (openItem !== item) {
+                openItem.classList.remove('open');
+                openItem.querySelector('.icon').textContent = '+';
+            }
+        });
+    }
+    
+    // Toggle aktualnego
+    if (isOpen) {
+        item.classList.remove('open');
+        icon.textContent = '+';
+    } else {
+        item.classList.add('open');
+        icon.textContent = '–';
+    }
+});
