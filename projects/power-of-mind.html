@@ -221,39 +221,6 @@
 <!-- SKRYPTY NA SAMYM KOŃCU -->
 <script src="assets/js/scripts.js" defer></script>
 
-<!-- PROSTY AKORDEON - JEDNA FUNKCJA -->
-<script>
-function acc(btn) {
-  console.log('Kliknięto akordeon!');
-  
-  const item = btn.parentNode;
-  const content = item.querySelector('.kwcs-content');
-  const icon = btn.querySelector('.icon');
-  const isOpen = item.classList.contains('open');
-  
-  // Zamknij wszystkie inne
-  document.querySelectorAll('.kwcs-item.open').forEach(function(openItem) {
-    if (openItem !== item) {
-      openItem.classList.remove('open');
-      openItem.querySelector('.kwcs-header').setAttribute('aria-expanded', 'false');
-      openItem.querySelector('.kwcs-content').setAttribute('aria-hidden', 'true');
-      openItem.querySelector('.icon').textContent = '+';
-    }
-  });
-  
-  // Toggle aktualnego
-  if (isOpen) {
-    item.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-    content.setAttribute('aria-hidden', 'true');
-    icon.textContent = '+';
-  } else {
-    item.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-    content.setAttribute('aria-hidden', 'false');
-    icon.textContent = '–';
-  }
-}
-</script>
+
 </body>
 </html>
