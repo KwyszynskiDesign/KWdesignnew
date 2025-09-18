@@ -319,3 +319,59 @@ if (typeof window !== 'undefined') {
   window.KW.initDynamicContent = initDynamicContent;
   window.KW.initKWAccordion = initKWAccordion;
 }
+// ======================================================
+// FUNKCJA AKORDEONU DLA DYNAMICZNIE ŁADOWANYCH PROJEKTÓW
+// ======================================================
+function acc(btn) {
+  console.log('🎯 Akordeon kliknięty!');
+  
+  const item = btn.parentNode;
+  const content = item.querySelector('.kwcs-content');
+  const icon = btn.querySelector('.icon');
+  
+  if (!content || !icon) {
+    console.error('❌ Nie znaleziono elementów akordeonu');
+    return;
+  }
+  
+  const isOpen = item.classList.contains('open');
+  
+  // Zamknij wszystkie inne akordeony w tej samej grupie
+  const accordion = btn.closest('.kwcs-accordion');
+  if (accordion) {
+    accordion.querySelectorAll('.kwcs-item.open').forEach(function(openItem) {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        const openHeader = openItem.querySelector('.kwcs-header');
+        const openContent = openItem.querySelector('.kwcs-content');
+        const openIcon = openItem.querySelector('.icon');
+        
+        if (openHeader) openHeader.setAttribute('aria-expanded', 'false');
+        if (openContent) openContent.setAttribute('aria-hidden', 'true');
+        if (openIcon) openIcon.textContent = '+';
+      }
+    });
+  }
+  
+  // Toggle aktualnego elementu
+  if (isOpen) {
+    // ZAMKNIJ
+    item.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    content.setAttribute('aria-hidden', 'true');
+    icon.textContent = '+';
+    console.log('❌ Zamknięto akordeon');
+  } else {
+    // OTWÓRZ
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    content.setAttribute('aria-hidden', 'false');
+    icon.textContent = '–';
+    console.log('✅ Otwarto akordeon');
+  }
+}
+
+// Eksportuj funkcję do globalnego scope
+if (typeof window !== 'undefined') {
+  window.acc = acc;
+}
