@@ -4,28 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Case Study – Power of Mind</title>
-
   <!--
     USTAWIAMY JEDEN KORZEŃ ŚCIEŻEK (ważne dla GitHub Pages).
     Dzięki <base> wszystkie ścieżki względne typu "assets/..." będą liczone
-    od repo: https://kwyszynskidesign.github.io/KWdesignnew/
+    od repo: [https://kwyszynskidesign.github.io/KWdesignnew/](https://kwyszynskidesign.github.io/KWdesignnew/)
     Jeśli hostujesz gdzie indziej – podmień href poniżej.
   -->
   <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
-
   <!-- STYLE (bez wiodącego / – bo mamy <base>) -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
-
   <!-- Minimalne style akordeonu na wypadek, gdyby portfolio.css nie doszedł -->
   <style>
     .kwcs-accordion .kwcs-content{overflow:hidden;max-height:0;transition:max-height .3s ease}
     .kwcs-header{display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none}
     .kwcs-header .icon{margin-left:auto;font-weight:700}
+    .kwcs-item.open .kwcs-content{max-height:500px !important;}
   </style>
 </head>
 <body class="portfolio-page page-powerofmind">
-
 <section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind">
   <!-- Nagłówek globalny -->
   <div class="kwcs-hero-head">
@@ -38,7 +35,6 @@
       </p>
     </div>
   </div>
-
   <!-- Layout z przyciskami i mockupem -->
   <div class="kwcs-hero-body">
     <div class="wrap inner">
@@ -49,7 +45,6 @@
         <a href="#automatyzacje" class="kwcs-chip chip-automatyzacje"><b>Automatyzacje</b><br> formularze + e-mail</a>
         <a href="#dostarczone" class="kwcs-chip chip-dostarczone"><b>Dostarczone</b><br> pliki www + grafiki</a>
       </div>
-
       <!-- Prawa kolumna: mockup -->
       <div class="hero-image">
         <!-- Ścieżka względem <base> -->
@@ -57,14 +52,13 @@
       </div>
     </div>
   </div>
-
   <!-- WYZWANIE / CELE / ROZWIĄZANIE -->
   <div class="kwcs-sec" id="zakres">
     <div class="wrap kwcs-trio">
       <article class="kwcs-card">
         <h3>Wyzwanie</h3>
         <ul>
-          <li>Spiąć „premium look” z praktycznością i szybkim wdrożeniem.</li>
+          <li>Spiąć „premium look" z praktycznością i szybkim wdrożeniem.</li>
           <li>Ustawić czytelną hierarchię informacji i prowadzić do CTA.</li>
           <li>Zachować spójność między stroną, materiałami i socialami.</li>
         </ul>
@@ -87,12 +81,10 @@
       </article>
     </div>
   </div>
-
   <!-- PROCES – Etapy I–V -->
   <div class="kwcs-sec" id="dostarczone">
     <div class="wrap">
       <h2>Proces w 5 etapach</h2>
-
       <div class="kwcs-accordion">
         <!-- ETAP I -->
         <div class="kwcs-item">
@@ -109,7 +101,6 @@
             </ul>
           </div>
         </div>
-
         <!-- ETAP II -->
         <div class="kwcs-item">
           <button class="kwcs-header" type="button" aria-expanded="false">
@@ -125,7 +116,6 @@
             </ul>
           </div>
         </div>
-
         <!-- ETAP III -->
         <div class="kwcs-item">
           <button class="kwcs-header" type="button" aria-expanded="false">
@@ -143,7 +133,6 @@
             </ul>
           </div>
         </div>
-
         <!-- ETAP IV -->
         <div class="kwcs-item">
           <button class="kwcs-header" type="button" aria-expanded="false">
@@ -159,7 +148,6 @@
             </ul>
           </div>
         </div>
-
         <!-- ETAP V -->
         <div class="kwcs-item">
           <button class="kwcs-header" type="button" aria-expanded="false">
@@ -177,7 +165,6 @@
           </div>
         </div>
       </div>
-
       <!-- Rezultat -->
       <div class="kwcs-result">
         <p>🚀 Rezultat: logo wdrożone na opakowania, stronę WWW i materiały promocyjne; marka zyskała rozpoznawalny i spójny wizerunek.</p>
@@ -187,57 +174,128 @@
   </div>
 </section>
 
-<!--
-  JS:
-  1) Łączymy globalny scripts.js (jeśli używasz go w całym serwisie).
-  2) Dodajemy mini-init akordeonu INLINE (działa solo i po wstrzyknięciu).
--->
+<!-- SKRYPT MAIN (jeśli istnieje) -->
 <script src="assets/js/scripts.js" defer></script>
+
+<!-- AKORDEON - DZIAŁAJĄCY KOD JAVASCRIPT -->
 <script>
-/* Akordeon – działa nawet, gdy ta sekcja jest wstrzyknięta innerHTML.
-   - Jeśli masz window.KW.initCaseStudy (z mojej poprzedniej wiadomości), to go wywołujemy.
-   - W przeciwnym razie podpinamy prostą obsługę tutaj. */
-(function(){
-  function bindAccordion(root){
-    const acc = root.querySelector('.kwcs-accordion');
-    if (!acc || acc.__bound) return;
-    acc.__bound = true;
+console.log("🚀 Inicjalizuję akordeony...");
 
-    acc.addEventListener('click', (e) => {
-      const btn = e.target.closest('.kwcs-header');
-      if (!btn) return;
-      const item = btn.closest('.kwcs-item');
-      const content = item.querySelector('.kwcs-content');
-      const icon = btn.querySelector('.icon');
-
-      const open = item.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      content.setAttribute('aria-hidden', open ? 'false' : 'true');
-      content.style.maxHeight = open ? (content.scrollHeight + 'px') : '';
-      if (icon) icon.textContent = open ? '–' : '+';
+// Czekaj na załadowanie DOM
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("✅ DOM załadowany, uruchamiam akordeony");
+    
+    // Znajdź wszystkie akordeony
+    const accordions = document.querySelectorAll('.kwcs-accordion');
+    
+    accordions.forEach(function(accordion) {
+        console.log("📦 Znaleziono akordeon:", accordion);
+        
+        // Znajdź wszystkie buttony w tym akordeonie
+        const headers = accordion.querySelectorAll('.kwcs-header');
+        
+        headers.forEach(function(header) {
+            console.log("🎯 Dodaję event listener do:", header);
+            
+            header.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log("🖱️ Kliknięto header akordeonu");
+                
+                // Znajdź elementy
+                const item = header.closest('.kwcs-item');
+                const content = item.querySelector('.kwcs-content');
+                const icon = header.querySelector('.icon');
+                
+                if (!content) {
+                    console.error("❌ Nie znaleziono .kwcs-content");
+                    return;
+                }
+                
+                // Sprawdź czy jest otwarty
+                const isOpen = item.classList.contains('open');
+                console.log("📊 Stan przed kliknięciem - otwarty:", isOpen);
+                
+                // ZAMKNIJ INNE AKORDEONY W TEJ SAMEJ GRUPIE
+                accordion.querySelectorAll('.kwcs-item.open').forEach(function(openItem) {
+                    if (openItem !== item) {
+                        openItem.classList.remove('open');
+                        const openContent = openItem.querySelector('.kwcs-content');
+                        const openIcon = openItem.querySelector('.kwcs-header .icon');
+                        const openHeader = openItem.querySelector('.kwcs-header');
+                        
+                        if (openContent) {
+                            openContent.style.maxHeight = '0px';
+                            openContent.setAttribute('aria-hidden', 'true');
+                        }
+                        if (openIcon) openIcon.textContent = '+';
+                        if (openHeader) openHeader.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // TOGGLE AKTUALNEGO ELEMENTU
+                if (isOpen) {
+                    // ZAMYKANIE
+                    console.log("🔽 Zamykam akordeon");
+                    item.classList.remove('open');
+                    content.style.maxHeight = '0px';
+                    content.setAttribute('aria-hidden', 'true');
+                    header.setAttribute('aria-expanded', 'false');
+                    if (icon) icon.textContent = '+';
+                } else {
+                    // OTWIERANIE
+                    console.log("🔼 Otwieram akordeon");
+                    item.classList.add('open');
+                    
+                    // Ustaw max-height na rzeczywistą wysokość zawartości
+                    const scrollHeight = content.scrollHeight;
+                    console.log("📏 Wysokość zawartości:", scrollHeight + "px");
+                    
+                    content.style.maxHeight = scrollHeight + 'px';
+                    content.setAttribute('aria-hidden', 'false');
+                    header.setAttribute('aria-expanded', 'true');
+                    if (icon) icon.textContent = '–';
+                    
+                    // Backup - ustaw większą wysokość dla pewności
+                    setTimeout(function() {
+                        if (item.classList.contains('open')) {
+                            content.style.maxHeight = (scrollHeight + 50) + 'px';
+                        }
+                    }, 50);
+                }
+            });
+        });
     });
-
-    // stan początkowy
-    acc.querySelectorAll('.kwcs-item').forEach(item => {
-      const btn = item.querySelector('.kwcs-header');
-      const content = item.querySelector('.kwcs-content');
-      const icon = item.querySelector('.kwcs-header .icon');
-      item.classList.remove('open');
-      btn && btn.setAttribute('aria-expanded','false');
-      content && content.setAttribute('aria-hidden','true');
-      content && (content.style.maxHeight = '');
-      icon && (icon.textContent = '+');
+    
+    // INICJALNY STAN - wszystkie akordeony zamknięte
+    document.querySelectorAll('.kwcs-item').forEach(function(item) {
+        const content = item.querySelector('.kwcs-content');
+        const icon = item.querySelector('.kwcs-header .icon');
+        const header = item.querySelector('.kwcs-header');
+        
+        item.classList.remove('open');
+        if (content) {
+            content.style.maxHeight = '0px';
+            content.setAttribute('aria-hidden', 'true');
+        }
+        if (icon) icon.textContent = '+';
+        if (header) header.setAttribute('aria-expanded', 'false');
     });
-  }
+    
+    console.log("✅ Akordeony zainicjalizowane pomyślnie!");
+});
 
-  // Jeśli istnieje globalny init – użyj go
-  if (window.KW && typeof window.KW.initCaseStudy === 'function') {
-    window.KW.initCaseStudy(document);
-  } else {
-    // Fallback: podpinamy tylko akordeon
-    bindAccordion(document);
-  }
-})();
+// BACKUP - gdyby DOM już był załadowany
+if (document.readyState === 'loading') {
+    console.log("⏳ DOM się jeszcze ładuje...");
+} else {
+    console.log("🎯 DOM już załadowany, uruchamiam backup init");
+    setTimeout(function() {
+        const event = new Event('DOMContentLoaded');
+        document.dispatchEvent(event);
+    }, 100);
+}
 </script>
 </body>
 </html>
