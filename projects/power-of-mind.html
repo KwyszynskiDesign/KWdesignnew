@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
   
-  <!-- WSZYSTKIE STYLE W JEDNYM MIEJSCU -->
   <style>
     .kwcs-accordion .kwcs-content{
       overflow:hidden;
@@ -31,9 +30,7 @@
       font-weight: 600;
       font-size: 1.05rem;
     }
-    .kwcs-header:hover{
-      background: #eee;
-    }
+    .kwcs-header:hover{ background: #eee; }
     .kwcs-header .icon{
       margin-left:auto;
       font-weight:700;
@@ -52,10 +49,6 @@
       overflow: hidden;
       background: #fff;
       box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-      transition: box-shadow 0.3s;
-    }
-    .kwcs-item.active{
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
     .kwcs-item.active .kwcs-content{
       max-height: 800px !important;
@@ -74,7 +67,7 @@
       <div class="eyebrow">CASE STUDY</div>
       <h1>Strona internetowa wraz z logo</h1>
       <p class="sub">
-        Projekt identyfikacji wizualnej dla nowej marki prowadzonej przez Ewą Bugaj.
+        Projekt identyfikacji wizualnej dla nowej marki prowadzonej przez Ewę Bugaj.
         Strona rozwojowa o oddechu 9D i testach MTQ/MTQ+ odporności psychicznej.
       </p>
     </div>
@@ -126,7 +119,7 @@
   <div class="kwcs-sec" id="dostarczone">
     <div class="wrap">
       <h2>Proces w 5 etapach</h2>
-      <div class="kwcs-accordion" id="mainAccordion">
+      <div class="kwcs-accordion">
         
         <div class="kwcs-item" data-id="acc1">
           <div class="kwcs-header" onclick="toggleAcc('acc1')">
@@ -216,17 +209,10 @@
   </div>
 </section>
 
-<!-- KURWA PROSTY JAVASCRIPT BEZ ŻADNYCH ZEWNĘTRZNYCH ZALEŻNOŚCI -->
 <script>
 function toggleAcc(id) {
-    console.log('Klikam akordeon:', id);
-    
-    // Znajdź kliknięty element
     const clickedItem = document.querySelector(`[data-id="${id}"]`);
-    const clickedContent = clickedItem.querySelector('.kwcs-content');
     const clickedIcon = clickedItem.querySelector('.icon');
-    
-    // Sprawdź czy jest aktywny
     const isActive = clickedItem.classList.contains('active');
     
     // Zamknij wszystkie inne
@@ -241,22 +227,19 @@ function toggleAcc(id) {
     if (isActive) {
         clickedItem.classList.remove('active');
         clickedIcon.textContent = '+';
-        console.log('Zamknięto');
     } else {
         clickedItem.classList.add('active');
         clickedIcon.textContent = '–';
-        console.log('Otwarto');
     }
 }
 
-// Ustaw początkowy stan
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Power of Mind loaded');
+// Ustaw początkowy stan po załadowaniu
+setTimeout(function() {
     document.querySelectorAll('.kwcs-item').forEach(item => {
         item.classList.remove('active');
         item.querySelector('.icon').textContent = '+';
     });
-});
+}, 100);
 </script>
 </body>
 </html>
