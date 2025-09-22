@@ -35,8 +35,25 @@
         </div>
     </header>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Wróć na górę">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 6L12 18M12 6L7 11M12 6L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
    <!-- Hero Section -->
 <section id="hero" class="hero-section">
+    <!-- Background Animation Elements -->
+    <div class="hero-bg-animation">
+        <div class="floating-element floating-dot"></div>
+        <div class="floating-element floating-dot"></div>
+        <div class="floating-element floating-dot"></div>
+        <div class="floating-element floating-line"></div>
+        <div class="floating-element floating-line"></div>
+        <div class="floating-element floating-circle"></div>
+    </div>
+    
     <div class="container hero-content">
         <div class="hero-text">
             <p class="hero-eyebrow">UX/UI Designer & Partner biznesowy</p>
@@ -52,11 +69,12 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="assets/images/ja-skupiony2.webp" alt="Karol Wyszyński - UX/UI Designer" />
+            <div class="hero-image-container">
+                <img src="assets/images/ja-skupiony2.webp" alt="Karol Wyszyński - UX/UI Designer" />
+            </div>
         </div>
     </div>
 </section>
-
 
     <!-- Social Proof + Mini Portfolio -->
     <section id="social-proof" class="social-proof-section">
@@ -90,6 +108,7 @@
                 <h3 class="mini-portfolio-title">Wybrane projekty</h3>
                 <div class="portfolio-grid">
                     <div class="portfolio-item">
+                        <div class="portfolio-background"></div>
                         <img src="assets/images/Voucher Fryzjer_druk_KW-1.png" alt="Salon Fryzjerski u Magdy" />
                         <div class="portfolio-overlay">
                             <h4>Salon Fryzjerski u Magdy</h4>
@@ -97,6 +116,7 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
+                        <div class="portfolio-background"></div>
                         <img src="assets/images/Karoma_NewLogo.png" alt="Sklep Karoma" />
                         <div class="portfolio-overlay">
                             <h4>Sklep Karoma</h4>
@@ -104,6 +124,7 @@
                         </div>
                     </div>
                     <div class="portfolio-item">
+                        <div class="portfolio-background"></div>
                         <img src="assets/images/do SEO 1200x630.png" alt="Power of Mind" />
                         <div class="portfolio-overlay">
                             <h4>Power of Mind</h4>
@@ -119,6 +140,7 @@
     <section id="services" class="services-section">
         <div class="container">
             <h2 class="section-title">Usługi</h2>
+            <p class="section-subtitle">Proponowane usługi to sprawdzone rozwiązania. Jeśli masz inną wizję współpracy - napisz do mnie przez formularz, myślę że znajdę metody jak mogę Cię wesprzeć.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🎯</div>
@@ -181,51 +203,109 @@
     <section id="testimonials" class="testimonials-section">
         <div class="container">
             <h2 class="section-title">Opinie klientów</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-quote">
-                            "Karol odmienił oblicze naszej marki – współpraca przebiegała sprawnie, a efekty przerosły nasze oczekiwania. Profesjonalne podejście na każdym etapie."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AK</div>
-                            <div class="author-info">
-                                <h4>Anna Kowalska</h4>
-                                <p>CEO, Beauty Studio</p>
+            <div class="testimonials-carousel">
+                <div class="testimonials-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Karol odmienił oblicze naszej marki – współpraca przebiegała sprawnie, a efekty przerosły nasze oczekiwania. Profesjonalne podejście na każdym etapie.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AK</div>
+                                <div class="author-info">
+                                    <h4>Anna Kowalska</h4>
+                                    <p>CEO, Beauty Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Świetny kontakt, przemyślane rozwiązania i dbałość o detale. Moja strona internetowa faktycznie zaczęła lepiej konwertować odwiedzających.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MD</div>
+                                <div class="author-info">
+                                    <h4>Marcin Dąbrowski</h4>
+                                    <p>Właściciel agencji</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Współpraca z Karolem to była przyjemność. Rozumie potrzeby biznesu i potrafi przełożyć je na konkretne rozwiązania designu.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MP</div>
+                                <div class="author-info">
+                                    <h4>Monika Pawlak</h4>
+                                    <p>Coach rozwoju osobistego</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate for smooth loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Karol odmienił oblicze naszej marki – współpraca przebiegała sprawnie, a efekty przerosły nasze oczekiwania. Profesjonalne podejście na każdym etapie.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AK</div>
+                                <div class="author-info">
+                                    <h4>Anna Kowalska</h4>
+                                    <p>CEO, Beauty Studio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Świetny kontakt, przemyślane rozwiązania i dbałość o detale. Moja strona internetowa faktycznie zaczęła lepiej konwertować odwiedzających.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MD</div>
+                                <div class="author-info">
+                                    <h4>Marcin Dąbrowski</h4>
+                                    <p>Właściciel agencji</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">
+                                Współpraca z Karolem to była przyjemność. Rozumie potrzeby biznesu i potrafi przełożyć je na konkretne rozwiązania designu.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MP</div>
+                                <div class="author-info">
+                                    <h4>Monika Pawlak</h4>
+                                    <p>Coach rozwoju osobistego</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-quote">
-                            "Świetny kontakt, przemyślane rozwiązania i dbałość o detale. Moja strona internetowa faktycznie zaczęła lepiej konwertować odwiedzających."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MD</div>
-                            <div class="author-info">
-                                <h4>Marcin Dąbrowski</h4>
-                                <p>Właściciel agencji</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-quote">
-                            "Współpraca z Karolem to była przyjemność. Rozumie potrzeby biznesu i potrafi przełożyć je na konkretne rozwiązania designu."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MP</div>
-                            <div class="author-info">
-                                <h4>Monika Pawlak</h4>
-                                <p>Coach rozwoju osobistego</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="testimonials-nav testimonials-prev" aria-label="Poprzednia opinia">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="testimonials-nav testimonials-next" aria-label="Następna opinia">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -234,40 +314,59 @@
     <section id="process" class="process-section">
         <div class="container">
             <h2 class="section-title">Jak razem osiągniemy sukces?</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-content">
+                        <div class="step-number">1</div>
                         <h3>POZNANIE</h3>
                         <p>Audyt Twojej marki i konkurencji (bezpłatnie dla zainteresowanych klientów)</p>
                     </div>
+                    <div class="process-image">
+                        <img src="assets/images/process-meeting.jpg" alt="Spotkanie biznesowe - poznanie klienta" />
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
+
+                <div class="process-item reverse">
+                    <div class="process-image">
+                        <img src="assets/images/process-strategy.jpg" alt="Kreślenie strategii designu" />
+                    </div>
+                    <div class="process-content">
+                        <div class="step-number">2</div>
                         <h3>STRATEGIA</h3>
                         <p>Plan działania dopasowany do Twoich celów biznesowych i budżetu</p>
                     </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
+
+                <div class="process-item">
+                    <div class="process-content">
+                        <div class="step-number">3</div>
                         <h3>REALIZACJA</h3>
                         <p>Projektowanie z regularnym feedbackiem i możliwością wprowadzania zmian</p>
                     </div>
+                    <div class="process-image">
+                        <img src="assets/images/process-realization.jpg" alt="Rozmowa online o realizacji projektu" />
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
+
+                <div class="process-item reverse">
+                    <div class="process-image">
+                        <img src="assets/images/process-implementation.jpg" alt="Wdrażanie projektu" />
+                    </div>
+                    <div class="process-content">
+                        <div class="step-number">4</div>
                         <h3>WDROŻENIE</h3>
                         <p>Launch projektu z testami działania i pierwszymi optymalizacjami</p>
                     </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
+
+                <div class="process-item">
+                    <div class="process-content">
+                        <div class="step-number">5</div>
                         <h3>WSPARCIE</h3>
                         <p>Pomoc w pierwszych miesiącach działania i dalsze optymalizacje</p>
+                    </div>
+                    <div class="process-image">
+                        <img src="assets/images/process-support.jpg" alt="Wsparcie po wdrożeniu" />
                     </div>
                 </div>
             </div>
@@ -288,7 +387,7 @@
                             <li>Digital Boost: 6-8 tygodni</li>
                             <li>Business Pro: 8-12 tygodni</li>
                         </ul>
-                        <p>To orientacyjne terminy - każdy projekt jest inny i dostaję pełną uwagę.</p>
+                        <p>To orientacyjne terminy - każdy projekt jest inny i dostaje pełną uwagę.</p>
                     </div>
                 </div>
                 
@@ -309,7 +408,7 @@
                 <div class="faq-item">
                     <button class="faq-question">Jak wygląda współpraca? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Zapewniam regularny kontakt i aktualizacje postępów, presentuję projekty na każdym etapie. Współpraca jest transparentna od briefu po finał - zawsze wiesz na jakim etapie jesteśmy.</p>
+                        <p>Zapewniam regularny kontakt i aktualizacje postępów, prezentuję projekty na każdym etapie. Współpraca jest transparentna od briefu po finał - zawsze wiesz na jakim etapie jesteśmy.</p>
                     </div>
                 </div>
                 
