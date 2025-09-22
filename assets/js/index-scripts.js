@@ -1,4 +1,4 @@
-// Main JavaScript file
+// Enhanced Main JavaScript file
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavigation();
@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initScrollEffects();
     initNotifications();
+    initTestimonialsCarousel();
+    initScrollToTop();
     console.log('Website initialized successfully');
 });
 
@@ -97,9 +99,6 @@ function initContactForm() {
     const btnText = submitBtn?.querySelector('.btn-text');
     const btnLoader = submitBtn?.querySelector('.btn-loader');
     
-    // Google Apps Script URL (you need to replace this with your actual URL)
-    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-    
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -110,8 +109,7 @@ function initContactForm() {
             try {
                 const formData = new FormData(contactForm);
                 
-                // You can either use Google Apps Script or a backend service
-                // For now, we'll simulate the form submission
+                // Simulate form submission (replace with actual implementation)
                 await simulateFormSubmission(formData);
                 
                 // Show success message
@@ -141,11 +139,10 @@ function initContactForm() {
         }
     }
     
-    // Simulate form submission (replace with actual implementation)
+    // Simulate form submission
     async function simulateFormSubmission(formData) {
         return new Promise((resolve) => {
             setTimeout(() => {
-                // Here you would normally send the data to your backend
                 console.log('Form data:', Object.fromEntries(formData));
                 resolve();
             }, 2000);
@@ -170,169 +167,70 @@ function initContactForm() {
                 
                 messageField.value = templates[selectedType] || '';
                 messageField.focus();
-                // Move cursor to end
                 messageField.setSelectionRange(messageField.value.length, messageField.value.length);
             }
         });
     }
 }
 
-// Scroll effects and animations
-function initScrollEffects() {
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
+// Testimonials Carousel
+function initTestimonialsCarousel() {
+    const track = document.querySelector('.testimonials-track');
+    const prevBtn = document.querySelector('.testimonials-prev');
+    const nextBtn = document.querySelector('.testimonials-next');
     
-    function updateHeader() {
-        const currentScrollY = window.scrollY;
-        
-        // Add scrolled class
-        if (currentScrollY > 50) {
-            header?.classList.add('scrolled');
-        } else {
-            header?.classList.remove('scrolled');
-        }
-        
-        // Hide/show header based on scroll direction
-        if (currentScrollY > lastScrollY && currentScrollY > 200) {
-            header?.classList.add('header-hidden');
-        } else {
-            header?.classList.remove('header-hidden');
-        }
-        
-        lastScrollY = currentScrollY;
-        ticking = false;
+    if (!track) return;
+    
+    let currentIndex = 0;
+    let isTransitioning = false;
+    const totalSlides = 3; // Original slides count
+    
+    // Auto-play functionality
+    let autoplayInterval;
+    
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            if (!isTransitioning) {
+                nextSlide();
+            }
+        }, 5000);
     }
     
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
     }
     
-    window.addEventListener('scroll', requestTick, { passive: true });
-}
-
-// Animation on scroll
-function initAnimations() {
-    const animateElements = document.querySelectorAll('.benefit-card, .service-card, .testimonial-card, .process-step, .portfolio-item');
-    
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
-        });
-    }, observerOptions);
-    
-    animateElements.forEach(element => {
-        observer.observe(element);
-    });
-}
-
-// Notification system
-function initNotifications() {
-    window.showNotification = function(message, type = 'info', duration = 5000) {
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.textContent = message;
+    function updateCarousel() {
+        if (isTransitioning) return;
         
-        document.body.appendChild(notification);
+        isTransitioning = true;
+        const translateX = -(currentIndex * (100 / 6)); // 6 total slides including duplicates
+        track.style.transform = `translateX(${translateX}%)`;
         
-        // Show notification
         setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
-        
-        // Hide and remove notification
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 350);
-        }, duration);
-        
-        // Allow manual close by clicking
-        notification.addEventListener('click', () => {
-            notification.classList.remove('show');
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 350);
-        });
-    };
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
-
-// Performance optimizations
-function optimizeImages() {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
+            isTransitioning = false;
+            
+            // Handle infinite loop
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+                track.style.transition = 'none';
+                track.style.transform = `translateX(0%)`;
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.5s ease';
+                }, 50);
             }
-        });
-    });
+        }, 500);
+    }
     
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Initialize lazy loading when DOM is loaded
-document.addEventListener('DOMContentLoaded', optimizeImages);
-
-// Error handling
-window.addEventListener('error', function(e) {
-    console.error('JavaScript error:', e.error);
-    // You could send this to a logging service
-});
-
-// Service worker registration (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % (totalSlides + 1);
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        if (currentIndex === 0) {
+            currentIndex = totalSlides;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${(totalSlides * 100) / 6}%)`;
+            setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease
