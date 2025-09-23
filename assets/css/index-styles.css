@@ -417,6 +417,10 @@ section {
     color: var(--color-primary);
 }
 
+.logo-link {
+    text-decoration: none;
+}
+
 /* Enhanced Navigation - Dark Theme */
 .nav {
     position: relative;
@@ -611,8 +615,8 @@ section {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 0.9fr; /* Give image more space */
-    gap: var(--space-16);
+    grid-template-columns: 1fr 1fr; /* Revert to 1fr 1fr for overlap */
+    gap: var(--space-8);
     align-items: center;
     position: relative;
     z-index: 2;
@@ -675,7 +679,8 @@ section {
 .hero-image-container {
     position: relative;
     width: 100%;
-    max-width: 520px; /* Increased from 400px */
+    max-width: 700px; /* Increased size significantly */
+    margin-left: -100px; /* Pull image to the left for overlap */
 }
 
 .hero-image-container::before {
@@ -1232,64 +1237,57 @@ section {
     color: var(--color-primary);
 }
 
-/* Process Section - Alternating Layout */
+/* Process Section - Vertical Layout Re-Redesign */
 .process-section {
-    background: var(--color-background-darker); /* Darker background */
+    background: var(--color-background-darker);
     padding: var(--space-24) 0;
     position: relative;
 }
 
 .process-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two-column layout */
-    gap: var(--space-16);
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: var(--space-12);
     margin-top: var(--space-16);
-    max-width: 1200px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .process-item {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Text larger, image smaller */
-    gap: var(--space-8);
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: var(--space-8);
+    text-align: center;
+    padding: var(--space-12);
     background: white;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
     transition: var(--transition-all);
-    text-align: left;
 }
 
 .process-item:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.01);
     box-shadow: var(--shadow-2xl);
 }
 
-.process-item.reverse {
-    grid-template-columns: 0.8fr 1.2fr; /* Image smaller, text larger */
-}
-
-.process-item.reverse .process-content {
-    order: 2;
-    text-align: right;
-}
-
-.process-item.reverse .process-image {
-    order: 1;
-}
-
 .process-content {
-    padding: var(--space-4);
+    order: 1; /* Text on top */
+    width: 100%;
 }
 
-.process-cta {
-    text-align: center;
-    margin-top: var(--space-16);
+.process-image {
+    order: 2; /* Image in the middle */
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--color-background-darker);
+    margin-bottom: var(--space-8);
 }
 
 .step-number {
+    order: 3; /* Number at the bottom */
     width: 60px;
     height: 60px;
     border-radius: var(--radius-full);
@@ -1300,9 +1298,14 @@ section {
     justify-content: center;
     font-size: 1.25rem;
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-4);
     box-shadow: var(--shadow-md);
     transition: var(--transition-all);
+    margin-top: var(--space-8); /* Add space above the number */
+}
+
+.process-cta {
+    text-align: center;
+    margin-top: var(--space-16);
 }
 
 .process-item:hover .step-number {

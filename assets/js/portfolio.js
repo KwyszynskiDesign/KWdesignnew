@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (file) {
       projectViewer.setAttribute('aria-busy', 'true');
       try {
-        const response = await fetch('projects/' + file, { cache: 'no-store' });
+        const response = await fetch('./projects/' + file, { cache: 'no-store' });
         if (response.ok) {
           const html = await response.text();
           projectViewer.innerHTML = html;
@@ -92,4 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateArrows, { passive: true });
 
   updateArrows();
+
+  // Handle loading project from URL hash
+  if (window.location.hash) {
+    const project_id = window.location.hash.substring(1);
+    const project_item = document.getElementById(project_id);
+    if (project_item) {
+      // Use a small timeout to ensure the page is fully ready
+      setTimeout(() => {
+        project_item.click();
+      }, 100);
+    }
+  }
 });
