@@ -1,6 +1,6 @@
 /* About Me Section */
 .about-me-section {
-    padding: var(--space-24) 0;
+    padding: 150px 0 var(--space-24) 0; /* Added 150px top padding */
     background: var(--color-background-light);
 }
 
@@ -43,71 +43,44 @@
     color: var(--color-text-light);
 }
 
-/* New Superpowers Grid */
+.skills-section {
+    margin-top: var(--space-12);
+}
+
+.skills-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+    margin-top: var(--space-8);
+}
+
+.skills-image img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Simplified Superpowers Grid */
 .superpowers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+    gap: var(--space-6);
+    justify-items: center; /* Center icons horizontally in their cell */
+    align-items: center; /* Center icons vertically in their cell */
 }
 
-.superpower-card {
-    background: white;
-    padding: var(--space-8);
-    border-radius: var(--radius-xl);
-    text-align: center;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--color-border-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-
-    /* Animation initial state */
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.superpower-card.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Staggered animation delays */
-.superpower-card:nth-child(1) { transition-delay: 0.1s; }
-.superpower-card:nth-child(2) { transition-delay: 0.2s; }
-.superpower-card:nth-child(3) { transition-delay: 0.3s; }
-.superpower-card:nth-child(4) { transition-delay: 0.4s; }
-.superpower-card:nth-child(5) { transition-delay: 0.5s; }
-.superpower-card:nth-child(6) { transition-delay: 0.6s; }
-
-.superpower-card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: var(--shadow-xl);
-}
-
-.superpower-icon {
+.superpowers-grid span {
     font-size: 2.5rem;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--space-6);
-    background-color: var(--color-background-darker);
-    border-radius: var(--radius-2xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--color-text-muted);
+    transition: var(--transition-all);
+    cursor: pointer;
+    padding: var(--space-2);
+}
+
+.superpowers-grid span:hover {
+    transform: scale(1.3);
     color: var(--color-primary);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.superpower-card:hover .superpower-icon {
-    transform: rotate(10deg) scale(1.1);
-    background-color: var(--color-primary);
-    color: white;
-}
-
-.superpower-card h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--color-text);
 }
 
 .cta-scroll {
@@ -165,9 +138,18 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+    .skills-showcase {
+        grid-template-columns: 1fr; /* Stack on mobile */
+    }
+
+    .skills-image {
+        margin-top: var(--space-8);
+        order: -1; /* Image above icons on mobile */
+    }
+
     .superpowers-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2x3 on mobile */
-        gap: var(--space-6);
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Adjusted for smaller icons */
     }
 }
 

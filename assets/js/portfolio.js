@@ -104,28 +104,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 100);
     }
   }
-
-  // Initialize scroll-triggered animations for portfolio page
-  function initPortfolioAnimations() {
-    const animatedElements = document.querySelectorAll('.superpower-card');
-    if (typeof IntersectionObserver === 'undefined' || animatedElements.length === 0) {
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    animatedElements.forEach(el => observer.observe(el));
-  }
-
-  initPortfolioAnimations();
 });
