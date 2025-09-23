@@ -615,7 +615,7 @@ section {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Revert to 1fr 1fr for overlap */
+    grid-template-columns: repeat(12, 1fr); /* 12-column grid for flexibility */
     gap: var(--space-8);
     align-items: center;
     position: relative;
@@ -624,7 +624,11 @@ section {
 }
 
 .hero-text {
-    max-width: 600px;
+    grid-column: 1 / span 8; /* Text takes up ~7 columns */
+    grid-row: 1;
+    position: relative;
+    z-index: 3; /* Text on top */
+    max-width: 650px;
 }
 
 .hero-eyebrow {
@@ -669,18 +673,21 @@ section {
 }
 
 .hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-column: 6 / span 7; /* Image starts from column 6 and spans 7 columns */
+    grid-row: 1;
+    position: relative;
+    z-index: 2; /* Image below text */
     opacity: 0;
     animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    align-items: center;
 }
 
 .hero-image-container {
     position: relative;
     width: 100%;
-    max-width: 700px; /* Increased size significantly */
-    margin-left: -100px; /* Pull image to the left for overlap */
+    max-width: 800px; /* 2x size increase */
 }
 
 .hero-image-container::before {
@@ -690,18 +697,23 @@ section {
     left: -20px;
     right: -20px;
     bottom: -20px;
-    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.15), transparent 60%);
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.1), transparent 70%);
     border-radius: var(--radius-3xl);
     z-index: -1;
-    filter: blur(20px);
+    filter: blur(30px);
+    opacity: 0.7;
 }
 
-.hero-image::after {
+.hero-section::after { /* New overlay for text readability */
     content: '';
     position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(248, 250, 252, 1) 0%, rgba(248, 250, 252, 0.7) 40%, rgba(248, 250, 252, 0) 60%);
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-background) 40%, transparent 100%);
     z-index: 2;
+    pointer-events: none;
 }
 
 .hero-image img {
@@ -712,8 +724,7 @@ section {
     transition: var(--transition-slow);
     position: relative;
     z-index: 1;
-    mask-image: radial-gradient(circle, black 70%, transparent 100%);
-    -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+    /* Removed the mask-image to show the full picture */
 }
 
 .hero-image img:hover {
@@ -734,34 +745,15 @@ section {
 
 /* Enhanced Social Proof Section */
 .social-proof-section {
-    background: var(--color-dark);
-    color: white;
+    background: var(--color-background-light); /* Changed background */
+    color: var(--color-text); /* Changed text color */
     padding: var(--space-24) 0;
     position: relative;
     overflow: hidden;
 }
 
-.social-proof-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        radial-gradient(circle at 10% 20%, var(--color-dark-light) 4px, transparent 4px),
-        radial-gradient(circle at 80% 30%, var(--color-dark-light) 2px, transparent 2px),
-        radial-gradient(circle at 25% 70%, var(--color-primary-dark) 3px, transparent 3px),
-        radial-gradient(circle at 90% 85%, var(--color-accent) 2px, transparent 2px);
-    background-size: 100px 100px;
-    animation: move-dots 20s linear infinite;
-    z-index: 1;
-    opacity: 0.5;
-}
-
-@keyframes move-dots {
-    0% { background-position: 0 0; }
-    100% { background-position: 100px 100px; }
+.social-proof-section .section-title {
+    color: var(--color-text); /* Ensure title is dark */
 }
 
 .social-proof-section .container {
@@ -786,13 +778,13 @@ section {
     padding: var(--space-12);
     border-radius: var(--radius-2xl);
     text-align: center;
-    box-shadow: var(--shadow-lg); /* Increased base shadow */
+    box-shadow: var(--shadow-lg);
     transition: var(--transition-all);
     border: 1px solid var(--color-border-light);
     position: relative;
     overflow: hidden;
     cursor: default;
-    transform-style: preserve-3d; /* For 3D effect */
+    transform-style: preserve-3d;
 }
 
 .benefit-card::before {
@@ -832,21 +824,59 @@ section {
 }
 
 .benefit-card h3 {
-    color: var(--color-text); /* This should remain dark */
+    color: var(--color-text);
     margin-bottom: var(--space-3);
     font-size: 1.25rem;
     font-weight: var(--font-weight-semibold);
 }
 
 .benefit-card p {
-    color: var(--color-text-light); /* This should also be dark */
+    color: var(--color-text-light);
     margin: 0;
     line-height: 1.6;
 }
 
-/* Enhanced Mini Portfolio */
-.mini-portfolio {
+/* Enhanced Mini Portfolio with Galaxy Background */
+.mini-portfolio-wrapper {
+    background: var(--color-dark);
+    padding: var(--space-20) 0;
     margin-top: var(--space-20);
+    position: relative;
+    overflow: hidden;
+}
+
+.mini-portfolio-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image:
+        /* Starfield layers */
+        radial-gradient(1px 1px at 20px 30px, #eee, transparent),
+        radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 50px 160px, #ddd, transparent),
+        radial-gradient(2px 2px at 90px 40px, #fff, transparent),
+        radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 120px, #ddd, transparent),
+        /* Nebula/Galaxy clouds */
+        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.3), transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(20, 184, 166, 0.2), transparent 25%),
+        radial-gradient(circle at 25% 70%, rgba(100, 116, 139, 0.2), transparent 15%);
+    background-size: 300px 300px;
+    animation: move-galaxy 150s linear infinite;
+    z-index: 1;
+}
+
+@keyframes move-galaxy {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-300px, -300px); }
+}
+
+.mini-portfolio {
+    position: relative;
+    z-index: 2;
 }
 
 .mini-portfolio-title {
@@ -854,7 +884,7 @@ section {
     margin-bottom: var(--space-12);
     font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
     font-family: var(--font-heading);
-    color: var(--color-text);
+    color: white; /* Title should be white on dark background */
 }
 
 .portfolio-grid {
@@ -1280,11 +1310,14 @@ section {
     color: var(--color-primary);
 }
 
-/* Process Section - Alternating Layout */
+/* Process Section - Alternating Layout with Scroll Animations */
 .process-section {
     background: var(--color-background-darker);
     padding: var(--space-24) 0;
     position: relative;
+    /* Add a mask for the fade-out effect at the bottom */
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 .process-grid {
@@ -1306,7 +1339,24 @@ section {
     background: white;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
-    transition: var(--transition-all);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s ease;
+
+    /* Initial state for animation */
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.process-item.reverse {
+    /* Initial state for reversed items */
+    transform: translateX(40px);
+}
+
+.process-item.is-visible {
+    /* Visible state */
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .process-item:hover {
@@ -1735,14 +1785,13 @@ section {
         gap: var(--space-8);
     }
     
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: var(--space-12);
-        text-align: center;
-    }
-    
     .hero-text {
-        max-width: none;
+        grid-column: 1 / span 7;
+        max-width: 550px;
+    }
+
+    .hero-image {
+        grid-column: 5 / span 8;
     }
 
     .process-grid {
@@ -1780,22 +1829,40 @@ section {
 @media (max-width: 768px) {
     .hero-section {
         min-height: auto;
-        padding-top: 120px;
-        padding-bottom: 60px;
+        padding: var(--space-20) 0; /* Reduced vertical padding */
     }
+
     .hero-content {
-        flex-direction: column;
+        grid-template-columns: 1fr; /* Stack on mobile */
+        gap: var(--space-8);
+        text-align: center;
     }
-    .hero-image {
-        position: relative;
-        width: 100%;
-        top: auto;
-        transform: none;
-        margin-top: var(--space-12);
+
+    .hero-text, .hero-image {
+        grid-column: 1 / -1; /* Both take full width */
+        grid-row: auto;
     }
+
     .hero-text {
         max-width: 100%;
         text-align: center;
+        z-index: 3;
+    }
+
+    .hero-image {
+        margin-top: calc(-1 * var(--space-24)); /* Pull image up significantly */
+        z-index: 2;
+        opacity: 0.4; /* Make it more of a background element */
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        max-width: 90%;
+    }
+
+    .hero-section::after {
+        background: linear-gradient(180deg, rgba(248, 250, 252, 0) 50%, var(--color-background) 85%),
+                    linear-gradient(0deg, var(--color-background) 20%, transparent 80%);
     }
 
     /* Navigation */
