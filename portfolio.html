@@ -5,32 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio projektów | KWdesignnew</title>
 
-  <!-- GH Pages: globalna baza ścieżek -->
-  <base href="https://kwyszynskidesign.github.io/KWdesignnew/">
-
   <!-- Style globalne -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/index-styles.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body class="portfolio-page">
 
   <!-- Header -->
   <header class="header">
-    <div class="container header-inner">
-      <a href="https://kwyszynskidesign.github.io/KWdesignnew/" class="logo">KW</a>
-      <nav class="nav">
-        <ul class="nav-list">
-          <li><a href="https://kwyszynskidesign.github.io/KWdesignnew/">Start</a></li>
-          <li><a href="index.html#why" class="smooth">Dlaczego ja</a></li>
-          <li><a href="index.html#packages" class="smooth">Pakiety</a></li>
-          <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
-        </ul>
-        <button class="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-    </div>
+      <div class="container header-inner">
+          <a href="index.html" class="logo">KW</a>
+          <nav class="nav">
+              <ul class="nav-list">
+                  <li><a href="index.html">Start</a></li>
+                  <li><a href="portfolio.html">Portfolio</a></li>
+                  <li><a href="oferta.html">Usługi</a></li>
+                  <li><a href="index.html#testimonials" class="smooth">Opinie</a></li>
+                  <li><a href="index.html#process" class="smooth">Proces</a></li>
+                  <li><a href="index.html#faq" class="smooth">FAQ</a></li>
+                  <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
+              </ul>
+              <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          </nav>
+      </div>
   </header>
 
   <!-- Hero -->
@@ -66,21 +68,21 @@
       </div>
     </div>
 
-    <div id="logo-marka-d" class="carousel-item" data-project="logo-marka-d.html">
+    <div id="logo-marka-d" class="carousel-item" data-project="realizacja-1.html">
       <h3>Logo – Marka D</h3>
       <div class="ci-image">
         <img src="assets/images/placeholder.jpg" alt="Logo – Marka D" loading="lazy" decoding="async" />
       </div>
     </div>
 
-    <div id="strona-marka-e" class="carousel-item" data-project="strona-marka-e.html">
+    <div id="strona-marka-e" class="carousel-item" data-project="realizacja-2.html">
       <h3>Strona – Marka E</h3>
       <div class="ci-image">
         <img src="assets/images/placeholder.jpg" alt="Strona – Marka E" loading="lazy" decoding="async" />
       </div>
     </div>
 
-    <div id="marka-f" class="carousel-item" data-project="marka-f.html">
+    <div id="marka-f" class="carousel-item" data-project="realizacja-3.html">
       <h3>Pakiet – Marka F</h3>
       <div class="ci-image">
         <img src="assets/images/placeholder.jpg" alt="Pakiet – Marka F" loading="lazy" decoding="async" />
@@ -110,87 +112,7 @@
   </footer>
 
   <!-- JS -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){
-      const burger = document.querySelector('.hamburger');
-      const navList = document.querySelector('.nav-list');
-      if(burger && navList){
-        burger.addEventListener('click', () => navList.classList.toggle('open'));
-      }
-    })();
-    
-    const track = document.querySelector('.carousel-track');
-    const prevBtn = document.querySelector('.carousel-nav.prev');
-    const nextBtn = document.querySelector('.carousel-nav.next');
-    const projectViewer = document.getElementById('project-viewer');
-    
-    function getItemWidth(){
-      const first = track.querySelector('.carousel-item');
-      if (!first) return 0;
-      const gap = parseFloat(getComputedStyle(track).gap || 0);
-      return first.offsetWidth + gap;
-    }
-    
-    const VISIBLE_COUNT = 3;
-    
-    function updateArrows(){
-      const maxScroll = track.scrollWidth - track.clientWidth - 1;
-      prevBtn.disabled = track.scrollLeft <= 0;
-      nextBtn.disabled = track.scrollLeft >= maxScroll;
-    }
-    
-    function scrollByItems(count){
-      track.scrollBy({ left: getItemWidth() * count, behavior: 'smooth' });
-      setTimeout(updateArrows, 350);
-    }
-    
-    prevBtn.addEventListener('click', () => scrollByItems(-VISIBLE_COUNT));
-    nextBtn.addEventListener('click', () => scrollByItems(+VISIBLE_COUNT));
-    
-    // POPRAWIONY CLICK HANDLER - BEZ DODAWANIA ACTIVE
-    track.addEventListener('click', async (e) => {
-      const item = e.target.closest('.carousel-item[data-project]');
-      if (!item) return;
-      
-      // USUNIĘTE: dodawanie klasy active
-      // track.querySelectorAll('.carousel-item.active').forEach(el => el.classList.remove('active'));
-      // item.classList.add('active');
-      
-      const file = item.getAttribute('data-project');
-      if(file) {
-        const res = await fetch('projects/' + file, { cache: 'no-store' });
-        if (res.ok) {
-          const html = await res.text();
-          projectViewer.innerHTML = html;
-          projectViewer.classList.remove('hidden');
-          projectViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-      history.replaceState(null, '', '#' + item.id);
-    });
-    
-    track.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', updateArrows);
-    
-    // POPRAWIONY DOM CONTENT LOADED - BEZ AUTO-KLIKANIA
-    document.addEventListener('DOMContentLoaded', () => {
-      updateArrows();
-      
-      // WYŁĄCZONE: automatyczne klikanie na podstawie URL hash
-      // const slug = location.hash ? location.hash.slice(1) : '';
-      // if (!slug) return;
-      // const item = document.getElementById(slug);
-      // if (item) setTimeout(() => item.click(), 120);
-      
-      // FORCE REMOVE ACTIVE - usuwa każdą klasę active co 100ms
-      setInterval(() => {
-        document.querySelectorAll('.carousel-item.active').forEach(el => {
-          el.classList.remove('active');
-        });
-      }, 100);
-    });
-</script>
+  <script src="assets/js/portfolio.js" defer></script>
 
 </body>
 </html>
