@@ -142,73 +142,84 @@ function initTestimonialsCarousel() {
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
     
-    if (!track || !prevBtn || !nextBtn) return;
+    if (!track || !prevBtn || !nextBtn) {
+        return;
+    }
 
-    const slides = Array.from(track.children);
-    const totalOriginalSlides = slides.length / 2;
     let currentIndex = 0;
     let isTransitioning = false;
+    const totalSlides = 3; // Original slides count
     let autoplayInterval;
-
-    function moveToSlide(instant = false) {
-        const slideWidthPercentage = 100 / (totalOriginalSlides * 2);
-        track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
-        track.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
-    }
-
-    function handleNext() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex++;
-        moveToSlide();
-
-        track.addEventListener('transitionend', () => {
-            if (currentIndex >= totalOriginalSlides) {
-                currentIndex = 0;
-                moveToSlide(true);
-            }
-            isTransitioning = false;
-        }, { once: true });
-    }
-
-    function handlePrev() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-
-        if (currentIndex === 0) {
-            currentIndex = totalOriginalSlides;
-            moveToSlide(true);
-
-            setTimeout(() => {
-                currentIndex--;
-                moveToSlide();
-                // Listen for this specific transition to end before allowing more clicks
-                track.addEventListener('transitionend', () => isTransitioning = false, { once: true });
-            }, 50);
-        } else {
-            currentIndex--;
-            moveToSlide();
-            track.addEventListener('transitionend', () => isTransitioning = false, { once: true });
-        }
-    }
 
     function startAutoplay() {
         stopAutoplay();
-        autoplayInterval = setInterval(handleNext, 5000);
+        autoplayInterval = setInterval(nextSlide, 5000);
     }
 
     function stopAutoplay() {
         clearInterval(autoplayInterval);
     }
 
+    function updateCarousel() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        const slideWidthPercentage = 100 / (totalSlides * 2);
+        track.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
+
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            if (currentIndex >= totalSlides) {
+                track.style.transition = 'none';
+                currentIndex = 0;
+                track.style.transform = `translateX(0%)`;
+                // We need to force a reflow for the browser to apply the new transform instantly
+                void track.offsetWidth;
+                track.style.transition = 'transform 0.5s ease';
+            }
+        }, { once: true });
+    }
+
+    function nextSlide() {
+        if(isTransitioning) return;
+        currentIndex++;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        if(isTransitioning) return;
+
+        if (currentIndex === 0) {
+            isTransitioning = true;
+            track.style.transition = 'none';
+            currentIndex = totalSlides;
+            const slideWidthPercentage = 100 / (totalSlides * 2);
+            track.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
+            void track.offsetWidth;
+
+            setTimeout(() => {
+                track.style.transition = 'transform 0.5s ease';
+                currentIndex--;
+                updateCarousel();
+            }, 50);
+
+        } else {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+
+    // Event listeners
     nextBtn.addEventListener('click', () => {
         stopAutoplay();
-        handleNext();
+        nextSlide();
+        startAutoplay();
     });
 
     prevBtn.addEventListener('click', () => {
         stopAutoplay();
-        handlePrev();
+        prevSlide();
+        startAutoplay();
     });
 
     const wrapper = track.closest('.testimonials-carousel-wrapper');
@@ -216,7 +227,7 @@ function initTestimonialsCarousel() {
         wrapper.addEventListener('mouseenter', stopAutoplay);
         wrapper.addEventListener('mouseleave', startAutoplay);
     }
-    
+
     startAutoplay();
 }
 
@@ -260,11 +271,11 @@ function initNotifications() {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
-        
+
         document.body.appendChild(notification);
 
         setTimeout(() => notification.classList.add('show'), 100);
-        
+
         setTimeout(() => {
             notification.classList.remove('show');
             notification.addEventListener('transitionend', () => notification.remove(), { once: true });
@@ -275,7 +286,7 @@ function initNotifications() {
 // Scroll to top button
 function initScrollToTop() {
     const scrollToTopBtn = document.getElementById('scrollToTop');
-    
+
     if (scrollToTopBtn) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
