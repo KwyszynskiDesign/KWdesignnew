@@ -696,6 +696,14 @@ section {
     filter: blur(20px);
 }
 
+.hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(248, 250, 252, 1) 0%, rgba(248, 250, 252, 0.7) 40%, rgba(248, 250, 252, 0) 60%);
+    z-index: 2;
+}
+
 .hero-image img {
     width: 100%;
     height: auto;
@@ -726,9 +734,44 @@ section {
 
 /* Enhanced Social Proof Section */
 .social-proof-section {
-    background: var(--color-background-light);
+    background: var(--color-dark);
+    color: white;
     padding: var(--space-24) 0;
     position: relative;
+    overflow: hidden;
+}
+
+.social-proof-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 20%, var(--color-dark-light) 4px, transparent 4px),
+        radial-gradient(circle at 80% 30%, var(--color-dark-light) 2px, transparent 2px),
+        radial-gradient(circle at 25% 70%, var(--color-primary-dark) 3px, transparent 3px),
+        radial-gradient(circle at 90% 85%, var(--color-accent) 2px, transparent 2px);
+    background-size: 100px 100px;
+    animation: move-dots 20s linear infinite;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+@keyframes move-dots {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+.social-proof-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.social-proof-section .section-title,
+.social-proof-section .mini-portfolio-title {
+    color: white;
 }
 
 .benefits-grid {
@@ -789,14 +832,14 @@ section {
 }
 
 .benefit-card h3 {
-    color: var(--color-text);
+    color: var(--color-text); /* This should remain dark */
     margin-bottom: var(--space-3);
     font-size: 1.25rem;
     font-weight: var(--font-weight-semibold);
 }
 
 .benefit-card p {
-    color: var(--color-text-light);
+    color: var(--color-text-light); /* This should also be dark */
     margin: 0;
     line-height: 1.6;
 }
@@ -1237,7 +1280,7 @@ section {
     color: var(--color-primary);
 }
 
-/* Process Section - Vertical Layout Re-Redesign */
+/* Process Section - Alternating Layout */
 .process-section {
     background: var(--color-background-darker);
     padding: var(--space-24) 0;
@@ -1246,20 +1289,20 @@ section {
 
 .process-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column layout */
+    grid-template-columns: 1fr; /* Still 1 column, but items inside are grids */
     gap: var(--space-12);
     margin-top: var(--space-16);
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .process-item {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
     align-items: center;
-    text-align: center;
-    padding: var(--space-12);
+    padding: var(--space-8);
     background: white;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
@@ -1267,27 +1310,23 @@ section {
 }
 
 .process-item:hover {
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-2xl);
 }
 
-.process-content {
-    order: 1; /* Text on top */
-    width: 100%;
+.process-item.reverse .process-content {
+    order: 2;
 }
 
-.process-image {
-    order: 2; /* Image in the middle */
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    background: var(--color-background-darker);
-    margin-bottom: var(--space-8);
+.process-item.reverse .process-image {
+    order: 1;
+}
+
+.process-content {
+    padding: var(--space-4);
 }
 
 .step-number {
-    order: 3; /* Number at the bottom */
     width: 60px;
     height: 60px;
     border-radius: var(--radius-full);
@@ -1298,9 +1337,9 @@ section {
     justify-content: center;
     font-size: 1.25rem;
     font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-4);
     box-shadow: var(--shadow-md);
     transition: var(--transition-all);
-    margin-top: var(--space-8); /* Add space above the number */
 }
 
 .process-cta {
@@ -1739,6 +1778,26 @@ section {
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    .hero-content {
+        flex-direction: column;
+    }
+    .hero-image {
+        position: relative;
+        width: 100%;
+        top: auto;
+        transform: none;
+        margin-top: var(--space-12);
+    }
+    .hero-text {
+        max-width: 100%;
+        text-align: center;
+    }
+
     /* Navigation */
     .hamburger {
         display: flex;

@@ -8,6 +8,7 @@
   <!-- Style globalne -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/index-styles.css" />
+  <link rel="stylesheet" href="assets/css/about-me.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body class="portfolio-page">
@@ -35,68 +36,96 @@
       </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero-section">
-    <div class="container hero-content">
-      <p class="hero-eyebrow">Moje realizacje</p>
-      <h1 class="hero-title">Portfolio projektów</h1>
-      <p class="hero-subtitle">Wybrane projekty: branding, strony WWW, automatyzacje.</p>
-    </div>
+  <!-- About Me Section -->
+  <section class="about-me-section">
+    <div class="container about-me-grid">
+      <div class="about-me-text">
+        <h1>Cześć, jestem Karol 👋</h1>
+        <p class="subtitle">UX/UI Designer & Partner Biznesowy</p>
+        <p>Jestem projektantem z pasją do tworzenia intuicyjnych i efektywnych doświadczeń użytkownika. Pomagam firmom budować zaufanie i osiągać cele biznesowe poprzez przemyślany design.</p>
 
-    <!-- Karuzela -->
-   <!-- Karuzela -->
-<div class="carousel-outer" aria-label="Lista projektów">
-  <div class="carousel-track" tabindex="0" aria-live="polite">
-    <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.html">
-      <h3>Voucher – Salon u Magdy</h3>
-      <div class="ci-image">
-        <img src="assets/images/Voucher Fryzjer_druk_KW-1.png" alt="Voucher – Salon u Magdy" loading="lazy" decoding="async" />
+        <div class="skills-section">
+          <h3>Moje umiejętności</h3>
+          <div class="skills-grid">
+            <div class="skill-card">UX/UI Design</div>
+            <div class="skill-card">WordPress</div>
+            <div class="skill-card">WooCommerce</div>
+            <div class="skill-card">Automatyzacje</div>
+            <div class="skill-card">Google Apps Script</div>
+            <div class="skill-card">Integracje</div>
+          </div>
+        </div>
+
+        <div class="interests-section">
+            <h3>Zainteresowania</h3>
+            <p>Po godzinach zgłębiam tajniki psychologii, eksploruję nowe technologie i podróżuję w poszukiwaniu inspiracji.</p>
+        </div>
+
+        <a href="#portfolio-section" class="cta-scroll">Zobacz moje realizacje poniżej</a>
+      </div>
+      <div class="about-me-image">
+        <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - portret">
       </div>
     </div>
+  </section>
 
-    <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
-      <h3>Strona – Karoma</h3>
-      <div class="ci-image">
-        <img src="assets/images/Karoma_NewLogo.png" alt="Strona – Karoma" loading="lazy" decoding="async" />
-      </div>
+  <!-- Portfolio Section -->
+  <section id="portfolio-section" class="portfolio-section">
+    <div class="container">
+        <h2 class="section-title">Portfolio</h2>
+        <!-- Karuzela -->
+        <div class="carousel-outer" aria-label="Lista projektów">
+          <div class="carousel-track" tabindex="0" aria-live="polite">
+            <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.html">
+              <h3>Voucher – Salon u Magdy</h3>
+              <div class="ci-image">
+                <img src="assets/images/Voucher Fryzjer_druk_KW-1.png" alt="Voucher – Salon u Magdy" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div id="strona-karoma" class="carousel-item" data-project="strona-karoma.html">
+              <h3>Strona – Karoma</h3>
+              <div class="ci-image">
+                <img src="assets/images/Karoma_NewLogo.png" alt="Strona – Karoma" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
+              <h3>Pakiet – Power of Mind</h3>
+              <div class="ci-image">
+                <img src="assets/images/do SEO 1200x630.png" alt="Pakiet – Power of Mind" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div id="logo-marka-d" class="carousel-item" data-project="realizacja-1.html">
+              <h3>Logo – Marka D</h3>
+              <div class="ci-image">
+                <img src="assets/images/placeholder.jpg" alt="Logo – Marka D" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div id="strona-marka-e" class="carousel-item" data-project="realizacja-2.html">
+              <h3>Strona – Marka E</h3>
+              <div class="ci-image">
+                <img src="assets/images/placeholder.jpg" alt="Strona – Marka E" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div id="marka-f" class="carousel-item" data-project="realizacja-3.html">
+              <h3>Pakiet – Marka F</h3>
+              <div class="ci-image">
+                <img src="assets/images/placeholder.jpg" alt="Pakiet – Marka F" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Strzałki przeniesione POD karuzelę -->
+        <div class="carousel-controls" aria-hidden="false">
+          <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
+          <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
+        </div>
     </div>
-
-    <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
-      <h3>Pakiet – Power of Mind</h3>
-      <div class="ci-image">
-        <img src="assets/images/do SEO 1200x630.png" alt="Pakiet – Power of Mind" loading="lazy" decoding="async" />
-      </div>
-    </div>
-
-    <div id="logo-marka-d" class="carousel-item" data-project="realizacja-1.html">
-      <h3>Logo – Marka D</h3>
-      <div class="ci-image">
-        <img src="assets/images/placeholder.jpg" alt="Logo – Marka D" loading="lazy" decoding="async" />
-      </div>
-    </div>
-
-    <div id="strona-marka-e" class="carousel-item" data-project="realizacja-2.html">
-      <h3>Strona – Marka E</h3>
-      <div class="ci-image">
-        <img src="assets/images/placeholder.jpg" alt="Strona – Marka E" loading="lazy" decoding="async" />
-      </div>
-    </div>
-
-    <div id="marka-f" class="carousel-item" data-project="realizacja-3.html">
-      <h3>Pakiet – Marka F</h3>
-      <div class="ci-image">
-        <img src="assets/images/placeholder.jpg" alt="Pakiet – Marka F" loading="lazy" decoding="async" />
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Strzałki przeniesione POD karuzelę -->
-<div class="carousel-controls" aria-hidden="false">
-  <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
-  <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
-</div>
-
   </section>
 
   <!-- Viewer -->
