@@ -693,11 +693,12 @@ section {
     transition: var(--transition-slow);
     position: relative;
     z-index: 1;
+    mask-image: radial-gradient(circle, black 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
 }
 
 .hero-image img:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-2xl);
+    /* Hover effect removed as requested */
 }
 
 /* Animation keyframes */
@@ -714,7 +715,7 @@ section {
 
 /* Enhanced Social Proof Section */
 .social-proof-section {
-    background: var(--color-background);
+    background: var(--color-background-light);
     padding: var(--space-24) 0;
     position: relative;
 }
@@ -731,12 +732,13 @@ section {
     padding: var(--space-12);
     border-radius: var(--radius-2xl);
     text-align: center;
-    box-shadow: var(--shadow-xs);
+    box-shadow: var(--shadow-lg); /* Increased base shadow */
     transition: var(--transition-all);
     border: 1px solid var(--color-border-light);
     position: relative;
     overflow: hidden;
     cursor: default;
+    transform-style: preserve-3d; /* For 3D effect */
 }
 
 .benefit-card::before {
@@ -752,8 +754,8 @@ section {
 }
 
 .benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-10px) rotateX(5deg) scale(1.02);
+    box-shadow: var(--shadow-2xl);
     border-color: var(--color-primary);
 }
 
@@ -814,15 +816,15 @@ section {
     aspect-ratio: 4/3;
     cursor: pointer;
     transition: var(--transition-all);
-    box-shadow: var(--shadow-md);
-    background: var(--color-background-light);
+    box-shadow: var(--shadow-lg); /* Increased base shadow */
+    background: var(--color-background); /* White background */
+    border: 1px solid var(--color-border-light);
+    transform-style: preserve-3d; /* For 3D effect */
 }
 
 .portfolio-background {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--color-background-light) 0%, var(--color-background-darker) 100%);
-    z-index: 1;
+    /* This element is no longer needed with a white card background */
+    display: none;
 }
 
 .portfolio-item img {
@@ -837,8 +839,9 @@ section {
 }
 
 .portfolio-item:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-12px) scale(1.03) rotateX(4deg);
     box-shadow: var(--shadow-2xl);
+    border-color: var(--color-primary);
 }
 
 .portfolio-item:hover img {
@@ -903,11 +906,13 @@ section {
     position: relative;
     overflow: hidden;
     cursor: default;
+    display: flex;
+    flex-direction: column;
     
     /* 3D Effect */
     transform-style: preserve-3d;
     box-shadow: 
-        var(--shadow-md),
+        var(--shadow-xl), /* Increased shadow */
         0 0 0 1px rgba(255, 255, 255, 0.05) inset,
         0 1px 0 rgba(255, 255, 255, 0.2) inset;
     background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
@@ -1021,6 +1026,7 @@ section {
     border-top: 1px solid var(--color-border);
     padding-top: var(--space-4);
     margin-bottom: var(--space-6);
+    margin-top: auto; /* Pushes meta and button to the bottom */
 }
 
 .service-time {
@@ -1102,11 +1108,19 @@ section {
     z-index: 2;
 }
 
+.testimonials-carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .testimonials-carousel {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
     z-index: 2;
+    width: 100%;
+    overflow: hidden;
 }
 
 .testimonials-track {
@@ -1117,7 +1131,8 @@ section {
 }
 
 .testimonial-card {
-    flex: 0 0 calc(33.333% - var(--space-6));
+    flex: 0 0 calc(33.333% - var(--space-10)); /* Made narrower */
+    max-width: 380px; /* Added max-width */
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1178,10 +1193,14 @@ section {
     font-size: 0.875rem;
 }
 
+.testimonials-nav-container {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+}
+
 .testimonials-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
@@ -1203,15 +1222,7 @@ section {
     color: var(--color-primary);
 }
 
-.testimonials-prev {
-    left: -60px;
-}
-
-.testimonials-next {
-    right: -60px;
-}
-
-/* Process Section - New Grid Layout */
+/* Process Section - Vertical Layout */
 .process-section {
     background: var(--color-background-light);
     padding: var(--space-24) 0;
@@ -1220,41 +1231,34 @@ section {
 
 .process-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: var(--space-12); /* Adjusted gap */
     margin-top: var(--space-16);
-    max-width: 1200px;
+    max-width: 800px; /* Constrain width for better readability */
     margin-left: auto;
     margin-right: auto;
 }
 
 .process-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-    align-items: center;
-    padding: var(--space-8);
+    display: flex; /* Using flexbox for more control */
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    padding: var(--space-12); /* Increased padding */
     background: white;
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-lg); /* Base shadow */
     transition: var(--transition-all);
 }
 
 .process-item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: var(--shadow-2xl);
 }
 
-.process-item.reverse {
-    grid-template-columns: 1fr 1fr;
-}
-
-.process-item.reverse .process-content {
-    order: 2;
-}
-
+.process-item.reverse .process-content,
 .process-item.reverse .process-image {
-    order: 1;
+    order: unset; /* Remove reverse ordering */
 }
 
 .process-content {
@@ -1298,10 +1302,12 @@ section {
 
 .process-image {
     position: relative;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9; /* Wider aspect ratio for this layout */
     border-radius: var(--radius-xl);
     overflow: hidden;
     background: var(--color-background-darker);
+    width: 100%;
+    margin-bottom: var(--space-8);
 }
 
 .process-image img {

@@ -53,7 +53,7 @@ function initNavigation() {
                 const targetId = href;
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
-                    const headerHeight = header.offsetHeight;
+                    const headerHeight = header ? header.offsetHeight : 0;
                     const targetPosition = targetSection.offsetTop - headerHeight;
                     
                     window.scrollTo({
@@ -80,7 +80,7 @@ function initFAQ() {
                 
                 // Close all other FAQ items
                 faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
                         otherItem.classList.remove('active');
                     }
                 });
@@ -95,142 +95,201 @@ function initFAQ() {
 // Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
-    const submitBtn = contactForm?.querySelector('.submit-btn');
+    if (!contactForm) return;
+
+    const submitBtn = contactForm.querySelector('.submit-btn');
     const btnText = submitBtn?.querySelector('.btn-text');
     const btnLoader = submitBtn?.querySelector('.btn-loader');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        setSubmitButtonState(true);
+
+        try {
+            // In a real scenario, you would use fetch() to send data to a server.
+            // For this demo, we'll just simulate it.
+            await new Promise(resolve => setTimeout(resolve, 1500));
             
-            // Show loading state
-            setSubmitButtonState(true);
+            showNotification('Dziękuję za wiadomość! Skontaktuję się w ciągu 24h.', 'success');
+            contactForm.reset();
             
-            try {
-                const formData = new FormData(contactForm);
-                
-                // Simulate form submission (replace with actual implementation)
-                await simulateFormSubmission(formData);
-                
-                // Show success message
-                showNotification('Dziękuję za wiadomość! Skontaktuję się w ciągu 24h.', 'success');
-                contactForm.reset();
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                showNotification('Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub wyślij email bezpośrednio.', 'error');
-            } finally {
-                setSubmitButtonState(false);
-            }
-        });
-    }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showNotification('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.', 'error');
+        } finally {
+            setSubmitButtonState(false);
+        }
+    });
     
     function setSubmitButtonState(loading) {
-        if (submitBtn && btnText && btnLoader) {
-            if (loading) {
-                btnText.style.display = 'none';
-                btnLoader.style.display = 'block';
-                submitBtn.disabled = true;
-            } else {
-                btnText.style.display = 'block';
-                btnLoader.style.display = 'none';
-                submitBtn.disabled = false;
-            }
+        if (!submitBtn || !btnText || !btnLoader) return;
+        if (loading) {
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'block';
+            submitBtn.disabled = true;
+        } else {
+            btnText.style.display = 'block';
+            btnLoader.style.display = 'none';
+            submitBtn.disabled = false;
         }
-    }
-    
-    // Simulate form submission
-    async function simulateFormSubmission(formData) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log('Form data:', Object.fromEntries(formData));
-                resolve();
-            }, 2000);
-        });
-    }
-    
-    // Auto-fill message based on project type
-    const projectTypeSelect = contactForm?.querySelector('#projectType');
-    const messageField = contactForm?.querySelector('#message');
-    
-    if (projectTypeSelect && messageField) {
-        projectTypeSelect.addEventListener('change', function() {
-            const selectedType = this.value;
-            if (selectedType && messageField.value.trim() === '') {
-                const templates = {
-                    'logo': 'Potrzebuję projektu logo i identyfikacji wizualnej dla mojej firmy. Branża: [wpisz branżę]. Chciałbym/chciałabym, żeby...',
-                    'website': 'Szukam projektanta do stworzenia strony internetowej. Typ strony: [firmowa/portfolio/blog]. Oczekiwania: ...',
-                    'ecommerce': 'Planuję uruchomić sklep internetowy. Branża: [wpisz branżę]. Liczba produktów: około [ile]. Potrzebuję...',
-                    'full': 'Potrzebuję kompleksowego rebrandingu firmy. Obecna sytuacja: [opisz]. Cele: ...',
-                    'other': 'Mam projekt, który nie mieści się w standardowych kategoriach. Chodzi o...'
-                };
-                
-                messageField.value = templates[selectedType] || '';
-                messageField.focus();
-                messageField.setSelectionRange(messageField.value.length, messageField.value.length);
-            }
-        });
     }
 }
 
-// Testimonials Carousel
+// Testimonials Carousel - Corrected Logic
 function initTestimonialsCarousel() {
     const track = document.querySelector('.testimonials-track');
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
     
-    if (!track) return;
-    
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const slides = Array.from(track.children);
+    const totalOriginalSlides = slides.length / 2;
     let currentIndex = 0;
     let isTransitioning = false;
-    const totalSlides = 3; // Original slides count
-    
-    // Auto-play functionality
     let autoplayInterval;
-    
-    function startAutoplay() {
-        autoplayInterval = setInterval(() => {
-            if (!isTransitioning) {
-                nextSlide();
-            }
-        }, 5000);
+
+    function moveToSlide(instant = false) {
+        const slideWidthPercentage = 100 / (totalOriginalSlides * 2);
+        track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
     }
-    
+
+    function handleNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        moveToSlide();
+
+        track.addEventListener('transitionend', () => {
+            if (currentIndex >= totalOriginalSlides) {
+                currentIndex = 0;
+                moveToSlide(true);
+            }
+            isTransitioning = false;
+        }, { once: true });
+    }
+
+    function handlePrev() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        if (currentIndex === 0) {
+            currentIndex = totalOriginalSlides;
+            moveToSlide(true);
+
+            setTimeout(() => {
+                currentIndex--;
+                moveToSlide();
+                // Listen for this specific transition to end before allowing more clicks
+                track.addEventListener('transitionend', () => isTransitioning = false, { once: true });
+            }, 50);
+        } else {
+            currentIndex--;
+            moveToSlide();
+            track.addEventListener('transitionend', () => isTransitioning = false, { once: true });
+        }
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(handleNext, 5000);
+    }
+
     function stopAutoplay() {
         clearInterval(autoplayInterval);
     }
+
+    nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        handleNext();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        handlePrev();
+    });
+
+    const wrapper = track.closest('.testimonials-carousel-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAutoplay);
+        wrapper.addEventListener('mouseleave', startAutoplay);
+    }
     
-    function updateCarousel() {
-        if (isTransitioning) return;
+    startAutoplay();
+}
+
+
+// Scroll-triggered animations
+function initAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-in, .animate-fade-in, .animate-scale-in');
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+// Scroll effects
+function initScrollEffects() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    }, { passive: true });
+}
+
+// Notifications
+function initNotifications() {
+    window.showNotification = (message, type = 'info') => {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
         
-        isTransitioning = true;
-        const translateX = -(currentIndex * (100 / 6)); // 6 total slides including duplicates
-        track.style.transform = `translateX(${translateX}%)`;
+        document.body.appendChild(notification);
+
+        setTimeout(() => notification.classList.add('show'), 100);
         
         setTimeout(() => {
-            isTransitioning = false;
-            
-            // Handle infinite loop
-            if (currentIndex >= totalSlides) {
-                currentIndex = 0;
-                track.style.transition = 'none';
-                track.style.transform = `translateX(0%)`;
-                setTimeout(() => {
-                    track.style.transition = 'transform 0.5s ease';
-                }, 50);
+            notification.classList.remove('show');
+            notification.addEventListener('transitionend', () => notification.remove(), { once: true });
+        }, 5000);
+    };
+}
+
+// Scroll to top button
+function initScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
             }
-        }, 500);
+        }, { passive: true });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     }
-    
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % (totalSlides + 1);
-        updateCarousel();
-    }
-    
-    function prevSlide() {
-        if (currentIndex === 0) {
-            currentIndex = totalSlides;
-            track.style.transition = 'none';
-            track.style.transform = `translateX(-${(totalSlides * 100) / 6}%)`;
-            setTimeout(() => {
-                track.style.transition = 'transform 0.5s ease
+}
