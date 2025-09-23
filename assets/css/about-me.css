@@ -35,27 +35,79 @@
 }
 
 .skills-section h3, .interests-section h3 {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4); /* Reduced margin */
 }
 
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
+.skills-section p {
+    margin-bottom: var(--space-8);
+    color: var(--color-text-light);
 }
 
-.skill-card {
+/* New Superpowers Grid */
+.superpowers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+.superpower-card {
     background: white;
-    padding: var(--space-3) var(--space-6);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    font-weight: 500;
-    transition: var(--transition-all);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.skill-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+.superpower-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.superpower-card:nth-child(1) { transition-delay: 0.1s; }
+.superpower-card:nth-child(2) { transition-delay: 0.2s; }
+.superpower-card:nth-child(3) { transition-delay: 0.3s; }
+.superpower-card:nth-child(4) { transition-delay: 0.4s; }
+.superpower-card:nth-child(5) { transition-delay: 0.5s; }
+.superpower-card:nth-child(6) { transition-delay: 0.6s; }
+
+.superpower-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--shadow-xl);
+}
+
+.superpower-icon {
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-6);
+    background-color: var(--color-background-darker);
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.superpower-card:hover .superpower-icon {
+    transform: rotate(10deg) scale(1.1);
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.superpower-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text);
 }
 
 .cta-scroll {
@@ -63,7 +115,27 @@
     margin-top: var(--space-12);
     font-weight: 600;
     color: var(--color-primary);
-    text-decoration: underline;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.cta-scroll::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.cta-scroll:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .about-me-image {
@@ -74,7 +146,7 @@
 
 .about-me-image img {
     width: 100%;
-    max-width: 450px;
+    max-width: 380px; /* Reduced by ~15% from 450px */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
 }
@@ -93,4 +165,64 @@
         margin-left: auto;
         margin-right: auto;
     }
+    .superpowers-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x3 on mobile */
+        gap: var(--space-6);
+    }
+}
+
+/* Logo Carousel Section */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-200px * 7)); /* width * number of logos */
+    }
+}
+
+.logo-carousel-section {
+    margin-top: var(--space-16);
+    text-align: center;
+}
+
+.logo-carousel-section h6 {
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+}
+
+.logo-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    gap: var(--space-12);
+    width: calc(200px * 14); /* (width + gap) * number of logos * 2 */
+    animation: scroll 20s linear infinite;
+}
+
+.logo-carousel:hover .logo-track {
+    animation-play-state: paused;
+}
+
+.logo-carousel img {
+    height: 40px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: var(--transition-normal);
+}
+
+.logo-carousel img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
 }

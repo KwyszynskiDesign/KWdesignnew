@@ -234,18 +234,21 @@ function initTestimonialsCarousel() {
 
 // Scroll-triggered animations
 function initAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-in, .animate-fade-in, .animate-scale-in');
+    // Add .process-item to the list of elements to observe
+    const animatedElements = document.querySelectorAll('.animate-in, .animate-fade-in, .animate-scale-in, .process-item');
     if (typeof IntersectionObserver === 'undefined') return;
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                // Use a more specific class to avoid conflicts and match new CSS
+                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation a bit before it's fully in view
     });
 
     animatedElements.forEach(el => observer.observe(el));
