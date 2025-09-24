@@ -47,25 +47,6 @@
     margin-top: var(--space-12);
 }
 
-.skills-showcase {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-12);
-    align-items: center;
-    margin-top: var(--space-8);
-}
-
-.skills-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.skills-image img {
-    width: 100%;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-}
-
 /* Simplified Superpowers Grid */
 .superpowers-grid {
     display: grid;
@@ -73,6 +54,7 @@
     gap: var(--space-6);
     justify-items: center; /* Center icons horizontally in their cell */
     align-items: center; /* Center icons vertically in their cell */
+    width: 100%; /* Ensure it takes full width of its container */
 }
 
 .superpowers-grid span {
@@ -116,15 +98,23 @@
     transform-origin: left;
 }
 
+.about-me-visuals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-12);
+}
+
 .about-me-image {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .about-me-image img {
     width: 100%;
-    max-width: 380px; /* Reduced by ~15% from 450px */
+    max-width: 304px; /* Reduced to 80% of 380px */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
 }
@@ -135,26 +125,16 @@
         grid-template-columns: 1fr;
         text-align: center;
     }
-    .about-me-image {
-        order: -1; /* Image on top on mobile */
+    .about-me-visuals {
+        order: -1; /* Image and skills on top on mobile */
         margin-bottom: var(--space-12);
     }
     .about-me-text p {
         margin-left: auto;
         margin-right: auto;
     }
-
-    .skills-showcase {
-        grid-template-columns: 1fr; /* Stack on mobile */
-    }
-
-    .skills-image {
-        margin-top: var(--space-8);
-        order: -1; /* Image above icons on mobile */
-    }
-
     .superpowers-grid {
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Adjusted for smaller icons */
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     }
 }
 
