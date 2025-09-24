@@ -513,6 +513,17 @@ section {
     padding-top: 80px;
 }
 
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 50%);
+    z-index: 3;
+}
+
 /* Hero Background Animation */
 .hero-bg-animation {
     position: absolute;
@@ -561,6 +572,27 @@ section {
     animation-duration: 7s;
 }
 
+.floating-dot:nth-child(4) {
+    top: 10%;
+    left: 50%;
+    animation-delay: 1s;
+    animation-duration: 5s;
+}
+
+.floating-dot:nth-child(5) {
+    top: 90%;
+    left: 90%;
+    animation-delay: 3s;
+    animation-duration: 9s;
+}
+
+.floating-dot:nth-child(6) {
+    top: 50%;
+    left: 5%;
+    animation-delay: 5s;
+    animation-duration: 6s;
+}
+
 .floating-line {
     width: 40px;
     height: 2px;
@@ -569,19 +601,35 @@ section {
     animation: floatHorizontal 5s ease-in-out infinite;
 }
 
-.floating-line:nth-child(4) {
+.floating-line:nth-child(7) {
     top: 30%;
     right: 15%;
     animation-delay: 1s;
     animation-duration: 6s;
 }
 
-.floating-line:nth-child(5) {
+.floating-line:nth-child(8) {
     top: 70%;
     left: 60%;
     animation-delay: 3s;
     animation-duration: 8s;
     transform: rotate(45deg);
+}
+
+.floating-line:nth-child(9) {
+    top: 5%;
+    left: 30%;
+    animation-delay: 2s;
+    animation-duration: 7s;
+    transform: rotate(-30deg);
+}
+
+.floating-line:nth-child(10) {
+    top: 95%;
+    right: 40%;
+    animation-delay: 4s;
+    animation-duration: 5s;
+    transform: rotate(15deg);
 }
 
 .floating-circle {
@@ -592,10 +640,17 @@ section {
     animation: floatCircular 10s linear infinite;
 }
 
-.floating-circle:nth-child(6) {
+.floating-circle:nth-child(11) {
     top: 40%;
     left: 70%;
     animation-delay: 2s;
+}
+
+.floating-circle:nth-child(12) {
+    top: 15%;
+    left: 15%;
+    animation-delay: 5s;
+    animation-duration: 12s;
 }
 
 @keyframes floatVertical {
@@ -852,7 +907,7 @@ section {
 .mini-portfolio-title {
     text-align: center;
     margin-bottom: var(--space-12);
-    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    font-size: clamp(1.95rem, 2.6vw + 1.3rem, 2.6rem);
     font-family: var(--font-heading);
     color: white; /* Title should be white on dark background */
 }
@@ -900,12 +955,6 @@ section {
 
 .portfolio-item:hover img {
     transform: scale(1.05);
-}
-
-.portfolio-item-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
 }
 
 .portfolio-item-content {
@@ -1310,9 +1359,25 @@ section {
     background: var(--color-background-darker);
     padding: var(--space-24) 0;
     position: relative;
-    /* Add a mask for the fade-out effect at the bottom */
+}
+
+.process-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    background: var(--color-background-darker);
+    z-index: 1;
+}
+
+.process-grid, .process-cta {
+    position: relative;
+    z-index: 2;
 }
 
 .process-grid {
@@ -1326,9 +1391,8 @@ section {
 }
 
 .process-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12);
+    display: flex;
+    flex-direction: column;
     align-items: center;
     padding: var(--space-8);
     background: white;
@@ -1340,18 +1404,17 @@ section {
 
     /* Initial state for animation */
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateY(40px);
 }
 
 .process-item.reverse {
-    /* Initial state for reversed items */
-    transform: translateX(40px);
+    /* This is no longer needed with the new layout */
 }
 
 .process-item.is-visible {
     /* Visible state */
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
 
 .process-item:hover {
@@ -1359,26 +1422,19 @@ section {
     box-shadow: var(--shadow-2xl);
 }
 
-.process-item.reverse .process-content {
-    order: 2;
-}
-
-.process-item.reverse .process-image {
-    order: 1;
-}
-
 .process-content {
+    order: 2; /* Text below image */
     padding: var(--space-4);
-    text-align: center; /* Center text */
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertical centering */
-    align-items: center; /* Horizontal centering for the text block */
-    height: 100%; /* Ensure it takes full height of the grid cell */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .process-text-block {
-    max-width: 70%; /* Constrain text block width */
+    max-width: 80%; /* Constrain text block width */
     width: 100%;
 }
 
@@ -1412,19 +1468,20 @@ section {
     color: var(--color-primary);
     margin-bottom: var(--space-4);
     font-weight: var(--font-weight-bold);
-    font-size: 1.5rem; /* Enlarged */
+    font-size: 1.95rem; /* 30% increase */
 }
 
 .process-content p {
     color: var(--color-text-light);
     margin: 0;
     line-height: 1.7;
-    font-size: 1.1rem; /* Enlarged */
+    font-size: 1.32rem; /* 20% increase */
 }
 
 .process-image {
+    order: 1; /* Image on top */
     position: relative;
-    aspect-ratio: 16/9; /* Wider aspect ratio for this layout */
+    aspect-ratio: 16/9;
     border-radius: var(--radius-xl);
     overflow: hidden;
     background: var(--color-background-darker);
@@ -1441,6 +1498,13 @@ section {
 
 .process-item:hover .process-image img {
     transform: scale(1.05);
+}
+
+.sticky-cta {
+    position: sticky;
+    bottom: 2rem;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Enhanced FAQ Section */
@@ -1856,19 +1920,14 @@ section {
     }
 
     .hero-image {
-        margin-top: calc(-1 * var(--space-24)); /* Pull image up significantly */
+        margin-top: var(--space-8);
         z-index: 2;
-        opacity: 0.4; /* Make it more of a background element */
+        opacity: 1;
         justify-content: center;
     }
 
     .hero-image-container {
         max-width: 90%;
-    }
-
-    .hero-section::after {
-        background: linear-gradient(180deg, rgba(248, 250, 252, 0) 50%, var(--color-background) 85%),
-                    linear-gradient(0deg, var(--color-background) 20%, transparent 80%);
     }
 
     /* Navigation */
