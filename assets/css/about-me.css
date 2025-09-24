@@ -49,10 +49,15 @@
 
 .skills-showcase {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: var(--space-12);
     align-items: center;
     margin-top: var(--space-8);
+}
+
+.skills-content {
+    display: flex;
+    flex-direction: column;
 }
 
 .skills-image img {
