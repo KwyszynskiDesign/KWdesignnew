@@ -43,8 +43,8 @@ function initNavigation() {
         });
     }
     
-    // Smooth scrolling for navigation links
-    const smoothLinks = document.querySelectorAll('a.smooth, a[href^="#"]');
+    // Smooth scrolling for on-page anchor links
+    const smoothLinks = document.querySelectorAll('.nav-list a[href^="#"], .cta-group a[href^="#"], .footer a[href^="#"], a.smooth');
     smoothLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -136,24 +136,49 @@ function initContactForm() {
     }
 }
 
-// Testimonials Carousel - Now driven by CSS animation
+// Testimonials Carousel
 function initTestimonialsCarousel() {
+    const wrapper = document.querySelector('.testimonials-carousel-wrapper');
     const track = document.querySelector('.testimonials-track');
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
 
-    if (!track || !prevBtn || !nextBtn) {
+    if (!track || !prevBtn || !nextBtn || !wrapper) {
         return;
     }
 
-    // The continuous animation is handled by CSS.
-    // The JS for autoplay, timers, and transitions is no longer needed.
-    // We can add simple scroll functionality to the buttons if desired,
-    // but the primary requirement was a smooth, continuous loop.
-    // For now, we will leave the buttons without functionality to avoid
-    // conflicting with the CSS animation. The hover-to-pause provides
-    // the necessary user interaction.
-    console.log('Testimonials carousel initialized with CSS animation.');
+    const itemWidth = () => {
+        const firstItem = track.querySelector('.testimonial-card');
+        if (!firstItem) return 0;
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return firstItem.offsetWidth + gap;
+    };
+
+    const scrollCarousel = (amount) => {
+        wrapper.classList.add('paused');
+        track.scrollBy({ left: amount, behavior: 'smooth' });
+
+        // Resume animation after a delay, but only if the user is not hovering
+        setTimeout(() => {
+            if (!wrapper.matches(':hover')) {
+                wrapper.classList.remove('paused');
+            }
+        }, 5000); // 5-second delay
+    };
+
+    // Add paused class on hover to stop CSS animation (works with the CSS rule)
+    wrapper.addEventListener('mouseenter', () => wrapper.classList.add('paused'));
+    wrapper.addEventListener('mouseleave', () => wrapper.classList.remove('paused'));
+
+    prevBtn.addEventListener('click', () => {
+        scrollCarousel(-itemWidth());
+    });
+
+    nextBtn.addEventListener('click', () => {
+        scrollCarousel(itemWidth());
+    });
+
+    console.log('Testimonials carousel initialized with button functionality.');
 }
 
 
