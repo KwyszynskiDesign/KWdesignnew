@@ -114,7 +114,7 @@
 
 .about-me-image img {
     width: 100%;
-    max-width: 304px; /* Reduced to 80% of 380px */
+    /* max-width has been removed to allow the grid to control the size */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
 }
@@ -151,6 +151,8 @@
 .logo-carousel-section {
     margin-top: var(--space-16);
     text-align: center;
+    width: 100%;
+    max-width: 100%;
 }
 
 .logo-carousel-section h6 {

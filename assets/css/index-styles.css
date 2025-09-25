@@ -903,6 +903,11 @@ section {
     z-index: 1;
 }
 
+.mini-portfolio-section .container {
+    position: relative;
+    z-index: 2;
+}
+
 .mini-portfolio-title {
     text-align: center;
     margin-bottom: var(--space-12);
@@ -1359,13 +1364,13 @@ section {
     transform: none;
 }
 
-/* Process Section - Vertical Layout with Centered Image */
+/* Process Section - Alternating Layout with Scroll Animations */
 .process-section {
     background: var(--color-background-darker);
-    padding: var(--space-24) 0 0; /* Removed bottom padding */
+    padding: var(--space-24) 0;
     position: relative;
-    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    /* The mask-image is removed to prevent it from covering content.
+       A ::after pseudo-element can be used for a safer gradient if needed. */
 }
 
 .process-grid {
@@ -1373,27 +1378,34 @@ section {
     grid-template-columns: 1fr;
     gap: var(--space-12);
     margin-top: var(--space-16);
-    max-width: 800px; /* Reduced max-width for a more focused column */
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .process-item {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
     padding: var(--space-8);
     background: white;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s ease;
     opacity: 0;
-    transform: translateY(40px); /* Animate from bottom */
+    transform: translateX(-40px);
+}
+
+.process-item.reverse {
+    transform: translateX(40px);
 }
 
 .process-item.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .process-item:hover {
@@ -1401,34 +1413,36 @@ section {
     box-shadow: var(--shadow-2xl);
 }
 
+.process-item.reverse .process-content {
+    order: 2;
+}
+
+.process-item.reverse .process-image {
+    order: 1;
+}
+
+.process-content {
+    padding: var(--space-4);
+    text-align: left; /* Align text to the left in columns */
+}
+
 .process-image {
     position: relative;
+    aspect-ratio: 1/1;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    width: 100%;
-    max-width: 500px; /* Control image size */
-    margin-bottom: var(--space-8); /* Space between image and content */
-    align-self: center; /* Center the image container itself */
+    background: var(--color-background-darker);
 }
 
 .process-image img {
     width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    height: 100%;
     object-fit: cover;
-    display: block;
     transition: var(--transition-slow);
 }
 
 .process-item:hover .process-image img {
     transform: scale(1.05);
-}
-
-.process-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 
 .step-number {
