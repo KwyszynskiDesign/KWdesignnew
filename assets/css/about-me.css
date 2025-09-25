@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-16);
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
 }
 
 .about-me-text h1 {
@@ -111,7 +111,7 @@
 
 .about-me-image img {
     width: 100%;
-    max-width: 250px; /* Significantly smaller as requested */
+    max-width: 190px; /* 50% of original 380px */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
     margin: 0 auto; /* Center the image if the column is wider */
@@ -160,6 +160,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     margin-bottom: var(--space-8);
+    font-size: 1.1rem; /* Increased by ~30% from default */
 }
 
 .logo-carousel {
