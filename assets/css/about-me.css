@@ -99,24 +99,23 @@
 }
 
 .about-me-visuals {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-12);
-}
-
-.about-me-image {
+    /* This container now just holds the image, so less styling is needed */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.about-me-image {
     width: 100%;
 }
 
 .about-me-image img {
     width: 100%;
-    /* max-width has been removed to allow the grid to control the size */
+    max-width: 250px; /* Significantly smaller as requested */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
+    margin: 0 auto; /* Center the image if the column is wider */
+    display: block;
 }
 
 /* Responsive */

@@ -21,7 +21,7 @@
               <ul class="nav-list">
                   <li><a href="index.html">Start</a></li>
                   <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="#wizualizacje-section" class="smooth">Wizualizacje</a></li>
+                  <li><a href="#" id="nav-wizualizacje" class="smooth">Wizualizacje</a></li>
                   <li><a href="oferta.html">Usługi</a></li>
                   <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
               </ul>
@@ -60,13 +60,6 @@
             <p>Po godzinach zgłębiam tajniki psychologii, eksploruję nowe technologie i podróżuję w poszukiwaniu inspiracji.</p>
         </div>
 
-        <a href="#portfolio-section" class="cta-scroll">Zobacz moje realizacje poniżej</a>
-      </div>
-
-      <div class="about-me-visuals">
-        <div class="about-me-image">
-            <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - portret">
-        </div>
         <!-- Logo Carousel -->
         <div class="logo-carousel-section">
             <h6>Pracuję w programach:</h6>
@@ -90,6 +83,14 @@
                     <img src="assets/images/logos/sketch.svg" alt="Sketch" title="Sketch" />
                 </div>
             </div>
+        </div>
+
+        <a href="#portfolio-section" class="cta-scroll">Zobacz moje realizacje poniżej</a>
+      </div>
+
+      <div class="about-me-visuals">
+        <div class="about-me-image">
+            <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - portret">
         </div>
       </div>
     </div>
@@ -155,13 +156,8 @@
     </div>
   </section>
 
-  <!-- Wizualizacje Section -->
-  <section id="wizualizacje-section" class="portfolio-section" style="padding-top: 0;">
-    <div class="container">
-        <h2 class="section-title">Wizualizacje 3D</h2>
-        <p style="text-align: center; color: var(--color-text-light);">Ta sekcja jest w budowie. Wkrótce pojawią się tu moje projekty wizualizacji 3D.</p>
-    </div>
-  </section>
+  <!-- Wizualizacje Section (Content is loaded dynamically, this section is now just a placeholder) -->
+  <section id="wizualizacje-section" style="display: none;"></section>
 
   <!-- Viewer -->
   <section id="project-viewer" class="project-viewer hidden" aria-live="polite" aria-busy="false"></section>
