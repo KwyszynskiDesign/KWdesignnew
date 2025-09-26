@@ -40,45 +40,64 @@
     </button>
 
    <!-- Hero Section -->
-<section id="hero" class="hero-section">
-    <!-- Background Animation Elements -->
-    <div class="hero-bg-animation">
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-dot"></div>
-        <div class="floating-element floating-line"></div>
-        <div class="floating-element floating-line"></div>
-        <div class="floating-element floating-line"></div>
-        <div class="floating-element floating-line"></div>
-        <div class="floating-element floating-circle"></div>
-        <div class="floating-element floating-circle"></div>
-    </div>
-    
-    <div class="container hero-content">
-        <div class="hero-text">
-            <p class="hero-eyebrow">UX/UI Designer & Partner biznesowy</p>
-            <h1 class="hero-title">
-                Zwiększam sprzedaż przez <span class="highlight">lepszy design</span>
-            </h1>
-            <p class="hero-subtitle">
-                Pomagam firmom budować zaufanie i przyciągać klientów dzięki przemyślanemu designowi i strategii wizualnej.
-            </p>
-            <div class="cta-group">
-                <a href="#contact" class="btn btn-primary smooth">Bezpłatny audyt</a>
-                <a href="portfolio.html" class="btn btn-secondary">Zobacz projekty</a>
+    <section id="hero" class="hero-section" style="padding-top: calc(80px - 150px);">
+        <div class="hero-bg-animation">
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-dot"></div>
+            <div class="floating-element floating-line"></div>
+            <div class="floating-element floating-line"></div>
+            <div class="floating-element floating-line"></div>
+            <div class="floating-element floating-line"></div>
+            <div class="floating-element floating-circle"></div>
+            <div class="floating-element floating-circle"></div>
+        </div>
+
+        <div class="container hero-section-content">
+            <div class="hero-main-title">
+                <p class="hero-eyebrow">UX/UI Designer & Partner biznesowy</p>
+                <h1 class="hero-title">
+                    Zwiększam sprzedaż przez <span class="highlight">lepszy design</span>
+                </h1>
+            </div>
+
+            <div class="hero-main-content">
+                <div class="hero-info-icons">
+                    <div class="info-icon">
+                        <span class="icon">📈</span>
+                        <span class="text"><span class="counter" data-target="8">0</span>+ lat doświadczenia</span>
+                    </div>
+                    <div class="info-icon">
+                        <span id="availability-dot" class="dot green"></span>
+                        <span id="availability-text" class="text">Dostępny teraz</span>
+                    </div>
+                    <div class="info-icon">
+                        <span class="icon">😊</span>
+                        <span class="text"><span class="counter" data-target="15">0</span>+ zadowolonych klientów</span>
+                    </div>
+                </div>
+                <div class="hero-image" style="transform: translateX(80px);">
+                    <div class="hero-image-container">
+                        <img src="assets/images/ja-skupiony2.webp" alt="Karol Wyszyński - UX/UI Designer" />
+                        <div class="gradient-overlay"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-bottom-content">
+                <p class="hero-subtitle">
+                    Pomagam firmom budować zaufanie i przyciągać klientów dzięki przemyślanemu designowi i strategii wizualnej.
+                </p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary smooth">Bezpłatny audyt</a>
+                    <a href="portfolio.html" class="btn btn-secondary">Zobacz projekty</a>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="hero-image-container">
-                <img src="assets/images/ja-skupiony2.webp" alt="Karol Wyszyński - UX/UI Designer" />
-                <div class="gradient-overlay"></div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Social Proof -->
     <section id="social-proof" class="social-proof-section">
@@ -165,7 +184,7 @@
                         <p class="service-time">Czas: 3-5 tygodni</p>
                         <p class="service-price">od 2500 zł</p>
                     </div>
-                    <a href="uslugi.html#brand-start" class="service-btn">Dowiedz się więcej</a>
+                    <a href="uslugi.html#brand-start" class="service-btn" target="_self">Dowiedz się więcej</a>
                 </div>
 
                 <div class="service-card featured">
@@ -184,7 +203,7 @@
                         <p class="service-time">Czas: 6-8 tygodni</p>
                         <p class="service-price">od 4500 zł</p>
                     </div>
-                    <a href="uslugi.html#digital-boost" class="service-btn">Dowiedz się więcej</a>
+                    <a href="uslugi.html#digital-boost" class="service-btn" target="_self">Dowiedz się więcej</a>
                 </div>
 
                 <div class="service-card">
@@ -202,7 +221,7 @@
                         <p class="service-time">Czas: 8-12 tygodni</p>
                         <p class="service-price">od 7500 zł</p>
                     </div>
-                    <a href="uslugi.html#business-pro" class="service-btn">Dowiedz się więcej</a>
+                    <a href="uslugi.html#business-pro" class="service-btn" target="_self">Dowiedz się więcej</a>
                 </div>
             </div>
         </div>
@@ -525,6 +544,7 @@
         </div>
     </footer>
 
+    <script src="assets/js/availability.js"></script>
     <script src="assets/js/index-scripts.js"></script>
 </body>
 </html>

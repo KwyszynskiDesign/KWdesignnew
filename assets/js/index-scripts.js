@@ -9,8 +9,63 @@ document.addEventListener('DOMContentLoaded', function() {
     initNotifications();
     initTestimonialsCarousel();
     initScrollToTop();
+    initAvailabilityStatus();
+    initCounters(); // Add this call
     console.log('Website initialized successfully');
 });
+
+// Animated Counters
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    if (counters.length === 0) return;
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const duration = 1500; // 1.5 seconds
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                clearInterval(timer);
+                counter.innerText = target;
+            } else {
+                counter.innerText = Math.ceil(current);
+            }
+        }, stepTime);
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.8 });
+
+    counters.forEach(counter => observer.observe(counter));
+}
+
+// Availability Status
+function initAvailabilityStatus() {
+    const dot = document.getElementById('availability-dot');
+    const text = document.getElementById('availability-text');
+
+    if (!dot || !text) return;
+
+    function updateStatus() {
+        const status = getCurrentStatus();
+        dot.className = `dot ${status.status}`;
+        text.textContent = status.text;
+    }
+
+    updateStatus(); // Initial call
+    setInterval(updateStatus, 60000); // Update every minute
+}
 
 // Navigation functionality
 function initNavigation() {
@@ -147,35 +202,28 @@ function initTestimonialsCarousel() {
         return;
     }
 
-    const itemWidth = () => {
-        const firstItem = track.querySelector('.testimonial-card');
-        if (!firstItem) return 0;
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        return firstItem.offsetWidth + gap;
-    };
-
-    const scrollCarousel = (amount) => {
+    const scrollCarousel = (direction) => {
         wrapper.classList.add('paused');
-        track.scrollBy({ left: amount, behavior: 'smooth' });
+        const scrollAmount = track.clientWidth * direction;
+        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 
-        // Resume animation after a delay, but only if the user is not hovering
+        // Resume animation after a delay
         setTimeout(() => {
             if (!wrapper.matches(':hover')) {
                 wrapper.classList.remove('paused');
             }
-        }, 5000); // 5-second delay
+        }, 5000);
     };
 
-    // Add paused class on hover to stop CSS animation (works with the CSS rule)
     wrapper.addEventListener('mouseenter', () => wrapper.classList.add('paused'));
     wrapper.addEventListener('mouseleave', () => wrapper.classList.remove('paused'));
 
     prevBtn.addEventListener('click', () => {
-        scrollCarousel(-itemWidth());
+        scrollCarousel(-1);
     });
 
     nextBtn.addEventListener('click', () => {
-        scrollCarousel(itemWidth());
+        scrollCarousel(1);
     });
 
     console.log('Testimonials carousel initialized with button functionality.');
