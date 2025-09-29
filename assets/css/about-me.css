@@ -54,9 +54,9 @@
     gap: 30px;
     justify-items: center;
     align-items: center;
-    max-width: 200px;
-    margin-left: auto;
-    margin-right: 0;
+    max-width: 250px; /* Keep icons together */
+    margin-left: 0; /* Align to the left */
+    margin-right: auto;
 }
 
 .superpowers-grid span {
