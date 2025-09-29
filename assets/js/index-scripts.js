@@ -19,30 +19,50 @@ function initCounters() {
     const counters = document.querySelectorAll('.counter');
     if (counters.length === 0) return;
 
+    counters.forEach(counter => {
+        counter.isAnimating = false;
+        counter.animationInterval = null;
+    });
+
     const animateCounter = (counter) => {
+        if (counter.isAnimating) return;
+
+        counter.isAnimating = true;
         const target = +counter.getAttribute('data-target');
-        const duration = 1500; // 1.5 seconds
+        const duration = 1500;
         const stepTime = 20;
         const steps = duration / stepTime;
         const increment = target / steps;
         let current = 0;
 
-        const timer = setInterval(() => {
+        counter.innerText = '0'; // Start from 0 visually
+
+        counter.animationInterval = setInterval(() => {
             current += increment;
             if (current >= target) {
-                clearInterval(timer);
+                clearInterval(counter.animationInterval);
                 counter.innerText = target;
+                counter.isAnimating = false;
             } else {
                 counter.innerText = Math.ceil(current);
             }
         }, stepTime);
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const resetCounter = (counter) => {
+        if (counter.animationInterval) {
+            clearInterval(counter.animationInterval);
+        }
+        counter.isAnimating = false;
+        counter.innerText = '0';
+    };
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateCounter(entry.target);
-                observer.unobserve(entry.target);
+            } else {
+                resetCounter(entry.target);
             }
         });
     }, { threshold: 0.8 });

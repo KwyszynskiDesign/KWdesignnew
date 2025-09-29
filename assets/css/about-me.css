@@ -51,10 +51,12 @@
 .superpowers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-items: center; /* Center icons horizontally in their cell */
-    align-items: center; /* Center icons vertically in their cell */
-    width: 100%; /* Ensure it takes full width of its container */
+    gap: var(--space-4);
+    justify-items: center;
+    align-items: center;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .superpowers-grid span {
