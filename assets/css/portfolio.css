@@ -1,4 +1,5 @@
 /* === PORTFOLIO PAGE (pełny plik po scaleniu) === */
+
 /* === LOKALNE FONTY POPPINS === */
 @font-face{
   font-family:'Poppins';
@@ -19,7 +20,7 @@
   font-weight:700; font-style:normal; font-display:swap;
 }
 
-/* GLOBALNY FIX OVERFLOW - TYLKO TO DODANE */
+/* GLOBALNY FIX OVERFLOW */
 * {
   box-sizing: border-box;
 }
@@ -112,19 +113,22 @@ body.portfolio-page .hero-section{
   }
 }
 
-/* === ABOUT ME SECTION - NAPRAWIONE TYLKO ZDJĘCIE === */
+/* === ABOUT ME SECTION - NAPRAWIONE OVERFLOW === */
 .about-me-section {
-  margin-top:0;
-  padding:clamp(150px, 15vh, 200px) clamp(16px, 4vw, 40px) clamp(80px, 10vh, 120px) clamp(16px, 4vw, 40px);
+  margin-top: 0;
+  padding: clamp(150px, 15vh, 200px) 0 clamp(80px, 10vh, 120px) 0;
+  overflow: hidden; /* DODANE: ukrywa overflow */
 }
 
 .about-me-grid {
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:2fr 1fr; /* NAPRAWIONE: lepsze proporcje */
-  gap:clamp(60px, 8vw, 100px); /* WIĘKSZY GAP */
-  align-items:center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px); /* DODANE: padding do kontenera */
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 300px); /* NAPRAWIONE: ograniczenie prawej kolumny */
+  gap: clamp(60px, 8vw, 100px);
+  align-items: center;
+  overflow: hidden; /* DODANE: ukrywa overflow */
 }
 
 /* WIĘKSZE PRZESTRZENIE MIĘDZY TEKSTAMI */
@@ -168,22 +172,21 @@ body.portfolio-page .hero-section{
   margin-bottom: clamp(25px, 4vh, 40px);
 }
 
-/* NAPRAWIONE ZDJĘCIE I PRZYCISK - GŁÓWNY FIX */
+/* NAPRAWIONE ZDJĘCIE - KOMPLETNE OGRANICZENIE */
 .about-me-visuals {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: clamp(30px, 5vh, 50px);
-  position: relative;
-  z-index: 1;
   width: 100%;
-  max-width: 350px; /* OGRANICZENIE SZEROKOŚCI */
-  justify-self: center; /* WYŚRODKOWANIE W GRID */
+  max-width: 300px; /* OGRANICZENIE SZEROKOŚCI */
+  overflow: hidden; /* UKRYWA OVERFLOW */
+  justify-self: center; /* WYŚRODKOWANIE */
 }
 
 .about-me-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 280px; /* ZMNIEJSZONE MAKSIMUM */
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
@@ -212,7 +215,7 @@ body.portfolio-page .hero-section{
   box-shadow: 0 4px 14px rgba(37,99,235,0.3);
   text-align: center;
   white-space: nowrap;
-  width: fit-content;
+  max-width: 280px; /* DODANE: ograniczenie szerokości przycisku */
 }
 
 .cta-portfolio:hover {
@@ -233,7 +236,11 @@ body.portfolio-page .hero-section{
   }
   
   .about-me-image {
-    max-width: 280px;
+    max-width: 250px; /* ZMNIEJSZONE NA MOBILE */
+  }
+
+  .cta-portfolio {
+    max-width: 250px; /* ZMNIEJSZONE NA MOBILE */
   }
 
   /* ZMNIEJSZONE MARGINESY NA MOBILE */
