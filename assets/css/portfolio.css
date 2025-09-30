@@ -47,6 +47,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   overflow:visible;
   min-height:auto;
   padding-top:20px; /* DODANE: miejsce na gradient text */
+ padding-left:clamp(40px,6vw,80px); 
 }
 
 .about-me-text h1{
@@ -229,7 +230,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   .about-me-image{max-width:300px;aspect-ratio:1;} /* SQUARE NA MOBILE */
   .cta-portfolio{max-width:300px;padding:18px 36px;}
   .superpowers-grid{grid-template-columns:repeat(3,1fr);justify-items:center;}
-  .about-me-text{text-align:center;padding-top:10px;}
+  .about-me-text{text-align:center;padding-top:10px;padding-left:0;}
   .about-me-text h1{text-align:center;font-size:clamp(1.8rem,6vw,2.5rem);}
   .about-me-text .subtitle{text-align:center;}
 }
