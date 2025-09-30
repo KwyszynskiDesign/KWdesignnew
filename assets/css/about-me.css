@@ -6,9 +6,9 @@
 
 .about-me-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
-    align-items: flex-start; /* Align items to the top */
+    grid-template-columns: 1fr auto;
+    gap: 200px;
+    align-items: center;
 }
 
 .about-me-text h1 {
@@ -81,6 +81,8 @@
     justify-content: center;
     align-items: center;
     gap: var(--space-8);
+    position: relative;
+    transform: none !important;
 }
 
 .about-me-image {
@@ -89,10 +91,10 @@
 
 .about-me-image img {
     width: 100%;
-    max-width: 190px; /* 50% of original 380px */
+    max-width: 380px; /* Restore original size */
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-xl);
-    margin: 0 auto; /* Center the image if the column is wider */
+    margin: 0 auto;
     display: block;
 }
 

@@ -99,7 +99,7 @@ function initNavigation() {
     }
     
     // Smooth scrolling for on-page anchor links
-    const smoothLinks = document.querySelectorAll('.nav-list a[href^="#"], .cta-group a[href^="#"], .footer a[href^="#"], a.smooth');
+    const smoothLinks = document.querySelectorAll('a.smooth');
     smoothLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
