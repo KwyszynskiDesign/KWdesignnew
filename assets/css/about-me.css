@@ -48,13 +48,18 @@
 }
 
 /* Simplified Superpowers Grid */
+.superpowers-container {
+    max-width: 600px; /* Match the max-width of the paragraph above */
+    margin-top: var(--space-8);
+}
+
 .superpowers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-items: center; /* Center icons horizontally in their cell */
-    align-items: center; /* Center icons vertically in their cell */
-    width: 100%; /* Ensure it takes full width of its container */
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: var(--space-8);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
 }
 
 .superpowers-grid span {

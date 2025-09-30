@@ -193,40 +193,82 @@ function initContactForm() {
 
 // Testimonials Carousel
 function initTestimonialsCarousel() {
-    const wrapper = document.querySelector('.testimonials-carousel-wrapper');
     const track = document.querySelector('.testimonials-track');
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
 
-    if (!track || !prevBtn || !nextBtn || !wrapper) {
+    if (!track || !prevBtn || !nextBtn) {
+        console.error('Testimonials carousel elements not found.');
         return;
     }
 
-    const scrollCarousel = (direction) => {
-        wrapper.classList.add('paused');
-        const scrollAmount = track.clientWidth * direction;
-        track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    const cards = Array.from(track.children);
+    const originalCardCount = cards.length / 2; // Since we have duplicates for the loop
+    let currentIndex = 0;
+    let isTransitioning = false;
 
-        // Resume animation after a delay
-        setTimeout(() => {
-            if (!wrapper.matches(':hover')) {
-                wrapper.classList.remove('paused');
-            }
-        }, 5000);
-    };
+    function getScrollWidth() {
+        const card = cards[0];
+        const style = window.getComputedStyle(card);
+        const cardWidth = card.offsetWidth;
+        const gap = parseFloat(style.marginRight) || parseFloat(window.getComputedStyle(track).gap) || 0;
+        return cardWidth + gap;
+    }
 
-    wrapper.addEventListener('mouseenter', () => wrapper.classList.add('paused'));
-    wrapper.addEventListener('mouseleave', () => wrapper.classList.remove('paused'));
+    const slideWidth = getScrollWidth();
 
-    prevBtn.addEventListener('click', () => {
-        scrollCarousel(-1);
+    function updateCarousel(instant = false) {
+        isTransitioning = true;
+        track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        if (currentIndex >= originalCardCount) {
+            currentIndex = 0;
+            updateCarousel(true);
+        } else if (currentIndex < 0) {
+            currentIndex = originalCardCount - 1;
+            updateCarousel(true);
+        }
     });
 
-    nextBtn.addEventListener('click', () => {
-        scrollCarousel(1);
-    });
+    function moveToNext() {
+        if (isTransitioning) return;
+        currentIndex++;
+        updateCarousel();
+    }
 
-    console.log('Testimonials carousel initialized with button functionality.');
+    function moveToPrev() {
+        if (isTransitioning) return;
+        if (currentIndex === 0) {
+            // Jump to the end of the cloned slides to create a seamless loop
+            isTransitioning = true;
+            track.style.transition = 'none';
+            currentIndex = originalCardCount;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+            // Force reflow before applying the transition back
+            track.offsetHeight;
+
+            // Go to the slide before the first one
+            currentIndex--;
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+            setTimeout(() => { isTransitioning = false; }, 500);
+
+        } else {
+            currentIndex--;
+            updateCarousel();
+        }
+    }
+
+    nextBtn.addEventListener('click', moveToNext);
+    prevBtn.addEventListener('click', moveToPrev);
+
+    console.log('Testimonials carousel initialized with fully functional JS control.');
 }
 
 
