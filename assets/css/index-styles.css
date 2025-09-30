@@ -1156,7 +1156,6 @@ section {
     display: flex;
     gap: var(--space-8);
     width: 200%; /* 6 items total */
-    animation: scroll-testimonials 40s linear infinite;
 }
 
 .testimonials-carousel-wrapper:hover .testimonials-track,
