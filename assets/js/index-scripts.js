@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Configuration
-const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbyB211nOTXwn5GPFcLN3roPlfeuGAsttCuymgJIrkqlR300yHgqppSl5wbvnjSQuw2p/exec';
+const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbz7q6dEJrmXBq2WKjcVuLUub0nSTNV1I2F7a8n6UgieHmiESbaxHG-nxrx7sT3AJiCz/exec';
 
 // Test API Function
 // NOWY TEST API - tylko GET (bez błędów CORS)
