@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Configuration - WSTAW TUTAJ SWÓJ URL Z APPS SCRIPT
-const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbwWS1QcF5GNMYO01j6uL3A6_jDKKmJFUlL7qZU76bgII09DB9bIJYa46Eg17WjKmgG0/exec';
+const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycby402lqnTSN0L0BkMig0MGVvCo377A5K9ZWIRJADI-vh0pSsNmYpuU0AR0eO_X2SlPc/exec';
 
 // Animated Counters
 function initCounters() {
