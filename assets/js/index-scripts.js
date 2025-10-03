@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Configuration
-const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbzh5ogu5vSsXkS-pLgYwaFx26FLX_MNsbK0zUUuf2T2NWiKMbspPGWg7f4ZR8joWUL9/exec';
+const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbxDMIXrSLVZK3MAgh2hN5ejxgd0ApFviDGpL_bWVi2i5cKfklVEXcrM58k8rnP6xwRg/exec';
 
 // Test API Function
 window.testAPI = async function() {
