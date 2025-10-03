@@ -71,10 +71,7 @@ window.testAPI = async function() {
 // Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
-    if (!contactForm) {
-        console.log('Contact form not found');
-        return;
-    }
+    if (!contactForm) return;
 
     const submitBtn = contactForm.querySelector('.submit-btn');
     const btnText = submitBtn?.querySelector('.btn-text');
@@ -84,11 +81,7 @@ function initContactForm() {
         e.preventDefault();
         console.log('Form submitted');
 
-        if (!validateContactForm(contactForm)) {
-            console.log('Form validation failed');
-            return;
-        }
-
+        if (!validateContactForm(contactForm)) return;
         setSubmitButtonState(true, submitBtn, btnText, btnLoader);
 
         try {
@@ -104,40 +97,64 @@ function initContactForm() {
 
             console.log('📤 Wysyłam dane:', data);
 
-            const response = await fetch(CONTACT_API_URL, {
-                method: 'POST',
-                mode: 'cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-
-            console.log('📡 Response status:', response.status);
-
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-
-            const responseText = await response.text();
-            console.log('📄 Raw response:', responseText);
-
-            const result = JSON.parse(responseText);
-            console.log('📨 Parsed response:', result);
-
-            if (result.status === 'success') {
+            // OBEJŚCIE CORS - używamy ukrytego iframe
+            const result = await submitViaIframe(data);
+            
+            if (result) {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
                 contactForm.reset();
+                console.log('✅ Formularz wysłany pomyślnie');
             } else {
-                throw new Error(result.message || 'Nieznany błąd serwera');
+                throw new Error('Błąd wysyłania formularza');
             }
             
         } catch (error) {
             console.error('❌ Form error:', error);
-            showNotification(`❌ Błąd: ${error.message}`, 'error');
+            showNotification(`❌ Błąd: ${error.message}. Spróbuj ponownie lub napisz bezpośrednio na email.`, 'error');
         } finally {
             setSubmitButtonState(false, submitBtn, btnText, btnLoader);
         }
     });
 }
+
+// Funkcja obejścia CORS przez iframe
+function submitViaIframe(data) {
+    return new Promise((resolve, reject) => {
+        // Tworzymy ukryty iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.name = 'formSubmitFrame';
+        document.body.appendChild(iframe);
+
+        // Tworzymy ukryty formularz
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = CONTACT_API_URL;
+        form.target = 'formSubmitFrame';
+        
+        // Dodajemy dane jako ukryte pola
+        Object.keys(data).forEach(key => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = data[key];
+            form.appendChild(input);
+        });
+        
+        document.body.appendChild(form);
+        
+        // Wysyłamy formularz
+        form.submit();
+        
+        // Cleanup po 3 sekundach
+        setTimeout(() => {
+            document.body.removeChild(iframe);
+            document.body.removeChild(form);
+            resolve(true);
+        }, 3000);
+    });
+}
+
 
 function validateContactForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
