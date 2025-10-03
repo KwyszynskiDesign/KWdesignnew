@@ -409,85 +409,32 @@ function initScrollEffects() {
 }
 
 function initNotifications() {
-    window.showNotification = (message, type = 'info') => {
+    window.showNotification = (message, type = 'success') => {
         // Usuń stare
-        document.querySelectorAll('.custom-notification').forEach(n => n.remove());
+        document.querySelectorAll('.toast-notification').forEach(n => n.remove());
         
-        // Utwórz powiadomienie z CIEMNYM TEKSTEM
+        // Utwórz nowe
         const notification = document.createElement('div');
-        notification.className = 'custom-notification';
-        
-        // KOLORY TEKSTU - CIEMNE!
-        let bgColor, textColor, borderColor;
-        if (type === 'success') {
-            bgColor = '#d4edda';
-            textColor = '#155724';
-            borderColor = '#28a745';
-        } else if (type === 'error') {
-            bgColor = '#f8d7da'; 
-            textColor = '#721c24';
-            borderColor = '#dc3545';
-        } else {
-            bgColor = '#d1ecf1';
-            textColor = '#0c5460';
-            borderColor = '#17a2b8';
-        }
-        
-        notification.style.cssText = `
-            position: fixed !important;
-            top: 20px !important;
-            right: 20px !important;
-            background: ${bgColor} !important;
-            color: ${textColor} !important;
-            border-left: 4px solid ${borderColor} !important;
-            padding: 16px 20px !important;
-            border-radius: 8px !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-            z-index: 99999 !important;
-            max-width: 400px !important;
-            min-width: 300px !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
-            font-size: 14px !important;
-            font-weight: 500 !important;
-            line-height: 1.4 !important;
-            cursor: pointer !important;
-            transform: translateX(100%) !important;
-            transition: transform 0.3s ease !important;
-        `;
+        notification.className = `toast-notification ${type}`;
         
         notification.innerHTML = `
-            <div style="display: flex; align-items: center; justify-content: space-between;">
-                <span>${message}</span>
-                <button onclick="this.parentElement.parentElement.remove()" 
-                        style="background: none; border: none; color: ${textColor}; 
-                               font-size: 18px; cursor: pointer; margin-left: 10px; 
-                               opacity: 0.7; padding: 0;">×</button>
-            </div>
+            <span class="message">${message}</span>
+            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
         `;
         
         document.body.appendChild(notification);
         
         // Animacja
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
+        setTimeout(() => notification.classList.add('show'), 100);
         
         // Auto usuń
         setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.remove();
-                }
-            }, 300);
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
         }, 5000);
         
         // Kliknij żeby zamknąć
-        notification.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'BUTTON') {
-                notification.remove();
-            }
-        });
+        notification.addEventListener('click', () => notification.remove());
     };
 }
 
