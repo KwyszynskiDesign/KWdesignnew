@@ -410,31 +410,55 @@ function initScrollEffects() {
 
 function initNotifications() {
     window.showNotification = (message, type = 'success') => {
-        // Usuń stare
-        document.querySelectorAll('.toast-notification').forEach(n => n.remove());
+        console.log(`POWIADOMIENIE ${type.toUpperCase()}: ${message}`);
         
-        // Utwórz nowe
-        const notification = document.createElement('div');
-        notification.className = `toast-notification ${type}`;
-        
-        notification.innerHTML = `
-            <span class="message">${message}</span>
-            <button class="close-btn" onclick="this.parentElement.remove()">×</button>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animacja
-        setTimeout(() => notification.classList.add('show'), 100);
-        
-        // Auto usuń
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 5000);
-        
-        // Kliknij żeby zamknąć
-        notification.addEventListener('click', () => notification.remove());
+        // BACKUP 1: Spróbuj normalnego powiadomienia
+        try {
+            const notification = document.createElement('div');
+            notification.innerHTML = `
+                <div style="
+                    position: fixed; 
+                    top: 20px; 
+                    right: 20px; 
+                    background: ${type === 'success' ? '#d4edda' : '#f8d7da'}; 
+                    color: ${type === 'success' ? '#155724' : '#721c24'}; 
+                    border: 2px solid ${type === 'success' ? '#28a745' : '#dc3545'};
+                    padding: 15px 20px; 
+                    border-radius: 8px; 
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+                    z-index: 999999; 
+                    max-width: 400px; 
+                    font-family: Arial; 
+                    font-size: 16px; 
+                    font-weight: bold;
+                    cursor: pointer;
+                " onclick="this.remove()">
+                    ${message}
+                    <button onclick="this.parentElement.remove()" style="
+                        float: right; 
+                        background: none; 
+                        border: none; 
+                        font-size: 20px; 
+                        cursor: pointer; 
+                        margin-left: 10px;
+                        color: inherit;
+                    ">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+            
+        } catch (error) {
+            console.error('Błąd powiadomienia:', error);
+            // BACKUP 2: Użyj alert
+            alert(`${type === 'success' ? '✅' : '❌'} ${message}`);
+        }
     };
 }
 
