@@ -225,6 +225,8 @@ function getCurrentStatus() {
     const hour = now.getHours();
     const day = now.getDay(); // 0 = niedziela, 6 = sobota
 
+    console.log(`DEBUG: Godzina ${hour}, dzień ${day}`);
+
     // Weekend (sobota i niedziela)
     if (day === 0 || day === 6) {
         return { 
@@ -233,14 +235,14 @@ function getCurrentStatus() {
         };
     }
 
-    // Godziny pracy (6:00 - 22:00)
+    // Godziny pracy (6:00 - 22:00) - zielony
     if (hour >= 6 && hour < 22) {
         return { 
             status: 'available', 
             text: 'Dostępny - odpowiem szybko' 
         };
     } 
-    // Noc (22:00 - 6:00)
+    // Noc (22:00 - 6:00) - żółty
     else {
         return { 
             status: 'busy', 
