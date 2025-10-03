@@ -17,58 +17,52 @@ document.addEventListener('DOMContentLoaded', function() {
 const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbxDMIXrSLVZK3MAgh2hN5ejxgd0ApFviDGpL_bWVi2i5cKfklVEXcrM58k8rnP6xwRg/exec';
 
 // Test API Function
+// NOWY TEST API - tylko GET (bez błędów CORS)
 window.testAPI = async function() {
     console.clear();
-    console.log('=== TEST POŁĄCZENIA Z API ===');
+    console.log('=== TEST GET API ===');
     console.log('🌐 URL:', CONTACT_API_URL);
     
     try {
-        console.log('📡 Test GET...');
-        const getResponse = await fetch(CONTACT_API_URL, { method: 'GET' });
-        console.log('✅ GET Status:', getResponse.status, getResponse.statusText);
-        const getText = await getResponse.text();
-        console.log('📄 GET Response:', getText);
-    } catch (error) {
-        console.error('❌ GET Error:', error);
-    }
-    
-    try {
-        console.log('📡 Test POST...');
+        // Test 1: Podstawowy GET
+        console.log('📡 Test 1: Podstawowy GET...');
+        const basicResponse = await fetch(CONTACT_API_URL, { method: 'GET' });
+        console.log('✅ Status:', basicResponse.status);
+        const basicText = await basicResponse.text();
+        console.log('📄 Response:', basicText);
+        
+        // Test 2: GET z danymi
+        console.log('📡 Test 2: GET z danymi testowymi...');
         const testData = {
-            name: 'Test User',
+            name: 'Jan Testowy',
             email: 'test@example.com',
             phone: '123456789',
             projectType: 'website',
             budget: '5000-10000',
-            message: 'To jest testowa wiadomość'
+            message: 'To jest test GET API'
         };
         
-        const postResponse = await fetch(CONTACT_API_URL, {
-            method: 'POST',
-            mode: 'cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(testData)
-        });
+        const params = new URLSearchParams(testData);
+        const dataResponse = await fetch(`${CONTACT_API_URL}?${params}`, { method: 'GET' });
+        console.log('✅ Status z danymi:', dataResponse.status);
+        const dataText = await dataResponse.text();
+        console.log('📄 Response z danymi:', dataText);
         
-        console.log('✅ POST Status:', postResponse.status, postResponse.statusText);
-        const postText = await postResponse.text();
-        console.log('📄 POST Response:', postText);
-        
-        try {
-            const json = JSON.parse(postText);
-            console.log('📨 Parsed JSON:', json);
-        } catch (parseError) {
-            console.error('❌ JSON Parse Error:', parseError);
+        if (dataText === 'SUCCESS') {
+            console.log('🎉 TEST ZAKOŃCZONY SUKCESEM - sprawdź arkusz KONTAKTY w Google Sheets!');
+        } else {
+            console.log('⚠️ Niespodziewana odpowiedź:', dataText);
         }
         
     } catch (error) {
-        console.error('❌ POST Error:', error);
+        console.error('❌ Błąd testu:', error);
     }
     
     console.log('=== KONIEC TESTU ===');
 };
 
 // Contact form functionality
+// Contact form functionality - WERSJA GET (OMIJA CORS)
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
@@ -95,17 +89,26 @@ function initContactForm() {
                 message: formData.get('message')
             };
 
-            console.log('📤 Wysyłam dane:', data);
+            console.log('📤 Wysyłam dane przez GET:', data);
 
-            // OBEJŚCIE CORS - używamy ukrytego iframe
-            const result = await submitViaIframe(data);
-            
-            if (result) {
+            // WYSYŁANIE PRZEZ GET - OMIJA CORS!
+            const params = new URLSearchParams(data);
+            const response = await fetch(`${CONTACT_API_URL}?${params}`, {
+                method: 'GET'
+            });
+
+            console.log('📡 Response status:', response.status);
+            const result = await response.text();
+            console.log('📄 Response:', result);
+
+            if (result === 'SUCCESS') {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
                 contactForm.reset();
                 console.log('✅ Formularz wysłany pomyślnie');
+            } else if (result.startsWith('ERROR:')) {
+                throw new Error(result.replace('ERROR: ', ''));
             } else {
-                throw new Error('Błąd wysyłania formularza');
+                throw new Error('Nieoczekiwana odpowiedź serwera');
             }
             
         } catch (error) {
@@ -117,43 +120,6 @@ function initContactForm() {
     });
 }
 
-// Funkcja obejścia CORS przez iframe
-function submitViaIframe(data) {
-    return new Promise((resolve, reject) => {
-        // Tworzymy ukryty iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.name = 'formSubmitFrame';
-        document.body.appendChild(iframe);
-
-        // Tworzymy ukryty formularz
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = CONTACT_API_URL;
-        form.target = 'formSubmitFrame';
-        
-        // Dodajemy dane jako ukryte pola
-        Object.keys(data).forEach(key => {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = data[key];
-            form.appendChild(input);
-        });
-        
-        document.body.appendChild(form);
-        
-        // Wysyłamy formularz
-        form.submit();
-        
-        // Cleanup po 3 sekundach
-        setTimeout(() => {
-            document.body.removeChild(iframe);
-            document.body.removeChild(form);
-            resolve(true);
-        }, 3000);
-    });
-}
 
 
 function validateContactForm(form) {
