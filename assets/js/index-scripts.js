@@ -410,107 +410,84 @@ function initScrollEffects() {
 
 function initNotifications() {
     window.showNotification = (message, type = 'info') => {
-        // Usuń stare powiadomienia
-        document.querySelectorAll('.notification').forEach(n => n.remove());
+        // Usuń stare
+        document.querySelectorAll('.custom-notification').forEach(n => n.remove());
         
-        // Utwórz nowe powiadomienie
+        // Utwórz powiadomienie z CIEMNYM TEKSTEM
         const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
+        notification.className = 'custom-notification';
+        
+        // KOLORY TEKSTU - CIEMNE!
+        let bgColor, textColor, borderColor;
+        if (type === 'success') {
+            bgColor = '#d4edda';
+            textColor = '#155724';
+            borderColor = '#28a745';
+        } else if (type === 'error') {
+            bgColor = '#f8d7da'; 
+            textColor = '#721c24';
+            borderColor = '#dc3545';
+        } else {
+            bgColor = '#d1ecf1';
+            textColor = '#0c5460';
+            borderColor = '#17a2b8';
+        }
+        
+        notification.style.cssText = `
+            position: fixed !important;
+            top: 20px !important;
+            right: 20px !important;
+            background: ${bgColor} !important;
+            color: ${textColor} !important;
+            border-left: 4px solid ${borderColor} !important;
+            padding: 16px 20px !important;
+            border-radius: 8px !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+            z-index: 99999 !important;
+            max-width: 400px !important;
+            min-width: 300px !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            line-height: 1.4 !important;
+            cursor: pointer !important;
+            transform: translateX(100%) !important;
+            transition: transform 0.3s ease !important;
+        `;
         
         notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-message">${message}</span>
-                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove()" 
+                        style="background: none; border: none; color: ${textColor}; 
+                               font-size: 18px; cursor: pointer; margin-left: 10px; 
+                               opacity: 0.7; padding: 0;">×</button>
             </div>
         `;
-
-        // Dodaj CSS jeśli nie istnieje
-        if (!document.querySelector('#notification-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'notification-styles';
-            styles.innerHTML = `
-                .notification {
-                    position: fixed !important;
-                    top: 20px !important;
-                    right: 20px !important;
-                    max-width: 400px !important;
-                    min-width: 300px !important;
-                    background: #fff !important;
-                    color: #333 !important;
-                    border-radius: 8px !important;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
-                    transform: translateX(100%) !important;
-                    transition: transform 0.3s ease !important;
-                    z-index: 99999 !important;
-                    border-left: 4px solid #007bff !important;
-                    font-family: Arial, sans-serif !important;
-                    font-size: 14px !important;
-                }
-                .notification.notification-success { 
-                    border-left-color: #28a745 !important; 
-                    background: #d4edda !important;
-                    color: #155724 !important;
-                }
-                .notification.notification-error { 
-                    border-left-color: #dc3545 !important; 
-                    background: #f8d7da !important;
-                    color: #721c24 !important;
-                }
-                .notification.show { 
-                    transform: translateX(0) !important; 
-                }
-                .notification-content {
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: space-between !important;
-                    padding: 16px 20px !important;
-                    gap: 10px !important;
-                }
-                .notification-message {
-                    flex: 1 !important;
-                    font-size: 14px !important;
-                    line-height: 1.4 !important;
-                    font-weight: 500 !important;
-                }
-                .notification-close {
-                    background: none !important;
-                    border: none !important;
-                    font-size: 20px !important;
-                    cursor: pointer !important;
-                    opacity: 0.7 !important;
-                    color: inherit !important;
-                    padding: 0 !important;
-                    margin: 0 !important;
-                    width: 24px !important;
-                    height: 24px !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                }
-                .notification-close:hover { 
-                    opacity: 1 !important; 
-                }
-            `;
-            document.head.appendChild(styles);
-        }
-
-        // Dodaj do strony
+        
         document.body.appendChild(notification);
-
-        // Animacja pojawienia
-        requestAnimationFrame(() => {
-            notification.classList.add('show');
-        });
-
-        // Auto usuń po 5 sekundach
+        
+        // Animacja
         setTimeout(() => {
-            notification.classList.remove('show');
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Auto usuń
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
             setTimeout(() => {
                 if (notification.parentNode) {
                     notification.remove();
                 }
             }, 300);
         }, 5000);
+        
+        // Kliknij żeby zamknąć
+        notification.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                notification.remove();
+            }
+        });
     };
 }
 
