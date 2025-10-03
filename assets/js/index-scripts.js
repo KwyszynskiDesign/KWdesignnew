@@ -199,24 +199,37 @@ function initContactForm() {
                 timestamp: new Date().toISOString()
             };
 
+            console.log('Wysyłam dane:', data); // Debug
+
             const response = await fetch(CONTACT_API_URL, {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             });
 
-            if (response.ok) {
+            console.log('Response status:', response.status); // Debug
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+
+            const result = await response.json();
+            console.log('Response data:', result); // Debug
+
+            // POPRAWIONA WALIDACJA ODPOWIEDZI
+            if (result.status === 'success') {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
                 contactForm.reset();
             } else {
-                throw new Error('Błąd serwera');
+                throw new Error(result.message || 'Nieznany błąd serwera');
             }
             
         } catch (error) {
             console.error('Form submission error:', error);
-            showNotification('❌ Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub napisz bezpośrednio na email.', 'error');
+            showNotification(`❌ Błąd: ${error.message}. Spróbuj ponownie lub napisz na email.`, 'error');
         } finally {
             setSubmitButtonState(false, submitBtn, btnText, btnLoader);
         }
