@@ -10,9 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initTestimonialsCarousel();
     initScrollToTop();
     initAvailabilityStatus();
-    initCounters(); // Add this call
+    initCounters();
     console.log('Website initialized successfully');
 });
+
+// Configuration - WSTAW TUTAJ SWÓJ URL Z APPS SCRIPT
+const CONTACT_API_URL = 'https://script.google.com/macros/s/TWÓJ_KLUCZ_TUTAJ/exec';
 
 // Animated Counters
 function initCounters() {
@@ -65,6 +68,27 @@ function initAvailabilityStatus() {
 
     updateStatus(); // Initial call
     setInterval(updateStatus, 60000); // Update every minute
+}
+
+// Get current status based on time
+function getCurrentStatus() {
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+
+    // Weekend
+    if (day === 0 || day === 6) {
+        return { status: 'away', text: 'Odpoczywam - odezwę się w poniedziałek' };
+    }
+
+    // Weekday hours
+    if (hour >= 9 && hour < 17) {
+        return { status: 'available', text: 'Dostępny - odpowiem szybko' };
+    } else if (hour >= 17 && hour < 21) {
+        return { status: 'busy', text: 'Ograniczona dostępność' };
+    } else {
+        return { status: 'away', text: 'Niedostępny - odezwę się jutro' };
+    }
 }
 
 // Navigation functionality
@@ -147,7 +171,7 @@ function initFAQ() {
     });
 }
 
-// Contact form functionality
+// Enhanced Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
@@ -159,35 +183,115 @@ function initContactForm() {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        setSubmitButtonState(true);
+        if (!validateContactForm(contactForm)) return;
+
+        setSubmitButtonState(true, submitBtn, btnText, btnLoader);
 
         try {
-            // In a real scenario, you would use fetch() to send data to a server.
-            // For this demo, we'll just simulate it.
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            showNotification('Dziękuję za wiadomość! Skontaktuję się w ciągu 24h.', 'success');
-            contactForm.reset();
+            const formData = new FormData(contactForm);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone') || '',
+                projectType: formData.get('projectType') || '',
+                budget: formData.get('budget') || '',
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            const response = await fetch(CONTACT_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
+                contactForm.reset();
+            } else {
+                throw new Error('Błąd serwera');
+            }
             
         } catch (error) {
             console.error('Form submission error:', error);
-            showNotification('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.', 'error');
+            showNotification('❌ Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub napisz bezpośrednio na email.', 'error');
         } finally {
-            setSubmitButtonState(false);
+            setSubmitButtonState(false, submitBtn, btnText, btnLoader);
         }
     });
-    
-    function setSubmitButtonState(loading) {
-        if (!submitBtn || !btnText || !btnLoader) return;
-        if (loading) {
-            btnText.style.display = 'none';
-            btnLoader.style.display = 'block';
-            submitBtn.disabled = true;
-        } else {
-            btnText.style.display = 'block';
-            btnLoader.style.display = 'none';
-            submitBtn.disabled = false;
+}
+
+// Validate Contact Form
+function validateContactForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+
+    // Reset previous error states
+    form.querySelectorAll('.error').forEach(field => {
+        field.classList.remove('error');
+    });
+
+    requiredFields.forEach(field => {
+        const value = field.value.trim();
+        
+        if (!value) {
+            field.classList.add('error');
+            isValid = false;
         }
+    });
+
+    // Validate email format
+    const email = form.querySelector('input[name="email"]');
+    if (email && email.value && !isValidEmail(email.value)) {
+        email.classList.add('error');
+        showNotification('❌ Podaj prawidłowy adres email', 'error');
+        isValid = false;
+    }
+
+    // Validate message length
+    const message = form.querySelector('textarea[name="message"]');
+    if (message && message.value.trim().length < 10) {
+        message.classList.add('error');
+        showNotification('❌ Opis projektu powinien mieć minimum 10 znaków', 'error');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        showNotification('❌ Proszę wypełnić wszystkie wymagane pola poprawnie', 'error');
+        
+        // Scroll to first error field
+        const firstError = form.querySelector('.error');
+        if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstError.focus();
+        }
+    }
+
+    return isValid;
+}
+
+// Helper function for email validation
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Set submit button state
+function setSubmitButtonState(loading, submitBtn, btnText, btnLoader) {
+    if (!submitBtn || !btnText || !btnLoader) return;
+    
+    if (loading) {
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'block';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+    } else {
+        btnText.style.display = 'block';
+        btnLoader.style.display = 'none';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
     }
 }
 
@@ -271,7 +375,6 @@ function initTestimonialsCarousel() {
     console.log('Testimonials carousel initialized with fully functional JS control.');
 }
 
-
 // Scroll-triggered animations
 function initAnimations() {
     // Add .process-item to the list of elements to observe
@@ -311,9 +414,62 @@ function initScrollEffects() {
 // Notifications
 function initNotifications() {
     window.showNotification = (message, type = 'info') => {
+        // Remove existing notifications
+        document.querySelectorAll('.notification').forEach(n => n.remove());
+        
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
-        notification.textContent = message;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-message">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        `;
+
+        // Add styles if not present
+        if (!document.querySelector('#notification-styles')) {
+            const styles = document.createElement('style');
+            styles.id = 'notification-styles';
+            styles.innerHTML = `
+                .notification {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    max-width: 400px;
+                    background: #fff;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease;
+                    z-index: 10000;
+                    border-left: 4px solid #007bff;
+                }
+                .notification.notification-success { border-left-color: #28a745; }
+                .notification.notification-error { border-left-color: #dc3545; }
+                .notification.show { transform: translateX(0); }
+                .notification-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 16px 20px;
+                }
+                .notification-message {
+                    flex: 1;
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+                .notification-close {
+                    background: none;
+                    border: none;
+                    font-size: 18px;
+                    cursor: pointer;
+                    margin-left: 10px;
+                    opacity: 0.7;
+                }
+                .notification-close:hover { opacity: 1; }
+            `;
+            document.head.appendChild(styles);
+        }
 
         document.body.appendChild(notification);
 
@@ -321,7 +477,7 @@ function initNotifications() {
 
         setTimeout(() => {
             notification.classList.remove('show');
-            notification.addEventListener('transitionend', () => notification.remove(), { once: true });
+            setTimeout(() => notification.remove(), 300);
         }, 5000);
     };
 }
