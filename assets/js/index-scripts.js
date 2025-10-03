@@ -410,10 +410,13 @@ function initScrollEffects() {
 
 function initNotifications() {
     window.showNotification = (message, type = 'info') => {
+        // Usuń stare powiadomienia
         document.querySelectorAll('.notification').forEach(n => n.remove());
         
+        // Utwórz nowe powiadomienie
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
+        
         notification.innerHTML = `
             <div class="notification-content">
                 <span class="notification-message">${message}</span>
@@ -421,55 +424,92 @@ function initNotifications() {
             </div>
         `;
 
+        // Dodaj CSS jeśli nie istnieje
         if (!document.querySelector('#notification-styles')) {
             const styles = document.createElement('style');
             styles.id = 'notification-styles';
             styles.innerHTML = `
                 .notification {
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    max-width: 400px;
-                    background: #fff;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease;
-                    z-index: 10000;
-                    border-left: 4px solid #007bff;
+                    position: fixed !important;
+                    top: 20px !important;
+                    right: 20px !important;
+                    max-width: 400px !important;
+                    min-width: 300px !important;
+                    background: #fff !important;
+                    color: #333 !important;
+                    border-radius: 8px !important;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.25) !important;
+                    transform: translateX(100%) !important;
+                    transition: transform 0.3s ease !important;
+                    z-index: 99999 !important;
+                    border-left: 4px solid #007bff !important;
+                    font-family: Arial, sans-serif !important;
+                    font-size: 14px !important;
                 }
-                .notification.notification-success { border-left-color: #28a745; }
-                .notification.notification-error { border-left-color: #dc3545; }
-                .notification.show { transform: translateX(0); }
+                .notification.notification-success { 
+                    border-left-color: #28a745 !important; 
+                    background: #d4edda !important;
+                    color: #155724 !important;
+                }
+                .notification.notification-error { 
+                    border-left-color: #dc3545 !important; 
+                    background: #f8d7da !important;
+                    color: #721c24 !important;
+                }
+                .notification.show { 
+                    transform: translateX(0) !important; 
+                }
                 .notification-content {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 16px 20px;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                    padding: 16px 20px !important;
+                    gap: 10px !important;
                 }
                 .notification-message {
-                    flex: 1;
-                    font-size: 14px;
-                    line-height: 1.4;
+                    flex: 1 !important;
+                    font-size: 14px !important;
+                    line-height: 1.4 !important;
+                    font-weight: 500 !important;
                 }
                 .notification-close {
-                    background: none;
-                    border: none;
-                    font-size: 18px;
-                    cursor: pointer;
-                    margin-left: 10px;
-                    opacity: 0.7;
+                    background: none !important;
+                    border: none !important;
+                    font-size: 20px !important;
+                    cursor: pointer !important;
+                    opacity: 0.7 !important;
+                    color: inherit !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    width: 24px !important;
+                    height: 24px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
                 }
-                .notification-close:hover { opacity: 1; }
+                .notification-close:hover { 
+                    opacity: 1 !important; 
+                }
             `;
             document.head.appendChild(styles);
         }
 
+        // Dodaj do strony
         document.body.appendChild(notification);
-        setTimeout(() => notification.classList.add('show'), 100);
+
+        // Animacja pojawienia
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+
+        // Auto usuń po 5 sekundach
         setTimeout(() => {
             notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
         }, 5000);
     };
 }
