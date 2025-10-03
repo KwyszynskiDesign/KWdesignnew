@@ -1,6 +1,5 @@
 // Enhanced Main JavaScript file
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
     initNavigation();
     initFAQ();
     initContactForm();
@@ -14,31 +13,27 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Website initialized successfully');
 });
 
-// Configuration - URL Apps Script
+// Configuration
 const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbxNiZ_kHUQkzHnlKbpQDyh_eqE8ryY-eJlBVYN5n0mJBVaqakav8HbwIdOi9A3TyZgn/exec';
 
-// ===== FUNKCJA TESTOWA - DODANA =====
+// Test API Function
 window.testAPI = async function() {
-    console.clear(); // Wyczyść konsolę
+    console.clear();
     console.log('=== TEST POŁĄCZENIA Z API ===');
     console.log('🌐 URL:', CONTACT_API_URL);
     
-    // Test 1: GET request
     try {
-        console.log('📡 Test 1: Sprawdzanie czy API odpowiada...');
-        const response = await fetch(CONTACT_API_URL, {
-            method: 'GET'
-        });
-        console.log('✅ GET Status:', response.status, response.statusText);
-        const text = await response.text();
-        console.log('📄 GET Response:', text);
+        console.log('📡 Test GET...');
+        const getResponse = await fetch(CONTACT_API_URL, { method: 'GET' });
+        console.log('✅ GET Status:', getResponse.status, getResponse.statusText);
+        const getText = await getResponse.text();
+        console.log('📄 GET Response:', getText);
     } catch (error) {
         console.error('❌ GET Error:', error);
     }
     
-    // Test 2: POST request
     try {
-        console.log('📡 Test 2: Wysyłanie danych testowych...');
+        console.log('📡 Test POST...');
         const testData = {
             name: 'Test User',
             email: 'test@example.com',
@@ -48,26 +43,19 @@ window.testAPI = async function() {
             message: 'To jest testowa wiadomość'
         };
         
-        console.log('📤 Wysyłane dane:', testData);
-        
-        const response = await fetch(CONTACT_API_URL, {
+        const postResponse = await fetch(CONTACT_API_URL, {
             method: 'POST',
             mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(testData)
         });
         
-        console.log('✅ POST Status:', response.status, response.statusText);
-        console.log('📋 Headers:', Object.fromEntries(response.headers.entries()));
-        
-        const text = await response.text();
-        console.log('📄 Raw Response:', text);
+        console.log('✅ POST Status:', postResponse.status, postResponse.statusText);
+        const postText = await postResponse.text();
+        console.log('📄 POST Response:', postText);
         
         try {
-            const json = JSON.parse(text);
+            const json = JSON.parse(postText);
             console.log('📨 Parsed JSON:', json);
         } catch (parseError) {
             console.error('❌ JSON Parse Error:', parseError);
@@ -80,9 +68,7 @@ window.testAPI = async function() {
     console.log('=== KONIEC TESTU ===');
 };
 
-console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
-
-// Enhanced Contact form functionality
+// Contact form functionality
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) {
@@ -97,11 +83,6 @@ function initContactForm() {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         console.log('Form submitted');
-
-        if (!CONTACT_API_URL || CONTACT_API_URL.includes('WKLEJ_TUTAJ')) {
-            showNotification('❌ Formularz nie jest skonfigurowany. Skontaktuj się mailowo.', 'error');
-            return;
-        }
 
         if (!validateContactForm(contactForm)) {
             console.log('Form validation failed');
@@ -118,8 +99,7 @@ function initContactForm() {
                 phone: formData.get('phone') || '',
                 projectType: formData.get('projectType') || '',
                 budget: formData.get('budget') || '',
-                message: formData.get('message'),
-                timestamp: new Date().toISOString()
+                message: formData.get('message')
             };
 
             console.log('📤 Wysyłam dane:', data);
@@ -127,15 +107,11 @@ function initContactForm() {
             const response = await fetch(CONTACT_API_URL, {
                 method: 'POST',
                 mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
 
             console.log('📡 Response status:', response.status);
-            console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
 
             if (!response.ok) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -144,53 +120,40 @@ function initContactForm() {
             const responseText = await response.text();
             console.log('📄 Raw response:', responseText);
 
-            let result;
-            try {
-                result = JSON.parse(responseText);
-            } catch (parseError) {
-                console.error('JSON parse error:', parseError);
-                throw new Error('Nieprawidłowa odpowiedź serwera');
-            }
-
+            const result = JSON.parse(responseText);
             console.log('📨 Parsed response:', result);
 
             if (result.status === 'success') {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
                 contactForm.reset();
-                console.log('✅ Formularz wysłany pomyślnie');
             } else {
                 throw new Error(result.message || 'Nieznany błąd serwera');
             }
             
         } catch (error) {
-            console.error('❌ Form submission error:', error);
-            showNotification(`❌ Błąd: ${error.message}. Spróbuj ponownie lub napisz na email.`, 'error');
+            console.error('❌ Form error:', error);
+            showNotification(`❌ Błąd: ${error.message}`, 'error');
         } finally {
             setSubmitButtonState(false, submitBtn, btnText, btnLoader);
         }
     });
 }
 
-// Validate Contact Form
 function validateContactForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
 
-    // Reset previous error states
     form.querySelectorAll('.error').forEach(field => {
         field.classList.remove('error');
     });
 
     requiredFields.forEach(field => {
-        const value = field.value.trim();
-        
-        if (!value) {
+        if (!field.value.trim()) {
             field.classList.add('error');
             isValid = false;
         }
     });
 
-    // Validate email format
     const email = form.querySelector('input[name="email"]');
     if (email && email.value && !isValidEmail(email.value)) {
         email.classList.add('error');
@@ -198,35 +161,17 @@ function validateContactForm(form) {
         isValid = false;
     }
 
-    // Validate message length
-    const message = form.querySelector('textarea[name="message"]');
-    if (message && message.value.trim().length < 10) {
-        message.classList.add('error');
-        showNotification('❌ Opis projektu powinien mieć minimum 10 znaków', 'error');
-        isValid = false;
-    }
-
     if (!isValid) {
-        showNotification('❌ Proszę wypełnić wszystkie wymagane pola poprawnie', 'error');
-        
-        // Scroll to first error field
-        const firstError = form.querySelector('.error');
-        if (firstError) {
-            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            firstError.focus();
-        }
+        showNotification('❌ Proszę wypełnić wszystkie wymagane pola', 'error');
     }
 
     return isValid;
 }
 
-// Helper function for email validation
 function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Set submit button state
 function setSubmitButtonState(loading, submitBtn, btnText, btnLoader) {
     if (!submitBtn || !btnText || !btnLoader) return;
     
@@ -234,16 +179,13 @@ function setSubmitButtonState(loading, submitBtn, btnText, btnLoader) {
         btnText.style.display = 'none';
         btnLoader.style.display = 'block';
         submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
     } else {
         btnText.style.display = 'block';
         btnLoader.style.display = 'none';
         submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
     }
 }
 
-// Animated Counters
 function initCounters() {
     const counters = document.querySelectorAll('.counter');
     if (counters.length === 0) return;
@@ -279,7 +221,6 @@ function initCounters() {
     counters.forEach(counter => observer.observe(counter));
 }
 
-// Availability Status
 function initAvailabilityStatus() {
     const dot = document.getElementById('availability-dot');
     const text = document.getElementById('availability-text');
@@ -314,7 +255,6 @@ function getCurrentStatus() {
     }
 }
 
-// Navigation functionality
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navList = document.querySelector('.nav-list');
@@ -363,7 +303,6 @@ function initNavigation() {
     });
 }
 
-// FAQ functionality
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -387,16 +326,12 @@ function initFAQ() {
     });
 }
 
-// Testimonials Carousel
 function initTestimonialsCarousel() {
     const track = document.querySelector('.testimonials-track');
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
 
-    if (!track || !prevBtn || !nextBtn) {
-        console.error('Testimonials carousel elements not found.');
-        return;
-    }
+    if (!track || !prevBtn || !nextBtn) return;
 
     const cards = Array.from(track.children);
     const originalCardCount = cards.length / 2;
@@ -456,11 +391,8 @@ function initTestimonialsCarousel() {
 
     nextBtn.addEventListener('click', moveToNext);
     prevBtn.addEventListener('click', moveToPrev);
-
-    console.log('Testimonials carousel initialized with fully functional JS control.');
 }
 
-// Scroll-triggered animations
 function initAnimations() {
     const animatedElements = document.querySelectorAll('.animate-in, .animate-fade-in, .animate-scale-in, .process-item');
     if (typeof IntersectionObserver === 'undefined') return;
@@ -480,7 +412,6 @@ function initAnimations() {
     animatedElements.forEach(el => observer.observe(el));
 }
 
-// Scroll effects
 function initScrollEffects() {
     const header = document.querySelector('.header');
     if (!header) return;
@@ -494,7 +425,6 @@ function initScrollEffects() {
     }, { passive: true });
 }
 
-// Notifications
 function initNotifications() {
     window.showNotification = (message, type = 'info') => {
         document.querySelectorAll('.notification').forEach(n => n.remove());
@@ -553,9 +483,7 @@ function initNotifications() {
         }
 
         document.body.appendChild(notification);
-
         setTimeout(() => notification.classList.add('show'), 100);
-
         setTimeout(() => {
             notification.classList.remove('show');
             setTimeout(() => notification.remove(), 300);
@@ -563,7 +491,6 @@ function initNotifications() {
     };
 }
 
-// Scroll to top button
 function initScrollToTop() {
     const scrollToTopBtn = document.getElementById('scrollToTop');
 
@@ -584,3 +511,5 @@ function initScrollToTop() {
         });
     }
 }
+
+console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
