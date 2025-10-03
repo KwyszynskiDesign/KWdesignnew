@@ -14,8 +14,73 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Website initialized successfully');
 });
 
-// Configuration - WKLEJ TUTAJ URL Z NOWEGO WDROŻENIA
+// Configuration - URL Apps Script
 const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbxNiZ_kHUQkzHnlKbpQDyh_eqE8ryY-eJlBVYN5n0mJBVaqakav8HbwIdOi9A3TyZgn/exec';
+
+// ===== FUNKCJA TESTOWA - DODANA =====
+window.testAPI = async function() {
+    console.clear(); // Wyczyść konsolę
+    console.log('=== TEST POŁĄCZENIA Z API ===');
+    console.log('🌐 URL:', CONTACT_API_URL);
+    
+    // Test 1: GET request
+    try {
+        console.log('📡 Test 1: Sprawdzanie czy API odpowiada...');
+        const response = await fetch(CONTACT_API_URL, {
+            method: 'GET'
+        });
+        console.log('✅ GET Status:', response.status, response.statusText);
+        const text = await response.text();
+        console.log('📄 GET Response:', text);
+    } catch (error) {
+        console.error('❌ GET Error:', error);
+    }
+    
+    // Test 2: POST request
+    try {
+        console.log('📡 Test 2: Wysyłanie danych testowych...');
+        const testData = {
+            name: 'Test User',
+            email: 'test@example.com',
+            phone: '123456789',
+            projectType: 'website',
+            budget: '5000-10000',
+            message: 'To jest testowa wiadomość'
+        };
+        
+        console.log('📤 Wysyłane dane:', testData);
+        
+        const response = await fetch(CONTACT_API_URL, {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(testData)
+        });
+        
+        console.log('✅ POST Status:', response.status, response.statusText);
+        console.log('📋 Headers:', Object.fromEntries(response.headers.entries()));
+        
+        const text = await response.text();
+        console.log('📄 Raw Response:', text);
+        
+        try {
+            const json = JSON.parse(text);
+            console.log('📨 Parsed JSON:', json);
+        } catch (parseError) {
+            console.error('❌ JSON Parse Error:', parseError);
+        }
+        
+    } catch (error) {
+        console.error('❌ POST Error:', error);
+    }
+    
+    console.log('=== KONIEC TESTU ===');
+};
+
+console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
 
 // Enhanced Contact form functionality
 function initContactForm() {
@@ -177,8 +242,6 @@ function setSubmitButtonState(loading, submitBtn, btnText, btnLoader) {
         submitBtn.style.opacity = '1';
     }
 }
-
-// [RESZTA KODU POZOSTAJE TAK SAMA - kopiuj z poprzedniej wersji]
 
 // Animated Counters
 function initCounters() {
@@ -503,3 +566,21 @@ function initNotifications() {
 // Scroll to top button
 function initScrollToTop() {
     const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        }, { passive: true });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
