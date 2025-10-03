@@ -223,20 +223,32 @@ function initAvailabilityStatus() {
 function getCurrentStatus() {
     const now = new Date();
     const hour = now.getHours();
-    const day = now.getDay();
+    const day = now.getDay(); // 0 = niedziela, 6 = sobota
 
+    // Weekend (sobota i niedziela)
     if (day === 0 || day === 6) {
-        return { status: 'away', text: 'Odpoczywam - odezwę się w poniedziałek' };
+        return { 
+            status: 'away', 
+            text: 'Odpoczywam - odezwę się w poniedziałek' 
+        };
     }
 
-    if (hour >= 9 && hour < 17) {
-        return { status: 'available', text: 'Dostępny - odpowiem szybko' };
-    } else if (hour >= 17 && hour < 21) {
-        return { status: 'busy', text: 'Ograniczona dostępność' };
-    } else {
-        return { status: 'away', text: 'Niedostępny - odezwę się jutro' };
+    // Godziny pracy (6:00 - 22:00)
+    if (hour >= 6 && hour < 22) {
+        return { 
+            status: 'available', 
+            text: 'Dostępny - odpowiem szybko' 
+        };
+    } 
+    // Noc (22:00 - 6:00)
+    else {
+        return { 
+            status: 'busy', 
+            text: 'Odpowiem rano' 
+        };
     }
 }
+
 
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger');
