@@ -510,7 +510,7 @@ section {
     background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
-   padding-top: 180px;
+   padding-top: 150px;
 }
 
 /* Hero Background Animation (Unchanged) */
@@ -2246,4 +2246,40 @@ section {
 
 .toast-notification .close-btn:hover {
     opacity: 1 !important;
+}
+/* ================ HERO SECTION - PADDING FIX ================ */
+.hero-section {
+    padding-top: 120px !important; /* Zmniejszony z 180px */
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 100px !important; /* Jeszcze mniej na mobile */
+    }
+}
+
+/* ================ STATUS AVAILABILITY - COMPLETE FIX ================ */
+.info-icon .dot.available { 
+    background-color: var(--color-success) !important; /* Zielony - dostępny 6-22 */
+}
+
+.info-icon .dot.busy { 
+    background-color: var(--color-warning) !important; /* Żółty - odpowiem rano */
+}
+
+.info-icon .dot.away { 
+    background-color: var(--color-error) !important; /* Czerwony - weekend */
+}
+
+/* Fallback dla statycznych klas */
+.info-icon .dot.green { 
+    background-color: var(--color-success) !important;
+}
+
+.info-icon .dot.yellow { 
+    background-color: var(--color-warning) !important;
+}
+
+.info-icon .dot.red { 
+    background-color: var(--color-error) !important;
 }
