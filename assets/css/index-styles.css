@@ -510,7 +510,7 @@ section {
     background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
-   padding-top: 110px;
+   padding-top: 80 px;
 }
 
 /* Hero Background Animation (Unchanged) */
@@ -559,7 +559,7 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: var(--space-8);
+      gap: 3rem;   
 }
 
 .hero-info-icons {
@@ -577,6 +577,46 @@ section {
     gap: var(--space-4);
     font-size: 2.2rem;
     font-weight: var(--font-weight-medium);
+}
+.hero-info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.hero-metrics {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;    /* Odstępy między liczbami i kropką */
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.hero-metrics-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+.hero-metrics > span {
+  white-space: nowrap;
+}
+.hero-metrics-desc span {
+  line-height: 1.3;
+  font-weight: 400;
+}
+.highlight-digits {
+  color: var(--color-primary);
+  font-size: 1.15em;
+}
+.dot.green {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-success);
+  vertical-align: middle;
 }
 
 .highlight-digits {
@@ -643,7 +683,7 @@ section {
 
 .hero-title {
     font-size: clamp(calc(2.25rem*1.4), calc((4vw + 1rem)*1.4), calc(4rem*1.4)); /* 40% increase */
-    margin-bottom: var(--space-6);
+     margin-bottom: 2.5rem; 
     font-family: var(--font-heading);
 }
 
