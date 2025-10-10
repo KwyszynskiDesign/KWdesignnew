@@ -559,9 +559,9 @@ section {
 
 .hero-main-content {
  display: grid;
-  grid-template-columns: 1fr 1fr; /* Tekst i zdjęcie obok siebie */
+  grid-template-columns: 1fr 1.2fr; /* Zwiększona proporcja dla zdjęcia */
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem; /* Zmniejszony gap z 3rem na 1.5rem */
   margin-left: 0;
   margin-right: 0;
 }
@@ -657,11 +657,11 @@ section {
 .info-icon .dot.red { background-color: var(--color-error); }
 
 .hero-image-container {
-  position: relative;
-  max-width: 380px; /* Zmniejszone z 440px (o ~14%) */
+   position: relative;
+  max-width: 520px; /* Zwiększone z 380px do 520px (o ~37%) */
   width: 100%;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0;
 }
 .gradient-overlay {
     position: absolute;
@@ -675,17 +675,18 @@ section {
     pointer-events: none;
 }
 .hero-image {
-  display: flex;
-  justify-content: center;
+   display: flex;
+  justify-content: flex-start; /* Przesunięte bliżej tekstu */
   align-items: center;
   margin: 0;
   padding: 0;
 }
 .hero-image img {
-  width: 100%;
+width: 100%;
   height: auto;
   display: block;
   border-radius: var(--radius-2xl);
+}
 }
 .hero-bottom-content {
     text-align: center;
@@ -2178,28 +2179,28 @@ section {
     text-overflow: ellipsis;
   }
     .hero-info-icons {
-    grid-template-columns: auto 1fr; /* Numer/kropka | tekst */
+    grid-template-columns: auto 1fr;
     gap: 10px;
     padding: 0 var(--space-4);
     justify-items: start;
-    font-size: 1.43rem; /* +50% od bazowego 0.95rem */
+    font-size: 1.43rem;
   }
-  .highlight-digits {
-     font-size: 1.72rem; /* +50% od 1.15rem */
+.highlight-digits {
+    font-size: 1.72rem;
     padding-left: 0;
     text-align: left;
     grid-column: 1;
   }
-  .dot {
-     width: 15px; /* +50% od 10px */
+ .dot {
+    width: 15px;
     height: 15px;
     min-width: 15px;
     min-height: 15px;
     margin-right: 10px;
     grid-column: 1;
   }
- .text {
-    font-size: 1.5rem; /* +50% od 1rem */
+  .text {
+    font-size: 1.5rem;
     padding-left: 0;
     grid-column: 2;
     white-space: nowrap;
@@ -2208,12 +2209,15 @@ section {
 .hero-image {
     margin-top: var(--space-8);
     margin-bottom: var(--space-8);
-    justify-content: center;
-    transform: none !important;
+    justify-content: center; /* Wycentrowane */
+    transform: none !important; /* Usuwa jakiekolwiek transformy */
+    padding: 0 var(--space-4); /* Padding bezpieczeństwa */
   }
 
-  .hero-image-container {
-    max-width: 90vw; /* Nie wychodzi poza ekran */
+ .hero-image-container {
+    max-width: 85vw; /* Zmniejszone z 90vw na 85vw */
+    width: 100%;
+    margin: 0 auto; /* Wycentrowanie */
   }
 .container,
 .hero-section-content {
