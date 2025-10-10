@@ -905,8 +905,9 @@ width: 100%;
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); /* ✅ Zmniejszone z 350px do maksymalnie 350px */
     gap: var(--space-12);
+    justify-content: center; /*
 }
 
 .portfolio-item {
@@ -920,6 +921,7 @@ width: 100%;
     background: var(--color-background); /* White background */
     border: 1px solid var(--color-border-light);
     transform-style: preserve-3d; /* For 3D effect */
+    max-width: 100%;
 }
 
 .portfolio-background {
