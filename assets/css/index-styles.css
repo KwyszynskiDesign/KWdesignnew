@@ -1373,7 +1373,7 @@ width: 100%;
    PROCESS SECTION - ALTERNATING LAYOUT
 _________________________________________________________________________
 
-process-section {
+.process-section {
     background: var(--color-background-darker);
     padding: var(--space-24) 0;
     position: relative;
@@ -2647,13 +2647,7 @@ ______________________________________________________________
         grid-template-columns: repeat(3, 1fr) !important;
     }
 
-  
-    /* 6. FORM - 2 kolumny */
-    .form-row {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: var(--space-6) !important;
-    }
-    5.proccess
+     5.proccess
 .process-item { grid-template-columns: 1fr 1fr !important; }
     .process-content { grid-column: 1; grid-row: 1; }
     .process-image { grid-column: 2; grid-row: 1; }
@@ -2662,6 +2656,13 @@ ______________________________________________________________
     .step-number { left: 1rem; transform: none; }
     .process-item.reverse .step-number { left: auto; right: 1rem; }
     .process-item:hover .step-number { transform: scale(1.1); }
+    
+    /* 6. FORM - 2 kolumny */
+    .form-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-6) !important;
+    }
+ 
     /* 7. FOOTER - w jednej linii */
     .footer-inner {
         flex-direction: row !important;
