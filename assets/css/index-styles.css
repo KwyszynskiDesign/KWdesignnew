@@ -2653,7 +2653,15 @@ ______________________________________________________________
         grid-template-columns: repeat(2, 1fr) !important;
         gap: var(--space-6) !important;
     }
-
+    5.proccess
+.process-item { grid-template-columns: 1fr 1fr !important; }
+    .process-content { grid-column: 1; grid-row: 1; }
+    .process-image { grid-column: 2; grid-row: 1; }
+    .process-item.reverse .process-content { grid-column: 2; }
+    .process-item.reverse .process-image { grid-column: 1; }
+    .step-number { left: 1rem; transform: none; }
+    .process-item.reverse .step-number { left: auto; right: 1rem; }
+    .process-item:hover .step-number { transform: scale(1.1); }
     /* 7. FOOTER - w jednej linii */
     .footer-inner {
         flex-direction: row !important;
