@@ -644,12 +644,10 @@ section {
 
 .highlight-digits-tyt {
  color: var(--color-primary);
-  font-size: clamp(1.54rem, 2.8vw, 1.96rem); /* 40% increase */
-  font-weight: 700;
-  text-align: right;
-  grid-column: 1;
-  margin-bottom: 2.5rem;
+  font-size: inherit; /* Dziedziczy rozmiar z .hero-title (nie jest mniejszy) */
+  font-weight: var(--font-weight-bold);
   font-family: var(--font-heading);
+  display: inline; /* Zachowuje inline flow z tekstem */
 }
 .info-icon .icon {
     font-size: 1.5rem;
@@ -684,10 +682,11 @@ section {
     pointer-events: none;
 }
 .hero-image {
-   display: flex;
-  justify-content: flex-start; /* Przesunięte bliżej tekstu */
+     display: flex;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0;
+  margin-top: var(--space-10); /* Dodane 40px od góry */
+  margin-bottom: var(--space-10); /* Dodane 40px od dołu */
   padding: 0;
 }
 .hero-image img {
@@ -698,8 +697,8 @@ width: 100%;
 }
 }
 .hero-bottom-content {
-    text-align: center;
-    margin-top: var(--space-8);
+ text-align: center;
+  margin-top: var(--space-16);
 }
 
 .hero-eyebrow {
