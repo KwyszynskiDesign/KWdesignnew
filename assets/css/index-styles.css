@@ -646,7 +646,7 @@ section {
 }
 .text {
   grid-column: 2;
-  font-size: clamp(1.46rem, 2.0vw, 1.55rem);
+ font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   font-weight: 500;
   line-height: 1.20;
   color: var(--color-text);
@@ -2268,7 +2268,7 @@ width: 100%;
 
     /* Text - ZMNIEJSZONY O 30% */
     .text {
-           white-space: normal;  /* ✅ ZMIEŃ z nowrap */
+    white-space: normal;  /* ✅ ZMIEŃ z nowrap */
     word-break: break-word;  /* ✅ DODAJ */
     font-size: 1.47rem;
     padding-left: 0;
