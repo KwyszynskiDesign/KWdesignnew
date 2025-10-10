@@ -2167,20 +2167,21 @@ width: 100%;
         gap: 2rem;
     }
     
-    .text {
-    font-size: 1.28rem;  /* ✅ +25% większe (1.02 * 1.25) */
+   .text {
+
+    font-size: 1.79rem;
     display: flex;
-    align-items: center;  /* ✅ Równa linia z kropką */
+    align-items: center;
     gap: 0.8rem;
     white-space: normal;
     word-break: break-word;
-}
+  }
     
-    .highlight-digits {
-    font-size: 1.39rem;  /* ✅ +25% większe (1.11 * 1.25) */
+      .highlight-digits {
+    font-size: 1.95rem;
     display: flex;
-    align-items: center;  /* ✅ Równa linia z tekstem */
-}
+    align-items: center;
+  }
     .info-icon {
     display: flex;
     align-items: center;  /* ✅ Kropka i tekst w równej linii */
@@ -2490,7 +2491,7 @@ width: 100%;
         gap: 1rem;
         font-size: 1.4rem;
         margin-bottom: var(--space-10);
-         padding-left: 4rem; 
+          padding-left: clamp(3rem, 6vw, 8rem); 
     }
 
     /* Hero Image */
