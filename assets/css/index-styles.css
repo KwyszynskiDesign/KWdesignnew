@@ -558,24 +558,23 @@ section {
 
 .hero-main-content {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Równe proporcje: teksty | zdjęcie */
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 2rem; /* Zmniejszony gap dla lepszego wyśrodkowania */
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 1200px; /* Ograniczenie szerokości dla wyśrodkowania */
-  margin: 0 auto; /* Wyśrodkowanie całego contentu */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-info-icons {
  display: grid;
-  grid-template-columns: auto auto 1fr; /* [cyfra/kropka] [separator] [tekst] */
-  gap: 0; /* Zerujemy gap, będziemy ustawiać ręcznie */
-  row-gap: 1.2rem; /* Odstęp między wierszami */
+  grid-template-columns: auto 1fr; /* 2 kolumny: [cyfra/kropka] | [tekst] */
+  gap: 0;
+  row-gap: 1.2rem;
   align-items: center;
   font-size: clamp(1.4rem, 2.5vw, 1.82rem);
   margin: 0;
   padding: 0;
+  padding-left: 50px; /* ← PRZESUNIĘCIE 50px W PRAWO */
 }
 .info-icon {
   display: contents;
@@ -618,7 +617,7 @@ section {
   vertical-align: middle;
 }
 .dot {
-   width: clamp(17px, 1.7vw, 22px);
+ width: clamp(17px, 1.7vw, 22px);
   height: clamp(17px, 1.7vw, 22px);
   min-width: 17px;
   min-height: 17px;
@@ -628,17 +627,17 @@ section {
   vertical-align: middle;
   grid-column: 1;
   justify-self: end; /* Przylega do prawej krawędzi kolumny 1 */
-  margin-right: 0.5rem; /* Odstęp od tekstu */
+  margin-right: 0.8rem; /* Odstęp od tekstu */
 }
 .text {
-grid-column: 3;
+grid-column: 2;
   font-size: clamp(1.33rem, 2.2vw, 1.61rem);
   font-weight: 500;
   line-height: 1.28;
   color: var(--color-text);
   white-space: nowrap;
   text-align: left;
-  padding-left: 0.8rem; /* Odstęp od lewej */
+  padding-left: 0; /* Usunięte, bo gap jest w parent */
 }
 .highlight-digits {
 color: var(--color-primary);
@@ -646,8 +645,8 @@ color: var(--color-primary);
   font-weight: 700;
   text-align: right;
   grid-column: 1;
-  padding-right: 0.5rem; /* Odstęp od kropki */
-  min-width: 50px; /* Minimalna szerokość dla wyrównania */
+  padding-right: 0.8rem; /* Odstęp od kropki */
+  min-width: 60px; /* Minimalna szerokość dla wyrównania */
 }
 
 .highlight-digits-tyt {
@@ -2171,12 +2170,15 @@ width: 100%;
     }
 
     /* Hero Info Icons - Zwiększone o 40% */
-    .hero-info-icons {
-        grid-template-columns: auto 1fr;
-        gap: 10px;
+.hero-info-icons {
+        grid-template-columns: auto 1fr; /* 2 kolumny: [cyfra/kropka] | [tekst] */
+        gap: 8px;
+        row-gap: 1rem;
         padding: 0 var(--space-4);
         justify-items: start;
-        font-size: 2rem;
+        font-size: 1.4rem; /* Zmniejszone z 2rem (30% mniej) */
+        max-width: 100%;
+        margin: 0 auto var(--space-6);
     }
 
     .hero-info-icons .text {
@@ -2187,37 +2189,62 @@ width: 100%;
         text-align: left;
     }
 
+    .info-icon {
+        display: contents; /* Wypłaszcza do parent grid */
+    }
+
+    /* Highlight Digits - ZMNIEJSZONE O 30% */
     .highlight-digits {
-        font-size: 2.4rem;
+        font-size: 1.68rem; /* Zmniejszone z 2.4rem (30% mniej) */
         padding-left: 0;
+        padding-right: 8px;
+        text-align: right;
+        grid-column: 1;
+        min-width: 50px; /* Wyrównanie w jednej kolumnie */
+    }
+
+   .dot {
+        width: 15px; /* Zmniejszone z 21px (30% mniej) */
+        height: 15px;
+        min-width: 15px;
+        min-height: 15px;
+        margin-right: 8px;
+        grid-column: 1;
+        justify-self: end; /* Przylega do prawej krawędzi kolumny 1 */
+    }
+.text {
+        font-size: 1.47rem; /* Zmniejszone z 2.1rem (30% mniej) */
+        padding-left: 0;
+        grid-column: 2;
+        white-space: normal; /* Pozwala na zawijanie tekstu */
         text-align: left;
-        grid-column: 1;
+        line-height: 1.4;
     }
 
-    .dot {
-        width: 21px;
-        height: 21px;
-        min-width: 21px;
-        min-height: 21px;
-        margin-right: 10px;
-        grid-column: 1;
-    }
-
-    /* Hero Image */
+    /* Hero Image - NAPRAWIONE OVERFLOW */
     .hero-image {
         margin-top: var(--space-8);
         margin-bottom: 50px;
         justify-content: center;
         transform: none !important;
-        padding: 0 var(--space-4);
+        padding: 0 var(--space-6); /* Zwiększony padding */
+        width: 100%;
+        max-width: 100%;
     }
 
     .hero-image-container {
-        max-width: 85vw;
+        max-width: 100%; /* Zmienione z 85vw */
         width: 100%;
         margin: 0 auto;
+        padding: 0; /* Usunięty wewnętrzny padding */
     }
-
+.hero-image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: var(--radius-2xl);
+    }
     /* Navigation */
     .hamburger {
         display: flex;
