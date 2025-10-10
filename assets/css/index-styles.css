@@ -785,11 +785,13 @@ width: 100%;
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-8);
+    grid-template-columns: repeat(4, 1fr); /* ✅ Stałe 4 kolumny na desktop */
+    gap: var(--space-6);
     margin-bottom: var(--space-20);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 .benefit-card {
     background: white;
     padding: var(--space-12);
@@ -2483,7 +2485,9 @@ width: 100%;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-8);
   }
-
+ .benefits-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na tablet */
+    }
   /* Hero Layout - Stack (teksty nad zdjęciem) */
   .hero-main-content {
     display: grid;
