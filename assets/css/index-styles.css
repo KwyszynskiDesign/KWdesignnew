@@ -2430,3 +2430,34 @@ media (min-width: 769px) and (max-width: 1024px) {
 .info-icon .dot.red { 
     background-color: var(--color-error) !important;
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-main-content {
+    grid-template-columns: 1fr; /* Stack: teksty nad zdjęciem */
+    gap: var(--space-12); /* Zwiększony gap między metrykami a zdjęciem (48px) */
+    text-align: center;
+  }
+
+  .hero-info-icons {
+    justify-items: center;
+    gap: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: var(--space-10); /* Dodane 40px odstępu pod metrykami */
+  }
+
+  .hero-image {
+    justify-content: center;
+    margin-top: var(--space-10); /* Dodane 40px od góry */
+    margin-bottom: var(--space-10); /* Dodane 40px od dołu */
+  }
+
+  .hero-image-container {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* Obniżenie "Pomagam firmom..." + przyciski */
+  .hero-bottom-content {
+    margin-top: var(--space-16); /* Większy odstęp (64px) */
+  }
+}
