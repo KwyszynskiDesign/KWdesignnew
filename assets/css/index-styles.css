@@ -558,11 +558,10 @@ section {
 }
 
 .hero-main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+ display: grid;
+  grid-template-columns: 1fr 1fr; /* Tekst i zdjęcie obok siebie */
   align-items: center;
   gap: 3rem;
-  /* Dodaj, jeśli layout się „przykleił”: */
   margin-left: 0;
   margin-right: 0;
 }
@@ -570,9 +569,9 @@ section {
 .hero-info-icons {
   display: grid;
   grid-template-columns: auto auto 1fr;
-  gap: 1.2rem;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
   align-items: center;
-  font-size: 1.1rem;
+   font-size: clamp(1rem, 1.8vw, 1.3rem);
   margin: 0;
   padding: 0;
 }
@@ -617,10 +616,10 @@ section {
   vertical-align: middle;
 }
 .dot {
-  width: 14px;
-  height: 14px;
-  min-width: 14px;
-  min-height: 14px;
+  width: clamp(12px, 1.2vw, 16px);
+  height: clamp(12px, 1.2vw, 16px);
+  min-width: 12px;
+  min-height: 12px;
   border-radius: 50%;
   background: var(--color-success);
   display: inline-block;
@@ -629,14 +628,15 @@ section {
 }
 .text {
   grid-column: 3;
-  font-size: 1.05em;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem); /* Desktop: do 1.15rem */
   font-weight: 500;
   line-height: 1.28;
   color: var(--color-text);
+  white-space: nowrap;
 }
 .highlight-digits {
   color: var(--color-primary);
-  font-size: 1.15em;
+   font-size: clamp(1.1rem, 2vw, 1.4rem); 
   font-weight: 700;
   text-align: right;
   grid-column: 1;
@@ -658,19 +658,11 @@ section {
 
 .hero-image-container {
   position: relative;
-  max-width: 440px;    
+  max-width: 380px; /* Zmniejszone z 440px (o ~14%) */
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
-.hero-image-container {
-  position: relative;
-  max-width: 440px;
-  width: 100%;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
 .gradient-overlay {
     position: absolute;
     top: 0;
@@ -682,14 +674,19 @@ section {
     border-radius: var(--radius-2xl);
     pointer-events: none;
 }
-
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
 .hero-image img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: var(--radius-2xl);
 }
-
 .hero-bottom-content {
     text-align: center;
     margin-top: var(--space-8);
@@ -2113,10 +2110,12 @@ section {
 .toast-notification .close-btn:hover {
     opacity: 1 !important;
 }
-/* ================ HERO SECTION - PADDING FIX ================ */
+
 .hero-section {
     padding-top: 120px !important; /* Zmniejszony z 180px */
 }
+
+ ================ ================ ================MEDIA ================ ================ ================
 @media (max-width: 768px) {
     .process-item {
         grid-template-columns: 1fr;
@@ -2124,13 +2123,10 @@ section {
     }
 
     .process-item.reverse .process-content,
-    .process-item.reverse .process-image {
-        order: unset; /* Let them stack in DOM order */
-    }
+    .process-item.reverse .process-image {order: unset; 
 
     .process-content {
-        padding-top: var(--space-16); /* More space for the number on mobile */
-    }
+        padding-top: var(--space-16); }
 
     .step-number {
         top: 1rem;
@@ -2150,6 +2146,11 @@ section {
     padding-right: var(--space-6);
   }
 }
+     .hero-main-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
     .hero-section {
         min-height: auto;
         padding: var(--space-20) 0; 
@@ -2176,31 +2177,43 @@ section {
     overflow-x: auto;
     text-overflow: ellipsis;
   }
+    .hero-info-icons {
+    grid-template-columns: auto 1fr; /* Numer/kropka | tekst */
+    gap: 10px;
+    padding: 0 var(--space-4);
+    justify-items: start;
+    font-size: 1.43rem; /* +50% od bazowego 0.95rem */
+  }
   .highlight-digits {
-    font-size: 1.15em;
+     font-size: 1.72rem; /* +50% od 1.15rem */
     padding-left: 0;
     text-align: left;
+    grid-column: 1;
   }
   .dot {
-    width: 10px;
-    height: 10px;
-    min-width: 10px;
-    min-height: 10px;
-    margin-right: 8px;
+     width: 15px; /* +50% od 10px */
+    height: 15px;
+    min-width: 15px;
+    min-height: 15px;
+    margin-right: 10px;
+    grid-column: 1;
   }
-  .text {
-    font-size: 1em;
+ .text {
+    font-size: 1.5rem; /* +50% od 1rem */
     padding-left: 0;
+    grid-column: 2;
+    white-space: nowrap;
+    text-align: left;
   }
-    .hero-image {
+.hero-image {
     margin-top: var(--space-8);
     margin-bottom: var(--space-8);
     justify-content: center;
     transform: none !important;
   }
 
-     .hero-image-container {
-    max-width: 95vw;
+  .hero-image-container {
+    max-width: 90vw; /* Nie wychodzi poza ekran */
   }
 .container,
 .hero-section-content {
