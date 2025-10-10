@@ -558,20 +558,23 @@ section {
 }
 
 .hero-main-content {
- display: grid;
-  grid-template-columns: 1fr 1.2fr; /* Zwiększona proporcja dla zdjęcia */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Równe proporcje: teksty | zdjęcie */
   align-items: center;
-  gap: 1.5rem; /* Zmniejszony gap z 3rem na 1.5rem */
+  gap: 2rem; /* Zmniejszony gap dla lepszego wyśrodkowania */
   margin-left: 0;
   margin-right: 0;
+  max-width: 1200px; /* Ograniczenie szerokości dla wyśrodkowania */
+  margin: 0 auto; /* Wyśrodkowanie całego contentu */
 }
 
 .hero-info-icons {
  display: grid;
-  grid-template-columns: auto auto 1fr;
-  gap: clamp(1.1rem, 2vw, 1.7rem); /* Zwiększone o ~40% */
+  grid-template-columns: auto auto 1fr; /* [cyfra/kropka] [separator] [tekst] */
+  gap: 0; /* Zerujemy gap, będziemy ustawiać ręcznie */
+  row-gap: 1.2rem; /* Odstęp między wierszami */
   align-items: center;
-  font-size: clamp(1.4rem, 2.5vw, 1.82rem); /* Zwiększone o ~40% (było 1rem-1.3rem) */
+  font-size: clamp(1.4rem, 2.5vw, 1.82rem);
   margin: 0;
   padding: 0;
 }
@@ -616,7 +619,7 @@ section {
   vertical-align: middle;
 }
 .dot {
-  width: clamp(17px, 1.7vw, 22px); /* Zwiększone o ~40% (było 12px-16px) */
+   width: clamp(17px, 1.7vw, 22px);
   height: clamp(17px, 1.7vw, 22px);
   min-width: 17px;
   min-height: 17px;
@@ -624,22 +627,28 @@ section {
   background: var(--color-success);
   display: inline-block;
   vertical-align: middle;
-  grid-column: 2;
+  grid-column: 1;
+  justify-self: end; /* Przylega do prawej krawędzi kolumny 1 */
+  margin-right: 0.5rem; /* Odstęp od tekstu */
 }
 .text {
- grid-column: 3;
-  font-size: clamp(1.33rem, 2.2vw, 1.61rem); /* Zwiększone o ~40% (było 0.95rem-1.15rem) */
+grid-column: 3;
+  font-size: clamp(1.33rem, 2.2vw, 1.61rem);
   font-weight: 500;
   line-height: 1.28;
   color: var(--color-text);
   white-space: nowrap;
+  text-align: left;
+  padding-left: 0.8rem; /* Odstęp od lewej */
 }
 .highlight-digits {
-  color: var(--color-primary);
-  font-size: clamp(1.54rem, 2.8vw, 1.96rem); /* Zwiększone o ~40% (było 1.1rem-1.4rem) */
+color: var(--color-primary);
+  font-size: clamp(1.54rem, 2.8vw, 1.96rem);
   font-weight: 700;
   text-align: right;
   grid-column: 1;
+  padding-right: 0.5rem; /* Odstęp od kropki */
+  min-width: 50px; /* Minimalna szerokość dla wyrównania */
 }
 
 .highlight-digits-tyt {
@@ -682,11 +691,11 @@ section {
     pointer-events: none;
 }
 .hero-image {
-     display: flex;
-  justify-content: flex-start;
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie w swojej kolumnie */
   align-items: center;
-  margin-top: var(--space-10); /* Dodane 40px od góry */
-  margin-bottom: var(--space-10); /* Dodane 40px od dołu */
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-10);
   padding: 0;
 }
 .hero-image img {
