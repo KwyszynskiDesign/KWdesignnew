@@ -2666,33 +2666,45 @@ ______________________________________________________________
     }
 
     /* 5. PROCESS - 2 kolumny (tekst + zdjęcie) */
-    .process-item {
+  .process-item {
         grid-template-columns: 1fr 1fr !important;
-        text-align: left !important;
+        text-align: center !important;
     }
 
-    .process-item .process-content {
-        order: 1 !important;
+    .process-content {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        order: unset !important; /* Reset order */
     }
 
-    .process-item .process-image {
-        order: 2 !important;
+    .process-image {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        order: unset !important; /* Reset order */
     }
 
-    /* REVERSE - zamienia kolejność */
+    /* REVERSE - zmiana kolumn */
     .process-item.reverse .process-content {
-        order: 2 !important;
+        grid-column: 2 !important;
+        order: unset !important;
     }
 
     .process-item.reverse .process-image {
-        order: 1 !important;
+        grid-column: 1 !important;
+        order: unset !important;
     }
 
+    /* Step Number pozycjonowanie */
     .step-number {
         left: 1rem !important;
         right: auto !important;
         top: 1rem !important;
         transform: none !important;
+    }
+
+    .process-item.reverse .step-number {
+        left: auto !important;
+        right: 1rem !important;
     }
 
     .process-item.reverse .step-number {
