@@ -2596,3 +2596,111 @@ width: 100%;
     }
 }
 
+/* ========================================
+   FIX DESKTOP LAYOUT (>1024px)
+   ======================================== */
+
+@media (min-width: 1025px) {
+    /* 1. NAVIGATION - Normalne menu (nie hamburger) */
+    .hamburger {
+        display: none !important;
+    }
+
+    .nav-list {
+        display: flex !important;
+        position: static !important;
+        flex-direction: row !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+        padding: 0 !important;
+        gap: var(--space-8) !important;
+    }
+
+    .nav-list a {
+        border-bottom: none !important;
+        width: auto !important;
+        text-align: left !important;
+    }
+
+    /* 2. BENEFITS - 4 kolumny */
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    /* 3. PORTFOLIO - 3 kolumny */
+    .portfolio-grid {
+        grid-template-columns: repeat(3, minmax(280px, 320px)) !important;
+    }
+
+    /* 4. SERVICES - 3 kolumny */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* 5. PROCESS - 2 kolumny (tekst + zdjęcie) */
+    .process-item {
+        grid-template-columns: 1fr 1fr !important;
+        text-align: left !important;
+    }
+
+    .process-item .process-content {
+        order: 1 !important;
+    }
+
+    .process-item .process-image {
+        order: 2 !important;
+    }
+
+    /* REVERSE - zamienia kolejność */
+    .process-item.reverse .process-content {
+        order: 2 !important;
+    }
+
+    .process-item.reverse .process-image {
+        order: 1 !important;
+    }
+
+    .step-number {
+        left: 1rem !important;
+        right: auto !important;
+        top: 1rem !important;
+        transform: none !important;
+    }
+
+    .process-item.reverse .step-number {
+        left: auto !important;
+        right: 1rem !important;
+    }
+
+    /* 6. FORM - 2 kolumny */
+    .form-row {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-6) !important;
+    }
+
+    /* 7. FOOTER - w jednej linii */
+    .footer-inner {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        text-align: left !important;
+    }
+
+    .footer-links {
+        flex-direction: row !important;
+        gap: var(--space-8) !important;
+    }
+
+    /* 8. HERO - 2 kolumny (info + zdjęcie) */
+    .hero-main-content {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem !important;
+        align-items: center !important;
+    }
+
+    .hero-info-icons {
+        text-align: left !important;
+    }
+}
+
