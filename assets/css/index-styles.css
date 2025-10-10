@@ -642,6 +642,15 @@ section {
   grid-column: 1;
 }
 
+.highlight-digits-tyt {
+  color: var(--color-primary);
+  font-size: clamp(calc(2.25rem*1.4), calc((4vw + 1rem)*1.4), calc(4rem*1.4)); /* 40% increase */
+  font-weight: 700;
+  text-align: right;
+  grid-column: 1;
+ margin-bottom: 2.5rem; 
+    font-family: var(--font-heading);   
+}
 .info-icon .icon {
     font-size: 1.5rem;
 }
