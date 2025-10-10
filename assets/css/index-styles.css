@@ -1114,7 +1114,7 @@ width: 100%;
 }
 
 .service-features li::before {
-    content: 'â';
+    color: var(--color-primary); /* ← TURKUSOWY */
     position: absolute;
     left: 0;
     color: var(--color-success);
