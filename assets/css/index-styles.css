@@ -2479,7 +2479,7 @@ width: 100%;
 /* ===========================
    TABLET (769px - 1024px)
    =========================== */
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 900px) {
   /* Services Grid - 2 kolumny */
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
