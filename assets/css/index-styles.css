@@ -621,9 +621,9 @@ section {
 
 .text {
     display: flex;
-    align-items: baseline;
+    align-items: baseline;  /* ✅ Równa linia z kropką */
     gap: 0.8rem;
-    font-size: clamp(1.24rem, 1.82vw, 1.5rem);  /* ✅ +30% większe */
+    font-size: clamp(1.43rem, 2.09vw, 1.73rem);  /* ✅ +15% większe */
     font-weight: 500;
     line-height: 1.20;
     color: var(--color-text);
@@ -634,15 +634,15 @@ section {
 
 .highlight-digits {
     color: var(--color-primary);
-    font-size: clamp(1.7rem, 3.1vw, 2.17rem);  /* ✅ +30% większe */
+    font-size: clamp(1.96rem, 3.57vw, 2.5rem);  /* ✅ +15% większe */
     font-weight: 700;
     line-height: 1;
     flex-shrink: 0;
 }
 
 .dot {
-    width: clamp(14px, 1.4vw, 19px);  /* ✅ Zmniejszone o ~15% */
-    height: clamp(14px, 1.4vw, 19px);
+     width: clamp(18px, 1.8vw, 24px);  /* ✅ +30% większa */
+    height: clamp(18px, 1.8vw, 24px);
     min-width: 14px;
     min-height: 14px;
     border-radius: 50%;
@@ -2168,12 +2168,25 @@ width: 100%;
     }
     
     .text {
-        font-size: 1.02rem;
-    }
+    font-size: 1.28rem;  /* ✅ +25% większe (1.02 * 1.25) */
+    display: flex;
+    align-items: center;  /* ✅ Równa linia z kropką */
+    gap: 0.8rem;
+    white-space: normal;
+    word-break: break-word;
+}
     
     .highlight-digits {
-        font-size: 1.11rem;
-    }
+    font-size: 1.39rem;  /* ✅ +25% większe (1.11 * 1.25) */
+    display: flex;
+    align-items: center;  /* ✅ Równa linia z tekstem */
+}
+    .info-icon {
+    display: flex;
+    align-items: center;  /* ✅ Kropka i tekst w równej linii */
+    gap: 0.8rem;
+    width: 100%;
+}
 }
 
 /* ===========================
@@ -2224,12 +2237,12 @@ width: 100%;
         align-items: flex-start;
     }
     
-    
-  
-
     .info-icon {
-        display: contents; /* Wypłaszcza do parent grid */
-    }
+    display: flex;
+    align-items: center;  /* ✅ Kropka i tekst w równej linii */
+    gap: 0.8rem;
+    width: 100%;
+}
 
   .highlight-digits {
         font-size: 1.14rem;
@@ -2246,14 +2259,17 @@ width: 100%;
         margin-right: 0;
     }
     
-    .text {
-        font-size: clamp(0.8rem, 1.8vw, 1rem);  /* ✅ -20% mniejsze */
-        white-space: normal;
-        word-break: break-word;
-        padding-left: 0;
-        grid-column: 2;
-        text-align: left;
-    }
+  .text {
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+    display: flex;
+    align-items: center;  /* ✅ Równa linia z kropką */
+    gap: 0.8rem;
+    white-space: normal;
+    word-break: break-word;
+    padding-left: 0;
+    grid-column: 2;
+    text-align: left;
+}
     }
 }
     /* Hero Image - NAPRAWIONE OVERFLOW */
