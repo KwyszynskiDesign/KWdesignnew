@@ -566,18 +566,19 @@ section {
 }
 
 .hero-info-icons {
-    display: grid;
-    grid-template-columns: 80px 1fr;  /* ✅ STAŁA szerokość dla kolumny z cyframi/kropką */
-    column-gap: 0.8rem;
-    row-gap: 1.5rem;
-    align-items: center;
+      display: flex;
+    flex-direction: column;  /* ✅ Pionowy układ */
+    gap: 1.5rem;
+    align-items: flex-start;  /* ✅ Wyrównanie do lewej */
     font-size: clamp(1.4rem, 2.5vw, 1.82rem);
     margin: 0;
     padding: 0;
-    padding-left: 0;  /* ✅ USUŃ przesunięcie */
 }
 .info-icon {
-  display: contents; /* Wypłaszcza elementy do parent grid */
+   display: flex;
+    align-items: center;  /* ✅ Cyfry i tekst w jednej linii */
+    gap: 0.8rem;
+    width: 100%;
 }
 
 .hero-info-row {
@@ -618,43 +619,34 @@ section {
   vertical-align: middle;
 }
 
-
-.highlight-digits {
-    color: var(--color-primary);
-    font-size: clamp(1.54rem, 2.8vw, 1.96rem);
-    font-weight: 700;
-    line-height: 1;
-    text-align: right;  /* ✅ Wyrównaj do prawej w kolumnie 80px */
-    grid-column: 1;
-    padding-right: 0;  /* ✅ USUŃ padding */
-    min-width: unset;  /* ✅ USUŃ min-width */
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-end;  /* ✅ DODAJ - wyrównanie do prawej */
-}
-
-.dot {
-    width: clamp(17px, 1.7vw, 22px);
-    height: clamp(17px, 1.7vw, 22px);
-    min-width: 17px;
-    min-height: 17px;
-    border-radius: 50%;
-    background: var(--color-success);
-    display: inline-block;
-    grid-column: 1;
-    justify-self: end;  /* ✅ Przylega do prawej krawędzi kolumny 1 (80px) */
-    margin-right: 0;  /* ✅ USUŃ margin */
-}
-
 .text {
-    grid-column: 2;
-    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    display: flex;
+    align-items: baseline;  /* ✅ Wyrównanie cyfr z tekstem */
+    gap: 0.8rem;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);  /* ✅ Zmniejszone o ~15% */
     font-weight: 500;
     line-height: 1.20;
     color: var(--color-text);
     white-space: nowrap;
     text-align: left;
-    padding-left: 0;
+}
+
+.highlight-digits {
+    color: var(--color-primary);
+    font-size: clamp(1.31rem, 2.38vw, 1.67rem);  /* ✅ Zmniejszone o ~15% */
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;  /* ✅ Cyfry nie kurczą się */
+}
+
+.dot {
+    width: clamp(14px, 1.4vw, 19px);  /* ✅ Zmniejszone o ~15% */
+    height: clamp(14px, 1.4vw, 19px);
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 50%;
+    background: var(--color-success);
+    flex-shrink: 0;  /* ✅ Kropka nie kurczy się */
 }
 
 .highlight-digits-tyt {
@@ -2149,7 +2141,9 @@ width: 100%;
         width: calc(100% - 1rem);  /* Mniejszy margines */
         border-radius: var(--radius-lg);
     }
-    
+    .hero-main-content {
+        padding: 0 0.5rem;
+    }
     .hero-text h1 {
         font-size: 1.75rem;
         line-height: 1.2;
@@ -2173,11 +2167,11 @@ width: 100%;
     }
     
     .text {
-        font-size: 1.2rem;
+        font-size: 1.02rem;
     }
     
     .highlight-digits {
-        font-size: 1.3rem;
+        font-size: 1.11rem;
     }
 }
 
@@ -2224,17 +2218,11 @@ width: 100%;
     }
 
     /* Hero Info Icons - Zwiększone o 40% */
-.hero-info-icons {
-       grid-template-columns: 60px 1fr; /* 2 kolumny */
-        column-gap: 8px;
-        row-gap: 1rem;
-        padding: 0 var(--space-4);
-        padding-left: 0 !important; /* Usuń przesunięcie 50px na mobile */
-        justify-items: start;
-        font-size: 1rem; /* Zmniejszone */
-        max-width: 100%;
-        margin: 0 auto var(--space-6);
+ .hero-info-icons {
+        gap: 1.2rem;
+        align-items: flex-start;
     }
+    
     
     .hero-info-icons .text {
         white-space: nowrap;
@@ -2256,17 +2244,17 @@ width: 100%;
 
     /* Dot - ZMNIEJSZONA O 30% */
     .dot {
-        width: 15px;
-        height: 15px;
-        min-width: 15px;
-        min-height: 15px;
+        width: 13px;
+        height: 13px;
+        min-width: 13px;
+        min-height: 13px;
         margin-right: 0;
     }
     
     .text {
-        white-space: normal;
+        font-size: clamp(1.15rem, 3vw, 1.43rem);   /* ✅ Zmniejszone o ~15% */
+        white-space: normal;  /* ✅ Pozwól zawijać na mobile */
         word-break: break-word;
-        font-size: 1.47rem;
     }
 }
     /* Hero Image - NAPRAWIONE OVERFLOW */
@@ -2281,12 +2269,15 @@ width: 100%;
     }
 
     .hero-image-container {
-       max-width: 100%;  /* ✅ ZMIEŃ z calc(100vw - 48px) */
-    width: calc(100% - 2rem);  /* ✅ DODAJ - margines bezpieczeństwa */
-    margin: 0 auto;
-    padding: 0;
+        max-width: 100%;
+        width: calc(100% - 1.5rem);  /* ✅ Więcej marginesu bezpieczeństwa */
+        margin: 0 auto;
     }
-
+    
+    .hero-main-content {
+        padding: 0 0.75rem;  /* ✅ Dodatkowy padding dla kontenera */
+    }
+}
     .hero-image-container img {
         width: 100%;
         height: auto;
