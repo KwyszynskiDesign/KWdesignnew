@@ -566,17 +566,16 @@ section {
 }
 
 .hero-info-icons {
-  display: grid;
-  grid-template-columns: auto 1fr; /* 2 kolumny: [cyfra/kropka] | [tekst] */
-  column-gap: 0.8rem;
-  row-gap: 1.5rem;
-  align-items: center;
-  font-size: clamp(1.4rem, 2.5vw, 1.82rem);
-  margin: 0;
-  padding: 0;
-  padding-left: 50px; /* PRZESUNIĘCIE 50px W PRAWO */
+    display: grid;
+    grid-template-columns: 80px 1fr;  /* ✅ STAŁA szerokość dla kolumny z cyframi/kropką */
+    column-gap: 0.8rem;
+    row-gap: 1.5rem;
+    align-items: center;
+    font-size: clamp(1.4rem, 2.5vw, 1.82rem);
+    margin: 0;
+    padding: 0;
+    padding-left: 0;  /* ✅ USUŃ przesunięcie */
 }
-
 .info-icon {
   display: contents; /* Wypłaszcza elementy do parent grid */
 }
@@ -621,38 +620,41 @@ section {
 
 
 .highlight-digits {
-  color: var(--color-primary);
+    color: var(--color-primary);
     font-size: clamp(1.54rem, 2.8vw, 1.96rem);
     font-weight: 700;
-    line-height: 1;  /* ✅ DODAJ */
-    text-align: right;
+    line-height: 1;
+    text-align: right;  /* ✅ Wyrównaj do prawej w kolumnie 80px */
     grid-column: 1;
-    padding-right: 0.8rem;
-    min-width: 60px;
-    display: flex;  /* ✅ DODAJ */
-    align-items: baseline;  /* ✅ DODAJ - to wyrównuje + z cyframi */
+    padding-right: 0;  /* ✅ USUŃ padding */
+    min-width: unset;  /* ✅ USUŃ min-width */
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;  /* ✅ DODAJ - wyrównanie do prawej */
 }
+
 .dot {
-  width: clamp(17px, 1.7vw, 22px);
-  height: clamp(17px, 1.7vw, 22px);
-  min-width: 17px;
-  min-height: 17px;
-  border-radius: 50%;
-  background: var(--color-success);
-  display: inline-block;
-  grid-column: 1;
-  justify-self: end; /* Przylega do prawej krawędzi kolumny 1 */
-  margin-right: 0.8rem;
+    width: clamp(17px, 1.7vw, 22px);
+    height: clamp(17px, 1.7vw, 22px);
+    min-width: 17px;
+    min-height: 17px;
+    border-radius: 50%;
+    background: var(--color-success);
+    display: inline-block;
+    grid-column: 1;
+    justify-self: end;  /* ✅ Przylega do prawej krawędzi kolumny 1 (80px) */
+    margin-right: 0;  /* ✅ USUŃ margin */
 }
+
 .text {
-  grid-column: 2;
- font-size: clamp(1.1rem, 1.6vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.20;
-  color: var(--color-text);
-  white-space: nowrap;
-  text-align: left;
-  padding-left: 0;
+    grid-column: 2;
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.20;
+    color: var(--color-text);
+    white-space: nowrap;
+    text-align: left;
+    padding-left: 0;
 }
 
 .highlight-digits-tyt {
@@ -2223,7 +2225,7 @@ width: 100%;
 
     /* Hero Info Icons - Zwiększone o 40% */
 .hero-info-icons {
-         grid-template-columns: auto 1fr; /* 2 kolumny */
+       grid-template-columns: 60px 1fr; /* 2 kolumny */
         column-gap: 8px;
         row-gap: 1rem;
         padding: 0 var(--space-4);
@@ -2246,37 +2248,27 @@ width: 100%;
         display: contents; /* Wypłaszcza do parent grid */
     }
 
-   .highlight-digits {
-        font-size: 1.68rem; /* Zmniejszone z 2.4rem (30% mniej) */
-        padding-left: 0;
-        padding-right: 8px;
-        text-align: right;
-        grid-column: 1;
-        min-width: 50px;
+  .highlight-digits {
+        font-size: 1.68rem;
+        padding-right: 0;
+        justify-content: flex-end;
     }
 
     /* Dot - ZMNIEJSZONA O 30% */
     .dot {
-        width: 15px; /* Zmniejszone z 21px (30% mniej) */
+        width: 15px;
         height: 15px;
         min-width: 15px;
         min-height: 15px;
-        margin-right: 8px;
-        grid-column: 1;
-        justify-self: end;
+        margin-right: 0;
     }
-
-    /* Text - ZMNIEJSZONY O 30% */
+    
     .text {
-    white-space: normal;  /* ✅ ZMIEŃ z nowrap */
-    word-break: break-word;  /* ✅ DODAJ */
-    font-size: 1.47rem;
-    padding-left: 0;
-    grid-column: 2;
-    text-align: left;
-    line-height: 1.4;
+        white-space: normal;
+        word-break: break-word;
+        font-size: 1.47rem;
     }
-
+}
     /* Hero Image - NAPRAWIONE OVERFLOW */
   .hero-image {
         margin-top: var(--space-8);
