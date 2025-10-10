@@ -905,9 +905,11 @@ width: 100%;
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 350px)); /* ✅ Zmniejszone z 350px do maksymalnie 350px */
-    gap: var(--space-12);
-    justify-content: center; /*
+    grid-template-columns: repeat(3, minmax(280px, 320px)); /* ✅ Stała liczba kolumn na desktop */
+    gap: var(--space-6);
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
@@ -1379,7 +1381,7 @@ width: 100%;
     grid-template-columns: 1fr;
     gap: var(--space-12);
     margin-top: var(--space-16);
-    max-width: 1000px;
+    max-width: 850px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1389,7 +1391,7 @@ width: 100%;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-12);
     align-items: center;
-    padding: var(--space-2) var(--space-8); /* Further reduced vertical padding */
+    padding: var(--space-4) var(--space-6); /* Further reduced vertical padding */
     background: white;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
@@ -1424,7 +1426,7 @@ width: 100%;
 }
 
 .process-content {
-    padding: var(--space-8);
+    padding: var(--space-6);
     text-align: center;
 }
 
