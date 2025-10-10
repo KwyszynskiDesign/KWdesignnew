@@ -2168,8 +2168,7 @@ width: 100%;
     }
     
    .text {
-
-    font-size: 1.79rem;
+    font-size: 1.92rem !important;
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -2178,7 +2177,7 @@ width: 100%;
   }
     
       .highlight-digits {
-    font-size: 1.95rem;
+    font-size: 2.085rem !important;
     display: flex;
     align-items: center;
   }
@@ -2491,7 +2490,7 @@ width: 100%;
         gap: 1rem;
         font-size: 1.4rem;
         margin-bottom: var(--space-10);
-          padding-left: clamp(3rem, 6vw, 8rem); 
+          padding-left: 60px;
     }
 
     /* Hero Image */
