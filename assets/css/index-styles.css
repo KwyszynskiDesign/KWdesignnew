@@ -2346,8 +2346,7 @@ ______________________________________________________________
     grid-column: 2;
     text-align: left;
 }
-    }
-}
+
     /* Hero Image - NAPRAWIONE OVERFLOW */
   .hero-image {
         margin-top: var(--space-8);
@@ -2368,6 +2367,11 @@ ______________________________________________________________
     .hero-main-content {
         padding: 0 0.75rem;  /* ✅ Dodatkowy padding dla kontenera */
     }
+  .benefits-grid,
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
 }
     .hero-image-container img {
         width: 100%;
@@ -2378,9 +2382,7 @@ ______________________________________________________________
     }
 
     /* Navigation */
-    .hamburger {
-        display: flex;
-    }
+    .hamburger {display: flex;}
     
     .nav-list {
         position: fixed;
@@ -2412,9 +2414,7 @@ ______________________________________________________________
         text-align: center;
     }
     
-    .nav-list a:last-child {
-        border-bottom: none;
-    }
+    .nav-list a:last-child { border-bottom: none;}
 
     /* CTA Buttons */
     .cta-group {
@@ -2437,29 +2437,17 @@ ______________________________________________________________
     
 
     /* Sections */
-    section {
-        padding: var(--space-16) 0;
-    }
+    section {padding: var(--space-16) 0; }
     
-    .section-lg {
-        padding: var(--space-20) 0;
-    }
+    .section-lg {padding: var(--space-20) 0;}
 
     /* Grid Layouts */
-    .benefits-grid,
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-6);
-    }
+    
 
     /* Testimonials */
-    .testimonials-track {
-        width: 100%;
-    }
+    .testimonials-track {width: 100%;}
 
-    .testimonial-card {
-        flex: 0 0 100%;
-    }
+    .testimonial-card { flex: 0 0 100%;}
 
     /* Form */
     .form-row {
@@ -2467,9 +2455,7 @@ ______________________________________________________________
         gap: var(--space-4);
     }
     
-    .contact-form-container {
-        padding: var(--space-8);
-    }
+    .contact-form-container {padding: var(--space-8);}
 
     /* Footer */
     .footer-inner {
@@ -2484,26 +2470,16 @@ ______________________________________________________________
     }
 
     /* Spacing Adjustments */
-    .section-title {
-        margin-bottom: var(--space-12);
-    }
+    .section-title { margin-bottom: var(--space-12);}
     
-    .mini-portfolio {
-        margin-top: var(--space-16);
-    }
+    .mini-portfolio {margin-top: var(--space-16);}
 
     /* Typography */
-    h1 {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
+    h1 {font-size: clamp(2rem, 6vw, 3rem);}
     
-    h2 {
-        font-size: clamp(1.75rem, 5vw, 2.5rem);
-    }
+    h2 {font-size: clamp(1.75rem, 5vw, 2.5rem);}
     
-    h3 {
-        font-size: clamp(1.25rem, 4vw, 1.75rem);
-    }
+    h3 { font-size: clamp(1.25rem, 4vw, 1.75rem);}
 
     /* Scroll to Top */
     .scroll-to-top {
