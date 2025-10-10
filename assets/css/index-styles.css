@@ -622,12 +622,15 @@ section {
 
 .highlight-digits {
   color: var(--color-primary);
-  font-size: clamp(1.54rem, 2.8vw, 1.96rem);
-  font-weight: 700;
-  text-align: right;
-  grid-column: 1;
-  padding-right: 0.8rem;
-  min-width: 60px; /* Wyrównanie */
+    font-size: clamp(1.54rem, 2.8vw, 1.96rem);
+    font-weight: 700;
+    line-height: 1;  /* ✅ DODAJ */
+    text-align: right;
+    grid-column: 1;
+    padding-right: 0.8rem;
+    min-width: 60px;
+    display: flex;  /* ✅ DODAJ */
+    align-items: baseline;  /* ✅ DODAJ - to wyrównuje + z cyframi */
 }
 .dot {
   width: clamp(17px, 1.7vw, 22px);
@@ -643,9 +646,9 @@ section {
 }
 .text {
   grid-column: 2;
-  font-size: clamp(1.33rem, 2.2vw, 1.61rem);
+  font-size: clamp(1.46rem, 2.0vw, 1.55rem);
   font-weight: 500;
-  line-height: 1.28;
+  line-height: 1.20;
   color: var(--color-text);
   white-space: nowrap;
   text-align: left;
@@ -2140,6 +2143,40 @@ width: 100%;
     .process-item {
         padding: var(--space-6);
     }
+    .hero-image-container {
+        width: calc(100% - 1rem);  /* Mniejszy margines */
+        border-radius: var(--radius-lg);
+    }
+    
+    .hero-text h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+        word-wrap: break-word;
+    }
+    
+    .hero-description {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        word-wrap: break-word;
+    }
+    
+    .hero-content {
+        padding: 1.5rem 1rem;
+        gap: 2rem;
+    }
+    
+    .text {
+        font-size: 1.2rem;
+    }
+    
+    .highlight-digits {
+        font-size: 1.3rem;
+    }
 }
 
 /* ===========================
@@ -2231,12 +2268,13 @@ width: 100%;
 
     /* Text - ZMNIEJSZONY O 30% */
     .text {
-        font-size: 1.47rem; /* Zmniejszone z 2.1rem (30% mniej) */
-        padding-left: 0;
-        grid-column: 2;
-        white-space: normal; /* Pozwala na zawijanie */
-        text-align: left;
-        line-height: 1.4;
+           white-space: normal;  /* ✅ ZMIEŃ z nowrap */
+    word-break: break-word;  /* ✅ DODAJ */
+    font-size: 1.47rem;
+    padding-left: 0;
+    grid-column: 2;
+    text-align: left;
+    line-height: 1.4;
     }
 
     /* Hero Image - NAPRAWIONE OVERFLOW */
@@ -2251,10 +2289,10 @@ width: 100%;
     }
 
     .hero-image-container {
-        max-width: calc(100vw - 48px); /* 100vw - 2x padding container (24px) */
-        width: 100%;
-        margin: 0 auto;
-        padding: 0;
+       max-width: 100%;  /* ✅ ZMIEŃ z calc(100vw - 48px) */
+    width: calc(100% - 2rem);  /* ✅ DODAJ - margines bezpieczeństwa */
+    margin: 0 auto;
+    padding: 0;
     }
 
     .hero-image-container img {
