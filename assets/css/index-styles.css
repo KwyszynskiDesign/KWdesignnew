@@ -643,13 +643,13 @@ section {
 }
 
 .highlight-digits-tyt {
-  color: var(--color-primary);
-  font-size: clamp(calc(2.25rem*1.4), calc((4vw + 1rem)*1.4), calc(4rem*1.4)); /* 40% increase */
+ color: var(--color-primary);
+  font-size: clamp(1.54rem, 2.8vw, 1.96rem); /* 40% increase */
   font-weight: 700;
   text-align: right;
   grid-column: 1;
- margin-bottom: 2.5rem; 
-    font-family: var(--font-heading);   
+  margin-bottom: 2.5rem;
+  font-family: var(--font-heading);
 }
 .info-icon .icon {
     font-size: 1.5rem;
