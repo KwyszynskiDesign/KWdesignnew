@@ -2570,4 +2570,29 @@ width: 100%;
     flex: 0 0 calc(50% - var(--space-4));
   }
 }
+@media (min-width: 1025px) {
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, minmax(280px, 320px)) !important;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .process-item {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .process-item.reverse {
+        direction: rtl; /* Zamienia kolejność bez order */
+    }
+
+    .process-item.reverse * {
+        direction: ltr; /* Reset kierunku dla dzieci */
+    }
+}
 
