@@ -2439,23 +2439,14 @@ ______________________________________________________________
 
     /* Sections */
     section {padding: var(--space-16) 0; }
-    
     .section-lg {padding: var(--space-20) 0;}
 
-    /* Grid Layouts */
+   
     
 
     /* Testimonials */
     .testimonials-track {width: 100%;}
-
     .testimonial-card { flex: 0 0 100%;}
-
-    /* Form */
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-    }
-    
     .contact-form-container {padding: var(--space-8);}
 
     /* Footer */
@@ -2630,9 +2621,26 @@ ______________________________________________________________
     .process-image { grid-column: 2; grid-row: 1; }
     .process-item.reverse .process-content { grid-column: 2; }
     .process-item.reverse .process-image { grid-column: 1; }
-    .step-number { left: 1rem; transform: none; }
-    .process-item.reverse .step-number { left: auto; right: 1rem; }
-    .process-item:hover .step-number { transform: scale(1.1); }
+    .step-number {
+        top: 1rem;
+        left: 1rem;
+        transform: none;
+    }
+   .process-item.reverse .step-number {
+        top: -24px; /* ✅ Wyniesienie nad kartę */
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%); /* ✅ Wyśrodkowanie */
+        background: var(--color-primary);
+        box-shadow: var(--shadow-2xl); /* ✅ Większy cień dla efektu "unoszenia" */
+    }
+
+   .process-item:hover .step-number {
+        transform: scale(1.1);
+    }
+.process-item.reverse:hover .step-number {
+        transform: translateX(-50%) scale(1.1);
+    }
     
     /* 6. FORM - 2 kolumny */
     .form-row {
