@@ -1157,14 +1157,26 @@ width: 100%;
     border: none;
     cursor: pointer;
     font-size: 0.95rem;
+    text-decoration: none; /* Usuń podkreślenie linku */
+    position: relative; /* Dla lepszego z-index */
+    z-index: 10; /* Przycisk nad kartą */
 }
-
+.service-btn::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
 .service-btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     background: var(--color-primary-dark);
     color: white;
 }
+
+
 
 /* Premium Testimonials Carousel */
 .testimonials-section {
