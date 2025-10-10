@@ -559,12 +559,12 @@ section {
 .hero-main-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: center; /* ✅ Wyśrodkowanie pionowe */
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-     align-items: flex-start;
-  margin-top: var(--space-8);
+  margin-top: 0; /* ✅ Usuń dodatkowy margines */
+  padding: var(--space-12) 0; /* ✅ Dodaj równomierny padding */
 }
 
 .hero-info-icons {
@@ -1722,7 +1722,7 @@ ______________________________________________________________
 
 .form-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr; 
     gap: var(--space-6);
     margin-bottom: var(--space-6);
 }
@@ -2372,6 +2372,10 @@ ______________________________________________________________
         grid-template-columns: 1fr;
         gap: var(--space-6);
     }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
 }
     .hero-image-container img {
         width: 100%;
@@ -2429,10 +2433,7 @@ ______________________________________________________________
     }
 
     /* Services Grid - w pionie na mobile */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-6);
-    }
+    
 
     
 
