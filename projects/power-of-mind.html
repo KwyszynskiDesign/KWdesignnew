@@ -31,17 +31,17 @@
   <meta name="twitter:description" content="Projekt identyfikacji wizualnej i strony WordPress dla marki rozwojowej Power of Mind.">
   <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/stronaPower.png">
   
-  <!-- Favicon - Relatywne ścieżki -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-  <link rel="shortcut icon" href="../favicon.ico">
+  <!-- Favicon - Absolutne ścieżki -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/KWdesignnew/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/KWdesignnew/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/KWdesignnew/assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/KWdesignnew/favicon.ico">
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://kwyszynskidesign.github.io/KWdesignnew/projects/power-of-mind.html">
   
-  <!-- CSS - RELATYWNA ŚCIEŻKA -->
-  <link rel="stylesheet" href="../assets/css/projects.css">
+  <!-- CSS - Absolutna ścieżka z nazwą repo -->
+  <link rel="stylesheet" href="/KWdesignnew/assets/css/projects.css">
   
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,7 +77,7 @@
         <div class="hero-image">
           <img 
             class="cover" 
-            src="../assets/images/stronaPower.png" 
+            src="/KWdesignnew/assets/images/stronaPower.png" 
             alt="Podgląd strony Power of Mind - case study identyfikacji wizualnej" 
             loading="lazy" 
             decoding="async"
@@ -125,12 +125,21 @@
           
           <!-- Accordion Item 1 -->
           <div class="kwcs-item">
-            <div class="kwcs-header">
+            <button 
+              class="kwcs-header" 
+              aria-expanded="false" 
+              aria-controls="content-power-1" 
+              id="header-power-1"
+              type="button">
               <span class="num">I</span>
               🎯 Przygotowania do projektowania
-              <span class="icon">+</span>
-            </div>
-            <div class="kwcs-content">
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div 
+              class="kwcs-content" 
+              id="content-power-1" 
+              role="region" 
+              aria-labelledby="header-power-1">
               <p><strong>Discovery i strategia:</strong> Początek każdego projektu to zrozumienie biznesu i użytkownika. Na tym etapie poznajemy potrzeby klientki, jej wizję oraz oczekiwania wobec marki.</p>
               <ul>
                 <li>Zbieranie informacji o potrzebach klientki – głębokie wywiady, analiza konkurencji, persona użytkownika.</li>
@@ -142,12 +151,21 @@
           
           <!-- Accordion Item 2 -->
           <div class="kwcs-item">
-            <div class="kwcs-header">
+            <button 
+              class="kwcs-header" 
+              aria-expanded="false" 
+              aria-controls="content-power-2" 
+              id="header-power-2"
+              type="button">
               <span class="num">II</span>
               🧠 Pierwsze kroki w projektach
-              <span class="icon">+</span>
-            </div>
-            <div class="kwcs-content">
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div 
+              class="kwcs-content" 
+              id="content-power-2" 
+              role="region" 
+              aria-labelledby="header-power-2">
               <p><strong>Koncepcja i wireframing:</strong> Po zrozumieniu potrzeb przechodzimy do fazy koncepcyjnej, gdzie powstają pierwsze szkice i prototypy.</p>
               <ul>
                 <li>Wykonanie pierwszych przykładów – szkice logo, moodboardy, wireframe'y kluczowych stron.</li>
@@ -159,12 +177,21 @@
           
           <!-- Accordion Item 3 -->
           <div class="kwcs-item">
-            <div class="kwcs-header">
+            <button 
+              class="kwcs-header" 
+              aria-expanded="false" 
+              aria-controls="content-power-3" 
+              id="header-power-3"
+              type="button">
               <span class="num">III</span>
               ⚙️ Proces
-              <span class="icon">+</span>
-            </div>
-            <div class="kwcs-content">
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div 
+              class="kwcs-content" 
+              id="content-power-3" 
+              role="region" 
+              aria-labelledby="header-power-3">
               <p><strong>Implementacja techniczna:</strong> Z zaakceptowanym designem przechodzimy do fazy technicznej – konfiguracja środowiska, budowa strony oraz integracje.</p>
               <ul>
                 <li>Wykup domeny i hostingu – dobór najlepszego rozwiązania pod WordPress.</li>
@@ -178,12 +205,21 @@
           
           <!-- Accordion Item 4 -->
           <div class="kwcs-item">
-            <div class="kwcs-header">
+            <button 
+              class="kwcs-header" 
+              aria-expanded="false" 
+              aria-controls="content-power-4" 
+              id="header-power-4"
+              type="button">
               <span class="num">IV</span>
               ✨ Prezentacja
-              <span class="icon">+</span>
-            </div>
-            <div class="kwcs-content">
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div 
+              class="kwcs-content" 
+              id="content-power-4" 
+              role="region" 
+              aria-labelledby="header-power-4">
               <p><strong>Review i feedback:</strong> Prezentujemy gotową wersję roboczą klientce i zbieramy feedback, aby dopracować detale zgodnie z oczekiwaniami.</p>
               <ul>
                 <li>Omówienie prac i podsumowanie procesu – prezentacja działającej strony, tour po funkcjach.</li>
@@ -195,12 +231,21 @@
           
           <!-- Accordion Item 5 -->
           <div class="kwcs-item">
-            <div class="kwcs-header">
+            <button 
+              class="kwcs-header" 
+              aria-expanded="false" 
+              aria-controls="content-power-5" 
+              id="header-power-5"
+              type="button">
               <span class="num">V</span>
               🛠️ Poprawki i finalizacja
-              <span class="icon">+</span>
-            </div>
-            <div class="kwcs-content">
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div 
+              class="kwcs-content" 
+              id="content-power-5" 
+              role="region" 
+              aria-labelledby="header-power-5">
               <p><strong>Optymalizacja i launch:</strong> Ostatni etap to implementacja poprawek, optymalizacja wydajności oraz przygotowanie do uruchomienia strony na produkcji.</p>
               <ul>
                 <li>Analiza struktur i doprecyzowanie informacji – A/B testing, heatmapy, user testing.</li>
@@ -216,15 +261,15 @@
         <!-- Result Section -->
         <div class="kwcs-result">
           <p>🚀 <strong>Rezultat:</strong> Logo wdrożone na opakowania, stronę WWW i materiały promocyjne. Marka zyskała rozpoznawalny i spójny wizerunek, strona została zoptymalizowana pod SEO i konwersję.</p>
-          <a class="kwcs-cta" href="https://ewabugaj-powerofmind.pl" target="_blank" rel="noopener noreferrer">Zobacz projekt na żywo</a>
+          <a class="kwcs-cta" href="https://ewabugaj-powerofmind.pl" target="_blank" rel="noopener noreferrer" aria-label="Zobacz projekt Power of Mind na żywo">Zobacz projekt na żywo</a>
         </div>
       </div>
     </div>
     
   </section>
 
-  <!-- JavaScript - RELATYWNA ŚCIEŻKA -->
-  <script src="../assets/js/projects.js"></script>
+  <!-- JavaScript - Absolutna ścieżka z nazwą repo -->
+  <script src="/KWdesignnew/assets/js/projects.js"></script>
 
 </body>
 </html>
