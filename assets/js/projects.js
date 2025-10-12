@@ -1,25 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initAccordion() {
   const accordionItems = document.querySelectorAll('.kwcs-item');
 
   accordionItems.forEach(item => {
     const header = item.querySelector('.kwcs-header');
     if (header) {
       header.addEventListener('click', () => {
-        // Toggle the 'open' class on the clicked item
         const wasOpen = item.classList.contains('open');
 
-        // Optional: Close all other items
+        // Zamknij wszystkie inne elementy
         accordionItems.forEach(otherItem => {
           if (otherItem.classList.contains('open')) {
             otherItem.classList.remove('open');
           }
         });
 
-        // If the clicked item wasn't open, open it
+        // Otwórz kliknięty, jeśli był zamknięty
         if (!wasOpen) {
           item.classList.add('open');
         }
       });
     }
   });
-});
+}
+
+// Bezpieczne uruchomienie - działa nawet jeśli DOM jest już załadowany
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAccordion);
+} else {
+  initAccordion();
+}
