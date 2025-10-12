@@ -402,18 +402,16 @@ section {
     padding: var(--space-4) var(--space-8);
 }
 
-.logo {
-    font-size: 1.75rem;
-    font-weight: var(--font-weight-black);
-    color: white;
-    font-family: var(--font-heading);
-    letter-spacing: -0.03em;
+.logo-img {
+    height: 50px; /* dostosuj wysokość do swojego logo */
+    width: auto; /* zachowuje proporcje obrazu */
+    display: block;
     transition: var(--transition-fast);
 }
 
-.logo:hover {
+.logo-img:hover {
     transform: scale(1.05);
-    color: var(--color-primary);
+    opacity: 0.9;
 }
 
 .logo-link {
@@ -1558,6 +1556,10 @@ _________________________________________________________________________
 
     .process-content p {
         font-size: 1.32rem;
+        
+    }
+    .logo-img {
+        height: 40px; /* mniejsze na mobile */
     }
 }
 ______________________________________________________________
