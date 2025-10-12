@@ -2624,8 +2624,12 @@ ______________________________________________________________
    FIX DESKTOP LAYOUT (>1024px)
    ======================================== */
 
+/* ========================================
+   FIX DESKTOP LAYOUT (>1024px)
+   ======================================== */
+
 @media (min-width: 1025px) {
-    /* ✅ 1. NAVIGATION - Normalne menu (NIE hamburger) */
+    /* 1. NAVIGATION */
     .hamburger {
         display: none !important;
     }
@@ -2639,7 +2643,7 @@ ______________________________________________________________
         visibility: visible !important;
         background: transparent !important;
         padding: 0 !important;
-        gap: var(--space-8) !important;
+        gap: var(--space-10) !important;
         border: none !important;
     }
 
@@ -2647,7 +2651,7 @@ ______________________________________________________________
         border-bottom: none !important;
         width: auto !important;
         text-align: left !important;
-        padding: var(--space-3) var(--space-2) !important;
+        padding: var(--space-4) var(--space-4) !important;
     }
 
     /* 2. BENEFITS - 4 kolumny */
@@ -2695,20 +2699,12 @@ ______________________________________________________________
     }
 
     .process-item.reverse .step-number {
-        top: -24px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        background: var(--color-primary);
-        box-shadow: var(--shadow-2xl);
+        left: auto;
+        right: 1rem;
     }
 
     .process-item:hover .step-number {
         transform: scale(1.1);
-    }
-
-    .process-item.reverse:hover .step-number {
-        transform: translateX(-50%) scale(1.1);
     }
     
     /* 6. FORM - 2 kolumny */
@@ -2717,7 +2713,7 @@ ______________________________________________________________
         gap: var(--space-6) !important;
     }
  
-    /* 7. FOOTER - w jednej linii */
+    /* 7. FOOTER */
     .footer-inner {
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -2729,7 +2725,7 @@ ______________________________________________________________
         gap: var(--space-8) !important;
     }
 
-    /* 8. HERO - 2 kolumny (info + zdjęcie) */
+    /* 8. HERO - 2 kolumny */
     .hero-main-content {
         grid-template-columns: 1fr 1fr !important;
         gap: 2rem !important;
@@ -2739,6 +2735,7 @@ ______________________________________________________________
     .hero-info-icons {
         text-align: left !important;
     }
-}
+} /* ✅ KONIEC DESKTOP */
+
 
 
