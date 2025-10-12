@@ -506,7 +506,7 @@ section {
     background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 150px;
 }
 
 /* Hero Background Animation - Unchanged */
@@ -679,6 +679,7 @@ section {
 .hero-main-title {
     text-align: center;
     margin-bottom: var(--space-8);
+     padding-top: var(--space-12); /* ✅ DODANE - 3rem odstępu od góry */
 }
 
 .hero-main-content {
@@ -877,6 +878,7 @@ section {
     font-size: calc(1rem * 1.4);
     color: var(--color-primary);
     font-weight: var(--font-weight-semibold);
+     margin-top: var(--space-8); /* ✅ DODANE - odstęp od góry */
     margin-bottom: var(--space-4);
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -2465,7 +2467,7 @@ section {
     .hero-section {
         min-height: auto;
         padding: var(--space-20) 0; 
-        padding-top: 120px !important; 
+         padding-top: 140px !important;
     }
 
     .hero-main-content {
