@@ -2469,7 +2469,7 @@ section {
         text-align: center;
     }
     .hero-text {
-    text-align: left;
+    text-align: center;
     }
     .hero-content {
         grid-template-columns: 1fr;
@@ -2492,7 +2492,7 @@ section {
     /* Hero Info Icons */
     .hero-info-icons {
         gap: 1.2rem;
-        align-items: flex-start;
+        align-items: center;
     }
     
     .info-icon {
