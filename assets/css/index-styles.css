@@ -2909,6 +2909,193 @@ ______________________________________________________________
         text-align: left !important;
     }
 } /* ✅ KONIEC DESKTOP */
+/* ========================================
+   🔧 CRITICAL FIXES - WKLEJ NA KOŃCU CSS
+   ======================================== */
+
+/* 1️⃣ PORTFOLIO GRID - FIX OVERFLOW */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 320px));
+    gap: var(--space-6);
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+}
+
+/* 2️⃣ HERO GRID - RESPONSIVE FIX */
+.hero-main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-4); /* ✅ Padding zapobiega overflow */
+}
+
+@media (min-width: 1025px) {
+    .hero-main-content {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+/* 3️⃣ BENEFITS GRID - RESPONSIVE */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-20);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+}
+
+@media (min-width: 640px) {
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* 4️⃣ SERVICES GRID - RESPONSIVE */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-top: var(--space-16);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+}
+
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* 5️⃣ CONTAINER - GLOBALNY FIX */
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 var(--space-4); /* ✅ Minimum padding */
+    width: 100%;
+    box-sizing: border-box; /* ✅ Liczy padding w szerokości */
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        padding: 0 var(--space-8);
+    }
+}
+
+/* 6️⃣ OVERFLOW PROTECTION */
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hero-bg-animation,
+.mini-portfolio-section,
+.testimonials-section {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* 7️⃣ HERO IMAGE - FIX MOBILE OVERFLOW */
+.hero-image-container {
+    position: relative;
+    max-width: 520px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto; /* ✅ Wyśrodkowanie */
+}
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        max-width: 100%;
+        width: calc(100% - 2rem); /* ✅ Odstępy od krawędzi */
+    }
+}
+
+/* 8️⃣ PROCESS - MOBILE FIX */
+@media (max-width: 768px) {
+    .process-grid {
+        padding: 0 var(--space-4);
+    }
+    
+    .process-item {
+        grid-template-columns: 1fr !important;
+        padding: var(--space-6);
+    }
+    
+    .process-content,
+    .process-image {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+    
+    .step-number {
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* 9️⃣ TESTIMONIALS TRACK - FIX OVERFLOW */
+.testimonials-track {
+    display: flex;
+    gap: var(--space-8);
+    width: max-content; /* ✅ Zamiast 200% */
+    animation: scroll-testimonials 40s linear infinite;
+}
+
+.testimonials-carousel {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/* 🔟 FORM ROW - MOBILE STACK */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 
 
