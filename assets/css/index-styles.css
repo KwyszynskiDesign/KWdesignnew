@@ -403,11 +403,12 @@ section {
     padding:
 
 .logo-img {
-    height: 120px; /* bardzo duże logo */
+    height: 90px; /* zwiększone logo */
     width: auto;
     display: block;
     transition: var(--transition-fast);
     filter: brightness(1.2); /* mocno rozjaśnia */
+    margin: -5px 0; /* "wyciąga" logo poza padding */
 }
 
 .logo-img:hover {
@@ -1554,7 +1555,8 @@ _________________________________________________________________________
         
     }
       .logo-img {
-    height: 120px !important; /* mniejsze na tablet */
+    height: 75px; /* średnie logo na tablet */
+
   }
       .header {
         min-height: 80px; /* mniejsze na mobile */
