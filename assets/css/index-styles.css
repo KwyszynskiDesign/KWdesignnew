@@ -385,7 +385,7 @@ section {
     border-bottom: 1px solid var(--color-dark-light);
     z-index: var(--z-sticky);
     transition: var(--transition-normal);
-    min-height: 100px; /* zwiększone z 100px */
+    min-height: 70px; /* zwiększone z 100px */
     padding: var(--space-3) 0;
 }
 .header.scrolled {
@@ -399,7 +399,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 100px; /* zwiększone z 100px */
+    min-height: 70px; /* zwiększone z 100px */
     padding: 0;
 }
 
@@ -682,15 +682,11 @@ section {
 }
 
 .hero-main-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 0;
-    padding: var(--space-12) 0;
+    grid-template-columns: 1fr  1fr;
+    gap: var(--space-8);
+    text-align: center;
 }
+
 
 /* ✅ DODANE - Hero Text */
 .hero-text {
@@ -700,6 +696,7 @@ section {
     justify-content: center;
     max-width: 600px;
     z-index: 3;
+     text-align: center;
 }
 
 .hero-info-icons {
@@ -1533,7 +1530,7 @@ section {
     transform: none;
 }
 
-/* _________________________________________________________________________/* 
+/* _________________________________________________________________________*/
 
 /* ========== PROCESS SECTION ========== */
 
@@ -1743,9 +1740,9 @@ section {
     }
 }
 
-______________________________________________________________
 
-/* Enhanced FAQ Section */
+
+/* Enhanced FAQ Section ______________________________________________________________*/
 .faq-section {
     padding: var(--space-24) 0;
     background: var(--color-background);
@@ -2467,11 +2464,13 @@ ______________________________________________________________
     }
 
     .hero-main-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: var(--space-8);
         text-align: center;
     }
-
+    .hero-text {
+    text-align: left;
+    }
     .hero-content {
         grid-template-columns: 1fr;
         gap: var(--space-8);
@@ -2546,8 +2545,7 @@ ______________________________________________________________
         margin: 0 auto;
     }
     
-    .hero-main-content {
-        padding: 0 0.75rem;
+   
     }
 
     .benefits-grid,
@@ -2577,7 +2575,7 @@ ______________________________________________________________
     /* MENU UKRYTE, POKAZUJE SIĘ PO KLIKNIĘCIU */
     .nav-list {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: 0;
         right: 0;
         background: var(--color-dark);
@@ -2688,11 +2686,11 @@ ______________________________________________________________
 
     /* Logo Mobile */
     .logo-img {
-        height: 75px;
+        height: 65px;
     }
     
     .header {
-        min-height: 80px;
+        min-height: 70px;
     }
     
     .nav-list {
@@ -2716,14 +2714,6 @@ ______________________________________________________________
     }
 
     /* Hero Layout */
-    .hero-main-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: var(--space-12);
-        text-align: center;
-        align-items: flex-start;
-        margin-top: var(--space-8);
-    }
 
     .hero-text {
         grid-column: 1 / -1;
@@ -2795,9 +2785,6 @@ ______________________________________________________________
    FIX DESKTOP LAYOUT (>1024px)
    ======================================== */
 
-/* ========================================
-   FIX DESKTOP LAYOUT (>1024px)
-   ======================================== */
 
 @media (min-width: 1025px) {
     /* 1. NAVIGATION */
@@ -2898,12 +2885,15 @@ ______________________________________________________________
 
     /* 8. HERO - 2 kolumny */
     .hero-main-content {
-        grid-template-columns: 1fr;
-        gap: 2rem !important;
-        align-items: center !important;
+        grid-template-columns: 1fr 1fr  !important;
+        gap: 2rem;
+        align-items: center;
     }
 
     .hero-info-icons {
         text-align: left !important;
+    }
+    .hero-text {
+        text-align: left; /* ✅ Tekst wyrównany do lewej */
     }
 } /* ✅ KONIEC DESKTOP */
