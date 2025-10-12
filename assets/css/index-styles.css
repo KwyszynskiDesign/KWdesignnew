@@ -2308,75 +2308,77 @@ ______________________________________________________________
     }
 
     /* Hero Info Icons - Zwiększone o 40% */
- .hero-info-icons {
+    .hero-info-icons {
         gap: 1.2rem;
         align-items: flex-start;
     }
     
     .info-icon {
-    display: flex;
-    align-items: center;  /* ✅ Kropka i tekst w równej linii */
-    gap: 0.8rem;
-    width: 100%;
-}
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+    }
 
-  .highlight-digits {
-         font-size: clamp(2.2rem, 4vw, 2.8rem) !important;
+    .highlight-digits {
+        font-size: clamp(2.2rem, 4vw, 2.8rem) !important;
         padding-right: 0;
         justify-content: flex-end;
     }
 
     /* Dot - ZMNIEJSZONA O 30% */
- .dot {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-  }
+    .dot {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+    }
     
-  .text { 
-      font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
-    line-height: 1.3;
-    display: flex;
-    align-items: center;  /* ✅ Równa linia z kropką */
-    gap: 0.8rem;
-    white-space: normal;
-    word-break: break-word;
-    padding-left: 0;
-    grid-column: 2;
-    text-align: left;
-}
+    .text { 
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem) !important;
+        line-height: 1.3;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        white-space: normal;
+        word-break: break-word;
+        padding-left: 0;
+        grid-column: 2;
+        text-align: left;
+    }
 
     /* Hero Image - NAPRAWIONE OVERFLOW */
-  .hero-image {
+    .hero-image {
         margin-top: var(--space-8);
         margin-bottom: 50px;
         justify-content: center;
         transform: none !important;
-        padding: 0 !important; /* USUNIĘTY PADDING - to powodowało overflow */
+        padding: 0 !important;
         width: 100%;
         max-width: 100%;
     }
 
     .hero-image-container {
         max-width: 90%;
-        width: calc(90% - 1rem);  /* ✅ Więcej marginesu bezpieczeństwa */
+        width: calc(90% - 1rem);
         margin: 0 auto;
     }
     
     .hero-main-content {
-        padding: 0 0.75rem;  /* ✅ Dodatkowy padding dla kontenera */
+        padding: 0 0.75rem;
     }
-  .benefits-grid,
+
+    .benefits-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
         gap: var(--space-6);
     }
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--space-6);
     }
-}
+
     .hero-image-container img {
         width: 100%;
         height: auto;
@@ -2385,9 +2387,12 @@ ______________________________________________________________
         border-radius: var(--radius-2xl);
     }
 
-    /* Navigation */
-    .hamburger {display: flex;}
+    /* ✅ HAMBURGER POKAZUJE SIĘ NA MOBILE */
+    .hamburger {
+        display: flex !important;
+    }
     
+    /* ✅ MENU UKRYTE, POKAZUJE SIĘ PO KLIKNIĘCIU */
     .nav-list {
         position: fixed;
         top: 80px;
@@ -2403,6 +2408,7 @@ ______________________________________________________________
         visibility: hidden;
         transition: var(--transition-all);
         box-shadow: var(--shadow-lg);
+        z-index: 1000;
     }
     
     .nav-list.open {
@@ -2418,7 +2424,9 @@ ______________________________________________________________
         text-align: center;
     }
     
-    .nav-list a:last-child { border-bottom: none;}
+    .nav-list a:last-child { 
+        border-bottom: none;
+    }
 
     /* CTA Buttons */
     .cta-group {
@@ -2432,22 +2440,27 @@ ______________________________________________________________
         max-width: 300px;
     }
 
-    /* Services Grid - w pionie na mobile */
-    
-
-    
-
     /* Sections */
-    section {padding: var(--space-16) 0; }
-    .section-lg {padding: var(--space-20) 0;}
+    section {
+        padding: var(--space-16) 0;
+    }
 
-   
-    
+    .section-lg {
+        padding: var(--space-20) 0;
+    }
 
     /* Testimonials */
-    .testimonials-track {width: 100%;}
-    .testimonial-card { flex: 0 0 100%;}
-    .contact-form-container {padding: var(--space-8);}
+    .testimonials-track {
+        width: 100%;
+    }
+
+    .testimonial-card { 
+        flex: 0 0 100%;
+    }
+
+    .contact-form-container {
+        padding: var(--space-8);
+    }
 
     /* Footer */
     .footer-inner {
@@ -2462,16 +2475,26 @@ ______________________________________________________________
     }
 
     /* Spacing Adjustments */
-    .section-title { margin-bottom: var(--space-12);}
+    .section-title { 
+        margin-bottom: var(--space-12);
+    }
     
-    .mini-portfolio {margin-top: var(--space-16);}
+    .mini-portfolio {
+        margin-top: var(--space-16);
+    }
 
     /* Typography */
-    h1 {font-size: clamp(2rem, 6vw, 3rem);}
+    h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
     
-    h2 {font-size: clamp(1.75rem, 5vw, 2.5rem);}
+    h2 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
     
-    h3 { font-size: clamp(1.25rem, 4vw, 1.75rem);}
+    h3 { 
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+    }
 
     /* Scroll to Top */
     .scroll-to-top {
@@ -2481,6 +2504,7 @@ ______________________________________________________________
         height: 45px;
     }
 }
+
 
 /* ===========================
    TABLET (769px - 900px)
@@ -2573,11 +2597,12 @@ ______________________________________________________________
   }
 }
 
+ /* ========================================
    FIX DESKTOP LAYOUT (>1024px)
    ======================================== */
 
 @media (min-width: 1025px) {
-    /* 1. NAVIGATION - Normalne menu (nie hamburger) */
+    /* ✅ 1. NAVIGATION - Normalne menu (NIE hamburger) */
     .hamburger {
         display: none !important;
     }
@@ -2592,12 +2617,14 @@ ______________________________________________________________
         background: transparent !important;
         padding: 0 !important;
         gap: var(--space-8) !important;
+        border: none !important;
     }
 
     .nav-list a {
         border-bottom: none !important;
         width: auto !important;
         text-align: left !important;
+        padding: var(--space-3) var(--space-2) !important;
     }
 
     /* 2. BENEFITS - 4 kolumny */
@@ -2615,30 +2642,49 @@ ______________________________________________________________
         grid-template-columns: repeat(3, 1fr) !important;
     }
 
-     5.proccess
-.process-item { grid-template-columns: 1fr 1fr !important; }
-    .process-content { grid-column: 1; grid-row: 1; }
-    .process-image { grid-column: 2; grid-row: 1; }
-    .process-item.reverse .process-content { grid-column: 2; }
-    .process-item.reverse .process-image { grid-column: 1; }
+    /* 5. PROCESS - 2 kolumny + reverse */
+    .process-item { 
+        grid-template-columns: 1fr 1fr !important; 
+    }
+
+    .process-content { 
+        grid-column: 1; 
+        grid-row: 1; 
+    }
+
+    .process-image { 
+        grid-column: 2; 
+        grid-row: 1; 
+    }
+
+    .process-item.reverse .process-content { 
+        grid-column: 2; 
+    }
+
+    .process-item.reverse .process-image { 
+        grid-column: 1; 
+    }
+
     .step-number {
         top: 1rem;
         left: 1rem;
         transform: none;
     }
-   .process-item.reverse .step-number {
-        top: -24px; /* ✅ Wyniesienie nad kartę */
+
+    .process-item.reverse .step-number {
+        top: -24px;
         left: 50%;
         right: auto;
-        transform: translateX(-50%); /* ✅ Wyśrodkowanie */
+        transform: translateX(-50%);
         background: var(--color-primary);
-        box-shadow: var(--shadow-2xl); /* ✅ Większy cień dla efektu "unoszenia" */
+        box-shadow: var(--shadow-2xl);
     }
 
-   .process-item:hover .step-number {
+    .process-item:hover .step-number {
         transform: scale(1.1);
     }
-.process-item.reverse:hover .step-number {
+
+    .process-item.reverse:hover .step-number {
         transform: translateX(-50%) scale(1.1);
     }
     
@@ -2671,4 +2717,5 @@ ______________________________________________________________
         text-align: left !important;
     }
 }
+
 
