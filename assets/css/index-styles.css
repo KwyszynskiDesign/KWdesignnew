@@ -2910,192 +2910,221 @@ ______________________________________________________________
     }
 } /* ✅ KONIEC DESKTOP */
 /* ========================================
-   🔧 CRITICAL FIXES - WKLEJ NA KOŃCU CSS
+/* ========================================
+   FINAL RESPONSIVE FIX v2
    ======================================== */
 
-/* 1️⃣ PORTFOLIO GRID - FIX OVERFLOW */
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 320px));
-    gap: var(--space-6);
-    justify-content: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    align-items: start;
-    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+/* Reset duplikatów - upewnij się że to działa */
+.container {
+    max-width: 1180px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
 }
 
-/* 2️⃣ HERO GRID - RESPONSIVE FIX */
+@media (min-width: 640px) {
+    .container {
+        padding: 0 1.5rem !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        padding: 0 2rem !important;
+    }
+}
+
+/* Hero Content - wymuszenie mobile-first */
 .hero-main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-12) var(--space-4); /* ✅ Padding zapobiega overflow */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 3rem 1rem !important;
 }
 
 @media (min-width: 1025px) {
     .hero-main-content {
         grid-template-columns: 1fr 1fr !important;
+        padding: 3rem 0 !important;
     }
 }
 
-/* 3️⃣ BENEFITS GRID - RESPONSIVE */
+/* Hero Image - responsive size */
+.hero-image-container {
+    position: relative !important;
+    max-width: 520px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+}
+
+.hero-image img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: var(--radius-2xl) !important;
+    object-fit: cover !important;
+}
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+}
+
+/* Benefits Grid - mobile first */
 .benefits-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    margin-bottom: var(--space-20);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: stretch;
-    grid-auto-rows: 1fr;
-    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto 5rem auto !important;
+    padding: 0 1rem !important;
 }
 
 @media (min-width: 640px) {
     .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (min-width: 1025px) {
     .benefits-grid {
         grid-template-columns: repeat(4, 1fr) !important;
+        padding: 0 !important;
     }
 }
 
-/* 4️⃣ SERVICES GRID - RESPONSIVE */
+/* Portfolio Grid - bezpieczna wersja */
+.portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+}
+
+@media (min-width: 640px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        padding: 0 !important;
+    }
+}
+
+.portfolio-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    aspect-ratio: 4/3 !important;
+}
+
+.portfolio-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    padding: 0.5rem !important;
+}
+
+/* Services Grid */
 .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    margin-top: var(--space-16);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 var(--space-4); /* ✅ Padding zapobiega overflow */
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: 1200px !important;
+    margin: 4rem auto 0 auto !important;
+    padding: 0 1rem !important;
 }
 
 @media (min-width: 640px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (min-width: 1025px) {
     .services-grid {
         grid-template-columns: repeat(3, 1fr) !important;
+        padding: 0 !important;
     }
 }
 
-/* 5️⃣ CONTAINER - GLOBALNY FIX */
-.container {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 var(--space-4); /* ✅ Minimum padding */
-    width: 100%;
-    box-sizing: border-box; /* ✅ Liczy padding w szerokości */
+/* Process Grid - mobile stack */
+.process-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    max-width: 850px !important;
+    margin: 4rem auto 0 auto !important;
+    padding: 0 1rem !important;
 }
 
-@media (min-width: 640px) {
-    .container {
-        padding: 0 var(--space-6);
-    }
+.process-item {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 1.5rem !important;
+}
+
+.process-content,
+.process-image {
+    grid-column: 1 !important;
 }
 
 @media (min-width: 1025px) {
-    .container {
-        padding: 0 var(--space-8);
-    }
-}
-
-/* 6️⃣ OVERFLOW PROTECTION */
-body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.hero-bg-animation,
-.mini-portfolio-section,
-.testimonials-section {
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
-/* 7️⃣ HERO IMAGE - FIX MOBILE OVERFLOW */
-.hero-image-container {
-    position: relative;
-    max-width: 520px;
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto; /* ✅ Wyśrodkowanie */
-}
-
-@media (max-width: 768px) {
-    .hero-image-container {
-        max-width: 100%;
-        width: calc(100% - 2rem); /* ✅ Odstępy od krawędzi */
-    }
-}
-
-/* 8️⃣ PROCESS - MOBILE FIX */
-@media (max-width: 768px) {
-    .process-grid {
-        padding: 0 var(--space-4);
-    }
-    
     .process-item {
-        grid-template-columns: 1fr !important;
-        padding: var(--space-6);
+        grid-template-columns: 1fr 1fr !important;
     }
     
-    .process-content,
-    .process-image {
+    .process-content {
         grid-column: 1 !important;
-        grid-row: auto !important;
+        text-align: left !important;
     }
     
+    .process-image {
+        grid-column: 2 !important;
+    }
+    
+    .process-item.reverse .process-content {
+        grid-column: 2 !important;
+        text-align: right !important;
+    }
+    
+    .process-item.reverse .process-image {
+        grid-column: 1 !important;
+    }
+}
+
+/* Step Number - centrowanie mobile */
+.step-number {
+    position: absolute !important;
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+@media (min-width: 1025px) {
     .step-number {
-        left: 50% !important;
-        right: auto !important;
-        transform: translateX(-50%) !important;
+        left: 1rem !important;
+        transform: none !important;
+    }
+    
+    .process-item.reverse .step-number {
+        left: auto !important;
+        right: 1rem !important;
     }
 }
 
-/* 9️⃣ TESTIMONIALS TRACK - FIX OVERFLOW */
-.testimonials-track {
-    display: flex;
-    gap: var(--space-8);
-    width: max-content; /* ✅ Zamiast 200% */
-    animation: scroll-testimonials 40s linear infinite;
-}
-
-.testimonials-carousel {
-    overflow: hidden;
-    max-width: 100%;
-}
-
-/* 🔟 FORM ROW - MOBILE STACK */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-    margin-bottom: var(--space-6);
-}
-
-@media (min-width: 640px) {
-    .form-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-
-
+/* Overflow Protection */
+body {
+    overflow-x: hidden
