@@ -403,7 +403,7 @@ section {
 }
 
 .logo-img {
-    height: 50px; /* dostosuj wysokość do swojego logo */
+    height: 80px; /* dostosuj wysokość do swojego logo */
     width: auto; /* zachowuje proporcje obrazu */
     display: block;
     transition: var(--transition-fast);
