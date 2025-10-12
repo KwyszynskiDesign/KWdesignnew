@@ -403,11 +403,11 @@ section {
 }
 
 .logo-img {
-    height: 55px; /* mniejsze logo, lepiej widoczne */
-    width: auto; /* zachowuje proporcje obrazu */
+    height: 90px; /* bardzo duże logo */
+    width: auto;
     display: block;
     transition: var(--transition-fast);
-    filter: brightness(1.1); /* rozjaśnia logo na ciemnym tle */
+    filter: brightness(1.15); /* mocniej rozjaśnia */
 }
 
 .logo-img:hover {
@@ -1559,7 +1559,7 @@ _________________________________________________________________________
         
     }
     .logo-img {
-        height: 45px; /* mniejsze na mobile */
+        height: 80px; /* mniejsze na mobile */
     }
 }
 ______________________________________________________________
