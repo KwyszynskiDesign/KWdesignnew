@@ -502,7 +502,7 @@ section {
     background: linear-gradient(135deg, #fafafa 0%, #f8fafc 50%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 140px;
 }
 
 /* Hero Background Animation (Unchanged) */
@@ -2282,8 +2282,8 @@ ______________________________________________________________
     /* Container & Spacing */
     .container,
     .hero-section-content {
-        padding-left: var(--space-6);
-        padding-right: var(--space-6);
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
     }
 
     /* Hero Section */
