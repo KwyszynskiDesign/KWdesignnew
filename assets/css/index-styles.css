@@ -2292,7 +2292,7 @@ ______________________________________________________________
     .hero-section {
         min-height: auto;
         padding: var(--space-20) 0; 
-        padding-top: 100px !important; 
+        padding-top: 120px !important; 
     }
 
     .hero-main-content {
@@ -2319,7 +2319,7 @@ ______________________________________________________________
         z-index: 3;
     }
 
-    /* Hero Info Icons - Zwiększone o 40% */
+    /* Hero Info Icons */
     .hero-info-icons {
         gap: 1.2rem;
         align-items: flex-start;
@@ -2338,7 +2338,7 @@ ______________________________________________________________
         justify-content: flex-end;
     }
 
-    /* Dot - ZMNIEJSZONA O 30% */
+    /* Dot */
     .dot {
         width: 20px;
         height: 20px;
@@ -2355,11 +2355,10 @@ ______________________________________________________________
         white-space: normal;
         word-break: break-word;
         padding-left: 0;
-        grid-column: 2;
         text-align: left;
     }
 
-    /* Hero Image - NAPRAWIONE OVERFLOW */
+    /* Hero Image */
     .hero-image {
         margin-top: var(--space-8);
         margin-bottom: 50px;
@@ -2399,12 +2398,12 @@ ______________________________________________________________
         border-radius: var(--radius-2xl);
     }
 
-    /* ✅ HAMBURGER POKAZUJE SIĘ NA MOBILE */
+    /* HAMBURGER POKAZUJE SIĘ NA MOBILE */
     .hamburger {
         display: flex !important;
     }
     
-    /* ✅ MENU UKRYTE, POKAZUJE SIĘ PO KLIKNIĘCIU */
+    /* MENU UKRYTE, POKAZUJE SIĘ PO KLIKNIĘCIU */
     .nav-list {
         position: fixed;
         top: 80px;
@@ -2515,99 +2514,111 @@ ______________________________________________________________
         width: 45px;
         height: 45px;
     }
-}
+
+    /* Logo Mobile */
+    .logo-img {
+        height: 75px;
+    }
+    
+    .header {
+        min-height: 80px;
+    }
+    
+    .nav-list {
+        top: 80px;
+    }
+} /* ✅ KONIEC MOBILE */
 
 
 /* ===========================
    TABLET (769px - 900px)
    =========================== */
 @media (min-width: 769px) and (max-width: 900px) {
-  /* Services Grid - 2 kolumny */
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-8);
-  }
- .benefits-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolumny na tablet */
+    /* Services Grid - 2 kolumny */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
     }
-  /* Hero Layout - Stack (teksty nad zdjęciem) */
-  .hero-main-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
-    text-align: center;
-    align-items: flex-start;       /* UX: lepsze wyrównanie */
-    margin-top: var(--space-8);    /* dodatkowy odstęp */
-  }
 
-  .hero-text {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    margin: 0 auto;
-    font-size: 1.4rem;             /* tablet font */
-    line-height: 1.3;
-  }
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-  /* Infokółka: pionowe, wyśrodkowane, większy odstęp i przesunięcie */
-  .hero-info-icons {
-    display: grid;
-    grid-auto-flow: row;
-    justify-items: center;
-    gap: 1rem;
-    font-size: 1.4rem;
-    margin-bottom: var(--space-10);
-  }
+    /* Hero Layout */
+    .hero-main-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+        text-align: center;
+        align-items: flex-start;
+        margin-top: var(--space-8);
+    }
 
-  /* Przesunięcie 3. ikony "15+ klientów" o 50px */
-  .hero-info-icons .info-icon:nth-child(3) {
-    margin-left: 50px;
-  }
+    .hero-text {
+        grid-column: 1 / -1;
+        max-width: 550px;
+        margin: 0 auto;
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
 
-  /* Cyfry wyróżnione */
-  .highlight-digits {
-    font-size: 2.2rem;             /* tablet highlight */
-    font-weight: 600;
-  }
+    /* Info icons */
+    .hero-info-icons {
+        display: grid;
+        grid-auto-flow: row;
+        justify-items: center;
+        gap: 1rem;
+        font-size: 1.4rem;
+        margin-bottom: var(--space-10);
+    }
 
-  /* Kropka */
-  .dot {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-  }
+    .highlight-digits {
+        font-size: 2.2rem;
+        font-weight: 600;
+    }
 
-  /* Hero Image */
-  .hero-image {
-    grid-column: 1 / -1;
-    justify-content: center;
-    margin: var(--space-10) auto;
-  }
+    .dot {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+    }
 
-  .hero-image-container {
-    max-width: 460px;
-    margin: 0 auto;
-  }
+    /* Hero Image */
+    .hero-image {
+        grid-column: 1 / -1;
+        justify-content: center;
+        margin: var(--space-10) auto;
+    }
 
-  /* Hero Bottom Content */
-  .hero-bottom-content {
-    margin-top: var(--space-16);
-  }
+    .hero-image-container {
+        max-width: 460px;
+        margin: 0 auto;
+    }
 
+    .hero-bottom-content {
+        margin-top: var(--space-16);
+    }
 
-  /* Testimonials */
-  .testimonials-nav {
-    display: none;
-  }
+    /* Testimonials */
+    .testimonials-nav {
+        display: none;
+    }
 
-  .testimonials-track {
-    width: 300%;
-  }
+    .testimonials-track {
+        width: 300%;
+    }
 
-  .testimonial-card {
-    flex: 0 0 calc(50% - var(--space-4));
-  }
-}
+    .testimonial-card {
+        flex: 0 0 calc(50% - var(--space-4));
+    }
+
+    /* Logo Tablet */
+    .logo-img {
+        height: 75px;
+    }
+} /* ✅ KONIEC TABLET */
+
 
  /* ========================================
    FIX DESKTOP LAYOUT (>1024px)
