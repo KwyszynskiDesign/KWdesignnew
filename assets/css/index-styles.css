@@ -400,7 +400,8 @@ section {
     align-items: center;
     justify-content: space-between;
     min-height: 100px; /* zwiększone z 100px */
-    padding:
+    padding: 0;
+}
 
 .logo-img {
     height: 90px; /* zwiększone logo */
@@ -1292,7 +1293,6 @@ section {
     color: var(--color-primary); /* ← TURKUSOWY */
     position: absolute;
     left: 0;
-    color: var(--color-success);
     font-weight: var(--font-weight-bold);
     font-size: 0.9rem;
 }
@@ -1533,8 +1533,6 @@ section {
     transform: none;
 }
 
-
-   PROCESS SECTION - ALTERNATING LAYOUT
 _________________________________________________________________________
 
 /* ========== PROCESS SECTION ========== */
