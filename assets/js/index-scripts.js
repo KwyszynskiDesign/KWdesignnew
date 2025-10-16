@@ -231,7 +231,7 @@ function getCurrentStatus() {
     if (day === 0 || day === 6) {
         return { 
             status: 'away', 
-            text: 'Odpoczywam - odezwę się w poniedziałek' 
+            text: 'odezwę się w poniedziałek' 
         };
     }
 
@@ -239,7 +239,7 @@ function getCurrentStatus() {
     if (hour >= 6 && hour < 22) {
         return { 
             status: 'available', 
-            text: 'Dostępny - odpowiem szybko' 
+            text: 'odpowiem szybko' 
         };
     } 
     // Noc (22:00 - 6:00) - żółty
