@@ -1089,20 +1089,21 @@ section {
     aspect-ratio: 4/3;
     cursor: pointer;
     transition: var(--transition-all);
-    box-shadow: var(--shadow-lg);
-    background: var(--color-dark-light); /* ✅ TŁO NA WYPADEK BRAKU ZDJĘCIA */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%); /* ✅ DARK GRADIENT TŁO */
+    border: none; /* ✅ USUŃ BORDER */
     transform-style: preserve-3d;
     max-width: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
-    /* ✅ WEWNĘTRZNY CIEŃ - EFEKT GŁĘBI */
+    /* ✅ MOCNE CIENIE DLA GŁĘBI */
     box-shadow: 
-        var(--shadow-lg),
-        inset 0 0 60px rgba(0, 0, 0, 0.3), /* Wewnętrzny cień */
-        inset 0 0 30px rgba(0, 0, 0, 0.2); /* Dodatkowa warstwa */
+        0 10px 30px -5px rgba(0, 0, 0, 0.3),
+        0 5px 15px -3px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-
 .portfolio-background {
     display: none;
 }
@@ -1110,51 +1111,47 @@ section {
 .portfolio-item::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: radial-gradient(
         ellipse at center,
         transparent 0%,
-        transparent 40%,
-        rgba(0, 0, 0, 0.15) 70%,
-        rgba(0, 0, 0, 0.35) 100%
+        transparent 50%,
+        rgba(0, 0, 0, 0.2) 100%
     );
     pointer-events: none;
-    z-index: 3;
+    z-index: 2;
     border-radius: var(--radius-2xl);
 }
 
 .portfolio-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ✅ ZMIANA Z contain NA cover - WYPEŁNIA CAŁY KONTENER */
+    width: 85%; /* ✅ NIE 100% - ZOSTAW MARGINES */
+    height: 85%;
+    object-fit: contain; /* ✅ CONTAIN - zachowaj proporcje */
     object-position: center;
     transition: var(--transition-slow);
     position: relative;
-    z-index: 2;
-    padding: 0; /* ✅ USUŃ PADDING - niech zdjęcie wypełnia całość */
+    z-index: 1;
+    padding: 0;
     display: block;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3)); /* ✅ CIEŃ POD ZDJĘCIEM */
 }
+
 
 
 .portfolio-item:hover {
-    transform: translateY(-12px) scale(1.03) rotateX(4deg);
+    transform: translateY(-12px) scale(1.03);
     box-shadow: 
-        var(--shadow-2xl),
-        inset 0 0 60px rgba(0, 0, 0, 0.4), /* Wzmocniony cień na hover */
-        inset 0 0 30px rgba(6, 182, 212, 0.15), /* Turkusowy blask */
-        0 0 40px rgba(6, 182, 212, 0.2); /* Zewnętrzny blask */
-    border-color: var(--color-primary);
+        0 25px 60px -10px rgba(0, 0, 0, 0.4),
+        0 15px 35px -5px rgba(6, 182, 212, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 60px rgba(6, 182, 212, 0.15); /* ✅ TURKUSOWY BLASK */
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05); /* ✅ Lekkie powiększenie na hover */
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* ✅ LEKKIE POWIĘKSZENIE */
+    filter: 
+        drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4))
+        brightness(1.05); /* ✅ ROZJAŚNIENIE NA HOVER */
 }
 
 .portfolio-item-link {
@@ -1170,43 +1167,55 @@ section {
     right: 0;
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.7) 50%,
+        rgba(30, 41, 59, 0.98) 0%,
+        rgba(30, 41, 59, 0.85) 60%,
         transparent 100%
-    ); /* ✅ Mocniejszy gradient - lepszy kontrast tekstu */
+    ); /* ✅ DARK NAVY GRADIENT - lepszy kontrast */
     color: white;
-    padding: var(--space-6);
-    z-index: 4; /* ✅ Nad gradientem ::before */
+    padding: var(--space-6) var(--space-5);
+    z-index: 3;
     transition: var(--transition-slow);
     opacity: 1;
+    backdrop-filter: blur(8px); /* ✅ BLUR EFEKT */
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .portfolio-item:hover .portfolio-item-content {
-    opacity: 1;
+    padding: var(--space-7) var(--space-6); /* ✅ WIĘKSZY PADDING NA HOVER */
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 1) 0%,
-        rgba(0, 0, 0, 0.8) 60%,
+        rgba(6, 182, 212, 0.95) 0%,
+        rgba(6, 182, 212, 0.7) 60%,
         transparent 100%
-    ); /* ✅ Jeszcze mocniejszy na hover */
+    ); /* ✅ TURKUSOWY GRADIENT NA HOVER */
 }
 
-
-.portfolio-item:hover .portfolio-item-content {
-    opacity: 1;
-}
 
 .portfolio-item-content h4 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-2);
-    font-size: 1.125rem;
-    font-weight: var(--font-weight-semibold);
     color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* ✅ CIEŃ POD TEKSTEM */
+    transition: var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-item-content h4 {
+    transform: translateY(-4px); /* ✅ LEKKIE UNIESIENIE */
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .portfolio-item-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    transition: var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-item-content p {
+    color: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
 }
 
 
@@ -2553,9 +2562,13 @@ section {
         border-radius: var(--radius-lg) !important;
     }
     
-    .portfolio-item img {
-       padding: 0 !important;
-    }
+   .portfolio-item img {
+    width: 80% !important; /* ✅ MNIEJSZE NA MOBILE */
+    height: 80% !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+}
+
     
     .portfolio-item-content {
         padding: var(--space-3) !important;
@@ -2714,9 +2727,13 @@ section {
         aspect-ratio: 4/3 !important;
     }
     
-    .portfolio-item img {
-        padding: 0 !important;
-    }
+   .portfolio-item img {
+    width: 80% !important; /* ✅ MNIEJSZE NA MOBILE */
+    height: 80% !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+}
+
     
     .portfolio-item-content {
         padding: var(--space-5) !important;
@@ -2940,9 +2957,13 @@ section {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-8);
     }
-    .portfolio-item img {
-    padding: 0 !important; /* ✅ BEZ PADDINGU - pełne wypełnienie */
+ .portfolio-item img {
+    width: 80% !important; /* ✅ MNIEJSZE NA MOBILE */
+    height: 80% !important;
+    padding: 0 !important;
+    object-fit: contain !important;
 }
+
 
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
