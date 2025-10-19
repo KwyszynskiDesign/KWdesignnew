@@ -1074,13 +1074,15 @@ section {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(280px, 320px));
-    gap: var(--space-6);
+    grid-template-columns: repeat(3, minmax(340px, 380px)); /* ✅ +20% (280→340, 320→380) */
+    gap: var(--space-8); /* ✅ WIĘKSZY GAP */
     justify-content: center;
-    max-width: 1000px;
+    max-width: 1200px; /* ✅ SZERSZY KONTENER (1000→1200) */
     margin: 0 auto;
     align-items: start;
 }
+
+
 
 .portfolio-item {
     position: relative;
@@ -1089,8 +1091,8 @@ section {
     aspect-ratio: 4/3;
     cursor: pointer;
     transition: var(--transition-all);
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%); /* ✅ DARK GRADIENT TŁO */
-    border: none; /* ✅ USUŃ BORDER */
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border: none;
     transform-style: preserve-3d;
     max-width: 100%;
     width: 100%;
@@ -1098,12 +1100,15 @@ section {
     align-items: center;
     justify-content: center;
     
-    /* ✅ MOCNE CIENIE DLA GŁĘBI */
+    /* ✅ BACKLIT GLOW - BIAŁE PODŚWIETLENIE OD TYŁU */
     box-shadow: 
-        0 10px 30px -5px rgba(0, 0, 0, 0.3),
+        0 10px 30px -5px rgba(0, 0, 0, 0.3), /* Standardowy cień */
         0 5px 15px -3px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 80px 20px rgba(255, 255, 255, 0.08), /* ✅ BIAŁE ŚWIECENIE Z TYŁU */
+        0 -10px 60px -10px rgba(255, 255, 255, 0.1); /* ✅ WARSTWA GÓRNA */
 }
+
 .portfolio-background {
     display: none;
 }
@@ -1144,7 +1149,8 @@ section {
         0 25px 60px -10px rgba(0, 0, 0, 0.4),
         0 15px 35px -5px rgba(6, 182, 212, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 60px rgba(6, 182, 212, 0.15); /* ✅ TURKUSOWY BLASK */
+        0 0 100px 30px rgba(255, 255, 255, 0.15), /* ✅ MOCNIEJSZE BIAŁE */
+        0 0 60px rgba(6, 182, 212, 0.3); /* ✅ TURKUSOWE GLOW */
 }
 
 .portfolio-item:hover img {
@@ -1167,27 +1173,29 @@ section {
     right: 0;
     background: linear-gradient(
         to top,
-        rgba(30, 41, 59, 0.98) 0%,
-        rgba(30, 41, 59, 0.85) 60%,
+        rgba(30, 41, 59, 1) 0%, /* ✅ SOLID 100% - BEZ ROZMYCIA */
+        rgba(30, 41, 59, 0.95) 40%,
+        rgba(30, 41, 59, 0.7) 70%,
         transparent 100%
-    ); /* ✅ DARK NAVY GRADIENT - lepszy kontrast */
+    );
     color: white;
     padding: var(--space-6) var(--space-5);
     z-index: 3;
     transition: var(--transition-slow);
     opacity: 1;
-    backdrop-filter: blur(8px); /* ✅ BLUR EFEKT */
-    -webkit-backdrop-filter: blur(8px);
+    /* ❌ USUŃ backdrop-filter - tekst zawsze czytelny */
 }
 
+
 .portfolio-item:hover .portfolio-item-content {
-    padding: var(--space-7) var(--space-6); /* ✅ WIĘKSZY PADDING NA HOVER */
+    padding: var(--space-7) var(--space-6);
     background: linear-gradient(
         to top,
-        rgba(6, 182, 212, 0.95) 0%,
-        rgba(6, 182, 212, 0.7) 60%,
+        rgba(6, 182, 212, 1) 0%, /* ✅ SOLID turkus - ZAWSZE CZYTELNY */
+        rgba(6, 182, 212, 0.95) 40%,
+        rgba(6, 182, 212, 0.7) 70%,
         transparent 100%
-    ); /* ✅ TURKUSOWY GRADIENT NA HOVER */
+    );
 }
 
 
@@ -3074,8 +3082,10 @@ section {
     }
 
     /* 3. PORTFOLIO - 3 kolumny */
-    .portfolio-grid {
-        grid-template-columns: repeat(3, minmax(280px, 320px)) !important;
+     .portfolio-grid {
+        grid-template-columns: repeat(3, minmax(340px, 380px)) !important; /* ✅ +20% */
+        gap: var(--space-8) !important;
+        max-width: 1200px !important;
     }
 
     /* 4. SERVICES - 3 kolumny */
