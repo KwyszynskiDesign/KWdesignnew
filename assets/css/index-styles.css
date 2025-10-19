@@ -1090,32 +1090,67 @@ section {
     cursor: pointer;
     transition: var(--transition-all);
     box-shadow: var(--shadow-lg);
-    background: var(--color-background);
-    border: 1px solid var(--color-border-light);
+    background: var(--color-dark-light); /* ✅ TŁO NA WYPADEK BRAKU ZDJĘCIA */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transform-style: preserve-3d;
     max-width: 100%;
     width: 100%;
+    
+    /* ✅ WEWNĘTRZNY CIEŃ - EFEKT GŁĘBI */
+    box-shadow: 
+        var(--shadow-lg),
+        inset 0 0 60px rgba(0, 0, 0, 0.3), /* Wewnętrzny cień */
+        inset 0 0 30px rgba(0, 0, 0, 0.2); /* Dodatkowa warstwa */
 }
 
 .portfolio-background {
     display: none;
 }
 
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        transparent 40%,
+        rgba(0, 0, 0, 0.15) 70%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+    border-radius: var(--radius-2xl);
+}
+
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover; /* ✅ ZMIANA Z contain NA cover - WYPEŁNIA CAŁY KONTENER */
     object-position: center;
     transition: var(--transition-slow);
     position: relative;
     z-index: 2;
-    padding: var(--space-2);
+    padding: 0; /* ✅ USUŃ PADDING - niech zdjęcie wypełnia całość */
+    display: block;
 }
+
 
 .portfolio-item:hover {
     transform: translateY(-12px) scale(1.03) rotateX(4deg);
-    box-shadow: var(--shadow-2xl);
+    box-shadow: 
+        var(--shadow-2xl),
+        inset 0 0 60px rgba(0, 0, 0, 0.4), /* Wzmocniony cień na hover */
+        inset 0 0 30px rgba(6, 182, 212, 0.15), /* Turkusowy blask */
+        0 0 40px rgba(6, 182, 212, 0.2); /* Zewnętrzny blask */
     border-color: var(--color-primary);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05); /* ✅ Lekkie powiększenie na hover */
 }
 
 .portfolio-item:hover img {
@@ -1133,13 +1168,29 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        transparent 100%
+    ); /* ✅ Mocniejszy gradient - lepszy kontrast tekstu */
     color: white;
     padding: var(--space-6);
-    z-index: 3;
+    z-index: 4; /* ✅ Nad gradientem ::before */
     transition: var(--transition-slow);
-    opacity: 0.9;
+    opacity: 1;
 }
+
+.portfolio-item:hover .portfolio-item-content {
+    opacity: 1;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 60%,
+        transparent 100%
+    ); /* ✅ Jeszcze mocniejszy na hover */
+}
+
 
 .portfolio-item:hover .portfolio-item-content {
     opacity: 1;
@@ -2503,7 +2554,7 @@ section {
     }
     
     .portfolio-item img {
-        padding: var(--space-2) !important;
+       padding: 0 !important;
     }
     
     .portfolio-item-content {
@@ -2664,7 +2715,7 @@ section {
     }
     
     .portfolio-item img {
-        padding: var(--space-3) !important;
+        padding: 0 !important;
     }
     
     .portfolio-item-content {
@@ -2889,6 +2940,9 @@ section {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-8);
     }
+    .portfolio-item img {
+    padding: 0 !important; /* ✅ BEZ PADDINGU - pełne wypełnienie */
+}
 
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
