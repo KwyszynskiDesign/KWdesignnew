@@ -1172,18 +1172,20 @@ section {
 }
 
 
-
 .portfolio-item:hover {
-    transform: translateY(-16px) scale(1.04);
-    
-    /* ✅ ULTRA DRAMATYCZNE CIENIE */
-    box-shadow: 
-        0 40px 100px -15px rgba(0, 0, 0, 0.4),
-        0 25px 60px -10px rgba(6, 182, 212, 0.4), /* Mocniejszy turkusowy */
-        0 0 160px 70px rgba(255, 255, 255, 0.6), /* ✅ MAKSYMALNE BIAŁE GLOW */
-        0 0 100px rgba(6, 182, 212, 0.5), /* Mocniejsze turkusowe */
-        inset 0 2px 0 rgba(255, 255, 255, 1);
-    border-color: rgba(6, 182, 212, 0.8); /* Mocniejszy turkusowy border */
+  /* Delikatniejszy gradient i backlit glow */
+  background: linear-gradient(
+    to top,
+    rgba(6, 182, 212, 0.25) 0%,
+    rgba(6, 182, 212, 0.08) 80%,
+    transparent 100%
+  );
+  box-shadow:
+    0 15px 44px -8px rgba(0,0,0,0.25),
+    0 0 64px 32px rgba(6,182,212,0.17),
+    0 0 96px 32px rgba(255,255,255,0.20);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(6,182,212,0.32);
 }
 
 
@@ -2529,59 +2531,149 @@ section {
         padding: var(--space-20) 0 var(--space-16);
     }
     
-    .hero-image-container {
-        width: calc(100% - 1rem);
-        border-radius: var(--radius-lg);
-    }
-    
+    /* Hero główny kontener - ustawiamy flex kolumnowy i kolejność */
     .hero-main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 0 0.5rem;
+        gap: 1.5rem;
     }
     
-    .hero-text h1 {
+    /* Tytuł i Eyebrow */
+    .hero-main-title {
+        order: 1;
+        text-align: center;
+        width: 100%;
+    }
+    .hero-main-title .hero-eyebrow {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    .hero-main-title .hero-title {
         font-size: 1.75rem;
         line-height: 1.2;
         word-wrap: break-word;
     }
-    
-    .subtitle {
-        font-size: 0.75rem;
-        word-wrap: break-word;
+    .highlight-digits-tyt {
+        font-weight: 600;
+        color: var(--color-primary);
     }
     
-    .hero-description {
-        font-size: 0.9375rem;
-        line-height: 1.6;
-        word-wrap: break-word;
-    }
-    
-    .hero-content {
-        padding: 1.5rem 1rem;
-        gap: 2rem;
-    }
-    
-    .text {
-        font-size: 1.92rem !important;
+    /* Informacje: 8+ lat, 15+ klientów, dostępność */
+    .hero-info-icons {
+        order: 2;
         display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        white-space: normal;
-        word-break: break-word;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+        flex-wrap: wrap;
     }
-    
-    .highlight-digits {
-        font-size: 2.085rem !important;
-        display: flex;
-        align-items: center;
-    }
-    
     .info-icon {
         display: flex;
         align-items: center;
         gap: 0.8rem;
-        width: 100%;
+        font-size: 1.15rem;
+        white-space: normal;
+        flex: 1 1 auto;
+        justify-content: center;
     }
-
+    .highlight-digits {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--color-primary);
+    }
+    /* Kropka dostępności */
+    #availability-dot.green {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #10b981;
+        display: inline-block;
+    }
+    
+    /* Podtytuł (tekst pod przyciskami) */
+    .hero-bottom-content {
+        order: 3;
+        text-align: center;
+        padding: 0 1rem;
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 1rem auto 0;
+    }
+    .hero-subtitle {
+        margin-bottom: 1rem;
+        line-height: 1.4;
+        color: var(--color-text);
+    }
+    
+    /* Przyciski CTA */
+    .cta-group {
+        order: 4;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+    .btn {
+        flex: 1 1 140px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+    }
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: #fff;
+        border: none;
+    }
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+    }
+    
+    /* Obrazek na sam dół */
+    .hero-image {
+        order: 5;
+        width: 100%;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+    .hero-image-container {
+        width: 100%;
+        max-width: 320px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        display: block;
+    }
+    .gradient-overlay {
+        display: none; /* opcjonalnie */
+    }
+    
+    /* Dodatkowe typograficzne dopasowania */
+    .text, .subtitle, .hero-description {
+        word-wrap: break-word;
+        line-height: 1.4;
+    }
+    .text {
+        font-size: 1.15rem !important;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        white-space: normal;
+    }
+    
+    /* Zostawiam te, które nie wymagają zmiany lub są poza hero */
     /* ========== PORTFOLIO - ULTRA KOMPAKT ========== */
     .mini-portfolio-section {
         padding: var(--space-12) var(--space-3) !important;
@@ -2604,13 +2696,12 @@ section {
         border-radius: var(--radius-lg) !important;
     }
     
-   .portfolio-item img {
-    width: 80% !important; /* ✅ MNIEJSZE NA MOBILE */
-    height: 80% !important;
-    padding: 0 !important;
-    object-fit: contain !important;
-}
-
+    .portfolio-item img {
+        width: 80% !important;
+        height: 80% !important;
+        padding: 0 !important;
+        object-fit: contain !important;
+    }
     
     .portfolio-item-content {
         padding: var(--space-3) !important;
@@ -2623,7 +2714,7 @@ section {
     .portfolio-item-content p {
         font-size: 0.8rem !important;
     }
-
+    
     /* ========== SERVICES - ULTRA KOMPAKT ========== */
     .services-section {
         padding: var(--space-12) var(--space-4) !important;
@@ -2679,7 +2770,7 @@ section {
         font-size: 0.65rem !important;
         padding: 4px 8px !important;
     }
-
+    
     /* ========== OTHER SECTIONS ========== */
     .contact-form-container {
         padding: var(--space-6);
@@ -2698,11 +2789,12 @@ section {
     .nav-list {
         padding: var(--space-6);
     }
-
+    
     .process-item {
         padding: var(--space-6);
     }
-} /* ✅ KONIEC 480px */
+} /* KONIEC 480px */
+
 
 /* ===========================
    TABLET (769px - 900px)
