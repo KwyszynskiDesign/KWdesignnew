@@ -923,24 +923,26 @@ section {
 
 /* Enhanced Social Proof Section */
 .social-proof-section {
-    /* ✅ CIEMNE TŁO - INWERSJA */
+    /* ✅ JASNE TŁO - jak było na początku */
     background: linear-gradient(180deg, 
-        var(--color-dark) 0%, 
-        var(--color-dark-light) 50%, 
-        var(--color-dark) 100%);
-    color: white; /* ✅ JASNY TEKST */
+        var(--color-background-light) 0%, 
+        #ffffff 50%, 
+        var(--color-background-light) 100%);
+    color: var(--color-text);
     padding: var(--space-24) 0;
     position: relative;
     overflow: hidden;
 }
 
+
 .social-proof-section .section-title {
-    color: white !important; /* ✅ BIAŁY TYTUŁ */
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    color: var(--color-text) !important; /* ✅ CIEMNY TEKST */
+    text-shadow: none;
     font-size: 2.5rem;
     margin-bottom: var(--space-16);
     text-align: center;
 }
+
 
 
 .social-proof-section .container {
@@ -967,13 +969,15 @@ section {
 
 
 .benefit-card {
-    /* ✅ JASNE TŁO GRADIENT - jak portfolio */
-    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    padding: var(--space-10) var(--space-8); /* ✅ WIĘKSZY PADDING */
+    /* ✅ CIEMNE TŁO GRADIENT */
+    background: linear-gradient(145deg, 
+        var(--color-dark) 0%, 
+        var(--color-dark-light) 100%);
+    padding: var(--space-10) var(--space-8);
     border-radius: var(--radius-2xl);
     text-align: center;
     transition: var(--transition-all);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtelny jasny border */
     position: relative;
     overflow: hidden;
     cursor: default;
@@ -982,27 +986,24 @@ section {
     flex-direction: column;
     height: 100%;
     
-    /* ✅ MOCNE BIAŁE GLOW - jak portfolio */
+    /* ✅ SUBTELNE CIENIE */
     box-shadow: 
-        0 15px 40px -10px rgba(0, 0, 0, 0.2),
-        0 8px 20px -5px rgba(0, 0, 0, 0.12),
-        0 0 80px 25px rgba(255, 255, 255, 0.15), /* ✅ BACKLIT */
-        0 -10px 60px -10px rgba(255, 255, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        0 15px 40px -10px rgba(0, 0, 0, 0.15),
+        0 8px 20px -5px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 
 .benefit-card:hover {
-    transform: translateY(-12px) scale(1.02); /* ✅ Mocniejszy lift */
+    transform: translateY(-12px) scale(1.02);
     
-    /* ✅ DRAMATYCZNE CIENIE + TURKUSOWY GLOW */
+    /* ✅ TURKUSOWY GLOW + CIENIE */
     box-shadow: 
-        0 30px 70px -15px rgba(0, 0, 0, 0.3),
-        0 15px 40px -10px rgba(6, 182, 212, 0.25), /* Turkusowy cień */
-        0 0 100px 35px rgba(255, 255, 255, 0.25), /* ✅ MOCNIEJSZE BIAŁE */
-        0 0 60px rgba(6, 182, 212, 0.3), /* Turkusowe glow */
-        inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    border-color: rgba(6, 182, 212, 0.4); /* Turkusowy border */
+        0 30px 70px -15px rgba(0, 0, 0, 0.25),
+        0 15px 40px -10px rgba(6, 182, 212, 0.3), /* Turkusowy cień */
+        0 0 60px rgba(6, 182, 212, 0.4), /* Turkusowe glow */
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: rgba(6, 182, 212, 0.5); /* Turkusowy border */
 }
 
 
@@ -1031,37 +1032,36 @@ section {
 }
 
 .benefit-card h3 {
-    font-size: 1.4rem; /* ✅ WIĘKSZY (było 1.25rem) */
+    font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-4);
-    color: var(--color-text);
+    color: white; /* ✅ BIAŁY TEKST */
     letter-spacing: -0.01em;
 }
 
 
 .benefit-card p {
-    font-size: 1.05rem; /* ✅ WIĘKSZY */
-    color: var(--color-text-light);
-    line-height: 1.7; /* ✅ WIĘKSZY line-height */
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85); /* ✅ JASNO SZARY (białawy) */
+    line-height: 1.7;
     letter-spacing: 0.01em;
     margin: 0;
 }
+
 
 
 /* ========== PORTFOLIO ========== */
 
 /* Full-bleed Mini Portfolio Section */
 .mini-portfolio-section {
-    background: var(--color-dark);
-    padding: var(--space-20) 0;
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-    max-width: 100vw;
-    overflow-x: hidden;
+    /* ✅ JESZCZE CIEMNIEJSZE TŁO dla lepszego kontrastu */
+    background: linear-gradient(180deg, 
+        #0f172a 0%,  /* Bardzo ciemny navy */
+        var(--color-dark) 50%, 
+        #0f172a 100%);
+    padding: var(--space-24) 0;
 }
+
 
 .mini-portfolio-section::before {
     content: '';
@@ -1117,8 +1117,11 @@ section {
     aspect-ratio: 4/3;
     cursor: pointer;
     transition: var(--transition-all);
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    border: none;
+    
+    /* ✅ JASNE TŁO */
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid rgba(255, 255, 255, 0.5); /* ✅ MOCNIEJSZY BORDER */
+    
     transform-style: preserve-3d;
     max-width: 100%;
     width: 100%;
@@ -1126,14 +1129,15 @@ section {
     align-items: center;
     justify-content: center;
     
-    /* ✅ BACKLIT GLOW - BIAŁE PODŚWIETLENIE OD TYŁU */
+    /* ✅ BARDZO MOCNE BIAŁE ŚWIECENIE */
     box-shadow: 
-        0 10px 30px -5px rgba(0, 0, 0, 0.3), /* Standardowy cień */
-        0 5px 15px -3px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 0 80px 20px rgba(255, 255, 255, 0.08), /* ✅ BIAŁE ŚWIECENIE Z TYŁU */
-        0 -10px 60px -10px rgba(255, 255, 255, 0.1); /* ✅ WARSTWA GÓRNA */
+        0 25px 60px -10px rgba(0, 0, 0, 0.3), /* Mocniejszy cień */
+        0 15px 35px -5px rgba(0, 0, 0, 0.2),
+        0 0 140px 60px rgba(255, 255, 255, 0.5), /* ✅ ULTRA MOCNE BACKLIT (100→140px, 0.3→0.5) */
+        0 -20px 100px -10px rgba(255, 255, 255, 0.4), /* ✅ Górne mocniejsze */
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
+
 
 .portfolio-background {
     display: none;
@@ -1170,14 +1174,18 @@ section {
 
 
 .portfolio-item:hover {
-    transform: translateY(-12px) scale(1.03);
+    transform: translateY(-16px) scale(1.04);
+    
+    /* ✅ ULTRA DRAMATYCZNE CIENIE */
     box-shadow: 
-        0 25px 60px -10px rgba(0, 0, 0, 0.4),
-        0 15px 35px -5px rgba(6, 182, 212, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 100px 30px rgba(255, 255, 255, 0.15), /* ✅ MOCNIEJSZE BIAŁE */
-        0 0 60px rgba(6, 182, 212, 0.3); /* ✅ TURKUSOWE GLOW */
+        0 40px 100px -15px rgba(0, 0, 0, 0.4),
+        0 25px 60px -10px rgba(6, 182, 212, 0.4), /* Mocniejszy turkusowy */
+        0 0 160px 70px rgba(255, 255, 255, 0.6), /* ✅ MAKSYMALNE BIAŁE GLOW */
+        0 0 100px rgba(6, 182, 212, 0.5), /* Mocniejsze turkusowe */
+        inset 0 2px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(6, 182, 212, 0.8); /* Mocniejszy turkusowy border */
 }
+
 
 .portfolio-item:hover img {
     transform: scale(1.05); /* ✅ LEKKIE POWIĘKSZENIE */
