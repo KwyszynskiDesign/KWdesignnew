@@ -2533,6 +2533,7 @@ section {
 
 /* ===========================RESPONSIVE BREAKPOINTS=========================== */
 
+  /* ===========================
    MOBILE (max-width: 480px)
    =========================== */
 @media (max-width: 480px) {
@@ -2544,17 +2545,34 @@ section {
     /* ========== HEADER & NAVIGATION ========== */
     .header-inner {
         padding: var(--space-3) var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    /* LOGO MOBILE - OBRAZEK - BARDZO DUŻE */
-    .logo-img, .logo img, .header-logo img, .site-logo img {
+    /* LOGO MOBILE - Z MARGINESEM OD LEWEJ */
+    .logo, 
+    .site-logo, 
+    .header-logo,
+    a.logo,
+    .logo-link {
+        margin-left: var(--space-4) !important;
+        padding-left: 0 !important;
+    }
+    
+    .logo-img, 
+    .logo img, 
+    .header-logo img, 
+    .site-logo img,
+    a.logo img,
+    a[class*="logo"] img {
         height: 75px !important;
         width: auto !important;
         max-width: none !important;
         object-fit: contain !important;
     }
     
-    /* HAMBURGER MOBILE - Z POSITION ABSOLUTE (najbardziej pewna metoda) */
+    /* HAMBURGER MOBILE */
     .hamburger-menu {
         width: 48px;
         height: 48px;
@@ -2564,6 +2582,7 @@ section {
         justify-content: center;
         cursor: pointer;
         z-index: 1001;
+        margin-right: 0;
     }
     
     .hamburger-menu span {
@@ -2576,7 +2595,6 @@ section {
         border-radius: 2px;
     }
     
-    /* Pozycje linii hamburgera */
     .hamburger-menu span:nth-child(1) {
         top: 14px;
     }
@@ -2589,7 +2607,7 @@ section {
         top: 30px;
     }
     
-    /* PRZYCISK X (ZAMKNIJ MENU) - PROSTY I ZAWSZE DZIAŁA */
+    /* PRZYCISK X */
     .hamburger-menu.active span:nth-child(1) {
         top: 22px;
         transform: rotate(45deg);
@@ -2604,23 +2622,22 @@ section {
         transform: rotate(-45deg);
     }
     
-    /* MENU NAWIGACYJNE - ZMNIEJSZONE ODSTĘPY */
+    /* MENU NAWIGACYJNE */
     .nav-list {
-        padding: var(--space-8);
+        padding: var(--space-8) !important;
     }
     
     .nav-list li {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
     }
     
     .nav-list a {
-        font-size: 1.25rem;
-        padding: 0.8rem 1rem;
-        display: block;
-        min-height: 48px;
-        line-height: 1.4;
-        text-align: center;
-        transition: all 0.3s ease;
+        font-size: 1.25rem !important;
+        padding: 0.8rem 1rem !important;
+        display: block !important;
+        min-height: 48px !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
     }
     
     /* ========== HERO SECTION ========== */
@@ -2638,14 +2655,13 @@ section {
         width: 100%;
     }
 
-    /* KOLEJNOŚĆ ELEMENTÓW */
     .hero-image { order: 1; }
     .hero-main-title { order: 2; }
     .hero-info-icons { order: 3; }
     .hero-bottom-content { order: 4; }
     .cta-group { order: 5; }
 
-    /* OBRAZEK na górze */
+    /* OBRAZEK W HERO - PEŁNA SZEROKOŚĆ */
     .hero-image {
         width: 100%;
         margin-bottom: var(--space-6);
@@ -2653,25 +2669,31 @@ section {
         justify-content: center;
         align-items: center;
     }
+    
     .hero-image-container {
         width: 100%;
-        max-width: 320px;
+        max-width: 100%;
         border-radius: var(--radius-lg);
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0;
+        padding: 0 var(--space-4);
     }
-    .hero-image img {
-        width: 100%;
-        height: auto;
+    
+    .hero-image img,
+    .hero-image-container img {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
         border-radius: var(--radius-lg);
         object-fit: cover;
         display: block;
     }
+    
     .gradient-overlay {
         display: none;
     }
 
-    /* TYTUŁ i Eyebrow - zwiększone fonty */
+    /* TYTUŁ */
     .hero-main-title {
         text-align: center;
         width: 100%;
@@ -2696,7 +2718,7 @@ section {
         font-size: 1.3rem;
     }
 
-    /* METRYKI UX - PIONOWY układ, większe fonty */
+    /* METRYKI UX */
     .hero-info-icons {
         display: flex;
         flex-direction: column;
@@ -2732,7 +2754,7 @@ section {
         flex-shrink: 0;
     }
 
-    /* PODTYTUŁ pod metrykami - większy font */
+    /* PODTYTUŁ */
     .hero-bottom-content {
         text-align: center;
         padding: 0 1rem;
@@ -2748,7 +2770,7 @@ section {
         letter-spacing: 0.01em;
     }
 
-    /* PRZYCISKI CTA - większe, łatwiejsze do kliknięcia */
+    /* PRZYCISKI CTA */
     .cta-group {
         display: flex;
         flex-direction: column;
@@ -2781,7 +2803,7 @@ section {
         border: 2px solid var(--color-primary);
     }
 
-    /* TYPOGRAFIA z większym odstępem */
+    /* TYPOGRAFIA */
     .text, .subtitle, .hero-description {
         word-wrap: break-word;
         line-height: 1.35;
@@ -2794,7 +2816,7 @@ section {
         white-space: normal;
     }
 
-    /* ========== PORTFOLIO - ULTRA KOMPAKT ========== */
+    /* PORTFOLIO */
     .mini-portfolio-section {
         padding: var(--space-12) var(--space-3) !important;
     }
@@ -2832,7 +2854,7 @@ section {
         font-size: 0.82rem !important;
     }
     
-    /* ========== SERVICES - ULTRA KOMPAKT ========== */
+    /* SERVICES */
     .services-section {
         padding: var(--space-12) var(--space-4) !important;
     }
@@ -2883,7 +2905,7 @@ section {
         border-radius: 9px !important;
     }
     
-    /* ========== OTHER SECTIONS ========== */
+    /* OTHER SECTIONS */
     .contact-form-container {
         padding: var(--space-6);
     }
@@ -2896,6 +2918,7 @@ section {
         padding: var(--space-6);
     }
 } /* ✅ KONIEC MOBILE 480px */
+
 
 
 
