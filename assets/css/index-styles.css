@@ -2529,7 +2529,6 @@ section {
         min-height: auto;
         padding: var(--space-20) 0 var(--space-16);
     }
-
     .hero-main-content {
         display: flex;
         flex-direction: column;
@@ -2538,8 +2537,42 @@ section {
         padding: 0 0.5rem;
         width: 100%;
     }
+
+    /* KOLEJNOŚĆ (najważniejsze!) */
+    .hero-image { order: 1; }
+    .hero-main-title { order: 2; }
+    .hero-info-icons { order: 3; }
+    .hero-bottom-content { order: 4; }
+    .cta-group { order: 5; }
+
+    /* OBRAZEK na górze dla mobile */
+    .hero-image {
+        width: 100%;
+        margin-bottom: var(--space-6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-image-container {
+        width: 100%;
+        max-width: 320px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-lg);
+        object-fit: cover;
+        display: block;
+    }
+    .gradient-overlay {
+        display: none;
+    }
+
+    /* Tytuł i Eyebrow */
     .hero-main-title {
-        order: 1;
         text-align: center;
         width: 100%;
         margin-bottom: var(--space-4);
@@ -2563,44 +2596,44 @@ section {
         font-size: 1.25rem;
     }
 
-    /* Info – metryki UX */
+    /* Metryki UX - GRID dla 3 info cards */
     .hero-info-icons {
-        order: 2;
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.3rem;
         width: 100%;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
         margin-bottom: var(--space-2);
+        justify-items: center;
+        align-items: center;
+        text-align: center;
     }
     .info-icon {
         display: flex;
         align-items: center;
-        gap: 0.7rem;
-        font-size: 1.13rem;
+        justify-content: center;
+        gap: 0.35rem;
+        font-size: 1.09rem;
         font-weight: 500;
         white-space: normal;
-        flex: 1 1 120px;
-        justify-content: center;
-        min-width: 120px;
-        padding: 0.25rem 0;
+        padding: 0.08rem 0;
+        min-width: 0;
     }
     .highlight-digits {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
         font-weight: 700;
         color: var(--color-primary);
-        margin-right: 0.3rem;
+        margin-right: 0.18rem;
     }
     #availability-dot.green {
-        width: 12px;
-        height: 12px;
+        width: 11px;
+        height: 11px;
         border-radius: 50%;
         background-color: #10b981;
         display: inline-block;
     }
-    /* Podtytuł pod przyciskami */
+
+    /* Podtytuł pod metrykami */
     .hero-bottom-content {
-        order: 3;
         text-align: center;
         padding: 0 1rem;
         font-size: 1rem;
@@ -2614,9 +2647,9 @@ section {
         color: var(--color-text);
         letter-spacing: 0.01em;
     }
+
     /* Przyciski CTA – vertical stacking */
     .cta-group {
-        order: 4;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2646,36 +2679,10 @@ section {
         border: 2px solid var(--color-primary);
     }
 
-    /* Hero Image – 100% szerokości na końcu sekcji */
-    .hero-image {
-        order: 5;
-        width: 100%;
-        margin-top: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .hero-image-container {
-        width: 100%;
-        max-width: 320px;
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        margin: 0 auto;
-    }
-    .hero-image img {
-        width: 100%;
-        height: auto;
-        border-radius: var(--radius-lg);
-        object-fit: cover;
-        display: block;
-    }
-    .gradient-overlay {
-        display: none;
-    }
     /* Typografia z większym odstępem i łamaniem tekstu */
     .text, .subtitle, .hero-description {
         word-wrap: break-word;
-        line-height: 1.4;
+        line-height: 1.35;
         font-size: 1.14rem;
     }
     .text {
@@ -2684,6 +2691,7 @@ section {
         gap: 0.6rem;
         white-space: normal;
     }
+
     /* ========== PORTFOLIO - ULTRA KOMPAKT ========== */
     .mini-portfolio-section {
         padding: var(--space-12) var(--space-3) !important;
@@ -2790,6 +2798,7 @@ section {
         padding: var(--space-6);
     }
 } /* KONIEC 480px */
+
 
 
 
