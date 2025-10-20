@@ -2524,66 +2524,73 @@ section {
     .container {
         padding: 0 var(--space-4);
     }
-    
     /* ========== HERO SECTION ========== */
     .hero-section {
         min-height: auto;
         padding: var(--space-20) 0 var(--space-16);
     }
-    
-    /* Hero główny kontener - ustawiamy flex kolumnowy i kolejność */
+
     .hero-main-content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 0.5rem;
         gap: 1.5rem;
+        padding: 0 0.5rem;
+        width: 100%;
     }
-    
-    /* Tytuł i Eyebrow */
     .hero-main-title {
         order: 1;
         text-align: center;
         width: 100%;
+        margin-bottom: var(--space-4);
     }
     .hero-main-title .hero-eyebrow {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         margin-bottom: 0.3rem;
+        color: var(--color-primary);
+        letter-spacing: 0.01em;
     }
     .hero-main-title .hero-title {
-        font-size: 1.75rem;
-        line-height: 1.2;
+        font-size: 1.8rem;
+        line-height: 1.15;
+        font-weight: 700;
         word-wrap: break-word;
+        margin-bottom: 0.8rem;
     }
     .highlight-digits-tyt {
         font-weight: 600;
         color: var(--color-primary);
+        font-size: 1.25rem;
     }
-    
-    /* Informacje: 8+ lat, 15+ klientów, dostępność */
+
+    /* Info – metryki UX */
     .hero-info-icons {
         order: 2;
         display: flex;
-        justify-content: center;
-        gap: 1.5rem;
         width: 100%;
+        justify-content: center;
+        gap: 1rem;
         flex-wrap: wrap;
+        margin-bottom: var(--space-2);
     }
     .info-icon {
         display: flex;
         align-items: center;
-        gap: 0.8rem;
-        font-size: 1.15rem;
+        gap: 0.7rem;
+        font-size: 1.13rem;
+        font-weight: 500;
         white-space: normal;
-        flex: 1 1 auto;
+        flex: 1 1 120px;
         justify-content: center;
+        min-width: 120px;
+        padding: 0.25rem 0;
     }
     .highlight-digits {
         font-size: 1.3rem;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--color-primary);
+        margin-right: 0.3rem;
     }
-    /* Kropka dostępności */
     #availability-dot.green {
         width: 12px;
         height: 12px;
@@ -2591,38 +2598,42 @@ section {
         background-color: #10b981;
         display: inline-block;
     }
-    
-    /* Podtytuł (tekst pod przyciskami) */
+    /* Podtytuł pod przyciskami */
     .hero-bottom-content {
         order: 3;
         text-align: center;
         padding: 0 1rem;
         font-size: 1rem;
         max-width: 600px;
-        margin: 1rem auto 0;
+        margin: 1.1rem auto 0;
     }
     .hero-subtitle {
         margin-bottom: 1rem;
-        line-height: 1.4;
+        font-size: 1.08rem;
+        line-height: 1.42;
         color: var(--color-text);
+        letter-spacing: 0.01em;
     }
-    
-    /* Przyciski CTA */
+    /* Przyciski CTA – vertical stacking */
     .cta-group {
         order: 4;
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 0.8rem;
         width: 100%;
         padding: 0 0.5rem;
+        margin: 1rem 0 0;
     }
     .btn {
-        flex: 1 1 140px;
-        padding: 0.75rem 1.25rem;
-        font-size: 1rem;
+        width: 100%;
+        max-width: 320px;
+        font-size: 1.05rem;
+        padding: 0.8rem 1.3rem;
         border-radius: var(--radius-md);
         text-align: center;
+        margin: 0 auto;
     }
     .btn-primary {
         background-color: var(--color-primary);
@@ -2634,20 +2645,22 @@ section {
         color: var(--color-primary);
         border: 2px solid var(--color-primary);
     }
-    
-    /* Obrazek na sam dół */
+
+    /* Hero Image – 100% szerokości na końcu sekcji */
     .hero-image {
         order: 5;
         width: 100%;
         margin-top: 2rem;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
     .hero-image-container {
         width: 100%;
         max-width: 320px;
         border-radius: var(--radius-lg);
         overflow: hidden;
+        margin: 0 auto;
     }
     .hero-image img {
         width: 100%;
@@ -2657,143 +2670,127 @@ section {
         display: block;
     }
     .gradient-overlay {
-        display: none; /* opcjonalnie */
+        display: none;
     }
-    
-    /* Dodatkowe typograficzne dopasowania */
+    /* Typografia z większym odstępem i łamaniem tekstu */
     .text, .subtitle, .hero-description {
         word-wrap: break-word;
         line-height: 1.4;
+        font-size: 1.14rem;
     }
     .text {
-        font-size: 1.15rem !important;
         display: flex;
         align-items: center;
         gap: 0.6rem;
         white-space: normal;
     }
-    
-    /* Zostawiam te, które nie wymagają zmiany lub są poza hero */
     /* ========== PORTFOLIO - ULTRA KOMPAKT ========== */
     .mini-portfolio-section {
         padding: var(--space-12) var(--space-3) !important;
     }
-    
     .mini-portfolio-title {
         font-size: 1.5rem !important;
         margin-bottom: var(--space-8) !important;
         padding: 0 var(--space-3) !important;
     }
-    
     .portfolio-grid {
         padding: 0 var(--space-3) !important;
         max-width: 380px !important;
         gap: var(--space-5) !important;
     }
-    
     .portfolio-item {
         aspect-ratio: 16/10 !important;
         border-radius: var(--radius-lg) !important;
     }
-    
     .portfolio-item img {
         width: 80% !important;
         height: 80% !important;
-        padding: 0 !important;
         object-fit: contain !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
     }
-    
     .portfolio-item-content {
         padding: var(--space-3) !important;
+        text-align: left !important;
     }
-    
     .portfolio-item-content h4 {
-        font-size: 0.9rem !important;
+        font-size: 0.92rem !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.13rem !important;
     }
-    
     .portfolio-item-content p {
-        font-size: 0.8rem !important;
+        font-size: 0.82rem !important;
     }
-    
     /* ========== SERVICES - ULTRA KOMPAKT ========== */
     .services-section {
         padding: var(--space-12) var(--space-4) !important;
     }
-    
     .section-title {
         font-size: 1.5rem !important;
         padding: 0 var(--space-3) !important;
+        text-align: left !important;
     }
-    
     .section-subtitle {
-        font-size: 0.9rem !important;
+        font-size: 0.92rem !important;
         padding: 0 var(--space-4) !important;
+        color: var(--color-text-light);
     }
-    
     .services-grid {
         padding: 0 var(--space-3) !important;
         max-width: 380px !important;
         gap: var(--space-5) !important;
     }
-    
     .service-card {
         padding: var(--space-5) var(--space-4) !important;
         border-radius: var(--radius-lg) !important;
     }
-    
     .service-icon {
         font-size: 2.5rem !important;
     }
-    
     .service-card h3 {
-        font-size: 1.05rem !important;
+        font-size: 1.07rem !important;
+        font-weight: 600 !important;
     }
-    
     .service-description {
-        font-size: 0.875rem !important;
+        font-size: 0.88rem !important;
     }
-    
     .service-features {
         font-size: 0.8rem !important;
     }
-    
     .service-price {
-        font-size: 1.1rem !important;
+        font-size: 1.12rem !important;
+        font-weight: 600 !important;
     }
-    
     .service-btn {
         padding: var(--space-2) var(--space-4) !important;
-        font-size: 0.85rem !important;
+        font-size: 0.86rem !important;
+        border-radius: var(--radius-md) !important;
     }
-    
     .popular-badge {
-        font-size: 0.65rem !important;
-        padding: 4px 8px !important;
+        font-size: 0.67rem !important;
+        padding: 4px 9px !important;
+        border-radius: 9px !important;
     }
-    
     /* ========== OTHER SECTIONS ========== */
     .contact-form-container {
         padding: var(--space-6);
     }
-    
     .service-card,
     .testimonial-card,
     .benefit-card {
         padding: var(--space-6);
     }
-    
     .header-inner {
         padding: var(--space-3) var(--space-4);
     }
-    
     .nav-list {
         padding: var(--space-6);
     }
-    
     .process-item {
         padding: var(--space-6);
     }
 } /* KONIEC 480px */
+
 
 
 /* ===========================
