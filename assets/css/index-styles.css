@@ -2516,9 +2516,6 @@ section {
 
 /* ===========================RESPONSIVE BREAKPOINTS=========================== */
 
-/* ===========================
-   SMALL MOBILE (max-width: 480px)
-   =========================== */
 @media (max-width: 480px) {
     /* ========== CONTAINER ========== */
     .container {
