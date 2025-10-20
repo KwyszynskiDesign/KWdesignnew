@@ -2534,11 +2534,63 @@ section {
 /* ===========================RESPONSIVE BREAKPOINTS=========================== */
 /* ===========================
    MOBILE (max-width: 480px)
+/* ===========================
+   MOBILE (max-width: 480px)
    =========================== */
 @media (max-width: 480px) {
     /* ========== CONTAINER ========== */
     .container {
         padding: 0 var(--space-4);
+    }
+    
+    /* ========== HEADER & NAVIGATION ========== */
+    .header-inner {
+        padding: var(--space-3) var(--space-4);
+    }
+    
+    /* LOGO MOBILE - większe */
+    .logo-img {
+        height: 50px;
+        width: auto;
+    }
+    
+    /* HAMBURGER MOBILE - większy, łatwiejszy do kliknięcia */
+    .hamburger-menu {
+        width: 48px;
+        height: 48px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    .hamburger-menu span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        background-color: var(--color-primary);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+    
+    /* MENU NAWIGACYJNE - większe odstępy i fonty */
+    .nav-list {
+        padding: var(--space-8);
+    }
+    
+    .nav-list li {
+        margin-bottom: var(--space-5);
+    }
+    
+    .nav-list a {
+        font-size: 1.25rem;
+        padding: 0.8rem 1rem;
+        display: block;
+        min-height: 48px;
+        line-height: 1.4;
+        text-align: center;
     }
     
     /* ========== HERO SECTION ========== */
@@ -2589,20 +2641,20 @@ section {
         display: none;
     }
 
-    /* TYTUŁ i Eyebrow */
+    /* TYTUŁ i Eyebrow - zwiększone fonty */
     .hero-main-title {
         text-align: center;
         width: 100%;
         margin-bottom: var(--space-4);
     }
     .hero-main-title .hero-eyebrow {
-        font-size: 0.92rem;
+        font-size: 0.95rem;
         margin-bottom: 0.3rem;
         color: var(--color-primary);
         letter-spacing: 0.01em;
     }
     .hero-main-title .hero-title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         line-height: 1.15;
         font-weight: 700;
         word-wrap: break-word;
@@ -2611,10 +2663,10 @@ section {
     .highlight-digits-tyt {
         font-weight: 600;
         color: var(--color-primary);
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 
-    /* METRYKI UX - PIONOWY układ (jedna pod drugą) */
+    /* METRYKI UX - PIONOWY układ, większe fonty */
     .hero-info-icons {
         display: flex;
         flex-direction: column;
@@ -2622,7 +2674,7 @@ section {
         align-items: center;
         gap: 0.7rem;
         width: 100%;
-        margin-bottom: var(--space-4);
+        margin-bottom: var(--space-6);
         text-align: center;
     }
     .info-icon {
@@ -2630,27 +2682,27 @@ section {
         align-items: center;
         justify-content: center;
         gap: 0.4rem;
-        font-size: 1.08rem;
+        font-size: 1.15rem;
         font-weight: 500;
         white-space: nowrap;
         padding: 0;
     }
     .highlight-digits {
-        font-size: 1.18rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--color-primary);
         margin-right: 0.15rem;
     }
     #availability-dot.green {
-        width: 11px;
-        height: 11px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         background-color: #10b981;
         display: inline-block;
         flex-shrink: 0;
     }
 
-    /* PODTYTUŁ pod metrykami */
+    /* PODTYTUŁ pod metrykami - większy font */
     .hero-bottom-content {
         text-align: center;
         padding: 0 1rem;
@@ -2660,13 +2712,13 @@ section {
     }
     .hero-subtitle {
         margin-bottom: 1rem;
-        font-size: 1.08rem;
+        font-size: 1.12rem;
         line-height: 1.42;
         color: var(--color-text);
         letter-spacing: 0.01em;
     }
 
-    /* PRZYCISKI CTA – vertical stacking */
+    /* PRZYCISKI CTA - większe, łatwiejsze do kliknięcia */
     .cta-group {
         display: flex;
         flex-direction: column;
@@ -2680,11 +2732,13 @@ section {
     .btn {
         width: 100%;
         max-width: 320px;
-        font-size: 1.05rem;
-        padding: 0.8rem 1.3rem;
+        font-size: 1.15rem;
+        padding: 1rem 1.5rem;
         border-radius: var(--radius-md);
         text-align: center;
         margin: 0 auto;
+        min-height: 48px;
+        font-weight: 500;
     }
     .btn-primary {
         background-color: var(--color-primary);
@@ -2808,16 +2862,11 @@ section {
     .benefit-card {
         padding: var(--space-6);
     }
-    .header-inner {
-        padding: var(--space-3) var(--space-4);
-    }
-    .nav-list {
-        padding: var(--space-6);
-    }
     .process-item {
         padding: var(--space-6);
     }
 } /* ✅ KONIEC MOBILE 480px */
+
 
 
 
