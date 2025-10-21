@@ -1076,37 +1076,19 @@ section {
 
 /* ========== PORTFOLIO ========== */
 
-/* Full-bleed Mini Portfolio Section */
+/* ========== PORTFOLIO - PRZEBUDOWANA SEKCJA ========== */
+
 .mini-portfolio-section {
-    /* ✅ JESZCZE CIEMNIEJSZE TŁO dla lepszego kontrastu */
-    background: linear-gradient(180deg, 
-        #0f172a 0%,  /* Bardzo ciemny navy */
-        var(--color-dark) 50%, 
-        #0f172a 100%);
+    /* ✅ JASNE TŁO zamiast ciemnego - lepszy kontrast */
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
     padding: var(--space-24) 0;
+    position: relative;
+    overflow: hidden;
 }
 
-
+/* ✅ USUŃ ciemny pattern - zbyt przytłaczający */
 .mini-portfolio-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 20px 30px, #eee, transparent),
-        radial-gradient(1px 1px at 40px 70px, #fff, transparent),
-        radial-gradient(1px 1px at 50px 160px, #ddd, transparent),
-        radial-gradient(2px 2px at 90px 40px, #fff, transparent),
-        radial-gradient(2px 2px at 130px 80px, #fff, transparent),
-        radial-gradient(2px 2px at 160px 120px, #ddd, transparent),
-        radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.3), transparent 20%),
-        radial-gradient(circle at 80% 30%, rgba(20, 184, 166, 0.2), transparent 25%),
-        radial-gradient(circle at 25% 70%, rgba(100, 116, 139, 0.2), transparent 15%);
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
+    display: none; /* ✅ Wyłącz ciemny pattern */
 }
 
 .mini-portfolio-section .container {
@@ -1116,53 +1098,44 @@ section {
 
 .mini-portfolio-title {
     text-align: center;
-    margin-bottom: var(--space-12);
-    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+    margin-bottom: var(--space-16);
+    font-size: clamp(2rem, 3vw, 2.5rem); /* ✅ Większy tytuł */
     font-family: var(--font-heading);
-    color: white;
+    color: var(--color-text); /* ✅ CIEMNY TEKST na jasnym tle */
 }
 
+/* ✅ SZERSZY CONTAINER + 3 RÓWNE KOLUMNY */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(340px, 380px)); /* ✅ +20% (280→340, 320→380) */
-    gap: var(--space-8); /* ✅ WIĘKSZY GAP */
+    grid-template-columns: repeat(3, 1fr); /* ✅ 3 równe kolumny */
+    gap: var(--space-10); /* ✅ Większy gap (32px → 40px) */
     justify-content: center;
-    max-width: 1200px; /* ✅ SZERSZY KONTENER (1000→1200) */
+    max-width: 1320px; /* ✅ SZERSZY (1200px → 1320px) */
     margin: 0 auto;
-    align-items: start;
+    align-items: stretch; /* ✅ Wszystkie karty tej samej wysokości */
 }
-
-
 
 .portfolio-item {
     position: relative;
     border-radius: var(--radius-2xl);
     overflow: hidden;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/3; /* ✅ Bardziej kompaktowy (było 3/2) */
     cursor: pointer;
     transition: var(--transition-all);
     
-    /* ✅ JASNE TŁO */
-    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    border: 2px solid rgba(255, 255, 255, 0.5); /* ✅ MOCNIEJSZY BORDER */
-    
+    /* ✅ JAŚNIEJSZE BIAŁE TŁO - lepszy kontrast */
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+    border: 2px solid rgba(0, 0, 0, 0.08); /* ✅ Subtelny border */
     transform-style: preserve-3d;
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     
-    /* ✅ BARDZO MOCNE BIAŁE ŚWIECENIE */
+    /* ✅ MOCNIEJSZE CIENIE - lepiej widać karty */
     box-shadow: 
-        0 25px 60px -10px rgba(0, 0, 0, 0.3), /* Mocniejszy cień */
-        0 15px 35px -5px rgba(0, 0, 0, 0.2),
-        0 0 140px 60px rgba(255, 255, 255, 0.5), /* ✅ ULTRA MOCNE BACKLIT (100→140px, 0.3→0.5) */
-        0 -20px 100px -10px rgba(255, 255, 255, 0.4), /* ✅ Górne mocniejsze */
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 10px 30px -5px rgba(0, 0, 0, 0.15),
+        0 5px 15px -3px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-
+/* ✅ USUŃ ciemne tło - nie potrzebne na jasnym tle sekcji */
 .portfolio-background {
     display: none;
 }
@@ -1174,50 +1147,42 @@ section {
     background: radial-gradient(
         ellipse at center,
         transparent 0%,
-        transparent 50%,
-        rgba(0, 0, 0, 0.2) 100%
+        transparent 60%,
+        rgba(0, 0, 0, 0.05) 100%
     );
     pointer-events: none;
     z-index: 2;
     border-radius: var(--radius-2xl);
 }
 
+/* ✅ ZDJĘCIA 100% - pełne wypełnienie karty */
 .portfolio-item img {
-    width: 85%; /* ✅ NIE 100% - ZOSTAW MARGINES */
-    height: 85%;
-    object-fit: contain; /* ✅ CONTAIN - zachowaj proporcje */
+    width: 100%; /* ✅ ZMIANA: 85% → 100% */
+    height: 100%; /* ✅ Pełna wysokość */
+    object-fit: cover; /* ✅ ZMIANA: contain → cover - pełne wypełnienie */
     object-position: center;
     transition: var(--transition-slow);
     position: relative;
     z-index: 1;
     padding: 0;
     display: block;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3)); /* ✅ CIEŃ POD ZDJĘCIEM */
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1)); /* ✅ Subtelny cień */
 }
 
-
+/* ✅ HOVER - turkusowy glow + powikszenie */
 .portfolio-item:hover {
-  /* Delikatniejszy gradient i backlit glow */
-  background: linear-gradient(
-    to top,
-    rgba(6, 182, 212, 0.25) 0%,
-    rgba(6, 182, 212, 0.08) 80%,
-    transparent 100%
-  );
-  box-shadow:
-    0 15px 44px -8px rgba(0,0,0,0.25),
-    0 0 64px 32px rgba(6,182,212,0.17),
-    0 0 96px 32px rgba(255,255,255,0.20);
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(6,182,212,0.32);
+    background: linear-gradient(to top, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 80%, transparent 100%);
+    box-shadow: 
+        0 20px 50px -10px rgba(0, 0, 0, 0.25),
+        0 0 60px 20px rgba(6, 182, 212, 0.15), /* ✅ Turkusowy glow */
+        0 0 0 2px rgba(6, 182, 212, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(6, 182, 212, 0.4);
 }
-
 
 .portfolio-item:hover img {
-    transform: scale(1.05); /* ✅ LEKKIE POWIĘKSZENIE */
-    filter: 
-        drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4))
-        brightness(1.05); /* ✅ ROZJAŚNIENIE NA HOVER */
+    transform: scale(1.08); /* ✅ Większe powikszenie */
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2)) brightness(1.05);
 }
 
 .portfolio-item-link {
@@ -1226,58 +1191,61 @@ section {
     display: block;
 }
 
+/* ✅ OPIS - LEPSZY KONTRAST */
 .portfolio-item-content {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    
+    /* ✅ CIEMNIEJSZY GRADIENT - lepszy kontrast tekstu */
     background: linear-gradient(
         to top,
-        rgba(30, 41, 59, 1) 0%, /* ✅ SOLID 100% - BEZ ROZMYCIA */
-        rgba(30, 41, 59, 0.95) 40%,
-        rgba(30, 41, 59, 0.7) 70%,
+        rgba(15, 23, 42, 0.95) 0%, /* ✅ Bardziej solid */
+        rgba(15, 23, 42, 0.8) 40%,
+        rgba(15, 23, 42, 0.4) 70%,
         transparent 100%
     );
+    
     color: white;
     padding: var(--space-6) var(--space-5);
     z-index: 3;
     transition: var(--transition-slow);
     opacity: 1;
-    /* ❌ USUŃ backdrop-filter - tekst zawsze czytelny */
 }
-
 
 .portfolio-item:hover .portfolio-item-content {
     padding: var(--space-7) var(--space-6);
+    
+    /* ✅ TURKUSOWY GRADIENT NA HOVER */
     background: linear-gradient(
         to top,
-        rgba(6, 182, 212, 1) 0%, /* ✅ SOLID turkus - ZAWSZE CZYTELNY */
-        rgba(6, 182, 212, 0.95) 40%,
-        rgba(6, 182, 212, 0.7) 70%,
+        rgba(6, 182, 212, 0.95) 0%,
+        rgba(6, 182, 212, 0.8) 40%,
+        rgba(6, 182, 212, 0.4) 70%,
         transparent 100%
     );
 }
 
-
 .portfolio-item-content h4 {
-    font-size: 1.25rem;
+    font-size: 1.35rem; /* ✅ Większy (było 1.25rem) */
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-2);
     color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* ✅ CIEŃ POD TEKSTEM */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* ✅ Mocniejszy cień */
     transition: var(--transition-normal);
 }
 
 .portfolio-item:hover .portfolio-item-content h4 {
-    transform: translateY(-4px); /* ✅ LEKKIE UNIESIENIE */
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-4px);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-item-content p {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem; /* ✅ Większy (było 0.95rem) */
+    color: rgba(255, 255, 255, 0.95);
     line-height: 1.5;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition: var(--transition-normal);
 }
 
@@ -1302,7 +1270,7 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
     margin-top: var(--space-16);
-    max-width: 1200px;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1954,6 +1922,7 @@ section {
 
     .process-content h3 {
         font-size: calc(1.4rem * 0.85); /* ✅ 15% mniejszy (1.4rem → ~1.19rem) */
+         margin-top: var(--space-5);
         margin-bottom: calc(var(--space-3) * 0.85);
         margin-top: 0;
     }
@@ -1965,7 +1934,7 @@ section {
     
     /* ✅ NUMER 20PX WYŻEJ (bez ruszania napisów) */
     .step-number {
-        top: calc(var(--space-4) - 20px); /* ✅ 16px - 20px = -4px (wychodzi nad kartę) */
+        top: -26px; 
         left: 50% !important; /* ✅ Wycentrowany */
         right: auto !important;
         transform: translateX(-50%) !important; /* ✅ Centrowanie */
