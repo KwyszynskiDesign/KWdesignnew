@@ -1076,11 +1076,13 @@ section {
 
 /* ========== PORTFOLIO - POPRAWIONA WERSJA ========== */
 
+/* ========== PORTFOLIO - POPRAWIONA WERSJA ========== */
+
 .mini-portfolio-section {
     background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
     padding: var(--space-24) 0;
     position: relative;
-    overflow: visible; /* ✅ ZMIANA: hidden → visible (cienie nie obcięte) */
+    overflow: visible; /* ✅ Cienie nie obcięte */
 }
 
 .mini-portfolio-section::before {
@@ -1103,19 +1105,27 @@ section {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-12); /* ✅ Zwiększone (40px → 48px) dla cieni */
+    gap: var(--space-12); /* ✅ 48px - dość miejsca na cienie */
     justify-content: center;
     max-width: 1320px;
     margin: 0 auto;
     align-items: stretch;
+    padding: var(--space-4); /* ✅ DODANE - padding zapobiega obcięciu */
 }
 
-/* ✅ KARTA - bez overflow hidden (cienie widoczne) */
+/* ✅ LINK - BEZ ANIMACJI */
+.portfolio-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* ✅ KARTA - z overflow visible dla cieni */
 .portfolio-item {
     position: relative;
     border-radius: var(--radius-2xl);
-    overflow: hidden; /* ✅ ZMIANA: Tylko na karcie, nie na grid */
-    aspect-ratio: 1 / 1; /* ✅ ZMIANA: 4/3 → 1/1 (kwadrat - lepiej wypełnia) */
+    overflow: visible; /* ✅ ZMIANA: hidden → visible (cienie widoczne) */
+    aspect-ratio: 1 / 1; /* Kwadrat */
     cursor: pointer;
     transition: var(--transition-all);
     
@@ -1128,6 +1138,15 @@ section {
         0 10px 30px -5px rgba(0, 0, 0, 0.15),
         0 5px 15px -3px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* ✅ WEWNĘTRZNY WRAPPER DLA OVERFLOW */
+.portfolio-item-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* ✅ Tutaj obcinamy zdjęcie, nie cienie */
+    border-radius: var(--radius-2xl);
 }
 
 .portfolio-background {
@@ -1149,48 +1168,40 @@ section {
     border-radius: var(--radius-2xl);
 }
 
-/* ✅ ZDJĘCIA - pełne wypełnienie, bez obcinania góry */
+/* ✅ ZDJĘCIA - pełne wypełnienie */
 .portfolio-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center; /* ✅ ZMIANA: Wycentrowane (nie top) */
+    object-position: center center;
     transition: var(--transition-slow);
     position: relative;
     z-index: 1;
-    padding: 0; /* ✅ USUŃ padding */
-    margin: 0; /* ✅ USUŃ margin */
     display: block;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
 }
 
-/* ✅ HOVER - tylko scale 1.05 (mniejsze powikszenie) */
+/* ✅ HOVER - tylko scale 1.02 na karcie, cienie widoczne */
 .portfolio-item:hover {
     background: linear-gradient(to top, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 80%, transparent 100%);
     
-    /* ✅ CIENIE - większe na hover, nie obcięte */
+    /* ✅ CIENIE - większe, NIE obcięte */
     box-shadow: 
         0 20px 50px -10px rgba(0, 0, 0, 0.25),
-        0 10px 40px 10px rgba(6, 182, 212, 0.2), /* ✅ Turkusowy glow */
+        0 10px 40px 10px rgba(6, 182, 212, 0.2), /* Turkusowy glow */
         0 0 0 2px rgba(6, 182, 212, 0.4);
     
-    transform: scale(1.02); /* ✅ Delikatne powikszenie karty */
+    transform: scale(1.02); /* ✅ Delikatne powiększenie */
     border-color: rgba(6, 182, 212, 0.4);
 }
 
-/* ✅ ZDJĘCIE HOVER - scale 1.05 (było 1.08) */
+/* ✅ ZDJĘCIE HOVER - scale 1.05 */
 .portfolio-item:hover img {
-    transform: scale(1.05); /* ✅ ZMIANA: 1.08 → 1.05 (mniejsze) */
+    transform: scale(1.05); /* ✅ Tylko zdjęcie się powiększa */
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2)) brightness(1.05);
 }
 
-.portfolio-item-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* ✅ OPIS - bez transform na hover */
+/* ✅ OPIS - BEZ transform */
 .portfolio-item-content {
     position: absolute;
     bottom: 0;
@@ -1224,7 +1235,7 @@ section {
     );
 }
 
-/* ✅ TYTUŁ - BEZ translateY (było źle) */
+/* ✅ TYTUŁ - BEZ translateY */
 .portfolio-item-content h4 {
     font-size: 1.35rem;
     font-weight: var(--font-weight-bold);
@@ -1232,11 +1243,11 @@ section {
     color: white;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     transition: var(--transition-normal);
-    transform: none; /* ✅ RESET */
+    /* ✅ BEZ transform w bazie */
 }
 
 .portfolio-item:hover .portfolio-item-content h4 {
-    transform: none; /* ✅ BEZ TRANSFORM - tylko scale karty */
+    /* ✅ BEZ transform na hover - zostaje w miejscu */
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -1247,14 +1258,13 @@ section {
     line-height: 1.5;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition: var(--transition-normal);
-    transform: none; /* ✅ RESET */
+    /* ✅ BEZ transform w bazie */
 }
 
 .portfolio-item:hover .portfolio-item-content p {
     color: rgba(255, 255, 255, 1);
-    transform: none; /* ✅ BEZ TRANSFORM */
+    /* ✅ BEZ transform na hover - zostaje w miejscu */
 }
-
 
 /* Enhanced Services Section with 3D Effect */
 .services-section {
