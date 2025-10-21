@@ -1905,17 +1905,18 @@ section {
 
 
 /* MOBILE - Reset grid-column */
+/* ========== MOBILE LAYOUT - KOMPAKTOWY ========== */
 @media (max-width: 768px) {
-   .process-grid {
-        gap: var(--space-8);
+    .process-grid {
+        gap: var(--space-6); /* ✅ 24px (było 32px) */
     }
 
     .process-item {
         grid-template-columns: 1fr !important;
         text-align: center;
-        padding: var(--space-5);
-        gap: var(--space-6);
-        margin-top: var(--space-8); /* ✅ Miejsce na numer nad kartą */
+        padding: var(--space-5); /* ✅ 20px padding */
+        gap: var(--space-5); /* ✅ 20px gap (było 24px) */
+        margin-top: 0; /* ✅ USUNIĘTE - numer nie jest nad kartą */
     }
     
     .process-item,
@@ -1924,7 +1925,7 @@ section {
     }
 
     .process-content {
-        padding: var(--space-6) var(--space-4) var(--space-4);
+        padding: var(--space-5) var(--space-4) var(--space-4); /* ✅ Mniejszy padding */
         grid-column: 1 !important;
         grid-row: auto !important;
         text-align: center !important;
@@ -1933,34 +1934,36 @@ section {
     .process-image {
         grid-column: 1 !important;
         grid-row: auto !important;
-        aspect-ratio: 16/10;
+        aspect-ratio: 4/3; /* ✅ ZMIANA: 4:3 zamiast 16:10 - bardziej kompaktowy */
     }
 
     .process-content h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem; /* ✅ Mniejszy (było 1.5rem) */
         margin-bottom: var(--space-3);
+        margin-top: 0; /* ✅ Brak marginesu, bo numer w rogu */
     }
 
     .process-content p {
-        font-size: 1rem;
+        font-size: 0.95rem; /* ✅ Mniejszy (było 1rem) */
         line-height: 1.6;
     }
     
-    /* ✅ MOBILE - numer NAD KARTĄ (wycentrowany) */
+    /* ✅ MOBILE - numer W GÓRNYM LEWYM ROGU KARTY (jak desktop) */
     .step-number {
-        top: -20px; /* ✅ Nad kartą */
-        left: 50% !important;
+        top: var(--space-4); /* ✅ 16px od góry karty (nie nad kartą) */
+        left: var(--space-4); /* ✅ 16px od lewej */
         right: auto !important;
-        transform: translateX(-50%) !important;
-        width: 48px;
-        height: 48px;
-        font-size: 1.15rem;
+        transform: none !important; /* ✅ Brak centralizacji */
+        width: 40px; /* ✅ Mniejszy (było 48px) */
+        height: 40px;
+        font-size: 1.05rem; /* ✅ Mniejszy (było 1.15rem) */
     }
 
     .process-item:hover .step-number {
-        transform: translateX(-50%) scale(1.08) !important;
+        transform: scale(1.06) !important; /* ✅ Delikatniejszy hover */
     }
 }
+
 /* Enhanced FAQ Section ______________________________________________________________*/
 .faq-section {
     padding: var(--space-24) 0;
