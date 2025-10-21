@@ -1835,6 +1835,7 @@ section {
 }
 
 /* ========== DESKTOP LAYOUT - NUMER W ROGU KARTY ========== */
+/* ========== DESKTOP LAYOUT - NUMER W ROGU KARTY ========== */
 @media (min-width: 1025px) {
     .process-item {
         grid-template-columns: 1fr 1fr !important;
@@ -1846,7 +1847,12 @@ section {
         grid-column: 1;
         grid-row: 1;
         text-align: left;
-        padding: var(--space-8);
+        padding: var(--space-16) var(--space-8) var(--space-8); /* ✅ ZMIANA: 64px górny padding */
+    }
+    
+    /* ✅ DODANE - margin na tytuł */
+    .process-content h3 {
+        margin-top: var(--space-4); /* ✅ 16px dodatkowego odstępu */
     }
 
     .process-image {
@@ -1882,6 +1888,7 @@ section {
         transform: scale(1.12); /* ✅ Bez translateX */
     }
 }
+
 @media (max-width: 1024px) and (min-width: 769px) {
     .process-item {
         padding: var(--space-6);
