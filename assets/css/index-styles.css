@@ -1762,8 +1762,8 @@ section {
 
 /* ✅ KLUCZOWA ZMIANA - NUMER NAD OPISEM */
 .process-content {
-    position: relative; /* ✅ Dla pozycjonowania numeru */
-    padding: var(--space-12) var(--space-6) var(--space-6); /* ✅ Dodatkowe miejsce na górze dla numeru */
+    position: relative;
+    padding: var(--space-16) var(--space-6) var(--space-6); /* ✅ Było 12, teraz 16 (64px) */
     text-align: center;
 }
 
@@ -1813,10 +1813,12 @@ section {
 
 .process-content h3 {
     color: var(--color-primary);
+    margin-top: var(--space-4); /* ✅ DODANE - dodatkowy margines */
     margin-bottom: var(--space-4);
     font-weight: var(--font-weight-bold);
-    font-size: 1.75rem; /* ✅ Mniejszy (było 2.535rem) */
+    font-size: 1.75rem;
 }
+
 
 .process-content p {
     color: var(--color-text-light);
@@ -1841,11 +1843,11 @@ section {
         padding: var(--space-8); /* ✅ Większy padding na desktop */
     }
 
-    .process-content {
+      .process-content {
         grid-column: 1;
         grid-row: 1;
         text-align: left;
-        padding: var(--space-8); /* ✅ Więcej paddingu na desktop */
+        padding: var(--space-12) var(--space-8) var(--space-8); /* ✅ Było 8, teraz 12 na górze */
     }
 
     .process-image {
@@ -1858,6 +1860,9 @@ section {
     .process-item.reverse .process-content {
         grid-column: 2;
         text-align: right;
+    }
+      .process-content h3 {
+        margin-top: var(--space-6); /* ✅ Większy margines na desktop */
     }
 
     .process-item.reverse .process-image {
@@ -1898,13 +1903,12 @@ section {
         grid-template-columns: 1fr !important;
     }
 
-    .process-content {
-        padding: var(--space-10) var(--space-4) var(--space-4); /* ✅ Miejsce na numer */
+      .process-content {
+        padding: var(--space-14) var(--space-4) var(--space-4); /* ✅ Było 10, teraz 14 (56px) */
         grid-column: 1 !important;
         grid-row: auto !important;
         text-align: center !important;
     }
-
     .process-image {
         grid-column: 1 !important;
         grid-row: auto !important;
@@ -1914,6 +1918,7 @@ section {
     .process-content h3 {
         font-size: 1.5rem; /* ✅ Mniejszy (było 1.95rem) */
         margin-bottom: var(--space-3);
+        margin-top: var(--space-5);
     }
 
     .process-content p {
