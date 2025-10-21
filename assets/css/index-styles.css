@@ -1906,61 +1906,76 @@ section {
 
 /* MOBILE - Reset grid-column */
 /* ========== MOBILE LAYOUT - KOMPAKTOWY ========== */
+/* ========== MOBILE LAYOUT - OPIS GÓRĄ, ZDJĘCIE DOŁEM ========== */
 @media (max-width: 768px) {
     .process-grid {
-        gap: var(--space-6); /* ✅ 24px (było 32px) */
+        gap: var(--space-6); /* ✅ 24px */
+        max-width: 100%; /* ✅ Pełna szerokość */
     }
 
     .process-item {
         grid-template-columns: 1fr !important;
         text-align: center;
-        padding: var(--space-5); /* ✅ 20px padding */
-        gap: var(--space-5); /* ✅ 20px gap (było 24px) */
-        margin-top: 0; /* ✅ USUNIĘTE - numer nie jest nad kartą */
+        padding: calc(var(--space-5) * 0.85); /* ✅ 15% mniejszy (20px → 17px) */
+        gap: calc(var(--space-5) * 0.85); /* ✅ 15% mniejszy */
+        margin-top: 0;
+        
+        /* ✅ WYMUSZENIE KOLEJNOŚCI: Opis → Zdjęcie */
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    .process-item,
     .process-item.reverse {
-        grid-template-columns: 1fr !important;
+        /* ✅ REVERSE też opis → zdjęcie (ignorujemy reverse na mobile) */
+        flex-direction: column !important;
     }
 
+    /* ✅ OPIS ZAWSZE PIERWSZY */
     .process-content {
-        padding: var(--space-5) var(--space-4) var(--space-4); /* ✅ Mniejszy padding */
+        order: 1 !important; /* ✅ Zawsze na górze */
+        padding: calc(var(--space-5) * 0.85) calc(var(--space-4) * 0.85) calc(var(--space-4) * 0.85); /* ✅ 15% mniejszy */
         grid-column: 1 !important;
         grid-row: auto !important;
         text-align: center !important;
+        position: relative; /* ✅ Dla numeru */
     }
 
+    /* ✅ ZDJĘCIE ZAWSZE DRUGIE */
     .process-image {
+        order: 2 !important; /* ✅ Zawsze na dole */
         grid-column: 1 !important;
         grid-row: auto !important;
-        aspect-ratio: 4/3; /* ✅ ZMIANA: 4:3 zamiast 16:10 - bardziej kompaktowy */
+        aspect-ratio: 4/3; /* ✅ Kompaktowy format */
+        
+        /* ✅ ZMNIEJSZENIE O 15% */
+        width: 85%; /* ✅ Szerokość o 15% mniejsza */
+        margin: 0 auto; /* ✅ Wycentrowanie */
     }
 
     .process-content h3 {
-        font-size: 1.4rem; /* ✅ Mniejszy (było 1.5rem) */
-        margin-bottom: var(--space-3);
-        margin-top: 0; /* ✅ Brak marginesu, bo numer w rogu */
+        font-size: calc(1.4rem * 0.85); /* ✅ 15% mniejszy (1.4rem → ~1.19rem) */
+        margin-bottom: calc(var(--space-3) * 0.85);
+        margin-top: 0;
     }
 
     .process-content p {
-        font-size: 0.95rem; /* ✅ Mniejszy (było 1rem) */
+        font-size: calc(0.95rem * 0.85); /* ✅ 15% mniejszy (~0.81rem) */
         line-height: 1.6;
     }
     
-    /* ✅ MOBILE - numer W GÓRNYM LEWYM ROGU KARTY (jak desktop) */
+    /* ✅ NUMER 20PX WYŻEJ (bez ruszania napisów) */
     .step-number {
-        top: var(--space-4); /* ✅ 16px od góry karty (nie nad kartą) */
-        left: var(--space-4); /* ✅ 16px od lewej */
+        top: calc(var(--space-4) - 20px); /* ✅ 16px - 20px = -4px (wychodzi nad kartę) */
+        left: 50% !important; /* ✅ Wycentrowany */
         right: auto !important;
-        transform: none !important; /* ✅ Brak centralizacji */
-        width: 40px; /* ✅ Mniejszy (było 48px) */
-        height: 40px;
-        font-size: 1.05rem; /* ✅ Mniejszy (było 1.15rem) */
+        transform: translateX(-50%) !important; /* ✅ Centrowanie */
+        width: calc(40px * 0.85); /* ✅ 15% mniejszy (40px → 34px) */
+        height: calc(40px * 0.85);
+        font-size: calc(1.05rem * 0.85); /* ✅ 15% mniejszy (~0.89rem) */
     }
 
     .process-item:hover .step-number {
-        transform: scale(1.06) !important; /* ✅ Delikatniejszy hover */
+        transform: translateX(-50%) scale(1.06) !important;
     }
 }
 
