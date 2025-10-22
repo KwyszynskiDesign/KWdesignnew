@@ -3463,3 +3463,255 @@ section {
         text-align: left; /* ✅ Tekst wyrównany do lewej */
     }
 } /* ✅ KONIEC DESKTOP */
+
+/* ========================================
+   NOWA SEKCJA PORTFOLIO - MODERN CARDS
+   ======================================== */
+
+.mini-portfolio-section-new {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+    padding: var(--space-24) 0;
+    position: relative;
+    overflow: visible;
+}
+
+.portfolio-new-title {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========== GRID LAYOUT ========== */
+.portfolio-new-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-10);
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: var(--space-4);
+}
+
+@media (min-width: 1025px) {
+    .portfolio-new-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========== KARTA - ELEVATED DESIGN ========== */
+.portfolio-new-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Elevated shadow */
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+    
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-new-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.15),
+        0 10px 25px rgba(6, 182, 212, 0.12),
+        0 0 0 1px rgba(6, 182, 212, 0.15);
+    border-color: rgba(6, 182, 212, 0.2);
+}
+
+/* ========== IMAGE SECTION ========== */
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-new-card:hover .card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* ========== CONTENT SECTION ========== */
+.card-content {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+}
+
+/* Category Tag */
+.card-category {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: var(--space-1) var(--space-3);
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.portfolio-new-card:hover .card-category {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* Title */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+.portfolio-new-card:hover .card-title {
+    color: var(--color-primary);
+}
+
+/* Description */
+.card-description {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ========== FEATURES ========== */
+.card-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.feature-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    font-weight: var(--font-weight-medium);
+}
+
+.feature-item svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* ========== CTA BUTTON ========== */
+.card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: auto;
+    padding-top: var(--space-4);
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    transition: all 0.2s ease;
+}
+
+.card-cta svg {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.portfolio-new-card:hover .card-cta {
+    color: var(--color-primary-dark);
+}
+
+.portfolio-new-card:hover .card-cta svg {
+    transform: translateX(4px);
+}
+
+/* ========== RESPONSIVE - TABLET ========== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .portfolio-new-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+        max-width: 800px;
+    }
+    
+    .card-content {
+        padding: var(--space-5);
+    }
+}
+
+/* ========== RESPONSIVE - MOBILE ========== */
+@media (max-width: 768px) {
+    .mini-portfolio-section-new {
+        padding: var(--space-16) 0;
+    }
+    
+    .portfolio-new-title {
+        font-size: 1.75rem;
+        margin-bottom: var(--space-12);
+    }
+    
+    .portfolio-new-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+        padding: var(--space-3);
+    }
+    
+    .portfolio-new-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .card-content {
+        padding: var(--space-5);
+    }
+    
+    .card-title {
+        font-size: 1.15rem;
+    }
+    
+    .card-description {
+        font-size: 0.9rem;
+    }
+    
+    .card-features {
+        gap: var(--space-2);
+    }
+    
+    .feature-item {
+        font-size: 0.8rem;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-new-card,
+    .card-image-wrapper img,
+    .card-cta svg {
+        transition: none !important;
+    }
+}
+
