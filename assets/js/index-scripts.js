@@ -324,70 +324,132 @@ function initFAQ() {
 }
 
 function initTestimonialsCarousel() {
+    const carousel = document.querySelector('.testimonials-carousel');
     const track = document.querySelector('.testimonials-track');
     const prevBtn = document.querySelector('.testimonials-prev');
     const nextBtn = document.querySelector('.testimonials-next');
+    const cards = document.querySelectorAll('.testimonial-card');
+    
+    if (!carousel || !track || !prevBtn || !nextBtn || cards.length === 0) {
+        console.warn('Testimonials carousel elements not found');
+        return;
+    }
 
-    if (!track || !prevBtn || !nextBtn) return;
-
-    const cards = Array.from(track.children);
-    const originalCardCount = cards.length / 2;
     let currentIndex = 0;
-    let isTransitioning = false;
-
-    function getScrollWidth() {
+    const totalCards = cards.length / 2; // Mamy duplikaty (6 kart = 3 oryginały)
+    let isAnimating = false;
+    
+    // Funkcja obliczania szerokości slajdu
+    function getSlideWidth() {
         const card = cards[0];
-        const style = window.getComputedStyle(card);
         const cardWidth = card.offsetWidth;
-        const gap = parseFloat(style.marginRight) || parseFloat(window.getComputedStyle(track).gap) || 0;
+        const gap = 32; // var(--space-8)
         return cardWidth + gap;
     }
-
-    const slideWidth = getScrollWidth();
-
+    
+    let slideWidth = getSlideWidth();
+    
+    // Funkcja aktualizacji karuzeli
     function updateCarousel(instant = false) {
-        isTransitioning = true;
-        track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        const offset = -(currentIndex * slideWidth);
+        
+        if (instant) {
+            track.style.transition = 'none';
+        } else {
+            track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+        
+        track.style.transform = `translateX(${offset}px)`;
     }
-
-    track.addEventListener('transitionend', () => {
-        isTransitioning = false;
-        if (currentIndex >= originalCardCount) {
-            currentIndex = 0;
-            updateCarousel(true);
-        } else if (currentIndex < 0) {
-            currentIndex = originalCardCount - 1;
-            updateCarousel(true);
+    
+    // Przycisk NEXT
+    nextBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        currentIndex++;
+        updateCarousel(false);
+        
+        // Infinite loop - po ostatnim slajdzie wracamy do początku
+        if (currentIndex >= totalCards) {
+            setTimeout(() => {
+                currentIndex = 0;
+                updateCarousel(true);
+                setTimeout(() => { isAnimating = false; }, 50);
+            }, 500);
+        } else {
+            setTimeout(() => { isAnimating = false; }, 500);
         }
     });
-
-    function moveToNext() {
-        if (isTransitioning) return;
-        currentIndex++;
-        updateCarousel();
-    }
-
-    function moveToPrev() {
-        if (isTransitioning) return;
+    
+    // Przycisk PREVIOUS
+    prevBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
         if (currentIndex === 0) {
-            isTransitioning = true;
-            track.style.transition = 'none';
-            currentIndex = originalCardCount;
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            track.offsetHeight;
-            currentIndex--;
-            track.style.transition = 'transform 0.5s ease-in-out';
-            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-            setTimeout(() => { isTransitioning = false; }, 500);
+            // Jesteśmy na początku - skocz do końca
+            currentIndex = totalCards;
+            updateCarousel(true);
+            
+            setTimeout(() => {
+                currentIndex--;
+                updateCarousel(false);
+                setTimeout(() => { isAnimating = false; }, 500);
+            }, 50);
         } else {
             currentIndex--;
-            updateCarousel();
+            updateCarousel(false);
+            setTimeout(() => { isAnimating = false; }, 500);
+        }
+    });
+    
+    // Pauza przy hover
+    carousel.addEventListener('mouseenter', function() {
+        carousel.closest('.testimonials-carousel-wrapper')?.classList.add('paused');
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+        carousel.closest('.testimonials-carousel-wrapper')?.classList.remove('paused');
+    });
+    
+    // Responsive - przelicz przy zmianie rozmiaru
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            slideWidth = getSlideWidth();
+            updateCarousel(true);
+        }, 250);
+    });
+    
+    // Touch/Swipe support dla mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    track.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextBtn.click();
+            } else {
+                prevBtn.click();
+            }
         }
     }
-
-    nextBtn.addEventListener('click', moveToNext);
-    prevBtn.addEventListener('click', moveToPrev);
+    
+    console.log('✅ Testimonials carousel initialized');
 }
 
 function initAnimations() {
