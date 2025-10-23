@@ -3743,3 +3743,16 @@ section {
         transition: none !important;
     }
 }
+/* ========================================
+   POPRAWKA: Pozycjonowanie obrazu Power of Mind
+   ======================================== */
+
+/* Dla trzeciej karty - pokaż górną część zdjęcia */
+.portfolio-new-card:nth-child(3) .card-image-wrapper img {
+    object-position: center 15%; /* Reguluj tę wartość: 0% = sama góra, 50% = środek */
+}
+
+/* Opcjonalnie: dla wszystkich obrazów z nazwą PowerOfMind */
+.card-image-wrapper img[src*="POWEROFMIND"] {
+    object-position: center 15%;
+}
