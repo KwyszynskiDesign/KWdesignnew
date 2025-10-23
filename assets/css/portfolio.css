@@ -188,7 +188,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .logo-carousel-section{margin-top:clamp(50px,8vh,80px);}
 .logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 
-/* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
+
 /* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
 .about-me-visuals{
   display:flex;
@@ -794,7 +794,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     display:flex !important;
     flex-direction:column !important;
     padding:0 15px !important;
-    gap:0 !important; /* ZERO gap - kontrolujemy marginesy ręcznie */
+    gap:0 !important;
     max-width:100% !important;
     align-items:center !important;
   }
@@ -808,34 +808,49 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     order:1 !important;
     transform:none !important;
     -webkit-transform:none !important;
-    margin:0 auto 0 auto !important; /* Zero margin-bottom - dodamy w dzieciach */
+    margin:0 auto 0 auto !important;
     padding:0 !important;
     position:relative !important;
     max-width:100% !important;
     gap:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
   }
   
   .about-me-image{
     max-width:240px !important;
     aspect-ratio:1 !important;
-    margin:0 auto 25px auto !important; /* 25px margines POD zdjęciem */
+    margin:0 auto 25px auto !important;
     border-radius:22px !important;
   }
   
-  /* 2-5. TEKST + CTA (order: 2) */
+  /* 5. CTA BUTTON - w .about-me-visuals ale renderuje jako ostatnie */
+  .about-me-visuals .cta-portfolio{
+    order:999 !important;
+    max-width:280px !important;
+    margin:35px auto 0 auto !important;
+    padding:16px 32px !important;
+    font-size:1rem !important;
+  }
+  
+  /* 2-4. TEKST (order: 2) */
   .about-me-text{
     order:2 !important;
     padding:0 15px !important;
     text-align:center !important;
     margin:0 !important;
     width:100% !important;
+    display:flex !important;
+    flex-direction:column !important;
   }
   
   /* 2. Nagłówek H1 */
   .about-me-text h1{
     font-size:clamp(1.7rem,6vw,2.2rem) !important;
-    margin:0 0 15px 0 !important; /* 15px między tytułem a subtitle */
+    margin:0 0 15px 0 !important;
     text-align:center !important;
+    order:1 !important;
   }
   
   .about-me-text h1::after{
@@ -847,31 +862,25 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   /* 3. Podnagłówek (rola) */
   .about-me-text .subtitle{
     font-size:clamp(1rem,2.5vw,1.2rem) !important;
-    margin:0 0 20px 0 !important; /* 20px między subtitle a paragrafem */
+    margin:0 0 20px 0 !important;
     text-align:center !important;
+    order:2 !important;
   }
   
   /* 4. Paragraf opisowy */
   .about-me-text>p{
     font-size:0.95rem !important;
     line-height:1.65 !important;
-    margin:0 0 25px 0 !important; /* 25px między paragrafem a CTA */
+    margin:0 0 25px 0 !important;
     text-align:center !important;
+    order:3 !important;
   }
   
-  /* 5. CTA Button - PRZENIEŚ DO .about-me-text (nie visuals) */
-  .about-me-visuals .cta-portfolio{
-    order:3 !important; /* Po tekście */
-    max-width:280px !important;
-    margin:0 auto 35px auto !important; /* 35px między CTA a superpowers */
-    padding:16px 32px !important;
-    font-size:1rem !important;
-  }
-  
-  /* 6. SUPERPOWERS - pozostają w .about-me-text */
+  /* 6. SUPERPOWERS - order:4 */
   .skills-section{
-    margin:0 0 30px 0 !important; /* 30px między superpowers a logo carousel */
+    margin:0 0 30px 0 !important;
     width:100% !important;
+    order:4 !important;
   }
   
   .skills-section h3{
@@ -906,16 +915,22 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     font-size:1.8rem !important;
   }
   
-  /* 7. LOGO CAROUSEL */
+  /* 7. LOGO CAROUSEL - order:5 */
   .logo-carousel-section{
     margin:0 !important;
     width:100% !important;
+    order:5 !important;
   }
   
   .logo-carousel-section h6{
     font-size:0.8rem !important;
     margin:0 0 15px 0 !important;
     text-align:center !important;
+  }
+  
+  /* Ukryj interests jeśli są */
+  .about-me-text .interests-section{
+    display:none !important;
   }
   
   /* Portfolio Section */
@@ -925,6 +940,49 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     z-index:10 !important;
     padding:40px 0 !important;
     margin-top:0 !important;
+  }
+  
+  /* Carousel adjustments */
+  .carousel-outer{
+    margin:0 10px !important;
+    padding:40px 0 60px 0 !important;
+  }
+  
+  .carousel-track{
+    grid-auto-columns:minmax(280px,320px) !important;
+    padding:15px !important;
+    padding-bottom:30px !important;
+    mask-image:linear-gradient(to right, transparent, #000 3% 97%, transparent) !important;
+  }
+  
+  .carousel-item{
+    min-width:280px !important;
+    max-width:320px !important;
+    padding:20px 14px !important;
+    border-radius:18px !important;
+    height:300px !important;
+  }
+  
+  .carousel-controls{
+    margin:40px auto 0 auto !important;
+    gap:20px !important;
+    max-width:200px !important;
+  }
+  
+  .carousel-nav{
+    width:50px !important;
+    height:50px !important;
+    font-size:20px !important;
+    border-radius:16px !important;
+  }
+  
+  .carousel-item h3{
+    font-size:1rem !important;
+    margin-bottom:14px !important;
+  }
+  
+  .carousel-item img{
+    max-height:80% !important;
   }
 }
 
@@ -963,7 +1021,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:260px !important;
     padding:14px 28px !important;
     font-size:0.95rem !important;
-    margin-bottom:30px !important;
+    margin-top:30px !important;
   }
   
   .superpowers-grid{
@@ -975,6 +1033,24 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     width:60px !important;
     height:60px !important;
     font-size:1.6rem !important;
+  }
+  
+  .carousel-track{
+    grid-auto-columns:minmax(260px,300px) !important;
+    gap:20px !important;
+    padding:12px !important;
+    padding-bottom:25px !important;
+  }
+  
+  .carousel-item{
+    min-width:260px !important;
+    max-width:300px !important;
+    height:280px !important;
+  }
+  
+  .carousel-outer{
+    margin:0 5px !important;
+    padding:30px 0 50px 0 !important;
   }
 }
 
@@ -1000,56 +1076,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .about-me-text{
     display:flex !important;
     flex-direction:column !important;
-    visibility:visible !important;
-  }
-  
-  /* Ukryj niepotrzebne elementy jeśli są */
-  .about-me-text .interests-section{
-    display:none !important; /* Jeśli masz tę sekcję, ukryj na mobile */
-  }
-}
-
-
-@media(max-width:480px){
-  .about-me-section{
-    margin-top:60px !important;
-    padding:30px 0 30px 0 !important;
-  }
-  
-  .about-me-grid{
-    padding:0 10px !important;
-  }
-  
-  .about-me-visuals{
-    max-width:280px !important;
-  }
-  
-  .about-me-image{
-    max-width:260px !important;
-  }
-}
-
-/* === FORCE VISIBILITY === */
-@media(max-width:768px){
-  body, html{
-    overflow-x:hidden !important;
-    overflow-y:auto !important;
-  }
-  
-  .about-me-section{
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
-  }
-  
-  .about-me-grid{
-    display:flex !important;
-    visibility:visible !important;
-  }
-  
-  .about-me-visuals,
-  .about-me-text{
-    display:flex !important;
     visibility:visible !important;
   }
 }
