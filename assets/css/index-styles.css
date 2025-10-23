@@ -1511,7 +1511,7 @@ section {
 
 
 
-/* Premium Testimonials Carousel */
+/* Premium Testimonials Carousel - Fixed Scrollbar Issue */
 .testimonials-section {
     background: var(--color-dark);
     color: white;
@@ -1529,6 +1529,7 @@ section {
     height: 200%;
     background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(34, 211, 238, 0.06) 40%, transparent 70%);
     animation: rotate 25s linear infinite;
+    pointer-events: none;
 }
 
 .testimonials-section::after {
@@ -1540,6 +1541,7 @@ section {
     height: 150%;
     background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 60%);
     animation: rotate 30s linear infinite reverse;
+    pointer-events: none;
 }
 
 @keyframes rotate {
@@ -1557,6 +1559,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 
 .testimonials-carousel {
@@ -1565,6 +1568,7 @@ section {
     margin: 0 auto;
     z-index: 2;
     width: 100%;
+    overflow: hidden;
 }
 
 /* Keyframes for the infinite scroll */
@@ -1573,14 +1577,14 @@ section {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%); /* Scroll the length of the original items */
+        transform: translateX(-50%);
     }
 }
 
 .testimonials-track {
     display: flex;
     gap: var(--space-8);
-    width: 200%; /* 6 items total */
+    width: 200%;
 }
 
 .testimonials-carousel-wrapper:hover .testimonials-track,
@@ -1589,8 +1593,8 @@ section {
 }
 
 .testimonial-card {
-    flex: 0 0 calc(33.333% - var(--space-10)); /* Made narrower */
-    max-width: 380px; /* Added max-width */
+    flex: 0 0 calc(33.333% - var(--space-10));
+    max-width: 380px;
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1659,6 +1663,7 @@ section {
     width: 100%;
     position: relative;
     z-index: 3;
+    padding: var(--space-2);
 }
 
 .testimonials-nav {
@@ -1676,6 +1681,7 @@ section {
     transition: var(--transition-all);
     backdrop-filter: blur(10px);
     z-index: 3;
+    flex-shrink: 0;
 }
 
 .testimonials-nav:hover:not(:disabled) {
@@ -1683,6 +1689,7 @@ section {
     border-color: var(--color-primary);
     color: var(--color-primary);
     transform: scale(1.05);
+    will-change: transform;
 }
 
 .testimonials-nav:disabled {
@@ -1690,6 +1697,13 @@ section {
     cursor: not-allowed;
     transform: none;
 }
+
+.testimonials-nav svg {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
 
 /* _________________________________________________________________________*/
 
