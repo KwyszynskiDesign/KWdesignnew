@@ -41,7 +41,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* === PREMIUM ABOUT SECTION === */
 .about-me-section{
-  padding:clamp(220px,22vh,320px) 0 clamp(160px,16vh,220px) 0;
+  padding:clamp(120px,15vh,180px) 0 clamp(100px,12vh,140px) 0;
   overflow:visible;
   background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   position:relative;
@@ -73,13 +73,13 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .about-me-text{
   overflow:visible;
   min-height:auto;
-  padding:30px 0 20px clamp(50px,8vw,120px);
+  padding:30px 0 20px clamp(20px,4vw,120px);
   position:relative;
 }
 
 .about-me-text h1{
-  margin-bottom:clamp(45px,7vh,70px);
-  font-size:clamp(2.4rem,5vw,4.2rem);
+  margin-bottom:clamp(35px,5vh,50px);
+  font-size:clamp(2rem,4.5vw,3.8rem);
   font-weight:700;
   background:linear-gradient(135deg,#0f172a 0%,#334155 45%,#475569 100%);
   -webkit-background-clip:text;
@@ -105,8 +105,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 .about-me-text .subtitle{
-  margin-bottom:clamp(55px,9vh,90px);
-  font-size:clamp(1.2rem,3vw,1.6rem);
+  margin-bottom:clamp(40px,6vh,60px);
+  font-size:clamp(1.1rem,2.6vw,1.5rem);
   color:#0ea5e9;
   font-weight:600;
   line-height:1.4;
@@ -115,56 +115,56 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 .about-me-text>p{
-  margin-bottom:clamp(65px,11vh,110px);
+  margin-bottom:clamp(45px,7vh,70px);
   color:#475569;
   line-height:1.75;
-  font-size:clamp(1.05rem,2.2vw,1.2rem);
+  font-size:clamp(1rem,2vw,1.15rem);
   overflow:visible;
   font-weight:400;
 }
 
 /* === SKILLS & INTERESTS === */
-.skills-section{margin-bottom:clamp(70px,11vh,110px);}
+.skills-section{margin-bottom:clamp(50px,8vh,80px);}
 .skills-section h3{
-  margin:0 0 clamp(35px,6vh,55px) 0;
-  font-size:clamp(1.4rem,3.2vw,1.9rem);
+  margin:0 0 clamp(25px,4vh,40px) 0;
+  font-size:clamp(1.3rem,2.8vw,1.8rem);
   font-weight:700;
   background:linear-gradient(135deg,#1e293b,#475569);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   overflow:visible;
 }
-.skills-section p{margin-bottom:clamp(45px,7vh,70px);color:#64748b;line-height:1.65;overflow:visible;font-weight:400;}
+.skills-section p{margin-bottom:clamp(30px,5vh,50px);color:#64748b;line-height:1.65;overflow:visible;font-weight:400;}
 
 .interests-section h3{
-  margin:clamp(70px,11vh,110px) 0 clamp(30px,5vh,50px) 0;
-  font-size:clamp(1.4rem,3.2vw,1.9rem);
+  margin:clamp(50px,8vh,80px) 0 clamp(25px,4vh,40px) 0;
+  font-size:clamp(1.3rem,2.8vw,1.8rem);
   font-weight:700;
   background:linear-gradient(135deg,#1e293b,#475569);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.interests-section p{margin-bottom:clamp(55px,9vh,85px);color:#64748b;line-height:1.65;font-weight:400;}
+.interests-section p{margin-bottom:clamp(40px,6vh,60px);color:#64748b;line-height:1.65;font-weight:400;}
 
 /* === PREMIUM SUPERPOWERS === */
 .superpowers-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(75px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(70px,1fr));
+  gap:16px;
   max-width:420px;
-  margin:clamp(25px,5vh,35px) 0;
+  margin:clamp(20px,4vh,30px) 0;
 }
 .superpowers-grid span{
   display:flex;
   align-items:center;
   justify-content:center;
-  width:75px;
-  height:75px;
-  font-size:2.2rem;
+  width:70px;
+  height:70px;
+  font-size:2rem;
   background:rgba(255,255,255,0.95);
   backdrop-filter:blur(25px);
   border:1px solid rgba(255,255,255,0.5);
-  border-radius:18px;
+  border-radius:16px;
   transition:all 0.25s cubic-bezier(0.4,0,0.2,1);
   filter:drop-shadow(0 6px 16px rgba(0,0,0,0.08)) drop-shadow(0 3px 6px rgba(0,0,0,0.06));
   position:relative;
@@ -174,27 +174,27 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   position:absolute;
   inset:0;
   background:linear-gradient(135deg,rgba(255,255,255,0.3),rgba(255,255,255,0.1));
-  border-radius:18px;
+  border-radius:16px;
   opacity:0;
   transition:opacity 0.3s ease;
 }
 .superpowers-grid span:hover::before{opacity:1;}
 
-.logo-carousel-section{margin-top:clamp(70px,11vh,110px);}
-.logo-carousel-section h6{margin-bottom:clamp(35px,6vh,55px);color:#64748b;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
+.logo-carousel-section{margin-top:clamp(50px,8vh,80px);}
+.logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 
-/* === PREMIUM VISUAL SECTION === */
+/* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
 .about-me-visuals{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:clamp(55px,8vh,80px);
+  gap:clamp(40px,6vh,60px);
   max-width:420px;
   justify-self:center;
   overflow:visible;
-  transform:translateY(-220px);
+  transform:translateY(-120px);
   position:relative;
-  padding:35px;
+  padding:25px;
 }
 
 .about-me-image{
@@ -246,15 +246,17 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .cta-portfolio{
   display:inline-flex;
   align-items:center;
-  gap:14px;
-  padding:22px 44px;
+  justify-content:center;
+  gap:12px;
+  padding:20px 40px;
   max-width:370px;
+  width:100%;
   background:linear-gradient(135deg,#0ea5e9 0%,#3b82f6 50%,#2563eb 100%);
   color:#fff;
   text-decoration:none;
   border-radius:60px;
   font-weight:600;
-  font-size:1.1rem;
+  font-size:1.05rem;
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   filter:
     drop-shadow(0 10px 30px rgba(59,130,246,0.25))
@@ -285,32 +287,32 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 .cta-portfolio:hover::before{opacity:1;}
 
-/* === NAPRAWIONA KARUZELA - POWER OF MIND WIDOCZNY === */
+/* === NAPRAWIONA KARUZELA - CIENIE WIDOCZNE + RESPONSIVE === */
 :root{
-  --car-gap: 26px;
-  --car-pad: 25px;
+  --car-gap: 24px;
+  --car-pad: 20px;
   --card-h: 340px;
 }
 
 .carousel-outer{
   position:relative;
   overflow:visible;
-  padding:25px 0 50px 0;
-  margin:0 25px;
+  padding:60px 0 80px 0;
+  margin:0 20px;
   z-index:20;
   background:transparent;
   isolation:isolate;
 }
 
-/* NAPRAWKA: grid-auto-columns z stałą szerokością */
 .carousel-track{
   display:grid;
   grid-auto-flow:column;
   gap:var(--car-gap);
-  /* ZMIENIONE: stała szerokość każdej karty */
   grid-auto-columns:minmax(300px,350px);
   overflow-x:auto;
+  overflow-y:visible;
   padding:var(--car-pad);
+  padding-bottom:40px;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
@@ -319,7 +321,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   position:relative;
   z-index:21;
   isolation:isolate;
-  /* LŻEJSZA MASKA - pokazuje więcej */
   mask-image:linear-gradient(to right, transparent, #000 5% 95%, transparent);
 }
 .carousel-track::-webkit-scrollbar{display:none;}
@@ -328,7 +329,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 /* === PREMIUM PORTFOLIO CARDS - NAPRAWIONE === */
 .carousel-item{
   scroll-snap-align:start;
-  scroll-snap-stop:normal; /* DODANE: pozwala przeskakiwać */
+  scroll-snap-stop:normal;
   background:rgba(255,255,255,0.95);
   backdrop-filter:blur(15px);
   border:1px solid rgba(255,255,255,0.3);
@@ -345,10 +346,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   cursor:pointer;
   position:relative;
   z-index:22;
-  /* STAŁA SZEROKOŚĆ - ważne! */
   min-width:300px;
   max-width:350px;
-  flex:0 0 auto; /* DODANE: zapobiega kurczeniu */
+  flex:0 0 auto;
   filter:
     drop-shadow(0 10px 30px rgba(0,0,0,0.08))
     drop-shadow(0 6px 16px rgba(0,0,0,0.06))
@@ -380,9 +380,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .carousel-item:hover::before{opacity:1;}
 
 .carousel-item h3{
-  font-size:1.15rem;
+  font-size:1.1rem;
   font-weight:600;
-  margin:0 0 18px;
+  margin:0 0 16px;
   color:#1e293b;
   flex:0 0 auto;
   line-height:1.3;
@@ -417,7 +417,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   transform:scale(1.08);
 }
 
-/* === PREMIUM NAVIGATION === */
+/* === PREMIUM NAVIGATION - NAPRAWIONE CIENIE === */
 .carousel-controls{
   margin:50px auto 0 auto;
   display:flex;
@@ -428,6 +428,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   max-width:260px;
   z-index:25;
   position:relative;
+  padding:10px 0;
 }
 
 .carousel-nav{
@@ -492,41 +493,47 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   filter:drop-shadow(0 6px 16px rgba(148,163,184,0.1));
 }
 
-/* === RESPONSIVE DESIGN - NAPRAWIONE === */
+/* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
 @media(max-width:768px){
-  :root{--card-h:300px;}
+  :root{--card-h:320px;}
   
   .about-me-section{
     background:linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-    padding:clamp(160px,20vh,240px) 0 clamp(130px,14vh,170px) 0;
+    padding:clamp(80px,12vh,120px) 0 clamp(60px,8vh,90px) 0;
   }
   
   .about-me-grid{
     grid-template-columns:1fr;
     text-align:center;
-    gap:clamp(70px,14vh,120px);
+    gap:clamp(40px,8vh,70px);
     max-width:100%;
   }
   
   .about-me-visuals{
-    transform:translateY(-140px);
+    transform:translateY(0);
     max-width:340px;
-    padding:25px;
-    gap:clamp(45px,7vh,65px);
+    padding:20px;
+    gap:clamp(30px,5vh,45px);
+    order:1;
   }
   
-  .about-me-image{max-width:320px;aspect-ratio:1;border-radius:24px;}
-  .cta-portfolio{max-width:320px;padding:20px 40px;font-size:1.05rem;}
-  .superpowers-grid{grid-template-columns:repeat(3,1fr);justify-items:center;max-width:300px;margin:0 auto clamp(20px,4vh,30px);}
+  .about-me-text{
+    order:2;
+  }
+  
+  .about-me-image{max-width:300px;aspect-ratio:1;border-radius:24px;}
+  .cta-portfolio{max-width:300px;padding:18px 36px;font-size:1rem;}
+  .superpowers-grid{grid-template-columns:repeat(3,1fr);justify-items:center;max-width:280px;margin:0 auto clamp(15px,3vh,25px);}
   
   .about-me-text{
     text-align:center;
-    padding:20px 0 15px 0;
+    padding:15px 0 10px 0;
   }
   
   .about-me-text h1{
     text-align:center;
-    font-size:clamp(2rem,7vw,2.8rem);
+    font-size:clamp(1.8rem,6.5vw,2.5rem);
+    margin-bottom:clamp(25px,4vh,35px);
   }
   
   .about-me-text h1::after{
@@ -534,14 +541,21 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     transform:translateX(-50%);
   }
   
-  .about-me-text .subtitle{text-align:center;}
+  .about-me-text .subtitle{
+    text-align:center;
+    margin-bottom:clamp(30px,5vh,45px);
+  }
   
-  .carousel-outer{margin:0 15px;padding:20px 0 40px 0;}
+  .about-me-text>p{
+    margin-bottom:clamp(35px,6vh,50px);
+  }
+  
+  .carousel-outer{margin:0 10px;padding:40px 0 60px 0;}
   
   .carousel-track{
-    /* MOBILE: pokazuj 1.3 karty (jedna pełna + 30% następnej) */
     grid-auto-columns:minmax(280px,320px);
-    padding:20px;
+    padding:15px;
+    padding-bottom:30px;
     mask-image:linear-gradient(to right, transparent, #000 3% 97%, transparent);
   }
   
@@ -550,30 +564,51 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     max-width:320px;
     padding:20px 14px;
     border-radius:18px;
+    height:300px;
   }
   
-  .carousel-controls{margin:40px auto 0 auto;gap:28px;max-width:200px;}
+  .carousel-controls{margin:40px auto 0 auto;gap:20px;max-width:200px;}
   .carousel-nav{width:50px;height:50px;font-size:20px;border-radius:16px;}
-  .carousel-item h3{font-size:1.05rem;margin-bottom:16px;}
+  .carousel-item h3{font-size:1rem;margin-bottom:14px;}
   .carousel-item img{max-height:80%;}
 }
 
 @media(max-width:480px){
+  .about-me-section{
+    padding:clamp(60px,10vh,90px) 0 clamp(50px,7vh,70px) 0;
+  }
+  
+  .about-me-visuals{
+    max-width:280px;
+    padding:15px;
+  }
+  
+  .about-me-image{
+    max-width:260px;
+  }
+  
+  .cta-portfolio{
+    max-width:260px;
+    padding:16px 32px;
+    font-size:0.95rem;
+  }
+  
   .carousel-track{
-    /* MAŁE EKRANY: jedna karta na raz */
     grid-auto-columns:minmax(260px,300px);
     gap:20px;
+    padding:12px;
+    padding-bottom:25px;
   }
   
   .carousel-item{
     min-width:260px;
     max-width:300px;
+    height:280px;
   }
   
-  .carousel-outer{margin:0 8px;}
-  .about-me-visuals{max-width:300px;}
-  .about-me-image{max-width:280px;}
-  .cta-portfolio{max-width:280px;padding:18px 36px;}
+  .carousel-outer{margin:0 5px;padding:30px 0 50px 0;}
+  .superpowers-grid{max-width:260px;}
+  .superpowers-grid span{width:65px;height:65px;font-size:1.8rem;}
 }
 
 /* === PROJECT VIEWER === */
