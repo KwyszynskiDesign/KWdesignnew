@@ -774,57 +774,151 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     image-rendering: crisp-edges;
   }
 }
-/* === EMERGENCY MOBILE FIX - 2025 === */
+/* === EMERGENCY MOBILE FIX - 2025 - PERFECT ORDER === */
 @media(max-width:768px){
-  /* WYŁĄCZ Hero Section na mobile - nie ma tam background image */
+  /* WYŁĄCZ Hero Section */
   body.portfolio-page .hero-section{
     display:none !important;
   }
   
-  /* About Me na górze strony */
+  /* About Me Section - reset */
   .about-me-section{
     margin-top:70px !important;
-    padding:40px 0 40px 0 !important;
+    padding:30px 0 40px 0 !important;
     min-height:auto !important;
     overflow:visible !important;
   }
   
+  /* Grid → Flex dla mobile */
   .about-me-grid{
     display:flex !important;
     flex-direction:column !important;
     padding:0 15px !important;
-    gap:30px !important;
+    gap:0 !important; /* ZERO gap - kontrolujemy marginesy ręcznie */
     max-width:100% !important;
+    align-items:center !important;
   }
   
-  /* ZERUJ wszystkie transform - to jest klucz! */
+  /* ========================================
+     KOLEJNOŚĆ MOBILE (zgodnie z UX)
+     ======================================== */
+  
+  /* 1. ZDJĘCIE PROFILOWE (order: 1) */
   .about-me-visuals{
+    order:1 !important;
     transform:none !important;
     -webkit-transform:none !important;
-    margin:0 auto !important;
+    margin:0 auto 0 auto !important; /* Zero margin-bottom - dodamy w dzieciach */
+    padding:0 !important;
     position:relative !important;
-    order:1 !important;
-    max-width:320px !important;
-  }
-  
-  .about-me-text{
-    order:2 !important;
-    padding:20px 15px !important;
-    text-align:center !important;
-    margin:0 !important;
+    max-width:100% !important;
+    gap:0 !important;
   }
   
   .about-me-image{
+    max-width:240px !important;
+    aspect-ratio:1 !important;
+    margin:0 auto 25px auto !important; /* 25px margines POD zdjęciem */
+    border-radius:22px !important;
+  }
+  
+  /* 2-5. TEKST + CTA (order: 2) */
+  .about-me-text{
+    order:2 !important;
+    padding:0 15px !important;
+    text-align:center !important;
+    margin:0 !important;
+    width:100% !important;
+  }
+  
+  /* 2. Nagłówek H1 */
+  .about-me-text h1{
+    font-size:clamp(1.7rem,6vw,2.2rem) !important;
+    margin:0 0 15px 0 !important; /* 15px między tytułem a subtitle */
+    text-align:center !important;
+  }
+  
+  .about-me-text h1::after{
+    left:50% !important;
+    transform:translateX(-50%) !important;
+    bottom:-8px !important;
+  }
+  
+  /* 3. Podnagłówek (rola) */
+  .about-me-text .subtitle{
+    font-size:clamp(1rem,2.5vw,1.2rem) !important;
+    margin:0 0 20px 0 !important; /* 20px między subtitle a paragrafem */
+    text-align:center !important;
+  }
+  
+  /* 4. Paragraf opisowy */
+  .about-me-text>p{
+    font-size:0.95rem !important;
+    line-height:1.65 !important;
+    margin:0 0 25px 0 !important; /* 25px między paragrafem a CTA */
+    text-align:center !important;
+  }
+  
+  /* 5. CTA Button - PRZENIEŚ DO .about-me-text (nie visuals) */
+  .about-me-visuals .cta-portfolio{
+    order:3 !important; /* Po tekście */
     max-width:280px !important;
+    margin:0 auto 35px auto !important; /* 35px między CTA a superpowers */
+    padding:16px 32px !important;
+    font-size:1rem !important;
+  }
+  
+  /* 6. SUPERPOWERS - pozostają w .about-me-text */
+  .skills-section{
+    margin:0 0 30px 0 !important; /* 30px między superpowers a logo carousel */
+    width:100% !important;
+  }
+  
+  .skills-section h3{
+    font-size:1.2rem !important;
+    margin:0 0 15px 0 !important;
+    text-align:center !important;
+  }
+  
+  .skills-section p{
+    font-size:0.9rem !important;
+    margin:0 0 20px 0 !important;
+    text-align:center !important;
+  }
+  
+  .superpowers-container{
+    display:flex !important;
+    justify-content:center !important;
+    width:100% !important;
+  }
+  
+  .superpowers-grid{
+    grid-template-columns:repeat(3,1fr) !important;
+    justify-items:center !important;
+    max-width:240px !important;
+    gap:12px !important;
     margin:0 auto !important;
   }
   
-  .cta-portfolio{
-    max-width:280px !important;
-    margin:0 auto !important;
+  .superpowers-grid span{
+    width:65px !important;
+    height:65px !important;
+    font-size:1.8rem !important;
   }
   
-  /* Portfolio Section musi być widoczna */
+  /* 7. LOGO CAROUSEL */
+  .logo-carousel-section{
+    margin:0 !important;
+    width:100% !important;
+  }
+  
+  .logo-carousel-section h6{
+    font-size:0.8rem !important;
+    margin:0 0 15px 0 !important;
+    text-align:center !important;
+  }
+  
+  /* Portfolio Section */
   .portfolio-section,
   #portfolio-section{
     position:relative !important;
@@ -832,13 +926,89 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     padding:40px 0 !important;
     margin-top:0 !important;
   }
+}
+
+/* === 480px BREAKPOINT === */
+@media(max-width:480px){
+  .about-me-section{
+    margin-top:60px !important;
+    padding:25px 0 35px 0 !important;
+  }
   
-  /* Superpowers */
-  .superpowers-grid{
+  .about-me-grid{
+    padding:0 10px !important;
+  }
+  
+  .about-me-image{
+    max-width:220px !important;
+    margin-bottom:20px !important;
+  }
+  
+  .about-me-text h1{
+    font-size:1.6rem !important;
+    margin-bottom:12px !important;
+  }
+  
+  .about-me-text .subtitle{
+    font-size:0.95rem !important;
+    margin-bottom:18px !important;
+  }
+  
+  .about-me-text>p{
+    font-size:0.9rem !important;
+    margin-bottom:22px !important;
+  }
+  
+  .about-me-visuals .cta-portfolio{
     max-width:260px !important;
-    margin:0 auto 20px auto !important;
+    padding:14px 28px !important;
+    font-size:0.95rem !important;
+    margin-bottom:30px !important;
+  }
+  
+  .superpowers-grid{
+    max-width:220px !important;
+    gap:10px !important;
+  }
+  
+  .superpowers-grid span{
+    width:60px !important;
+    height:60px !important;
+    font-size:1.6rem !important;
   }
 }
+
+/* === FORCE VISIBILITY === */
+@media(max-width:768px){
+  body, html{
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+  }
+  
+  .about-me-section{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+  
+  .about-me-grid{
+    display:flex !important;
+    visibility:visible !important;
+  }
+  
+  .about-me-visuals,
+  .about-me-text{
+    display:flex !important;
+    flex-direction:column !important;
+    visibility:visible !important;
+  }
+  
+  /* Ukryj niepotrzebne elementy jeśli są */
+  .about-me-text .interests-section{
+    display:none !important; /* Jeśli masz tę sekcję, ukryj na mobile */
+  }
+}
+
 
 @media(max-width:480px){
   .about-me-section{
