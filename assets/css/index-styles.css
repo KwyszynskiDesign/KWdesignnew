@@ -1707,274 +1707,311 @@ section {
 
 /* _________________________________________________________________________*/
 
-/* ========== PROCESS SECTION ========== */
+/* ========== PROCESS SECTION - REDESIGNED TIMELINE ========== */
+
 .process-section {
-    background: var(--color-background-darker);
-    padding: var(--space-24) 0;
+    padding: 120px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
     position: relative;
+    overflow: hidden;
 }
 
-.process-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-    margin-top: var(--space-16);
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.process-item {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    align-items: start;
-    padding: var(--space-6);
-    background: white;
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-lg);
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateX(-40px);
-    position: relative; /* ✅ Kluczowe dla position: absolute dziecka */
-}
-
-.process-item.reverse {
-    transform: translateX(40px);
-}
-
-.process-item.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.process-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-2xl);
-}
-
-/* ✅ CONTENT - bez paddingu na górę (na desktop numer jest w rogu) */
-.process-content {
-    position: relative;
-    padding: var(--space-6);
+/* Section Header */
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
     text-align: center;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
 }
 
-/* ✅ STEP NUMBER - domyślnie (mobile) NAD OPISEM */
-.step-number {
-    position: absolute;
-    top: -20px; /* ✅ Nad kartą */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: var(--radius-full);
-    background: var(--color-primary);
-    color: white;
+.section-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    text-align: center;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 80px;
+    line-height: 1.6;
+}
+
+/* Timeline Container */
+.process-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Timeline Item */
+.timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Timeline Marker (Left Side) */
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.marker-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    font-weight: var(--font-weight-bold);
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 8px 24px rgba(6, 182, 212, 0.3);
+    position: relative;
     z-index: 2;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.process-item:hover .step-number {
-    transform: translateX(-50%) scale(1.12);
-    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.6);
+.timeline-item:hover .marker-circle {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(6, 182, 212, 0.4);
 }
 
-.process-image {
+.marker-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+/* Connecting Line */
+.timeline-line {
+    width: 3px;
+    flex-grow: 1;
+    background: linear-gradient(180deg, var(--color-primary) 0%, rgba(6, 182, 212, 0.2) 100%);
+    margin-top: 8px;
     position: relative;
-    aspect-ratio: 16/9;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    background: var(--color-background-darker);
+    z-index: 1;
 }
 
-.process-image img {
+.timeline-item:last-child .timeline-line {
+    display: none;
+}
+
+/* Timeline Content (Right Side) */
+.timeline-content {
+    padding-top: 0;
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.content-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Icon */
+.card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.card-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+}
+
+/* Card Title & Description */
+.card-title {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.card-description {
+    font-size: 1.0625rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+/* Deliverables List */
+.card-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    border-left: 3px solid var(--color-primary);
+    padding-left: 20px;
+}
+
+.card-deliverables li {
+    font-size: 0.9375rem;
+    color: #333;
+    padding: 8px 0;
+    position: relative;
+    line-height: 1.6;
+}
+
+.card-deliverables li::before {
+    content: "→";
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-right: 12px;
+    position: absolute;
+    left: -20px;
+}
+
+/* Outcome Badge */
+.card-outcome {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 100%);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 0.9375rem;
+    color: #333;
+    border: 1px solid #d0e0ff;
+}
+
+.card-outcome strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Card Image */
+.card-image {
+    margin-top: 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #f0f0f0;
+}
+
+.card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition-slow);
+    transition: transform 0.4s ease;
 }
 
-.process-item:hover .process-image img {
+.content-card:hover .card-image img {
     transform: scale(1.05);
 }
 
-.process-content h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--space-4);
-    font-weight: var(--font-weight-bold);
-    font-size: 1.75rem;
-}
-
-.process-content p {
-    color: var(--color-text-light);
-    margin: 0;
-    line-height: 1.7;
-    font-size: 1.125rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
+/* CTA Section */
 .process-cta {
     text-align: center;
-    margin-top: var(--space-16);
+    margin-top: 80px;
 }
 
-/* ========== DESKTOP LAYOUT - NUMER W ROGU KARTY ========== */
-/* ========== DESKTOP LAYOUT - NUMER W ROGU KARTY ========== */
-@media (min-width: 1025px) {
-    .process-item {
-        grid-template-columns: 1fr 1fr !important;
-        gap: var(--space-12);
-        padding: var(--space-8);
-    }
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-    .process-content {
-        grid-column: 1;
-        grid-row: 1;
-        text-align: center;
-        padding: var(--space-16) var(--space-8) var(--space-8); /* ✅ ZMIANA: 64px górny padding */
-    }
-    
-    /* ✅ DODANE - margin na tytuł */
-    .process-content h3 {
-        margin-top: var(--space-4); /* ✅ 16px dodatkowego odstępu */
-        text-align: center;
-    }
-
-    .process-image {
-        grid-column: 2;
-        grid-row: 1;
-        aspect-ratio: 1/1;
-    }
-
-    /* REVERSE - zamienia kolumny */
-    .process-item.reverse .process-content {
-        grid-column: 2;
-        text-align: center;
-    }
-.process-content p {
-    text-align: center; 
-}
-    .process-item.reverse .process-image {
-        grid-column: 1;
-    }
-
-    /* ✅ DESKTOP - NUMER W GÓRNYM ROGU KARTY */
-    .step-number {
-        top: var(--space-6); /* ✅ 24px od góry karty */
-        left: var(--space-6); /* ✅ 24px od lewej krawędzi */
-        transform: none; /* ✅ Brak centralizacji */
-    }
-
-    /* REVERSE - numer w PRAWYM rogu */
-    .process-item.reverse .step-number {
-        left: auto;
-        right: var(--space-6); /* ✅ 24px od prawej krawędzi */
-    }
-
-    .process-item:hover .step-number {
-        transform: scale(1.12); /* ✅ Bez translateX */
-    }
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-    .process-item {
-        padding: var(--space-6);
-    }
-
-    .process-content h3 {
-        font-size: 1.6rem;
-    }
-
-    .process-content p {
-        font-size: 1.05rem;
-    }
-}
-
-
-/* MOBILE - Reset grid-column */
-/* ========== MOBILE LAYOUT - KOMPAKTOWY ========== */
-/* ========== MOBILE LAYOUT - OPIS GÓRĄ, ZDJĘCIE DOŁEM ========== */
 @media (max-width: 768px) {
-    .process-grid {
-        gap: var(--space-6); /* ✅ 24px */
-        max-width: 100%; /* ✅ Pełna szerokość */
+    .process-section {
+        padding: 80px 0;
     }
 
-    .process-item {
-        grid-template-columns: 1fr !important;
-        text-align: center;
-        padding: calc(var(--space-5) * 0.85); /* ✅ 15% mniejszy (20px → 17px) */
-        gap: calc(var(--space-5) * 0.85); /* ✅ 15% mniejszy */
-        margin-top: 0;
-        
-        /* ✅ WYMUSZENIE KOLEJNOŚCI: Opis → Zdjęcie */
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    
-    .process-item.reverse {
-        /* ✅ REVERSE też opis → zdjęcie (ignorujemy reverse na mobile) */
-        flex-direction: column !important;
+    .section-subtitle {
+        margin-bottom: 60px;
     }
 
-    /* ✅ OPIS ZAWSZE PIERWSZY */
-    .process-content {
-        order: 1 !important; /* ✅ Zawsze na górze */
-        padding: calc(var(--space-5) * 0.85) calc(var(--space-4) * 0.85) calc(var(--space-4) * 0.85); /* ✅ 15% mniejszy */
-        grid-column: 1 !important;
-        grid-row: auto !important;
-        text-align: center !important;
-        position: relative; /* ✅ Dla numeru */
+    .timeline-item {
+        grid-template-columns: 60px 1fr;
+        gap: 24px;
+        margin-bottom: 48px;
     }
 
-    /* ✅ ZDJĘCIE ZAWSZE DRUGIE */
-    .process-image {
-        order: 2 !important; /* ✅ Zawsze na dole */
-        grid-column: 1 !important;
-        grid-row: auto !important;
-        aspect-ratio: 4/3; /* ✅ Kompaktowy format */
-        
-        /* ✅ ZMNIEJSZENIE O 15% */
-        width: 85%; /* ✅ Szerokość o 15% mniejsza */
-        margin: 0 auto; /* ✅ Wycentrowanie */
+    .marker-circle {
+        width: 60px;
+        height: 60px;
     }
 
-    .process-content h3 {
-        font-size: calc(1.4rem * 0.85); /* ✅ 15% mniejszy (1.4rem → ~1.19rem) */
-         margin-top: var(--space-5);
-        margin-bottom: calc(var(--space-3) * 0.85);
-        margin-top: 0;
+    .marker-number {
+        font-size: 1.375rem;
     }
 
-    .process-content p {
-        font-size: calc(0.95rem * 0.85); /* ✅ 15% mniejszy (~0.81rem) */
-        line-height: 1.6;
-    }
-    
-    /* ✅ NUMER 20PX WYŻEJ (bez ruszania napisów) */
-    .step-number {
-        top: -26px; 
-        left: 50% !important; /* ✅ Wycentrowany */
-        right: auto !important;
-        transform: translateX(-50%) !important; /* ✅ Centrowanie */
-        width: calc(40px * 0.85); /* ✅ 15% mniejszy (40px → 34px) */
-        height: calc(40px * 0.85);
-        font-size: calc(1.05rem * 0.85); /* ✅ 15% mniejszy (~0.89rem) */
+    .content-card {
+        padding: 28px;
     }
 
-    .process-item:hover .step-number {
-        transform: translateX(-50%) scale(1.06) !important;
+    .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+    }
+
+    .card-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .card-deliverables {
+        padding-left: 16px;
+        margin: 20px 0;
+    }
+
+    .card-outcome {
+        padding: 14px 16px;
+        margin: 20px 0;
+    }
+
+    .process-cta {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-item {
+        grid-template-columns: 48px 1fr;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .marker-circle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .marker-number {
+        font-size: 1.125rem;
+    }
+
+    .content-card {
+        padding: 24px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+    }
+
+    .card-description,
+    .card-deliverables li,
+    .card-outcome {
+        font-size: 0.875rem;
     }
 }
 
