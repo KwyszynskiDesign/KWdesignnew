@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usługi – Karol Wyszyński</title>
+  <title>Usługi – Karol Wyszyński | Pakiety UX/UI Design & Branding</title>
+  <meta name="description" content="Profesjonalne usługi UX/UI design i brandingu. Od logo po kompleksową stronę internetową z automatyzacjami. Sprawdź pakiety dopasowane do Twoich potrzeb.">
+  
+  <!-- Favicon - Complete 2025 Implementation -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  
+  <!-- Apple Touch Icons (iOS devices) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  
+  <!-- Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  
+  <!-- Modern SVG Favicon with Dark Mode Support -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
+  
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileColor" content="#06b6d4">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  
+  <!-- Theme Color for Mobile -->
+  <meta name="theme-color" content="#06b6d4">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/index-styles.css" />
-  <style>
-    .service-details-section {
-      padding: var(--space-20) var(--space-8);
-      background: var(--color-background-light);
-    }
-    .service-detail {
-      max-width: 800px;
-      margin: 0 auto var(--space-24);
-      padding: var(--space-12);
-      background: var(--color-background);
-      border-radius: var(--radius-2xl);
-      box-shadow: var(--shadow-xl);
-    }
-    .service-detail h2 {
-      color: var(--color-primary);
-      font-family: var(--font-heading);
-      margin-bottom: var(--space-6);
-    }
-    .service-detail p, .service-detail ul {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: var(--color-text-light);
-    }
-    .service-detail ul {
-        list-style-position: inside;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/services-page.css" />
 </head>
+
 <body>
 
   <!-- Header -->
@@ -44,7 +53,7 @@
               <ul class="nav-list">
                   <li><a href="index.html">Start</a></li>
                   <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="uslugi.html">Usługi</a></li>
+                  <li><a href="uslugi.html" class="active">Usługi</a></li>
                   <li><a href="index.html#contact">Kontakt</a></li>
               </ul>
               <div class="hamburger">
@@ -56,45 +65,407 @@
       </div>
   </header>
 
-  <main>
-    <section class="service-details-section">
-      <div class="container">
-        <div class="service-detail" id="brand-start">
-          <h2>BRAND START</h2>
-          <p>Kompleksowe opracowanie logo i podstawowej identyfikacji wizualnej dla Twojej marki. Idealny pakiet na start, aby Twoja firma od początku wyglądała profesjonalnie.</p>
+  <!-- Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">Usługi</span>
+        <h1 class="hero-title">Pakiety współpracy dopasowane do Twoich potrzeb</h1>
+        <p class="hero-subtitle">Każda firma jest inna, dlatego przygotowałem trzy pakiety startowe, które odpowiadają na najczęstsze potrzeby na różnych etapach rozwoju. Niezależnie od tego, czy dopiero zaczynasz, czy chcesz skalować sprzedaż – znajdziesz tu rozwiązanie dopasowane do Twoich celów.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Package Descriptions -->
+  <section class="package-details">
+    <div class="container">
+      <h2 class="section-title">Poznaj szczegóły każdego pakietu</h2>
+      
+      <div class="details-grid">
+        <!-- Package 1: Brand Start -->
+        <div class="detail-card" id="brand-start">
+          <div class="detail-header">
+            <div class="detail-icon">🎯</div>
+            <h3>BRAND START</h3>
+            <p class="detail-tagline">Logo + identyfikacja wizualna</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Dla kogo jest ten pakiet?</h4>
+            <p>To idealne rozwiązanie dla startujących firm, marek osobistych i każdego, kto potrzebuje profesjonalnego wizerunku na start. Jeśli zaczynasz i chcesz od razu wyglądać wiarygodnie, to pakiet dla Ciebie.</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Co dokładnie otrzymujesz?</h4>
+            <p>W ramach tego pakietu przeprowadzam z Tobą warsztat strategiczny, na bazie którego projektuję 3 propozycje logo. Po wybraniu finalnej wersji, tworzę kompletną mini-księgę znaku: definiuję paletę kolorów, dobieram fonty i projektuję wizytówkę. Masz solidny fundament do dalszych działań.</p>
+          </div>
+        </div>
+
+        <!-- Package 2: Digital Boost -->
+        <div class="detail-card featured" id="digital-boost">
+          <div class="popular-badge">Najpopularniejsze</div>
+          <div class="detail-header">
+            <div class="detail-icon">💻</div>
+            <h3>DIGITAL BOOST</h3>
+            <p class="detail-tagline">Marka + strona internetowa</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Dla kogo jest ten pakiet?</h4>
+            <p>Dla firm, które chcą mocno zaistnieć w internecie lub których obecna strona internetowa nie przynosi klientów. Jeśli Twoja marka jest gotowa, ale potrzebujesz cyfrowego 'silnika', który będzie generował zapytania – to jest to.</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Co dokładnie otrzymujesz?</h4>
+            <p>Otrzymujesz wszystko z pakietu Brand Start ORAZ w pełni funkcjonalną, responsywną stronę internetową na WordPress. Projektuję ją w oparciu o strategię UX, aby prowadziła użytkownika prosto do celu (konwersji). Wdrażam podstawową analitykę, optymalizuję stronę pod SEO i zapewniam wsparcie techniczne po starcie.</p>
+          </div>
+        </div>
+
+        <!-- Package 3: Business Pro -->
+        <div class="detail-card" id="business-pro">
+          <div class="detail-header">
+            <div class="detail-icon">🚀</div>
+            <h3>BUSINESS PRO</h3>
+            <p class="detail-tagline">Kompletny pakiet z automatyzacjami</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Dla kogo jest ten pakiet?</h4>
+            <p>To kompletne rozwiązanie dla rozwiniętych biznesów, które chcą skalować sprzedaż, automatyzować procesy i podejmować decyzje w oparciu o twarde dane. Idealne dla sklepów e-commerce i firm usługowych gotowych na szybki wzrost.</p>
+          </div>
+          
+          <div class="detail-section">
+            <h4>Co dokładnie otrzymujesz?</h4>
+            <p>Otrzymujesz pełny pakiet Digital Boost, rozbudowany o sklep WooCommerce lub system rezerwacji online. Konfiguruję automatyzacje marketingowe (np. odzyskiwanie porzuconych koszyków, newsletter), wdrażam zaawansowaną analitykę (Google Analytics 4 z celami) i zapewniam priorytetowe wsparcie, aby Twój biznes działał jak dobrze naoliwiona maszyna.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="services-pricing">
+    <div class="container">
+      <h2 class="section-title">Twój plan inwestycji</h2>
+      <p class="section-subtitle">Transparentne ceny bez ukrytych kosztów</p>
+      
+      <div class="pricing-grid">
+        
+        <!-- Package 1: Brand Start -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <div class="card-icon">🎯</div>
+            <h3 class="card-title">BRAND START</h3>
+            <p class="card-subtitle">Logo + identyfikacja wizualna</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">2500 zł</span>
+          </div>
+          
+          <div class="card-features">
+            <ul>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt unikalnego logo (3 propozycje)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Definicja kolorystyki i typografii marki
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt wizytówki
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Mini brand book (księga znaku)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                30-dniowe wsparcie po zakończeniu projektu
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              3-5 tygodni
+            </span>
+          </div>
+          
+          <a href="#brand-start" class="card-btn btn-secondary">Szczegóły pakietu</a>
+        </div>
+
+        <!-- Package 2: Digital Boost (POPULAR) -->
+        <div class="pricing-card featured">
+          <div class="popular-badge">Najpopularniejsze</div>
+          <div class="card-header">
+            <div class="card-icon">💻</div>
+            <h3 class="card-title">DIGITAL BOOST</h3>
+            <p class="card-subtitle">Marka + strona internetowa</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">4500 zł</span>
+          </div>
+          
+          <div class="card-features">
+            <ul>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <strong>Wszystko z pakietu BRAND START</strong>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt i wdrożenie strony WWW (do 5 podstron)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Optymalizacja pod kątem konwersji i SEO
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Integracja z mediami społecznościowymi
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                90-dniowe wsparcie techniczne
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              6-8 tygodni
+            </span>
+          </div>
+          
+          <a href="index.html#contact" class="card-btn btn-primary">Rozpocznij projekt</a>
+        </div>
+
+        <!-- Package 3: Business Pro -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">BUSINESS PRO</h3>
+            <p class="card-subtitle">Kompletny pakiet z automatyzacjami</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">7500 zł</span>
+          </div>
+          
+          <div class="card-features">
+            <ul>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <strong>Wszystko z pakietu DIGITAL BOOST</strong>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Rozbudowana strona WWW z systemem e-commerce lub rezerwacji
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Automatyzacje marketingowe (np. newsletter, sekwencje mailowe)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Zaawansowana analityka i śledzenie celów
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                6-miesięczne wsparcie i konsultacje
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              8-12 tygodni
+            </span>
+          </div>
+          
+          <a href="#business-pro" class="card-btn btn-secondary">Szczegóły pakietu</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Scope -->
+  <section class="service-scope">
+    <div class="container">
+      <h2 class="section-title">Szczegółowy zakres usług</h2>
+      <p class="section-subtitle">Zobacz, co dokładnie wchodzi w skład każdego pakietu</p>
+      
+      <div class="scope-grid">
+        <div class="scope-column">
+          <div class="scope-icon">🎨</div>
+          <h3>Branding i Identyfikacja Wizualna</h3>
           <ul>
-            <li>Projekt unikalnego logo (3 propozycje)</li>
-            <li>Definicja kolorystyki i typografii marki</li>
-            <li>Projekt wizytówki</li>
-            <li>Mini brand book (księga znaku)</li>
-            <li>30-dniowe wsparcie po zakończeniu projektu</li>
+            <li>Projektowanie logo</li>
+            <li>Dobór kolorystyki i typografii</li>
+            <li>Projektowanie materiałów firmowych (wizytówki, papier firmowy)</li>
+            <li>Księga znaku (Brand Book)</li>
+            <li>Strategia komunikacji wizualnej</li>
           </ul>
         </div>
-        <div class="service-detail" id="digital-boost">
-          <h2>DIGITAL BOOST</h2>
-          <p>Rozszerzony pakiet, który oprócz brandingu obejmuje stworzenie nowoczesnej, responsywnej strony internetowej. To kompletne rozwiązanie, aby zaistnieć w internecie.</p>
+        
+        <div class="scope-column">
+          <div class="scope-icon">💻</div>
+          <h3>Strony Internetowe</h3>
           <ul>
-            <li>Wszystko z pakietu BRAND START</li>
-            <li>Projekt i wdrożenie strony WWW (do 5 podstron)</li>
-            <li>Optymalizacja pod kątem konwersji i SEO</li>
-            <li>Integracja z mediami społecznościowymi</li>
-            <li>90-dniowe wsparcie techniczne</li>
+            <li>Projektowanie UX/UI (Makiety i prototypy)</li>
+            <li>Responsywne strony na WordPress</li>
+            <li>Optymalizacja pod kątem SEO</li>
+            <li>Optymalizacja szybkości ładowania</li>
+            <li>Integracja z analityką (Google Analytics 4)</li>
           </ul>
         </div>
-        <div class="service-detail" id="business-pro">
-          <h2>BUSINESS PRO</h2>
-          <p>Najbardziej zaawansowany pakiet dla wymagających firm. Obejmuje pełen branding, stronę internetową oraz wdrożenie automatyzacji, które oszczędzą Twój czas i pieniądze.</p>
+        
+        <div class="scope-column">
+          <div class="scope-icon">⚙️</div>
+          <h3>Automatyzacje Biznesowe</h3>
           <ul>
-            <li>Wszystko z pakietu DIGITAL BOOST</li>
-            <li>Rozbudowana strona WWW z systemem e-commerce lub rezerwacji</li>
-            <li>Automatyzacje marketingowe (np. newsletter, sekwencje mailowe)</li>
-            <li>Zaawansowana analityka i śledzenie celów</li>
-            <li>6-miesięczne wsparcie i konsultacje</li>
+            <li>Wdrożenia e-commerce (WooCommerce)</li>
+            <li>Systemy rezerwacji online</li>
+            <li>Automatyzacja marketingu (Mailingi)</li>
+            <li>Integracje z systemami CRM</li>
+            <li>Lejek sprzedażowy i zbieranie leadów</li>
           </ul>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="services-comparison">
+    <div class="container">
+      <h2 class="section-title">Porównanie pakietów</h2>
+      <p class="section-subtitle">Zobacz dokładnie, co zawiera każdy pakiet i wybierz najlepszy dla siebie</p>
+      
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Funkcjonalność</th>
+              <th>Brand Start</th>
+              <th class="highlighted">Digital Boost</th>
+              <th>Business Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Projekt logo</td>
+              <td><span class="check">✓</span></td>
+              <td class="highlighted"><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Identyfikacja wizualna</td>
+              <td><span class="check">✓</span></td>
+              <td class="highlighted"><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Strona internetowa (do 5 podstron)</td>
+              <td><span class="cross">—</span></td>
+              <td class="highlighted"><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>E-commerce / System rezerwacji</td>
+              <td><span class="cross">—</span></td>
+              <td class="highlighted"><span class="cross">—</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Automatyzacje marketingowe</td>
+              <td><span class="cross">—</span></td>
+              <td class="highlighted"><span class="cross">—</span></td>
+              <td><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td>Wsparcie po wdrożeniu</td>
+              <td>30 dni</td>
+              <td class="highlighted">90 dni</td>
+              <td>6 miesięcy</td>
+            </tr>
+            <tr>
+              <td>Czas realizacji</td>
+              <td>3-5 tygodni</td>
+              <td class="highlighted">6-8 tygodni</td>
+              <td>8-12 tygodni</td>
+            </tr>
+            <tr class="price-row">
+              <td><strong>Cena</strong></td>
+              <td><strong>od 2500 zł</strong></td>
+              <td class="highlighted"><strong>od 4500 zł</strong></td>
+              <td><strong>od 7500 zł</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="services-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Nie jesteś pewny, który pakiet wybrać?</h2>
+        <p>Pakiety to tylko punkt wyjścia. Jeśli Twoje potrzeby są inne, z chęcią przygotuję dla Ciebie indywidualną wycenę. Porozmawiajmy o Twoim projekcie – bez zobowiązań.</p>
+        <a href="index.html#contact" class="btn btn-primary btn-large">Bezpłatna konsultacja</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
