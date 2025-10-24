@@ -1,178 +1,209 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio projektów | KWdesignnew</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Projektów UX/UI – Karol Wyszyński | Strony WWW, Branding</title>
+    <meta name="description" content="Zobacz moje projekty UX/UI: strony internetowe, sklepy e-commerce, brandingowe identyfikacje wizualne i automatyzacje. Portfolio z case studies i realizacjami." />
 
-  <!-- Style globalne -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/index-styles.css" />
-  <link rel="stylesheet" href="assets/css/about-me.css" />
-  <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    
+    <!-- Android Chrome Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <!-- Style globalne -->
+    <link rel="stylesheet" href="assets/css/index-styles.css" />
+    <link rel="stylesheet" href="assets/css/about-me.css" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
 </head>
 <body class="portfolio-page">
 
-  <!-- Header -->
-  <header class="header">
-      <div class="container header-inner">
-          <a href="index.html" class="logo">KW</a>
-          <nav class="nav">
-              <ul class="nav-list">
-                  <li><a href="index.html">Start</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="#" id="nav-wizualizacje" class="smooth">Wizualizacje</a></li>
-                  <li><a href="uslugi.html">Usługi</a></li>
-                  <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
-              </ul>
-              <div class="hamburger">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </div>
-          </nav>
-      </div>
-  </header>
-
-  <!-- About Me Section -->
-<!-- About Me Section -->
-<section class="about-me-section">
-  <div class="container about-me-grid">
-    <!-- TEXT: Order 2 on mobile -->
-    <div class="about-me-text">
-      <h1>Cześć, jestem Karol</h1>
-      <p class="subtitle">UX/UI Designer & Partner Biznesowy</p>
-      <p>Jestem projektantem z pasją do tworzenia intuicyjnych i efektywnych doświadczeń użytkownika. Pomagam firmom budować zaufanie i osiągać cele biznesowe poprzez przemyślany design.</p>
-
-      <div class="skills-section">
-          <h3>Moje supermoce 🦸‍♂️</h3>
-          <p>Technologie i narzędzia, w których czuję się jak ryba w wodzie.</p>
-          <div class="superpowers-container">
-              <div class="superpowers-grid">
-                  <span title="UX/UI Design">🎨</span>
-                  <span title="WordPress">✒️</span>
-                  <span title="WooCommerce">🛒</span>
-                  <span title="Automatyzacje">🤖</span>
-                  <span title="Google Apps Script">📊</span>
-                  <span title="Integracje API">🔗</span>
-              </div>
-          </div>
-      </div>
-
-      <!-- Logo Carousel -->
-      <div class="logo-carousel-section">
-          <h6>Pracuję w programach</h6>
-          <div class="logo-carousel">
-              <div class="logo-track">
-                  <!-- Logos repeated for infinite scroll effect -->
-                  <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
-                  <img src="assets/images/logos/adobexd.svg" alt="Adobe XD" title="Adobe XD" />
-                  <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
-                  <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
-                  <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
-                  <img src="assets/images/logos/vscode.svg" alt="Visual Studio Code" title="Visual Studio Code" />
-                  <img src="assets/images/logos/sketch.svg" alt="Sketch" title="Sketch" />
-                  <!-- Repeat -->
-                  <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
-                  <img src="assets/images/logos/adobexd.svg" alt="Adobe XD" title="Adobe XD" />
-                  <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
-                  <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
-                  <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
-                  <img src="assets/images/logos/vscode.svg" alt="Visual Studio Code" title="Visual Studio Code" />
-                  <img src="assets/images/logos/sketch.svg" alt="Sketch" title="Sketch" />
-              </div>
-          </div>
-      </div>
-    </div>
-
-    <!-- VISUALS: Order 1 on mobile (pokazuje się jako pierwsze) -->
-    <div class="about-me-visuals">
-      <div class="about-me-image">
-          <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - portret">
-      </div>
-      <a href="#portfolio-section" class="btn btn-primary cta-portfolio smooth">Zobacz moje realizacje</a>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Portfolio Section -->
-  <section id="portfolio-section" class="portfolio-section">
-    <div class="container">
-        <h2 class="section-title">Portfolio</h2>
-        <!-- Karuzela -->
-        <div class="carousel-outer" aria-label="Lista projektów">
-          <div class="carousel-track" tabindex="0" aria-live="polite">
-            <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.html">
-              <h3>Voucher – Salon u Magdy</h3>
-              <div class="ci-image">
-                <img src="assets/images/salon Magdy mockup copy.webp" alt="Voucher – Salon u Magdy" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div id="strona-karoma" class="carousel-item" data-project="karoma.html">
-              <h3>Strona – Karoma</h3>
-              <div class="ci-image">
-                <img src="assets/images/Karoma_NewLogo.webp" alt="Strona – Karoma" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
-              <h3>Pakiet – Power of Mind</h3>
-              <div class="ci-image">
-                <img src="assets/images/do SEO 1200x630.png" alt="Pakiet – Power of Mind" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div id="logo-marka-d" class="carousel-item" data-project="realizacja-1.html">
-              <h3>Sir Roger</h3>
-              <div class="ci-image">
-                <img src="assets/images/Roger.png" alt="Logo – Marka D" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div id="strona-marka-e" class="carousel-item" data-project="realizacja-2.html">
-              <h3>Strona – Marka E</h3>
-              <div class="ci-image">
-                <img src="assets/images/placeholder.jpg" alt="Strona – Marka E" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-            <div id="marka-f" class="carousel-item" data-project="realizacja-3.html">
-              <h3>Pakiet – Marka F</h3>
-              <div class="ci-image">
-                <img src="assets/images/placeholder.jpg" alt="Pakiet – Marka F" loading="lazy" decoding="async" />
-              </div>
-            </div>
-
-          </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo-link"><div class="logo">KW</div></a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="#" id="nav-wizualizacje" class="smooth">Wizualizacje</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="index.html#contact" class="smooth">Kontakt</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
         </div>
+    </header>
 
-        <!-- Strzałki przeniesione POD karuzelę -->
-        <div class="carousel-controls" aria-hidden="false">
-          <button class="carousel-nav prev" aria-label="Poprzednie">&lsaquo;</button>
-          <button class="carousel-nav next" aria-label="Następne">&rsaquo;</button>
+    <!-- About Me Section -->
+    <section class="about-me-section">
+        <div class="container about-me-grid">
+            <!-- TEXT: Order 2 on mobile -->
+            <div class="about-me-text">
+                <h1>Cześć, jestem Karol</h1>
+                <p class="subtitle">UX/UI Designer & Partner Biznesowy</p>
+                <p>Jestem projektantem z pasją do tworzenia intuicyjnych i efektywnych doświadczeń użytkownika. Pomagam firmom budować zaufanie i osiągać cele biznesowe poprzez przemyślany design.</p>
+
+                <div class="skills-section">
+                    <h3>Moje supermoce 🦸‍♂️</h3>
+                    <p>Technologie i narzędzia, w których czuję się jak ryba w wodzie.</p>
+                    <div class="superpowers-container">
+                        <div class="superpowers-grid">
+                            <span title="UX/UI Design">🎨</span>
+                            <span title="WordPress">✒️</span>
+                            <span title="WooCommerce">🛒</span>
+                            <span title="Automatyzacje">🤖</span>
+                            <span title="Google Apps Script">📊</span>
+                            <span title="Integracje API">🔗</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logo Carousel -->
+                <div class="logo-carousel-section">
+                    <h6>Pracuję w programach</h6>
+                    <div class="logo-carousel">
+                        <div class="logo-track">
+                            <!-- Logos repeated for infinite scroll effect -->
+                            <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
+                            <img src="assets/images/logos/adobexd.svg" alt="Adobe XD" title="Adobe XD" />
+                            <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
+                            <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
+                            <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
+                            <img src="assets/images/logos/vscode.svg" alt="Visual Studio Code" title="Visual Studio Code" />
+                            <img src="assets/images/logos/sketch.svg" alt="Sketch" title="Sketch" />
+                            <!-- Repeat -->
+                            <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
+                            <img src="assets/images/logos/adobexd.svg" alt="Adobe XD" title="Adobe XD" />
+                            <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
+                            <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
+                            <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
+                            <img src="assets/images/logos/vscode.svg" alt="Visual Studio Code" title="Visual Studio Code" />
+                            <img src="assets/images/logos/sketch.svg" alt="Sketch" title="Sketch" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISUALS: Order 1 on mobile (pokazuje się jako pierwsze) -->
+            <div class="about-me-visuals">
+                <div class="about-me-image">
+                    <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - UX/UI Designer - portret profesjonalny">
+                </div>
+                <a href="#portfolio-section" class="btn btn-primary cta-portfolio smooth">Zobacz moje realizacje</a>
+            </div>
         </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Wizualizacje Section (Content is loaded dynamically, this section is now just a placeholder) -->
-  <section id="wizualizacje-section" style="display: none;"></section>
+    <!-- Portfolio Section -->
+    <section id="portfolio-section" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Wybrane projekty</h2>
+            <p class="section-subtitle">Każdy projekt to unikalna historia współpracy i rozwiązanie dostosowane do potrzeb klienta</p>
+            
+            <!-- Karuzela -->
+            <div class="carousel-outer" aria-label="Lista projektów">
+                <div class="carousel-track" tabindex="0" aria-live="polite">
+                    <div id="voucher-magdy" class="carousel-item" data-project="voucher-salon-magdy.html">
+                        <h3>Voucher – Salon u Magdy</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/salon Magdy mockup copy.webp" alt="Projekt voucheru dla Salonu u Magdy - elegancki design okolicznościowy" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
 
-  <!-- Viewer -->
-  <section id="project-viewer" class="project-viewer hidden" aria-live="polite" aria-busy="false"></section>
+                    <div id="strona-karoma" class="carousel-item" data-project="karoma.html">
+                        <h3>Strona – Karoma</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/Karoma_NewLogo.webp" alt="Sklep internetowy Karoma - projekt e-commerce z brandingiem" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-info">
-        <p>&copy; <span id="year"></span> KWdesignnew. Wszelkie prawa zastrzeżone.</p>
-      </div>
-    </div>
-  </footer>
+                    <div id="power-of-mind" class="carousel-item" data-project="power-of-mind.html">
+                        <h3>Pakiet – Power of Mind</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/do SEO 1200x630.png" alt="Power of Mind - kompleksowy projekt strony i brandingu dla trenerki" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
 
-  <!-- JS -->
-  <script src="assets/js/portfolio.js" defer></script>
+                    <div id="logo-marka-d" class="carousel-item" data-project="realizacja-1.html">
+                        <h3>Sir Roger</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/Roger.png" alt="Sir Roger - projekt logo i identyfikacja wizualna marki" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <div id="strona-marka-e" class="carousel-item" data-project="realizacja-2.html">
+                        <h3>Strona – Marka E</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/placeholder.jpg" alt="Strona internetowa – Marka E projekt UX/UI" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <div id="marka-f" class="carousel-item" data-project="realizacja-3.html">
+                        <h3>Pakiet – Marka F</h3>
+                        <div class="ci-image">
+                            <img src="assets/images/placeholder.jpg" alt="Kompleksowy pakiet brandingowy – Marka F" loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Strzałki przeniesione POD karuzelę -->
+            <div class="carousel-controls" aria-hidden="false">
+                <button class="carousel-nav prev" aria-label="Poprzedni projekt">&lsaquo;</button>
+                <button class="carousel-nav next" aria-label="Następny projekt">&rsaquo;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wizualizacje Section (Content is loaded dynamically, this section is now just a placeholder) -->
+    <section id="wizualizacje-section" style="display: none;"></section>
+
+    <!-- Viewer -->
+    <section id="project-viewer" class="project-viewer hidden" aria-live="polite" aria-busy="false"></section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-info">
+                <h3>Karol Wyszyński</h3>
+                <p>UX/UI Designer</p>
+                <p>Email: <a href="mailto:wyszynski.k@onet.pl">wyszynski.k@onet.pl</a></p>
+            </div>
+            <div class="footer-links">
+                <a href="portfolio.html">Portfolio</a>
+                <a href="uslugi.html">Usługi</a>
+                <a href="index.html#contact">Kontakt</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; <span id="year"></span> Karol Wyszyński. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="assets/js/portfolio.js" defer></script>
 
 </body>
 </html>
