@@ -5,10 +5,7 @@
 function initAccordion() {
   const accordionItems = document.querySelectorAll('.kwcs-item');
 
-  if (accordionItems.length === 0) {
-    console.warn('⚠️ Nie znaleziono elementów .kwcs-item');
-    return;
-  }
+  if (accordionItems.length === 0) return;
 
   accordionItems.forEach((item, index) => {
     const header = item.querySelector('.kwcs-header');
@@ -60,8 +57,6 @@ function initAccordion() {
       }
     });
   });
-
-  console.log('✅ Akordeon zainicjalizowany:', accordionItems.length, 'elementów (z ARIA)');
 }
 
 // ========================================
@@ -74,18 +69,12 @@ function initLightbox() {
   const lightboxCaption = document.getElementById('lightbox-caption');
   const closeBtn = document.querySelector('.lightbox-close');
   
-  if (!lightbox || !lightboxImg || !closeBtn) {
-    console.warn('⚠️ Nie znaleziono elementów lightboxa');
-    return;
-  }
+  if (!lightbox || !lightboxImg || !closeBtn) return;
   
   // Pobierz wszystkie obrazy w galeriach + hero image
   const galleryImages = document.querySelectorAll('.kwcs-gallery-grid img, .hero-image img.cover');
   
-  if (galleryImages.length === 0) {
-    console.warn('⚠️ Nie znaleziono obrazów do lightboxa');
-    return;
-  }
+  if (galleryImages.length === 0) return;
   
   // Funkcja otwierania lightboxa
   const openLightbox = (imgElement) => {
@@ -143,8 +132,6 @@ function initLightbox() {
       closeLightbox();
     }
   });
-  
-  console.log('✅ Lightbox zainicjalizowany:', galleryImages.length, 'obrazów');
 }
 
 // ========================================
