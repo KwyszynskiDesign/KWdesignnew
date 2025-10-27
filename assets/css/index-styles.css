@@ -406,7 +406,7 @@ section {
     left: 0;
     right: 0;
     background: var(--color-dark);
-    border-bottom: 1px solid var(--color-dark-light);
+    border-bottom: none; /* ← ZMIENIONE: usuń border */
     z-index: var(--z-sticky);
     transition: var(--transition-normal);
     min-height: 70px;
@@ -417,7 +417,7 @@ section {
     background: rgba(30, 41, 59, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: none; /* ← ZMIENIONE: usuń box-shadow */
 }
 
 .header-inner {
