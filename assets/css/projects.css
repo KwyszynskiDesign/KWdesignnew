@@ -1,5 +1,10 @@
 /* ========================================
-   Shared Styles for project case studies (kwcs)
+   PROJECT CASE STUDIES - PREMIUM EDITION 2025
+   Shared Styles for KWCS (Karol Wyszynski Case Studies)
+   ======================================== */
+
+/* ========================================
+   ACCORDION COMPONENTS
    ======================================== */
 
 .kwcs-content {
@@ -21,6 +26,7 @@
   border: none;
   width: 100%;
   text-align: left;
+  transition: background 0.2s ease;
 }
 
 .kwcs-header:hover {
@@ -32,6 +38,7 @@
   font-weight: 700;
   font-size: 1.2rem;
   transition: transform 0.3s ease;
+  color: #64748b;
 }
 
 .kwcs-header .num {
@@ -46,6 +53,7 @@
   overflow: hidden;
   background: #fff;
   border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .kwcs-item.open .kwcs-content {
@@ -55,6 +63,13 @@
 
 .kwcs-item.open .kwcs-header .icon {
   transform: rotate(45deg);
+  color: #2563eb;
+}
+
+.kwcs-accordion {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
 }
 
 /* ========================================
@@ -70,6 +85,7 @@
 .kwcs-hero-head .wrap {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .kwcs-hero-head .eyebrow {
@@ -103,6 +119,7 @@
 .kwcs-hero-body .wrap.inner {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .kwcs-hero-body .hero-buttons {
@@ -137,6 +154,9 @@
   overflow: hidden;
   box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
   margin-bottom: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .kwcs-hero-body .hero-image img {
@@ -156,6 +176,7 @@
 .kwcs-sec .wrap {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .kwcs-sec h2 {
@@ -192,6 +213,9 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .kwcs-card {
@@ -245,62 +269,6 @@
   font-size: 1.1rem;
 }
 
-@media (max-width: 900px) {
-  .kwcs-trio {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .kwcs-card {
-    min-height: 280px;
-  }
-
-  .kwcs-card:nth-child(3) {
-    grid-column: 1 / 3;
-    justify-self: center;
-    max-width: 420px;
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .kwcs-trio {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .kwcs-card {
-    padding: 2rem 1.5rem;
-    min-height: auto;
-  }
-
-  .kwcs-card h3 {
-    font-size: 1.35rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .kwcs-card li {
-    font-size: 0.95rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .kwcs-card:nth-child(3) {
-    grid-column: auto;
-    justify-self: stretch;
-    max-width: 100%;
-    margin-top: 0;
-  }
-}
-
-/* ========================================
-   ACCORDION
-   ======================================== */
-
-.kwcs-accordion {
-  max-width: 800px;
-  margin: 0 auto 2rem;
-}
-
 /* ========================================
    RESULT SECTION
    ======================================== */
@@ -311,6 +279,9 @@
   padding: 2rem 1rem;
   background: #f8fafc;
   border-radius: 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .kwcs-result h2,
@@ -360,11 +331,23 @@
    GALLERY 2-COLUMN GRID
    ======================================== */
 
+.kwcs-gallery-section {
+  padding: 2rem 1rem;
+}
+
+.kwcs-gallery-section .wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .kwcs-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 2rem auto 0;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
 
 .gallery-item {
@@ -379,6 +362,7 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .gallery-item img:hover {
@@ -395,21 +379,28 @@
   line-height: 1.4;
 }
 
-/* Mobile: jedna kolumna */
-@media (max-width: 768px) {
-  .kwcs-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .kwcs-hero-head {
-    padding: 3rem 1rem;
-  }
-  
-  .kwcs-sec {
-    padding: 3rem 1rem;
-  }
+/* Hover effect z ikoną zoom */
+.kwcs-gallery-grid .gallery-item {
+  position: relative;
 }
+
+.kwcs-gallery-grid .gallery-item::after {
+  content: '🔍';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.kwcs-gallery-grid .gallery-item:hover::after {
+  opacity: 0.8;
+}
+
 /* ========================================
    LIGHTBOX MODAL
    ======================================== */
@@ -480,7 +471,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Dodaj kursor wskaźnika do wszystkich zdjęć w galeriach */
+/* Kursor wskaźnika dla wszystkich zdjęć */
 .kwcs-gallery-grid img,
 .hero-image img.cover {
   cursor: pointer;
@@ -498,7 +489,15 @@
   transform: scale(0.98);
 }
 
-/* Animacje lightboxa */
+/* Blokada scrollu gdy lightbox aktywny */
+body.lightbox-open {
+  overflow: hidden;
+}
+
+/* ========================================
+   ANIMACJE
+   ======================================== */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -519,8 +518,44 @@
   }
 }
 
-/* Responsywność lightboxa */
+/* ========================================
+   RESPONSYWNOŚĆ
+   ======================================== */
+
+/* Tablet - 900px */
+@media (max-width: 900px) {
+  .kwcs-trio {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .kwcs-card {
+    min-height: 280px;
+  }
+
+  .kwcs-card:nth-child(3) {
+    grid-column: 1 / 3;
+    justify-self: center;
+    max-width: 420px;
+    margin-top: 1rem;
+  }
+}
+
+/* Tablet/Mobile - 768px */
 @media (max-width: 768px) {
+  .kwcs-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .kwcs-hero-head {
+    padding: 3rem 1rem;
+  }
+  
+  .kwcs-sec {
+    padding: 3rem 1rem;
+  }
+
   .lightbox-close {
     top: 15px;
     right: 15px;
@@ -540,29 +575,80 @@
   }
 }
 
-/* Wygląd kursora dla interaktywnych obrazów */
-.kwcs-gallery-grid .gallery-item {
-  position: relative;
+/* Mobile - 600px */
+@media (max-width: 600px) {
+  .kwcs-trio {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .kwcs-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+
+  .kwcs-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .kwcs-card li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .kwcs-card:nth-child(3) {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .kwcs-sec {
+    padding: 2.5rem 1rem;
+  }
+
+  .kwcs-hero-head {
+    padding: 2.5rem 1rem;
+  }
+
+  .kwcs-hero-body .hero-buttons {
+    gap: 0.75rem;
+  }
+
+  .kwcs-chip {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
 }
 
-.kwcs-gallery-grid .gallery-item::after {
-  content: '🔍';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+/* ========================================
+   ACCESSIBILITY & PERFORMANCE
+   ======================================== */
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.kwcs-gallery-grid .gallery-item:hover::after {
-  opacity: 0.8;
+/* Focus states */
+.kwcs-header:focus-visible,
+.kwcs-cta:focus-visible,
+.kwcs-chip:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
-/* Blokada scrollu gdy lightbox aktywny */
-body.lightbox-open {
-  overflow: hidden;
+/* Print styles */
+@media print {
+  .lightbox,
+  .kwcs-cta {
+    display: none !important;
+  }
 }
