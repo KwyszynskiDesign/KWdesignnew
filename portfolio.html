@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/index-styles.css" />
     <link rel="stylesheet" href="assets/css/about-me.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
+    <link rel="stylesheet" href="assets/css/projects.css" /> <!-- ← DODANE -->
 </head>
 <body class="portfolio-page">
 
@@ -96,7 +97,7 @@
             <div class="portfolio-new-grid">
                 
                 <!-- KARTA 1: Salon Fryzjerski -->
-                <div class="portfolio-new-card" data-project="voucher-magdy" onclick="showProjectDetails('voucher-magdy')">
+                <div class="portfolio-new-card" data-project="voucher-magdy">
                     <div class="card-image-wrapper">
                         <img src="assets/images/salon Magdy mockup copy.webp" 
                              alt="Projekt voucheru dla Salonu u Magdy" 
@@ -130,7 +131,7 @@
                 </div>
 
                 <!-- KARTA 2: Sklep Karoma -->
-                <div class="portfolio-new-card" data-project="karoma" onclick="showProjectDetails('karoma')">
+                <div class="portfolio-new-card" data-project="karoma">
                     <div class="card-image-wrapper">
                         <img src="assets/images/Karoma_NewLogo.webp" 
                              alt="Sklep internetowy Karoma" 
@@ -164,7 +165,7 @@
                 </div>
 
                 <!-- KARTA 3: Power of Mind -->
-                <div class="portfolio-new-card" data-project="power-of-mind" onclick="showProjectDetails('power-of-mind')">
+                <div class="portfolio-new-card" data-project="power-of-mind">
                     <div class="card-image-wrapper">
                         <img src="assets/images/do SEO 1200x630.png" 
                              alt="Power of Mind" 
@@ -198,7 +199,7 @@
                 </div>
 
                 <!-- KARTA 4: Sir Roger -->
-                <div class="portfolio-new-card" data-project="sir-roger" onclick="showProjectDetails('sir-roger')">
+                <div class="portfolio-new-card" data-project="sir-roger">
                     <div class="card-image-wrapper">
                         <img src="assets/images/Roger.png" 
                              alt="Sir Roger - rebranding" 
@@ -232,7 +233,7 @@
                 </div>
 
                 <!-- KARTA 5: Marka E -->
-                <div class="portfolio-new-card" data-project="marka-e" onclick="showProjectDetails('marka-e')">
+                <div class="portfolio-new-card" data-project="marka-e">
                     <div class="card-image-wrapper">
                         <img src="assets/images/placeholder.jpg" 
                              alt="Strona internetowa – Marka E" 
@@ -266,7 +267,7 @@
                 </div>
 
                 <!-- KARTA 6: Marka F -->
-                <div class="portfolio-new-card" data-project="marka-f" onclick="showProjectDetails('marka-f')">
+                <div class="portfolio-new-card" data-project="marka-f">
                     <div class="card-image-wrapper">
                         <img src="assets/images/placeholder.jpg" 
                              alt="Pakiet brandingowy – Marka F" 
@@ -339,144 +340,8 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-// Rok w footerze
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Mapowanie data-project → nazwa pliku HTML
-const projectPages = {
-    'voucher-magdy': 'voucher-salon-magdy.html',
-    'karoma': 'karoma.html',
-    'power-of-mind': 'power-of-mind.html',
-    'sir-roger': 'realizacja-1.html',
-    'marka-e': 'realizacja-2.html',
-    'marka-f': 'realizacja-3.html'
-};
-
-// Funkcja ładująca pełną stronę HTML
-async function showProjectDetails(projectId) {
-    const container = document.getElementById('project-details-container');
-    const content = document.getElementById('project-details-content');
-    const filename = projectPages[projectId];
-    
-    if (!filename) {
-        console.error('Nie znaleziono pliku dla projektu:', projectId);
-        return;
-    }
-    
-    try {
-        // Pokaż loader
-        content.innerHTML = '<div class="loading-spinner">Ładowanie projektu...</div>';
-        container.style.display = 'block';
-        
-        // Fetch pełnej strony HTML
-        const response = await fetch(filename);
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const html = await response.text();
-        
-        // Parsuj HTML i wyciągnij <body>
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const bodyContent = doc.body.innerHTML;
-        
-        // Wstaw zawartość
-        content.innerHTML = bodyContent;
-        
-        // Smooth scroll do szczegółów
-        setTimeout(() => {
-            container.classList.add('active');
-            container.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }, 50);
-        
-        // Highlight aktywnej karty
-        document.querySelectorAll('.portfolio-new-card').forEach(card => {
-            card.classList.remove('active');
-        });
-        document.querySelector(`[data-project="${projectId}"]`)?.classList.add('active');
-        
-        // Update URL
-        history.pushState({ project: projectId }, '', `#${projectId}`);
-        
-        // Wykonaj skrypty ze załadowanej strony (jeśli są)
-        executeScriptsInContent(content);
-        
-    } catch (error) {
-        console.error('Błąd ładowania projektu:', error);
-        content.innerHTML = `
-            <div class="error-message">
-                <h3>⚠️ Nie udało się załadować projektu</h3>
-                <p>Spróbuj ponownie lub <a href="${filename}" target="_blank">otwórz projekt w nowej karcie</a>.</p>
-            </div>
-        `;
-    }
-}
-
-// Wykonaj inline skrypty ze załadowanej strony
-function executeScriptsInContent(container) {
-    const scripts = container.querySelectorAll('script');
-    scripts.forEach(oldScript => {
-        const newScript = document.createElement('script');
-        Array.from(oldScript.attributes).forEach(attr => {
-            newScript.setAttribute(attr.name, attr.value);
-        });
-        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-        oldScript.parentNode.replaceChild(newScript, oldScript);
-    });
-}
-
-// Funkcja zamykająca szczegóły
-function closeProjectDetails() {
-    const container = document.getElementById('project-details-container');
-    
-    container.classList.remove('active');
-    
-    setTimeout(() => {
-        container.style.display = 'none';
-        document.getElementById('project-details-content').innerHTML = '';
-        
-        document.querySelector('.portfolio-new-grid').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-        });
-    }, 300);
-    
-    document.querySelectorAll('.portfolio-new-card').forEach(card => {
-        card.classList.remove('active');
-    });
-    
-    history.pushState('', document.title, window.location.pathname);
-}
-
-// ESC key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        const container = document.getElementById('project-details-container');
-        if (container.style.display === 'block') {
-            closeProjectDetails();
-        }
-    }
-});
-
-// Deep linking - załaduj projekt z URL hash
-window.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.substring(1);
-    if (hash && projectPages[hash]) {
-        setTimeout(() => {
-            showProjectDetails(hash);
-        }, 500);
-    }
-});
-</script>
-
-    <script src="assets/js/portfolio.js" defer></script>
+    <!-- JavaScript - TYLKO ZEWNĘTRZNY PLIK -->
+    <script src="assets/js/portfolio.js"></script>
 
 </body>
 </html>
