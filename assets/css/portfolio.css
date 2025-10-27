@@ -412,12 +412,14 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   padding: 80px 0 100px 0;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   z-index: 10;
+  overflow: visible;
 }
 
 .portfolio-section .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 clamp(20px, 4vw, 40px);
+  overflow: visible;
 }
 
 /* Nagłówki sekcji */
@@ -447,7 +449,10 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   gap: 32px;
   margin-top: 48px;
   width: 100%;
+  overflow: visible;
+  height: auto;
 }
+
 /* Karta portfolio - spójna z index.html + KLIKALNA */
 .portfolio-new-card {
   background: rgba(255, 255, 255, 0.95);
@@ -467,6 +472,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   isolation: isolate;
   cursor: pointer;
   user-select: none;
+  pointer-events: auto;
+  z-index: 1;
 }
 
 .portfolio-new-card::before {
@@ -487,10 +494,22 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     0 20px 48px rgba(37, 99, 235, 0.15),
     0 10px 24px rgba(37, 99, 235, 0.1);
   border-color: rgba(37, 99, 235, 0.3);
+  z-index: 10;
 }
 
 .portfolio-new-card:hover::before {
   opacity: 1;
+}
+
+.portfolio-new-card:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 4px;
+  border-radius: 20px;
+}
+
+.portfolio-new-card:active {
+  transform: translateY(-6px) scale(0.98);
+  transition: transform 0.1s ease;
 }
 
 /* Karta aktywna (po kliknięciu) */
@@ -504,6 +523,11 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 /* Blokuj kliknięcia w elementy wewnątrz karty */
 .portfolio-new-card * {
   pointer-events: none;
+}
+
+.portfolio-new-card .card-cta {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /* Kontener obrazu */
@@ -745,7 +769,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
 @media(max-width:768px){
-  /* ← NOWE: Hero fix */
   .hero-section{
     min-height:85dvh;
     padding:80px 20px 40px 20px;
@@ -773,7 +796,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     max-width:100%;
   }
   
-  /* ← KRYTYCZNA ZMIANA: zero translateY */
   .about-me-visuals{
     transform:translateY(0) !important;
     max-width:340px;
@@ -820,7 +842,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 @media(max-width:480px){
-  /* ← NOWE: Hero dla małych telefonów */
   .hero-section{
     min-height:80dvh;
     padding:60px 15px 30px 15px;
@@ -830,7 +851,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     padding:50px 0 50px 0;
   }
   
-  /* ← KRYTYCZNA ZMIANA */
   .about-me-visuals{
     max-width:280px;
     padding:15px;
@@ -976,19 +996,16 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 
 /* === EMERGENCY MOBILE FIX - 2025 - PERFECT ORDER === */
 @media(max-width:768px){
-  /* WYŁĄCZ Hero Section */
   body.portfolio-page .hero-section{
     display:none !important;
   }
   
-  /* About Me Section - reset */
   .about-me-section{
     margin-top:30px !important;
     min-height:auto !important;
     overflow:visible !important;
   }
   
-  /* Grid → Flex dla mobile */
   .about-me-grid{
     display:flex !important;
     flex-direction:column !important;
@@ -998,7 +1015,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     align-items:center !important;
   }
   
-  /* 1. ZDJĘCIE PROFILOWE (order: 1) */
   .about-me-visuals{
     order:1 !important;
     transform:none !important;
@@ -1020,7 +1036,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     border-radius:22px !important;
   }
   
-  /* 5. CTA BUTTON - w .about-me-visuals ale renderuje jako ostatnie */
   .about-me-visuals .cta-portfolio{
     order:999 !important;
     max-width:280px !important;
@@ -1029,7 +1044,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     font-size:1rem !important;
   }
   
-  /* 2-4. TEKST (order: 2) */
   .about-me-text{
     order:2 !important;
     padding:0 15px !important;
@@ -1040,7 +1054,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     flex-direction:column !important;
   }
   
-  /* 2. Nagłówek H1 */
   .about-me-text h1{
     font-size:clamp(1.7rem,6vw,2.2rem) !important;
     margin:0 0 15px 0 !important;
@@ -1054,7 +1067,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     bottom:-8px !important;
   }
   
-  /* 3. Podnagłówek (rola) */
   .about-me-text .subtitle{
     font-size:clamp(1rem,2.5vw,1.2rem) !important;
     margin:0 0 20px 0 !important;
@@ -1062,7 +1074,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     order:2 !important;
   }
   
-  /* 4. Paragraf opisowy */
   .about-me-text>p{
     font-size:0.95rem !important;
     line-height:1.65 !important;
@@ -1071,7 +1082,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     order:3 !important;
   }
   
-  /* 6. SUPERPOWERS - order:4 */
   .skills-section{
     margin:0 0 30px 0 !important;
     width:100% !important;
@@ -1110,7 +1120,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     font-size:1.8rem !important;
   }
   
-  /* 7. LOGO CAROUSEL - order:5 */
   .logo-carousel-section{
     margin:0 !important;
     width:100% !important;
@@ -1123,7 +1132,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     text-align:center !important;
   }
   
-  /* Ukryj interests jeśli są */
   .about-me-text .interests-section{
     display:none !important;
   }
@@ -1204,102 +1212,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     visibility:visible !important;
   }
 }
-/* === PROJECT DETAILS CONTAINER === */
-.project-details-container {
-  display: none;
-  margin-top: 60px;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 28px;
-  box-shadow: 0 12px 60px rgba(25, 61, 154, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  position: relative;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.project-details-container.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.close-details-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(244, 247, 250, 0.9);
-  backdrop-filter: blur(15px);
-  border: none;
-  border-radius: 12px;
-  padding: 12px 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #133b7b;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 12px rgba(23, 91, 247, 0.08);
-}
-
-.close-details-btn:hover {
-  background: #e3ecff;
-  transform: translateY(-2px);
-}
-
-.close-details-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.project-details-content {
-  padding: 20px 0;
-}
-
-.project-details-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 12px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.project-details-category {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #0ea5e9;
-  margin-bottom: 32px;
-}
-
-/* Karta aktywna */
-.portfolio-new-card.active {
-  border-color: #2563eb;
-  box-shadow: 
-    0 8px 32px rgba(37, 99, 235, 0.2),
-    0 4px 16px rgba(37, 99, 235, 0.15);
-}
-
-/* Responsywność */
-@media (max-width: 768px) {
-  .project-details-container {
-    padding: 30px 20px;
-    margin-top: 40px;
-  }
-  
-  .close-details-btn {
-    position: static;
-    margin-bottom: 20px;
-    width: 100%;
-    justify-content: center;
-  }
-}
 /* === LOADING SPINNER === */
 .loading-spinner {
   text-align: center;
@@ -1345,24 +1258,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   text-decoration: underline;
 }
 
-/* === FADE IN ANIMATION === */
-.project-details-content {
-  padding: 20px 0;
-  animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === FIX PROJECT DETAILS CONTAINER === */
+/* === PROJECT DETAILS - FINAL VERSION === */
 .project-details-container {
   display: none;
   margin-top: 60px;
@@ -1379,7 +1275,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   transform: translateY(0);
 }
 
-/* === FIX STICKY BUTTON === */
 .close-details-btn {
   position: sticky !important;
   top: 80px !important;
@@ -1408,4 +1303,58 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   background: #e3ecff;
   transform: translateX(-50%) translateY(-2px) !important;
   box-shadow: 0 6px 24px rgba(23, 91, 247, 0.25);
+}
+
+.close-details-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.project-details-content {
+  padding: 20px 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-details-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.project-details-category {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0ea5e9;
+  margin-bottom: 32px;
+}
+
+/* Responsywność dla mobile */
+@media (max-width: 768px) {
+  .close-details-btn {
+    position: static !important;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+    transform: none !important;
+  }
+  
+  .close-details-btn:hover {
+    transform: translateY(-2px) !important;
+  }
 }
