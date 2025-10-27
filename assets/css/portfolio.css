@@ -642,11 +642,59 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   transform: none;
   background: rgba(148, 163, 184, 0.15);
   color: #94a3b8;
-  /* ✅ ZMIANA: box-shadow zamiast filter */
   box-shadow: 0 6px 16px rgba(148, 163, 184, 0.1);
 }
 
+/* ← ✅ TUTAJ WKLEJ SEPARATOR */
+/* === SEKCJA PORTFOLIO - SEPARATOR === */
+.portfolio-section {
+  position: relative;
+  padding-bottom: 100px;
 }
+
+.portfolio-section::after {
+  content: "• • •";
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  color: #cbd5e1;
+  letter-spacing: 24px;
+  padding-left: 24px;
+  margin-top: 80px;
+  opacity: 0;
+  animation: fadeInDots 1.2s ease-in-out 0.3s forwards;
+  transition: color 0.3s ease;
+}
+
+.portfolio-section:hover::after {
+  color: #94a3b8;
+}
+
+@keyframes fadeInDots {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding-bottom: 80px;
+  }
+  
+  .portfolio-section::after {
+    font-size: 24px;
+    letter-spacing: 20px;
+    padding-left: 20px;
+    margin-top: 60px;
+  }
+}
+
 
 /* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
 @media(max-width:768px){
