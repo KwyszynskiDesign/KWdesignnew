@@ -448,8 +448,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   margin-top: 48px;
   width: 100%;
 }
-
-/* Karta portfolio - spójna z index.html */
+/* Karta portfolio - spójna z index.html + KLIKALNA */
 .portfolio-new-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(15px);
@@ -466,6 +465,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     0 4px 12px rgba(0, 0, 0, 0.06);
   position: relative;
   isolation: isolate;
+  cursor: pointer;
+  user-select: none;
 }
 
 .portfolio-new-card::before {
@@ -477,6 +478,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   transition: opacity 0.3s ease;
   border-radius: 20px;
   z-index: -1;
+  pointer-events: none;
 }
 
 .portfolio-new-card:hover {
@@ -489,6 +491,19 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 .portfolio-new-card:hover::before {
   opacity: 1;
+}
+
+/* Karta aktywna (po kliknięciu) */
+.portfolio-new-card.active {
+  border-color: #2563eb;
+  box-shadow: 
+    0 8px 32px rgba(37, 99, 235, 0.2),
+    0 4px 16px rgba(37, 99, 235, 0.15);
+}
+
+/* Blokuj kliknięcia w elementy wewnątrz karty */
+.portfolio-new-card * {
+  pointer-events: none;
 }
 
 /* Kontener obrazu */
