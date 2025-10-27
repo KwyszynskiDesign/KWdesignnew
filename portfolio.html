@@ -341,288 +341,141 @@
 
     <!-- JavaScript -->
     <script>
-        // Rok w footerze
-        document.getElementById('year').textContent = new Date().getFullYear();
+// Rok w footerze
+document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Definicja treści projektów
-        const projectsData = {
-            'voucher-magdy': {
-                title: 'Salon Fryzjerski u Magdy',
-                category: 'Projekt Graficzny',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/salon Magdy mockup copy.webp" alt="Voucher Salon u Magdy">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Salon Fryzjerski u Magdy</p>
-                            <p><strong>Zakres:</strong> Projekt voucheru okolicznościowego</p>
-                            <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
-                        </div>
+// Mapowanie data-project → nazwa pliku HTML
+const projectPages = {
+    'voucher-magdy': 'voucher-salon-magdy.html',
+    'karoma': 'karoma.html',
+    'power-of-mind': 'power-of-mind.html',
+    'sir-roger': 'realizacja-1.html',
+    'marka-e': 'realizacja-2.html',
+    'marka-f': 'realizacja-3.html'
+};
 
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Klientka potrzebowała eleganckich voucherów, które będą doskonałym prezentem dla klientów salonu. Projekt musiał być nie tylko estetyczny, ale również funkcjonalny – gotowy do druku w wysokiej jakości.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Zaprojektowałem voucher łączący elegancję z branżą beauty. Wykorzystałem delikatne kolory, elegancką typografię i subtelne elementy graficzne, które podkreślają profesjonalizm salonu.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Voucher stał się popularnym prezentem wśród klientów salonu. Design premium podkreślił wysoką jakość usług, a gotowe pliki do druku umożliwiły szybkie wdrożenie.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'karoma': {
-                title: 'Sklep Karoma',
-                category: 'E-commerce + Branding',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/Karoma_NewLogo.webp" alt="Sklep Karoma">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Karoma</p>
-                            <p><strong>Zakres:</strong> Sklep internetowy + Logo + Identyfikacja wizualna</p>
-                            <p><strong>Technologie:</strong> WordPress, WooCommerce, Adobe Illustrator</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Stworzenie kompleksowego sklepu internetowego od podstaw, z pełną identyfikacją wizualną marki. Sklep musiał być intuicyjny, responsywny i zoptymalizowany pod kątem konwersji.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Projekt rozpoczęłem od identyfikacji wizualnej – logo, paleta kolorów, typografia. Następnie stworzyłem sklep na WooCommerce z przemyślanym UX, klarowną nawigacją i optymalizacją procesu zakupowego.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Profesjonalny sklep internetowy z silną identyfikacją wizualną, który zwiększył sprzedaż online i pozytywnie wpłynął na rozpoznawalność marki.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'power-of-mind': {
-                title: 'Power of Mind',
-                category: 'Serwis + Sklep + Branding',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/do SEO 1200x630.png" alt="Power of Mind">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Power of Mind - Trenerka odporności psychicznej</p>
-                            <p><strong>Zakres:</strong> Strona WWW + Sklep + Logo + Branding</p>
-                            <p><strong>Technologie:</strong> WordPress, WooCommerce, Custom Theme</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Trenerka potrzebowała kompleksowej obecności online – strony prezentującej jej usługi, sklepu z produktami cyfrowymi oraz spójnej identyfikacji wizualnej, która oddaje filozofię marki.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Stworzyłem holistyczną platformę łączącą content marketing, e-commerce i branding. Design odzwierciedla spokój, profesjonalizm i wewnętrzną siłę – wartości kluczowe dla marki.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Kompleksowa platforma, która nie tylko prezentuje ofertę, ale też buduje autorytet ekspertki. Integracja sklepu z systemem płatności umożliwiła automatyzację sprzedaży produktów cyfrowych.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'sir-roger': {
-                title: 'Sir Roger',
-                category: 'Rebranding + Packaging',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/Roger.png" alt="Sir Roger">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Sir Roger</p>
-                            <p><strong>Zakres:</strong> Rebranding + Projekt opakowań</p>
-                            <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Marka premium potrzebowała odświeżenia identyfikacji wizualnej oraz projektów opakowań, które wyróżnią ją na półce sklepowej i podkreślą luksusowy charakter produktów.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Przeprojektowałem logo, zachowując rozpoznawalność marki, ale nadając jej nowoczesny, premium look. Opakowania zaprojektowałem z dbałością o detale – elegancka typografia, wyrafinowana paleta kolorów.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Marka zyskała świeży, nowoczesny wizerunek przy zachowaniu swojej tożsamości. Opakowania wyróżniają się na rynku i skutecznie komunikują premium positioning.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'marka-e': {
-                title: 'Strona – Marka E',
-                category: 'Serwis + UX/UI',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/placeholder.jpg" alt="Marka E">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Marka E</p>
-                            <p><strong>Zakres:</strong> Strona WWW + UX/UI Design</p>
-                            <p><strong>Technologie:</strong> WordPress, Custom Theme</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Stworzenie nowoczesnej, responsywnej strony internetowej z przemyślanym doświadczeniem użytkownika i intuicyjnym interfejsem.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Design oparty na user research i best practices UX/UI. Czytelna hierarchia informacji, intuicyjna nawigacja, responsywność na wszystkie urządzenia.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Strona, która nie tylko pięknie wygląda, ale przede wszystkim skutecznie prowadzi użytkowników do realizacji celów biznesowych.</p>
-                        </div>
-                    </div>
-                `
-            },
-            'marka-f': {
-                title: 'Pakiet – Marka F',
-                category: 'Pakiet Brandingowy',
-                content: `
-                    <div class="case-study">
-                        <div class="case-hero">
-                            <img src="assets/images/placeholder.jpg" alt="Marka F">
-                        </div>
-                        
-                        <div class="case-overview">
-                            <h3>Przegląd projektu</h3>
-                            <p><strong>Klient:</strong> Marka F</p>
-                            <p><strong>Zakres:</strong> Kompleksowa identyfikacja wizualna</p>
-                            <p><strong>Deliverables:</strong> Logo, Brand Guidelines, Materiały marketingowe</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Wyzwanie</h3>
-                            <p>Stworzenie kompletnej identyfikacji wizualnej dla nowej marki – od fundamentów (logo, kolory, typografia) po wytyczne użycia i materiały marketingowe.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rozwiązanie</h3>
-                            <p>Kompleksowy proces brandingowy: research konkurencji, persona, moodboard, projekt logo, paleta kolorów, typografia, system graficzny i szczegółowe brand guidelines.</p>
-                        </div>
-
-                        <div class="case-section">
-                            <h3>Rezultat</h3>
-                            <p>Spójna, profesjonalna identyfikacja wizualna gotowa do użycia we wszystkich kanałach komunikacji. Marka z silnym fundamentem wizualnym i jasno określoną tożsamością.</p>
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        // Funkcja wyświetlająca szczegóły projektu
-        function showProjectDetails(projectId) {
-            const container = document.getElementById('project-details-container');
-            const content = document.getElementById('project-details-content');
-            
-            const projectData = projectsData[projectId];
-            
-            if (projectData) {
-                // Wstaw treść
-                content.innerHTML = `
-                    <h2 class="project-details-title">${projectData.title}</h2>
-                    <span class="project-details-category">${projectData.category}</span>
-                    ${projectData.content}
-                `;
-                
-                // Pokaż kontener
-                container.style.display = 'block';
-                
-                // Smooth scroll
-                setTimeout(() => {
-                    container.classList.add('active');
-                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 10);
-                
-                // Highlight aktywnej karty
-                document.querySelectorAll('.portfolio-new-card').forEach(card => {
-                    card.classList.remove('active');
-                });
-                document.querySelector(`[data-project="${projectId}"]`).classList.add('active');
-                
-                // Update URL
-                history.pushState({ project: projectId }, '', `#${projectId}`);
-            }
+// Funkcja ładująca pełną stronę HTML
+async function showProjectDetails(projectId) {
+    const container = document.getElementById('project-details-container');
+    const content = document.getElementById('project-details-content');
+    const filename = projectPages[projectId];
+    
+    if (!filename) {
+        console.error('Nie znaleziono pliku dla projektu:', projectId);
+        return;
+    }
+    
+    try {
+        // Pokaż loader
+        content.innerHTML = '<div class="loading-spinner">Ładowanie projektu...</div>';
+        container.style.display = 'block';
+        
+        // Fetch pełnej strony HTML
+        const response = await fetch(filename);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        // Funkcja zamykająca szczegóły
-        function closeProjectDetails() {
-            const container = document.getElementById('project-details-container');
-            
-            container.classList.remove('active');
-            
-            setTimeout(() => {
-                container.style.display = 'none';
-                
-                document.querySelector('.portfolio-new-grid').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-            }, 300);
-            
-            document.querySelectorAll('.portfolio-new-card').forEach(card => {
-                card.classList.remove('active');
+        
+        const html = await response.text();
+        
+        // Parsuj HTML i wyciągnij <body>
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const bodyContent = doc.body.innerHTML;
+        
+        // Wstaw zawartość
+        content.innerHTML = bodyContent;
+        
+        // Smooth scroll do szczegółów
+        setTimeout(() => {
+            container.classList.add('active');
+            container.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
             });
-            
-            history.pushState('', document.title, window.location.pathname);
+        }, 50);
+        
+        // Highlight aktywnej karty
+        document.querySelectorAll('.portfolio-new-card').forEach(card => {
+            card.classList.remove('active');
+        });
+        document.querySelector(`[data-project="${projectId}"]`)?.classList.add('active');
+        
+        // Update URL
+        history.pushState({ project: projectId }, '', `#${projectId}`);
+        
+        // Wykonaj skrypty ze załadowanej strony (jeśli są)
+        executeScriptsInContent(content);
+        
+    } catch (error) {
+        console.error('Błąd ładowania projektu:', error);
+        content.innerHTML = `
+            <div class="error-message">
+                <h3>⚠️ Nie udało się załadować projektu</h3>
+                <p>Spróbuj ponownie lub <a href="${filename}" target="_blank">otwórz projekt w nowej karcie</a>.</p>
+            </div>
+        `;
+    }
+}
+
+// Wykonaj inline skrypty ze załadowanej strony
+function executeScriptsInContent(container) {
+    const scripts = container.querySelectorAll('script');
+    scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        Array.from(oldScript.attributes).forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+        });
+        newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+        oldScript.parentNode.replaceChild(newScript, oldScript);
+    });
+}
+
+// Funkcja zamykająca szczegóły
+function closeProjectDetails() {
+    const container = document.getElementById('project-details-container');
+    
+    container.classList.remove('active');
+    
+    setTimeout(() => {
+        container.style.display = 'none';
+        document.getElementById('project-details-content').innerHTML = '';
+        
+        document.querySelector('.portfolio-new-grid').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }, 300);
+    
+    document.querySelectorAll('.portfolio-new-card').forEach(card => {
+        card.classList.remove('active');
+    });
+    
+    history.pushState('', document.title, window.location.pathname);
+}
+
+// ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const container = document.getElementById('project-details-container');
+        if (container.style.display === 'block') {
+            closeProjectDetails();
         }
+    }
+});
 
-        // ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const container = document.getElementById('project-details-container');
-                if (container.style.display === 'block') {
-                    closeProjectDetails();
-                }
-            }
-        });
+// Deep linking - załaduj projekt z URL hash
+window.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.substring(1);
+    if (hash && projectPages[hash]) {
+        setTimeout(() => {
+            showProjectDetails(hash);
+        }, 500);
+    }
+});
+</script>
 
-        // Deep linking
-        window.addEventListener('DOMContentLoaded', function() {
-            const hash = window.location.hash.substring(1);
-            if (hash && projectsData[hash]) {
-                setTimeout(() => {
-                    showProjectDetails(hash);
-                }, 500);
-            }
-        });
-    </script>
     <script src="assets/js/portfolio.js" defer></script>
 
 </body>
