@@ -72,6 +72,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   overflow:visible;
   position:relative;
   z-index:1;
+   min-height: 600px; 
 }
 
 /* === PREMIUM TEXT STYLING === */
@@ -186,13 +187,27 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .superpowers-grid span:hover::before{opacity:1;}
 
 .logo-carousel-section{
-  margin-top:clamp(80px, 12vh, 120px);
+  position: absolute; /* ← ABSOLUTE = wychodzi z flow */
+  bottom: 40px; /* ← 40px od dołu tła */
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0; /* ← ZERO margin */
   padding: 0;
-  position: relative;
-  z-index: 1;
+  z-index: 10;
   background: transparent;
+  text-align: center;
 }
-.logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
+
+.logo-carousel-section h6{
+  margin-bottom:clamp(20px,3vh,30px); /* ← Mniejszy margin */
+  color:#64748b;
+  font-size:0.9rem;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-weight:600;
+  text-align:center;
+}
 
 /* Kontener karuzeli z gradient mask */
 .logo-carousel {
@@ -255,14 +270,17 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 /* === MOBILE ADJUSTMENTS === */
+/* === MOBILE ADJUSTMENTS === */
 @media(max-width:768px) {
   .logo-carousel-section {
-    margin-top: clamp(60px, 10vh, 90px) !important;
+    position: relative !important; /* ← RELATIVE na mobile */
+    bottom: auto !important; /* ← Wyłącz bottom */
+    margin-top: 40px !important; /* ← Normalny margin */
   }
   
   .logo-track {
     gap: clamp(35px, 6vw, 50px);
-    animation-duration: 25s; /* ← trochę szybciej na mobile */
+    animation-duration: 25s;
   }
   
   .logo-track img {
@@ -272,18 +290,19 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 @media(max-width:480px) {
   .logo-carousel-section {
-    margin-top: 50px !important;
+    margin-top: 30px !important;
   }
   
   .logo-track {
     gap: 30px;
-    animation-duration: 20s; /* ← jeszcze szybciej dla małych ekranów */
+    animation-duration: 20s;
   }
   
   .logo-track img {
     height: 32px;
   }
 }
+
 /* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
 .about-me-visuals{
   display:flex;
