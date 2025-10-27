@@ -1285,3 +1285,112 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     justify-content: center;
   }
 }
+/* === LOADING SPINNER === */
+.loading-spinner {
+  text-align: center;
+  padding: 80px 20px;
+  color: #64748b;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.loading-spinner::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* === ERROR MESSAGE === */
+.error-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 237, 237, 0.9);
+  border-radius: 16px;
+  margin: 40px 0;
+}
+
+.error-message h3 {
+  color: #d52b1e;
+  margin-bottom: 16px;
+}
+
+.error-message a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* === FADE IN ANIMATION === */
+.project-details-content {
+  padding: 20px 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FIX PROJECT DETAILS CONTAINER === */
+.project-details-container {
+  display: none;
+  margin-top: 60px;
+  padding: 0 !important;
+  background: transparent !important;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-details-container.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === FIX STICKY BUTTON === */
+.close-details-btn {
+  position: sticky !important;
+  top: 80px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 100;
+  background: rgba(244, 247, 250, 0.95);
+  backdrop-filter: blur(15px);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin: 0 auto 30px !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #133b7b;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(23, 91, 247, 0.15);
+}
+
+.close-details-btn:hover {
+  background: #e3ecff;
+  transform: translateX(-50%) translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(23, 91, 247, 0.25);
+}
