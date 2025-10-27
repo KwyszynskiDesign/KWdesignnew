@@ -185,7 +185,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 .superpowers-grid span:hover::before{opacity:1;}
 
-.logo-carousel-section{margin-top:clamp(80px, 12vh, 120px);}
+.logo-carousel-section{margin-top:clamp(140px, 18vh, 200px);}
 .logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 
 /* Kontener karuzeli z gradient mask */
