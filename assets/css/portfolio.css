@@ -185,7 +185,13 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 .superpowers-grid span:hover::before{opacity:1;}
 
-.logo-carousel-section{margin-top:clamp(140px, 18vh, 200px);}
+.logo-carousel-section{
+  margin-top:clamp(80px, 12vh, 120px);
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
 .logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 
 /* Kontener karuzeli z gradient mask */
@@ -644,8 +650,10 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-    background:linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-    padding:60px 0 60px 0; /* ← ZMIANA: zmniejszone paddingi */
+    padding: clamp(120px, 15vh, 180px) 0 clamp(180px, 20vh, 240px) 0; /* ← ZWIĘKSZONY dolny padding */
+  overflow: visible;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  position: relative;
   }
   
   .about-me-grid{
