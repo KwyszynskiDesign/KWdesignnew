@@ -13,7 +13,7 @@ html,body{overflow-x:hidden;scroll-behavior:smooth;}
 body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.webp')!important;}
 .hero-section{
   position:relative;
-  min-height:100dvh; /* ← ZMIANA: dvh zamiast vh */
+  min-height:100dvh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -35,12 +35,12 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 @media(max-width:768px){
  .hero-section{
-   min-height:85dvh; /* ← ZMIANA: dvh zamiast vh */
-   padding:80px 20px 40px 20px; /* ← ZMIANA: więcej padding-top */
+   min-height:85dvh;
+   padding:80px 20px 40px 20px;
    justify-content:flex-start;
    background-attachment:scroll;
  }
- .hero-content{padding-left:1rem;text-align:center;margin-top:20px;} /* ← ZMIANA: dodane margin-top */
+ .hero-content{padding-left:1rem;text-align:center;margin-top:20px;}
  .hero-title{font-size:clamp(2rem,8vw,3rem);}
 }
 
@@ -72,7 +72,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   overflow:visible;
   position:relative;
   z-index:1;
-   min-height: 600px; 
+  min-height: 600px; 
 }
 
 /* === PREMIUM TEXT STYLING === */
@@ -187,17 +187,16 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .superpowers-grid span:hover::before{opacity:1;}
 
 .logo-carousel-section{
- margin-top: clamp(200px, 25vh, 300px);
-   padding: 0;
-  position: relative; /* ← RELATIVE, nie absolute! */
+  margin-top: clamp(200px, 25vh, 300px);
+  padding: 0;
+  position: relative;
   z-index: 1;
   background: transparent;
   text-align: center;
 }
 
-
 .logo-carousel-section h6{
-  margin-bottom:clamp(20px,3vh,30px); /* ← Mniejszy margin */
+  margin-bottom:clamp(20px,3vh,30px);
   color:#64748b;
   font-size:0.9rem;
   text-transform:uppercase;
@@ -211,7 +210,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   overflow: hidden;
   width: 100%;
   position: relative;
-  /* ← Gradient na krawędziach dla efektu fade */
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -231,7 +229,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   display: flex;
   align-items: center;
   gap: clamp(50px, 8vw, 80px);
-  animation: scroll-logos 30s linear infinite; /* ← 30s = wolna animacja */
+  animation: scroll-logos 30s linear infinite;
   will-change: transform;
 }
 
@@ -241,7 +239,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); /* ← przesuwa o połowę (duplikowane logo) */
+    transform: translateX(-50%);
   }
 }
 
@@ -252,7 +250,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   object-fit: contain;
   filter: grayscale(100%) opacity(0.6);
   transition: all 0.35s ease;
-  flex-shrink: 0; /* ← zapobiega skurceniu się obrazów */
+  flex-shrink: 0;
 }
 
 /* Hover effect na logo */
@@ -267,12 +265,11 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 /* === MOBILE ADJUSTMENTS === */
-/* === MOBILE ADJUSTMENTS === */
 @media(max-width:768px) {
   .logo-carousel-section {
-    position: relative !important; /* ← RELATIVE na mobile */
-    bottom: auto !important; /* ← Wyłącz bottom */
-    margin-top: 40px !important; /* ← Normalny margin */
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 40px !important;
   }
   
   .logo-track {
@@ -309,7 +306,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   max-width:420px;
   justify-self:center;
   overflow:visible;
-  transform:translateY(-80px); /* ← ZMIANA: -80px zamiast -120px */
+  transform:translateY(-80px);
   position:relative;
   padding:25px;
 }
@@ -359,7 +356,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   z-index:0;
 }
 
-
 /* === PREMIUM CTA BUTTON === */
 .cta-portfolio{
   display:inline-flex;
@@ -405,253 +401,220 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 .cta-portfolio:hover::before{opacity:1;}
 
-/* === NAPRAWIONA KARUZELA - CIENIE WIDOCZNE + RESPONSIVE === */
-:root{
-  --car-gap: 24px;
-  --car-pad: 20px;
-  --card-h: 340px;
-}
+/* ===================================
+   PORTFOLIO SECTION - GRID 3 KOLUMNY
+   =================================== */
 
-.carousel-outer{
-  position:relative;
-  overflow:visible;
-  padding:80px 0 100px 0;
-  margin:0 20px;
-  z-index:20;
-  background:transparent;
-  isolation:isolate;
-}
-
-.carousel-track {
-  display: grid;
-  grid-auto-flow: column;
-  gap: var(--car-gap);
-  grid-auto-columns: minmax(300px, 350px);
-  overflow-x: auto;
-  overflow-y: visible;
-  /* ✅ ZMIANA: zwiększone paddingi - 40px góra/dół, 20px lewo/prawo */
-  padding: 40px 20px 60px 20px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  background: none !important;
-  background-image: none !important;
+/* Portfolio Section - container */
+.portfolio-section,
+#portfolio-section {
   position: relative;
-  z-index: 21;
-  isolation: isolate;
-  mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
+  padding: 80px 0 100px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  z-index: 10;
 }
 
-.carousel-track::-webkit-scrollbar{display:none;}
-.carousel-track{scrollbar-width:none;}
+.portfolio-section .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
 
-/* === PREMIUM PORTFOLIO CARDS - NAPRAWIONE 2.0 === */
-.carousel-item {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+/* Nagłówki sekcji */
+.portfolio-section .section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #1e293b;
+  font-family: 'Poppins', sans-serif;
+}
+
+.portfolio-section .section-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  text-align: center;
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Grid 3 kolumny - GŁÓWNY STYL */
+.portfolio-new-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+  width: 100%;
+}
+
+/* Karta portfolio - spójna z index.html */
+.portfolio-new-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 22px;
-  overflow: hidden; /* ✅ KLUCZOWE: wymusza przycinanie zawartości do border-radius */
-  height: var(--card-h);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 24px 18px;
-  text-align: center;
+  text-decoration: none;
+  color: inherit;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-  z-index: 22;
-  min-width: 300px;
-  max-width: 350px;
-  flex: 0 0 auto;
-  /* ✅ ZMIANA: drop-shadow zamiast filter dla lepszej wydajności */
   box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.08),
-    0 6px 16px rgba(0, 0, 0, 0.06),
-    0 3px 6px rgba(0, 0, 0, 0.04);
-  /* ✅ DODANE: izolacja dla backdrop-filter + border-radius */
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
   isolation: isolate;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.carousel-item::before {
+.portfolio-new-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
-  opacity: 0;
-  transition: all 0.3s ease;
-  border-radius: 22px;
-  z-index: -1;
-  pointer-events: none; /* ✅ DODANE: zapobiega problemom z klikaniem */
-}
-
-.carousel-item:hover {
-  transform: translateY(-10px) scale(1.03);
-  /* ✅ ZMIANA: box-shadow zamiast filter dla spójności */
-  box-shadow: 
-    0 20px 50px rgba(37, 99, 235, 0.15),
-    0 12px 30px rgba(37, 99, 235, 0.1),
-    0 6px 15px rgba(37, 99, 235, 0.08);
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  border-color: rgba(37, 99, 235, 0.25);
-  /* ✅ DODANE: optymalizacja animacji */
-  will-change: transform;
-}
-
-.carousel-item:hover::before {
-  opacity: 1;
-}
-
-.carousel-item h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 16px;
-  color: #1e293b;
-  flex: 0 0 auto;
-  line-height: 1.3;
-  width: 100%; /* ✅ DODANE: zapobiega overflow tekstu */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ✅ KLUCZOWA SEKCJA: naprawiony kontener obrazu */
-.carousel-item .ci-image {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  overflow: hidden; /* ✅ KLUCZOWE: wymusza przycinanie obrazu do border-radius */
-  padding: 10px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.6), rgba(241, 245, 249, 0.4));
-  position: relative; /* ✅ DODANE: tworzy nowy kontekst stackingowy */
-  isolation: isolate; /* ✅ DODANE: zapobiega konfliktom z backdrop-filter */
-}
-
-.carousel-item img {
-  max-height: 85%;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  transition: all 0.35s ease;
-  border-radius: 10px;
-  /* ✅ DODANE: subpixel rendering fix */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-.carousel-item:hover img {
-  opacity: 1;
-  transform: scale(1.08) translateZ(0); /* ✅ ZMIANA: dodane translateZ dla GPU acceleration */
-  will-change: transform; /* ✅ DODANE: optymalizacja hover animation */
-}
-
-/* === PREMIUM NAVIGATION - NAPRAWIONE CIENIE 2.0 === */
-.carousel-controls {
-  margin: 50px auto 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  width: 100%;
-  max-width: 260px;
-  z-index: 25;
-  position: relative;
-  padding: 10px 0;
-}
-
-.carousel-nav {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 18px;
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  cursor: pointer;
-  font-size: 35px;
-  line-height: 1;
-  user-select: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #2563eb;
-  font-weight: 600;
-  /* ✅ ZMIANA: box-shadow zamiast filter dla lepszej wydajności */
-  box-shadow: 
-    0 10px 30px rgba(37, 99, 235, 0.12),
-    0 6px 16px rgba(37, 99, 235, 0.08);
-  position: relative;
-  overflow: hidden;
-  /* ✅ DODANE: hardware acceleration */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  isolation: isolate; /* ✅ DODANE: zapobiega konfliktom z backdrop-filter */
-}
-
-.carousel-nav::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 18px;
-  pointer-events: none; /* ✅ DODANE: zapobiega problemom z klikaniem */
+  border-radius: 20px;
+  z-index: -1;
 }
 
-.carousel-nav:hover {
-  transform: translateY(-5px) scale(1.08) translateZ(0); /* ✅ ZMIANA: dodane translateZ */
-  background: #2563eb;
-  color: #fff;
-  border-color: transparent;
-  /* ✅ ZMIANA: box-shadow zamiast filter */
+.portfolio-new-card:hover {
+  transform: translateY(-8px) scale(1.02);
   box-shadow: 
-    0 16px 45px rgba(37, 99, 235, 0.25),
-    0 8px 22px rgba(37, 99, 235, 0.15);
-  will-change: transform; /* ✅ DODANE: optymalizacja hover */
+    0 20px 48px rgba(37, 99, 235, 0.15),
+    0 10px 24px rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 
-.carousel-nav:hover::before {
+.portfolio-new-card:hover::before {
   opacity: 1;
 }
 
-.carousel-nav[disabled] {
-  opacity: 0.35;
-  cursor: not-allowed;
-  transform: none;
-  background: rgba(148, 163, 184, 0.15);
-  color: #94a3b8;
-  border-color: rgba(148, 163, 184, 0.25);
-  pointer-events: none; /* ✅ DODANE: zapobiega interakcjom */
-  will-change: auto; /* ✅ DODANE: wyłącza optymalizację dla disabled */
-}
-
-.carousel-nav[disabled]:hover {
-  transform: none;
-  background: rgba(148, 163, 184, 0.15);
-  color: #94a3b8;
-  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.1);
-}
-
-/* ← ✅ TUTAJ WKLEJ SEPARATOR */
-/* === SEKCJA PORTFOLIO - SEPARATOR === */
-.portfolio-section {
+/* Kontener obrazu */
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.8), rgba(241, 245, 249, 0.6));
   position: relative;
-  padding-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 8px;
+}
+
+.portfolio-new-card:hover .card-image-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Zawartość karty */
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+/* Kategoria */
+.card-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0ea5e9;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* Tytuł */
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+/* Opis */
+.card-description {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* Cechy/tagi */
+.card-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.feature-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #475569;
+  font-weight: 500;
+  background: rgba(241, 245, 249, 0.8);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.feature-item svg {
+  width: 16px;
+  height: 16px;
+  stroke: #10b981;
+  flex-shrink: 0;
+}
+
+.portfolio-new-card:hover .feature-item {
+  background: rgba(224, 242, 254, 0.9);
+  color: #0c4a6e;
+}
+
+/* CTA */
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-top: auto;
+  transition: gap 0.3s ease;
+}
+
+.card-cta svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-new-card:hover .card-cta {
+  gap: 12px;
+}
+
+.portfolio-new-card:hover .card-cta svg {
+  transform: translateX(4px);
+}
+
+/* Separator */
 .portfolio-section::after {
   content: "• • •";
   display: block;
@@ -681,10 +644,59 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
 }
 
-/* === MOBILE === */
+/* ===================================
+   RESPONSYWNOŚĆ - PORTFOLIO GRID
+   =================================== */
+
+/* Tablet - 2 kolumny */
+@media (max-width: 1024px) {
+  .portfolio-new-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .portfolio-section .section-title {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+  }
+}
+
+/* Mobile - 1 kolumna */
 @media (max-width: 768px) {
-  .portfolio-section {
-    padding-bottom: 80px;
+  .portfolio-section,
+  #portfolio-section {
+    padding: 60px 0 80px 0;
+  }
+  
+  .portfolio-new-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .portfolio-section .section-subtitle {
+    margin-bottom: 40px;
+    font-size: 1rem;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .card-description {
+    font-size: 0.9rem;
+  }
+  
+  .card-features {
+    gap: 8px;
+  }
+  
+  .feature-item {
+    font-size: 0.8rem;
+    padding: 5px 10px;
   }
   
   .portfolio-section::after {
@@ -695,11 +707,29 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
 }
 
+/* Small mobile */
+@media (max-width: 480px) {
+  .portfolio-section,
+  #portfolio-section {
+    padding: 50px 0 70px 0;
+  }
+  
+  .card-image-wrapper {
+    aspect-ratio: 4/3;
+    padding: 15px;
+  }
+  
+  .card-content {
+    padding: 18px;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
 
 /* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
 @media(max-width:768px){
-  :root{--card-h:320px;}
-  
   /* ← NOWE: Hero fix */
   .hero-section{
     min-height:85dvh;
@@ -715,33 +745,33 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-  padding: clamp(20px, 5vh, 40px) 0 clamp(50px, 8vh, 90px) 0 !important;
-  overflow: visible;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-  position: relative;
+    padding: clamp(20px, 5vh, 40px) 0 clamp(50px, 8vh, 90px) 0 !important;
+    overflow: visible;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+    position: relative;
   }
   
   .about-me-grid{
     grid-template-columns:1fr;
     text-align:center;
-    gap:40px; /* ← ZMIANA: zmniejszony gap */
+    gap:40px;
     max-width:100%;
   }
   
   /* ← KRYTYCZNA ZMIANA: zero translateY */
   .about-me-visuals{
-    transform:translateY(0) !important; /* ← ZERO zamiast -120px */
+    transform:translateY(0) !important;
     max-width:340px;
     padding:20px;
     gap:30px;
     order:1;
-    margin-top:0 !important; /* ← Dodane */
+    margin-top:0 !important;
   }
   
   .about-me-text{
     order:2;
     text-align:center;
-    padding:20px 15px 10px 15px; /* ← ZMIANA: więcej paddingu */
+    padding:20px 15px 10px 15px;
   }
   
   .about-me-image{max-width:300px;aspect-ratio:1;border-radius:24px;}
@@ -750,13 +780,13 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     grid-template-columns:repeat(3,1fr);
     justify-items:center;
     max-width:280px;
-    margin:0 auto 20px auto; /* ← ZMIANA: margin auto */
+    margin:0 auto 20px auto;
   }
   
   .about-me-text h1{
     text-align:center;
     font-size:clamp(1.8rem,6.5vw,2.5rem);
-    margin-bottom:25px; /* ← ZMIANA */
+    margin-bottom:25px;
   }
   
   .about-me-text h1::after{
@@ -766,36 +796,13 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   
   .about-me-text .subtitle{
     text-align:center;
-    margin-bottom:30px; /* ← ZMIANA */
+    margin-bottom:30px;
   }
   
   .about-me-text>p{
-    margin-bottom:35px; /* ← ZMIANA */
+    margin-bottom:35px;
   }
-  
-  .carousel-outer{margin:0 10px;padding:40px 0 60px 0;}
-  
-  .carousel-track{
-    grid-auto-columns:minmax(280px,320px);
-    padding:15px;
-    padding-bottom:30px;
-    mask-image:linear-gradient(to right, transparent, #000 3% 97%, transparent);
-  }
-  
-  .carousel-item{
-    min-width:280px;
-    max-width:320px;
-    padding:20px 14px;
-    border-radius:18px;
-    height:300px;
-  }
-  
-  .carousel-controls{margin:40px auto 0 auto;gap:20px;max-width:200px;}
- .carousel-nav{width:75px !important;height:75px !important;font-size:30px !important;border-radius:20px !important;}
-  .carousel-item h3{font-size:1rem;margin-bottom:14px;}
-  .carousel-item img{max-height:80%;}
 }
-
 
 @media(max-width:480px){
   /* ← NOWE: Hero dla małych telefonów */
@@ -805,14 +812,14 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-    padding:50px 0 50px 0; /* ← ZMIANA: jeszcze mniejsze paddingi */
+    padding:50px 0 50px 0;
   }
   
   /* ← KRYTYCZNA ZMIANA */
   .about-me-visuals{
     max-width:280px;
     padding:15px;
-    transform:translateY(0) !important; /* ← ZERO - to jest klucz! */
+    transform:translateY(0) !important;
     margin-top:0 !important;
   }
   
@@ -826,24 +833,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     font-size:0.95rem;
   }
   
-  .carousel-track{
-    grid-auto-columns:minmax(260px,300px);
-    gap:20px;
-    padding:12px;
-    padding-bottom:25px;
-  }
-  
-  .carousel-item{
-    min-width:260px;
-    max-width:300px;
-    height:280px;
-  }
-  
-  .carousel-outer{margin:0 5px;padding:30px 0 50px 0;}
   .superpowers-grid{max-width:260px;}
   .superpowers-grid span{width:65px;height:65px;font-size:1.8rem;}
 }
-
 
 /* === PROJECT VIEWER === */
 .project-viewer{margin:0 auto 80px auto;padding:0 20px 60px;max-width:900px;transition:max-height .45s;position:relative;background:none;font-family:'Poppins',sans-serif;}
@@ -945,15 +937,9 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .kwcs-item.active .kwcs-content{padding:18px 20px;}
 }
 
-/* === FINAL FIXES === */
-.carousel-item,.carousel-item.active,#power-of-mind,#power-of-mind.active{background:rgba(255,255,255,0.95)!important;background-image:none!important;background-gradient:none!important;border:1px solid rgba(255,255,255,0.3)!important;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.08))!important;}
-.carousel-item:hover,.carousel-item.active:hover{transform:translateY(-10px) scale(1.03)!important;filter:drop-shadow(0 20px 50px rgba(37,99,235,0.15))!important;background:rgba(255,255,255,0.98)!important;border-color:rgba(37,99,235,0.25)!important;}
-.carousel-item img{transform:none!important;opacity:1!important;}
-.carousel-item:hover img{opacity:1!important;transform:scale(1.08)!important;}
-
 /* === PERFORMANCE OPTIMIZATIONS === */
-.carousel-item,.about-me-image,.cta-portfolio,.carousel-nav{will-change:transform;transform-style:preserve-3d;}
-.carousel-track{contain:layout style paint;}
+.portfolio-new-card,.about-me-image,.cta-portfolio{will-change:transform;transform-style:preserve-3d;}
+.portfolio-new-grid{contain:layout style paint;}
 .about-me-section{contain:layout style;}
 
 /* === ACCESSIBILITY === */
@@ -967,11 +953,12 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 
 /* === HIGH-DPI SUPPORT === */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .about-me-image, .carousel-item img {
+  .about-me-image, .portfolio-new-card img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
 }
+
 /* === EMERGENCY MOBILE FIX - 2025 - PERFECT ORDER === */
 @media(max-width:768px){
   /* WYŁĄCZ Hero Section */
@@ -995,10 +982,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:100% !important;
     align-items:center !important;
   }
-  
-  /* ========================================
-     KOLEJNOŚĆ MOBILE (zgodnie z UX)
-     ======================================== */
   
   /* 1. ZDJĘCIE PROFILOWE (order: 1) */
   .about-me-visuals{
@@ -1129,58 +1112,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .about-me-text .interests-section{
     display:none !important;
   }
-  
-  /* Portfolio Section */
-  .portfolio-section,
-  #portfolio-section{
-    position:relative !important;
-    z-index:10 !important;
-    padding:40px 0 !important;
-    margin-top:0 !important;
-  }
-  
-  /* Carousel adjustments */
-  .carousel-outer{
-    margin:0 10px !important;
-    padding:40px 0 60px 0 !important;
-  }
-  
-  .carousel-track{
-    grid-auto-columns:minmax(280px,320px) !important;
-    padding:15px !important;
-    padding-bottom:30px !important;
-    mask-image:linear-gradient(to right, transparent, #000 3% 97%, transparent) !important;
-  }
-  
-  .carousel-item{
-    min-width:280px !important;
-    max-width:320px !important;
-    padding:20px 14px !important;
-    border-radius:18px !important;
-    height:300px !important;
-  }
-  
-  .carousel-controls{
-    margin:40px auto 0 auto !important;
-    gap:20px !important;
-    max-width:200px !important;
-  }
-  
-  .carousel-nav{
-    width:50px !important;
-    height:50px !important;
-    font-size:20px !important;
-    border-radius:16px !important;
-  }
-  
-  .carousel-item h3{
-    font-size:1rem !important;
-    margin-bottom:14px !important;
-  }
-  
-  .carousel-item img{
-    max-height:80% !important;
-  }
 }
 
 /* === 480px BREAKPOINT === */
@@ -1218,8 +1149,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:260px !important;
     padding:14px 28px !important;
     font-size:0.95rem !important;
-    margin-top:30px !important;
-     margin:30px auto 35px auto !important;
+    margin:30px auto 35px auto !important;
   }
   
   .superpowers-grid{
@@ -1231,24 +1161,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     width:60px !important;
     height:60px !important;
     font-size:1.6rem !important;
-  }
-  
-  .carousel-track{
-    grid-auto-columns:minmax(260px,300px) !important;
-    gap:20px !important;
-    padding:12px !important;
-    padding-bottom:25px !important;
-  }
-  
-  .carousel-item{
-    min-width:260px !important;
-    max-width:300px !important;
-    height:280px !important;
-  }
-  
-  .carousel-outer{
-    margin:0 5px !important;
-    padding:30px 0 50px 0 !important;
   }
 }
 
