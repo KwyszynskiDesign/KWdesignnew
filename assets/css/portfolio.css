@@ -654,19 +654,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 /* Separator */
-.portfolio-section::after {
-  content: "• • •";
-  display: block;
-  text-align: center;
-  font-size: 28px;
-  color: #cbd5e1;
-  letter-spacing: 24px;
-  padding-left: 24px;
-  margin-top: 80px;
-  opacity: 0;
-  animation: fadeInDots 1.2s ease-in-out 0.3s forwards;
-  transition: color 0.3s ease;
-}
+
 
 .portfolio-section:hover::after {
   color: #94a3b8;
