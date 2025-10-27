@@ -333,171 +333,207 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .carousel-track::-webkit-scrollbar{display:none;}
 .carousel-track{scrollbar-width:none;}
 
-/* === PREMIUM PORTFOLIO CARDS - NAPRAWIONE === */
-.carousel-item{
-  scroll-snap-align:start;
-  scroll-snap-stop:normal;
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:22px;
-  overflow:hidden;
-  height:var(--card-h);
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  padding:24px 18px;
-  text-align:center;
-  transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
-  cursor:pointer;
-  position:relative;
-  z-index:22;
-  min-width:300px;
-  max-width:350px;
-  flex:0 0 auto;
-  filter:
-    drop-shadow(0 10px 30px rgba(0,0,0,0.08))
-    drop-shadow(0 6px 16px rgba(0,0,0,0.06))
-    drop-shadow(0 3px 6px rgba(0,0,0,0.04));
+/* === PREMIUM PORTFOLIO CARDS - NAPRAWIONE 2.0 === */
+.carousel-item {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 22px;
+  overflow: hidden; /* ✅ KLUCZOWE: wymusza przycinanie zawartości do border-radius */
+  height: var(--card-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 18px;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  z-index: 22;
+  min-width: 300px;
+  max-width: 350px;
+  flex: 0 0 auto;
+  /* ✅ ZMIANA: drop-shadow zamiast filter dla lepszej wydajności */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.06),
+    0 3px 6px rgba(0, 0, 0, 0.04);
+  /* ✅ DODANE: izolacja dla backdrop-filter + border-radius */
+  isolation: isolate;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-.carousel-item::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.4),rgba(255,255,255,0.1));
-  opacity:0;
-  transition:all 0.3s ease;
-  border-radius:22px;
-  z-index:-1;
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 22px;
+  z-index: -1;
+  pointer-events: none; /* ✅ DODANE: zapobiega problemom z klikaniem */
 }
 
-.carousel-item:hover{
-  transform:translateY(-10px) scale(1.03);
-  filter:
-    drop-shadow(0 20px 50px rgba(37,99,235,0.15))
-    drop-shadow(0 12px 30px rgba(37,99,235,0.1))
-    drop-shadow(0 6px 15px rgba(37,99,235,0.08));
-  background:rgba(255,255,255,0.98);
-  backdrop-filter:blur(20px);
-  border-color:rgba(37,99,235,0.25);
+.carousel-item:hover {
+  transform: translateY(-10px) scale(1.03);
+  /* ✅ ZMIANA: box-shadow zamiast filter dla spójności */
+  box-shadow: 
+    0 20px 50px rgba(37, 99, 235, 0.15),
+    0 12px 30px rgba(37, 99, 235, 0.1),
+    0 6px 15px rgba(37, 99, 235, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-color: rgba(37, 99, 235, 0.25);
+  /* ✅ DODANE: optymalizacja animacji */
+  will-change: transform;
 }
 
-.carousel-item:hover::before{opacity:1;}
-
-.carousel-item h3{
-  font-size:1.1rem;
-  font-weight:600;
-  margin:0 0 16px;
-  color:#1e293b;
-  flex:0 0 auto;
-  line-height:1.3;
+.carousel-item:hover::before {
+  opacity: 1;
 }
 
-.carousel-item .ci-image{
-  flex:1 1 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100%;
-  width:100%;
-  overflow:hidden;
-  padding:10px;
-  border-radius:16px;
-  background:linear-gradient(135deg,rgba(248,250,252,0.6),rgba(241,245,249,0.4));
+.carousel-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #1e293b;
+  flex: 0 0 auto;
+  line-height: 1.3;
+  width: 100%; /* ✅ DODANE: zapobiega overflow tekstu */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.carousel-item img{
-  max-height:85%;
-  max-width:100%;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  display:block;
-  transition:all 0.35s ease;
-  border-radius:10px;
+/* ✅ KLUCZOWA SEKCJA: naprawiony kontener obrazu */
+.carousel-item .ci-image {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* ✅ KLUCZOWE: wymusza przycinanie obrazu do border-radius */
+  padding: 10px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.6), rgba(241, 245, 249, 0.4));
+  position: relative; /* ✅ DODANE: tworzy nowy kontekst stackingowy */
+  isolation: isolate; /* ✅ DODANE: zapobiega konfliktom z backdrop-filter */
 }
 
-.carousel-item:hover img{
-  opacity:1;
-  transform:scale(1.08);
+.carousel-item img {
+  max-height: 85%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: all 0.35s ease;
+  border-radius: 10px;
+  /* ✅ DODANE: subpixel rendering fix */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
-/* === PREMIUM NAVIGATION - NAPRAWIONE CIENIE === */
-.carousel-controls{
-  margin:50px auto 0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:24px;
-  width:100%;
-  max-width:260px;
-  z-index:25;
-  position:relative;
-  padding:10px 0;
+.carousel-item:hover img {
+  opacity: 1;
+  transform: scale(1.08) translateZ(0); /* ✅ ZMIANA: dodane translateZ dla GPU acceleration */
+  will-change: transform; /* ✅ DODANE: optymalizacja hover animation */
 }
 
-.carousel-nav{
-  width:56px;
-  height:56px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  border-radius:18px;
-  border:1px solid rgba(37,99,235,0.15);
-  background:rgba(255,255,255,0.95);
-  backdrop-filter:blur(20px);
-  cursor:pointer;
-  font-size:22px;
-  line-height:1;
-  user-select:none;
-  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
-  color:#2563eb;
-  font-weight:600;
-  filter:
-    drop-shadow(0 10px 30px rgba(37,99,235,0.12))
-    drop-shadow(0 6px 16px rgba(37,99,235,0.08));
-  position:relative;
-  overflow:hidden;
+/* === PREMIUM NAVIGATION - NAPRAWIONE CIENIE 2.0 === */
+.carousel-controls {
+  margin: 50px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 260px;
+  z-index: 25;
+  position: relative;
+  padding: 10px 0;
 }
 
-.carousel-nav::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(37,99,235,0.05));
-  opacity:0;
-  transition:opacity 0.3s ease;
-  border-radius:18px;
+.carousel-nav {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18px;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #2563eb;
+  font-weight: 600;
+  /* ✅ ZMIANA: box-shadow zamiast filter dla lepszej wydajności */
+  box-shadow: 
+    0 10px 30px rgba(37, 99, 235, 0.12),
+    0 6px 16px rgba(37, 99, 235, 0.08);
+  position: relative;
+  overflow: hidden;
+  /* ✅ DODANE: hardware acceleration */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  isolation: isolate; /* ✅ DODANE: zapobiega konfliktom z backdrop-filter */
 }
 
-.carousel-nav:hover{
-  transform:translateY(-5px) scale(1.08);
-  background:#2563eb;
-  color:#fff;
-  border-color:transparent;
-  filter:
-    drop-shadow(0 16px 45px rgba(37,99,235,0.25))
-    drop-shadow(0 8px 22px rgba(37,99,235,0.15));
+.carousel-nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 18px;
+  pointer-events: none; /* ✅ DODANE: zapobiega problemom z klikaniem */
 }
 
-.carousel-nav:hover::before{opacity:1;}
-
-.carousel-nav[disabled]{
-  opacity:0.35;
-  cursor:not-allowed;
-  transform:none;
-  background:rgba(148,163,184,0.15);
-  color:#94a3b8;
-  border-color:rgba(148,163,184,0.25);
+.carousel-nav:hover {
+  transform: translateY(-5px) scale(1.08) translateZ(0); /* ✅ ZMIANA: dodane translateZ */
+  background: #2563eb;
+  color: #fff;
+  border-color: transparent;
+  /* ✅ ZMIANA: box-shadow zamiast filter */
+  box-shadow: 
+    0 16px 45px rgba(37, 99, 235, 0.25),
+    0 8px 22px rgba(37, 99, 235, 0.15);
+  will-change: transform; /* ✅ DODANE: optymalizacja hover */
 }
 
-.carousel-nav[disabled]:hover{
-  transform:none;
-  background:rgba(148,163,184,0.15);
-  color:#94a3b8;
-  filter:drop-shadow(0 6px 16px rgba(148,163,184,0.1));
+.carousel-nav:hover::before {
+  opacity: 1;
+}
+
+.carousel-nav[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.25);
+  pointer-events: none; /* ✅ DODANE: zapobiega interakcjom */
+  will-change: auto; /* ✅ DODANE: wyłącza optymalizację dla disabled */
+}
+
+.carousel-nav[disabled]:hover {
+  transform: none;
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  /* ✅ ZMIANA: box-shadow zamiast filter */
+  box-shadow: 0 6px 16px rgba(148, 163, 184, 0.1);
+}
+
 }
 
 /* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
