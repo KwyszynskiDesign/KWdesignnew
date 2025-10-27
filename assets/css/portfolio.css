@@ -415,32 +415,33 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .carousel-outer{
   position:relative;
   overflow:visible;
-  padding:60px 0 80px 0;
+  padding:80px 0 100px 0;
   margin:0 20px;
   z-index:20;
   background:transparent;
   isolation:isolate;
 }
 
-.carousel-track{
-  display:grid;
-  grid-auto-flow:column;
-  gap:var(--car-gap);
-  grid-auto-columns:minmax(300px,350px);
-  overflow-x:auto;
-  overflow-y:visible;
-  padding:var(--car-pad);
-  padding-bottom:40px;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  background:none!important;
-  background-image:none!important;
-  position:relative;
-  z-index:21;
-  isolation:isolate;
-  mask-image:linear-gradient(to right, transparent, #000 5% 95%, transparent);
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--car-gap);
+  grid-auto-columns: minmax(300px, 350px);
+  overflow-x: auto;
+  overflow-y: visible;
+  /* ✅ ZMIANA: zwiększone paddingi - 40px góra/dół, 20px lewo/prawo */
+  padding: 40px 20px 60px 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background: none !important;
+  background-image: none !important;
+  position: relative;
+  z-index: 21;
+  isolation: isolate;
+  mask-image: linear-gradient(to right, transparent, #000 5% 95%, transparent);
 }
+
 .carousel-track::-webkit-scrollbar{display:none;}
 .carousel-track{scrollbar-width:none;}
 
@@ -571,8 +572,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 .carousel-nav {
-  width: 56px;
-  height: 56px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -581,7 +582,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   cursor: pointer;
-  font-size: 22px;
+  font-size: 35px;
   line-height: 1;
   user-select: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -742,7 +743,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .carousel-controls{margin:40px auto 0 auto;gap:20px;max-width:200px;}
-  .carousel-nav{width:50px;height:50px;font-size:20px;border-radius:16px;}
+ .carousel-nav{width:75px !important;height:75px !important;font-size:30px !important;border-radius:20px !important;}
   .carousel-item h3{font-size:1rem;margin-bottom:14px;}
   .carousel-item img{max-height:80%;}
 }
