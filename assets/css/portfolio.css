@@ -187,17 +187,14 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .superpowers-grid span:hover::before{opacity:1;}
 
 .logo-carousel-section{
-  position: absolute; /* ← ABSOLUTE = wychodzi z flow */
-  bottom: 40px; /* ← 40px od dołu tła */
-  left: 0;
-  right: 0;
-  width: 100%;
-  margin: 0; /* ← ZERO margin */
+  margin-top: clamp(200px, 25vh, 300px); /* ← DUŻY margin-top = przesuwa w dół */
   padding: 0;
-  z-index: 10;
+  position: relative; /* ← RELATIVE, nie absolute! */
+  z-index: 1;
   background: transparent;
   text-align: center;
 }
+
 
 .logo-carousel-section h6{
   margin-bottom:clamp(20px,3vh,30px); /* ← Mniejszy margin */
