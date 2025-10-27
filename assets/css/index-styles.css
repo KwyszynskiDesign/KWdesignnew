@@ -488,6 +488,7 @@ section {
 
 .nav-list a:hover {
     color: var(--color-primary);
+     text-shadow: none !important;
     
     /* ✅ USUŃ CIEŃ Z HOVER */
     text-shadow: none !important;
