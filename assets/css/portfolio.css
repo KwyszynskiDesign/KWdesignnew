@@ -46,7 +46,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* === PREMIUM ABOUT SECTION === */
 .about-me-section{
-   padding:clamp(120px,15vh,180px) 0 clamp(60px,8vh,80px) 0; 
+  padding:clamp(120px,15vh,180px) 0 clamp(40px,5vh,60px) 0;
   overflow:visible;
   background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   position:relative;
@@ -187,8 +187,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .superpowers-grid span:hover::before{opacity:1;}
 
 .logo-carousel-section{
-  margin-top: clamp(200px, 25vh, 300px); /* ← DUŻY margin-top = przesuwa w dół */
-   padding: 0 0 20px 0;
+ margin-top: clamp(200px, 25vh, 300px);
+   padding: 0;
   position: relative; /* ← RELATIVE, nie absolute! */
   z-index: 1;
   background: transparent;
@@ -666,7 +666,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-  padding: clamp(60px, 10vh, 80px) 0 clamp(100px, 15vh, 140px) 0;/* ← ZWIĘKSZONY dolny padding */
+  padding: clamp(20px, 5vh, 40px) 0 clamp(50px, 8vh, 90px) 0 !important;
   overflow: visible;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   position: relative;
@@ -932,7 +932,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   
   /* About Me Section - reset */
   .about-me-section{
-    margin-top:70px !important;
+    margin-top:30px !important;
     min-height:auto !important;
     overflow:visible !important;
   }
