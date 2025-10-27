@@ -10,12 +10,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-       <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    
-    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    
-    <!-- Android Chrome Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
 
@@ -23,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
     
-    <!-- Style globalne -->
+    <!-- Style -->
     <link rel="stylesheet" href="assets/css/index-styles.css" />
     <link rel="stylesheet" href="assets/css/about-me.css" />
     <link rel="stylesheet" href="assets/css/portfolio.css" />
@@ -33,7 +28,9 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo-link"><div class="logo">KW</div></a>
+            <a href="index.html" class="logo-link">
+                <div class="logo">KW</div>
+            </a>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="index.html">Start</a></li>
@@ -54,502 +51,272 @@
     <!-- About Me Section -->
     <section class="about-me-section">
         <div class="container about-me-grid">
-            <!-- TEXT: Order 2 on mobile -->
+            <!-- TEXT -->
             <div class="about-me-text">
                 <h1>Cześć, jestem Karol</h1>
                 <p class="subtitle">UX/UI Designer & Partner Biznesowy</p>
-                <p>Jestem projektantem z pasją do tworzenia intuicyjnych i efektywnych doświadczeń użytkownika. Pomagam firmom budować zaufanie i osiągać cele biznesowe poprzez przemyślany design.
-                 Moją super mocą jest <b>strategiczne myślenie</b> co potwierdził test Gallupa. </p>
-                <div class="skills-section">
-                    
-                   
-         
-                    
-                </div>
+                <p>Jestem projektantem z pasją do tworzenia intuicyjnych i efektywnych doświadczeń użytkownika. Pomagam firmom budować zaufanie i osiągać cele biznesowe poprzez przemyślany design. Moją super mocą jest <b>strategiczne myślenie</b> co potwierdził test Gallupa.</p>
 
                 <!-- Logo Carousel -->
                 <div class="logo-carousel-section">
                     <h6>Pracuję w programach</h6>
                     <div class="logo-carousel">
                         <div class="logo-track">
-                            <!-- Logos repeated for infinite scroll effect -->
                             <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
                             <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
                             <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
                             <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
-                           
-                            <!-- Repeat -->
+                            <!-- Duplikaty dla infinite scroll -->
                             <img src="assets/images/logos/figma.svg" alt="Figma" title="Figma" />
                             <img src="assets/images/logos/photoshop.svg" alt="Adobe Photoshop" title="Adobe Photoshop" />
                             <img src="assets/images/logos/illustrator.svg" alt="Adobe Illustrator" title="Adobe Illustrator" />
                             <img src="assets/images/logos/wordpress.svg" alt="WordPress" title="WordPress" />
-                     
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- VISUALS: Order 1 on mobile (pokazuje się jako pierwsze) -->
+            <!-- VISUALS -->
             <div class="about-me-visuals">
                 <div class="about-me-image">
-                    <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - UX/UI Designer - portret profesjonalny">
+                    <img src="assets/images/presentation HERO.webp" alt="Karol Wyszyński - UX/UI Designer">
                 </div>
                 <a href="#portfolio-section" class="btn btn-primary cta-portfolio smooth">Zobacz moje realizacje</a>
             </div>
         </div>
     </section>
 
- <!-- Portfolio Section -->
-<section id="portfolio-section" class="portfolio-section">
-    <div class="container">
-        <h2 class="section-title">Wybrane projekty</h2>
-        <p class="section-subtitle">Każdy projekt to unikalna historia współpracy i rozwiązanie dostosowane do potrzeb klienta</p>
-        
-        <!-- GRID 3 KOLUMNY -->
-        <div class="portfolio-new-grid">
+    <!-- Portfolio Section -->
+    <section id="portfolio-section" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Wybrane projekty</h2>
+            <p class="section-subtitle">Każdy projekt to unikalna historia współpracy i rozwiązanie dostosowane do potrzeb klienta</p>
             
-            <!-- KARTA 1: Salon Fryzjerski -->
-            <div class="portfolio-new-card" data-project="voucher-magdy" onclick="showProjectDetails('voucher-magdy')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/salon Magdy mockup copy.webp" 
-                         alt="Projekt voucheru dla Salonu u Magdy - elegancki design okolicznościowy" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">PROJEKT GRAFICZNY</span>
-                    <h4 class="card-title">Salon Fryzjerski u Magdy</h4>
-                    <p class="card-description">Elegancki voucher okolicznościowy z indywidualnym designem.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Design Premium
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Druk Gotowy
-                        </span>
+            <!-- GRID 3 KOLUMNY -->
+            <div class="portfolio-new-grid">
+                
+                <!-- KARTA 1: Salon Fryzjerski -->
+                <div class="portfolio-new-card" data-project="voucher-magdy" onclick="showProjectDetails('voucher-magdy')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/salon Magdy mockup copy.webp" 
+                             alt="Projekt voucheru dla Salonu u Magdy" 
+                             loading="lazy" />
                     </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <div class="card-content">
+                        <span class="card-category">PROJEKT GRAFICZNY</span>
+                        <h4 class="card-title">Salon Fryzjerski u Magdy</h4>
+                        <p class="card-description">Elegancki voucher okolicznościowy z indywidualnym designem.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Design Premium
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Druk Gotowy
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
+
+                <!-- KARTA 2: Sklep Karoma -->
+                <div class="portfolio-new-card" data-project="karoma" onclick="showProjectDetails('karoma')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/Karoma_NewLogo.webp" 
+                             alt="Sklep internetowy Karoma" 
+                             loading="lazy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">E-COMMERCE + BRANDING</span>
+                        <h4 class="card-title">Sklep Karoma</h4>
+                        <p class="card-description">Profesjonalny sklep internetowy z identyfikacją wizualną marki.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                WooCommerce
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Logo Design
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTA 3: Power of Mind -->
+                <div class="portfolio-new-card" data-project="power-of-mind" onclick="showProjectDetails('power-of-mind')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/do SEO 1200x630.png" 
+                             alt="Power of Mind" 
+                             loading="lazy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">SERWIS + SKLEP + BRANDING</span>
+                        <h4 class="card-title">Power of Mind</h4>
+                        <p class="card-description">Kompleksowa strona dla trenerki odporności psychicznej.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                WordPress
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Logo + UX/UI
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTA 4: Sir Roger -->
+                <div class="portfolio-new-card" data-project="sir-roger" onclick="showProjectDetails('sir-roger')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/Roger.png" 
+                             alt="Sir Roger - rebranding" 
+                             loading="lazy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">REBRANDING + PACKAGING</span>
+                        <h4 class="card-title">Sir Roger</h4>
+                        <p class="card-description">Rebranding i projektowanie opakowań dla marki premium.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Logo Design
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Brand Identity
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTA 5: Marka E -->
+                <div class="portfolio-new-card" data-project="marka-e" onclick="showProjectDetails('marka-e')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placeholder.jpg" 
+                             alt="Strona internetowa – Marka E" 
+                             loading="lazy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">SERWIS + UX/UI</span>
+                        <h4 class="card-title">Strona – Marka E</h4>
+                        <p class="card-description">Nowoczesna strona internetowa z przemyślanym UX i UI.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                WordPress
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Responsive Design
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KARTA 6: Marka F -->
+                <div class="portfolio-new-card" data-project="marka-f" onclick="showProjectDetails('marka-f')">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placeholder.jpg" 
+                             alt="Pakiet brandingowy – Marka F" 
+                             loading="lazy" />
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">PAKIET BRANDINGOWY</span>
+                        <h4 class="card-title">Pakiet – Marka F</h4>
+                        <p class="card-description">Kompleksowy pakiet identyfikacji wizualnej dla nowej marki.</p>
+                        <div class="card-features">
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Logo + Branding
+                            </span>
+                            <span class="feature-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Brand Guidelines
+                            </span>
+                        </div>
+                        <div class="card-cta">
+                            <span>Zobacz projekt</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- KARTA 2: Sklep Karoma -->
-            <div class="portfolio-new-card" data-project="karoma" onclick="showProjectDetails('karoma')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/Karoma_NewLogo.webp" 
-                         alt="Sklep internetowy Karoma - projekt e-commerce z brandingiem" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">E-COMMERCE + BRANDING</span>
-                    <h4 class="card-title">Sklep Karoma</h4>
-                    <p class="card-description">Profesjonalny sklep internetowy z identyfikacją wizualną marki.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            WooCommerce
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Logo Design
-                        </span>
-                    </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KARTA 3: Power of Mind -->
-            <div class="portfolio-new-card" data-project="power-of-mind" onclick="showProjectDetails('power-of-mind')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/do SEO 1200x630.png" 
-                         alt="Power of Mind - kompleksowy projekt strony i brandingu dla trenerki" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">SERWIS + SKLEP + BRANDING</span>
-                    <h4 class="card-title">Power of Mind</h4>
-                    <p class="card-description">Kompleksowa strona dla trenerki odporności psychicznej.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            WordPress
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Logo + UX/UI
-                        </span>
-                    </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KARTA 4: Sir Roger -->
-            <div class="portfolio-new-card" data-project="sir-roger" onclick="showProjectDetails('sir-roger')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/Roger.png" 
-                         alt="Sir Roger - projekt logo i identyfikacja wizualna marki" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">REBRANDING + PACKAGING</span>
-                    <h4 class="card-title">Sir Roger</h4>
-                    <p class="card-description">Rebranding i projektowanie opakowań dla marki premium.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Logo Design
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Brand Identity
-                        </span>
-                    </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KARTA 5: Marka E -->
-            <div class="portfolio-new-card" data-project="marka-e" onclick="showProjectDetails('marka-e')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/placeholder.jpg" 
-                         alt="Strona internetowa – Marka E projekt UX/UI" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">SERWIS + UX/UI</span>
-                    <h4 class="card-title">Strona – Marka E</h4>
-                    <p class="card-description">Nowoczesna strona internetowa z przemyślanym UX i UI.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            WordPress
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Responsive Design
-                        </span>
-                    </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KARTA 6: Pakiet – Marka F -->
-            <div class="portfolio-new-card" data-project="marka-f" onclick="showProjectDetails('marka-f')">
-                <div class="card-image-wrapper">
-                    <img src="assets/images/placeholder.jpg" 
-                         alt="Kompleksowy pakiet brandingowy – Marka F" 
-                         loading="lazy" 
-                         decoding="async" />
-                </div>
-                <div class="card-content">
-                    <span class="card-category">PAKIET BRANDINGOWY</span>
-                    <h4 class="card-title">Pakiet – Marka F</h4>
-                    <p class="card-description">Kompleksowy pakiet identyfikacji wizualnej dla nowej marki.</p>
-                    <div class="card-features">
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Logo + Branding
-                        </span>
-                        <span class="feature-item">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.5 3.5L6 11L2.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Brand Guidelines
-                        </span>
-                    </div>
-                    <div class="card-cta">
-                        <span>Zobacz projekt</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+            <!-- KONTENER SZCZEGÓŁÓW PROJEKTU -->
+            <div id="project-details-container" class="project-details-container">
+                <button class="close-details-btn" onclick="closeProjectDetails()" aria-label="Zamknij szczegóły projektu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Zamknij
+                </button>
+                
+                <div id="project-details-content" class="project-details-content">
+                    <!-- Treść case study ładowana przez JavaScript -->
                 </div>
             </div>
 
         </div>
-
-        <!-- SEKCJA WYŚWIETLANIA SZCZEGÓŁÓW PROJEKTU -->
-        <div id="project-details-container" class="project-details-container" style="display: none;">
-            <!-- Przycisk zamknięcia -->
-            <button class="close-details-btn" onclick="closeProjectDetails()" aria-label="Zamknij szczegóły projektu">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            
-            <!-- Miejsce na załadowanie treści case study -->
-            <div id="project-details-content" class="project-details-content">
-                <!-- Tutaj zostanie załadowana treść przez JavaScript -->
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- JAVASCRIPT -->
-<script>
-// Definicja treści projektów - możesz je również załadować z osobnych plików HTML
-const projectsData = {
-    'voucher-magdy': {
-        title: 'Salon Fryzjerski u Magdy',
-        category: 'Projekt Graficzny',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/salon Magdy mockup copy.webp" alt="Voucher Salon u Magdy">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Salon Fryzjerski u Magdy</p>
-                    <p><strong>Zakres:</strong> Projekt voucheru okolicznościowego</p>
-                    <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Klientka potrzebowała eleganckich voucherów, które będą doskonałym prezentem dla klientów salonu. Projekt musiał być nie tylko estetyczny, ale również funkcjonalny – gotowy do druku w wysokiej jakości.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Zaprojektowałem voucher łączący elegancję z branżą beauty. Wykorzystałem delikatne kolory, elegancką typografię i subtelne elementy graficzne, które podkreślają profesjonalizm salonu.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Voucher stał się popularnym prezentem wśród klientów salonu. Design premium podkreślił wysoką jakość usług, a gotowe pliki do druku umożliwiły szybkie wdrożenie.</p>
-                </div>
-            </div>
-        `
-    },
-    'karoma': {
-        title: 'Sklep Karoma',
-        category: 'E-commerce + Branding',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/Karoma_NewLogo.webp" alt="Sklep Karoma">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Karoma</p>
-                    <p><strong>Zakres:</strong> Sklep internetowy + Logo + Identyfikacja wizualna</p>
-                    <p><strong>Technologie:</strong> WordPress, WooCommerce, Adobe Illustrator</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Stworzenie kompleksowego sklepu internetowego od podstaw, z pełną identyfikacją wizualną marki. Sklep musiał być intuicyjny, responsywny i zoptymalizowany pod kątem konwersji.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Projekt rozpoczęłam od identyfikacji wizualnej – logo, paleta kolorów, typografia. Następnie stworzyłam sklep na WooCommerce z przemyślanym UX, klarowną nawigacją i optymalizacją procesu zakupowego.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Profesjonalny sklep internetowy z silną identyfikacją wizualną, który zwiększył sprzedaż online i pozytywnie wpłynął na rozpoznawalność marki.</p>
-                </div>
-            </div>
-        `
-    },
-    'power-of-mind': {
-        title: 'Power of Mind',
-        category: 'Serwis + Sklep + Branding',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/do SEO 1200x630.png" alt="Power of Mind">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Power of Mind - Trenerka odporności psychicznej</p>
-                    <p><strong>Zakres:</strong> Strona WWW + Sklep + Logo + Branding</p>
-                    <p><strong>Technologie:</strong> WordPress, WooCommerce, Custom Theme</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Trenerka potrzebowała kompleksowej obecności online – strony prezentującej jej usługi, sklepu z produktami cyfrowymi oraz spójnej identyfikacji wizualnej, która oddaje filozofię marki.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Stworzyłam holistyczną platformę łączącą content marketing, e-commerce i branding. Design odzwierciedla spokój, profesjonalizm i wewnętrzną siłę – wartości kluczowe dla marki.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Kompleksowa platforma, która nie tylko prezentuje ofertę, ale też buduje autorytet eksperki. Integracja sklepu z systemem płatności umożliwiła automatyzację sprzedaży produktów cyfrowych.</p>
-                </div>
-            </div>
-        `
-    },
-    'sir-roger': {
-        title: 'Sir Roger',
-        category: 'Rebranding + Packaging',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/Roger.png" alt="Sir Roger">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Sir Roger</p>
-                    <p><strong>Zakres:</strong> Rebranding + Projekt opakowań</p>
-                    <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Marka premium potrzebowała odświeżenia identyfikacji wizualnej oraz projektów opakowań, które wyróżnią ją na półce sklepowej i podkreślą luksusowy charakter produktów.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Przeprojektowałam logo, zachowując rozpoznawalność marki, ale nadając jej nowoczesny, premium look. Opakowania zaprojektowałam z dbałością o detale – elegancka typografia, wyrafinowana paleta kolorów.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Marka zyskała świeży, nowoczesny wizerunek przy zachowaniu swojej tożsamości. Opakowania wyróżniają się na rynku i skutecznie komunikują premium positioning.</p>
-                </div>
-            </div>
-        `
-    },
-    'marka-e': {
-        title: 'Strona – Marka E',
-        category: 'Serwis + UX/UI',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/placeholder.jpg" alt="Marka E">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Marka E</p>
-                    <p><strong>Zakres:</strong> Strona WWW + UX/UI Design</p>
-                    <p><strong>Technologie:</strong> WordPress, Custom Theme</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Stworzenie nowoczesnej, responsywnej strony internetowej z przemyślanym doświadczeniem użytkownika i intuicyjnym interfejsem.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Design oparty na user research i best practices UX/UI. Czytelna hierarchia informacji, intuicyjna nawigacja, responsywność na wszystkie urządzenia.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Strona, która nie tylko pięknie wygląda, ale przede wszystkim skutecznie prowadzi użytkowników do realizacji celów biznesowych.</p>
-                </div>
-            </div>
-        `
-    },
-    'marka-f': {
-        title: 'Pakiet – Marka F',
-        category: 'Pakiet Brandingowy',
-        content: `
-            <div class="case-study">
-                <div class="case-hero">
-                    <img src="assets/images/placeholder.jpg" alt="Marka F">
-                </div>
-                
-                <div class="case-overview">
-                    <h3>Przegląd projektu</h3>
-                    <p><strong>Klient:</strong> Marka F</p>
-                    <p><strong>Zakres:</strong> Kompleksowa identyfikacja wizualna</p>
-                    <p><strong>Deliverables:</strong> Logo, Brand Guidelines, Materiały marketingowe</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Wyzwanie</h3>
-                    <p>Stworzenie kompletnej identyfikacji wizualnej dla nowej marki – od fundamentów (logo, kolory, typografia) po wytyczne użycia i materiały marketingowe.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rozwiązanie</h3>
-                    <p>Kompleksowy proces brandingowy: research konkurencji, persona, moodboard, projekt logo, paleta kolorów, typografia, system graficzny i szczegółowe brand guidelines.</p>
-                </div>
-
-                <div class="case-section">
-                    <h3>Rezultat</h3>
-                    <p>Spójna, profesjonalna identyfikacja wizualna gotowa do użycia we wszystkich kanałach komunikacji. Marka z silnym fundamentem wizualnym i jasno określoną tożsamością.</p>
-                </div>
-            </div>
-        `
-    }
-};
-
-
-
-
-    <!-- Wizualizacje Section (Content is loaded dynamically, this section is now just a placeholder) -->
-    <section id="wizualizacje-section" style="display: none;"></section>
-
-    <!-- Viewer -->
-    <section id="project-viewer" class="project-viewer hidden" aria-live="polite" aria-busy="false"></section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -572,83 +339,289 @@ const projectsData = {
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- JavaScript -->
     <script>
+        // Rok w footerze
         document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Funkcja wyświetlająca szczegóły projektu
-function showProjectDetails(projectId) {
-    const container = document.getElementById('project-details-container');
-    const content = document.getElementById('project-details-content');
-    
-    // Pobierz dane projektu
-    const projectData = projectsData[projectId];
-    
-    if (projectData) {
-        // Wstaw treść
-        content.innerHTML = `
-            <h2 class="project-details-title">${projectData.title}</h2>
-            <span class="project-details-category">${projectData.category}</span>
-            ${projectData.content}
-        `;
-        
-        // Pokaż kontener z animacją
-        container.style.display = 'block';
-        
-        // Płynne przewinięcie do sekcji szczegółów
-        setTimeout(() => {
-            container.classList.add('active');
-            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 10);
-        
-        // Dodaj klasę active do klikniętej karty
-        document.querySelectorAll('.portfolio-new-card').forEach(card => {
-            card.classList.remove('active');
+        // Definicja treści projektów
+        const projectsData = {
+            'voucher-magdy': {
+                title: 'Salon Fryzjerski u Magdy',
+                category: 'Projekt Graficzny',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/salon Magdy mockup copy.webp" alt="Voucher Salon u Magdy">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Salon Fryzjerski u Magdy</p>
+                            <p><strong>Zakres:</strong> Projekt voucheru okolicznościowego</p>
+                            <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Klientka potrzebowała eleganckich voucherów, które będą doskonałym prezentem dla klientów salonu. Projekt musiał być nie tylko estetyczny, ale również funkcjonalny – gotowy do druku w wysokiej jakości.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Zaprojektowałem voucher łączący elegancję z branżą beauty. Wykorzystałem delikatne kolory, elegancką typografię i subtelne elementy graficzne, które podkreślają profesjonalizm salonu.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Voucher stał się popularnym prezentem wśród klientów salonu. Design premium podkreślił wysoką jakość usług, a gotowe pliki do druku umożliwiły szybkie wdrożenie.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'karoma': {
+                title: 'Sklep Karoma',
+                category: 'E-commerce + Branding',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/Karoma_NewLogo.webp" alt="Sklep Karoma">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Karoma</p>
+                            <p><strong>Zakres:</strong> Sklep internetowy + Logo + Identyfikacja wizualna</p>
+                            <p><strong>Technologie:</strong> WordPress, WooCommerce, Adobe Illustrator</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Stworzenie kompleksowego sklepu internetowego od podstaw, z pełną identyfikacją wizualną marki. Sklep musiał być intuicyjny, responsywny i zoptymalizowany pod kątem konwersji.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Projekt rozpoczęłem od identyfikacji wizualnej – logo, paleta kolorów, typografia. Następnie stworzyłem sklep na WooCommerce z przemyślanym UX, klarowną nawigacją i optymalizacją procesu zakupowego.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Profesjonalny sklep internetowy z silną identyfikacją wizualną, który zwiększył sprzedaż online i pozytywnie wpłynął na rozpoznawalność marki.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'power-of-mind': {
+                title: 'Power of Mind',
+                category: 'Serwis + Sklep + Branding',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/do SEO 1200x630.png" alt="Power of Mind">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Power of Mind - Trenerka odporności psychicznej</p>
+                            <p><strong>Zakres:</strong> Strona WWW + Sklep + Logo + Branding</p>
+                            <p><strong>Technologie:</strong> WordPress, WooCommerce, Custom Theme</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Trenerka potrzebowała kompleksowej obecności online – strony prezentującej jej usługi, sklepu z produktami cyfrowymi oraz spójnej identyfikacji wizualnej, która oddaje filozofię marki.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Stworzyłem holistyczną platformę łączącą content marketing, e-commerce i branding. Design odzwierciedla spokój, profesjonalizm i wewnętrzną siłę – wartości kluczowe dla marki.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Kompleksowa platforma, która nie tylko prezentuje ofertę, ale też buduje autorytet ekspertki. Integracja sklepu z systemem płatności umożliwiła automatyzację sprzedaży produktów cyfrowych.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'sir-roger': {
+                title: 'Sir Roger',
+                category: 'Rebranding + Packaging',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/Roger.png" alt="Sir Roger">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Sir Roger</p>
+                            <p><strong>Zakres:</strong> Rebranding + Projekt opakowań</p>
+                            <p><strong>Technologie:</strong> Adobe Illustrator, Photoshop</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Marka premium potrzebowała odświeżenia identyfikacji wizualnej oraz projektów opakowań, które wyróżnią ją na półce sklepowej i podkreślą luksusowy charakter produktów.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Przeprojektowałem logo, zachowując rozpoznawalność marki, ale nadając jej nowoczesny, premium look. Opakowania zaprojektowałem z dbałością o detale – elegancka typografia, wyrafinowana paleta kolorów.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Marka zyskała świeży, nowoczesny wizerunek przy zachowaniu swojej tożsamości. Opakowania wyróżniają się na rynku i skutecznie komunikują premium positioning.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'marka-e': {
+                title: 'Strona – Marka E',
+                category: 'Serwis + UX/UI',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/placeholder.jpg" alt="Marka E">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Marka E</p>
+                            <p><strong>Zakres:</strong> Strona WWW + UX/UI Design</p>
+                            <p><strong>Technologie:</strong> WordPress, Custom Theme</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Stworzenie nowoczesnej, responsywnej strony internetowej z przemyślanym doświadczeniem użytkownika i intuicyjnym interfejsem.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Design oparty na user research i best practices UX/UI. Czytelna hierarchia informacji, intuicyjna nawigacja, responsywność na wszystkie urządzenia.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Strona, która nie tylko pięknie wygląda, ale przede wszystkim skutecznie prowadzi użytkowników do realizacji celów biznesowych.</p>
+                        </div>
+                    </div>
+                `
+            },
+            'marka-f': {
+                title: 'Pakiet – Marka F',
+                category: 'Pakiet Brandingowy',
+                content: `
+                    <div class="case-study">
+                        <div class="case-hero">
+                            <img src="assets/images/placeholder.jpg" alt="Marka F">
+                        </div>
+                        
+                        <div class="case-overview">
+                            <h3>Przegląd projektu</h3>
+                            <p><strong>Klient:</strong> Marka F</p>
+                            <p><strong>Zakres:</strong> Kompleksowa identyfikacja wizualna</p>
+                            <p><strong>Deliverables:</strong> Logo, Brand Guidelines, Materiały marketingowe</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Wyzwanie</h3>
+                            <p>Stworzenie kompletnej identyfikacji wizualnej dla nowej marki – od fundamentów (logo, kolory, typografia) po wytyczne użycia i materiały marketingowe.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rozwiązanie</h3>
+                            <p>Kompleksowy proces brandingowy: research konkurencji, persona, moodboard, projekt logo, paleta kolorów, typografia, system graficzny i szczegółowe brand guidelines.</p>
+                        </div>
+
+                        <div class="case-section">
+                            <h3>Rezultat</h3>
+                            <p>Spójna, profesjonalna identyfikacja wizualna gotowa do użycia we wszystkich kanałach komunikacji. Marka z silnym fundamentem wizualnym i jasno określoną tożsamością.</p>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Funkcja wyświetlająca szczegóły projektu
+        function showProjectDetails(projectId) {
+            const container = document.getElementById('project-details-container');
+            const content = document.getElementById('project-details-content');
+            
+            const projectData = projectsData[projectId];
+            
+            if (projectData) {
+                // Wstaw treść
+                content.innerHTML = `
+                    <h2 class="project-details-title">${projectData.title}</h2>
+                    <span class="project-details-category">${projectData.category}</span>
+                    ${projectData.content}
+                `;
+                
+                // Pokaż kontener
+                container.style.display = 'block';
+                
+                // Smooth scroll
+                setTimeout(() => {
+                    container.classList.add('active');
+                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 10);
+                
+                // Highlight aktywnej karty
+                document.querySelectorAll('.portfolio-new-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+                document.querySelector(`[data-project="${projectId}"]`).classList.add('active');
+                
+                // Update URL
+                history.pushState({ project: projectId }, '', `#${projectId}`);
+            }
+        }
+
+        // Funkcja zamykająca szczegóły
+        function closeProjectDetails() {
+            const container = document.getElementById('project-details-container');
+            
+            container.classList.remove('active');
+            
+            setTimeout(() => {
+                container.style.display = 'none';
+                
+                document.querySelector('.portfolio-new-grid').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            }, 300);
+            
+            document.querySelectorAll('.portfolio-new-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            history.pushState('', document.title, window.location.pathname);
+        }
+
+        // ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('project-details-container');
+                if (container.style.display === 'block') {
+                    closeProjectDetails();
+                }
+            }
         });
-        document.querySelector(`[data-project="${projectId}"]`).classList.add('active');
-    }
-}
 
-// Funkcja zamykająca szczegóły projektu
-function closeProjectDetails() {
-    const container = document.getElementById('project-details-container');
-    
-    // Usuń klasę active z animacją
-    container.classList.remove('active');
-    
-    // Ukryj po zakończeniu animacji
-    setTimeout(() => {
-        container.style.display = 'none';
-        
-        // Przewiń z powrotem do grid
-        document.querySelector('.portfolio-new-grid').scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
+        // Deep linking
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && projectsData[hash]) {
+                setTimeout(() => {
+                    showProjectDetails(hash);
+                }, 500);
+            }
         });
-    }, 300);
-    
-    // Usuń klasę active ze wszystkich kart
-    document.querySelectorAll('.portfolio-new-card').forEach(card => {
-        card.classList.remove('active');
-    });
-}
-
-// Obsługa klawisza ESC
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeProjectDetails();
-    }
-});
-
-// Ładowanie projektu z URL (jeśli jest hash)
-window.addEventListener('DOMContentLoaded', function() {
-    const hash = window.location.hash.substring(1);
-    if (hash && projectsData[hash]) {
-        setTimeout(() => {
-            showProjectDetails(hash);
-        }, 500);
-    }
-});
     </script>
     <script src="assets/js/portfolio.js" defer></script>
 
