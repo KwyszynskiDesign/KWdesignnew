@@ -185,10 +185,99 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 .superpowers-grid span:hover::before{opacity:1;}
 
-.logo-carousel-section{margin-top:clamp(50px,8vh,80px);}
+.logo-carousel-section{margin-top:clamp(80px, 12vh, 120px);}
 .logo-carousel-section h6{margin-bottom:clamp(25px,4vh,40px);color:#64748b;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;}
 
+/* Kontener karuzeli z gradient mask */
+.logo-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  /* ← Gradient na krawędziach dla efektu fade */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(50px, 8vw, 80px);
+  animation: scroll-logos 30s linear infinite; /* ← 30s = wolna animacja */
+  will-change: transform;
+}
 
+/* Animacja infinite scroll */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* ← przesuwa o połowę (duplikowane logo) */
+  }
+}
+
+/* Style dla pojedynczego logo */
+.logo-track img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.6);
+  transition: all 0.35s ease;
+  flex-shrink: 0; /* ← zapobiega skurceniu się obrazów */
+}
+
+/* Hover effect na logo */
+.logo-track img:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.12);
+}
+
+/* Pause on hover - cała karuzela */
+.logo-carousel:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* === MOBILE ADJUSTMENTS === */
+@media(max-width:768px) {
+  .logo-carousel-section {
+    margin-top: clamp(60px, 10vh, 90px) !important;
+  }
+  
+  .logo-track {
+    gap: clamp(35px, 6vw, 50px);
+    animation-duration: 25s; /* ← trochę szybciej na mobile */
+  }
+  
+  .logo-track img {
+    height: 36px;
+  }
+}
+
+@media(max-width:480px) {
+  .logo-carousel-section {
+    margin-top: 50px !important;
+  }
+  
+  .logo-track {
+    gap: 30px;
+    animation-duration: 20s; /* ← jeszcze szybciej dla małych ekranów */
+  }
+  
+  .logo-track img {
+    height: 32px;
+  }
+}
 /* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
 .about-me-visuals{
   display:flex;
