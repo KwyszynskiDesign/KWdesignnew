@@ -188,7 +188,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 .logo-carousel-section{
   margin-top: clamp(200px, 25vh, 300px); /* ← DUŻY margin-top = przesuwa w dół */
-   padding: 0 0 40px 0;
+   padding: 0 0 20px 0;
   position: relative; /* ← RELATIVE, nie absolute! */
   z-index: 1;
   background: transparent;
@@ -666,7 +666,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-    padding: clamp(120px, 15vh, 180px) 0 clamp(180px, 20vh, 240px) 0; /* ← ZWIĘKSZONY dolny padding */
+  padding: clamp(60px, 10vh, 80px) 0 clamp(100px, 15vh, 140px) 0;/* ← ZWIĘKSZONY dolny padding */
   overflow: visible;
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   position: relative;
@@ -977,7 +977,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .about-me-visuals .cta-portfolio{
     order:999 !important;
     max-width:280px !important;
-    margin:42px auto 60px auto !important;
+    margin:35px auto 50px auto !important;
     padding:16px 32px !important;
     font-size:1rem !important;
   }
