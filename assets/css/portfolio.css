@@ -954,7 +954,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .about-me-visuals .cta-portfolio{
     order:999 !important;
     max-width:280px !important;
-    margin:35px auto 0 auto !important;
+    margin:42px auto 0 auto !important;
     padding:16px 32px !important;
     font-size:1rem !important;
   }
@@ -1147,6 +1147,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     padding:14px 28px !important;
     font-size:0.95rem !important;
     margin-top:30px !important;
+     margin:30px auto 35px auto !important;
   }
   
   .superpowers-grid{
