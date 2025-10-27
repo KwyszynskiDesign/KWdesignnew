@@ -1,15 +1,25 @@
+/* ========================================
+   PORTFOLIO.JS - PREMIUM EDITION 2025
+   Dynamic project loading with full functionality
+   ======================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('🚀 Portfolio.js załadowany');
   
-  // === 1. ROK W FOOTERZE ===
+  // ========================================
+  // 1. YEAR IN FOOTER
+  // ========================================
   const yearSpan = document.getElementById('year');
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // === 2. HAMBURGER MENU ===
+  // ========================================
+  // 2. HAMBURGER MENU
+  // ========================================
   const burger = document.querySelector('.hamburger');
   const navList = document.querySelector('.nav-list');
+  
   if (burger && navList) {
     burger.addEventListener('click', () => {
       navList.classList.toggle('open');
@@ -17,7 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === 3. MAPPING PROJEKTÓW (GRID) ===
+  // ========================================
+  // 3. PROJECT MAPPING
+  // ========================================
   const projectPages = {
     'voucher-magdy': 'projects/voucher-salon-magdy.html',
     'karoma': 'projects/karoma.html',
@@ -27,97 +39,210 @@ document.addEventListener('DOMContentLoaded', () => {
     'marka-f': 'projects/realizacja-3.html'
   };
 
-  // === 4. FUNKCJA ŁADOWANIA PROJEKTU (GRID) ===
+  // ========================================
+  // 4. LOAD PROJECT FUNCTION - NAPRAWIONA
+  // ========================================
   window.showProjectDetails = async function(projectId) {
-    console.log('🔍 Ładowanie projektu:', projectId);
+    console.log('🎯 Ładowanie projektu:', projectId);
     
     const container = document.getElementById('project-details-container');
     const content = document.getElementById('project-details-content');
     const filename = projectPages[projectId];
     
-    if (!filename) {
-      console.error('❌ Nie znaleziono pliku dla projektu:', projectId);
+    if (!container || !content) {
+      console.error('❌ Brak kontenera projektu w DOM');
       return;
     }
     
-    console.log('📂 Próba załadowania:', filename);
+    if (!filename) {
+      console.error('❌ Nie znaleziono pliku dla projektu:', projectId);
+      content.innerHTML = `
+        <div class="error-message">
+          <h3>⚠️ Projekt nie został znaleziony</h3>
+          <p>ID projektu: <code>${projectId}</code></p>
+        </div>`;
+      return;
+    }
+    
+    console.log('📂 Ładowanie pliku:', filename);
     
     try {
-      // Pokaż loader
+      // Loading state
       content.innerHTML = '<div class="loading-spinner">Ładowanie projektu...</div>';
       container.style.display = 'block';
+      container.classList.add('active');
       
-      // Fetch pełnej strony HTML
-      const response = await fetch(filename, { cache: 'no-store' });
+      // Fetch project HTML
+      const response = await fetch(filename, { 
+        cache: 'no-store',
+        headers: { 'Accept': 'text/html' }
+      });
       
-      console.log('📡 Status:', response.status);
+      console.log('📡 HTTP Status:', response.status, response.statusText);
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
       const html = await response.text();
       
-      // Parsuj HTML i wyciągnij <body>
+      // Parse HTML and extract body content
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
       const bodyContent = doc.body.innerHTML;
       
-      // Wstaw zawartość
+      // Insert content
       content.innerHTML = bodyContent;
       
       console.log('✅ Projekt załadowany pomyślnie');
       
-      // Smooth scroll do szczegółów
+      // ✅ KLUCZOWA ZMIANA: Inicjalizuj skrypty projektu
+      initializeProjectScripts();
+      
+      // Smooth scroll to project
       setTimeout(() => {
-        container.classList.add('active');
         container.scrollIntoView({ 
           behavior: 'smooth', 
           block: 'start' 
         });
-      }, 50);
+      }, 100);
       
-      // Highlight aktywnej karty
+      // Highlight active card
       document.querySelectorAll('.portfolio-new-card').forEach(card => {
         card.classList.remove('active');
       });
-      document.querySelector(`[data-project="${projectId}"]`)?.classList.add('active');
+      const activeCard = document.querySelector(`[data-project="${projectId}"]`);
+      if (activeCard) {
+        activeCard.classList.add('active');
+      }
       
       // Update URL
       history.pushState({ project: projectId }, '', `#${projectId}`);
-      
-      // Wykonaj skrypty ze załadowanej strony
-      executeScriptsInContent(content);
       
     } catch (error) {
       console.error('❌ Błąd ładowania projektu:', error);
       content.innerHTML = `
         <div class="error-message">
           <h3>⚠️ Nie udało się załadować projektu</h3>
-          <p>Sprawdź konsolę dla szczegółów błędu.</p>
-          <p><strong>Plik:</strong> ${filename}</p>
-          <p><a href="${filename}" target="_blank">Otwórz w nowej karcie</a></p>
+          <p><strong>Plik:</strong> <code>${filename}</code></p>
+          <p><strong>Błąd:</strong> ${error.message}</p>
+          <p><a href="${filename}" target="_blank" rel="noopener">Otwórz projekt w nowej karcie →</a></p>
         </div>
       `;
+      container.classList.add('active');
     }
   };
 
-  // === 5. WYKONAJ SKRYPTY ZE ZAŁADOWANEJ STRONY ===
-  function executeScriptsInContent(container) {
-    const scripts = container.querySelectorAll('script');
-    scripts.forEach(oldScript => {
-      const newScript = document.createElement('script');
-      Array.from(oldScript.attributes).forEach(attr => {
-        newScript.setAttribute(attr.name, attr.value);
+  // ========================================
+  // 5. INICJALIZACJA SKRYPTÓW PROJEKTU - NOWA FUNKCJA
+  // ========================================
+  function initializeProjectScripts() {
+    console.log('🔧 Inicjalizacja skryptów projektu...');
+    
+    // === LIGHTBOX ===
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    
+    if (lightbox && lightboxImg) {
+      console.log('✅ Lightbox znaleziony, inicjalizacja...');
+      
+      // Remove old event listeners (if any)
+      const newLightbox = lightbox.cloneNode(true);
+      lightbox.parentNode.replaceChild(newLightbox, lightbox);
+      
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      const lbCaption = document.getElementById('lightbox-caption');
+      const lbClose = document.querySelector('.lightbox-close');
+      
+      // Open lightbox on image click
+      document.querySelectorAll('.kwcs-gallery-grid img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+          lb.classList.add('active');
+          lbImg.src = this.src;
+          lbCaption.textContent = this.alt || '';
+          document.body.classList.add('lightbox-open');
+          console.log('🖼️ Lightbox otwarty:', this.alt);
+        });
       });
-      newScript.textContent = oldScript.textContent;
-      oldScript.parentNode.replaceChild(newScript, oldScript);
-    });
+      
+      // Close lightbox
+      const closeLightbox = () => {
+        lb.classList.remove('active');
+        document.body.classList.remove('lightbox-open');
+        console.log('❌ Lightbox zamknięty');
+      };
+      
+      if (lbClose) {
+        lbClose.addEventListener('click', closeLightbox);
+      }
+      
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) closeLightbox();
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lb.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
+      
+      console.log('✅ Lightbox zainicjalizowany');
+    }
+    
+    // === ACCORDION ===
+    const accordionHeaders = document.querySelectorAll('.kwcs-header');
+    
+    if (accordionHeaders.length > 0) {
+      console.log('✅ Accordion znaleziony, inicjalizacja...');
+      
+      accordionHeaders.forEach(header => {
+        // Remove old listeners
+        const newHeader = header.cloneNode(true);
+        header.parentNode.replaceChild(newHeader, header);
+      });
+      
+      // Re-attach listeners
+      document.querySelectorAll('.kwcs-header').forEach(header => {
+        header.addEventListener('click', function() {
+          const item = this.parentElement;
+          const content = item.querySelector('.kwcs-content');
+          const isOpen = item.classList.contains('open');
+          
+          // Close all items
+          document.querySelectorAll('.kwcs-item').forEach(i => {
+            i.classList.remove('open');
+            const c = i.querySelector('.kwcs-content');
+            if (c) c.style.maxHeight = '0';
+          });
+          
+          // Open clicked item if it was closed
+          if (!isOpen && content) {
+            item.classList.add('open');
+            content.style.maxHeight = content.scrollHeight + 'px';
+            console.log('📂 Accordion otwarty:', this.textContent.trim());
+          }
+        });
+      });
+      
+      console.log('✅ Accordion zainicjalizowany');
+    }
+    
+    console.log('✅ Wszystkie skrypty projektu zainicjalizowane');
   }
 
-  // === 6. FUNKCJA ZAMYKAJĄCA SZCZEGÓŁY ===
+  // ========================================
+  // 6. CLOSE PROJECT DETAILS
+  // ========================================
   window.closeProjectDetails = function() {
+    console.log('❌ Zamykanie projektu...');
+    
     const container = document.getElementById('project-details-container');
+    
+    if (!container) return;
     
     container.classList.remove('active');
     
@@ -125,32 +250,42 @@ document.addEventListener('DOMContentLoaded', () => {
       container.style.display = 'none';
       document.getElementById('project-details-content').innerHTML = '';
       
-      document.querySelector('.portfolio-new-grid').scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-      });
+      // Scroll back to grid
+      const grid = document.querySelector('.portfolio-new-grid');
+      if (grid) {
+        grid.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'center' 
+        });
+      }
     }, 300);
     
+    // Remove active class from cards
     document.querySelectorAll('.portfolio-new-card').forEach(card => {
       card.classList.remove('active');
     });
     
+    // Update URL
     history.pushState('', document.title, window.location.pathname);
+    
+    console.log('✅ Projekt zamknięty');
   };
 
-  // === 7. NAPRAWIONE EVENT LISTENERS DLA KART ===
+  // ========================================
+  // 7. PROJECT CARDS EVENT LISTENERS
+  // ========================================
   const cards = document.querySelectorAll('.portfolio-new-card');
   console.log('📦 Znaleziono kart:', cards.length);
   
   cards.forEach(card => {
-    // Dodaj accessibility
+    // Accessibility
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
     
     const projectId = card.getAttribute('data-project');
-    console.log('🏷️ Karta:', projectId);
+    console.log('🏷️ Karta zarejestrowana:', projectId);
     
-    // Event listener dla kliknięcia
+    // Click event
     card.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -158,8 +293,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const id = this.getAttribute('data-project');
       
       if (id) {
-        console.log('🎯 Kliknięto:', id);
+        console.log('🎯 Kliknięto kartę:', id);
         showProjectDetails(id);
+      } else {
+        console.error('❌ Brak data-project na karcie');
       }
     });
     
@@ -172,17 +309,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // === 8. ESC KEY ===
+  // ========================================
+  // 8. ESCAPE KEY HANDLER
+  // ========================================
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       const container = document.getElementById('project-details-container');
-      if (container && container.style.display === 'block') {
+      if (container && container.classList.contains('active')) {
         closeProjectDetails();
       }
     }
   });
 
-  // === 9. CAROUSEL (jeśli istnieje) ===
+  // ========================================
+  // 9. CAROUSEL (optional)
+  // ========================================
   const track = document.querySelector('.carousel-track');
   const prevBtn = document.querySelector('.carousel-nav.prev');
   const nextBtn = document.querySelector('.carousel-nav.next');
@@ -217,32 +358,36 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateArrows, { passive: true });
     updateArrows();
 
-    // Event listener dla karuzeli
+    // Carousel item click
     track.addEventListener('click', (e) => {
       const item = e.target.closest('.carousel-item[data-project]');
       if (!item) return;
-      const file = item.getAttribute('data-project');
-      if (file) {
-        showProjectDetails(file.replace('.html', '')); // Usuń .html jeśli jest
+      
+      const projectId = item.getAttribute('data-project');
+      if (projectId) {
+        showProjectDetails(projectId.replace('.html', ''));
       }
     });
   }
 
-  // === 10. WIZUALIZACJE NAV LINK ===
+  // ========================================
+  // 10. WIZUALIZACJE NAV LINK
+  // ========================================
   const vizLink = document.getElementById('nav-wizualizacje');
   if (vizLink) {
     vizLink.addEventListener('click', (e) => {
       e.preventDefault();
-      // Tutaj możesz dodać ładowanie wizualizacji
       console.log('🖼️ Kliknięto Wizualizacje');
       window.location.href = 'projects/wizualizacje.html';
     });
   }
 
-  // === 11. DEEP LINKING - załaduj projekt z URL hash ===
+  // ========================================
+  // 11. DEEP LINKING - Load project from URL hash
+  // ========================================
   if (window.location.hash) {
     const hash = window.location.hash.substring(1);
-    console.log('🔗 Deep link:', hash);
+    console.log('🔗 Deep link wykryty:', hash);
     
     if (projectPages[hash]) {
       setTimeout(() => {
@@ -251,5 +396,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  console.log('✅ Portfolio.js zainicjalizowany');
+  // ========================================
+  // 12. BROWSER BACK/FORWARD NAVIGATION
+  // ========================================
+  window.addEventListener('popstate', (event) => {
+    if (event.state && event.state.project) {
+      showProjectDetails(event.state.project);
+    } else {
+      closeProjectDetails();
+    }
+  });
+
+  console.log('✅ Portfolio.js w pełni zainicjalizowany');
 });
