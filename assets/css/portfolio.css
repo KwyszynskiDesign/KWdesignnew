@@ -653,24 +653,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   transform: translateX(4px);
 }
 
-/* Separator */
-
-
-.portfolio-section:hover::after {
-  color: #94a3b8;
-}
-
-@keyframes fadeInDots {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 0.6;
-    transform: translateY(0);
-  }
-}
-
 /* ===================================
    RESPONSYWNOŚĆ - PORTFOLIO GRID
    =================================== */
@@ -724,13 +706,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   .feature-item {
     font-size: 0.8rem;
     padding: 5px 10px;
-  }
-  
-  .portfolio-section::after {
-    font-size: 24px;
-    letter-spacing: 20px;
-    padding-left: 20px;
-    margin-top: 60px;
   }
 }
 
@@ -989,7 +964,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   
   .about-me-section{
-    margin-top:30px !important;
+    margin-top: 90px !important; /* ← ZMIENIONE: wysokość menu + luz */
+    padding-top: 20px !important; /* ← DODANE: padding górny */
     min-height:auto !important;
     overflow:visible !important;
   }
@@ -1128,7 +1104,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 /* === 480px BREAKPOINT === */
 @media(max-width:480px){
   .about-me-section{
-    margin-top:60px !important;
+    margin-top: 80px !important; /* ← ZMIENIONE: mniej na małych ekranach */
     padding:25px 0 35px 0 !important;
   }
   
@@ -1301,17 +1277,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 .project-details-content {
   padding: 20px 0;
   animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .project-details-title {
