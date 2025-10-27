@@ -3739,3 +3739,16 @@ section {
 .card-image-wrapper img[src*="POWEROFMIND"] {
     object-position: center 15%;
 }
+.header,
+.header *,
+.nav,
+.nav *,
+.nav-list,
+.nav-list *,
+.nav-list a,
+header,
+header * {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
