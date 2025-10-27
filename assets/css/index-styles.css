@@ -2568,7 +2568,7 @@ section {
     .header-logo,
     a.logo,
     .logo-link {
-        margin-left: var(--space-4) !important;
+        margin-left: var(--space-6) !important;
         padding-left: 0 !important;
     }
     
