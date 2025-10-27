@@ -12,7 +12,7 @@
   max-height: 0;
   transition: max-height 0.3s ease;
   background: #fff;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
 .kwcs-header {
@@ -54,11 +54,14 @@
   background: #fff;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .kwcs-item.open .kwcs-content {
   max-height: 2000px !important;
-  padding: 15px 20px;
+  padding: 20px 30px;
 }
 
 .kwcs-item.open .kwcs-header .icon {
@@ -276,10 +279,10 @@
 .kwcs-result {
   text-align: center;
   margin-top: 3rem;
-  padding: 2rem 1rem;
+  padding: 3rem 2rem;
   background: #f8fafc;
   border-radius: 1rem;
-  max-width: 1200px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -287,14 +290,17 @@
 .kwcs-result h2,
 .kwcs-result h3 {
   color: #0f172a;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .kwcs-result p {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   margin-bottom: 1.5rem;
   color: #475569;
-  line-height: 1.7;
+  line-height: 1.8;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ========================================
@@ -572,6 +578,30 @@ body.lightbox-open {
     font-size: 14px;
     padding: 10px 18px;
     max-width: 90%;
+  }
+  
+  .kwcs-result {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+  
+  .kwcs-result p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  
+  .kwcs-accordion {
+    padding: 0;
+  }
+  
+  .kwcs-content,
+  .kwcs-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .kwcs-item.open .kwcs-content {
+    padding: 15px 20px;
   }
 }
 
