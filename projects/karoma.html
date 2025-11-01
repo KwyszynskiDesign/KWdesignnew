@@ -141,90 +141,149 @@
             <p class="img-desc">Paleta kolorów i typografia</p>
           </div>
         </div>
-<!-- Website Design Section -->
+<!-- Website Design Section - ROZSZERZONA -->
 <div class="kwcs-sec kwcs-website-showcase">
   <div class="wrap">
     <h2>Realizacja strony internetowej</h2>
     <p>
-      Sklep e-commerce Karoma został zaprojektowany z myślą o <strong>intuicyjnej nawigacji, minimalizmie i profesjonalnym wyglądzie</strong>. Projekt łączy nowoczesny design z dedykowanymi funkcjami B2B – pływający koszyk, kategoryzator produktów, integracje płatności i responsywność na wszystkich urządzeniach.
+      Sklep e-commerce Karoma został zaprojektowany z myślą o <strong>intuicyjnej nawigacji, minimalizmie i profesjonalnym wyglądzie</strong>. Projekt łączy nowoczesny design z dedykowanymi funkcjami B2B – responsywny na wszystkich urządzeniach i optymalizowany dla konwersji.
     </p>
     
-    <!-- Układ dwukolumnowy: Desktop + Mobile -->
-    <div class="kwcs-website-grid">
+    <!-- TAB/TOGGLE SYSTEM -->
+    <div class="website-tabs">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="homepage">
+          <span class="tab-icon">🏠</span> Homepage
+        </button>
+        <button class="tab-btn" data-tab="about">
+          <span class="tab-icon">ℹ️</span> O nas
+        </button>
+        <button class="tab-btn" data-tab="contact">
+          <span class="tab-icon">📧</span> Kontakt
+        </button>
+        <button class="tab-btn" data-tab="product">
+          <span class="tab-icon">📦</span> Produkt
+        </button>
+      </div>
       
-      <!-- Kolumna lewa: Desktop view -->
-      <div class="website-column">
-        <div class="website-mockup desktop-mockup">
-          <img src="/KWdesignnew/assets/images/HERO_KAROMA.jpg" alt="Widok desktop strony głównej Karoma" loading="lazy">
-          <p class="img-desc">Strona główna – desktop view</p>
-        </div>
+      <!-- TAB 1: HOMEPAGE -->
+      <div class="tab-content active" id="tab-homepage">
+        <p class="tab-description">Strona główna — hero section z wartością propozycji i CTA</p>
+        
+        <div class="kwcs-website-grid">
           <div class="website-column">
-        <div class="website-mockup desktop-mockup">
-          <img src="/KWdesignnew/assets/images/HERO_KAROMA.jpg" alt="Widok desktop strony głównej Karoma" loading="lazy">
-          <p class="img-desc">Strona główna – desktop view</p>
-        </div>
-        <div class="website-mockup desktop-mockup">
-          <img src="/KWdesignnew/assets/images/karoma_desktop_product.png" alt="Widok desktop karty produktu" loading="lazy">
-          <p class="img-desc">Karta produktu z dedykowanymi funkcjami</p>
+            <div class="website-mockup desktop-mockup">
+              <img src="/KWdesignnew/assets/images/HERO_KAROMA.jpg" alt="Homepage - desktop view" loading="lazy">
+              <p class="img-desc">Desktop view</p>
+            </div>
+          </div>
+          <div class="website-column">
+            <div class="website-mockup mobile-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_mobile_home.png" alt="Homepage - mobile view" loading="lazy">
+              <p class="img-desc">Mobile view</p>
+            </div>
+            <div class="website-features">
+              <h3>Charakterystyka sekcji</h3>
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Hero image:</strong> masyna CNC w tle</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Propozycja wartości:</strong> jasne komunikaty B2B</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>CTA:</strong> przejdź do sklepu</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       
-      <!-- Kolumna prawa: Mobile + funkcje -->
-      <div class="website-column">
-        <div class="website-features">
-          <h3>Kluczowe funkcje UX/UI</h3>
-          <ul class="features-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Responsywność:</strong> pełna adaptacja do mobile, tablet, desktop</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Pływający koszyk:</strong> ułatwienie zakupów dla klientów B2B</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Kategoryzacja:</strong> automatyczne sortowanie produktów</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Integracja płatności:</strong> Przelewy24 + zabezpieczenia SSL</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Optymalizacja SEO:</strong> metatagi, sitemap, PageSpeed 80+</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span><strong>Minimalizm:</strong> tone of voice zgodny z brandingiem</span>
-            </li>
-          </ul>
-        </div>
+      <!-- TAB 2: O NAS -->
+      <div class="tab-content" id="tab-about">
+        <p class="tab-description">Strona "O nas" — historia marki, wartości, certyfikaty</p>
         
-        <div class="website-mockup mobile-mockup">
-          <img src="/KWdesignnew/assets/images/karoma_mobile_home.png" alt="Widok mobile strony Karoma" loading="lazy">
-          <p class="img-desc">Responsywny widok mobilny</p>
+        <div class="kwcs-website-grid">
+          <div class="website-column">
+            <div class="website-mockup desktop-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_about_desktop.jpg" alt="O nas - desktop view" loading="lazy">
+              <p class="img-desc">Desktop view</p>
+            </div>
+          </div>
+          <div class="website-column">
+            <div class="website-mockup mobile-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_about_mobile.jpg" alt="O nas - mobile view" loading="lazy">
+              <p class="img-desc">Mobile view</p>
+            </div>
+            <div class="website-features">
+              <h3>Charakterystyka sekcji</h3>
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Narracja marki:</strong> historia i misja</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Wartości:</strong> kluczowe elementy DNA marki</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Zaufanie:</strong> certyfikaty, doświadczenie</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- TAB 3: KONTAKT -->
+      <div class="tab-content" id="tab-contact">
+        <p class="tab-description">Strona kontaktu — formularz, dane, mapa, wsparcie</p>
+        
+        <div class="kwcs-website-grid">
+          <div class="website-column">
+            <div class="website-mockup desktop-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_contact_desktop.jpg" alt="Kontakt - desktop view" loading="lazy">
+              <p class="img-desc">Desktop view</p>
+            </div>
+          </div>
+          <div class="website-column">
+            <div class="website-mockup mobile-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_contact_mobile.jpg" alt="Kontakt - mobile view" loading="lazy">
+              <p class="img-desc">Mobile view</p>
+            </div>
+            <div class="website-features">
+              <h3>Charakterystyka sekcji</h3>
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Formularz:</strong> integracja z CRM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Dane firmowe:</strong> adres, telefon, e-mail</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Mapa Google:</strong> lokalizacja firmy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- TAB 4: PRODUKT -->
+      <div class="tab-content" id="tab-product">
+        <p class="tab-description">Strona produktu — szczegóły, specyfikacja, koszyk</p>
+        
+        <div class="kwcs-website-grid">
+          <div class="website-column">
+            <div class="website-mockup desktop-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_desktop_product.png" alt="Produkt - desktop view" loading="lazy">
+              <p class="img-desc">Desktop view</p>
+            </div>
+          </div>
+          <div class="website-column">
+            <div class="website-mockup mobile-mockup">
+              <img src="/KWdesignnew/assets/images/karoma_mobile_product.jpg" alt="Produkt - mobile view" loading="lazy">
+              <p class="img-desc">Mobile view</p>
+            </div>
+            <div class="website-features">
+              <h3>Charakterystyka sekcji</h3>
+              <ul class="features-list">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Galeria zdjęć:</strong> 360° produktu</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Specyfikacja:</strong> wymiary, materiały, kod</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Pływający koszyk:</strong> szybki dostęp</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
       
     </div>
     
-    <!-- Full-width image: Homepage hero -->
-    <div class="website-fullwidth">
-      <img src="/KWdesignnew/assets/images/karoma_homepage_fullwidth.png" alt="Pełny widok strony głównej Karoma w mockupie desktop" loading="lazy">
-      <p class="img-desc">Strona główna w kontekście – desktop mockup</p>
+    <!-- Full-width showcase -->
+    <div class="website-fullwidth" style="margin-top: 60px;">
+      <img src="/KWdesignnew/assets/images/karoma_homepage_fullwidth.png" alt="Pełny widok strony głównej" loading="lazy">
+      <p class="img-desc">Pełny widok strony głównej — desktop mockup</p>
     </div>
     
   </div>
