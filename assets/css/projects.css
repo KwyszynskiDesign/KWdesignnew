@@ -1,6 +1,7 @@
 /* ========================================
    PROJECT CASE STUDIES - PREMIUM EDITION 2025
    Shared Styles for KWCS (Karol Wyszynski Case Studies)
+   ✨ FULL REBUILD - TAB FIX INCLUDED
    ======================================== */
 
 /* ========================================
@@ -542,25 +543,28 @@ body.lightbox-open {
 }
 
 /* ========================================
-   WEBSITE SHOWCASE SECTION
-   Skompatybilizowana wersja dla istniejącego KWCS
-   =================================== */
+   WEBSITE SHOWCASE SECTION - PRZEBUDOWANA
+   ⭐ FIX: ::before nie przesłania przycisków
+   ======================================== */
 
 .kwcs-website-showcase {
   position: relative;
   overflow: visible;
   padding: clamp(50px, 8vh, 80px) 0;
-  contain: none; /* ⭐ POPRAWKA: Zmieniono z 'contain: layout style paint;' */
+  contain: none;
 }
 
 .kwcs-website-showcase::before {
   content: "";
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%23cbd5e1" opacity="0.1"/><circle cx="75" cy="75" r="0.3" fill="%23cbd5e1" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
   opacity: 0.6;
-  z-index: 0;
-  pointer-events: none; /* ⭐ NOWE: Zapobiega interakcjom z tłem */
+  z-index: -1;
+  pointer-events: none;
 }
 
 .kwcs-website-showcase .wrap {
@@ -569,7 +573,7 @@ body.lightbox-open {
   max-width: var(--kwcs-wrap, 1220px);
   margin: 0 auto;
   padding: 0 var(--kwcs-padX, clamp(20px, 4.5vw, 36px));
-  overflow: visible; /* ⭐ NOWE: Gwarantuje widoczność zawartości */
+  overflow: visible;
 }
 
 .kwcs-website-showcase h2 {
@@ -577,6 +581,8 @@ body.lightbox-open {
   margin-bottom: 1rem;
   font-weight: 700;
   color: var(--kwcs-ink, #0f172a);
+  position: relative;
+  z-index: 1;
 }
 
 .kwcs-website-showcase > .wrap > p {
@@ -585,16 +591,20 @@ body.lightbox-open {
   line-height: 1.7;
   margin-bottom: clamp(40px, 6vh, 60px);
   max-width: 900px;
+  position: relative;
+  z-index: 1;
 }
 
 /* ===================================
-   WEBSITE TABS SYSTEM - ROZSZERZONY CSS
+   WEBSITE TABS SYSTEM - ⭐ FIXED
    =================================== */
 
 .website-tabs {
   margin-top: clamp(40px, 6vh, 60px);
   animation: fadeInUp 0.5s ease;
-  overflow: visible; /* ⭐ NOWE: Zapewnia widoczność */
+  overflow: visible;
+  position: relative;
+  z-index: 10;
 }
 
 .tabs-nav {
@@ -605,7 +615,9 @@ body.lightbox-open {
   justify-content: center;
   border-bottom: 1px solid rgba(226, 232, 240, 0.6);
   padding-bottom: 20px;
-  overflow: visible; /* ⭐ NOWE */
+  overflow: visible;
+  position: relative;
+  z-index: 11;
 }
 
 .tab-btn {
@@ -623,7 +635,7 @@ body.lightbox-open {
   align-items: center;
   gap: 8px;
   position: relative;
-  z-index: 2; /* ⭐ NOWE: Pewna widoczność przycisku */
+  z-index: 12;
 }
 
 .tab-btn:hover {
@@ -647,13 +659,15 @@ body.lightbox-open {
   display: none;
   animation: fadeInUp 0.4s ease;
   opacity: 0;
-  overflow: visible; /* ⭐ NOWE: Zapewnia pełny widok content'u */
+  overflow: visible;
+  position: relative;
+  z-index: 8;
 }
 
 .tab-content.active {
   display: block;
   opacity: 1;
-  overflow: visible; /* ⭐ NOWE */
+  overflow: visible;
 }
 
 .tab-description {
@@ -671,16 +685,20 @@ body.lightbox-open {
   gap: clamp(40px, 6vw, 60px);
   margin-bottom: clamp(50px, 8vh, 70px);
   align-items: start;
-  overflow: visible; /* ⭐ ZACHOWANE */
-  padding: 0; /* ⭐ NOWE: Usuń padding aby nie było przycięcia */
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  z-index: 8;
 }
 
 .website-column {
   display: flex;
   flex-direction: column;
   gap: clamp(30px, 5vh, 45px);
-  overflow: visible; /* ⭐ ZACHOWANE */
-  min-width: 0; /* ⭐ NOWE: Zapobiega overflow w flex */
+  overflow: visible;
+  min-width: 0;
+  position: relative;
+  z-index: 8;
 }
 
 /* Mockup image container */
@@ -692,9 +710,9 @@ body.lightbox-open {
   padding: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 5px 20px rgba(0, 0, 0, 0.06);
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible; /* ⭐ ZACHOWANE */
+  overflow: visible;
   position: relative;
-  z-index: 1;
+  z-index: 8;
 }
 
 .website-mockup:hover {
@@ -711,7 +729,7 @@ body.lightbox-open {
   display: block;
   transition: transform 0.3s ease;
   cursor: zoom-in;
-  max-width: 100%; /* ⭐ NOWE: Gwarantuje pełną widoczność */
+  max-width: 100%;
 }
 
 .website-mockup:hover img {
@@ -753,8 +771,8 @@ body.lightbox-open {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 5px 20px rgba(0, 0, 0, 0.06);
   margin-bottom: 20px;
   position: relative;
-  z-index: 1;
-  overflow: visible; /* ⭐ NOWE */
+  z-index: 8;
+  overflow: visible;
 }
 
 .website-features:hover {
@@ -815,8 +833,8 @@ body.lightbox-open {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: clamp(30px, 5vh, 50px);
   position: relative;
-  z-index: 1;
-  overflow: visible; /* ⭐ NOWE */
+  z-index: 8;
+  overflow: visible;
 }
 
 .website-fullwidth:hover {
@@ -833,7 +851,7 @@ body.lightbox-open {
   display: block;
   transition: transform 0.35s ease;
   cursor: zoom-in;
-  max-width: 100%; /* ⭐ NOWE: Gwarantuje pełną widoczność */
+  max-width: 100%;
 }
 
 .website-fullwidth:hover img {
@@ -849,10 +867,9 @@ body.lightbox-open {
 }
 
 /* ========================================
-   RESPONSYWNOŚĆ
+   RESPONSYWNOŚĆ - TABLET 900px
    ======================================== */
 
-/* Tablet - 900px */
 @media (max-width: 900px) {
   .kwcs-trio {
     grid-template-columns: repeat(2, 1fr);
@@ -871,7 +888,10 @@ body.lightbox-open {
   }
 }
 
-/* Tablet - 1024px */
+/* ========================================
+   RESPONSYWNOŚĆ - TABLET 1024px
+   ======================================== */
+
 @media (max-width: 1024px) {
   .kwcs-website-grid {
     grid-template-columns: 1fr;
@@ -903,7 +923,10 @@ body.lightbox-open {
   }
 }
 
-/* Tablet/Mobile - 768px */
+/* ========================================
+   RESPONSYWNOŚĆ - TABLET/MOBILE 768px
+   ======================================== */
+
 @media (max-width: 768px) {
   .kwcs-gallery-grid {
     grid-template-columns: 1fr;
@@ -1030,7 +1053,10 @@ body.lightbox-open {
   }
 }
 
-/* Mobile - 600px */
+/* ========================================
+   RESPONSYWNOŚĆ - MOBILE 600px
+   ======================================== */
+
 @media (max-width: 600px) {
   .kwcs-trio {
     grid-template-columns: 1fr;
