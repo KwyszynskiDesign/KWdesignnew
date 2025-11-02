@@ -1,4 +1,11 @@
 // ========================================
+// PROJECT CASE STUDIES - INTERACTIVE JS
+// Premium Edition 2025 | Karol Wyszynski
+// ========================================
+
+'use strict';
+
+// ========================================
 // ACCORDION FUNCTIONALITY
 // ========================================
 
@@ -71,8 +78,10 @@ function initLightbox() {
   
   if (!lightbox || !lightboxImg || !closeBtn) return;
   
-  // Pobierz wszystkie obrazy w galeriach + hero image
-  const galleryImages = document.querySelectorAll('.kwcs-gallery-grid img, .hero-image img.cover');
+  // Pobierz wszystkie obrazy w galeriach + hero image + website mockups
+  const galleryImages = document.querySelectorAll(
+    '.kwcs-gallery-grid img, .hero-image img.cover, .website-mockup img, .website-fullwidth img'
+  );
   
   if (galleryImages.length === 0) return;
   
@@ -100,6 +109,9 @@ function initLightbox() {
     
     // Keyboard support dla obrazów (Enter/Space)
     img.setAttribute('tabindex', '0');
+    img.setAttribute('role', 'button');
+    img.setAttribute('aria-label', 'Kliknij, aby powiększyć obraz');
+    
     img.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -135,16 +147,153 @@ function initLightbox() {
 }
 
 // ========================================
+// WEBSITE TABS FUNCTIONALITY - NOWE!
+// ========================================
+
+function initWebsiteTabs() {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  // Jeśli nie ma tabów na stronie, wyjdź
+  if (tabButtons.length === 0 || tabContents.length === 0) return;
+  
+  // Funkcja przełączania tabów
+  const switchTab = (targetTabId) => {
+    // Usuń klasę active ze wszystkich przycisków
+    tabButtons.forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    });
+    
+    // Ukryj wszystkie zawartości
+    tabContents.forEach(content => {
+      content.classList.remove('active');
+      content.setAttribute('aria-hidden', 'true');
+    });
+    
+    // Znajdź i aktywuj wybrany przycisk
+    const activeButton = document.querySelector(`[data-tab="${targetTabId}"]`);
+    if (activeButton) {
+      activeButton.classList.add('active');
+      activeButton.setAttribute('aria-selected', 'true');
+    }
+    
+    // Znajdź i pokaż wybraną zawartość
+    const activeContent = document.getElementById(`tab-${targetTabId}`);
+    if (activeContent) {
+      activeContent.classList.add('active');
+      activeContent.setAttribute('aria-hidden', 'false');
+      
+      // Smooth scroll do tabów (opcjonalne)
+      activeContent.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'nearest' 
+      });
+    }
+  };
+  
+  // Dodaj ARIA attributes do przycisków
+  tabButtons.forEach((button, index) => {
+    const tabId = button.getAttribute('data-tab');
+    
+    // ARIA setup
+    button.setAttribute('role', 'tab');
+    button.setAttribute('aria-selected', button.classList.contains('active') ? 'true' : 'false');
+    button.setAttribute('id', `tab-btn-${tabId}`);
+    
+    // Click handler
+    button.addEventListener('click', () => {
+      switchTab(tabId);
+    });
+    
+    // Keyboard navigation (strzałki lewo/prawo)
+    button.addEventListener('keydown', (e) => {
+      let newIndex = index;
+      
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        newIndex = (index + 1) % tabButtons.length;
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        newIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        newIndex = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        newIndex = tabButtons.length - 1;
+      } else {
+        return; // Inne klawisze - nie rób nic
+      }
+      
+      // Przełącz na nowy tab i ustaw focus
+      const newButton = tabButtons[newIndex];
+      const newTabId = newButton.getAttribute('data-tab');
+      switchTab(newTabId);
+      newButton.focus();
+    });
+  });
+  
+  // Setup ARIA dla contentu
+  tabContents.forEach(content => {
+    content.setAttribute('role', 'tabpanel');
+    content.setAttribute('aria-hidden', content.classList.contains('active') ? 'false' : 'true');
+    
+    const tabId = content.id.replace('tab-', '');
+    content.setAttribute('aria-labelledby', `tab-btn-${tabId}`);
+  });
+  
+  console.log('✅ Website tabs initialized:', tabButtons.length, 'tabs found');
+}
+
+// ========================================
 // INITIALIZATION
 // ========================================
 
-// Bezpieczne uruchomienie po załadowaniu DOM
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    initAccordion();
-    initLightbox();
-  });
-} else {
+function initAllFeatures() {
+  console.log('🚀 Initializing KWCS interactive features...');
+  
   initAccordion();
   initLightbox();
+  initWebsiteTabs(); // NOWA FUNKCJA!
+  
+  console.log('✅ All features initialized successfully');
 }
+
+// Bezpieczne uruchomienie po załadowaniu DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAllFeatures);
+} else {
+  // DOM już załadowany
+  initAllFeatures();
+}
+
+// ========================================
+// UTILITY: Lazy Loading Images (opcjonalne)
+// ========================================
+
+// Możesz dodać lazy loading dla obrazów w przyszłości
+if ('IntersectionObserver' in window) {
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+  
+  lazyImages.forEach(img => imageObserver.observe(img));
+}
+
+// ========================================
+// EXPORT (jeśli używasz modułów ES6)
+// ========================================
+
+// export { initAccordion, initLightbox, initWebsiteTabs };
