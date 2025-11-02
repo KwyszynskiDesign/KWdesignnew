@@ -1,6 +1,7 @@
 // ========================================
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
+// ⭐ MERGED & ENHANCED VERSION
 // ========================================
 
 'use strict';
@@ -64,10 +65,12 @@ function initAccordion() {
       }
     });
   });
+
+  console.log('✅ Accordion initialized:', accordionItems.length, 'items found');
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY
+// LIGHTBOX FUNCTIONALITY - ENHANCED
 // ========================================
 
 function initLightbox() {
@@ -78,18 +81,23 @@ function initLightbox() {
   
   if (!lightbox || !lightboxImg || !closeBtn) return;
   
-  // Pobierz wszystkie obrazy w galeriach + hero image + website mockups
-  const galleryImages = document.querySelectorAll(
-    '.kwcs-gallery-grid img, .hero-image img.cover, .website-mockup img, .website-fullwidth img'
+  // ⭐ Pobierz WSZYSTKIE clickable obrazy
+  // Galeria, hero image, showcase items
+  const allImages = document.querySelectorAll(
+    '.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img'
   );
   
-  if (galleryImages.length === 0) return;
+  if (allImages.length === 0) return;
   
   // Funkcja otwierania lightboxa
   const openLightbox = (imgElement) => {
     lightbox.classList.add('active');
     lightboxImg.src = imgElement.src;
-    lightboxCaption.textContent = imgElement.alt || '';
+    
+    // ⭐ Weź caption z data-caption, jeśli nie ma - użyj alt
+    const caption = imgElement.dataset.caption || imgElement.alt || '';
+    lightboxCaption.textContent = caption;
+    
     document.body.classList.add('lightbox-open');
     
     // Focus na przycisk zamknięcia (accessibility)
@@ -101,16 +109,18 @@ function initLightbox() {
     lightbox.classList.remove('active');
     document.body.classList.remove('lightbox-open');
     lightboxImg.src = '';
+    lightboxCaption.textContent = '';
   };
   
   // Dodaj event listener do każdego obrazu
-  galleryImages.forEach(img => {
+  allImages.forEach(img => {
+    // Click handler
     img.addEventListener('click', () => openLightbox(img));
     
     // Keyboard support dla obrazów (Enter/Space)
     img.setAttribute('tabindex', '0');
     img.setAttribute('role', 'button');
-    img.setAttribute('aria-label', 'Kliknij, aby powiększyć obraz');
+    img.setAttribute('aria-label', img.dataset.caption || img.alt || 'Kliknij, aby powiększyć obraz');
     
     img.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -144,10 +154,12 @@ function initLightbox() {
       closeLightbox();
     }
   });
+  
+  console.log('✅ Lightbox initialized with', allImages.length, 'images');
 }
 
 // ========================================
-// WEBSITE TABS FUNCTIONALITY - NOWE!
+// WEBSITE TABS FUNCTIONALITY
 // ========================================
 
 function initWebsiteTabs() {
@@ -223,7 +235,7 @@ function initWebsiteTabs() {
         e.preventDefault();
         newIndex = tabButtons.length - 1;
       } else {
-        return; // Inne klawisze - nie rób nic
+        return;
       }
       
       // Przełącz na nowy tab i ustaw focus
@@ -247,7 +259,7 @@ function initWebsiteTabs() {
 }
 
 // ========================================
-// INITIALIZATION
+// INITIALIZATION - MAIN FUNCTION
 // ========================================
 
 function initAllFeatures() {
@@ -255,7 +267,7 @@ function initAllFeatures() {
   
   initAccordion();
   initLightbox();
-  initWebsiteTabs(); // NOWA FUNKCJA!
+  initWebsiteTabs();
   
   console.log('✅ All features initialized successfully');
 }
@@ -269,10 +281,9 @@ if (document.readyState === 'loading') {
 }
 
 // ========================================
-// UTILITY: Lazy Loading Images (opcjonalne)
+// UTILITY: Lazy Loading Images
 // ========================================
 
-// Możesz dodać lazy loading dla obrazów w przyszłości
 if ('IntersectionObserver' in window) {
   const lazyImages = document.querySelectorAll('img[loading="lazy"]');
   
@@ -293,7 +304,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ========================================
-// EXPORT (jeśli używasz modułów ES6)
+// EXPORT (dla ES6 modułów)
 // ========================================
 
 // export { initAccordion, initLightbox, initWebsiteTabs };
