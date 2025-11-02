@@ -1,4 +1,3 @@
-
 /* ========================================
    ACCORDION COMPONENTS
    ======================================== */
@@ -691,7 +690,7 @@ body.lightbox-open {
   opacity: 0.8;
 }
 
-/* ⭐ FIX: OBRAZY BEZ PRZYCINANIA - ZACHOWAJ PROPORCJE */
+/* ⭐ FIX: OBRAZY BEZ PRZYCINANIA - Z MAX-HEIGHT NA WSZYSTKICH BREAKPOINTACH */
 .showcase-item img {
   width: 100%;
   height: auto;
@@ -700,7 +699,8 @@ body.lightbox-open {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: zoom-in;
   max-width: 100%;
-  /* USUNIĘTE: aspect-ratio, object-fit - obrazy nie będą przycinane */
+  max-height: 450px;
+  object-fit: contain;
 }
 
 .showcase-item:hover img {
@@ -727,8 +727,9 @@ body.lightbox-open {
 }
 
 .showcase-mobile img {
-  /* USUNIĘTE: aspect-ratio, object-fit - obrazy nie będą przycinane */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  max-height: 480px;
+  object-fit: contain;
 }
 
 /* Features box */
@@ -803,8 +804,16 @@ body.lightbox-open {
     gap: 30px;
   }
 
+  .showcase-item img {
+    max-height: 380px;
+  }
+
   .showcase-mobile {
     max-width: 240px;
+  }
+
+  .showcase-mobile img {
+    max-height: 420px;
   }
 
   .showcase-section h3 {
@@ -912,7 +921,7 @@ body.lightbox-open {
   }
 
   .showcase-row {
-    gap: 25px;
+    gap: 20px;
     margin-bottom: 25px;
   }
 
@@ -920,8 +929,16 @@ body.lightbox-open {
     padding: 16px;
   }
 
+  .showcase-item img {
+    max-height: 300px;
+  }
+
   .showcase-mobile {
     max-width: 220px;
+  }
+
+  .showcase-mobile img {
+    max-height: 380px;
   }
 
   .features-box {
@@ -1021,21 +1038,29 @@ body.lightbox-open {
   }
 
   .showcase-row {
-    gap: 20px;
+    gap: 15px;
     margin-bottom: 20px;
   }
 
   .showcase-item {
-    padding: 14px;
+    padding: 12px;
+  }
+
+  .showcase-item img {
+    max-height: 250px;
   }
 
   .showcase-item p {
     font-size: 0.75rem;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .showcase-mobile {
     max-width: 180px;
+  }
+
+  .showcase-mobile img {
+    max-height: 330px;
   }
 
   .features-box {
@@ -1067,7 +1092,37 @@ body.lightbox-open {
   }
 
   .showcase-stack {
-    gap: 35px;
+    gap: 30px;
+  }
+}
+
+/* ========================================
+   RESPONSYWNOŚĆ - ULTRA COMPACT 480px
+   ======================================== */
+
+@media (max-width: 480px) {
+  .showcase-item img {
+    max-height: 200px;
+  }
+
+  .showcase-mobile img {
+    max-height: 280px;
+  }
+
+  .showcase-item {
+    padding: 10px;
+  }
+
+  .showcase-row {
+    gap: 10px;
+  }
+
+  .showcase-stack {
+    gap: 25px;
+  }
+
+  .showcase-section {
+    padding-bottom: 15px;
   }
 }
 
