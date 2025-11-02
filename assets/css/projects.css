@@ -2,7 +2,7 @@
    PROJECT CASE STUDIES - PREMIUM EDITION 2025
    Shared Styles for KWCS (Karol Wyszynski Case Studies)
    ✨ STACK VIEW - WSZYSTKIE SEKCJE WIDOCZNE - ENHANCED
-   ⭐ COMPLETE & MERGED VERSION
+   ⭐ COMPLETE & MERGED VERSION - FIX IMAGES
    ======================================== */
 
 /* ========================================
@@ -697,7 +697,7 @@ body.lightbox-open {
   opacity: 0.8;
 }
 
-/* ⭐ DESKTOP IMAGE - Większy aspect ratio */
+/* ⭐ FIX: OBRAZY BEZ PRZYCINANIA - ZACHOWAJ PROPORCJE */
 .showcase-item img {
   width: 100%;
   height: auto;
@@ -706,11 +706,7 @@ body.lightbox-open {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: zoom-in;
   max-width: 100%;
-}
-
-.showcase-item:not(.showcase-mobile) img {
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  /* USUNIĘTE: aspect-ratio, object-fit - obrazy nie będą przycinane */
 }
 
 .showcase-item:hover img {
@@ -729,7 +725,7 @@ body.lightbox-open {
   font-size: 0.8rem;
 }
 
-/* ⭐ MOBILE IMAGE - Mniejszy, bardziej pionowy */
+/* ⭐ MOBILE IMAGE - Mniejszy, bez przycinania */
 .showcase-mobile {
   max-width: 260px;
   margin: 0 auto;
@@ -737,8 +733,7 @@ body.lightbox-open {
 }
 
 .showcase-mobile img {
-  aspect-ratio: 9/19.5;
-  object-fit: cover;
+  /* USUNIĘTE: aspect-ratio, object-fit - obrazy nie będą przycinane */
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
