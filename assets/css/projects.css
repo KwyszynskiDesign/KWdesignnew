@@ -155,12 +155,15 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  pointer-events: auto;
 }
 
 .kwcs-hero-body .hero-image img {
   width: 100%;
   height: auto;
   display: block;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 /* ========================================
@@ -333,7 +336,7 @@
 }
 
 /* ========================================
-   GALLERY 2-COLUMN GRID
+   GALLERY 2-COLUMN GRID - ⭐ WITH LIGHTBOX SUPPORT
    ======================================== */
 
 .kwcs-gallery-section {
@@ -356,11 +359,13 @@
   max-width: 1200px;
   padding: 1rem;
   overflow: visible;
+  pointer-events: auto;
 }
 
 .gallery-item {
   position: relative;
   overflow: visible;
+  pointer-events: auto;
 }
 
 .gallery-item img {
@@ -370,8 +375,9 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: zoom-in;
+  cursor: pointer;
   position: relative;
+  pointer-events: auto;
 }
 
 .gallery-item img:hover {
@@ -427,6 +433,7 @@
   align-items: center;
   animation: fadeIn 0.3s ease;
   backdrop-filter: blur(4px);
+  pointer-events: auto;
 }
 
 .lightbox.active {
@@ -440,6 +447,7 @@
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
 }
 
 .lightbox-close {
@@ -455,6 +463,7 @@
   line-height: 1;
   user-select: none;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
 }
 
 .lightbox-close:hover,
@@ -478,23 +487,7 @@
   border-radius: 8px;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.kwcs-gallery-grid img,
-.hero-image img.cover {
-  cursor: zoom-in;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-.kwcs-gallery-grid img:hover,
-.hero-image img.cover:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.25);
-  filter: brightness(1.05);
-}
-
-.kwcs-gallery-grid img:active {
-  transform: scale(0.98);
+  pointer-events: none;
 }
 
 body.lightbox-open {
@@ -649,6 +642,7 @@ body.lightbox-open {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  pointer-events: auto;
 }
 
 .showcase-item {
@@ -662,6 +656,7 @@ body.lightbox-open {
   overflow: visible;
   position: relative;
   z-index: 8;
+  pointer-events: auto;
 }
 
 .showcase-item:hover {
@@ -697,10 +692,11 @@ body.lightbox-open {
   border-radius: 12px;
   display: block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: zoom-in;
+  cursor: pointer;
   max-width: 100%;
   max-height: 450px;
   object-fit: contain;
+  pointer-events: auto;
 }
 
 .showcase-item:hover img {
@@ -724,12 +720,15 @@ body.lightbox-open {
   max-width: 260px;
   margin: 0 auto;
   justify-self: center;
+  pointer-events: auto;
 }
 
 .showcase-mobile img {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   max-height: 480px;
   object-fit: contain;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 /* Features box */
@@ -923,22 +922,27 @@ body.lightbox-open {
   .showcase-row {
     gap: 20px;
     margin-bottom: 25px;
+    pointer-events: auto;
   }
 
   .showcase-item {
     padding: 16px;
+    pointer-events: auto;
   }
 
   .showcase-item img {
     max-height: 300px;
+    pointer-events: auto;
   }
 
   .showcase-mobile {
     max-width: 220px;
+    pointer-events: auto;
   }
 
   .showcase-mobile img {
     max-height: 380px;
+    pointer-events: auto;
   }
 
   .features-box {
@@ -1040,14 +1044,17 @@ body.lightbox-open {
   .showcase-row {
     gap: 15px;
     margin-bottom: 20px;
+    pointer-events: auto;
   }
 
   .showcase-item {
     padding: 12px;
+    pointer-events: auto;
   }
 
   .showcase-item img {
     max-height: 250px;
+    pointer-events: auto;
   }
 
   .showcase-item p {
@@ -1057,10 +1064,12 @@ body.lightbox-open {
 
   .showcase-mobile {
     max-width: 180px;
+    pointer-events: auto;
   }
 
   .showcase-mobile img {
     max-height: 330px;
+    pointer-events: auto;
   }
 
   .features-box {
@@ -1111,10 +1120,12 @@ body.lightbox-open {
 
   .showcase-item {
     padding: 10px;
+    pointer-events: auto;
   }
 
   .showcase-row {
     gap: 10px;
+    pointer-events: auto;
   }
 
   .showcase-stack {
