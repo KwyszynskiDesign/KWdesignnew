@@ -150,6 +150,7 @@
   line-height: 1.2;
   transition: all 0.2s ease;
   font-size: 0.95rem;
+  min-width: 200px;
 }
 
 .kwcs-chip:hover {
@@ -424,23 +425,6 @@
   line-height: 1.4;
 }
 
-.kwcs-gallery-grid .gallery-item::after {
-  content: '🔍';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-.kwcs-gallery-grid .gallery-item:hover::after {
-  opacity: 0.8;
-}
-
 /* ========================================
    LIGHTBOX MODAL - IN-PLACE EXPANSION
    ⭐ Zdjęcie otwiera się w miejscu gdzie jest
@@ -689,24 +673,6 @@ body.lightbox-open {
   outline-offset: 4px;
 }
 
-.showcase-item::before {
-  content: '🔍';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  z-index: 5;
-}
-
-.showcase-item:hover::before {
-  opacity: 0.8;
-}
-
 .showcase-item img {
   width: 100%;
   height: auto;
@@ -937,6 +903,38 @@ body.lightbox-open {
     padding: 3rem 1rem;
   }
 
+  .kwcs-hero-body {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .kwcs-hero-body .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .kwcs-chip {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .kwcs-chip b {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .kwcs-hero-image {
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .kwcs-hero-image img {
+    border-radius: 0.75rem;
+  }
+
   .kwcs-sec {
     padding: 3rem 1rem;
   }
@@ -1097,13 +1095,27 @@ body.lightbox-open {
     padding: 2.5rem 1rem;
   }
 
+  .kwcs-hero-body {
+    padding: 1rem 0;
+  }
+
   .kwcs-hero-body .hero-buttons {
-    gap: 0.75rem;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
   }
 
   .kwcs-chip {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    border-radius: 6px;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .kwcs-chip b {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
   }
 
   .kwcs-website-showcase {
