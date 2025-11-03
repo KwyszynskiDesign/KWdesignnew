@@ -440,6 +440,7 @@
 
 /* ========================================
    LIGHTBOX MODAL - PROFESSIONAL & MODERN
+   ⭐ FIXED - NO SCROLL JUMP!
    ======================================== */
 
 .lightbox {
@@ -516,7 +517,7 @@
   pointer-events: none;
 }
 
-/* Close button (X) */
+/* Close button (X) — ZAWSZE WIDOCZNY I DOSTĘPNY */
 .lightbox-close {
   position: fixed;
   top: 28px;
@@ -559,11 +560,9 @@
   transform: scale(0.95);
 }
 
-/* Blokuj scroll na body */
+/* ⭐ KLUCZ: Blokuj tylko scroll, BEZ zmiany position! */
 body.lightbox-open {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
 
 /* ========================================
