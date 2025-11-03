@@ -2,7 +2,7 @@
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
 // ⭐ PRODUCTION READY - ALL FEATURES WORKING
-// ⭐ FIXED: No scroll jump on lightbox
+// ⭐ SMOOTH ANIMATION FROM SOURCE IMAGE
 // ========================================
 
 'use strict';
@@ -64,8 +64,9 @@ function initAccordion() {
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY - ENHANCED
-// ⭐ WITH SCROLL POSITION PRESERVATION
+// LIGHTBOX FUNCTIONALITY - PREMIUM
+// ⭐ SMOOTH ANIMATION + SCROLL PRESERVATION
+// ⭐ OPENS FROM CLICKED IMAGE POSITION
 // ========================================
 
 function initLightbox() {
@@ -79,29 +80,35 @@ function initLightbox() {
     return;
   }
   
-  let scrollPosition = 0; // ⭐ Zapamiętaj scroll position
+  let scrollPosition = 0; // ⭐ Zapamiętaj scroll
+  let sourceRect = null;  // ⭐ Zapamiętaj pozycję źródła
   
-  // Funkcja zamykania lightboxa
+  // Funkcja zamykania z animacją
   const closeLightbox = () => {
-    lightbox.classList.remove('active');
-    document.body.classList.remove('lightbox-open');
-    lightboxImg.src = '';
-    lightboxCaption.textContent = '';
+    lightboxImg.classList.add('closing');
     
-    // ⭐ Przywróć scroll position
-    window.scrollTo(0, scrollPosition);
-    
-    console.log('✖️ Lightbox closed');
+    setTimeout(() => {
+      lightbox.classList.remove('active');
+      document.body.classList.remove('lightbox-open');
+      lightboxImg.src = '';
+      lightboxCaption.textContent = '';
+      lightboxImg.classList.remove('closing');
+      
+      // ⭐ Przywróć scroll position
+      window.scrollTo(0, scrollPosition);
+      
+      console.log('✖️ Lightbox closed');
+    }, 400);
   };
 
-  // ⭐ EVENT DELEGATION - działa dla wszystkich obrazów, nawet dynamicznie dodanych
+  // ⭐ EVENT DELEGATION - działa dla wszystkich obrazów
   document.addEventListener('click', function(e) {
-    // Sprawdź czy kliknięty element jest obrazem do lightboxa
     const img = e.target.closest('.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img, .lightbox-trigger');
     
     if (!img) return;
 
-    // ⭐ Zapamiętaj obecną pozycję scrollu PRZED otwarciem
+    // ⭐ KLUCZOWE: Zapamiętaj pozycję klikniętego obrazu
+    sourceRect = img.getBoundingClientRect();
     scrollPosition = window.scrollY || window.pageYOffset;
 
     lightbox.classList.add('active');
@@ -109,8 +116,9 @@ function initLightbox() {
     lightboxCaption.textContent = img.dataset.caption || img.alt || '';
     document.body.classList.add('lightbox-open');
 
-    console.log('🖼️ Lightbox opened:', img.alt || img.src);
-    console.log('📍 Saved scroll position:', scrollPosition);
+    console.log('🖼️ Lightbox opened from source image');
+    console.log('📍 Source position:', sourceRect);
+    console.log('⬆️ Scroll position saved:', scrollPosition);
   });
 
   // Close button
@@ -119,7 +127,7 @@ function initLightbox() {
     closeLightbox();
   });
 
-  // Click on background
+  // Click background
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
@@ -131,7 +139,7 @@ function initLightbox() {
     }
   });
 
-  console.log('✅ Lightbox (Scroll-Aware) initialized');
+  console.log('✅ Lightbox (Smooth Animation) initialized');
 }
 
 // ========================================
