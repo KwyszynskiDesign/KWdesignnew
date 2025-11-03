@@ -2,7 +2,7 @@
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
 // ⭐ PRODUCTION READY - ALL FEATURES WORKING
-// ⭐ LIGHTBOX: SCROLL TO IMAGE + INLINE MODAL
+// ⭐ LIGHTBOX: SCROLL TO IMAGE + UNIVERSAL SELECTOR
 // ========================================
 
 'use strict';
@@ -64,9 +64,9 @@ function initAccordion() {
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY - SCROLL TO IMAGE
-// ⭐ SCROLL DO ZDJĘCIA + LIGHTBOX OTWIERA SIĘ
-// ⭐ BRAK CZARNEGO EKRANU NA POCZĄTKU!
+// LIGHTBOX FUNCTIONALITY - UNIVERSAL SELECTOR
+// ⭐ SCROLL DO ZDJĘCIA + ŁAPIE WSZYSTKIE ZDJĘCIA
+// ⭐ DZIAŁA W KAŻDEJ SEKCJI (logo, mockup, strony)
 // ========================================
 
 function initLightbox() {
@@ -89,21 +89,26 @@ function initLightbox() {
     lightboxImg.src = '';
     lightboxCaption.textContent = '';
     
-    // ⭐ Przywróć scroll
     window.scrollTo(0, scrollPosition);
     
     console.log('✖️ Lightbox closed - scroll restored');
   };
 
+  // ⭐ UNIWERSALNY SELEKTOR — WSZYSTKO ŁAPIE
   document.addEventListener('click', function(e) {
-    const img = e.target.closest('.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img, .lightbox-trigger');
+    // Sprawdzaj czy to IMG z data-caption lub lightbox-trigger
+    const img = e.target.closest('img');
     
     if (!img) return;
+    
+    // ⭐ FILTR: Pomiń SVG i ikony
+    if (img.closest('svg') || img.closest('[class*="icon"]')) return;
+    
+    // ⭐ FILTR: Pomiń bardzo małe zdjęcia (ikony, avatary)
+    if (img.width < 100 && img.height < 100) return;
 
-    // ⭐ KLUCZOWE: Zapamiętaj scroll PRZED scrollowaniem
     scrollPosition = window.scrollY || window.pageYOffset;
     
-    // ⭐ SCROLL DO ZDJĘCIA — na górę ekranu
     img.scrollIntoView({ 
       behavior: 'smooth', 
       block: 'start' 
@@ -111,15 +116,13 @@ function initLightbox() {
     
     imageElement = img;
 
-    // ⭐ PO SCROLL — otwórz lightbox (czekaj 300ms na scroll animation)
     setTimeout(() => {
       lightbox.classList.add('active');
       lightboxImg.src = img.src;
       lightboxCaption.textContent = img.dataset.caption || img.alt || '';
       document.body.classList.add('lightbox-open');
 
-      console.log('🖼️ Lightbox opened at image position');
-      console.log('📍 Image scrolled to top of viewport');
+      console.log('🖼️ Lightbox opened:', img.alt || img.src);
     }, 300);
   });
 
@@ -138,7 +141,7 @@ function initLightbox() {
     }
   });
 
-  console.log('✅ Lightbox (Scroll to Image) initialized');
+  console.log('✅ Lightbox (Universal - ALL IMAGES) initialized');
 }
 
 // ========================================
