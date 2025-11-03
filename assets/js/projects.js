@@ -1,7 +1,7 @@
 // ========================================
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
-// ⭐ MERGED & ENHANCED VERSION
+// ⭐ ENHANCED & DEBUGGED VERSION
 // ========================================
 
 'use strict';
@@ -79,15 +79,28 @@ function initLightbox() {
   const lightboxCaption = document.getElementById('lightbox-caption');
   const closeBtn = document.querySelector('.lightbox-close');
   
-  if (!lightbox || !lightboxImg || !closeBtn) return;
+  if (!lightbox || !lightboxImg || !closeBtn) {
+    console.warn('⚠️ Lightbox elements not found');
+    return;
+  }
   
   // ⭐ Pobierz WSZYSTKIE clickable obrazy
-  // Galeria, hero image, showcase items
   const allImages = document.querySelectorAll(
-    '.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img'
+    '.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img, .lightbox-trigger'
   );
   
-  if (allImages.length === 0) return;
+  // ⭐ DEBUG - pokaż ile obrazów z każdej sekcji
+  console.log('🔍 DEBUG: Image counts per section:');
+  console.log('  Gallery:', document.querySelectorAll('.kwcs-gallery-grid img').length);
+  console.log('  Hero:', document.querySelectorAll('.hero-image img.cover').length);
+  console.log('  Showcase:', document.querySelectorAll('.showcase-item img').length);
+  console.log('  With .lightbox-trigger:', document.querySelectorAll('.lightbox-trigger').length);
+  console.log('  TOTAL:', allImages.length);
+  
+  if (allImages.length === 0) {
+    console.warn('⚠️ No images found for lightbox');
+    return;
+  }
   
   // Funkcja otwierania lightboxa
   const openLightbox = (imgElement) => {
@@ -100,6 +113,8 @@ function initLightbox() {
     
     document.body.classList.add('lightbox-open');
     
+    console.log('🖼️ Lightbox opened:', imgElement.alt || imgElement.src);
+    
     // Focus na przycisk zamknięcia (accessibility)
     setTimeout(() => closeBtn.focus(), 100);
   };
@@ -110,12 +125,17 @@ function initLightbox() {
     document.body.classList.remove('lightbox-open');
     lightboxImg.src = '';
     lightboxCaption.textContent = '';
+    
+    console.log('✖️ Lightbox closed');
   };
   
   // Dodaj event listener do każdego obrazu
-  allImages.forEach(img => {
+  allImages.forEach((img, index) => {
     // Click handler
-    img.addEventListener('click', () => openLightbox(img));
+    img.addEventListener('click', () => {
+      console.log(`🖱️ Image clicked (${index + 1}/${allImages.length}):`, img.alt || img.src);
+      openLightbox(img);
+    });
     
     // Keyboard support dla obrazów (Enter/Space)
     img.setAttribute('tabindex', '0');
@@ -279,6 +299,16 @@ if (document.readyState === 'loading') {
   // DOM już załadowany
   initAllFeatures();
 }
+
+// ⭐ RE-INIT dla dynamicznie ładowanych elementów
+// Jeśli showcase renderuje się po DOMContentLoaded
+setTimeout(() => {
+  const showcaseImages = document.querySelectorAll('.showcase-item img');
+  if (showcaseImages.length > 0) {
+    console.log('🔄 Re-initializing lightbox for showcase images...');
+    initLightbox();
+  }
+}, 500);
 
 // ========================================
 // UTILITY: Lazy Loading Images
