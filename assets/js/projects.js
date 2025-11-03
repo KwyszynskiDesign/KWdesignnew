@@ -2,7 +2,7 @@
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
 // ⭐ PRODUCTION READY - ALL FEATURES WORKING
-// ⭐ SMOOTH ANIMATION FROM SOURCE IMAGE
+// ⭐ IN-PLACE IMAGE EXPANSION (NO SCROLL JUMP)
 // ========================================
 
 'use strict';
@@ -64,9 +64,9 @@ function initAccordion() {
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY - PREMIUM
-// ⭐ SMOOTH ANIMATION + SCROLL PRESERVATION
-// ⭐ OPENS FROM CLICKED IMAGE POSITION
+// LIGHTBOX FUNCTIONALITY - IN-PLACE
+// ⭐ ZDJĘCIE OTWIERA SIĘ W MIEJSCU GDZIE JEST
+// ⭐ NO SCROLL JUMP + SMOOTH ANIMATION
 // ========================================
 
 function initLightbox() {
@@ -81,44 +81,37 @@ function initLightbox() {
   }
   
   let scrollPosition = 0; // ⭐ Zapamiętaj scroll
-  let sourceRect = null;  // ⭐ Zapamiętaj pozycję źródła
   
-  // Funkcja zamykania z animacją
+  // Funkcja zamykania lightboxa
   const closeLightbox = () => {
-    lightboxImg.classList.add('closing');
+    lightbox.classList.remove('active');
+    document.body.classList.remove('lightbox-open');
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
     
-    setTimeout(() => {
-      lightbox.classList.remove('active');
-      document.body.classList.remove('lightbox-open');
-      lightboxImg.src = '';
-      lightboxCaption.textContent = '';
-      lightboxImg.classList.remove('closing');
-      
-      // ⭐ Przywróć scroll position
-      window.scrollTo(0, scrollPosition);
-      
-      console.log('✖️ Lightbox closed');
-    }, 400);
+    // ⭐ Przywróć scroll position
+    window.scrollTo(0, scrollPosition);
+    
+    console.log('✖️ Lightbox closed - scroll restored');
   };
 
-  // ⭐ EVENT DELEGATION - działa dla wszystkich obrazów
+  // ⭐ EVENT DELEGATION - Click na zdjęcie
   document.addEventListener('click', function(e) {
     const img = e.target.closest('.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img, .lightbox-trigger');
     
     if (!img) return;
 
-    // ⭐ KLUCZOWE: Zapamiętaj pozycję klikniętego obrazu
-    sourceRect = img.getBoundingClientRect();
+    // ⭐ Zapamiętaj scroll PRZED otwarciem
     scrollPosition = window.scrollY || window.pageYOffset;
 
+    // ⭐ OTWÓRZ LIGHTBOX — zdjęcie pozostaje w miejscu
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
     lightboxCaption.textContent = img.dataset.caption || img.alt || '';
     document.body.classList.add('lightbox-open');
 
-    console.log('🖼️ Lightbox opened from source image');
-    console.log('📍 Source position:', sourceRect);
-    console.log('⬆️ Scroll position saved:', scrollPosition);
+    console.log('🖼️ Image expanded in-place:', img.alt || img.src);
+    console.log('📍 Scroll saved:', scrollPosition);
   });
 
   // Close button
@@ -127,7 +120,7 @@ function initLightbox() {
     closeLightbox();
   });
 
-  // Click background
+  // Click on background (lightbox area)
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
@@ -139,7 +132,7 @@ function initLightbox() {
     }
   });
 
-  console.log('✅ Lightbox (Smooth Animation) initialized');
+  console.log('✅ Lightbox (In-Place + Scroll Fix) initialized');
 }
 
 // ========================================
