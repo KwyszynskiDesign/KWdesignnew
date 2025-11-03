@@ -164,15 +164,29 @@
   outline-offset: 2px;
 }
 
+/* ========================================
+   HERO IMAGE WRAPPER - WITH CTA BUTTON
+   ⭐ Scale wyłączony, przycisk poniżej
+   ======================================== */
+
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
 .kwcs-hero-body .hero-image {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1));
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   pointer-events: auto;
+  width: 100%;
 }
 
 .kwcs-hero-body .hero-image img {
@@ -185,7 +199,34 @@
 }
 
 .kwcs-hero-body .hero-image img:hover {
-  transform: scale(1.5);
+  transform: scale(1);
+}
+
+.hero-image-cta {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.hero-image-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+}
+
+.hero-image-cta:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
 }
 
 /* ========================================
@@ -926,13 +967,14 @@ body.lightbox-open {
     font-size: 0.9rem;
   }
 
-  .kwcs-hero-image {
-    margin-bottom: 0.75rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  .hero-image-wrapper {
+    gap: 1rem;
   }
 
-  .kwcs-hero-image img {
-    border-radius: 0.75rem;
+  .hero-image-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
   }
 
   .kwcs-sec {
@@ -1116,6 +1158,16 @@ body.lightbox-open {
   .kwcs-chip b {
     font-size: 0.8rem;
     margin-bottom: 0.2rem;
+  }
+
+  .hero-image-wrapper {
+    gap: 0.75rem;
+  }
+
+  .hero-image-cta {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    width: 100%;
   }
 
   .kwcs-website-showcase {
