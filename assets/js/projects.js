@@ -2,6 +2,7 @@
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
 // ⭐ PRODUCTION READY - ALL FEATURES WORKING
+// ⭐ FIXED: No scroll jump on lightbox
 // ========================================
 
 'use strict';
@@ -63,7 +64,8 @@ function initAccordion() {
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY - EVENT DELEGATION
+// LIGHTBOX FUNCTIONALITY - ENHANCED
+// ⭐ WITH SCROLL POSITION PRESERVATION
 // ========================================
 
 function initLightbox() {
@@ -77,12 +79,18 @@ function initLightbox() {
     return;
   }
   
+  let scrollPosition = 0; // ⭐ Zapamiętaj scroll position
+  
   // Funkcja zamykania lightboxa
   const closeLightbox = () => {
     lightbox.classList.remove('active');
     document.body.classList.remove('lightbox-open');
     lightboxImg.src = '';
     lightboxCaption.textContent = '';
+    
+    // ⭐ Przywróć scroll position
+    window.scrollTo(0, scrollPosition);
+    
     console.log('✖️ Lightbox closed');
   };
 
@@ -93,16 +101,23 @@ function initLightbox() {
     
     if (!img) return;
 
+    // ⭐ Zapamiętaj obecną pozycję scrollu PRZED otwarciem
+    scrollPosition = window.scrollY || window.pageYOffset;
+
     lightbox.classList.add('active');
     lightboxImg.src = img.src;
     lightboxCaption.textContent = img.dataset.caption || img.alt || '';
     document.body.classList.add('lightbox-open');
 
     console.log('🖼️ Lightbox opened:', img.alt || img.src);
+    console.log('📍 Saved scroll position:', scrollPosition);
   });
 
   // Close button
-  closeBtn.addEventListener('click', closeLightbox);
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
 
   // Click on background
   lightbox.addEventListener('click', (e) => {
@@ -116,7 +131,7 @@ function initLightbox() {
     }
   });
 
-  console.log('✅ Lightbox (Event Delegation) initialized');
+  console.log('✅ Lightbox (Scroll-Aware) initialized');
 }
 
 // ========================================
