@@ -2,7 +2,7 @@
 // PROJECT CASE STUDIES - INTERACTIVE JS
 // Premium Edition 2025 | Karol Wyszynski
 // ⭐ PRODUCTION READY - ALL FEATURES WORKING
-// ⭐ IN-PLACE IMAGE EXPANSION (NO SCROLL JUMP)
+// ⭐ LIGHTBOX: SCROLL TO IMAGE + INLINE MODAL
 // ========================================
 
 'use strict';
@@ -64,9 +64,9 @@ function initAccordion() {
 }
 
 // ========================================
-// LIGHTBOX FUNCTIONALITY - IN-PLACE
-// ⭐ ZDJĘCIE OTWIERA SIĘ W MIEJSCU GDZIE JEST
-// ⭐ NO SCROLL JUMP + SMOOTH ANIMATION
+// LIGHTBOX FUNCTIONALITY - SCROLL TO IMAGE
+// ⭐ SCROLL DO ZDJĘCIA + LIGHTBOX OTWIERA SIĘ
+// ⭐ BRAK CZARNEGO EKRANU NA POCZĄTKU!
 // ========================================
 
 function initLightbox() {
@@ -80,59 +80,65 @@ function initLightbox() {
     return;
   }
   
-  let scrollPosition = 0; // ⭐ Zapamiętaj scroll
+  let scrollPosition = 0;
+  let imageElement = null;
   
-  // Funkcja zamykania lightboxa
   const closeLightbox = () => {
     lightbox.classList.remove('active');
     document.body.classList.remove('lightbox-open');
     lightboxImg.src = '';
     lightboxCaption.textContent = '';
     
-    // ⭐ Przywróć scroll position
+    // ⭐ Przywróć scroll
     window.scrollTo(0, scrollPosition);
     
     console.log('✖️ Lightbox closed - scroll restored');
   };
 
-  // ⭐ EVENT DELEGATION - Click na zdjęcie
   document.addEventListener('click', function(e) {
     const img = e.target.closest('.kwcs-gallery-grid img, .hero-image img.cover, .showcase-item img, .lightbox-trigger');
     
     if (!img) return;
 
-    // ⭐ Zapamiętaj scroll PRZED otwarciem
+    // ⭐ KLUCZOWE: Zapamiętaj scroll PRZED scrollowaniem
     scrollPosition = window.scrollY || window.pageYOffset;
+    
+    // ⭐ SCROLL DO ZDJĘCIA — na górę ekranu
+    img.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start' 
+    });
+    
+    imageElement = img;
 
-    // ⭐ OTWÓRZ LIGHTBOX — zdjęcie pozostaje w miejscu
-    lightbox.classList.add('active');
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.dataset.caption || img.alt || '';
-    document.body.classList.add('lightbox-open');
+    // ⭐ PO SCROLL — otwórz lightbox (czekaj 300ms na scroll animation)
+    setTimeout(() => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+      document.body.classList.add('lightbox-open');
 
-    console.log('🖼️ Image expanded in-place:', img.alt || img.src);
-    console.log('📍 Scroll saved:', scrollPosition);
+      console.log('🖼️ Lightbox opened at image position');
+      console.log('📍 Image scrolled to top of viewport');
+    }, 300);
   });
 
-  // Close button
   closeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     closeLightbox();
   });
 
-  // Click on background (lightbox area)
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
-  // ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && lightbox.classList.contains('active')) {
       closeLightbox();
     }
   });
 
-  console.log('✅ Lightbox (In-Place + Scroll Fix) initialized');
+  console.log('✅ Lightbox (Scroll to Image) initialized');
 }
 
 // ========================================
