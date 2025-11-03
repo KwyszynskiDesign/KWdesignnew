@@ -3,36 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usługi – Karol Wyszyński | Pakiety UX/UI Design & Branding</title>
-  <meta name="description" content="Profesjonalne usługi UX/UI design i brandingu. Od logo po kompleksową stronę internetową z automatyzacjami. Sprawdź pakiety dopasowane do Twoich potrzeb.">
-  
-  <!-- Favicon - Complete 2025 Implementation -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  
-  <!-- Apple Touch Icons (iOS devices) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-  
-  <!-- Android Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-  
-  <!-- Modern SVG Favicon with Dark Mode Support -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- Microsoft Tiles -->
-  <meta name="msapplication-TileColor" content="#06b6d4">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  
-  <!-- Theme Color for Mobile -->
+  <meta name="description" content="Marka + Strona, które sprzedają. Od logo po pełnofunkcjonalną stronę internetową z automatyzacjami. Wybierz pakiet dostosowany do Twoich potrzeb. Przejrzysty cennik, bezpłatna konsultacja.">
   <meta name="theme-color" content="#06b6d4">
+  <title>Usługi – Karol Wyszyński | Pakiety UX/UI Design & Branding</title>
+  
+  <!-- Favicon Setup 2025 -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,47 +25,346 @@
 
 <body>
 
-  <!-- Header -->
+  <!-- ========== HEADER ========== -->
   <header class="header">
-      <div class="container header-inner">
-          <a href="index.html" class="logo-link"><div class="logo">KW</div></a>
-          <nav class="nav">
-              <ul class="nav-list">
-                  <li><a href="index.html">Start</a></li>
-                  <li><a href="portfolio.html">Portfolio</a></li>
-                  <li><a href="uslugi.html" class="active">Usługi</a></li>
-                  <li><a href="index.html#contact">Kontakt</a></li>
-              </ul>
-              <div class="hamburger">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </div>
-          </nav>
-      </div>
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link" aria-label="Karol Wyszyński - Strona główna">
+        <div class="logo">KW</div>
+      </a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="uslugi.html" class="active" aria-current="page">Usługi</a></li>
+          <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Otwórz menu nawigacji" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="services-hero">
+  <!-- ========== HERO SECTION ========== -->
+  <section class="services-hero" aria-label="Sekcja powitalna usług">
     <div class="container">
       <div class="hero-content">
         <span class="hero-badge">Usługi</span>
-        <h1 class="hero-title">Pakiety współpracy dopasowane do Twoich potrzeb</h1>
-        <p class="hero-subtitle">Każda firma jest inna, dlatego przygotowałem trzy pakiety startowe, które odpowiadają na najczęstsze potrzeby na różnych etapach rozwoju. Niezależnie od tego, czy dopiero zaczynasz, czy chcesz skalować sprzedaż – znajdziesz tu rozwiązanie dopasowane do Twoich celów.</p>
+        <h1 class="hero-title">Marka + Strona, które sprzedają</h1>
+        <p class="hero-subtitle">
+          Od logo po pełnofunkcjonalną stronę internetową z automatyzacjami. 
+          Wybierz pakiet dostosowany do Twoich potrzeb i etapu biznesu.
+        </p>
+        
+        <!-- Trust Signals in Hero -->
+        <div class="hero-benefits" role="list">
+          <span role="listitem">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Przejrzysty cennik
+          </span>
+          <span role="listitem">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Bezpłatna konsultacja
+          </span>
+          <span role="listitem">
+            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Support w toku projektu
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Detailed Package Descriptions -->
-  <section class="package-details">
+  <!-- ========== PACKAGE GUIDE (NEW) ========== -->
+  <section class="package-guide" aria-labelledby="guide-title">
     <div class="container">
-      <h2 class="section-title">Poznaj szczegóły każdego pakietu</h2>
+      <h2 class="section-title" id="guide-title">Nie wiesz, od czego zacząć?</h2>
+      <p class="section-subtitle">Odpowiedz sobie na 3 proste pytania i znajdź idealny pakiet</p>
+      
+      <div class="guide-cards">
+        <!-- Question 1 -->
+        <div class="guide-card">
+          <div class="guide-number">1</div>
+          <h3>Czy masz już stronę?</h3>
+          <div class="guide-options">
+            <div class="guide-option">
+              <span class="option-label">Nie</span>
+              <p class="option-answer">→ Zacznij od <strong>DIGITAL BOOST</strong></p>
+            </div>
+            <div class="guide-option">
+              <span class="option-label">Tak, ale słaba</span>
+              <p class="option-answer">→ Potrzebujesz <strong>BUSINESS PRO</strong></p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="guide-card">
+          <div class="guide-number">2</div>
+          <h3>Chcesz sprzedawać online?</h3>
+          <div class="guide-options">
+            <div class="guide-option">
+              <span class="option-label">Tak</span>
+              <p class="option-answer">→ <strong>BUSINESS PRO</strong> z WooCommerce</p>
+            </div>
+            <div class="guide-option">
+              <span class="option-label">Nie</span>
+              <p class="option-answer">→ <strong>DIGITAL BOOST</strong> wystarczy</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Question 3 -->
+        <div class="guide-card">
+          <div class="guide-number">3</div>
+          <h3>Masz już logo/markę?</h3>
+          <div class="guide-options">
+            <div class="guide-option">
+              <span class="option-label">Tak</span>
+              <p class="option-answer">→ Zaoszczędzisz 1000 zł 💰</p>
+            </div>
+            <div class="guide-option">
+              <span class="option-label">Nie</span>
+              <p class="option-answer">→ Wliczamy w pakiet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING SECTION ========== -->
+  <section class="services-pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <h2 class="section-title" id="pricing-title">Twój plan inwestycji</h2>
+      <p class="section-subtitle">Transparentne ceny bez ukrytych kosztów</p>
+      
+      <div class="pricing-grid">
+        
+        <!-- Package 1: Brand Start -->
+        <div class="pricing-card" id="brand-start-card">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">🎯</div>
+            <h3 class="card-title">BRAND START</h3>
+            <p class="card-subtitle">Logo + identyfikacja wizualna</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">2500 <span class="currency">zł</span></span>
+          </div>
+          
+          <div class="card-features">
+            <ul aria-label="Charakterystyka pakietu Brand Start">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt unikalnego logo (3 propozycje)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Definicja kolorystyki i typografii marki
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt wizytówki i materiałów firmowych
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Mini brand book (księga znaku)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                30-dniowe wsparcie po zakończeniu
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <time datetime="P3W">3-5 tygodni</time>
+            </span>
+          </div>
+          
+          <a href="#brand-start" class="card-btn btn-secondary" data-package="brand-start">
+            Szczegóły pakietu
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 2L12 8L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Package 2: Digital Boost (POPULAR) -->
+        <div class="pricing-card featured" id="digital-boost-card">
+          <div class="popular-badge">
+            Najpopularniejsze
+            <span class="badge-meta">215+ projektów</span>
+          </div>
+          
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">💻</div>
+            <h3 class="card-title">DIGITAL BOOST</h3>
+            <p class="card-subtitle">Marka + strona internetowa</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">4500 <span class="currency">zł</span></span>
+          </div>
+          
+          <div class="card-features">
+            <ul aria-label="Charakterystyka pakietu Digital Boost">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <strong>Wszystko z pakietu BRAND START</strong>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Projekt i wdrożenie strony WWW (do 5 podstron)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Optymalizacja konwersji i SEO
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Integracja z mediami społecznościowymi
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                90-dniowe wsparcie techniczne
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <time datetime="P6W">6-8 tygodni</time>
+            </span>
+          </div>
+          
+          <a href="index.html#contact" class="card-btn btn-primary" data-package="digital-boost">
+            Zarezerwuj konsultację
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 2L12 8L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Package 3: Business Pro -->
+        <div class="pricing-card" id="business-pro-card">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">🚀</div>
+            <h3 class="card-title">BUSINESS PRO</h3>
+            <p class="card-subtitle">Kompletny pakiet z automatyzacjami</p>
+          </div>
+          
+          <div class="card-pricing">
+            <span class="price-label">od</span>
+            <span class="price-amount">7500 <span class="currency">zł</span></span>
+          </div>
+          
+          <div class="card-features">
+            <ul aria-label="Charakterystyka pakietu Business Pro">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <strong>Wszystko z pakietu DIGITAL BOOST</strong>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sklep WooCommerce lub system rezerwacji online
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Automatyzacje marketingowe (newsletter, sekwencje mailowe)
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Google Analytics 4 z celami konwersji
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                6-miesięczne wsparcie i konsultacje
+              </li>
+            </ul>
+          </div>
+          
+          <div class="card-meta">
+            <span class="meta-item">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <time datetime="P12W">8-12 tygodni</time>
+            </span>
+          </div>
+          
+          <a href="index.html#contact" class="card-btn btn-secondary" data-package="business-pro">
+            Zarezerwuj konsultację
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 2L12 8L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DETAILED PACKAGE DESCRIPTIONS ========== -->
+  <section class="package-details" aria-labelledby="details-title">
+    <div class="container">
+      <h2 class="section-title" id="details-title">Poznaj szczegóły każdego pakietu</h2>
       
       <div class="details-grid">
         <!-- Package 1: Brand Start -->
         <div class="detail-card" id="brand-start">
           <div class="detail-header">
-            <div class="detail-icon">🎯</div>
+            <div class="detail-icon" aria-hidden="true">🎯</div>
             <h3>BRAND START</h3>
             <p class="detail-tagline">Logo + identyfikacja wizualna</p>
           </div>
@@ -98,15 +376,25 @@
           
           <div class="detail-section">
             <h4>Co dokładnie otrzymujesz?</h4>
-            <p>W ramach tego pakietu przeprowadzam z Tobą warsztat strategiczny, na bazie którego projektuję 3 propozycje logo. Po wybraniu finalnej wersji, tworzę kompletną mini-księgę znaku: definiuję paletę kolorów, dobieram fonty i projektuję wizytówkę. Masz solidny fundament do dalszych działań.</p>
+            <p>W ramach tego pakietu przeprowadzam z Tobą warsztat strategiczny, na bazie którego projektuję 3 propozycje logo. Po wybraniu finalnej wersji, tworzę kompletną mini-księgę znaku: definiuję paletę kolorów, dobieram fonty i projektuję materiały firmowe. Masz solidny fundament do dalszych działań.</p>
+          </div>
+          
+          <div class="detail-benefits">
+            <h4>Główne korzyści:</h4>
+            <ul>
+              <li>Spójny wizerunek od pierwszego dnia</li>
+              <li>Wiarygodność i profesjonalizm</li>
+              <li>Materiały gotowe do użytku</li>
+              <li>Elastyczne rozwinięcie w przyszłości</li>
+            </ul>
           </div>
         </div>
 
         <!-- Package 2: Digital Boost -->
         <div class="detail-card featured" id="digital-boost">
-          <div class="popular-badge">Najpopularniejsze</div>
+          <div class="popular-badge-detail">Najczęściej wybierany</div>
           <div class="detail-header">
-            <div class="detail-icon">💻</div>
+            <div class="detail-icon" aria-hidden="true">💻</div>
             <h3>DIGITAL BOOST</h3>
             <p class="detail-tagline">Marka + strona internetowa</p>
           </div>
@@ -118,14 +406,24 @@
           
           <div class="detail-section">
             <h4>Co dokładnie otrzymujesz?</h4>
-            <p>Otrzymujesz wszystko z pakietu Brand Start ORAZ w pełni funkcjonalną, responsywną stronę internetową na WordPress. Projektuję ją w oparciu o strategię UX, aby prowadziła użytkownika prosto do celu (konwersji). Wdrażam podstawową analitykę, optymalizuję stronę pod SEO i zapewniam wsparcie techniczne po starcie.</p>
+            <p>Otrzymujesz wszystko z pakietu Brand Start ORAZ w pełni funkcjonalną, responsywną stronę internetową na WordPress. Projektuję ją w oparciu o strategię UX, aby prowadziła użytkownika prosto do celu (konwersji). Wdrażam podstawową analitykę, optymalizuję stronę pod SEO i zapewniam wsparcie techniczne.</p>
+          </div>
+          
+          <div class="detail-benefits">
+            <h4>Główne korzyści:</h4>
+            <ul>
+              <li>Strona, która generuje zapytania</li>
+              <li>Pojawianie się w wynikach Google</li>
+              <li>Profesjonalna strona na mobilach</li>
+              <li>Wsparcie przez 90 dni</li>
+            </ul>
           </div>
         </div>
 
         <!-- Package 3: Business Pro -->
         <div class="detail-card" id="business-pro">
           <div class="detail-header">
-            <div class="detail-icon">🚀</div>
+            <div class="detail-icon" aria-hidden="true">🚀</div>
             <h3>BUSINESS PRO</h3>
             <p class="detail-tagline">Kompletny pakiet z automatyzacjami</p>
           </div>
@@ -137,310 +435,134 @@
           
           <div class="detail-section">
             <h4>Co dokładnie otrzymujesz?</h4>
-            <p>Otrzymujesz pełny pakiet Digital Boost, rozbudowany o sklep WooCommerce lub system rezerwacji online. Konfiguruję automatyzacje marketingowe (np. odzyskiwanie porzuconych koszyków, newsletter), wdrażam zaawansowaną analitykę (Google Analytics 4 z celami) i zapewniam priorytetowe wsparcie, aby Twój biznes działał jak dobrze naoliwiona maszyna.</p>
+            <p>Otrzymujesz pełny pakiet Digital Boost, rozbudowany o sklep WooCommerce lub system rezerwacji online. Konfiguruję automatyzacje marketingowe (np. odzyskiwanie porzuconych koszyków, newsletter), wdrażam zaawansowaną analitykę (Google Analytics 4 z celami) i zapewniam priorytetowe wsparcie.</p>
+          </div>
+          
+          <div class="detail-benefits">
+            <h4>Główne korzyści:</h4>
+            <ul>
+              <li>Automatyczna sprzedaż 24/7</li>
+              <li>Lejek marketingowy w pełni funkcjonalny</li>
+              <li>Decyzje oparte na danych</li>
+              <li>Wsparcie przez 6 miesięcy</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section class="services-pricing">
+  <!-- ========== SERVICE SCOPE ========== -->
+  <section class="service-scope" aria-labelledby="scope-title">
     <div class="container">
-      <h2 class="section-title">Twój plan inwestycji</h2>
-      <p class="section-subtitle">Transparentne ceny bez ukrytych kosztów</p>
-      
-      <div class="pricing-grid">
-        
-        <!-- Package 1: Brand Start -->
-        <div class="pricing-card">
-          <div class="card-header">
-            <div class="card-icon">🎯</div>
-            <h3 class="card-title">BRAND START</h3>
-            <p class="card-subtitle">Logo + identyfikacja wizualna</p>
-          </div>
-          
-          <div class="card-pricing">
-            <span class="price-label">od</span>
-            <span class="price-amount">2500 zł</span>
-          </div>
-          
-          <div class="card-features">
-            <ul>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Projekt unikalnego logo (3 propozycje)
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Definicja kolorystyki i typografii marki
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Projekt wizytówki
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Mini brand book (księga znaku)
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                30-dniowe wsparcie po zakończeniu projektu
-              </li>
-            </ul>
-          </div>
-          
-          <div class="card-meta">
-            <span class="meta-item">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              3-5 tygodni
-            </span>
-          </div>
-          
-          <a href="#brand-start" class="card-btn btn-secondary">Szczegóły pakietu</a>
-        </div>
-
-        <!-- Package 2: Digital Boost (POPULAR) -->
-        <div class="pricing-card featured">
-          <div class="popular-badge">Najpopularniejsze</div>
-          <div class="card-header">
-            <div class="card-icon">💻</div>
-            <h3 class="card-title">DIGITAL BOOST</h3>
-            <p class="card-subtitle">Marka + strona internetowa</p>
-          </div>
-          
-          <div class="card-pricing">
-            <span class="price-label">od</span>
-            <span class="price-amount">4500 zł</span>
-          </div>
-          
-          <div class="card-features">
-            <ul>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <strong>Wszystko z pakietu BRAND START</strong>
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Projekt i wdrożenie strony WWW (do 5 podstron)
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Optymalizacja pod kątem konwersji i SEO
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Integracja z mediami społecznościowymi
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                90-dniowe wsparcie techniczne
-              </li>
-            </ul>
-          </div>
-          
-          <div class="card-meta">
-            <span class="meta-item">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              6-8 tygodni
-            </span>
-          </div>
-          
-          <a href="index.html#contact" class="card-btn btn-primary">Rozpocznij projekt</a>
-        </div>
-
-        <!-- Package 3: Business Pro -->
-        <div class="pricing-card">
-          <div class="card-header">
-            <div class="card-icon">🚀</div>
-            <h3 class="card-title">BUSINESS PRO</h3>
-            <p class="card-subtitle">Kompletny pakiet z automatyzacjami</p>
-          </div>
-          
-          <div class="card-pricing">
-            <span class="price-label">od</span>
-            <span class="price-amount">7500 zł</span>
-          </div>
-          
-          <div class="card-features">
-            <ul>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <strong>Wszystko z pakietu DIGITAL BOOST</strong>
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Rozbudowana strona WWW z systemem e-commerce lub rezerwacji
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Automatyzacje marketingowe (np. newsletter, sekwencje mailowe)
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Zaawansowana analityka i śledzenie celów
-              </li>
-              <li>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                6-miesięczne wsparcie i konsultacje
-              </li>
-            </ul>
-          </div>
-          
-          <div class="card-meta">
-            <span class="meta-item">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" stroke-width="1.5"/>
-                <path d="M8 4v4l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              8-12 tygodni
-            </span>
-          </div>
-          
-          <a href="#business-pro" class="card-btn btn-secondary">Szczegóły pakietu</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Service Scope -->
-  <section class="service-scope">
-    <div class="container">
-      <h2 class="section-title">Szczegółowy zakres usług</h2>
-      <p class="section-subtitle">Zobacz, co dokładnie wchodzi w skład każdego pakietu</p>
+      <h2 class="section-title" id="scope-title">Szczegółowy zakres usług</h2>
+      <p class="section-subtitle">Co wchodzi w skład każdego pakietu</p>
       
       <div class="scope-grid">
         <div class="scope-column">
-          <div class="scope-icon">🎨</div>
+          <div class="scope-icon" aria-hidden="true">🎨</div>
           <h3>Branding i Identyfikacja Wizualna</h3>
           <ul>
-            <li>Projektowanie logo</li>
+            <li>Warsztat strategiczny i analiza rynku</li>
+            <li>Projektowanie logo (3 propozycje)</li>
             <li>Dobór kolorystyki i typografii</li>
-            <li>Projektowanie materiałów firmowych (wizytówki, papier firmowy)</li>
+            <li>Materiały firmowe (wizytówki, papiery)</li>
             <li>Księga znaku (Brand Book)</li>
             <li>Strategia komunikacji wizualnej</li>
           </ul>
         </div>
         
         <div class="scope-column">
-          <div class="scope-icon">💻</div>
+          <div class="scope-icon" aria-hidden="true">💻</div>
           <h3>Strony Internetowe</h3>
           <ul>
-            <li>Projektowanie UX/UI (Makiety i prototypy)</li>
+            <li>Badania użytkowników i wireframing</li>
+            <li>Projektowanie UX/UI (makiety, prototypy)</li>
             <li>Responsywne strony na WordPress</li>
             <li>Optymalizacja pod kątem SEO</li>
             <li>Optymalizacja szybkości ładowania</li>
-            <li>Integracja z analityką (Google Analytics 4)</li>
+            <li>Integracja z Google Analytics 4</li>
           </ul>
         </div>
         
         <div class="scope-column">
-          <div class="scope-icon">⚙️</div>
+          <div class="scope-icon" aria-hidden="true">⚙️</div>
           <h3>Automatyzacje Biznesowe</h3>
           <ul>
             <li>Wdrożenia e-commerce (WooCommerce)</li>
             <li>Systemy rezerwacji online</li>
             <li>Automatyzacja marketingu (Mailingi)</li>
             <li>Integracje z systemami CRM</li>
-            <li>Lejek sprzedażowy i zbieranie leadów</li>
+            <li>Lejek sprzedażowy i lead generation</li>
+            <li>Raporty i analiza danych</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison Table -->
-  <section class="services-comparison">
+  <!-- ========== COMPARISON TABLE ========== -->
+  <section class="services-comparison" aria-labelledby="comparison-title">
     <div class="container">
-      <h2 class="section-title">Porównanie pakietów</h2>
-      <p class="section-subtitle">Zobacz dokładnie, co zawiera każdy pakiet i wybierz najlepszy dla siebie</p>
+      <h2 class="section-title" id="comparison-title">Porównanie pakietów</h2>
+      <p class="section-subtitle">Zobacz dokładnie, co zawiera każdy pakiet</p>
       
       <div class="comparison-table-wrapper">
         <table class="comparison-table">
+          <caption>Porównanie cech i funkcjonalności pakietów usług</caption>
           <thead>
             <tr>
-              <th>Funkcjonalność</th>
-              <th>Brand Start</th>
-              <th class="highlighted">Digital Boost</th>
-              <th>Business Pro</th>
+              <th scope="col">Funkcjonalność</th>
+              <th scope="col">Brand Start</th>
+              <th scope="col" class="highlighted">Digital Boost</th>
+              <th scope="col">Business Pro</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Projekt logo</td>
-              <td><span class="check">✓</span></td>
-              <td class="highlighted"><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
+              <td><strong>Projekt logo</strong></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
+              <td class="highlighted"><span class="check" aria-label="zawiera">✓</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
             </tr>
             <tr>
-              <td>Identyfikacja wizualna</td>
-              <td><span class="check">✓</span></td>
-              <td class="highlighted"><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
+              <td><strong>Identyfikacja wizualna</strong></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
+              <td class="highlighted"><span class="check" aria-label="zawiera">✓</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
             </tr>
             <tr>
-              <td>Strona internetowa (do 5 podstron)</td>
-              <td><span class="cross">—</span></td>
-              <td class="highlighted"><span class="check">✓</span></td>
-              <td><span class="check">✓</span></td>
+              <td><strong>Strona internetowa (5 podstron)</strong></td>
+              <td><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td class="highlighted"><span class="check" aria-label="zawiera">✓</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
             </tr>
             <tr>
-              <td>E-commerce / System rezerwacji</td>
-              <td><span class="cross">—</span></td>
-              <td class="highlighted"><span class="cross">—</span></td>
-              <td><span class="check">✓</span></td>
+              <td><strong>E-commerce / Rezerwacja</strong></td>
+              <td><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td class="highlighted"><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
             </tr>
             <tr>
-              <td>Automatyzacje marketingowe</td>
-              <td><span class="cross">—</span></td>
-              <td class="highlighted"><span class="cross">—</span></td>
-              <td><span class="check">✓</span></td>
+              <td><strong>Automatyzacje marketingowe</strong></td>
+              <td><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td class="highlighted"><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
             </tr>
             <tr>
-              <td>Wsparcie po wdrożeniu</td>
+              <td><strong>Zaawansowana analityka</strong></td>
+              <td><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td class="highlighted"><span class="cross" aria-label="nie zawiera">—</span></td>
+              <td><span class="check" aria-label="zawiera">✓</span></td>
+            </tr>
+            <tr>
+              <td><strong>Wsparcie po wdrożeniu</strong></td>
               <td>30 dni</td>
               <td class="highlighted">90 dni</td>
-              <td>6 miesięcy</td>
+              <td><strong>6 miesięcy</strong></td>
             </tr>
             <tr>
-              <td>Czas realizacji</td>
+              <td><strong>Czas realizacji</strong></td>
               <td>3-5 tygodni</td>
               <td class="highlighted">6-8 tygodni</td>
               <td>8-12 tygodni</td>
@@ -457,38 +579,150 @@
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="services-cta">
+  <!-- ========== TESTIMONIALS (NEW) ========== -->
+  <section class="services-testimonials" aria-labelledby="testimonials-title">
     <div class="container">
-      <div class="cta-content">
-        <h2>Nie jesteś pewny, który pakiet wybrać?</h2>
-        <p>Pakiety to tylko punkt wyjścia. Jeśli Twoje potrzeby są inne, z chęcią przygotuję dla Ciebie indywidualną wycenę. Porozmawiajmy o Twoim projekcie – bez zobowiązań.</p>
-        <a href="index.html#contact" class="btn btn-primary btn-large">Bezpłatna konsultacja</a>
+      <h2 class="section-title" id="testimonials-title">Co mówią klienci</h2>
+      <p class="section-subtitle">Ponad 215 zadowolonych projektów</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="testimonial-rating" aria-label="Ocena: 5 gwiazdek">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <blockquote>
+            <p>"Strona, którą Karol stworzył, zwiększyła moje zapytania o 40% w pierwszy miesiąc. Najlepsza inwestycja w biznes!"</p>
+            <footer>
+              <strong>Anna M.</strong>
+              <span class="testimonial-role">Salon urody</span>
+            </footer>
+          </blockquote>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-rating" aria-label="Ocena: 5 gwiazdek">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <blockquote>
+            <p>"Profesjonalizm od pierwszego kontaktu. Karol nie tylko projektuje, ale myśli o naszym biznesie. Polecam!"</p>
+            <footer>
+              <strong>Tomasz K.</strong>
+              <span class="testimonial-role">Agencja nieruchomości</span>
+            </footer>
+          </blockquote>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-rating" aria-label="Ocena: 5 gwiazdek">
+            <span aria-hidden="true">★★★★★</span>
+          </div>
+          <blockquote>
+            <p>"Wsparcie po wdrożeniu było kluczowe. Zawsze miał czas na nasze pytania. Dziękuję!"</p>
+            <footer>
+              <strong>Katarzyna W.</strong>
+              <span class="testimonial-role">E-shop z odzieżą</span>
+            </footer>
+          </blockquote>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ========== FAQ (NEW) ========== -->
+  <section class="services-faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 class="section-title" id="faq-title">Często zadawane pytania</h2>
+      
+      <div class="faq-items">
+        <details class="faq-item">
+          <summary>Czy mogę zmienić pakiet po jego wyborze?</summary>
+          <p>Absolutnie! Możesz skalować pakiet w każdej chwili. Wycenimy dokładnie dodatkowe funkcjonalności i dopasujemy harmonogram prac. Elastyczność to nasz standard.</p>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Jaki jest proces płatności?</summary>
+          <p>Standardowy schemat to: 30% zaliczki, 50% w trakcie projektu, 20% po wdrożeniu. Możliwe są również raty na zgodę obu stron. Chętnie omówimy warianty dostosowane do Twojej sytuacji.</p>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Czy mogę mieć wiele rewizji projektu?</summary>
+          <p>Tak! Każdy pakiet zawiera ustaloną liczbę rewizji. Dodatkowe rewizje wyceniamy odrębnie. Naszym celem jest, abyś był w 100% zadowolony z efektu.</p>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Na jakim hostingu będzie moja strona?</summary>
+          <p>Rekomendujemy sprawdzonych hostingodawców (np. SiteGround, Kinsta). Strona będzie całkowicie Twoja. Możesz przenieść ją w każdym momencie lub zostać z nami na wsparciu technicznym.</p>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Czy strona będzie responsywna (mobilna)?</summary>
+          <p>Wszystkie nasze strony są w 100% responsywne. Testujemy na urządzeniach iPhone, Android, tablet i desktop. Google preferuje strony mobilne – my to gwarantujemy.</p>
+        </details>
+        
+        <details class="faq-item">
+          <summary>Ile czasu trwa projekt od podpisania umowy?</summary>
+          <p>Zależy od pakietu: Brand Start 3-5 tygodni, Digital Boost 6-8 tygodni, Business Pro 8-12 tygodni. Harmonogram ustalamy indywidualnie w zależności od Twoich potrzeb.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="services-cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta-content">
+        <h2 id="cta-title">Nie jesteś pewny, który pakiet wybrać?</h2>
+        <p>Pakiety to tylko punkt wyjścia. Jeśli Twoje potrzeby są inne, z chęcią przygotuję dla Ciebie indywidualną wycenę. Porozmawiajmy o Twoim projekcie – <strong>bez zobowiązań</strong>.</p>
+        <a href="index.html#contact" class="btn btn-primary btn-large">
+          Zarezerwuj bezpłatną konsultację
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M9.5 3.5h7v7m-7-7l7.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
   <footer class="footer">
-      <div class="container footer-inner">
-          <div class="footer-info">
-              <h3>Karol Wyszyński</h3>
-              <p>UX/UI Designer</p>
-              <p>Email: <a href="mailto:wyszynski.k@onet.pl">wyszynski.k@onet.pl</a></p>
-          </div>
-          <div class="footer-links">
-              <a href="portfolio.html">Portfolio</a>
-              <a href="uslugi.html">Usługi</a>
-              <a href="index.html#contact">Kontakt</a>
-          </div>
+    <div class="container footer-inner">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Karol Wyszyński</h3>
+          <p>UX/UI Designer & Brand Strategist</p>
+          <p>Email: <a href="mailto:wyszynski.k@onet.pl" aria-label="Wyślij wiadomość do Karola">wyszynski.k@onet.pl</a></p>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Szybkie linki</h4>
+          <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="uslugi.html">Usługi</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-trust">
+          <h4>Gwarancje</h4>
+          <ul>
+            <li>🔒 Bezpieczne transakcje</li>
+            <li>📋 Umowa stanowiąca</li>
+            <li>✓ 30-dniowa gwarancja</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-bottom">
-          <div class="container">
-              <p>&copy; 2025 Karol Wyszyński. Wszystkie prawa zastrzeżone.</p>
-          </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 Karol Wyszyński. Wszystkie prawa zastrzeżone. | <a href="privacy.html">Polityka prywatności</a></p>
       </div>
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="assets/js/index-scripts.js" defer></script>
+  <script src="assets/js/services-interactions.js" defer></script>
 </body>
 </html>
