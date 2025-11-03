@@ -180,6 +180,11 @@
   display: block;
   cursor: pointer;
   pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.kwcs-hero-body .hero-image img:hover {
+  transform: scale(1.5);
 }
 
 /* ========================================
@@ -400,16 +405,16 @@
   display: block;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: zoom-in;
   position: relative;
   pointer-events: auto;
 }
 
 .gallery-item img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  z-index: 10;
+  transform: scale(1.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 
 .gallery-item .img-desc {
@@ -444,7 +449,7 @@
    ======================================== */
 
 .lightbox {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -464,9 +469,6 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  position: fixed; /* ⭐ Zmień na fixed gdy active */
-  top: 0;
-  left: 0;
 }
 
 .lightbox-content {
@@ -543,8 +545,6 @@
 body.lightbox-open {
   overflow: hidden;
 }
-
-
 
 /* ========================================
    WEBSITE SHOWCASE SECTION
@@ -714,16 +714,16 @@ body.lightbox-open {
   height: auto;
   border-radius: 12px;
   display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: zoom-in;
   max-width: 100%;
   max-height: 450px;
   object-fit: contain;
   pointer-events: auto;
 }
 
-.showcase-item:hover img {
-  transform: scale(1.02);
+.showcase-item img:hover {
+  transform: scale(1.5);
   box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
 }
 
@@ -754,8 +754,13 @@ body.lightbox-open {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   max-height: 480px;
   object-fit: contain;
-  cursor: pointer;
+  cursor: zoom-in;
   pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.showcase-mobile img:hover {
+  transform: scale(1.5);
 }
 
 /* Features box */
