@@ -404,7 +404,6 @@
   height: auto;
   display: block;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   cursor: zoom-in;
   position: relative;
@@ -413,7 +412,6 @@
 
 .gallery-item img:hover {
   transform: scale(1.5);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   z-index: 100;
 }
 
@@ -724,7 +722,6 @@ body.lightbox-open {
 
 .showcase-item img:hover {
   transform: scale(1.5);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
 }
 
 .showcase-item img:focus-visible {
@@ -751,7 +748,6 @@ body.lightbox-open {
 }
 
 .showcase-mobile img {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   max-height: 480px;
   object-fit: contain;
   cursor: zoom-in;
