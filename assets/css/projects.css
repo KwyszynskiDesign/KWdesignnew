@@ -439,8 +439,8 @@
 }
 
 /* ========================================
-   LIGHTBOX MODAL - PROFESSIONAL & MODERN
-   ⭐ FIXED - NO SCROLL JUMP!
+   LIGHTBOX MODAL - FROM SOURCE POSITION
+   ⭐ Animates from clicked image position
    ======================================== */
 
 .lightbox {
@@ -456,8 +456,8 @@
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              visibility 0.3s ease;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.4s ease;
   padding: 20px;
   box-sizing: border-box;
   backdrop-filter: blur(2px);
@@ -468,7 +468,7 @@
   visibility: visible;
 }
 
-/* Główny obraz w lightboxie */
+/* ⭐ KLUCZOWE — Główny obraz z transformacją */
 .lightbox-content {
   max-width: 90vw;
   max-height: 90vh;
@@ -478,22 +478,33 @@
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
               0 0 0 1px rgba(255, 255, 255, 0.1);
-  animation: lightboxZoom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: block;
   pointer-events: auto;
+  
+  /* ⭐ DODANE: Transform origin i transition */
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.4s ease,
+              filter 0.4s ease;
+  
+  /* ⭐ Stan początkowy (przed animacją) */
+  transform: scale(0.7) translateY(20px);
+  opacity: 0;
+  filter: blur(10px);
 }
 
-@keyframes lightboxZoom {
-  from {
-    transform: scale(0.7) translateY(20px);
-    opacity: 0;
-    filter: blur(10px);
-  }
-  to {
-    transform: scale(1) translateY(0);
-    opacity: 1;
-    filter: blur(0);
-  }
+/* ⭐ Stan aktywny — po otwarciu */
+.lightbox.active .lightbox-content {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ⭐ Dla animacji zwrotnej (zamykanie z pozycji) */
+.lightbox-content.closing {
+  transform: scale(0.7);
+  opacity: 0;
+  filter: blur(10px);
 }
 
 /* Caption pod zdjęciem */
@@ -515,9 +526,22 @@
   line-height: 1.5;
   font-weight: 500;
   pointer-events: none;
+  opacity: 0;
+  animation: captionFadeIn 0.6s ease 0.2s forwards;
 }
 
-/* Close button (X) — ZAWSZE WIDOCZNY I DOSTĘPNY */
+@keyframes captionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Close button (X) */
 .lightbox-close {
   position: fixed;
   top: 28px;
@@ -541,6 +565,19 @@
   font-weight: 300;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   user-select: none;
+  opacity: 0;
+  animation: buttonFadeIn 0.5s ease 0.3s forwards;
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .lightbox-close:hover {
@@ -560,7 +597,7 @@
   transform: scale(0.95);
 }
 
-/* ⭐ KLUCZ: Blokuj tylko scroll, BEZ zmiany position! */
+/* Blokuj scroll */
 body.lightbox-open {
   overflow: hidden;
 }
