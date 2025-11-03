@@ -967,21 +967,29 @@ body.lightbox-open {
 
 /* ========================================
    RESPONSYWNOŚĆ - 768px
+   ⭐ ZMIANA: Chipsy NAD zdjęciem na mobile
    ======================================== */
 
 @media (max-width: 768px) {
+  /* ZMIANA KOLEJNOŚCI: Chipsy NAD zdjęciem */
   .hero-content-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 1rem;
+    margin-bottom: 2rem;
   }
 
   .hero-buttons-vertical {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 0.75rem;
+    order: 2;
   }
 
   .hero-buttons-vertical .kwcs-chip {
-    width: 100%;
+    width: auto;
+    flex: 1;
+    min-width: 140px;
     padding: 0.65rem 1rem;
     font-size: 0.85rem;
   }
@@ -990,6 +998,10 @@ body.lightbox-open {
     display: block;
     margin-bottom: 0.25rem;
     font-size: 0.9rem;
+  }
+
+  .kwcs-hero-body .hero-image {
+    order: 1;
   }
 
   .kwcs-gallery-grid {
@@ -1155,6 +1167,7 @@ body.lightbox-open {
     max-width: 100%;
   }
 }
+
 
 /* ========================================
    RESPONSYWNOŚĆ - 600px
