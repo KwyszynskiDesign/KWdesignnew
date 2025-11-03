@@ -141,9 +141,9 @@
 
 .hero-content-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
-  align-items: flex-start;
+  grid-template-columns: 0.8fr 1.5fr;
+  gap: 2.5rem;
+  align-items: flex-end;
   margin-bottom: 2rem;
 }
 
