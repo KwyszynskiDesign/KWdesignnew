@@ -2566,6 +2566,7 @@ section {
 /* ===========================RESPONSIVE BREAKPOINTS=========================== */
 
   /* ===========================
+/* ===========================
    MOBILE (max-width: 480px)
    =========================== */
 @media (max-width: 480px) {
@@ -2604,72 +2605,239 @@ section {
         object-fit: contain !important;
     }
     
+    /* ===========================
+       HAMBURGER & MOBILE MENU - POPRAWIONE
+       =========================== */
+    
     /* HAMBURGER MOBILE */
-    .hamburger-menu {
+    .hamburger-menu,
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
         width: 48px;
         height: 48px;
         position: relative;
-        display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         z-index: 1001;
         margin-right: 0;
+        gap: 5px;
+        padding: var(--space-2);
+        border-radius: var(--radius-md);
+        transition: var(--transition-fast);
     }
     
-    .hamburger-menu span {
+    .hamburger:hover,
+    .hamburger-menu:hover {
+        background: var(--color-dark-light);
+    }
+    
+    .hamburger-menu span,
+    .hamburger span {
         display: block;
-        width: 24px;
+        width: 28px;
         height: 3px;
         background-color: var(--color-primary);
         transition: all 0.3s ease;
         position: absolute;
-        border-radius: 2px;
+        border-radius: var(--radius-full);
     }
     
-    .hamburger-menu span:nth-child(1) {
+    .hamburger-menu span:nth-child(1),
+    .hamburger span:nth-child(1) {
         top: 14px;
     }
     
-    .hamburger-menu span:nth-child(2) {
+    .hamburger-menu span:nth-child(2),
+    .hamburger span:nth-child(2) {
         top: 22px;
     }
     
-    .hamburger-menu span:nth-child(3) {
+    .hamburger-menu span:nth-child(3),
+    .hamburger span:nth-child(3) {
         top: 30px;
     }
     
-    /* PRZYCISK X */
-    .hamburger-menu.active span:nth-child(1) {
+    /* HAMBURGER AKTYWNY (X) */
+    .hamburger-menu.active span:nth-child(1),
+    .hamburger.active span:nth-child(1) {
         top: 22px;
         transform: rotate(45deg);
     }
     
-    .hamburger-menu.active span:nth-child(2) {
+    .hamburger-menu.active span:nth-child(2),
+    .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
     
-    .hamburger-menu.active span:nth-child(3) {
+    .hamburger-menu.active span:nth-child(3),
+    .hamburger.active span:nth-child(3) {
         top: 22px;
         transform: rotate(-45deg);
     }
     
-    /* MENU NAWIGACYJNE */
+    /* MENU NAWIGACYJNE - POPRAWIONE */
     .nav-list {
-        padding: var(--space-8) !important;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--color-dark);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        gap: 2rem !important; /* ← KLUCZOWE: 32px między linkami */
+        
+        padding: var(--space-12) var(--space-6) !important;
+        
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-all);
+        
+        z-index: 1000;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--color-dark-light);
     }
     
+    /* MENU OTWARTE */
+    .nav-list.open,
+    .nav-list.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* LINKI MENU - POPRAWIONE */
     .nav-list li {
-        margin-bottom: 1rem !important;
+        width: 100%;
+        text-align: center;
+        margin: 0 !important;
     }
     
     .nav-list a {
-        font-size: 1.25rem !important;
-        padding: 0.8rem 1rem !important;
+        color: white;
+        font-weight: var(--font-weight-bold);
+        font-size: 1.35rem !important; /* ← WIĘKSZE */
+        padding: 1rem 1.5rem !important; /* ← WIĘKSZE */
         display: block !important;
+        width: 100%;
+        position: relative;
+        transition: var(--transition-all);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        border-bottom: none !important; /* ← USUŃ border */
         min-height: 48px !important;
         line-height: 1.4 !important;
         text-align: center !important;
+    }
+    
+    .nav-list a:last-child {
+        border-bottom: none;
+    }
+
+    /* HOVER STATE */
+    .nav-list a:hover {
+        color: var(--color-primary);
+        background: rgba(6, 182, 212, 0.1);
+    }
+
+    /* PODKREŚLENIE - POPRAWIONE */
+    .nav-list a::after {
+        content: '';
+        position: absolute;
+        bottom: 8px; /* ← POPRAWIONE: pod tekstem, nie za nisko */
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: var(--color-primary);
+        transition: var(--transition-normal);
+        transform: translateX(-50%);
+        border-radius: var(--radius-full);
+    }
+
+    .nav-list a:hover::after,
+    .nav-list a:focus-visible::after {
+        width: 60%;
+    }
+
+    /* FOCUS STATE */
+    .nav-list a:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 4px;
+    }
+
+    /* AKTYWNA STRONA */
+    .nav-list a.active {
+        color: var(--color-primary);
+        background: rgba(6, 182, 212, 0.15);
+    }
+
+    .nav-list a.active::after {
+        width: 60%;
+    }
+
+    /* ANIMACJA LINKÓW - JEDEN PO DRUGIM */
+    .nav-list.open li,
+    .nav-list.active li {
+        animation: slideInRight 0.4s ease-out forwards;
+        opacity: 0;
+    }
+
+    .nav-list.open li:nth-child(1),
+    .nav-list.active li:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+
+    .nav-list.open li:nth-child(2),
+    .nav-list.active li:nth-child(2) {
+        animation-delay: 0.15s;
+    }
+
+    .nav-list.open li:nth-child(3),
+    .nav-list.active li:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+
+    .nav-list.open li:nth-child(4),
+    .nav-list.active li:nth-child(4) {
+        animation-delay: 0.25s;
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* OVERLAY - CIEMNE TŁO POD MENU */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        backdrop-filter: blur(2px);
+    }
+
+    .nav-overlay.active,
+    .nav-overlay.open {
+        opacity: 1;
+        visibility: visible;
     }
     
     /* ========== HERO SECTION ========== */
@@ -2869,7 +3037,7 @@ section {
     .portfolio-item img {
         width: 100% !important;
         height: 100% !important;
-       object-fit: cover !important;
+        object-fit: cover !important;
         padding: 0 !important;
         margin: 0 auto !important;
     }
