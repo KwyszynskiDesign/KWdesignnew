@@ -418,7 +418,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .portfolio-section .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 40px);
+  padding: 0 clamp(32px, 5vw, 60px);
   overflow: visible;
 }
 
@@ -451,7 +451,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   width: 100%;
   overflow: visible;
   height: auto;
-  padding: 24px 0;
+  padding: 32px 12px;
 }
 
 /* Karta portfolio - POPRAWIONA - 15% mniejsza */
@@ -475,10 +475,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   user-select: none;
   pointer-events: auto;
   z-index: 1;
-  
-  /* ← BAZOWY ROZMIAR: 85% (15% mniejszy) */
   transform: scale(0.85);
   transform-origin: center;
+  margin: 12px;
 }
 
 .portfolio-new-card::before {
