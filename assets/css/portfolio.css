@@ -572,30 +572,30 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* Kategoria */
 .card-category {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #0ea5e9;
   display: inline-block;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 /* Tytuł */
 .card-title {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #1e293b;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   line-height: 1.3;
 }
 
 /* Opis */
 .card-description {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: #64748b;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 18px;
   flex: 1;
 }
 
@@ -611,18 +611,18 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.85rem;
+  font-size: 0.93rem;
   color: #475569;
   font-weight: 500;
   background: rgba(241, 245, 249, 0.8);
-  padding: 6px 12px;
+  padding: 7px 14px;
   border-radius: 8px;
   transition: all 0.2s ease;
 }
 
 .feature-item svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   stroke: #10b981;
   flex-shrink: 0;
 }
@@ -645,8 +645,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 .card-cta svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   stroke: currentColor;
   transition: transform 0.3s ease;
 }
