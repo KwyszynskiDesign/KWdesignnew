@@ -1297,8 +1297,9 @@ section {
         var(--color-background) 0%, 
         var(--color-background-light) 50%, 
         var(--color-background) 100%);
-    padding: var(--space-24) 0;
-    overflow-x: hidden;
+    padding: var(--space-32) 0;
+   overflow: visible; /* ZMIEŃ z overflow-x: hidden */
+    width: 100%;
 }
 
 
@@ -1310,9 +1311,10 @@ section {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
- padding: 0 var(--space-6);
+   padding: 0 var(--space-8);
     width: 100%; /* DODAJ */
     box-sizing: border-box; /* DODAJ */
+    overflow: visible;
 }
 
 .service-card {
@@ -1323,23 +1325,26 @@ section {
     text-align: center;
     transition: var(--transition-all);
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* ZMIEŃ z hidden na visible */
     cursor: default;
     display: flex;
     flex-direction: column;
-    
-    /* MOCNE CIENIE 3D */
     transform-style: preserve-3d;
     transform: translateZ(0);
+    
+    /* MOCNE CIENIE 3D */
     box-shadow: 
         0 10px 30px -5px rgba(0, 0, 0, 0.15),
         0 5px 15px -3px rgba(0, 0, 0, 0.08),
         0 0 0 1px rgba(0, 0, 0, 0.02),
         0 0 0 1px rgba(255, 255, 255, 0.05) inset,
         0 1px 0 rgba(255, 255, 255, 0.2) inset;
-    
     background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+    
+    /* DODAJ - zapobiega ucinaniu cieni */
+    margin: var(--space-2) 0; /* Pionowy margines dla cieni */
 }
+
 
 
 .service-card::before {
@@ -1906,6 +1911,24 @@ section {
     .process-cta {
         margin-top: 48px;
     }
+     .services-grid {
+        grid-template-columns: 1fr !important; /* 1 kolumna */
+        padding: 0 var(--space-6) !important;
+        gap: var(--space-8) !important; /* Większy gap dla cieni */
+        max-width: 380px !important;
+    }
+    
+    .service-card {
+        margin: var(--space-4) 0; /* Większy margines dla cieni */
+    }
+    
+    .service-card.featured {
+        transform: none !important; /* Usuń scale na mobile */
+    }
+    
+    .service-card.featured:hover {
+        transform: translateY(-12px) !important; /* Tylko przesunięcie */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1949,6 +1972,21 @@ section {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    .services-section {
+        padding: var(--space-12) var(--space-4) !important;
+    }
+    
+    .services-grid {
+        padding: 0 var(--space-3) !important;
+        max-width: 380px !important;
+        gap: var(--space-5) !important;
+    }
+    
+    .service-card {
+        padding: var(--space-5) var(--space-4) !important;
+        border-radius: var(--radius-lg) !important;
+        margin: var(--space-3) 0 !important; /* Miejsce na cienie */
     }
 }
 
