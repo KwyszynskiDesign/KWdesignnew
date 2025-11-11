@@ -1310,7 +1310,7 @@ section {
 /* Enhanced Services Section with 3D Effect */
 .services-section {
     background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 50%, var(--color-background) 100%);
-    padding: var(--space-32) 0;
+    padding: var(--space-32) 0 var(--space-48) 0; 
     position: relative;
     width: 100%;
   max-width: 100vw !important; /* DODAJ !important */
