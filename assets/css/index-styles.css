@@ -1310,7 +1310,8 @@ section {
 /* Enhanced Services Section with 3D Effect */
 .services-section {
     background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 50%, var(--color-background) 100%);
-    padding: var(--space-36); 
+    padding-top: var(--space-48);  /* 12rem */
+    padding-bottom: var(--space-36); /* 9rem */
     position: relative;
     width: 100%;
   max-width: 100vw !important; /* DODAJ !important */
@@ -2017,7 +2018,8 @@ section {
         justify-content: space-between;
     }
     .services-section {
-       padding: var(--space-32) 0 calc(var(--space-32) + var(--space-8)) 0;
+      padding-top: var(--space-40); /* 10rem */
+        padding-bottom: var(--space-32); 
     }
     
     .services-grid {
