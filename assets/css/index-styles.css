@@ -1310,7 +1310,7 @@ section {
 /* Enhanced Services Section with 3D Effect */
 .services-section {
     background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 50%, var(--color-background) 100%);
-    padding: var(--space-32) 0 var(--space-48) 0; 
+    padding: var(--space-36); 
     position: relative;
     width: 100%;
   max-width: 100vw !important; /* DODAJ !important */
@@ -1326,7 +1326,8 @@ section {
     width: 100%;
     max-width: 100%; /* ZAMIAST 1400px */
     box-sizing: border-box;
-    padding: 0; /* USUŃ padding - kontener już ma */
+   padding-bottom: 4rem; /* możesz zwiększać według potrzeby (np. 5rem, 6rem) */
+    overflow: visible; /* USUŃ padding - kontener już ma */
 }
 
 
