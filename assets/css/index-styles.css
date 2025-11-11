@@ -1965,17 +1965,6 @@ section {
     max-width: none !important;
 }
 
-/* Zwiększ obszar klikalny */
-.service-btn::before {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: -12px;
-    right: -12px;
-    bottom: -12px;
-    z-index: -1;
-}
-
 /* Dodaj focus dla touch */
 .service-btn:active {
     transform: scale(0.97) !important;
