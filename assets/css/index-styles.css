@@ -370,6 +370,7 @@ section {
     position: relative;
     max-width: 100vw; /* Maksymalnie szerokość viewport */
     overflow-x: hidden; /* Zapobiega scrollowi poziomemu */
+     width: 100%;
 }
 }
 
@@ -1310,6 +1311,8 @@ section {
     margin-left: auto;
     margin-right: auto;
  padding: 0 var(--space-6);
+    width: 100%; /* DODAJ */
+    box-sizing: border-box; /* DODAJ */
 }
 
 .service-card {
