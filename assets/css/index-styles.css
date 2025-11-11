@@ -400,6 +400,7 @@ section {
 
 .section-title {
     text-align: center;
+     margin-top: 4rem;
     margin-bottom: var(--space-16);
     font-family: var(--font-heading);
     color: var(--color-text);
@@ -1757,6 +1758,7 @@ section {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     text-align: center;
+    margin-top: 4rem;
     margin-bottom: 1rem;
     color: #1a1a1a;
     letter-spacing: -0.02em;
