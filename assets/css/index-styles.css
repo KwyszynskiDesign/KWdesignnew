@@ -1555,6 +1555,22 @@ section {
     color: white;
 }
 
+/* Efekt hover dla ikon SVG - subtelny */
+.service-icon img {
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+.service-card:hover .service-icon img {
+    filter: drop-shadow(0 8px 16px rgba(6, 182, 212, 0.5)) brightness(1.1);
+    transform: scale(1.12) translateY(-5px);
+}
+
+/* Dla karty featured - delikatnie mocniejszy efekt */
+.service-card.featured:hover .service-icon img {
+    filter: drop-shadow(0 10px 20px rgba(6, 182, 212, 0.6)) brightness(1.15);
+    transform: scale(1.15) translateY(-6px);
+}
 
 
 /* Premium Testimonials Carousel - Fixed Scrollbar Issue */
@@ -1959,20 +1975,7 @@ section {
             0 8px 20px -5px rgba(6, 182, 212, 0.2);
     }
 /* Efekt hover dla ikon SVG */
-.service-icon img {
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
 
-.service-card:hover .service-icon img {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(89%) saturate(2476%) hue-rotate(162deg) brightness(94%) contrast(101%);
-    transform: scale(1.2) translateY(-8px);
-}
-
-/* Dla karty featured - dodatkowy efekt */
-.service-card.featured:hover .service-icon img {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(89%) saturate(2476%) hue-rotate(162deg) brightness(110%) contrast(110%);
-    transform: scale(1.25) translateY(-10px);
-}
 
     .service-card.featured {
         transform: none !important;
