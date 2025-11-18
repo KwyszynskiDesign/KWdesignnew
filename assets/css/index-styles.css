@@ -1342,7 +1342,7 @@ section {
     text-align: center;
     transition: var(--transition-all);
     position: relative;
-    overflow: hidden;
+   overflow: visible;
     cursor: default;
     
     /* ✅ FLEX - dla równej wysokości */
@@ -1370,17 +1370,7 @@ section {
     transform: translateY(0);
 }
 
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
-    opacity: 0;
-    transition: var(--transition-slow);
-}
+
 
 .service-card::after {
     content: '';
@@ -1405,9 +1395,6 @@ section {
     border-color: var(--color-primary);
 }
 
-.service-card:hover::before {
-    opacity: 1;
-}
 
 .service-card:hover::after {
     opacity: 1;
