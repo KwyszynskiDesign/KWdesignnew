@@ -1371,33 +1371,12 @@ section {
 }
 
 
-
-.service-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, 
-        var(--color-primary) 0%, 
-        var(--color-accent) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
-
 .service-card:hover {
     transform: translateY(-12px);
     box-shadow: 
         0 25px 60px -10px rgba(0, 0, 0, 0.25),
         0 15px 35px -5px rgba(6, 182, 212, 0.15);
     border-color: var(--color-primary);
-}
-
-
-.service-card:hover::after {
-    opacity: 1;
 }
 
 .service-card.featured {
