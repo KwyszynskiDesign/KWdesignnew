@@ -1311,8 +1311,8 @@ section {
 /* Enhanced Services Section with 3D Effect */
 .services-section {
     background: linear-gradient(180deg, var(--color-background) 0%, var(--color-background-light) 50%, var(--color-background) 100%);
-    padding-top: var(--space-48);
-    padding-bottom: var(--space-36);
+   padding-top: 100px; /* ✅ ~6rem */
+    padding-bottom: 100px; /* ✅ ~6rem */
     position: relative;
     width: 100%;
     max-width: 100vw !important;
@@ -1324,11 +1324,13 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
     margin-top: var(--space-16);
+    padding-top: 30px; /* ✅ Miejsce na badge */
+    padding-bottom: 30px; /* ✅ Dodatkowy padding na dole */
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding-bottom: 4rem;
     overflow: visible;
+    align-items: start; /* ✅ Wyrównuje karty do góry */
 }
 
 .service-card {
