@@ -1339,7 +1339,7 @@ section {
     text-align: center;
     transition: var(--transition-all);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     cursor: default;
     display: flex;
     flex-direction: column;
