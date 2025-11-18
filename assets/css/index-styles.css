@@ -1324,14 +1324,15 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
     margin-top: var(--space-16);
-    padding-top: 30px; /* ✅ Miejsce na badge */
-    padding-bottom: 30px; /* ✅ Dodatkowy padding na dole */
+    padding-top: 30px;
+    padding-bottom: 30px;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow: visible;
-    align-items: start; /* ✅ Wyrównuje karty do góry */
+    align-items: stretch; /* ← Karty rozciągają się do tej samej wysokości */
 }
+
 
 .service-card {
     background: white;
@@ -1343,8 +1344,12 @@ section {
     position: relative;
     overflow: visible;
     cursor: default;
+    
+    /* ✅ FLEX - dla równej wysokości */
     display: flex;
     flex-direction: column;
+    min-height: 100%; /* ✅ Minimum 100% wysokości rodzica */
+    
     transform-style: preserve-3d;
     transform: translateZ(0);
     opacity: 0;
@@ -1358,6 +1363,7 @@ section {
         0 1px 0 rgba(255, 255, 255, 0.2) inset;
     background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
 }
+
 
 .service-card.fade-slide-in {
     opacity: 1;
