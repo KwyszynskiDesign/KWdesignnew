@@ -1342,7 +1342,7 @@ section {
     text-align: center;
     transition: var(--transition-all);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     cursor: default;
     
     /* ✅ FLEX - dla równej wysokości */
