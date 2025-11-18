@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollToTop();
     initAvailabilityStatus();
     initCounters();
+    initServiceCardsAnimation();
     console.log('Website initialized successfully');
 });
 
@@ -557,6 +558,21 @@ function initScrollToTop() {
             });
         });
     }
+}
+function initServiceCardsAnimation() {
+  const cards = document.querySelectorAll('.service-card');
+  if (!cards.length || typeof IntersectionObserver === 'undefined') return;
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-slide-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  cards.forEach(card => observer.observe(card));
 }
 
 console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
