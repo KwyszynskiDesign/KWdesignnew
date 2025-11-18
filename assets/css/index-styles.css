@@ -150,7 +150,7 @@ body {
 /* ========== OVERFLOW FIX – zapobiega przesuwaniu w bok ========== */
 section, .container, .hero-section, .services-section, .portfolio-section, .contact-section {
     max-width: 100%;
-    overflow-x: hidden;
+   
 }
 
 img, video, iframe, svg {
@@ -1316,7 +1316,7 @@ section {
     position: relative;
     width: 100%;
     max-width: 100vw !important;
-    overflow-x: hidden !important;
+    overflow: visible;
 }
 
 .services-grid {
