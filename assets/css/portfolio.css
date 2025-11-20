@@ -999,6 +999,9 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     padding-top: 20px !important;
     min-height:auto !important;
     overflow:visible !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
   }
   
   .about-me-grid{
@@ -1009,6 +1012,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:100% !important;
     align-items:center !important;
     overflow:visible !important;
+    visibility:visible !important;
   }
   
   .about-me-visuals{
@@ -1024,6 +1028,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     flex-direction:column !important;
     align-items:center !important;
     overflow:visible !important;
+    visibility:visible !important;
   }
   
   .about-me-image{
@@ -1031,6 +1036,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     aspect-ratio:1 !important;
     margin:0 auto 25px auto !important;
     border-radius:22px !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-visuals .cta-portfolio{
@@ -1041,6 +1048,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     font-size:1rem !important;
     overflow:visible !important;
     isolation:isolate;
+    display:inline-flex !important;
+    visibility:visible !important;
   }
   
   .about-me-text{
@@ -1051,6 +1060,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     width:100% !important;
     display:flex !important;
     flex-direction:column !important;
+    visibility:visible !important;
   }
   
   .about-me-text h1{
@@ -1058,6 +1068,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     margin:0 0 15px 0 !important;
     text-align:center !important;
     order:1 !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text h1::after{
@@ -1071,6 +1083,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     margin:0 0 20px 0 !important;
     text-align:center !important;
     order:2 !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text>p{
@@ -1079,30 +1093,39 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     margin:0 0 25px 0 !important;
     text-align:center !important;
     order:3 !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .skills-section{
     margin:0 0 30px 0 !important;
     width:100% !important;
     order:4 !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .skills-section h3{
     font-size:1.2rem !important;
     margin:0 0 15px 0 !important;
     text-align:center !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .skills-section p{
     font-size:0.9rem !important;
     margin:0 0 20px 0 !important;
     text-align:center !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .superpowers-container{
     display:flex !important;
     justify-content:center !important;
     width:100% !important;
+    visibility:visible !important;
   }
   
   .superpowers-grid{
@@ -1111,30 +1134,56 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:240px !important;
     gap:12px !important;
     margin:0 auto !important;
+    display:grid !important;
+    visibility:visible !important;
   }
   
   .superpowers-grid span{
     width:65px !important;
     height:65px !important;
     font-size:1.8rem !important;
+    display:flex !important;
+    visibility:visible !important;
   }
   
   .logo-carousel-section{
     margin:0 0 30px 0 !important;
     width:100% !important;
     order:5 !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .logo-carousel-section h6{
     font-size:0.8rem !important;
     margin:0 0 15px 0 !important;
     text-align:center !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text .interests-section{
     display:none !important;
   }
+  
+  .portfolio-section,
+  #portfolio-section{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+  
+  .portfolio-new-grid{
+    display:grid !important;
+    visibility:visible !important;
+  }
+  
+  .portfolio-new-card{
+    display:flex !important;
+    visibility:visible !important;
+  }
 }
+
 
 /* === 480px BREAKPOINT === */
 @media(max-width:480px){
@@ -1142,40 +1191,60 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     margin-top: 80px !important;
     padding:25px 0 35px 0 !important;
     overflow:visible !important;
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
   }
   
   .about-me-grid{
     padding:0 10px !important;
     overflow:visible !important;
+    display:flex !important;
+    flex-direction:column !important;
+    visibility:visible !important;
   }
   
   .about-me-visuals{
     padding:0 10px 40px 10px !important;
     overflow:visible !important;
+    display:flex !important;
+    flex-direction:column !important;
+    visibility:visible !important;
   }
   
   .about-me-image{
     max-width:220px !important;
     margin-bottom:20px !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text{
     padding:0 10px 15px 10px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    visibility:visible !important;
   }
   
   .about-me-text h1{
     font-size:1.6rem !important;
     margin-bottom:12px !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text .subtitle{
     font-size:0.95rem !important;
     margin-bottom:18px !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-text>p{
     font-size:0.9rem !important;
     margin-bottom:22px !important;
+    display:block !important;
+    visibility:visible !important;
   }
   
   .about-me-visuals .cta-portfolio{
@@ -1185,19 +1254,68 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     margin:30px auto 0 auto !important;
     overflow:visible !important;
     isolation:isolate;
+    display:inline-flex !important;
+    visibility:visible !important;
   }
   
   .superpowers-grid{
     max-width:220px !important;
     gap:10px !important;
+    display:grid !important;
+    visibility:visible !important;
   }
   
   .superpowers-grid span{
     width:60px !important;
     height:60px !important;
     font-size:1.6rem !important;
+    display:flex !important;
+    visibility:visible !important;
+  }
+  
+  .skills-section{
+    display:block !important;
+    visibility:visible !important;
+  }
+  
+  .skills-section h3{
+    display:block !important;
+    visibility:visible !important;
+  }
+  
+  .skills-section p{
+    display:block !important;
+    visibility:visible !important;
+  }
+  
+  .logo-carousel-section{
+    display:block !important;
+    visibility:visible !important;
+  }
+  
+  .logo-carousel-section h6{
+    display:block !important;
+    visibility:visible !important;
+  }
+  
+  .portfolio-section,
+  #portfolio-section{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+  
+  .portfolio-new-grid{
+    display:grid !important;
+    visibility:visible !important;
+  }
+  
+  .portfolio-new-card{
+    display:flex !important;
+    visibility:visible !important;
   }
 }
+
 
 
 /* === FORCE VISIBILITY === */
