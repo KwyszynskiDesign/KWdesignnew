@@ -2084,29 +2084,53 @@ section {
     text-align: center !important;
     color: var(--color-text-light) !important;
   }
-  .service-features {
-    list-style: none;
-    margin-bottom: 0.5rem !important;
-    padding: 0;
-    text-align: left !important;
-  }
-  .service-features li {
-    display: flex !important;
-    align-items: flex-start;
-    gap: 0.62em !important;
-    font-size: 0.92rem !important;
-    line-height: 1.36 !important;
-    padding: 0.22em 0 !important;
-  }
-  .service-features li::before,
-  .service-features .check {
-    margin-right: 0.46em !important;
-    min-width: 1.2em !important;
-    font-size: 1.18em !important;
-    color: var(--color-primary) !important;
-    flex-shrink: 0 !important;
-    align-self: flex-start;
-  }
+.service-features {
+  list-style: none;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  text-align: left; /* WAŻNE! By tekst był do lewej */
+}
+
+/* List item jako flexbox z gap */
+.service-features li {
+  display: flex; /* kluczowe */
+  align-items: flex-start; /* by ikona była na górze przy zawinięciu */
+  gap: 0.6em; /* odstęp między ikoną a tekstem */
+  font-size: 0.9rem;
+  line-height: 1.35;
+  padding: 0.2em 0;
+  position: relative;
+  padding-left: 0; /* wyłącz jeśli icona jest w ::before */
+}
+    .service-features .check {
+  flex-shrink: 0;
+  min-width: 1.2em; /* stała szerokość, by nie nachodził tekst */
+  color: var(--color-primary); /* kolor zgodny z design systemem */
+  font-size: 1.2em;
+  margin-right: 0.5em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+ .service-features li::before {
+  content: '✓'; /* lub inny znak */
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.2em;
+  flex-shrink: 0;
+  min-width: 1.2em;
+  margin-right: 0.5em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 1px; /* dopasowanie pionowe */
+}
+    .service-features li strong {
+  font-weight: 600;
+}
   .service-meta,
   .service-btn,
   .service-price {
