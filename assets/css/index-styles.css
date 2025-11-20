@@ -3197,7 +3197,7 @@ section {
     padding: 1.5rem 0 !important;
   }
   .section-title {
-    text-align: center !important;
+    text-align: center;
     font-size: 2rem !important;           /* większy tytuł */
     margin-bottom: 1.2rem !important;
     letter-spacing: 0.03em;
@@ -3546,6 +3546,7 @@ section {
 
     /* Spacing Adjustments */
     .section-title { 
+        text-align: center;
         margin-bottom: var(--space-12);
     }
     
