@@ -3196,9 +3196,9 @@ section {
  .services-section {
     padding: 1.5rem 0 !important;
   }
-  .section-title {
-    text-align: center;
-    font-size: 2rem !important;           /* większy tytuł */
+   .section-title {
+    text-align: center !important;
+    font-size: 2rem !important;
     margin-bottom: 1.2rem !important;
     letter-spacing: 0.03em;
   }
@@ -3273,20 +3273,27 @@ section {
     .contact-form-container {
         padding: var(--space-6);
     }
-    .service-features li {
+    .services-section .service-features,
+  .service-features {
+    text-align: left !important;      /* WRÓĆ DO LEWEJ */
+    margin-bottom: 0.5rem !important;
+    padding: 0;
+  }
+
+  .service-features li {
     display: flex !important;
     align-items: flex-start;
-    gap: 0.38em !important; /* ODSTĘP ikony od tekstu */
-    font-size: 0.84rem !important;
+    gap: 0.48em !important;           /* WIĘKSZY ODSTĘP CHECKMARK/IKONA-TREŚĆ */
+    font-size: 0.90rem !important;
     line-height: 1.36 !important;
     padding: 0.20em 0 !important;
   }
-  .service-features li::before,
+.service-features li::before,
   .service-features .check {
-    margin-right: 0.36em !important; /* Extra margin dla unicode/ikony */
-    font-size: 1.12em;
-    line-height: 1;
+    margin-right: 0.40em !important;
+    font-size: 1.18em !important;
     color: var(--color-primary);
+    flex-shrink: 0;
   }
    .service-meta,
   .service-btn,
