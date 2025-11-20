@@ -2046,17 +2046,23 @@ section {
         padding-bottom: var(--space-32); 
     }
     
-    .services-grid {
-        padding: 0 var(--space-3) !important;
-        max-width: 380px !important;
-        gap: var(--space-5) !important;
-    }
-    
-    .service-card {
-        padding: var(--space-5) var(--space-4) !important;
-        border-radius: var(--radius-lg) !important;
-        margin: var(--space-3) 0 !important; /* Miejsce na cienie */
-    }
+   
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* jedna kolumna */
+    padding: 0 var(--space-3) !important;
+    max-width: 380px !important;
+    gap: var(--space-5) !important;
+    margin: 0 auto; /* centrowanie */
+  }
+  
+  .service-card {
+    padding: var(--space-5) var(--space-4) !important;
+    border-radius: var(--radius-lg) !important;
+    margin: var(--space-3) 0 !important; /* Miejsce na cienie */
+    max-width: 100%; /* by kart nie wychodziły poza kontener */
+  }
+
 }
 
 
