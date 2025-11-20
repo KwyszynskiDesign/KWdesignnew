@@ -33,80 +33,90 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    body {
-      overflow-x: hidden;
-    }
-    /* Karuzela – uniwersalny styl dla desktop i mobile */
-    #carousel-container {
-      position: relative;
-      background: #262626;
-      max-width: 100%;
-      max-height: 75vh;
-      aspect-ratio: 16/9;
-      margin: 2rem auto 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    #carousel-container img {
-      display: none;
-      max-width: 100vw;
-      max-height: 70vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      margin: 0 auto;
-      border-radius: 8px;
-      background: #262626;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
-    #carousel-container img.active {
-      display: block;
-    }
-    #carousel-controls {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1rem auto 0 auto;
-      width: fit-content;
-    }
-    #carousel-controls button {
-      background: #191919;
-      color: #fff;
-      border: none;
-      font-size: 2rem;
-      border-radius: 6px;
-      padding: 0.5rem 1.5rem;
-      opacity: 0.9;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
-    #carousel-controls button:active,
-    #carousel-controls button:focus,
-    #carousel-controls button:hover {
-      background: #111;
-    }
-    @media (max-width: 700px) {
-      #carousel-container {
-        max-height: 60vh;
-        aspect-ratio: auto;
-      }
-      #carousel-container img {
-        max-width: 98vw;
-        max-height: 54vh;
-        width: 100vw;
-        height: auto;
-      }
-      #carousel-controls {
-        gap: 1.5rem;
-        margin-top: 0.5rem;
-      }
-    }
+  body {
+  overflow-x: hidden;
+}
+
+/* Kontener karuzeli – dynamiczna wysokość, brak aspect-ratio */
+#carousel-container {
+  position: relative;
+  background: #262626;
+  width: 100%;
+  height: 74vh;           /* wysokość karuzeli względem okna */
+  margin: 2rem auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-height: 320px;      /* zabezpiecza na mobile */
+  max-height: 84vh;
+}
+
+/* Obraz skalowany do maksymalnych wymiarów kontenera */
+#carousel-container img {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #262626;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#carousel-container img.active {
+  display: block;
+}
+
+#carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem auto 0 auto;
+  width: fit-content;
+}
+#carousel-controls button {
+  background: #191919;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+#carousel-controls button:active,
+#carousel-controls button:focus,
+#carousel-controls button:hover {
+  background: #111;
+}
+
+/* Mobile – elastyczna wysokość, zabezpieczona czytelność */
+@media (max-width: 700px) {
+  #carousel-container {
+    height: 45vh;
+    min-height: 190px;
+    max-height: 55vh;
+  }
+  #carousel-container img {
+    max-width: 98vw;
+    max-height: 98%;
+    width: 100vw;
+    height: auto;
+  }
+  #carousel-controls {
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
   </style>
 </head>
 <body>
