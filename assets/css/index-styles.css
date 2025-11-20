@@ -3193,41 +3193,67 @@ section {
     }
     
     /* SERVICES */
-    .services-section {
-        padding: var(--space-12) var(--space-4) !important;
-    }
-    .section-title {
-        font-size: 1.5rem !important;
-        padding: 0 var(--space-3) !important;
-        text-align: left !important;
-    }
-    .section-subtitle {
-        font-size: 0.92rem !important;
-        padding: 0 var(--space-4) !important;
-        color: var(--color-text-light);
-    }
-    .services-grid {
-        padding: 0 var(--space-3) !important;
-        max-width: 380px !important;
-        gap: var(--space-5) !important;
-    }
-    .service-card {
-        padding: var(--space-5) var(--space-4) !important;
-        border-radius: var(--radius-lg) !important;
-    }
+ .services-section {
+    padding: 1.5rem 0 !important;
+  }
+  .section-title {
+    text-align: center !important;
+    font-size: 2rem !important;           /* większy tytuł */
+    margin-bottom: 1.2rem !important;
+    letter-spacing: 0.03em;
+  }
+  .section-subtitle {
+    text-align: center !important;
+    font-size: 0.92rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--color-text-light);        /* delikatny kolor podtytułu */
+  }
+
+  /* Grid sekcji */
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+    max-width: 360px;
+    padding: 0 0.7rem;
+    margin: 0 auto;
+  }
+
+  /* Karta usługi */
+  .service-card {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    padding: 1rem 0.7rem !important;
+    margin: 0.4rem 0 !important;
+    min-height: unset !important;
+    height: auto !important;
+    max-width: 100%;
+    border-radius: var(--radius-lg) !important;
+  }
     .service-icon {
         font-size: 2.5rem !important;
     }
+     .service-icon img {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 0.5rem !important;
+  }
     .service-card h3 {
         font-size: 1.07rem !important;
         font-weight: 600 !important;
     }
-    .service-description {
-        font-size: 0.88rem !important;
-    }
-    .service-features {
-        font-size: 0.8rem !important;
-    }
+   .service-description {
+    font-size: 0.88rem !important;
+    margin-bottom: 0.7rem !important;
+    text-align: center !important;
+    color: var(--color-text-light) !important;
+  }
+
+  /* Lista cech z extra odstępem dla "okejek" */
+  .service-features {
+    list-style: none;
+    margin-bottom: 0.5rem !important;
+    padding: 0;
+  }
     .service-price {
         font-size: 1.12rem !important;
         font-weight: 600 !important;
@@ -3247,11 +3273,28 @@ section {
     .contact-form-container {
         padding: var(--space-6);
     }
-    .service-card,
-    .testimonial-card,
-    .benefit-card {
-        padding: var(--space-6);
-    }
+    .service-features li {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0.38em !important; /* ODSTĘP ikony od tekstu */
+    font-size: 0.84rem !important;
+    line-height: 1.36 !important;
+    padding: 0.20em 0 !important;
+  }
+  .service-features li::before,
+  .service-features .check {
+    margin-right: 0.36em !important; /* Extra margin dla unicode/ikony */
+    font-size: 1.12em;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+   .service-meta,
+  .service-btn,
+  .service-price {
+    font-size: 0.94rem !important;
+    padding: 0.5em 1em !important;
+    text-align: center !important;
+  }
     .process-item {
         padding: var(--space-6);
     }
