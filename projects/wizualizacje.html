@@ -5,15 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <!-- SEO Meta Tags -->
   <title>Wizualizacje 3D | Karol Wyszyński - UX/UI Designer</title>
   <meta name="description" content="Przykładowe wizualizacje i projekty 3D. Portfolio w budowie – wkrótce więcej prac z zakresu modelowania 3D i renderingu.">
   <meta name="keywords" content="wizualizacje 3D, projekty 3D, portfolio, modelowanie 3D, rendering, Blender, Cinema 4D">
   <meta name="author" content="Karol Wyszyński">
   <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/wizualizacje-3d.html">
   <meta property="og:title" content="Wizualizacje 3D | Karol Wyszyński">
@@ -23,163 +19,135 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="pl_PL">
   <meta property="og:site_name" content="Karol Wyszyński Portfolio">
-  
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/wizualizacje-3d.html">
   <meta name="twitter:title" content="Wizualizacje 3D | Karol Wyszyński">
   <meta name="twitter:description" content="Portfolio wizualizacji 3D – wkrótce więcej projektów.">
   <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/placeholder.jpg">
-  
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/KWdesignnew/assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/KWdesignnew/assets/images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/KWdesignnew/assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="/KWdesignnew/favicon.ico">
-  
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://kwyszynskidesign.github.io/KWdesignnew/projects/wizualizacje-3d.html">
-  
-  <!-- CSS - Absolutna ścieżka z nazwą repo -->
   <link rel="stylesheet" href="/KWdesignnew/assets/css/projects.css">
-  
-  <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<style>
-/* Karuzela – uniwersalny styl dla desktop i mobile */
-#carousel-container {
-  position: relative;
-  background: #262626;
-  max-width: 100%;
-  max-height: 75vh;           /* wysokość kontenera na desktop */
-  aspect-ratio: 16/9;         /* proporcje kontenera na desktop */
-  margin: 2rem auto 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-#carousel-container img {
-  display: none;
-  max-width: 100vw;
-  max-height: 70vh;           /* obraz mieści się w oknie */
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 8px;
-  background: #262626;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-#carousel-container img.active {
-  display: block;
-}
-
-#carousel-controls {
-  position: absolute;
-  top: 50%;
-  left: 0; 
-  right: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  pointer-events: none;
-  transform: translateY(-50%);
-}
-
-#carousel-controls button {
-  pointer-events: all;
-  background: #191919;
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  opacity: 0.9;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  user-select: none;
-}
-
-#carousel-controls button:hover,
-#carousel-controls button:focus {
-  background: #111;
-}
-
-/* Mobile: Obraz ma zajmować jak najwięcej, ale zachowuje proporcje */
-@media (max-width: 700px) {
-  #carousel-container {
-    max-height: 60vh;
-    aspect-ratio: auto;
-  }
-  #carousel-container img {
-    max-width: 98vw;
-    max-height: 54vh;
-    width: 100vw;
-    height: auto;
-  }
-}
-</style>
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    /* Karuzela – uniwersalny styl dla desktop i mobile */
+    #carousel-container {
+      position: relative;
+      background: #262626;
+      max-width: 100%;
+      max-height: 75vh;
+      aspect-ratio: 16/9;
+      margin: 2rem auto 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #carousel-container img {
+      display: none;
+      max-width: 100vw;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 8px;
+      background: #262626;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    #carousel-container img.active {
+      display: block;
+    }
+    #carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem auto 0 auto;
+      width: fit-content;
+    }
+    #carousel-controls button {
+      background: #191919;
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      border-radius: 6px;
+      padding: 0.5rem 1.5rem;
+      opacity: 0.9;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    #carousel-controls button:active,
+    #carousel-controls button:focus,
+    #carousel-controls button:hover {
+      background: #111;
+    }
+    @media (max-width: 700px) {
+      #carousel-container {
+        max-height: 60vh;
+        aspect-ratio: auto;
+      }
+      #carousel-container img {
+        max-width: 98vw;
+        max-height: 54vh;
+        width: 100vw;
+        height: auto;
+      }
+      #carousel-controls {
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-  <!-- Portfolio Content -->
   <section class="kwcs" id="case-wizualizacje" aria-label="Portfolio: Wizualizacje 3D">
-    
-    <!-- Hero Section -->
     <div class="kwcs-hero-head">
       <div class="wrap">
         <div class="eyebrow">PORTFOLIO</div>
         <h1>Prezentacja</h1>
-        <p class="sub">
-    
-        </p>
+        <p class="sub"></p>
       </div>
     </div>
-    
-    <!-- Under Construction Section -->
     <div class="kwcs-sec">
       <div class="wrap">
         <p style="text-align: center; font-size: 1.125rem; color: #666; margin-bottom: 2rem;">
          🥳Zapraszam do oglądania🥳 
         </p>
-        
-<div id="carousel-container" aria-live="polite" aria-label="Karuzela wizualizacji 3D">
-  <img src="/KWdesignnew/assets/KARUZELAJ/34124.jpg" alt="Wizualizacja 34124" class="active" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/M_1.jpg" alt="Wizualizacja M_1" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/M_2.jpg" alt="Wizualizacja M_2" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/M_3.jpg" alt="Wizualizacja M_3" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/ROGERS.jpg" alt="Wizualizacja ROGERS" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/ROGER_P1.jpg" alt="Wizualizacja ROGER_P1" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/ROGER_P2.jpg" alt="Wizualizacja ROGER_P2" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/SALON_MAGDY.jpg" alt="Wizualizacja SALON_MAGDY" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/WIZU_KUCHNIA_1.jpg" alt="Wizualizacja WIZU_KUCHNIA_1" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/WIZU_SYP_1.jpg" alt="Wizualizacja WIZU_SYP_1" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/banerA.jpg" alt="Wizualizacja banerA" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/KAROMA_FINALL.png" alt="Projekt KAROMA_FINALL" loading="lazy" decoding="async">
-  <img src="/KWdesignnew/assets/KARUZELAJ/Logo_internet.webp" alt="Logo internet" loading="lazy" decoding="async">
-
-  <div id="carousel-controls">
-    <button id="carousel-prev" aria-label="Poprzednie zdjęcie">←</button>
-    <button id="carousel-next" aria-label="Następne zdjęcie">→</button>
-  </div>
-</div>
-
-        
-        <!-- Coming Soon Info -->
-       <div style="margin-top: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 8px; text-align: center;">
+        <div id="carousel-container" aria-live="polite" aria-label="Karuzela wizualizacji 3D">
+          <img src="/KWdesignnew/assets/KARUZELAJ/34124.jpg" alt="Wizualizacja 34124" class="active" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/M_1.jpg" alt="Wizualizacja M_1" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/M_2.jpg" alt="Wizualizacja M_2" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/M_3.jpg" alt="Wizualizacja M_3" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/ROGERS.jpg" alt="Wizualizacja ROGERS" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/ROGER_P1.jpg" alt="Wizualizacja ROGER_P1" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/ROGER_P2.jpg" alt="Wizualizacja ROGER_P2" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/SALON_MAGDY.jpg" alt="Wizualizacja SALON_MAGDY" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/WIZU_KUCHNIA_1.jpg" alt="Wizualizacja WIZU_KUCHNIA_1" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/WIZU_SYP_1.jpg" alt="Wizualizacja WIZU_SYP_1" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/banerA.jpg" alt="Wizualizacja banerA" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/KAROMA_FINALL.png" alt="Projekt KAROMA_FINALL" loading="lazy" decoding="async">
+          <img src="/KWdesignnew/assets/KARUZELAJ/Logo_internet.webp" alt="Logo internet" loading="lazy" decoding="async">
+        </div>
+        <div id="carousel-controls">
+          <button id="carousel-prev" aria-label="Poprzednie zdjęcie">←</button>
+          <button id="carousel-next" aria-label="Następne zdjęcie">→</button>
+        </div>
+        <div style="margin-top: 3rem; padding: 2rem; background: #f9f9f9; border-radius: 8px; text-align: center;">
           <h3 style="margin-bottom: 1rem; color: #333;">Co tu znajdziesz?</h3>
           <ul style="list-style: none; padding: 0; color: #666; line-height: 1.8;">
             <li>📦 Modelowanie produktów i packaging design</li>
             <li>🏢 Wizualizacje architektoniczne i wnętrz</li>
-           <li>🎨 Logo i Logotypy</li>
+            <li>🎨 Logo i Logotypy</li>
           </ul>
           <p style="margin-top: 1.5rem; color: #999; font-size: 0.875rem;">
             Jeśli chcesz zobaczyć więcej prac lub zapytać o projekt 3D, skontaktuj się ze mną!
@@ -194,11 +162,7 @@
         </div>
       </div>
     </div>
-    
   </section>
-
-  <!-- JavaScript - Absolutna ścieżka z nazwą repo -->
   <script src="/KWdesignnew/assets/js/projects.js"></script>
-
 </body>
 </html>
