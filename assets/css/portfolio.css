@@ -33,17 +33,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 .hero-title{color:#fff;font-size:clamp(2.2rem,5.5vw,4rem);margin-bottom:1.2rem;text-shadow:0 2px 16px rgba(0,0,0,.3);font-weight:700;line-height:1.1;}
 .hero-subtitle{color:#f1f5f9;font-size:clamp(1.1rem,2.8vw,1.3rem);max-width:620px;margin:0 0 3rem 0;line-height:1.6;font-weight:400;}
 
-@media(max-width:768px){
- .hero-section{
-   min-height:85dvh;
-   padding:80px 20px 40px 20px;
-   justify-content:flex-start;
-   background-attachment:scroll;
- }
- .hero-content{padding-left:1rem;text-align:center;margin-top:20px;}
- .hero-title{font-size:clamp(2rem,8vw,3rem);}
-}
-
 /* === PREMIUM ABOUT SECTION === */
 .about-me-section{
   padding:clamp(120px,15vh,180px) 0 clamp(40px,5vh,60px) 0;
@@ -186,6 +175,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 .superpowers-grid span:hover::before{opacity:1;}
 
+/* === LOGO CAROUSEL SECTION === */
 .logo-carousel-section{
   margin-top: clamp(200px, 25vh, 300px);
   padding: 0;
@@ -205,7 +195,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   text-align:center;
 }
 
-/* Kontener karuzeli z gradient mask */
 .logo-carousel {
   overflow: hidden;
   width: 100%;
@@ -233,7 +222,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   will-change: transform;
 }
 
-/* Animacja infinite scroll */
 @keyframes scroll-logos {
   0% {
     transform: translateX(0);
@@ -242,6 +230,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     transform: translateX(-50%);
   }
 }
+
 
 /* Style dla pojedynczego logo */
 .logo-track img {
@@ -736,136 +725,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
 }
 
-/* === RESPONSIVE DESIGN - NAPRAWIONE MOBILE === */
-@media(max-width:768px){
-  .hero-section{
-    min-height:85dvh;
-    padding:80px 20px 40px 20px;
-    justify-content:flex-start;
-    background-attachment:scroll;
-  }
-  
-  .hero-content{
-    padding-left:1rem;
-    text-align:center;
-    margin-top:20px;
-  }
-  
-  .about-me-section{
-    padding: clamp(20px, 5vh, 40px) 0 clamp(50px, 8vh, 90px) 0 !important;
-    overflow: visible !important;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-    position: relative;
-  }
-  
-  .about-me-grid{
-    grid-template-columns:1fr;
-    text-align:center;
-    gap:40px;
-    max-width:100%;
-    overflow:visible !important;
-  }
-  
-  .about-me-visuals{
-    transform:translateY(0) !important;
-    max-width:340px;
-    padding:20px 20px 50px 20px !important;
-    gap:30px;
-    order:1;
-    margin-top:0 !important;
-    overflow:visible !important;
-  }
-  
-  .about-me-text{
-    order:2;
-    text-align:center;
-    padding:20px 15px 10px 15px;
-  }
-  
-  .about-me-image{
-    max-width:300px;
-    aspect-ratio:1;
-    border-radius:24px;
-  }
-  
-  .cta-portfolio{
-    max-width:300px;
-    padding:18px 36px;
-    font-size:1rem;
-    overflow:visible !important;
-  }
-  
-  .superpowers-grid{
-    grid-template-columns:repeat(3,1fr);
-    justify-items:center;
-    max-width:280px;
-    margin:0 auto 20px auto;
-  }
-  
-  .about-me-text h1{
-    text-align:center;
-    font-size:clamp(1.8rem,6.5vw,2.5rem);
-    margin-bottom:25px;
-  }
-  
-  .about-me-text h1::after{
-    left:50%;
-    transform:translateX(-50%);
-  }
-  
-  .about-me-text .subtitle{
-    text-align:center;
-    margin-bottom:30px;
-  }
-  
-  .about-me-text>p{
-    margin-bottom:35px;
-  }
-}
 
-@media(max-width:480px){
-  .hero-section{
-    min-height:80dvh;
-    padding:60px 15px 30px 15px;
-  }
-  
-  .about-me-section{
-    padding:50px 0 50px 0 !important;
-    overflow:visible !important;
-  }
-  
-  .about-me-visuals{
-    max-width:280px;
-    padding:15px 15px 40px 15px !important;
-    transform:translateY(0) !important;
-    margin-top:0 !important;
-    overflow:visible !important;
-  }
-  
-  .about-me-image{
-    max-width:260px;
-  }
-  
-  .cta-portfolio{
-    max-width:260px;
-    padding:16px 32px;
-    font-size:0.95rem;
-    overflow:visible !important;
-    isolation:isolate;
-  }
-  
-  .superpowers-grid{
-    max-width:260px;
-  }
-  
-  .superpowers-grid span{
-    width:65px;
-    height:65px;
-    font-size:1.8rem;
-  }
-}
 
-📦 BLOK 4: EMERGENCY MOBILE FIX (li
+
 /* === PROJECT VIEWER === */
 .project-viewer{margin:0 auto 80px auto;padding:0 20px 60px;max-width:900px;transition:max-height .45s;position:relative;background:none;font-family:'Poppins',sans-serif;}
 .project-viewer.hidden{display:none}
