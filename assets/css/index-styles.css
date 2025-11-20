@@ -2453,6 +2453,136 @@ section {
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.6);
   }
+
+  .faq-section {
+    padding: var(--space-16) 0 !important;
+  }
+  .faq-container {
+    max-width: 100% !important;
+    padding: 0 var(--space-3) !important;
+  }
+  .faq-item {
+    margin-bottom: var(--space-3) !important;
+    border-radius: var(--radius-lg) !important;
+  }
+  .faq-question {
+    padding: var(--space-4) var(--space-3) !important;
+    font-size: 1rem !important;
+    text-align: left !important;
+    line-height: 1.4 !important;
+  }
+  .faq-icon {
+    font-size: 1.3rem !important;
+    margin-left: var(--space-2) !important;
+  }
+  .faq-answer {
+    padding: 0 var(--space-3) !important;
+    font-size: 0.92rem !important;
+  }
+  .faq-item.active .faq-answer {
+    padding: var(--space-4) var(--space-3) !important;
+    padding-top: 0 !important;
+  }
+  .faq-answer p,
+  .faq-answer ul,
+  .faq-answer li {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ========== CONTACT SECTION ========== */
+  .contact-section {
+    padding: var(--space-16) 0 !important;
+  }
+  .contact-content {
+    max-width: 100% !important;
+    padding: 0 var(--space-3) !important;
+  }
+  .contact-title {
+    font-size: 1.6rem !important;
+    margin-bottom: var(--space-3) !important;
+    text-align: center !important;
+  }
+  .contact-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: var(--space-8) !important;
+    text-align: center !important;
+  }
+  .contact-form-container {
+    padding: var(--space-6) var(--space-4) !important;
+    border-radius: var(--radius-xl) !important;
+  }
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-4) !important;
+  }
+  .form-group label {
+    font-size: 0.92rem !important;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 0.95rem !important;
+    padding: var(--space-3) !important;
+  }
+  .submit-btn {
+    font-size: 1rem !important;
+    padding: var(--space-4) var(--space-6) !important;
+  }
+  .form-note {
+    font-size: 0.82rem !important;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    padding: var(--space-12) 0 var(--space-6) !important;
+  }
+  .footer-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-6) !important;
+  }
+  .footer-info,
+  .footer-links {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: var(--space-3) !important;
+  }
+  .footer-info h3 {
+    font-size: 1.15rem !important;
+    margin-bottom: var(--space-2) !important;
+  }
+  .footer-info p {
+    font-size: 0.92rem !important;
+    margin-bottom: var(--space-2) !important;
+  }
+  .footer-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+  }
+  .footer-links a {
+    font-size: 0.96rem !important;
+    padding: var(--space-2) 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .footer-bottom {
+    padding-top: var(--space-6) !important;
+    text-align: center !important;
+  }
+  .footer-bottom p {
+    font-size: 0.84rem !important;
+  }
+
+
+
+
+    
 }
 /*KONIEC MOBILE*/
 
