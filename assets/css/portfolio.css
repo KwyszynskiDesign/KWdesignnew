@@ -305,10 +305,10 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   gap:clamp(40px,6vh,60px);
   max-width:420px;
   justify-self:center;
-  overflow:visible;
+  overflow:visible !important;
   transform:translateY(-80px);
   position:relative;
-  padding:25px;
+  padding:35px 25px 45px 25px;
 }
 
 .about-me-image{
@@ -753,7 +753,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   
   .about-me-section{
     padding: clamp(20px, 5vh, 40px) 0 clamp(50px, 8vh, 90px) 0 !important;
-    overflow: visible;
+    overflow: visible !important;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
     position: relative;
   }
@@ -763,15 +763,17 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     text-align:center;
     gap:40px;
     max-width:100%;
+    overflow:visible !important;
   }
   
   .about-me-visuals{
     transform:translateY(0) !important;
     max-width:340px;
-    padding:20px;
+    padding:20px 20px 50px 20px !important;
     gap:30px;
     order:1;
     margin-top:0 !important;
+    overflow:visible !important;
   }
   
   .about-me-text{
@@ -780,8 +782,19 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     padding:20px 15px 10px 15px;
   }
   
-  .about-me-image{max-width:300px;aspect-ratio:1;border-radius:24px;}
-  .cta-portfolio{max-width:300px;padding:18px 36px;font-size:1rem;}
+  .about-me-image{
+    max-width:300px;
+    aspect-ratio:1;
+    border-radius:24px;
+  }
+  
+  .cta-portfolio{
+    max-width:300px;
+    padding:18px 36px;
+    font-size:1rem;
+    overflow:visible !important;
+  }
+  
   .superpowers-grid{
     grid-template-columns:repeat(3,1fr);
     justify-items:center;
@@ -817,14 +830,16 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   }
   
   .about-me-section{
-    padding:50px 0 50px 0;
+    padding:50px 0 50px 0 !important;
+    overflow:visible !important;
   }
   
   .about-me-visuals{
     max-width:280px;
-    padding:15px;
+    padding:15px 15px 40px 15px !important;
     transform:translateY(0) !important;
     margin-top:0 !important;
+    overflow:visible !important;
   }
   
   .about-me-image{
@@ -835,12 +850,22 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
     max-width:260px;
     padding:16px 32px;
     font-size:0.95rem;
+    overflow:visible !important;
+    isolation:isolate;
   }
   
-  .superpowers-grid{max-width:260px;}
-  .superpowers-grid span{width:65px;height:65px;font-size:1.8rem;}
+  .superpowers-grid{
+    max-width:260px;
+  }
+  
+  .superpowers-grid span{
+    width:65px;
+    height:65px;
+    font-size:1.8rem;
+  }
 }
 
+📦 BLOK 4: EMERGENCY MOBILE FIX (li
 /* === PROJECT VIEWER === */
 .project-viewer{margin:0 auto 80px auto;padding:0 20px 60px;max-width:900px;transition:max-height .45s;position:relative;background:none;font-family:'Poppins',sans-serif;}
 .project-viewer.hidden{display:none}
@@ -970,8 +995,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   
   .about-me-section{
-    margin-top: 90px !important; /* ← ZMIENIONE: wysokość menu + luz */
-    padding-top: 20px !important; /* ← DODANE: padding górny */
+    margin-top: 90px !important;
+    padding-top: 20px !important;
     min-height:auto !important;
     overflow:visible !important;
   }
@@ -983,6 +1008,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     gap:0 !important;
     max-width:100% !important;
     align-items:center !important;
+    overflow:visible !important;
   }
   
   .about-me-visuals{
@@ -990,13 +1016,14 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     transform:none !important;
     -webkit-transform:none !important;
     margin:0 auto 0 auto !important;
-    padding:0 !important;
+    padding:0 15px 50px 15px !important;
     position:relative !important;
     max-width:100% !important;
     gap:0 !important;
     display:flex !important;
     flex-direction:column !important;
     align-items:center !important;
+    overflow:visible !important;
   }
   
   .about-me-image{
@@ -1009,14 +1036,16 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   .about-me-visuals .cta-portfolio{
     order:999 !important;
     max-width:280px !important;
-    margin:35px auto 50px auto !important;
+    margin:35px auto 0 auto !important;
     padding:16px 32px !important;
     font-size:1rem !important;
+    overflow:visible !important;
+    isolation:isolate;
   }
   
   .about-me-text{
     order:2 !important;
-    padding:0 15px !important;
+    padding:0 15px 20px 15px !important;
     text-align:center !important;
     margin:0 !important;
     width:100% !important;
@@ -1091,7 +1120,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   
   .logo-carousel-section{
-    margin:0 !important;
+    margin:0 0 30px 0 !important;
     width:100% !important;
     order:5 !important;
   }
@@ -1110,17 +1139,28 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 /* === 480px BREAKPOINT === */
 @media(max-width:480px){
   .about-me-section{
-    margin-top: 80px !important; /* ← ZMIENIONE: mniej na małych ekranach */
+    margin-top: 80px !important;
     padding:25px 0 35px 0 !important;
+    overflow:visible !important;
   }
   
   .about-me-grid{
     padding:0 10px !important;
+    overflow:visible !important;
+  }
+  
+  .about-me-visuals{
+    padding:0 10px 40px 10px !important;
+    overflow:visible !important;
   }
   
   .about-me-image{
     max-width:220px !important;
     margin-bottom:20px !important;
+  }
+  
+  .about-me-text{
+    padding:0 10px 15px 10px !important;
   }
   
   .about-me-text h1{
@@ -1142,7 +1182,9 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     max-width:260px !important;
     padding:14px 28px !important;
     font-size:0.95rem !important;
-    margin:30px auto 35px auto !important;
+    margin:30px auto 0 auto !important;
+    overflow:visible !important;
+    isolation:isolate;
   }
   
   .superpowers-grid{
@@ -1156,6 +1198,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     font-size:1.6rem !important;
   }
 }
+
 
 /* === FORCE VISIBILITY === */
 @media(max-width:768px){
