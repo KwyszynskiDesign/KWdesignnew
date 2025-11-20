@@ -46,6 +46,54 @@
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    /* Prosty styl karuzeli */
+    #carousel-container {
+      max-width: 100%;
+      max-height: 400px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+    #carousel-container img {
+      width: 100%;
+      height: auto;
+      display: none;
+      border-radius: 8px;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    #carousel-container img.active {
+      display: block;
+    }
+    #carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    #carousel-controls button {
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      pointer-events: all;
+      padding: 0 0.75rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    #carousel-controls button:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  </style>
 </head>
 
 <body>
@@ -71,17 +119,18 @@
           🚧 Ta sekcja jest w budowie. Wkrótce pojawi się tu więcej projektów 3D. 🚧
         </p>
         
-        <!-- Placeholder Gallery -->
-        <div class="gallery" style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-          <figure style="margin: 0;">
-            <img 
-              src="/KWdesignnew/assets/images/placeholder.jpg" 
-              alt="Wizualizacja 3D - placeholder" 
-              style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
-              loading="lazy"
-              decoding="async">
-            <figcaption style="margin-top: 0.5rem; text-align: center; color: #999; font-size: 0.875rem;">Przykładowa wizualizacja</figcaption>
-          </figure>
+        <!-- Carousel Gallery Container -->
+        <div id="carousel-container" aria-live="polite" aria-label="Karuzela wizualizacji 3D">
+          <img src="/KWdesignnew/assets/images/placeholder.jpg" alt="Przykładowa wizualizacja 3D 1" class="active" loading="lazy" decoding="async">
+          <!-- Podaj tu więcej obrazów .jpg, będą ukryte, tylko jeden aktywny -->
+          <!-- <img src="ścieżka-do-zdjęcia2.jpg" alt="Opis zdjęcia 2"> -->
+          <!-- <img src="ścieżka-do-zdjęcia3.jpg" alt="Opis zdjęcia 3"> -->
+          
+          <!-- Kontrolki -->
+          <div id="carousel-controls">
+            <button id="carousel-prev" aria-label="Poprzednie zdjęcie">&#8592;</button>
+            <button id="carousel-next" aria-label="Następne zdjęcie">&#8594;</button>
+          </div>
         </div>
         
         <!-- Coming Soon Info -->
