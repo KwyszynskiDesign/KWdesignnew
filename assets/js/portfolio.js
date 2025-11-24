@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'voucher-magdy': 'projects/voucher-salon-magdy.html',
     'karoma': 'projects/karoma.html',
     'power-of-mind': 'projects/power-of-mind.html',
-    'KW-design': 'projects/KW-Design.html',
+    'KW-Design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
     'savage': 'projects/savage.html'
   };
