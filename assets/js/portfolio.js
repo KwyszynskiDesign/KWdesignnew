@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'power-of-mind': 'projects/power-of-mind.html',
     'KW-design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
-    'Savage': 'projects/realizacja-3.html'
+    'savage': 'projects/savage.html'
   };
 
   // ========================================
