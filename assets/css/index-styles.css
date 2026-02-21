@@ -3639,3 +3639,28 @@ header * {
         max-width: 100%;
     }
 }
+
+/* ── Order tool grid utility (BEM alias for .order-row--7030, usable in new rows) ── */
+.order-tool__grid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 9px;
+}
+
+@media (max-width: 768px) {
+    .order-tool__grid {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* ── Ghost danger button ── */
+.ghost-danger {
+    background: transparent;
+    border: 2px solid #ef4444;
+    color: #ef4444;
+}
+
+.ghost-danger:hover {
+    background: #fef2f2;
+}
