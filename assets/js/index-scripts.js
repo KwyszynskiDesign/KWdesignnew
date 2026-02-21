@@ -580,7 +580,7 @@ console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
 
 // ========== ORDER TOOL – Dane Zamówienia ==========
 function initOrderTool() {
-    const expressCheckbox = document.getElementById('orderExpress');
+    const expressCheckbox = document.getElementById('globalExpress');
     const orderSummary = document.getElementById('orderSummary');
     const clearBtn = document.getElementById('orderClear');
     const excelBtn = document.getElementById('orderExcel');
