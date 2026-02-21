@@ -593,6 +593,64 @@
         </div>
     </section>
 
+    <!-- Dane Zamówienia – narzędzie dla pracownika drukarni -->
+    <section id="order-tool" class="order-tool-section">
+        <div class="container">
+            <h2 class="section-title">Dane Zamówienia</h2>
+            <div id="orderSummary" class="order-summary-container">
+
+                <!-- Rząd 1: Imię i Nazwisko (70%) | Telefon (30%) -->
+                <div class="order-row order-row--7030">
+                    <div class="order-field order-field--70">
+                        <label for="orderName" class="order-label">Imię i Nazwisko</label>
+                        <input type="text" id="orderName" name="orderName" class="order-input" placeholder="Jan Kowalski" />
+                    </div>
+                    <div class="order-field order-field--30">
+                        <label for="orderPhone" class="order-label">Telefon</label>
+                        <input type="tel" id="orderPhone" name="orderPhone" class="order-input" placeholder="123 456 789" />
+                    </div>
+                </div>
+
+                <!-- Rząd 2: E-mail (70%) | Priorytet (30%) -->
+                <div class="order-row order-row--7030">
+                    <div class="order-field order-field--70">
+                        <label for="orderEmail" class="order-label">E-mail</label>
+                        <input type="email" id="orderEmail" name="orderEmail" class="order-input" placeholder="jan@firma.pl" />
+                    </div>
+                    <div class="order-field order-field--30">
+                        <label for="orderPriority" class="order-label">Priorytet</label>
+                        <select id="orderPriority" name="orderPriority" class="order-input">
+                            <option value="normal">Normalny</option>
+                            <option value="high">Wysoki</option>
+                            <option value="express">Ekspres</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- EXPRESS checkbox -->
+                <div class="order-express-row">
+                    <label class="order-express-label">
+                        <input type="checkbox" id="orderExpress" class="order-express-checkbox" />
+                        <span class="order-express-text">Tryb EXPRESS (+20%)</span>
+                    </label>
+                </div>
+
+                <!-- Uwagi do zamówienia -->
+                <div class="order-field">
+                    <label for="orderNotes" class="order-label">Uwagi do zamówienia</label>
+                    <textarea id="orderNotes" name="orderNotes" class="order-input order-textarea" rows="3" placeholder="Dodatkowe informacje, specjalne wymagania..."></textarea>
+                </div>
+
+                <!-- Przyciski -->
+                <div class="order-actions">
+                    <button type="button" id="orderClear" class="order-btn order-btn--ghost">Wyczyść listę</button>
+                    <button type="button" id="orderExcel" class="order-btn order-btn--primary">Pobierz Excel</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section id="contact" class="contact-section">
         <div class="container">
