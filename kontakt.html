@@ -7,10 +7,9 @@
     <meta name="description" content="Skontaktuj się ze mną w sprawie projektu UX/UI, strony internetowej lub brandingu. Odpowiadam w ciągu 24h. Bezpłatna konsultacja." />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-       <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
@@ -21,6 +20,7 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
     
     <!-- Main CSS -->
@@ -33,7 +33,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="oferta.html">Oferta</a></li>
+                <li><a href="uslugi.html">Usługi</a></li>
                 <li><a href="omnie.html">O&nbsp;mnie</a></li>
                 <li><a href="kontakt.html" class="active">Kontakt</a></li>
             </ul>
@@ -59,7 +59,7 @@
 
         <div class="contact-form">
             <h2>Formularz kontaktowy</h2>
-            <form method="POST" action="your-form-handler.php">
+            <form id="contactForm" method="POST" action="mailto:kontakt@kwyszynski.pl" enctype="text/plain">
                 <label for="name">Imię i nazwisko*</label>
                 <input type="text" id="name" name="name" required placeholder="Jan Kowalski" />
 
