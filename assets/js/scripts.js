@@ -200,10 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-      fetch(scriptURL, {
-        method: 'POST',
-        body: new FormData(contactForm),
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbz7q6dEJrmXBq2WKjcVuLUub0nSTNV1I2F7a8n6UgieHmiESbaxHG-nxrx7sT3AJiCz/exec';
+      const params = new URLSearchParams(Object.fromEntries(new FormData(contactForm)));
+      fetch(`${scriptURL}?${params}`, {
+        method: 'GET',
       })
         .then(() => {
           alert('Dziękuję za wiadomość! Skontaktuję się wkrótce.');
