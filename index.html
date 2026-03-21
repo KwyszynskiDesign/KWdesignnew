@@ -644,6 +644,10 @@
                             <option value="wizytowki-standardowe">Wizytówki standardowe</option>
                             <option value="wizytowki-premium">Wizytówki premium</option>
                         </optgroup>
+                        <optgroup label="Naklejki">
+                            <option value="naklejki-srebrne-zlote">Naklejki srebrne/złote</option>
+                            <option value="naklejki-kolorowe">Naklejki kolorowe</option>
+                        </optgroup>
                         <optgroup label="Banery">
                             <option value="baner-zewnetrzny">Baner zewnętrzny</option>
                             <option value="baner-roll-up">Roll-up</option>
@@ -652,6 +656,26 @@
                             <option value="inne">Inne</option>
                         </optgroup>
                     </select>
+                </div>
+
+                <!-- Szczegóły naklejek – widoczne tylko po wyborze odpowiedniej kategorii -->
+                <div id="stickerSilverGold" class="order-field order-sticker-detail" style="display:none;">
+                    <span class="order-label">Kolor naklejek</span>
+                    <div class="order-sticker-checks">
+                        <label class="order-sticker-label">
+                            <input type="checkbox" id="stickerSilver" name="stickerSilver" class="order-sticker-checkbox" />
+                            <span>Srebrne</span>
+                        </label>
+                        <label class="order-sticker-label">
+                            <input type="checkbox" id="stickerGold" name="stickerGold" class="order-sticker-checkbox" />
+                            <span>Złote</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="stickerColor" class="order-field order-sticker-detail" style="display:none;">
+                    <label for="stickerColorInput" class="order-label">Kolor naklejek (wpisz)</label>
+                    <input type="text" id="stickerColorInput" name="stickerColorInput" class="order-input" placeholder="np. czerwony, #FF0000, Pantone 485 C" />
                 </div>
 
                 <!-- EXPRESS checkbox -->

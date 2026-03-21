@@ -3664,3 +3664,27 @@ header * {
 .ghost-danger:hover {
     background: #fef2f2;
 }
+
+/* ── Sticker detail fields ── */
+.order-sticker-checks {
+    display: flex;
+    gap: 20px;
+    padding: 6px 0;
+}
+
+.order-sticker-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.order-sticker-checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}

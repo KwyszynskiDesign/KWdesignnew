@@ -584,8 +584,24 @@ function initOrderTool() {
     const orderSummary = document.getElementById('orderSummary');
     const clearBtn = document.getElementById('orderClear');
     const excelBtn = document.getElementById('orderExcel');
+    const categorySelect = document.getElementById('orderCategory');
+    const stickerSilverGoldPanel = document.getElementById('stickerSilverGold');
+    const stickerColorPanel = document.getElementById('stickerColor');
 
     if (!expressCheckbox || !orderSummary) return;
+
+    // Show/hide sticker detail fields based on selected category
+    function updateStickerFields() {
+        if (!categorySelect || !stickerSilverGoldPanel || !stickerColorPanel) return;
+        const val = categorySelect.value;
+        stickerSilverGoldPanel.style.display = (val === 'naklejki-srebrne-zlote') ? 'block' : 'none';
+        stickerColorPanel.style.display = (val === 'naklejki-kolorowe') ? 'block' : 'none';
+    }
+
+    if (categorySelect) {
+        categorySelect.addEventListener('change', updateStickerFields);
+        updateStickerFields();
+    }
 
     // EXPRESS checkbox toggles .is-express on container
     expressCheckbox.addEventListener('change', function () {
@@ -595,14 +611,18 @@ function initOrderTool() {
     // Clear all order fields
     if (clearBtn) {
         clearBtn.addEventListener('click', function () {
-            ['orderName', 'orderPhone', 'orderEmail', 'orderNotes'].forEach(function (id) {
+            ['orderName', 'orderPhone', 'orderEmail', 'orderNotes', 'stickerColorInput'].forEach(function (id) {
                 const el = document.getElementById(id);
                 if (el) el.value = '';
             });
             const priority = document.getElementById('orderPriority');
             if (priority) priority.selectedIndex = 0;
-            const category = document.getElementById('orderCategory');
-            if (category) category.selectedIndex = 0;
+            if (categorySelect) {
+                categorySelect.selectedIndex = 0;
+                updateStickerFields();
+            }
+            document.getElementById('stickerSilver') && (document.getElementById('stickerSilver').checked = false);
+            document.getElementById('stickerGold') && (document.getElementById('stickerGold').checked = false);
             expressCheckbox.checked = false;
             orderSummary.classList.remove('is-express');
         });
@@ -615,13 +635,23 @@ function initOrderTool() {
             const phone = document.getElementById('orderPhone')?.value || '';
             const email = document.getElementById('orderEmail')?.value || '';
             const priority = document.getElementById('orderPriority')?.value || '';
-            const categoryEl = document.getElementById('orderCategory');
-            const category = categoryEl ? (categoryEl.options[categoryEl.selectedIndex]?.text || '') : '';
+            const category = categorySelect ? (categorySelect.options[categorySelect.selectedIndex]?.text || '') : '';
             const notes = document.getElementById('orderNotes')?.value || '';
             const express = expressCheckbox.checked ? 'TAK' : 'NIE';
 
-            const header = 'Imię i Nazwisko;Telefon;E-mail;Kategoria produktu;Priorytet;EXPRESS;Uwagi';
-            const row = [name, phone, email, category, priority, express, notes]
+            // Sticker extra fields
+            let stickerDetail = '';
+            if (categorySelect && categorySelect.value === 'naklejki-srebrne-zlote') {
+                const colors = [];
+                if (document.getElementById('stickerSilver')?.checked) colors.push('Srebrne');
+                if (document.getElementById('stickerGold')?.checked) colors.push('Złote');
+                stickerDetail = colors.join(', ');
+            } else if (categorySelect && categorySelect.value === 'naklejki-kolorowe') {
+                stickerDetail = document.getElementById('stickerColorInput')?.value || '';
+            }
+
+            const header = 'Imię i Nazwisko;Telefon;E-mail;Kategoria produktu;Szczegóły koloru;Priorytet;EXPRESS;Uwagi';
+            const row = [name, phone, email, category, stickerDetail, priority, express, notes]
                 .map(function (v) { return '"' + v.replace(/"/g, '""') + '"'; })
                 .join(';');
             const csvContent = '\uFEFF' + header + '\n' + row;
