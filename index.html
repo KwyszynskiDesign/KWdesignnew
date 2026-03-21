@@ -648,6 +648,10 @@
                             <option value="naklejki-srebrne-zlote">Naklejki srebrne/złote</option>
                             <option value="naklejki-kolorowe">Naklejki kolorowe</option>
                         </optgroup>
+                        <optgroup label="Wycinanie z folii">
+                            <option value="folia-srebrna-zlota">Folia srebrna/złota</option>
+                            <option value="folia-kolorowa">Folia kolorowa</option>
+                        </optgroup>
                         <optgroup label="Banery">
                             <option value="baner-zewnetrzny">Baner zewnętrzny</option>
                             <option value="baner-roll-up">Roll-up</option>
@@ -658,9 +662,9 @@
                     </select>
                 </div>
 
-                <!-- Szczegóły naklejek – widoczne tylko po wyborze odpowiedniej kategorii -->
+                <!-- Szczegóły koloru – widoczne tylko po wyborze odpowiedniej kategorii -->
                 <div id="stickerSilverGold" class="order-field order-sticker-detail" style="display:none;">
-                    <span class="order-label">Kolor naklejek</span>
+                    <span class="order-label">Wybierz kolor</span>
                     <div class="order-sticker-checks">
                         <label class="order-sticker-label">
                             <input type="checkbox" id="stickerSilver" name="stickerSilver" class="order-sticker-checkbox" />
@@ -674,7 +678,7 @@
                 </div>
 
                 <div id="stickerColor" class="order-field order-sticker-detail" style="display:none;">
-                    <label for="stickerColorInput" class="order-label">Kolor naklejek (wpisz)</label>
+                    <label for="stickerColorInput" class="order-label">Kolor (wpisz)</label>
                     <input type="text" id="stickerColorInput" name="stickerColorInput" class="order-input" placeholder="np. czerwony, #FF0000, Pantone 485 C" />
                 </div>
 

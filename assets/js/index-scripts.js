@@ -590,12 +590,14 @@ function initOrderTool() {
 
     if (!expressCheckbox || !orderSummary) return;
 
-    // Show/hide sticker detail fields based on selected category
+    // Show/hide sticker/vinyl detail fields based on selected category
     function updateStickerFields() {
         if (!categorySelect || !stickerSilverGoldPanel || !stickerColorPanel) return;
         const val = categorySelect.value;
-        stickerSilverGoldPanel.style.display = (val === 'naklejki-srebrne-zlote') ? 'block' : 'none';
-        stickerColorPanel.style.display = (val === 'naklejki-kolorowe') ? 'block' : 'none';
+        const showSilverGold = val === 'naklejki-srebrne-zlote' || val === 'folia-srebrna-zlota';
+        const showColor = val === 'naklejki-kolorowe' || val === 'folia-kolorowa';
+        stickerSilverGoldPanel.style.display = showSilverGold ? 'block' : 'none';
+        stickerColorPanel.style.display = showColor ? 'block' : 'none';
     }
 
     if (categorySelect) {
@@ -639,14 +641,15 @@ function initOrderTool() {
             const notes = document.getElementById('orderNotes')?.value || '';
             const express = expressCheckbox.checked ? 'TAK' : 'NIE';
 
-            // Sticker extra fields
+            // Sticker/vinyl extra fields
             let stickerDetail = '';
-            if (categorySelect && categorySelect.value === 'naklejki-srebrne-zlote') {
+            const catVal = categorySelect ? categorySelect.value : '';
+            if (catVal === 'naklejki-srebrne-zlote' || catVal === 'folia-srebrna-zlota') {
                 const colors = [];
                 if (document.getElementById('stickerSilver')?.checked) colors.push('Srebrne');
                 if (document.getElementById('stickerGold')?.checked) colors.push('Złote');
                 stickerDetail = colors.join(', ');
-            } else if (categorySelect && categorySelect.value === 'naklejki-kolorowe') {
+            } else if (catVal === 'naklejki-kolorowe' || catVal === 'folia-kolorowa') {
                 stickerDetail = document.getElementById('stickerColorInput')?.value || '';
             }
 
