@@ -601,6 +601,8 @@ function initOrderTool() {
             });
             const priority = document.getElementById('orderPriority');
             if (priority) priority.selectedIndex = 0;
+            const category = document.getElementById('orderCategory');
+            if (category) category.selectedIndex = 0;
             expressCheckbox.checked = false;
             orderSummary.classList.remove('is-express');
         });
@@ -613,11 +615,13 @@ function initOrderTool() {
             const phone = document.getElementById('orderPhone')?.value || '';
             const email = document.getElementById('orderEmail')?.value || '';
             const priority = document.getElementById('orderPriority')?.value || '';
+            const categoryEl = document.getElementById('orderCategory');
+            const category = categoryEl ? (categoryEl.options[categoryEl.selectedIndex]?.text || '') : '';
             const notes = document.getElementById('orderNotes')?.value || '';
             const express = expressCheckbox.checked ? 'TAK' : 'NIE';
 
-            const header = 'Imię i Nazwisko;Telefon;E-mail;Priorytet;EXPRESS;Uwagi';
-            const row = [name, phone, email, priority, express, notes]
+            const header = 'Imię i Nazwisko;Telefon;E-mail;Kategoria produktu;Priorytet;EXPRESS;Uwagi';
+            const row = [name, phone, email, category, priority, express, notes]
                 .map(function (v) { return '"' + v.replace(/"/g, '""') + '"'; })
                 .join(';');
             const csvContent = '\uFEFF' + header + '\n' + row;
