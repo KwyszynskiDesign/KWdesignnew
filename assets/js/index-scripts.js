@@ -590,14 +590,12 @@ function initOrderTool() {
 
     if (!expressCheckbox || !orderSummary) return;
 
-    // Show/hide sticker/vinyl detail fields based on selected category
+    // Show/hide vinyl detail fields based on selected category (only for Wycinanie z folii)
     function updateStickerFields() {
         if (!categorySelect || !stickerSilverGoldPanel || !stickerColorPanel) return;
         const val = categorySelect.value;
-        const showSilverGold = val === 'naklejki-srebrne-zlote' || val === 'folia-srebrna-zlota';
-        const showColor = val === 'naklejki-kolorowe' || val === 'folia-kolorowa';
-        stickerSilverGoldPanel.style.display = showSilverGold ? 'block' : 'none';
-        stickerColorPanel.style.display = showColor ? 'block' : 'none';
+        stickerSilverGoldPanel.style.display = (val === 'folia-srebrna-zlota') ? 'block' : 'none';
+        stickerColorPanel.style.display = (val === 'folia-kolorowa') ? 'block' : 'none';
     }
 
     if (categorySelect) {
@@ -641,15 +639,15 @@ function initOrderTool() {
             const notes = document.getElementById('orderNotes')?.value || '';
             const express = expressCheckbox.checked ? 'TAK' : 'NIE';
 
-            // Sticker/vinyl extra fields
+            // Vinyl detail fields (only for Wycinanie z folii)
             let stickerDetail = '';
             const catVal = categorySelect ? categorySelect.value : '';
-            if (catVal === 'naklejki-srebrne-zlote' || catVal === 'folia-srebrna-zlota') {
+            if (catVal === 'folia-srebrna-zlota') {
                 const colors = [];
                 if (document.getElementById('stickerSilver')?.checked) colors.push('Srebrne');
                 if (document.getElementById('stickerGold')?.checked) colors.push('Złote');
                 stickerDetail = colors.join(', ');
-            } else if (catVal === 'naklejki-kolorowe' || catVal === 'folia-kolorowa') {
+            } else if (catVal === 'folia-kolorowa') {
                 stickerDetail = document.getElementById('stickerColorInput')?.value || '';
             }
 
