@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'KW-Design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
     'savage': 'projects/savage.html'
+    'RazDwa': 'projects/razdwadruk.html'
   };
 
   // ========================================
