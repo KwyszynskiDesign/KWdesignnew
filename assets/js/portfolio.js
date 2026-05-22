@@ -36,8 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     'power-of-mind': 'projects/power-of-mind.html',
     'KW-Design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
-    'savage': 'projects/savage.html'
-    'RazDwa': 'projects/razdwadruk.html'
+    'savage': 'projects/savage.html',
+    'RazDwa': 'projects/razdwa.html',
+    'razdwa-druk': 'projects/razdwadruk.html',
+    'razdwa-strona': 'projects/razdwa-strona.html',
+    'razdwa-aplikacja': 'projects/razdwa-aplikacja.html'
   };
 
   // ========================================
@@ -158,13 +161,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const lbCaption = document.getElementById('lightbox-caption');
       const lbClose = document.querySelector('.lightbox-close');
       
-      // Open lightbox on image click
-      document.querySelectorAll('.kwcs-gallery-grid img').forEach(img => {
+      // Open lightbox on image click (.kwcs-gallery-grid and explicit .lightbox-trigger)
+      document.querySelectorAll('.kwcs-gallery-grid img, img.lightbox-trigger').forEach(img => {
         img.style.cursor = 'pointer';
         img.addEventListener('click', function() {
           lb.classList.add('active');
           lbImg.src = this.src;
-          lbCaption.textContent = this.alt || '';
+          lbCaption.textContent = this.dataset.caption || this.alt || '';
           document.body.classList.add('lightbox-open');
           console.log('🖼️ Lightbox otwarty:', this.alt);
         });
