@@ -268,28 +268,21 @@
         <div class="scope-grid">
           <div class="scope-item">
             <div class="scope-icon">🏗️</div>
-            <p>Architektura <strong>4-warstwowa</strong>: UI → Categories → PriceService → Data</p>
+            <p>Architektura <strong>4-warstwowa</strong>: UI → Kategorie → Ceny → żródłów prawdy</p>
           </div>
           <div class="scope-item">
             <div class="scope-icon">💰</div>
-            <p><strong>priceService singleton</strong> — cache w pamięci, lazy loading, localStorage override</p>
-          </div>
-          <div class="scope-item">
-            <div class="scope-icon">✅</div>
-            <p><strong>178 testów Vitest</strong> — każda reguła cennikowa zweryfikowana automatycznie</p>
+            <p><strong>priceService singleton</strong> — cache w pamięci, lazy loading, lokalnie wykonywane wyceny</p>
           </div>
           <div class="scope-item">
             <div class="scope-icon">📄</div>
-            <p><strong>pdf-lib</strong> — generowanie PDF po stronie klienta, bez serwera</p>
+            <p><strong>pdf-lib</strong> — generowanie PDF podusmowującego zamówienie</p>
           </div>
           <div class="scope-item">
             <div class="scope-icon">📊</div>
             <p><strong>Google Apps Script</strong> — automatyczny wpis zamówień do Google Sheets</p>
           </div>
-          <div class="scope-item">
-            <div class="scope-icon">📦</div>
-            <p><strong>esbuild</strong> — bundle 523 kb w 81 ms, ES2019, minify, ASCII charset</p>
-          </div>
+        
           <div class="scope-item">
             <div class="scope-icon">💾</div>
             <p><strong>Service worker</strong> — cache JS/CSS, HTML z sieci, NetworkFirst dla app.js</p>
@@ -300,8 +293,21 @@
           </div>
           <div class="scope-item">
             <div class="scope-icon">🔧</div>
-            <p><strong>localStorage namespacing</strong> — klucze bez kolizji między 16 kategoriami</p>
+            <p><strong>Ustawienia cen</strong> — klucze bez kolizji między 16 kategoriami</p>
           </div>
+
+           <div class="scope-item">
+            <div class="scope-icon">🔧</div>
+            <p><strong>Dowolna ilość kategorii</strong> — każdy produkt ma własny klucz cenowy oraz kategorie </p>
+          </div>
+
+           <div class="scope-item">
+            <div class="scope-icon">🔧</div>
+            <p><strong>Kalkulator dla plików CAD </strong> — proces który potrafi czytać pliki i obliczać ich cene na podstawie schematu drukarni </p>
+          </div>
+
+
+          
         </div>
       </div>
     </div>
