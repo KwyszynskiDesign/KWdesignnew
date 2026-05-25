@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Case Study: CyfraDruk – Wtyczka automatyzująca pre-press | Karol Wyszyński</title>
+  <meta name="description" content="Panel CEP dla Adobe Illustrator eliminujący błędy grubości linii i obiektów przed drukiem. Redukcja czasu sprawdzania pliku z 15 minut do 1 sekundy.">
+  <meta name="keywords" content="case study, Adobe Illustrator, CEP panel, ExtendScript, automatyzacja DTP, pre-press, grubość linii, CMYK, Pantone, wtyczka druk">
+  <meta name="author" content="Karol Wyszyński">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/cyfradruk.html">
+  <meta property="og:title" content="Case Study: CyfraDruk | Karol Wyszyński">
+  <meta property="og:description" content="Wtyczka CEP dla Adobe Illustrator – automatyczny skaner błędów DTP przed drukiem. 15x szybciej, 100% dokładności.">
+  <meta property="og:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/cyfradruk-mockup1.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Karol Wyszyński Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: CyfraDruk | Karol Wyszyński">
+  <meta name="twitter:description" content="Wtyczka CEP dla Adobe Illustrator – automatyczny skaner błędów DTP.">
+  <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/cyfradruk-mockup1.webp">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/KWdesignnew/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/KWdesignnew/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/KWdesignnew/assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/KWdesignnew/favicon.ico">
+
+  <link rel="canonical" href="https://kwyszynskidesign.github.io/KWdesignnew/projects/cyfradruk.html">
+
+  <link rel="stylesheet" href="/KWdesignnew/assets/css/projects.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ================================================================
+       CASE STUDY: CyfraDruk – Wtyczka automatyzująca pre-press
+  ================================================================ -->
+
+  <section class="kwcs" id="cyfradruk" data-project="cyfradruk" aria-label="Case Study: CyfraDruk – Wtyczka automatyzująca pre-press">
+
+    <!-- ============================================================
+         1. HERO BODY — chipsy po lewej, zdjęcie po prawej
+    ============================================================ -->
+    <div class="kwcs-hero-body">
+      <div class="wrap inner">
+
+        <div class="hero-content-grid">
+
+          <!-- LEWA STRONA: chipsy z metadanymi projektu -->
+          <div class="hero-buttons-vertical">
+            <div class="kwcs-chip chip-zakres">
+              <strong>Zakres</strong><br>
+              UX/UI Design, ExtendScript (.jsx), HTML/CSS/JS, CEP Panel
+            </div>
+
+            <div class="kwcs-chip chip-stack">
+              <strong>Narzędzia</strong><br>
+              Adobe Illustrator, CEP Framework, ExtendScript, Adobe CC SDK
+            </div>
+
+            <div class="kwcs-chip chip-automatyzacje">
+              <strong>Kategoria</strong><br>
+              Automatyzacja DTP · Narzędzie wewnętrzne · Pre-press
+            </div>
+
+            <div class="kwcs-chip chip-dostarczone">
+              <strong>Dostarczone</strong><br>
+              Redukcja czasu inspekcji z 15 min do 1 sek · 100% dokładności skanowania
+            </div>
+          </div>
+
+          <!-- PRAWA STRONA: zdjęcie hero -->
+          <div class="hero-image">
+            <img
+              class="cover"
+              src="/KWdesignnew/assets/images/cyfradruk-mockup1.webp"
+              alt="CyfraDruk – panel CEP w Adobe Illustrator z raportem błędów"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="630"
+              data-caption="CyfraDruk – panel CEP w Adobe Illustrator">
+          </div>
+
+        </div>
+
+        <!-- CTA pod gridem -->
+        <a class="hero-image-cta" href="index.html#contact" rel="noopener noreferrer" aria-label="Zapytaj o podobne narzędzie automatyzacyjne">
+          Zapytaj o podobne narzędzie
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         2. KONTEKST PROJEKTU
+    ============================================================ -->
+    <div class="kwcs-sec kwcs-context-section">
+      <div class="wrap">
+        <h2>Kontekst projektu</h2>
+
+        <div class="context-intro">
+          <p>
+            <strong>CyfraDruk</strong> to panel CEP (<em>Common Extensibility Platform</em>) napisany dla Adobe Illustrator, który eliminuje jeden z najbardziej kosztownych problemów w drukarniach cyfrowych — <strong>niewidzialne błędy grubości linii i mikro-obiektów</strong>, które nie są widoczne na ekranie, ale powodują zlewanie się elementów podczas druku.
+          </p>
+          <p>
+            Operatorzy DTP musieli ręcznie klikać i weryfikować tysiące wektorów w każdym pliku, co prowadziło do <strong>błędów ludzkich i kosztownych przedruków reklamacji</strong>. Celem projektu było zastąpienie tego procesu jednorazowym kliknięciem i automatycznym raportem w czasie poniżej jednej sekundy.
+          </p>
+        </div>
+
+        <h3 class="scope-heading">Zakres projektu</h3>
+        <div class="scope-grid">
+          <div class="scope-item">
+            <div class="scope-icon">🔍</div>
+            <p>Automatyczne wykrywanie <strong>linii poniżej 0.1 mm</strong></p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">📐</div>
+            <p>Wykrywanie <strong>ukrytych mikro-kształtów</strong> niewidocznych gołym okiem</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">🎨</div>
+            <p>Weryfikacja wartości <strong>CMYK i kolorów Pantone</strong> (Spot Colors)</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">🖨️</div>
+            <p>Generowanie <strong>bezpiecznych spadów</strong> z wykrojnika jednym przyciskiem</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">📋</div>
+            <p>Eksport <strong>raportu błędów</strong> z listą obiektów do poprawy</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">🎯</div>
+            <p>Przycisk <strong>"Zaznacz w AI"</strong> – lokalizacja błędnego wektora w pliku</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">⚡</div>
+            <p><strong>Czas inspekcji: &lt;1 sekunda</strong> niezależnie od rozmiaru pliku</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">🔧</div>
+            <p>Integracja z <strong>istniejącym workflow</strong> drukarni bez konieczności zmiany procesu</p>
+          </div>
+          <div class="scope-item">
+            <div class="scope-icon">📦</div>
+            <p>Pakiet instalacyjny <strong>CEP</strong> – instalacja bez uprawnień IT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         3. PROBLEM — ręczna weryfikacja DTP
+    ============================================================ -->
+    <div class="kwcs-sec kwcs-logo-section">
+      <div class="wrap">
+        <h2>Ręczne sprawdzanie wektorów to strata czasu i pieniędzy</h2>
+
+        <div class="logo-intro">
+          <p>
+            W drukarniach cyfrowych cienkie linie poniżej 0.1 mm zlewają się w druku — są dosłownie <strong>niewidoczne dla oka operatora</strong> na monitorze, ale powodują defekty na gotowym produkcie. Proces manualnej weryfikacji całego pliku zajmował od <strong>5 do 20 minut</strong> i był podatny na błędy ludzkie.
+          </p>
+        </div>
+
+        <!-- Galeria: screenshoty problemu i narzędzie -->
+        <div class="kwcs-gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="/KWdesignnew/assets/images/sprawdzanie_kolorow_Automatyzacja.webp"
+              alt="Widok panelu CyfraDruk – zakładka sprawdzania kolorów CMYK i Pantone"
+              loading="lazy"
+              data-caption="Panel CyfraDruk – weryfikacja kolorów CMYK i Pantone (Spot Colors)">
+            <p class="img-desc">Weryfikacja kolorów CMYK i Pantone</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.webp"
+              alt="Widok panelu CyfraDruk – zakładka sprawdzania obiektów i grubości linii"
+              loading="lazy"
+              data-caption="Panel CyfraDruk – skanowanie obiektów i grubości linii">
+            <p class="img-desc">Skanowanie obiektów i grubości linii</p>
+          </div>
+        </div>
+
+        <p>
+          Powyższe widoki panelu pokazują dwa główne moduły wtyczki: <strong>weryfikację kolorów</strong> z podziałem na wypełnienia i obrysy, oraz <strong>skaner obiektów</strong> z listą wykrytych problemów (czerwone wiersze oznaczają błędy wymagające interwencji). Każda pozycja na liście jest klikalna — jedno kliknięcie zaznacza obiekt bezpośrednio w Illustratorze.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         4. ROZWIĄZANIE — showcase funkcjonalności
+    ============================================================ -->
+    <div class="kwcs-sec kwcs-website-showcase">
+      <div class="wrap">
+        <h2>Zautomatyzowany skaner jednym kliknięciem</h2>
+        <p>
+          Wtyczka łączy panel HTML/CSS/JS (warstwa UI) z logiką ExtendScript (.jsx), która <strong>rekurencyjnie skanuje cały plik</strong>, wyłapuje błędy i wystawia interaktywny raport. Operator nie musi znać technikalii — widzi wyłącznie kolorową listę problemów gotową do naprawy.
+        </p>
+
+        <div class="showcase-stack">
+
+          <!-- SEKCJA 1: Skaner obiektów -->
+          <div class="showcase-section">
+            <h3>🔍 Skaner obiektów i grubości linii</h3>
+            <p class="tab-description">Rekurencyjne przeszukiwanie wszystkich warstw pliku — grupy, maski, zagnieżdżone symbole. Zero pominięć, wynik w &lt;1 sekundę</p>
+            <div class="showcase-row">
+              <div class="showcase-item">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.webp"
+                  alt="Panel CyfraDruk – lista wykrytych obiektów z błędami grubości"
+                  loading="lazy"
+                  data-caption="Skaner obiektów – lista błędów z wymiarami i warstwą">
+                <p>Lista wykrytych obiektów z błędami</p>
+              </div>
+              <div class="showcase-item showcase-mobile">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.png"
+                  alt="Panel CyfraDruk – widok szczegółowy obiektu z błędem grubości linii"
+                  loading="lazy"
+                  data-caption="Szczegóły obiektu – min. wymiar, szerokość, warstwa">
+                <p>Szczegóły obiektu – min. wymiar i warstwa</p>
+              </div>
+            </div>
+            <div class="features-box">
+              <h4>Jak działa skaner obiektów</h4>
+              <ul class="features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Rekurencyjne przeszukiwanie:</strong> skaner wchodzi w grupy, symbole i maski — żaden obiekt nie ucieka
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Próg 0.25 mm:</strong> konfigurowalny próg minimalnej grubości — ustawiany pod specyfikację danej drukarni
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Czerwone wiersze = błędy:</strong> czytelne oznaczenie kolorowe bez konieczności czytania wartości
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Kliknij wiersz → Zaznacz w AI:</strong> jeden klik przenosi kursor Illustratora prosto na błędny obiekt
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SEKCJA 2: Weryfikacja kolorów -->
+          <div class="showcase-section">
+            <h3>🎨 Weryfikacja kolorów CMYK i Pantone</h3>
+            <p class="tab-description">Panel sprawdza wypełnienia i obrysy wszystkich obiektów — wykrywa kolory RGB zamiast CMYK oraz niezatwierdzone Spot Colors (Pantone)</p>
+            <div class="showcase-row">
+              <div class="showcase-item">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/sprawdzanie_kolorow_Automatyzacja.webp"
+                  alt="Panel CyfraDruk – zakładka kolorów z listą wypełnień i obrysów"
+                  loading="lazy"
+                  data-caption="Weryfikacja kolorów – wypełnienia i obrysy osobno">
+                <p>Osobny widok wypełnień i obrysów</p>
+              </div>
+              <div class="showcase-item showcase-mobile">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.png"
+                  alt="Panel CyfraDruk – zakładka obiektów z kolorami Pantone"
+                  loading="lazy"
+                  data-caption="Obiekt z kolorem Pantone – weryfikacja Spot Color">
+                <p>Weryfikacja Spot Colors (Pantone)</p>
+              </div>
+            </div>
+            <div class="features-box">
+              <h4>Co sprawdza moduł kolorów</h4>
+              <ul class="features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Wypełnienia vs obrysy:</strong> dwa osobne widoki — kolory i grubości obrysów zebrane razem
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Wykrywanie RGB:</strong> automatyczny alert gdy obiekt ma kolor w przestrzeni RGB zamiast CMYK
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Spot Colors (Pantone):</strong> lista wszystkich kolorów dodatkowych w pliku z podziałem na obiekty
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Licznik obiektów:</strong> każda pozycja pokazuje ile obiektów używa danego koloru — priorytetyzacja napraw
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SEKCJA 3: Interaktywny raport -->
+          <div class="showcase-section floating-cart-section">
+            <h3>📋 Interaktywny raport i nawigacja do błędów</h3>
+            <p class="tab-description">Kliknięcie wiersza w raporcie wykonuje skok do obiektu w Illustratorze — bez scrollowania, bez szukania w warstwach</p>
+            <div class="showcase-row">
+              <div class="showcase-item">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.webp"
+                  alt="Panel CyfraDruk – interaktywna lista z zaznaczeniem obiektu w AI"
+                  loading="lazy"
+                  data-caption="Interaktywna lista – klik zaznacza obiekt w Illustratorze">
+                <p>Klik w raporcie → zaznaczenie w AI</p>
+              </div>
+              <div class="showcase-item showcase-mobile">
+                <img
+                  class="lightbox-trigger"
+                  src="/KWdesignnew/assets/images/sprawdzanie_kolorow_Automatyzacja.webp"
+                  alt="Panel CyfraDruk – raport kolorów z przyciskiem zaznaczenia"
+                  loading="lazy"
+                  data-caption="Raport kolorów – przycisk zaznaczenia obiektu w pliku">
+                <p>Raport kolorów z nawigacją</p>
+              </div>
+            </div>
+            <div class="features-box">
+              <h4>Architektura interaktywnego raportu</h4>
+              <ul class="features-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>ExtendScript bridge:</strong> panel JS wysyła ID obiektu do warstwy .jsx → Illustrator zaznacza i centruje widok na błędzie
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Sortowanie błędów:</strong> lista sortowana od najpoważniejszych (0 mm) do granicznych — operator zaczyna od najgorszych
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Filtrowanie warstw:</strong> możliwość ograniczenia skanowania do wybranej warstwy — szybsza weryfikacja po poprawkach
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <strong>Zaznacz wszystkie:</strong> przycisk "Zaznacz wszystkie błędy" — grupowe zaznaczenie do masowej korekty w jednej operacji
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         5. ARCHITEKTURA TECHNICZNA
+    ============================================================ -->
+    <div class="kwcs-sec kwcs-mockups-section">
+      <div class="wrap">
+        <h2>Architektura techniczna — CEP + ExtendScript</h2>
+
+        <div class="mockups-intro">
+          <p>
+            Wtyczka CEP składa się z dwóch warstw: <strong>panelu webowego</strong> (HTML/CSS/JS renderowany w Chromium wbudowanym w Illustratora) oraz <strong>skryptu ExtendScript</strong> (.jsx), który ma bezpośredni dostęp do modelu dokumentu Illustratora (DOM). Komunikacja między nimi odbywa się przez <code>CSInterface.evalScript()</code>.
+          </p>
+        </div>
+
+        <!-- Galeria: kod i architektura -->
+        <div class="kwcs-gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.webp"
+              alt="Panel CyfraDruk – widok zakładki Obiekty z danymi skanowania"
+              loading="lazy">
+            <p class="img-desc">Moduł skanowania obiektów – wyniki</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/KWdesignnew/assets/images/sprawdzanie_kolorow_Automatyzacja.webp"
+              alt="Panel CyfraDruk – widok zakładki Kolory z listą CMYK i Pantone"
+              loading="lazy">
+            <p class="img-desc">Moduł weryfikacji kolorów – wyniki</p>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="/KWdesignnew/assets/images/Sprawdzanie_obiektów_Automatyzacja.png"
+              alt="Panel CyfraDruk – zaznaczony obiekt w Illustratorze"
+              loading="lazy">
+            <p class="img-desc">Nawigacja do obiektu – zaznaczenie w AI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         6. TRZY KARTY: Statystyki i wyniki
+    ============================================================ -->
+    <div class="kwcs-sec" id="zakres">
+      <div class="wrap kwcs-trio">
+
+        <article class="kwcs-card">
+          <h3>15x szybciej</h3>
+          <ul>
+            <li>Zmniejszenie czasu inspekcji z <strong>15 minut do 1 sekundy</strong></li>
+            <li>Operator skanuje plik jednym kliknięciem przycisku "Skanuj plik"</li>
+            <li>Wynik dostępny natychmiast — bez oczekiwania niezależnie od liczby obiektów</li>
+            <li>Czas zaoszczędzony przy 20 plikach dziennie: <strong>ponad 4 godziny</strong> pracy operatora</li>
+          </ul>
+        </article>
+
+        <article class="kwcs-card">
+          <h3>100% dokładności</h3>
+          <ul>
+            <li>Algorytm rekurencyjny <strong>nie przeoczy mikroskopijnego punktu</strong> ukrytego w grupie lub masce</li>
+            <li>Zero błędów ludzkich — komputer nie ulega zmęczeniu po 200. obiekcie</li>
+            <li>Weryfikacja zarówno <strong>fill</strong> jak i <strong>stroke</strong> każdego obiektu osobno</li>
+            <li>Obsługa zagnieżdżonych grup, symboli i obiektów złożonych</li>
+          </ul>
+        </article>
+
+        <article class="kwcs-card">
+          <h3>Interaktywny UI</h3>
+          <ul>
+            <li>Przycisk <strong>"Zaznacz w AI"</strong> automatycznie lokalizuje błędny wektor w dokumencie</li>
+            <li>Skrócenie czasu naprawy — operator nie musi szukać obiektu w warstwach</li>
+            <li>Kolorowe oznaczenia: czerwony = błąd krytyczny, zielony = prawidłowy</li>
+            <li>Sortowanie i filtrowanie listy błędów według warstwy lub rodzaju problemu</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         7. ACCORDION — proces projektowy
+    ============================================================ -->
+    <div class="kwcs-sec" id="dostarczone">
+      <div class="wrap">
+        <h2>Proces projektowy</h2>
+        <div class="kwcs-accordion">
+
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-1" id="header-cyfra-1" type="button">
+              <span class="num">1</span> Discovery — mapowanie procesu DTP w drukarni
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cyfra-1" role="region" aria-labelledby="header-cyfra-1">
+              <p><strong>Obserwacja pracy operatora:</strong> Spędziłem czas przy stanowisku DTP obserwując realny workflow. Zobaczyłem, że inspekcja pliku to seria ręcznych kliknięć — otwieranie właściwości każdego obiektu, sprawdzanie zakładki "Obrys", porównywanie z cennikiem grubości linii.</p>
+              <ul>
+                <li>Wywiad z operatorami — jakie rodzaje błędów zdarzają się najczęściej, które są najtrudniejsze do wykrycia</li>
+                <li>Analiza kosztów reklamacji — policzenie ile kosztuje jeden przedruk vs. czas poświęcony na inspekcję</li>
+                <li>Ustalenie specyfikacji — progi grubości linii dla różnych technik druku (offset, cyfrowy, UV)</li>
+                <li>Constraint: wtyczka musi działać bez dostępu do internetu, bez zewnętrznych zależności — tylko Adobe SDK</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-2" id="header-cyfra-2" type="button">
+              <span class="num">2</span> Projekt UI panelu CEP — architektura informacji
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cyfra-2" role="region" aria-labelledby="header-cyfra-2">
+              <p><strong>Kluczowa decyzja projektowa:</strong> Panel musi być czytelny w wąskim pasku bocznym Illustratora (domyślna szerokość panelu to ok. 250–300 px). Hierarchia informacji musiała działać w jednej kolumnie.</p>
+              <ul>
+                <li>Wireframe w Figmie — układ zakładek: "Obiekty" / "Kolory" / "Ustawienia"</li>
+                <li>System kolorów błędów: czerwony (krytyczny, &lt; progu), żółty (ostrzeżenie, blisko progu), zielony (OK)</li>
+                <li>Tabela wyników z kolumnami: Min. wymiar, Szerokość × Wysokość, Warstwa</li>
+                <li>Przycisk "Skanuj plik" jako jedyna akcja główna — zero learning curve dla operatora</li>
+                <li>Stan "Brak właściwości kształtu" dla zaznaczenia wielu obiektów — obsługa edge case</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-3" id="header-cyfra-3" type="button">
+              <span class="num">3</span> Implementacja ExtendScript — algorytm rekurencyjny
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cyfra-3" role="region" aria-labelledby="header-cyfra-3">
+              <p><strong>Kluczowy algorytm:</strong> Skanowanie dokumentu Illustratora wymaga rekurencyjnego przechodzenia przez drzewo obiektów — grupy mogą zawierać grupy, symbole mogą zawierać inne symbole zagnieżdżone 5 poziomów w głąb.</p>
+              <ul>
+                <li><strong>Funkcja <code>scanPageItems()</code>:</strong> rekurencja przez <code>pageItems</code>, <code>groupItems</code>, <code>symbolItems</code></li>
+                <li><strong>Pomiar obiektu:</strong> <code>geometricBounds</code> vs <code>visibleBounds</code> — różnica ma znaczenie przy obiektach z obrysem</li>
+                <li><strong>Wykrywanie grubości:</strong> <code>pathItem.strokeWidth</code> — konwersja z punktów do mm (1 pt = 0.3528 mm)</li>
+                <li><strong>Kolory:</strong> <code>fillColor instanceof SpotColor</code> — identyfikacja Pantone, <code>colorType</code> dla RGB vs CMYK</li>
+                <li><strong>Zaznaczenie z panelu:</strong> <code>app.selection = [targetObject]</code> + <code>app.activeDocument.activeView.centerSelection()</code></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-4" id="header-cyfra-4" type="button">
+              <span class="num">4</span> Komunikacja JS ↔ ExtendScript — CSInterface bridge
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cyfra-4" role="region" aria-labelledby="header-cyfra-4">
+              <p><strong>Architektura komunikacji:</strong> Panel CEP (Chromium) nie ma bezpośredniego dostępu do API Illustratora. Wszystkie wywołania przechodzą przez <code>CSInterface.evalScript()</code> — asynchroniczny most między JS a ExtendScript.</p>
+              <ul>
+                <li><strong>Wywołanie skanowania:</strong> <code>csInterface.evalScript('scanAllObjects(' + threshold + ')', callback)</code></li>
+                <li><strong>Serializacja wyników:</strong> ExtendScript zwraca JSON jako string — panel parsuje i renderuje tabelę</li>
+                <li><strong>Zaznaczenie obiektu:</strong> <code>csInterface.evalScript('selectObjectById("' + objectId + '")')</code> — każdy obiekt ma unikalne ID generowane przy skanowaniu</li>
+                <li><strong>Wydajność:</strong> batch processing — jeden eval zamiast pętli eval'ów (10x szybciej na dużych plikach)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-5" id="header-cyfra-5" type="button">
+              <span class="num">5</span> Testy i wdrożenie w środowisku drukarni
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cyfra-5" role="region" aria-labelledby="header-cyfra-5">
+              <p><strong>Testowanie na realnych plikach:</strong> Wtyczka była testowana na plikach produkcyjnych drukarni — etykiety, ulotki, wizytówki, projekty z wykrojnikiem. Każdy typ pliku wymagał innego edge case w algorytmie.</p>
+              <ul>
+                <li>Testy na plikach z &gt;5000 obiektów — weryfikacja czasu skanowania i stabilności</li>
+                <li>Edge cases: obiekty z <code>strokeWidth = 0</code> (brak obrysu), obiekty ukryte, obiekty na zablokowanych warstwach</li>
+                <li>Szkolenie operatorów — 30-minutowa sesja zamiast tygodniowego onboardingu</li>
+                <li>Zbieranie feedbacku po 2 tygodniach użytkowania — dodanie filtru warstw i sortowania na życzenie zespołu</li>
+                <li>Pakiet instalacyjny — folder <code>.zxp</code> instalowany przez Adobe Extension Manager bez uprawnień administratora</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ============================================================
+             8. REZULTAT
+        ============================================================ -->
+        <div class="kwcs-result">
+          <h2>Rezultat</h2>
+
+          <div class="result-lead">
+            <p>
+              🖨️ Wtyczka CyfraDruk została wdrożona w środowisku produkcyjnym drukarni i <strong>wyeliminowała ręczną inspekcję plików</strong>. Czas sprawdzenia jednego pliku skrócił się z 15 minut do mniej niż sekundy. Operatorzy zgłaszają zero reklamacji związanych z grubością linii po wdrożeniu.
+            </p>
+          </div>
+
+          <div class="result-cards">
+            <div class="result-card">
+              <div class="result-icon">⚡</div>
+              <h3>&lt;1 sekunda na plik</h3>
+              <p>Czas inspekcji skrócony z 15 minut — niezależnie od liczby obiektów w dokumencie</p>
+            </div>
+            <div class="result-card">
+              <div class="result-icon">✅</div>
+              <h3>Zero reklamacji</h3>
+              <p>Po wdrożeniu żaden plik nie przeszedł do druku z błędem grubości linii wykrywalnym przez wtyczkę</p>
+            </div>
+            <div class="result-card">
+              <div class="result-icon">🎯</div>
+              <h3>Bez szkolenia</h3>
+              <p>Operatorzy opanowali narzędzie w 30 minut — jeden przycisk, czytelny raport, akcja naprawy</p>
+            </div>
+          </div>
+
+          <a class="kwcs-cta" href="index.html#contact" aria-label="Zapytaj o podobną wtyczkę lub automatyzację DTP">
+            Zapytaj o podobne narzędzie
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+
+          <div class="result-next">
+            <h3>Co dalej?</h3>
+            <p>
+              Planowane rozszerzenia: <strong>moduł spadów</strong> — automatyczne generowanie bezpiecznych spadów z wykrojnika jednym przyciskiem, <strong>weryfikacja fontów</strong> (wykrywanie fontów niekonwertowanych na krzywe), <strong>eksport raportu do PDF</strong> dla klienta jako protokół weryfikacji pliku przed drukiem.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększony obraz">
+    <span class="lightbox-close" role="button" aria-label="Zamknij lightbox" tabindex="0">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Powiększony obraz">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="/KWdesignnew/assets/js/projects.js" defer></script>
+
+</body>
+</html>
