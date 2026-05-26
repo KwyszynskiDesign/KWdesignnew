@@ -37,10 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'KW-Design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
     'savage': 'projects/savage.html',
-    'RazDwa': 'projects/razdwa.html',
-    'razdwa-druk': 'projects/razdwadruk.html',
-    'razdwa-strona': 'projects/razdwa-strona.html',
-    'razdwa-aplikacja': 'projects/razdwa-aplikacja.html',
+    'RazDwa': 'projects/razdwa_aplikacja.html',
      'cyfradruk' : 'projects/cyfradruk.html',
   };
 
