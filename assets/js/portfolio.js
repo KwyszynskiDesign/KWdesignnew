@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'RazDwa': 'projects/razdwa.html',
     'razdwa-druk': 'projects/razdwadruk.html',
     'razdwa-strona': 'projects/razdwa-strona.html',
-    'razdwa-aplikacja': 'projects/razdwa-aplikacja.html'
-     'cyfradruk' : 'projects/cyfradruk.html'
+    'razdwa-aplikacja': 'projects/razdwa-aplikacja.html',
+     'cyfradruk' : 'projects/cyfradruk.html',
   };
 
   // ========================================
