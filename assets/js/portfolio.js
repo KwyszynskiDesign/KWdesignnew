@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'razdwa-druk': 'projects/razdwadruk.html',
     'razdwa-strona': 'projects/razdwa-strona.html',
     'razdwa-aplikacja': 'projects/razdwa-aplikacja.html'
+     'cyfradruk' : 'projects/cyfradruk.html'
   };
 
   // ========================================
