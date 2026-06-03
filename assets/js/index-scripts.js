@@ -12,56 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounters();
     initServiceCardsAnimation();
     initOrderTool();
-    console.log('Website initialized successfully');
 });
+
 
 // Configuration
 const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbz7q6dEJrmXBq2WKjcVuLUub0nSTNV1I2F7a8n6UgieHmiESbaxHG-nxrx7sT3AJiCz/exec';
-
-// Test API Function
-// NOWY TEST API - tylko GET (bez błędów CORS)
-window.testAPI = async function() {
-    console.clear();
-    console.log('=== TEST GET API ===');
-    console.log('🌐 URL:', CONTACT_API_URL);
-    
-    try {
-        // Test 1: Podstawowy GET
-        console.log('📡 Test 1: Podstawowy GET...');
-        const basicResponse = await fetch(CONTACT_API_URL, { method: 'GET' });
-        console.log('✅ Status:', basicResponse.status);
-        const basicText = await basicResponse.text();
-        console.log('📄 Response:', basicText);
-        
-        // Test 2: GET z danymi
-        console.log('📡 Test 2: GET z danymi testowymi...');
-        const testData = {
-            name: 'Jan Testowy',
-            email: 'test@example.com',
-            phone: '123456789',
-            projectType: 'website',
-            budget: '5000-10000',
-            message: 'To jest test GET API'
-        };
-        
-        const params = new URLSearchParams(testData);
-        const dataResponse = await fetch(`${CONTACT_API_URL}?${params}`, { method: 'GET' });
-        console.log('✅ Status z danymi:', dataResponse.status);
-        const dataText = await dataResponse.text();
-        console.log('📄 Response z danymi:', dataText);
-        
-        if (dataText === 'SUCCESS') {
-            console.log('🎉 TEST ZAKOŃCZONY SUKCESEM - sprawdź arkusz KONTAKTY w Google Sheets!');
-        } else {
-            console.log('⚠️ Niespodziewana odpowiedź:', dataText);
-        }
-        
-    } catch (error) {
-        console.error('❌ Błąd testu:', error);
-    }
-    
-    console.log('=== KONIEC TESTU ===');
-};
 
 // Contact form functionality
 // Contact form functionality - WERSJA GET (OMIJA CORS)
@@ -75,7 +30,6 @@ function initContactForm() {
     
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        console.log('Form submitted');
 
         if (!validateContactForm(contactForm)) return;
         setSubmitButtonState(true, submitBtn, btnText, btnLoader);
@@ -91,22 +45,17 @@ function initContactForm() {
                 message: formData.get('message')
             };
 
-            console.log('📤 Wysyłam dane przez GET:', data);
-
             // WYSYŁANIE PRZEZ GET - OMIJA CORS!
             const params = new URLSearchParams(data);
             const response = await fetch(`${CONTACT_API_URL}?${params}`, {
                 method: 'GET'
             });
 
-            console.log('📡 Response status:', response.status);
             const result = await response.text();
-            console.log('📄 Response:', result);
 
             if (result === 'SUCCESS') {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
                 contactForm.reset();
-                console.log('✅ Formularz wysłany pomyślnie');
             } else if (result.startsWith('ERROR:')) {
                 throw new Error(result.replace('ERROR: ', ''));
             } else {
@@ -114,7 +63,6 @@ function initContactForm() {
             }
             
         } catch (error) {
-            console.error('❌ Form error:', error);
             showNotification(`❌ Błąd: ${error.message}. Spróbuj ponownie lub napisz bezpośrednio na email.`, 'error');
         } finally {
             setSubmitButtonState(false, submitBtn, btnText, btnLoader);
@@ -227,8 +175,6 @@ function getCurrentStatus() {
     const hour = now.getHours();
     const day = now.getDay(); // 0 = niedziela, 6 = sobota
 
-    console.log(`DEBUG: Godzina ${hour}, dzień ${day}`);
-
     // Weekend (sobota i niedziela)
     if (day === 0 || day === 6) {
         return { 
@@ -333,7 +279,6 @@ function initTestimonialsCarousel() {
     const cards = document.querySelectorAll('.testimonial-card');
     
     if (!carousel || !track || !prevBtn || !nextBtn || cards.length === 0) {
-        console.warn('Testimonials carousel elements not found');
         return;
     }
 
@@ -451,7 +396,6 @@ function initTestimonialsCarousel() {
         }
     }
     
-    console.log('✅ Testimonials carousel initialized');
 }
 
 function initAnimations() {
@@ -488,8 +432,6 @@ function initScrollEffects() {
 
 function initNotifications() {
     window.showNotification = (message, type = 'success') => {
-        console.log(`POWIADOMIENIE ${type.toUpperCase()}: ${message}`);
-        
         // BACKUP 1: Spróbuj normalnego powiadomienia
         try {
             const notification = document.createElement('div');
@@ -533,7 +475,6 @@ function initNotifications() {
             }, 5000);
             
         } catch (error) {
-            console.error('Błąd powiadomienia:', error);
             // BACKUP 2: Użyj alert
             alert(`${type === 'success' ? '✅' : '❌'} ${message}`);
         }
@@ -575,8 +516,6 @@ function initServiceCardsAnimation() {
 
   cards.forEach(card => observer.observe(card));
 }
-
-console.log('🔧 Funkcja testAPI() dostępna. Wpisz w konsoli: testAPI()');
 
 // ========== ORDER TOOL – Dane Zamówienia ==========
 function initOrderTool() {

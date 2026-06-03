@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /projects/
+
+Sitemap: https://kwyszynski.pl/sitemap.xml
