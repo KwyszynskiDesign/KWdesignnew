@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Case Study: Raz Dwa Druk — System Cyfrowy | Karol Wyszyński</title>
+  <meta name="description" content="Kompleksowy system cyfrowy dla drukarni Raz Dwa: kalkulator wycen B2B, UX/UI wielokolumnowy, architektura aplikacji TypeScript, Google Sheets, pdf-lib, PWA.">
+  <meta name="keywords" content="case study, kalkulator drukarni, Raz Dwa, aplikacja B2B, PWA, TypeScript, druk CAD, UX design, Google Sheets, pdf-lib">
+  <meta name="author" content="Karol Wyszyński">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/razdwa-pelne.html">
+  <meta property="og:title" content="Case Study: Raz Dwa Druk — System Cyfrowy | Karol Wyszyński">
+  <meta property="og:description" content="Kompleksowy system cyfrowy dla drukarni: kalkulator B2B, PWA offline, Google Sheets, pdf-lib — 21 kategorii, 178 testów automatycznych, pełny proces UX/UI.">
+  <meta property="og:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/kalkulator-cad-hero.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="Karol Wyszyński Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Raz Dwa Druk — System Cyfrowy | Karol Wyszyński">
+  <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/kalkulator-cad-hero.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/KWdesignnew/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/KWdesignnew/assets/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/KWdesignnew/assets/images/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/KWdesignnew/favicon.ico">
+
+  <link rel="stylesheet" href="/KWdesignnew/assets/css/projects.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Połączone style z wszystkich podstron ─────────────────────────── */
+    
+    /* Główne statystyki (z razdwa.html) */
+    .razdwa-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+    @media (max-width: 600px) {
+      .razdwa-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    .razdwa-stat {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+    }
+    .razdwa-stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0284c7;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .razdwa-stat-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.3;
+    }
+
+    /* Ekosystem (z razdwa.html) */
+    .razdwa-ecosystem {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .razdwa-ecosystem-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .eco-node {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1rem 1.5rem;
+      text-align: center;
+    }
+    .eco-node-icon { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .eco-node-label { font-size: 0.875rem; font-weight: 600; color: #0f172a; }
+    .eco-node-sub { font-size: 0.8rem; color: #64748b; margin-top: 0.2rem; }
+    .eco-arrow {
+      font-size: 1.5rem;
+      color: #06b6d4;
+      text-align: center;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .razdwa-ecosystem-row { grid-template-columns: 1fr; }
+      .eco-arrow { transform: rotate(90deg); }
+    }
+
+    /* UX Decisions (z razdwa-strona.html) */
+    .ux-decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+    @media (max-width: 600px) {
+      .ux-decision-grid { grid-template-columns: 1fr; }
+    }
+    .ux-decision-box {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #06b6d4;
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+    }
+    .ux-decision-box h4 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .ux-decision-box p {
+      font-size: 0.875rem;
+      color: #475569;
+      line-height: 1.6;
+      text-align: left !important;
+      margin: 0;
+    }
+    .ux-decision-box .ux-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #06b6d4;
+      margin-bottom: 0.35rem;
+    }
+
+    /* User Flow (z razdwa-strona.html) */
+    .user-flow {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      max-width: 960px;
+      margin: 2rem auto;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+    .flow-step {
+      flex: 1;
+      min-width: 130px;
+      text-align: center;
+      padding: 0 0.5rem;
+    }
+    .flow-step-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #06b6d4, #0284c7);
+      color: #fff;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+    }
+    .flow-step-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+    .flow-step-sub {
+      font-size: 0.75rem;
+      color: #64748b;
+      line-height: 1.3;
+    }
+    .flow-arrow {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 14px;
+      color: #06b6d4;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .user-flow { flex-wrap: wrap; }
+      .flow-arrow { display: none; }
+    }
+
+    /* Architektura (z razdwa-aplikacja.html) */
+    .arch-layers {
+      max-width: 720px;
+      margin: 2rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .arch-layer {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      align-items: stretch;
+      border: 1px solid #e2e8f0;
+      border-bottom: none;
+    }
+    .arch-layer:first-child { border-radius: 0.75rem 0.75rem 0 0; }
+    .arch-layer:last-child { border-bottom: 1px solid #e2e8f0; border-radius: 0 0 0.75rem 0.75rem; }
+    .arch-layer-label {
+      background: linear-gradient(135deg, #06b6d4, #0284c7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+      letter-spacing: 0.03em;
+    }
+    .arch-layer-content {
+      background: #fff;
+      padding: 0.875rem 1.25rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .arch-tag {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.375rem;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8125rem;
+      font-family: 'Courier New', monospace;
+      color: #0f172a;
+      font-weight: 500;
+    }
+    .arch-tag.highlight {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    /* Integration flow (z razdwa-aplikacja.html) */
+    .integration-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 2rem auto;
+    }
+    @media (max-width: 700px) {
+      .integration-flow { grid-template-columns: 1fr; }
+    }
+    .int-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .int-card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .int-card-title { font-weight: 700; font-size: 1rem; color: #0f172a; margin-bottom: 0.5rem; }
+    .int-card-desc { font-size: 0.875rem; color: #475569; line-height: 1.5; }
+    .int-card-code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      color: #1d4ed8;
+      background: #eff6ff;
+      border-radius: 0.375rem;
+      padding: 0.25rem 0.5rem;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+
+    /* Pokrycie testami (z razdwa-aplikacja.html) */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+    .test-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #10b981;
+      border-radius: 0.5rem;
+      padding: 0.875rem 1rem;
+    }
+    .test-item-name {
+      font-size: 0.8125rem;
+      font-family: 'Courier New', monospace;
+      color: #0f172a;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .test-item-count {
+      font-size: 0.875rem;
+      color: #10b981;
+      font-weight: 700;
+    }
+    .test-item-sub { font-size: 0.75rem; color: #64748b; }
+
+    /* Dekoracyjne oddzielenie sekcji */
+    .section-divider {
+      text-align: center;
+      margin: 4rem 0 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #0f172a;
+      position: relative;
+    }
+    .section-divider::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #06b6d4;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="kwcs" id="case-razdwa-pelne" aria-label="Pełne Case Study: Raz Dwa Druk">
+
+    <div class="kwcs-hero-body">
+      <div class="wrap inner">
+        <div class="hero-content-grid">
+          <div class="hero-buttons-vertical">
+            <div class="kwcs-chip chip-zakres">
+              <strong>Zakres</strong><br>
+              Aplikacja B2B, UX/UI, Architektura TypeScript, testy
+            </div>
+            <div class="kwcs-chip chip-stack">
+              <strong>Stack</strong><br>
+              TypeScript, esbuild, Vitest, PWA, pdf-lib, Google Sheets
+            </div>
+            <div class="kwcs-chip chip-automatyzacje">
+              <strong>Kategoria</strong><br>
+              System wewnętrzny B2B · Drukarnia wielkoformatowa
+            </div>
+            <div class="kwcs-chip chip-dostarczone">
+              <strong>Dostarczone</strong><br>
+              21 kategorii, Koszyk UI, PDF + GSheets
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              class="cover"
+              src="/KWdesignnew/assets/images/strona startowa_RAZDWA.webp" 
+              alt="Raz Dwa Druk — system cyfrowy drukarni"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="630"
+              data-caption="Raz Dwa Druk — kompletny kalkulator wycen B2B">
+          </div>
+        </div>
+
+        <a class="hero-image-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz aplikację Raz Dwa Druk">
+          Otwórz aplikację na żywo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="kwcs-sec kwcs-context-section">
+      <div class="wrap">
+        <h2>Kontekst projektu</h2>
+
+        <div class="context-intro">
+          <p>
+            <strong>Drukarnia Raz Dwa</strong> obsługuje klientów B2B zamawiających wydruki wielkoformatowe — projekty CAD, plakaty A0–A1, banery i folie. Przed wdrożeniem systemu każda wycena wymagała ręcznego sprawdzenia tabeli w Excelu, przeliczenia metrów bieżących i zsumowania dopłat.
+          </p>
+          <p>
+            Projekt objął stworzenie od zera kompleksowego systemu cyfrowego: <strong>interfejsu z koszykiem</strong>, specjalistycznego <strong>kalkulatora druku CAD</strong> oraz solidnej <strong>architektury PWA</strong> (TypeScript, testy automatyczne, integracje z Google Sheets i pdf-lib) bez użycia backendu.
+          </p>
+        </div>
+
+        <div class="razdwa-stats">
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">21</div>
+            <div class="razdwa-stat-label">kategorii cennikowych</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">45 s</div>
+            <div class="razdwa-stat-label">czas wyceny (vs 8 min)</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">0 IT</div>
+            <div class="razdwa-stat-label">wymagane do utrzymania (PWA)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kwcs-sec" style="background: #f8fafc;">
+      <div class="wrap">
+        <h2>Architektura ekosystemu</h2>
+        <p>Aplikacja łączy w sobie wiele funkcjonalności, które zastąpiły ręczne przepływy pracy w drukarni:</p>
+
+        <div class="razdwa-ecosystem">
+          <div class="razdwa-ecosystem-row">
+            <div class="eco-node">
+              <div class="eco-node-icon">🖨️</div>
+              <div class="eco-node-label">Kalkulatory (np. CAD)</div>
+              <div class="eco-node-sub">Upload pliku → detekcja formatu → wycena</div>
+            </div>
+            <div class="eco-arrow">→</div>
+            <div class="eco-node">
+              <div class="eco-node-icon">🛒</div>
+              <div class="eco-node-label">Koszyk i Interfejs</div>
+              <div class="eco-node-sub">Rabat, express, suma bieżąca, UX PWA</div>
+            </div>
+          </div>
+          <div class="razdwa-ecosystem-row">
+            <div class="eco-node">
+              <div class="eco-node-icon">📄</div>
+              <div class="eco-node-label">PDF Export</div>
+              <div class="eco-node-sub">pdf-lib — zamówienie gotowe do druku</div>
+            </div>
+            <div class="eco-arrow">↔</div>
+            <div class="eco-node">
+              <div class="eco-node-icon">📊</div>
+              <div class="eco-node-label">Google Sheets</div>
+              <div class="eco-node-sub">Apps Script — automatyczna baza zamówień</div>
+            </div>
+          </div>
+          <div class="razdwa-ecosystem-row">
+            <div class="eco-node">
+              <div class="eco-node-icon">⚙️</div>
+              <div class="eco-node-label">System Cenników</div>
+              <div class="eco-node-sub">localStorage + singleton — bez dotykania kodu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 1: Interfejs i UX</h2>
+    
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>
+            Priorytetem w projektowaniu interfejsu była <strong>szybkość operacji</strong> i <strong>odporność na błędy</strong>. Drukarnia to jasne oświetlenie, szybka obsługa i pracownicy o różnym stopniu zaawansowania technicznego. 
+          </p>
+        </div>
+
+        <h3>User flow — zoptymalizowana ścieżka</h3>
+        <div class="user-flow">
+          <div class="flow-step">
+            <div class="flow-step-icon">🏠</div>
+            <div class="flow-step-label">Strona główna</div>
+            <div class="flow-step-sub">Kafelki kategorii</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">🖨️</div>
+            <div class="flow-step-label">Kalkulator</div>
+            <div class="flow-step-sub">Wybór parametrów</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">💰</div>
+            <div class="flow-step-label">Wycena</div>
+            <div class="flow-step-sub">Cena na żywo</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">🛒</div>
+            <div class="flow-step-label">Koszyk</div>
+            <div class="flow-step-sub">Rabat, express</div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-step-icon">📄</div>
+            <div class="flow-step-label">PDF / Sheets</div>
+            <div class="flow-step-sub">Eksport zamówienia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kwcs-sec kwcs-website-showcase">
+      <div class="wrap">
+        <div class="showcase-stack">
+          <div class="showcase-section">
+            <h3>🏗️ Wielokolumnowy layout PWA</h3>
+            <p class="tab-description">Zdecydowano się na stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
+            <div class="showcase-row">
+              <div class="showcase-item">
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
+                <p>Desktop — stały dostęp do koszyka</p>
+              </div>
+              <div class="showcase-item showcase-mobile">
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/kalkulator-upload-mobile.png" alt="Layout mobilny" loading="lazy" data-caption="Mobile — nawigacja ukryta, koszyk jako overlay">
+                <p>Mobile — responsywność</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-section">
+            <h3>🛒 Dynamiczny Koszyk i Kafelki</h3>
+            <p class="tab-description">Koszyk z sumą bieżącą uaktualnia się przy każdej zmianie pozycji lub włączeniu trybu EXPRESS. Kafelki na stronie głównej eliminują wielowarstwowe menu.</p>
+            <div class="showcase-row">
+              <div class="showcase-item">
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
+                <p>Koszyk — natychmiastowe przeliczanie</p>
+              </div>
+              <div class="showcase-item showcase-mobile">
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/kalkulator-cad-hero.png" alt="Kafelki kategorii" loading="lazy" data-caption="Strona główna — szybka nawigacja ikonami">
+                <p>Strona główna (Kafelki)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Kluczowe decyzje UX</h3>
+        <div class="ux-decision-grid">
+          <div class="ux-decision-box">
+            <div class="ux-label">Problem → Rozwiązanie</div>
+            <h4>Koszyk zawsze widoczny</h4>
+            <p>Stały panel po prawej eliminuje ciągłe scrollowanie góra/dół. Pracownik zawsze ma podgląd na wycenione pliki.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Problem → Rozwiązanie</div>
+            <h4>Immediate price feedback</h4>
+            <p>Cena aktualizuje się natychmiast przy zmianie jakiegokolwiek parametru — bez zbędnego klikania przycisku "Przelicz".</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Problem → Rozwiązanie</div>
+            <h4>Toasty zamiast modali</h4>
+            <p>Pop-upy i modale blokowały flow pracy. Zastąpiono je subtelnymi toastami informacyjnymi w rogu ekranu.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Problem → Rozwiązanie</div>
+            <h4>PWA offline ready</h4>
+            <p>Brak serwera? Żaden problem. Drukarnia instaluje aplikację przez Chrome jako osobną ikonę na pulpit, gotową do pracy offline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 2: Kalkulator Druku CAD</h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>Najtrudniejszą kategorią do wyceny w drukarni był druk inżynieryjny (CAD). Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
+        </div>
+
+        <h3>Iteracje interfejsu kalkulatora plików</h3>
+        <div class="kwcs-gallery-grid">
+          <div class="gallery-item">
+            <img src="/KWdesignnew/assets/images/kalkulator-cad-v1.png" alt="Iteracja 1" loading="lazy">
+            <p class="img-desc">Wersja 1: Zbyt skomplikowana tabela masowa</p>
+          </div>
+          <div class="gallery-item">
+            <img src="/KWdesignnew/assets/images/kalkulator-cad-v2.png" alt="Iteracja 2" loading="lazy">
+            <p class="img-desc">Wersja finalna: Model per-plik (Zabezpiecza przed pomyłką)</p>
+          </div>
+          <div class="gallery-item">
+            <img src="/KWdesignnew/assets/images/panel drukA4-A4skan_RAZDWA.webp" alt="Panel z przełącznikiem" loading="lazy">
+            <p class="img-desc">Progi cenowe: Natychmiastowe przeliczanie przy zmianie CZB/Kolor, ilości sztuk, czy rabatu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kwcs-sec" style="background: #f8fafc;">
+      <div class="wrap">
+        <h3>Logika Kalkulatora CAD w detalach</h3>
+        <div class="kwcs-accordion">
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
+              <span class="num">1</span> Algorytm detekcji formatu: detectFormat()
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cad-3" role="region" aria-labelledby="header-cad-3">
+              <p>Musi prawidłowo rozpoznać format niezależnie od orientacji pliku (pionowa / pozioma) i tolerować drobne odchyłki.</p>
+              <ul>
+                <li>Konwersja px → mm: <code>(px × 25.4) / DPI</code> — DPI konfigurowalne.</li>
+                <li>Orientacja auto: <code>minDim = min(w, h)</code> — krótsza krawędź to zawsze szerokość rolki.</li>
+                <li>Tolerancja ±5 mm długości dla formatowych — eliminuje błędy ze skanera.</li>
+                <li>Brak formatu = cena liczona za mb (metry bieżące) zależnie od użytej rolki.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kwcs-item">
+            <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-1" id="header-cad-1" type="button">
+              <span class="num">2</span> Dopłaty dodatkowe (Składanie, Skanowanie)
+              <span class="icon" aria-hidden="true">+</span>
+            </button>
+            <div class="kwcs-content" id="content-cad-1" role="region" aria-labelledby="header-cad-1">
+              <p>Każdy z wgranych plików może mieć niezależnie zdefiniowane opcje wykończenia.</p>
+              <ul>
+                <li><strong>Składanie:</strong> wyceniane per format (np. stała kwota za A0) lub wzorcem z m² dla nieformatowych (wydruki z rolki).</li>
+                <li><strong>Skanowanie:</strong> naliczane wg dłuższego boku per plik, aktywowane jednym checkboxem.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 3: Architektura i Integracje</h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>
+            Aby system działał lokalnie bez utrzymywania serwerów dla drukarni, całość zbudowano jako <strong>TypeScript monorepo bez frameworka frontendowego</strong>. Wykorzystano lokalny <code>localStorage</code>, pliki JSON ze znormalizowanym cennikiem oraz zewnętrzne integracje (API Google).
+          </p>
+        </div>
+
+        <h3>Architektura 4-warstwowa</h3>
+        <div class="arch-layers">
+          <div class="arch-layer">
+            <div class="arch-layer-label">UI<br>Warstwa 1</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag">src/ui/main.ts</span>
+              <span class="arch-tag">Router</span>
+              <span class="arch-tag">DOM handlers</span>
+              <span class="arch-tag">Koszyk</span>
+              <span class="arch-tag">PDF trigger</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Categories<br>Warstwa 2</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag highlight">16 plików TS (kategorii)</span>
+              <span class="arch-tag">detectFormat()</span>
+              <span class="arch-tag">calcPrice()</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">PriceService<br>Warstwa 3</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag highlight">priceService.ts</span>
+              <span class="arch-tag">resolveStoredPrice()</span>
+              <span class="arch-tag">cache w pamięci</span>
+              <span class="arch-tag">localStorage override</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Data<br>Warstwa 4</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag">zod schemas</span>
+              <span class="arch-tag">PriceTable type</span>
+              <span class="arch-tag">JSON source of truth</span>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Integracje ekosystemu</h3>
+        <div class="integration-flow">
+          <div class="int-card">
+            <div class="int-card-icon">📄</div>
+            <div class="int-card-title">pdf-lib</div>
+            <div class="int-card-desc">Generowanie PDF zamówienia całkowicie po stronie klienta — bez backendu. Zawiera pełne zestawienie i polskie fonty.</div>
+            <div class="int-card-code">Blob download / Offline</div>
+          </div>
+          <div class="int-card">
+            <div class="int-card-icon">📊</div>
+            <div class="int-card-title">Google Apps Script</div>
+            <div class="int-card-desc">fetch() → endpoint GAS wysyła i wpisuje nowe zamówienie do dedykowanego arkusza historii Google Sheets.</div>
+            <div class="int-card-code">doPost() → SpreadsheetApp</div>
+          </div>
+          <div class="int-card">
+            <div class="int-card-icon">⚙️</div>
+            <div class="int-card-title">Panel Cennika (localStorage)</div>
+            <div class="int-card-desc">Pracownicy modyfikują klucze cenowe przez UI. priceService nadpisuje JSON lokalnymi ustaleniami w czasie rzeczywistym.</div>
+            <div class="int-card-code">StorageEvent Broadcast</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Gwarancja niezawodności: 178 Testów</h3>
+        <p>Każda zmiana w cenniku jest krytyczna biznesowo. Vitest weryfikuje reguły dla 21 kategorii, krawędzi formatów (edge cases) i asynchronicznego ładowania cen.</p>
+        <div class="test-grid">
+          <div class="test-item">
+            <div class="test-item-name">druk-cad.test.ts</div>
+            <div class="test-item-count">12 testów</div>
+            <div class="test-item-sub">Tolerancja skanera, formaty rolki</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">price-persistence.test.ts</div>
+            <div class="test-item-count">11 testów</div>
+            <div class="test-item-sub">Nadpisywanie cen z UI</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">folie.test.ts</div>
+            <div class="test-item-count">10 testów</div>
+            <div class="test-item-sub">Logika ceny mb × długość</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">+ reszta asortymentu</div>
+            <div class="test-item-count">145 testów</div>
+            <div class="test-item-sub">100% Pass rate w 3.25 sekundy</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Podsumowanie Projektu</h2>
+
+    <div class="kwcs-sec" id="zakres">
+      <div class="wrap kwcs-trio">
+        <article class="kwcs-card">
+          <h3>Wyzwanie początkowe</h3>
+          <ul>
+            <li>Ręczne wyceny w Excelu z wysokim ryzykiem błędu ludzkiego (szczególnie w plikach z roli CAD).</li>
+            <li>Brak centralnej historii zamówień i brak możliwości łatwej modyfikacji cennika.</li>
+            <li>Praca w warsztacie drukarni z bardzo niestabilnym internetem.</li>
+            <li>Wymóg stworzenia interfejsu, którego zespół nauczy się "bez szkolenia".</li>
+          </ul>
+        </article>
+
+        <article class="kwcs-card">
+          <h3>Kluczowe cele i rozwiązanie</h3>
+          <ul>
+            <li><strong>Automatyzacja CAD:</strong> Precyzyjne wykrywanie rozmiarów z plików z odchyłkami.</li>
+            <li><strong>Szybkość:</strong> Czas wyceny i złożenia koszyka poniżej 1 minuty (wcześniej ~8 minut).</li>
+            <li><strong>Niezależność:</strong> Aplikacja PWA, brak bazy danych, edytowalny z panelu cennik localStorage.</li>
+            <li><strong>Bezpieczeństwo biznesowe:</strong> 178 testów jednostkowych zapobiegających błędom na fakturach.</li>
+          </ul>
+        </article>
+
+        <article class="kwcs-card">
+          <h3>Technologie dające efekt</h3>
+          <ul>
+            <li><strong>Vanilla TypeScript + esbuild:</strong> Piekielnie szybki, lekki kod (bundle ~523kb).</li>
+            <li><strong>CSS Grid + Service Worker:</strong> Dostępna offline, trójkolumnowa, responsywna aplikacja.</li>
+            <li><strong>Zod & pdf-lib:</strong> Bezbłędna walidacja cenników JSON i generowanie PDF zamówienia "w locie".</li>
+            <li><strong>Google Apps Script:</strong> Darmowy most do Google Sheets jako firmowego CRM.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <div class="kwcs-sec" id="rezultat">
+      <div class="wrap">
+        <div class="kwcs-result">
+          <h2>Rezultat Ostateczny</h2>
+
+          <div class="result-lead">
+            <p>
+              🚀 System <strong>Raz Dwa Druk</strong> wdrożono bez bólu na stanowiskach operacyjnych. Architektura 4-warstwowa spełniła wszystkie założenia: pracownicy samodzielnie aktualizują cenniki, zamówienia generują PDF i automatycznie zasilają firmowego Google Excela. Aplikacja PWA działa niezawodnie, skracając czas operacyjny i redukując błędy matematyczne do zera.
+            </p>
+          </div>
+
+          <div class="result-cards">
+            <div class="result-card">
+              <div class="result-icon">⚡</div>
+              <h3>45 s zamiast 8 min</h3>
+              <p>Ekstremalne skrócenie czasu wyceny standardowego pakietu inżynieryjnego.</p>
+            </div>
+            <div class="result-card">
+              <div class="result-icon">📱</div>
+              <h3>Zero IT, Zero Szkoleń</h3>
+              <p>System PWA postawiony lokalnie. Interfejs opanowany w ciągu pierwszej zmiany pracy.</p>
+            </div>
+            <div class="result-card">
+              <div class="result-icon">✅</div>
+              <h3>Gwarancja zysku</h3>
+              <p>Automatyczne liczenie odpadu, dopłat za składanie i narzutów trybu EXPRESS.</p>
+            </div>
+          </div>
+
+          <a class="kwcs-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz aplikację Raz Dwa Druk">
+            Zobacz Aplikację na Żywo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+
+          <div class="result-next">
+            <h3>Co dalej z projektem?</h3>
+            <p>Obecnie pracujemy nad integracją parsera DWG/DXF, aby czytać rzeczywiste wektory z plików architektonicznych bez generowania podglądów rastrowych. W planach jest również tryb klienta końcowego (B2C) ukrywający marże z bezpośrednią integracją płatności (Stripe/Przelewy24).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększony obraz">
+    <span class="lightbox-close" role="button" aria-label="Zamknij lightbox" tabindex="0">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Powiększony obraz">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script src="/KWdesignnew/assets/js/projects.js" defer></script>
+</body>
+</html>
+
+```
