@@ -177,24 +177,24 @@ function getCurrentStatus() {
 
     // Weekend (sobota i niedziela)
     if (day === 0 || day === 6) {
-        return { 
-            status: 'away', 
-            text: 'odezwę się w poniedziałek' 
+        return {
+            status: 'away',
+            text: 'Odpiszę w poniedziałek'
         };
     }
 
     // Godziny pracy (6:00 - 22:00) - zielony
     if (hour >= 6 && hour < 22) {
-        return { 
-            status: 'available', 
-            text: 'odpowiem szybko' 
+        return {
+            status: 'available',
+            text: 'Otwarty na rozmowy'
         };
-    } 
+    }
     // Noc (22:00 - 6:00) - żółty
     else {
-        return { 
-            status: 'busy', 
-            text: 'Odpowiem rano' 
+        return {
+            status: 'busy',
+            text: 'Odpiszę rano'
         };
     }
 }

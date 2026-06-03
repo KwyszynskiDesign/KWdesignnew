@@ -374,6 +374,62 @@
     .razdwa-sp-card:hover .razdwa-sp-cta svg {
       transform: translateX(4px);
     }
+
+    /* Scope decisions grid */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (max-width: 700px) {
+      .scope-grid { grid-template-columns: 1fr; }
+    }
+    .scope-col {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1.75rem 1.5rem;
+    }
+    .scope-col-header {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .scope-col-header p {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .scope-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+    }
+    .scope-badge-in  { background: #dcfce7; color: #166534; }
+    .scope-badge-out { background: #fef9c3; color: #854d0e; }
+    .scope-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .scope-list li {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.55;
+      padding-left: 0.875rem;
+      border-left: 2px solid #e2e8f0;
+    }
+    .scope-col-in  .scope-list li { border-left-color: #86efac; }
+    .scope-col-out .scope-list li { border-left-color: #fde047; }
   </style>
 </head>
 
@@ -438,7 +494,7 @@
             </div>
             <div class="kwcs-chip chip-dostarczone">
               <strong>Dostarczone</strong><br>
-              16 kategorii · 178 testów · PWA offline · PDF + GSheets
+              21 kategorii · 178 testów · PWA offline · PDF + GSheets
             </div>
           </div>
 
@@ -479,10 +535,10 @@
 
         <div class="context-intro">
           <p>
-            Drukarnia Raz Dwa obsługuje klientów B2B — plakaty, wydruki CAD, banery, folie. Każda wycena wymagała ręcznego przeszukiwania tabeli w Excelu, przeliczenia metrów bieżących i zsumowania dopłat. Przy 15 zamówieniach dziennie to <strong>ponad dwie godziny pracy straconej na przeliczenia</strong> — i ryzyko błędu przy każdej pozycji.
+            Drukarnia Raz Dwa obsługuje klientów B2B — plakaty, wydruki CAD, banery, folie. Każda wycena wymagała ręcznego przeszukiwania tabeli w Excelu, przeliczenia metrów bieżących i zsumowania dopłat. Przy 50 zamówieniach dziennie to <strong>ponad 6 godzin pracy straconej na przeliczenia</strong> — i ryzyko błędu przy każdej pozycji.
           </p>
           <p>
-            Problemem nie był Excel sam w sobie, ale <strong>brak narzędzia dopasowanego do logiki drukarni</strong>: 16 kategorii cennikowych, każda z inną logiką, praca offline w warsztacie, konieczność eksportu do PDF i Google Sheets — bez żadnego IT w utrzymaniu.
+            Problemem nie był Excel sam w sobie, ale <strong>brak narzędzia dopasowanego do logiki drukarni</strong>: 21 kategorii cennikowych, każda z inną logiką, praca offline w warsztacie, konieczność eksportu do PDF i Google Sheets — bez żadnego IT w utrzymaniu.
           </p>
         </div>
 
@@ -493,12 +549,12 @@
             <div class="razdwa-stat-label">czas wyceny przed wdrożeniem</div>
           </div>
           <div class="razdwa-stat">
-            <div class="razdwa-stat-num">16</div>
+            <div class="razdwa-stat-num">21</div>
             <div class="razdwa-stat-label">kategorii cennikowych z różną logiką</div>
           </div>
           <div class="razdwa-stat">
-            <div class="razdwa-stat-num">3</div>
-            <div class="razdwa-stat-label">produkty do zaprojektowania i wdrożenia</div>
+            <div class="razdwa-stat-num">50</div>
+            <div class="razdwa-stat-label">zamówień dziennie obsługiwanych przez system</div>
           </div>
           <div class="razdwa-stat">
             <div class="razdwa-stat-num">0</div>
@@ -516,29 +572,69 @@
       <div class="wrap">
         <h2>Moja rola i proces</h2>
         <p class="section-lead">
-          Objąłem projekt kompleksowo — od pierwszej rozmowy z właścicielem po wdrożenie i szkolenie pracowników.
+          Jedyna osoba odpowiedzialna za produkt end-to-end — discovery, priorytety, design, implementacja, delivery. Bez zespołu.
         </p>
 
         <div class="pm-process">
           <div class="pm-step">
             <div class="pm-step-num">01 / Odkrycie</div>
             <h3>Discovery</h3>
-            <p>Wywiady z właścicielem i pracownikami. Mapowanie procesu wyceny krok po kroku. Identyfikacja bólu: błędy Excel, brak historii zamówień, praca offline w warsztacie bez stałego internetu.</p>
+            <p>Wywiady z właścicielem i pracownikami obsługującymi zamówienia — przed jakimkolwiek projektem. Kluczowy insight: właściciel mówił o „lepszym Excelu", rozmowy z obsługą ujawniły, że prawdziwym bólem były błędy w fakturach i brak działania offline w warsztacie. To zmieniło całą architekturę.</p>
           </div>
           <div class="pm-step">
             <div class="pm-step-num">02 / Definicja</div>
             <h3>Scope i priorytety</h3>
-            <p>Zdefiniowałem zakres trzech produktów i ich priorytety. Kluczowe wymagania: offline-first, zero IT w utrzymaniu, eksport PDF i automatyczny wpis do Google Sheets po każdym zamówieniu.</p>
+            <p>Uzgodniłem z właścicielem trzy twarde wymagania, których nie negocjowałem: offline-first, zero IT w utrzymaniu, PDF + Google Sheets. Funkcje zgłoszone przez właściciela — tryb klienta, płatności online, parser CAD — świadomie odłożyłem na v2. Odłożenie ich skróciło wdrożenie o kilka miesięcy.</p>
           </div>
           <div class="pm-step">
             <div class="pm-step-num">03 / Budowanie</div>
             <h3>Projekt i implementacja</h3>
-            <p>TypeScript, esbuild, Vitest. 16 kategorii cennikowych z osobną logiką każda. 178 testów pokrywających każdą regułę. Service worker, pdf-lib, Google Apps Script.</p>
+            <p>Przed kodem — makieta kalkulatora skonsultowana z pracownikami obsługującymi zamówienia. Kluczowa zmiana UX: układ wielokolumnowy zamiast formularza liniowego — operator widzi wszystkie pozycje naraz. TypeScript i 178 testów od pierwszego commita: decyzja PM-a — jeden błąd w logice cennikowej to błędna faktura klienta B2B.</p>
           </div>
           <div class="pm-step">
             <div class="pm-step-num">04 / Wdrożenie</div>
             <h3>Delivery i przekazanie</h3>
-            <p>PWA instalowana lokalnie — bez serwera, bez IT. Szkolenie z panelu ustawień cen. Przekazanie z dokumentacją. Zero regresji po wdrożeniu.</p>
+            <p>Instalacja PWA bez udziału IT. Test akceptacyjny: właściciel zaktualizował cennik przez panel bez mojej pomocy podczas odbioru. Jeśli zmiana cen jest zrozumiała samodzielnie — wdrożenie uznałem za zakończone. Zero regresji po wdrożeniu i pierwszej samodzielnej aktualizacji cen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         4b. DECYZJE SCOPINGOWE
+    ============================================================ -->
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <h2>Decyzje scopingowe</h2>
+        <p class="section-lead">
+          Największa decyzja PM-a to nie co zbudować — ale czego <em>nie</em> budować w v1. Odłożenie czterech funkcji skróciło czas wdrożenia i pozwoliło dostarczyć to, co naprawdę odblokowywało pracę.
+        </p>
+
+        <div class="scope-grid">
+          <div class="scope-col scope-col-in">
+            <div class="scope-col-header">
+              <span class="scope-badge scope-badge-in">✓ Weszło do v1</span>
+              <p>Filtr: czy spełnia jedno z trzech twardych wymagań?</p>
+            </div>
+            <ul class="scope-list">
+              <li><strong>Kalkulator B2B</strong> — 21 kategorii, progi CZB/kolor, dopłaty, detekcja CAD</li>
+              <li><strong>Panel ustawień cen</strong> — właściciel zmienia ceny sam, bez programisty</li>
+              <li><strong>Eksport PDF + Google Sheets</strong> — każde zamówienie zarchiwizowane automatycznie</li>
+              <li><strong>Strona informacyjna drukarni</strong> — oferta, kontakt, lokalizacja</li>
+            </ul>
+          </div>
+
+          <div class="scope-col scope-col-out">
+            <div class="scope-col-header">
+              <span class="scope-badge scope-badge-out">→ Świadomie odłożone na v2</span>
+              <p>Nie dlatego, że nieważne — dlatego, że nie odblokowywały core problemu</p>
+            </div>
+            <ul class="scope-list">
+              <li><strong>Tryb klienta</strong> — wymagał warstwy auth i ról, zwiększał złożoność bez wpływu na czas wyceny</li>
+              <li><strong>Płatności online</strong> (Stripe / Przelewy24) — klient nie miał jeszcze procesu obsługi zamówień online</li>
+              <li><strong>Parser DWG/DXF</strong> — zależność od zewnętrznej biblioteki z niezweryfikowanymi edge cases</li>
+              <li><strong>Historia zamówień</strong> — Google Sheets pokrywał potrzebę w v1; własna historia po walidacji</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -575,7 +671,7 @@
           <div class="pm-decision">
             <div class="pm-decision-label">Decyzja 03</div>
             <h3>TypeScript + testy od początku</h3>
-            <p class="pm-decision-context"><strong>Kontekst:</strong> 16 kategorii cennikowych, każda z inną logiką. Jeden błąd = błędna faktura dla klienta B2B.</p>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> 21 kategorii cennikowych, każda z inną logiką. Jeden błąd = błędna faktura dla klienta B2B.</p>
             <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Szybki prototyp JS — szybszy start, ale regresje przy każdej zmianie cen niemal pewne.</p>
             <p class="pm-decision-outcome"><strong>Decyzja:</strong> TypeScript + Vitest. 178 testów. Każda reguła cennikowa pokryta testem — zmiany cen bez ryzyka.</p>
           </div>
@@ -585,92 +681,7 @@
     </div>
 
     <!-- ============================================================
-         6. TRZY OBSZARY PROJEKTU
-    ============================================================ -->
-    <div class="kwcs-sec" style="background: #f8fafc;">
-      <div class="wrap">
-        <h2>Trzy obszary projektu</h2>
-        <div class="razdwa-hub-intro">
-          <p>Każdy obszar to osobne case study z pełną historią decyzji projektowych, wyzwań i wyników.</p>
-        </div>
-
-        <div class="razdwa-subprojects">
-
-          <!-- Obszar 1: Kalkulator wycen -->
-          <a class="razdwa-sp-card"
-            href="/KWdesignnew/projects/razdwadruk.html"
-            aria-label="Czytaj case study: Kalkulator wycen">
-            <div class="razdwa-sp-image">
-              <img src="/KWdesignnew/assets/images/kalkulator-cad-hero.png" alt="Kalkulator wycen — Raz Dwa Druk" loading="lazy">
-            </div>
-            <div class="razdwa-sp-body">
-              <span class="razdwa-sp-label">Obszar 1 / 3</span>
-              <h3 class="razdwa-sp-title">Kalkulator wycen</h3>
-              <p class="razdwa-sp-desc">16 kategorii cennikowych, automatyczna detekcja formatu CAD, progi CZB/kolor, dopłaty za składanie i skanowanie. UX dla operatora w warsztacie.</p>
-              <div class="razdwa-sp-tags">
-                <span class="razdwa-sp-tag">UX druku CAD</span>
-                <span class="razdwa-sp-tag">Logika cennika</span>
-                <span class="razdwa-sp-tag">16 kategorii</span>
-              </div>
-              <span class="razdwa-sp-cta">
-                Czytaj case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </span>
-            </div>
-          </a>
-
-          <!-- Obszar 2: UX i interfejs -->
-          <a class="razdwa-sp-card"
-            href="/KWdesignnew/projects/razdwa-strona.html"
-            aria-label="Czytaj case study: UX i interfejs">
-            <div class="razdwa-sp-image">
-              <img src="/KWdesignnew/assets/images/kalkulator-upload.png" alt="Interfejs aplikacji Raz Dwa" loading="lazy">
-            </div>
-            <div class="razdwa-sp-body">
-              <span class="razdwa-sp-label">Obszar 2 / 3</span>
-              <h3 class="razdwa-sp-title">UX i interfejs</h3>
-              <p class="razdwa-sp-desc">Wielokolumnowy układ dla operatora, panel ustawień cen, responsywność mobilna, dostępność WCAG. Jak projektować dla trudnego użytkownika w wymagającym środowisku.</p>
-              <div class="razdwa-sp-tags">
-                <span class="razdwa-sp-tag">UX/UI</span>
-                <span class="razdwa-sp-tag">Panel ustawień</span>
-                <span class="razdwa-sp-tag">WCAG</span>
-              </div>
-              <span class="razdwa-sp-cta">
-                Czytaj case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </span>
-            </div>
-          </a>
-
-          <!-- Obszar 3: Architektura i testy -->
-          <a class="razdwa-sp-card"
-            href="/KWdesignnew/projects/razdwa-aplikacja.html"
-            aria-label="Czytaj case study: Architektura i testy">
-            <div class="razdwa-sp-image">
-              <img src="/KWdesignnew/assets/images/kalkulator-architektura.png" alt="Architektura TypeScript — Raz Dwa" loading="lazy">
-            </div>
-            <div class="razdwa-sp-body">
-              <span class="razdwa-sp-label">Obszar 3 / 3</span>
-              <h3 class="razdwa-sp-title">Architektura i testy</h3>
-              <p class="razdwa-sp-desc">TypeScript singleton, 178 testów Vitest, esbuild bundle, PDF export z pdf-lib, Google Sheets. Dlaczego jakość techniczna to decyzja produktowa, nie techniczna.</p>
-              <div class="razdwa-sp-tags">
-                <span class="razdwa-sp-tag">TypeScript</span>
-                <span class="razdwa-sp-tag">178 testów</span>
-                <span class="razdwa-sp-tag">PWA offline</span>
-              </div>
-              <span class="razdwa-sp-cta">
-                Czytaj case study
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </span>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================
-         7. WYNIKI
+         6. WYNIKI
     ============================================================ -->
     <div class="kwcs-sec" id="rezultat">
       <div class="wrap">
@@ -679,7 +690,7 @@
 
           <div class="result-lead">
             <p>
-              System wdrożono jako lokalną PWA — bez serwera, bez instalacji, bez IT. Czas wyceny zestawu 10 pozycji skrócił się z ~8 minut do <strong>poniżej 45 sekund</strong>. Pracownicy sami aktualizują cennik przez panel ustawień. Każde zamówienie trafia automatycznie do Google Sheets i generuje PDF gotowy do przesłania klientowi.
+              System wdrożono jako lokalną PWA — bez serwera, bez instalacji, bez IT. Czas wyceny zestawu 10 pozycji skrócił się z ~8 minut do <strong>poniżej 45 sekund</strong>. Przy 50 zamówieniach dziennie przekłada się to na <strong>~6 godzin operacyjnych zwróconych codziennie</strong> — czyli blisko 130 godzin miesięcznie. Poprawność obliczeń gwarantuje 178 testów pokrywających każdą z 21 reguł cennikowych — zero regresji po każdej aktualizacji cen.
             </p>
           </div>
 
@@ -690,9 +701,9 @@
               <p>Wycena zestawu 10 pozycji — bez szukania w tabelach Excel i ręcznego sumowania</p>
             </div>
             <div class="result-card">
-              <div class="result-icon">✅</div>
-              <h3>178 / 178 testów</h3>
-              <p>Każda reguła cennikowa zweryfikowana automatycznie — zero regresji po zmianach cen</p>
+              <div class="result-icon">📅</div>
+              <h3>~6 godz. dziennie</h3>
+              <p>Czas operacyjny zaoszczędzony przy 50 zamówieniach dziennie — ~130 godzin miesięcznie zwróconych na pracę produkcyjną</p>
             </div>
             <div class="result-card">
               <div class="result-icon">🔧</div>

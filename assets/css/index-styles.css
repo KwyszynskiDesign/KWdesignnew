@@ -984,6 +984,12 @@ section {
     }
 }
 
+/* Hero PM metrics — allow text wrap for longer metric labels */
+.hero-info-icons .info-icon .text {
+    white-space: normal;
+    line-height: 1.3;
+}
+
 /* Enhanced Social Proof Section */
 /* ========== BENEFITS SECTION ========== */
 
