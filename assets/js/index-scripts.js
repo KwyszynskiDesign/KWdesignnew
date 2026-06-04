@@ -194,7 +194,7 @@ function getCurrentStatus() {
     else {
         return {
             status: 'busy',
-            text: 'Odpiszę rano'
+            text: 'Odpowiadam w 24h'
         };
     }
 }

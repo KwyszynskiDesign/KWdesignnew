@@ -258,6 +258,15 @@
     .pm-decision-outcome strong {
       color: #0284c7;
     }
+    .pm-decision code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.25rem;
+      padding: 0.1em 0.4em;
+      color: #0f172a;
+    }
 
     /* Sub-project cards grid */
     .razdwa-hub-intro {
@@ -460,11 +469,11 @@
           Trzy produkty. Jedno wdrożenie. Wycena zestawu z 8 minut do 45 sekund.
         </p>
         <div class="pm-hero-meta">
-          <span><strong>Rola</strong> Product Owner · UX · Dev</span>
+          <span><strong>Rola</strong> Project Manager · UX/UI Designer</span>
           <span class="pm-meta-sep">·</span>
           <span><strong>Czas</strong> 6 miesięcy</span>
           <span class="pm-meta-sep">·</span>
-          <span><strong>Typ</strong> System wewnętrzny B2B</span>
+          <span><strong>Typ</strong> Narzędzie operacyjne B2B — PWA</span>
           <span class="pm-meta-sep">·</span>
           <span><strong>Wynik</strong> −90% czas wyceny</span>
         </div>
@@ -519,6 +528,41 @@
           </svg>
         </a>
 
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2b. EXECUTIVE SUMMARY
+    ============================================================ -->
+    <div class="kwcs-sec" style="background:#f0f9ff;">
+      <div class="wrap">
+        <h2>Executive Summary</h2>
+        <div class="context-intro">
+          <p>
+            Drukarnia Raz Dwa obsługiwała ~50 zamówień dziennie, a każda wycena zajmowała 8 minut w Excelu. Projekt polegał na zaprojektowaniu i wdrożeniu kompleksowego systemu cyfrowego: kalkulatora B2B z 21 kategoriami cennikowymi, instalowanej PWA offline i strony internetowej — w 6 miesięcy, bez zewnętrznego IT.
+          </p>
+          <p>
+            Efekt: czas wyceny z 8 minut do 45 sekund (−90%), 178 testów automatycznych chroniących logikę cennikową, zero IT w utrzymaniu — właściciel zmienia ceny samodzielnie przez panel. System działa offline w warsztacie i synchronizuje zamówienia z Google Sheets.
+          </p>
+        </div>
+        <div class="razdwa-stats">
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">−90%</div>
+            <div class="razdwa-stat-label">czas wyceny zestawu 10 pozycji</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">6 mies.</div>
+            <div class="razdwa-stat-label">od discovery do wdrożenia produkcyjnego</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">178</div>
+            <div class="razdwa-stat-label">testów automatycznych — zero regresji</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">0</div>
+            <div class="razdwa-stat-label">zależności od zewnętrznego IT</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -589,7 +633,7 @@
           <div class="pm-step">
             <div class="pm-step-num">03 / Budowanie</div>
             <h3>Projekt i implementacja</h3>
-            <p>Przed kodem — makieta kalkulatora skonsultowana z pracownikami obsługującymi zamówienia. Kluczowa zmiana UX: układ wielokolumnowy zamiast formularza liniowego — operator widzi wszystkie pozycje naraz. TypeScript i 178 testów od pierwszego commita: decyzja PM-a — jeden błąd w logice cennikowej to błędna faktura klienta B2B.</p>
+            <p>Przed kodem — makieta kalkulatora skonsultowana z pracownikami obsługującymi zamówienia. Trzy kluczowe decyzje UX: <strong>(1)</strong> układ wielokolumnowy zamiast formularza liniowego — operator widzi koszyk i kalkulator jednocześnie; <strong>(2)</strong> globalny toggle Ekspres — jedno kliknięcie przelicza cały koszyk ×1,2, operator może porównać wycenę normal/ekspres bez przepisywania; <strong>(3)</strong> PDF generowany lokalnie, bez serwera — dane zamówienia nigdy nie opuszczają urządzenia. TypeScript i 178 testów od pierwszego commita: decyzja PM-a, nie dewelopera — jeden błąd w logice cennikowej to błędna faktura klienta B2B.</p>
           </div>
           <div class="pm-step">
             <div class="pm-step-num">04 / Wdrożenie</div>
@@ -647,7 +691,7 @@
       <div class="wrap">
         <h2>Kluczowe decyzje produktowe</h2>
         <p class="section-lead">
-          Trzy decyzje, które zadecydowały o kształcie systemu. Każda z konkretnym kontekstem i trade-offem.
+          Sześć decyzji — każda z kontekstem, trade-offem i uzasadnieniem. To one ukształtowały architekturę i sposób działania systemu.
         </p>
 
         <div class="pm-decisions">
@@ -656,24 +700,48 @@
             <div class="pm-decision-label">Decyzja 01</div>
             <h3>PWA offline zamiast SaaS</h3>
             <p class="pm-decision-context"><strong>Kontekst:</strong> Warsztat nie ma stałego dostępu do internetu. Wycena musi działać niezależnie od sieci.</p>
-            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> SaaS (Notion, Airtable) — szybszy start, ale brak internetu = brak wyceny. Nieakceptowalne.</p>
-            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Service worker + instalowalna PWA. Działa bez sieci, bez serwera, bez IT.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> SaaS (Notion, Airtable) — szybszy start, ale brak internetu = brak wyceny. Nieakceptowalne dla warsztatu obsługującego 50 zamówień dziennie.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Service worker + instalowalna PWA. Działa bez sieci, bez serwera, bez IT. Cennik i logika bundlowane w pliku aplikacji.</p>
           </div>
 
           <div class="pm-decision">
             <div class="pm-decision-label">Decyzja 02</div>
-            <h3>Cennik w localStorage, nie w bazie</h3>
-            <p class="pm-decision-context"><strong>Kontekst:</strong> Właściciel zmienia ceny raz na miesiąc, samodzielnie. Nie ma zaplecza IT.</p>
-            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Backend + panel admina — więcej kontroli, ale każda zmiana ceny = deployment.</p>
-            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Panel ustawień w aplikacji + localStorage. Właściciel zmienia ceny sam, bez programisty, bez redeploymentu.</p>
+            <h3>localStorage jako primary store cennika</h3>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> Właściciel zmienia ceny raz na miesiąc, samodzielnie. Nie ma zaplecza IT. Zmiany muszą działać natychmiast — offline.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Backend + panel admina — więcej kontroli, ale każda zmiana ceny = serwer + deployment + net. Google Sheets jako jedyne źródło prawdy — synchronizacja wymaga sieci.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> localStorage jako primary store. Panel ustawień zapisuje ceny lokalnie natychmiast; Apps Script synchronizuje jako backup i źródło przywracania stanu na nowym urządzeniu.</p>
           </div>
 
           <div class="pm-decision">
             <div class="pm-decision-label">Decyzja 03</div>
-            <h3>TypeScript + testy od początku</h3>
-            <p class="pm-decision-context"><strong>Kontekst:</strong> 21 kategorii cennikowych, każda z inną logiką. Jeden błąd = błędna faktura dla klienta B2B.</p>
-            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Szybki prototyp JS — szybszy start, ale regresje przy każdej zmianie cen niemal pewne.</p>
-            <p class="pm-decision-outcome"><strong>Decyzja:</strong> TypeScript + Vitest. 178 testów. Każda reguła cennikowa pokryta testem — zmiany cen bez ryzyka.</p>
+            <h3>TypeScript + testy od pierwszego commita</h3>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> 21 kategorii cennikowych, każda z inną logiką progów i dopłat. Jeden błąd w regule = błędna faktura dla klienta B2B.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Szybki prototyp w JS — szybszy start, ale regresje przy każdej zmianie cennika niemal pewne. Koszt błędu: reklamacja, zwrot, utrata zaufania klienta.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> TypeScript + Vitest. 178 testów pokrywających każdą regułę. Zmiany cennika z minimalnym ryzykiem regresji — właściciel może edytować ceny, wiedząc że logika pozostaje nienaruszona.</p>
+          </div>
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 04</div>
+            <h3>PIN + first-run onboarding dla ustawień</h3>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> Panel ustawień cen musi być dostępny dla właściciela, ale niemożliwy do przypadkowego nadpisania przez pracownika w warsztacie.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Konta użytkowników z rolami — solidne, ale wymaga backendu, rejestracji, zarządzania hasłami. Brak bramkowania — prostsze, ale ryzyko przypadkowego skasowania całego cennika.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> PIN weryfikowany przez Apps Script z rate limitingiem. Pierwsze uruchomienie nie wymaga PINu (zero friction onboarding) — właściciel ustawia PIN przy pierwszej konfiguracji. Potem każda zmiana cen wymaga potwierdzenia. Brak osobnego backendu.</p>
+          </div>
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 05</div>
+            <h3>Dwukierunkowa integracja + agregacja zamówień</h3>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> Google Sheets to istniejące narzędzie właściciela do fakturowania. Integracja musi być użyteczna dla niego — nie tylko technicznie kompletna. 20-pozycyjne zamówienie nie może tworzyć 20 wierszy w arkuszu.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Jednostronny eksport (tylko zapis zamówień) — prosty, ale wymaga ręcznej synchronizacji cennika przy każdej zmianie. Pełna dwukierunkowość — bardziej złożona, ale właściciel pracuje w jednym narzędziu.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Endpoint <code>getState</code> pobiera ceny i definicje wariantów z arkusza do PWA. Eksport zamówień grupuje pozycje po kluczu produkt|materiał|cena — 10-pozycyjny koszyk to 2–3 wiersze w Sheets, nie 10. Arkusz pozostaje czytelny dla fakturowania.</p>
+          </div>
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 06</div>
+            <h3>Trójwarstwowy fallback dla eksportu zamówień</h3>
+            <p class="pm-decision-context"><strong>Kontekst:</strong> Sieć w warsztacie jest niestabilna. Eksport zamówienia do Google Sheets nie może blokować pracy operatora — ani przy słabym sygnale, ani przy jego braku.</p>
+            <p class="pm-decision-tradeoff"><strong>Trade-off:</strong> Prosta integracja HTTP — łatwa implementacja, ale błąd sieci = zamówienie nie trafia do arkusza = operator musi je przepisać ręcznie.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Trzy poziomy odporności: <strong>(1)</strong> CORS fetch z timeoutem 8–15 s; <strong>(2)</strong> jeśli CORS blokowany — retry z <code>mode: no-cors</code> (blind send); <strong>(3)</strong> jeśli oba zawiodą — toast z informacją i PDF jako fallback. Zamówienie zawsze trafia do PDF lokalnie, niezależnie od stanu sieci.</p>
           </div>
 
         </div>
@@ -727,168 +795,66 @@
       </div>
     </div>
 
-  </section>
-
-    <!-- System UI projektu -->
-    <div class="kwcs-sec kwcs-ui-system" style="--ui-primary:#0284c7; --ui-secondary:#06b6d4; --ui-primary-hover:#0369a1; --ui-primary-active:#075985; --ui-bg-light:#f0f9ff;">
+    <!-- ============================================================
+         7. LESSONS LEARNED
+    ============================================================ -->
+    <div class="kwcs-sec" style="background:#f8fafc;">
       <div class="wrap">
-        <h2>System UI projektu</h2>
-        <p class="ui-system-intro">Design system kalkulatora Raz Dwa — profesjonalny, czytelny, zoptymalizowany pod użytkownika B2B operującego w stresie i presji czasu.</p>
-
-        <!-- Kolory -->
-        <div class="ui-system-block">
-          <span class="ui-block-title">Paleta kolorów</span>
-          <div class="ui-color-grid">
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#0284c7"></div>
-              <span class="ui-swatch-name">Primary</span>
-              <span class="ui-swatch-hex">#0284c7</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#06b6d4"></div>
-              <span class="ui-swatch-name">Accent Cyan</span>
-              <span class="ui-swatch-hex">#06b6d4</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#10b981"></div>
-              <span class="ui-swatch-name">Success</span>
-              <span class="ui-swatch-hex">#10b981</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#f59e0b"></div>
-              <span class="ui-swatch-name">Warning</span>
-              <span class="ui-swatch-hex">#f59e0b</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#ef4444"></div>
-              <span class="ui-swatch-name">Error</span>
-              <span class="ui-swatch-hex">#ef4444</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#f0f9ff; border:1px solid #e0f2fe"></div>
-              <span class="ui-swatch-name">Background</span>
-              <span class="ui-swatch-hex">#f0f9ff</span>
-            </div>
-            <div class="ui-swatch">
-              <div class="ui-swatch-color" style="background:#0f172a"></div>
-              <span class="ui-swatch-name">Text Dark</span>
-              <span class="ui-swatch-hex">#0f172a</span>
-            </div>
+        <h2>Lessons Learned</h2>
+        <p class="section-lead">
+          Każdy projekt uczy czegoś, czego nie ma w dokumentacji. Zapisuję to, żeby nie powtarzać tych samych błędów.
+        </p>
+        <div class="pm-decisions">
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 01</div>
+            <h3>Właściciel mówi jedno, pracownicy wiedzą drugie</h3>
+            <p>Discovery z jedną osobą to za mało. Pracownicy obsługujący zamówienia ujawnili kluczowe bóle (błędy w fakturach, offline w warsztacie), których właściciel nie artykułował. Zawsze rozmawiaj z końcowym użytkownikiem systemu.</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 02</div>
+            <h3>TypeScript od dnia 1 — nie "jak będzie czas"</h3>
+            <p>Decyzja o TypeScript + testach od pierwszego commita kosztowała wolniejszy start, ale uratowała projekt trzy razy przy aktualizacjach cennika. Koszt naprawy regresji w prod jest 10× wyższy niż koszt testu napisanego przed.</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 03</div>
+            <h3>Kryterium "właściciel zrobi to sam" jako definicja sukcesu</h3>
+            <p>Akceptacja wdrożenia dopiero gdy właściciel zaktualizował cennik bez mojej pomocy — to był najlepszy test akceptacyjny w projekcie. Nie "czy działa", ale "czy docelowy użytkownik potrafi z tego korzystać samodzielnie".</p>
           </div>
         </div>
-
-        <!-- Typografia -->
-        <div class="ui-system-block">
-          <span class="ui-block-title">Typografia</span>
-          <div class="ui-type-scale">
-            <div class="ui-type-row">
-              <div class="ui-type-meta">
-                <span class="ui-type-label">H1 — Tytuł sekcji</span>
-                <span class="ui-type-spec">Inter 700 · 40px / 1.2</span>
-              </div>
-              <span class="ui-type-sample is-h1" style="font-family:Inter,sans-serif; font-size:2rem">Kalkulator CAD</span>
-            </div>
-            <div class="ui-type-row">
-              <div class="ui-type-meta">
-                <span class="ui-type-label">H2 — Panel / Modal</span>
-                <span class="ui-type-spec">Inter 700 · 28px / 1.25</span>
-              </div>
-              <span class="ui-type-sample is-h2" style="font-family:Inter,sans-serif">Dane zamówienia</span>
-            </div>
-            <div class="ui-type-row">
-              <div class="ui-type-meta">
-                <span class="ui-type-label">H3 — Label sekcji</span>
-                <span class="ui-type-spec">Inter 600 · 18px / 1.3</span>
-              </div>
-              <span class="ui-type-sample is-h3" style="font-family:Inter,sans-serif">Wymiary pliku CAD</span>
-            </div>
-            <div class="ui-type-row">
-              <div class="ui-type-meta">
-                <span class="ui-type-label">Body — Interfejs</span>
-                <span class="ui-type-spec">Inter 400 · 15px / 1.6</span>
-              </div>
-              <span class="ui-type-sample is-body" style="font-family:Inter,sans-serif">Wycena gotowa w 45 sekund. Eksport do PDF jednym kliknięciem.</span>
-            </div>
-            <div class="ui-type-row">
-              <div class="ui-type-meta">
-                <span class="ui-type-label">Code / Monospace</span>
-                <span class="ui-type-spec">Courier New 400 · 13px</span>
-              </div>
-              <span class="ui-type-sample is-caption" style="font-family:'Courier New',monospace; background:#f1f5f9; padding:0.2em 0.5em; border-radius:4px">ORDER_2024_001.pdf</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Przyciski i stany -->
-        <div class="ui-system-block">
-          <span class="ui-block-title">Przyciski i stany interaktywne</span>
-          <div class="ui-btn-table">
-
-            <div class="ui-btn-row">
-              <span class="ui-btn-kind-label">Primary</span>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-primary">Generuj wycenę</button>
-                <span class="ui-btn-state-label">Default</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-primary is-hover">Generuj wycenę</button>
-                <span class="ui-btn-state-label">Hover</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-primary is-active">Generuj wycenę</button>
-                <span class="ui-btn-state-label">Active</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-primary is-disabled">Generuj wycenę</button>
-                <span class="ui-btn-state-label">Disabled</span>
-              </div>
-            </div>
-
-            <div class="ui-btn-row">
-              <span class="ui-btn-kind-label">Secondary</span>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-secondary">Eksportuj PDF</button>
-                <span class="ui-btn-state-label">Default</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-secondary is-hover">Eksportuj PDF</button>
-                <span class="ui-btn-state-label">Hover</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-secondary is-active">Eksportuj PDF</button>
-                <span class="ui-btn-state-label">Active</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-secondary is-disabled">Eksportuj PDF</button>
-                <span class="ui-btn-state-label">Disabled</span>
-              </div>
-            </div>
-
-            <div class="ui-btn-row">
-              <span class="ui-btn-kind-label">Tertiary</span>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-tertiary">Historia zamówień</button>
-                <span class="ui-btn-state-label">Default</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-tertiary is-hover">Historia zamówień</button>
-                <span class="ui-btn-state-label">Hover</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-tertiary is-active">Historia zamówień</button>
-                <span class="ui-btn-state-label">Active</span>
-              </div>
-              <div class="ui-btn-cell">
-                <button class="ui-demo-btn is-tertiary is-disabled">Historia zamówień</button>
-                <span class="ui-btn-state-label">Disabled</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
       </div>
     </div>
+
+    <!-- ============================================================
+         8. ARTIFACTS
+    ============================================================ -->
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <h2>Artifacts</h2>
+        <p class="section-lead">Deliverables dostarczone w projekcie.</p>
+        <div class="pm-decisions">
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 01</div>
+            <h3>Kalkulator B2B — PWA offline</h3>
+            <p>TypeScript + Vitest · 21 kategorii · 178 testów · eksport PDF + Google Sheets · globalny toggle Ekspres · panel ustawień cen z PIN</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożony produkcyjnie</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 02</div>
+            <h3>Strona internetowa drukarni</h3>
+            <p>Strona informacyjna z ofertą, lokalizacją i kontaktem. Responsywna, zoptymalizowana pod PageSpeed i SEO lokalne.</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożona produkcyjnie</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 03</div>
+            <h3>Architektura systemu + Google Apps Script</h3>
+            <p>Dwukierunkowa integracja z Google Sheets: endpointy getState (pobieranie cen) i saveOrder (agregacja zamówień). Trójwarstwowy fallback offline. Dokumentacja dla właściciela.</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożony, zero regresji po wdrożeniu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększony obraz">
     <span class="lightbox-close" role="button" aria-label="Zamknij lightbox" tabindex="0">&times;</span>
