@@ -44,6 +44,27 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/KWdesignnew/assets/css/projects.css">
 
+  <style>
+    .pm-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    .pm-hero-meta strong { color: #0f172a; font-weight: 600; }
+    .pm-meta-sep { color: #cbd5e1; font-size: 1rem; }
+    @media (max-width: 600px) {
+      .pm-meta-sep { display: none; }
+      .pm-hero-meta { flex-direction: column; gap: 0.4rem; }
+    }
+    .context-intro { max-width: 820px; margin: 0 auto 2.5rem; }
+    .context-intro p { font-size: 1.0625rem; line-height: 1.8; color: #475569; margin-bottom: 1rem; }
+  </style>
+
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +72,25 @@
 
 <body>
   <!-- Case Study Content -->
-  <section class="kwcs" id="case-powerofmind" aria-label="Case Study: Identyfikacja wizualna i strona Power of Mind">
+  <section class="kwcs" id="case-powerofmind" aria-label="Case Study: Power of Mind — WordPress, automatyzacje i branding">
+
+    <!-- Hero Head PM -->
+    <div class="kwcs-hero-head">
+      <div class="wrap">
+        <p class="eyebrow">Case Study · Wellness Brand · WordPress & Automatyzacje</p>
+        <h1>Power of Mind<br>od zera do platformy sprzedażowej z automatyzacjami</h1>
+        <p class="sub">Branding + WordPress + WooCommerce + Google Apps Script. Trzy platformy testowane, jedna wdrożona.</p>
+        <div class="pm-hero-meta">
+          <span><strong>Rola</strong> Project Manager · UX/UI Designer</span>
+          <span class="pm-meta-sep">·</span>
+          <span><strong>Czas</strong> ~10 tygodni</span>
+          <span class="pm-meta-sep">·</span>
+          <span><strong>Typ</strong> Wellness / Coaching · E-commerce</span>
+          <span class="pm-meta-sep">·</span>
+          <span><strong>Wynik</strong> Pełna platforma + automatyzacje</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Hero Body with Image -->
     <div class="kwcs-hero-body">
@@ -94,6 +133,21 @@
           </svg>
         </a>
         
+      </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="kwcs-sec" style="background:#f0f9ff;">
+      <div class="wrap">
+        <h2>Executive Summary</h2>
+        <div class="context-intro">
+          <p>
+            Power of Mind — nowa marka development/wellness prowadzona przez trenerkę oddechu 9D i odporności psychicznej MTQ — potrzebowała pełnej tożsamości wizualnej i platformy sprzedażowej od zera. Zakres obejmował: rebranding, trzy iteracje wyboru platformy (Webflow → Wix → WordPress), wdrożenie WordPress + WooCommerce, system automatyzacji Google Apps Script i integrację Przelewy24.
+          </p>
+          <p>
+            Efekt: kompletna platforma sprzedażowa z automatycznym systemem zapisów na sesje, powiadomieniami 12h przed sesją, pop-upem z aktualną liczbą miejsc i pełną identyfikacją wizualną. Właścicielka zarządza systemem samodzielnie.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -538,10 +592,70 @@
     </div>
   </section>
 
+    <!-- Lessons Learned -->
+    <div class="kwcs-sec" style="background:#f8fafc;">
+      <div class="wrap">
+        <h2>Lessons Learned</h2>
+        <div class="kwcs-trio" style="margin-top:1.5rem;">
+          <article class="kwcs-card">
+            <h3>Wybór platformy to decyzja PM, nie techniczna</h3>
+            <p>Testowanie trzech platform (Webflow, Wix, WordPress) zanim zaczęto budować kosztowało czas, ale uchroniło przed przepisywaniem gotowej strony. Discovery nie kończy się na kliencie — obejmuje też narzędzia. Regulaminowe ograniczenia Wix odkryto dopiero po testowym wdrożeniu.</p>
+          </article>
+          <article class="kwcs-card">
+            <h3>Automatyzacje bez SaaS = pełna kontrola</h3>
+            <p>Google Apps Script jako engine automatyzacji — zero dodatkowego kosztu miesięcznego, pełna kontrola nad danymi, integracja z istniejącymi narzędziami klientki. Czasem najprostsze rozwiązanie jest najlepsze — zwłaszcza w branży, gdzie prywatność uczestników jest priorytetem.</p>
+          </article>
+          <article class="kwcs-card">
+            <h3>Testowanie kryterium: "uczestnik zapisze się sam"</h3>
+            <p>UAT nie polegał na checkowaniu funkcji, ale na przetestowaniu pełnego flow z realnym użytkownikiem: od landing page do potwierdzenia zapisu i płatności. Trzy błędy UX wykryto wyłącznie przez user test — nie przez testy funkcjonalne.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Artifacts -->
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <h2>Artifacts</h2>
+        <div class="kwcs-trio" style="margin-top:1.5rem;">
+          <article class="kwcs-card">
+            <h3>Brand Identity Power of Mind</h3>
+            <ul>
+              <li>Logo + logotyp (3 rundy iteracji)</li>
+              <li>Paleta kolorów emocjonalna, typografia</li>
+              <li>Wizytówki, szablony social media, favicon</li>
+              <li>Nagłówki e-mail + szablony prezentacji</li>
+            </ul>
+            <p><strong>Status:</strong> wdrożony</p>
+          </article>
+          <article class="kwcs-card">
+            <h3>Platforma WordPress + WooCommerce</h3>
+            <ul>
+              <li>Strona główna + strony usług (9D, MTQ/MTQ+)</li>
+              <li>Sklep kursowy z pakietami sesji (1, 6, 12)</li>
+              <li>Integracja Przelewy24 + RODO</li>
+              <li>Pop-up z aktualną liczbą miejsc w czasie rzeczywistym</li>
+            </ul>
+            <p><strong>Status:</strong> wdrożony produkcyjnie</p>
+          </article>
+          <article class="kwcs-card">
+            <h3>System Automatyzacji Google Apps Script</h3>
+            <ul>
+              <li>Formularz zapisu → 10 rekordów → arkusz kalkulacyjny</li>
+              <li>E-mail potwierdzenie zapisu + powiadomienie właścicielki</li>
+              <li>Trigger: przypomnienie 12h przed sesją</li>
+              <li>Endpoint z aktualną liczbą miejsc</li>
+            </ul>
+            <p><strong>Status:</strong> wdrożony, działa w produkcji</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
     <!-- Mój wkład w projekt -->
     <div class="kwcs-sec kwcs-contribution">
       <div class="wrap">
-        <h2>Mój wkład w projekt</h2>
+        <h2>Moja rola w projekcie</h2>
         <p class="contribution-lead">Kompleksowe prowadzenie projektu — od strategii marki i designu, przez implementację WordPress, po automatyzacje i launch.</p>
         <div class="contribution-grid">
 

@@ -469,7 +469,7 @@
           Trzy produkty. Jedno wdrożenie. Wycena zestawu z 8 minut do 45 sekund.
         </p>
         <div class="pm-hero-meta">
-          <span><strong>Rola</strong> Product Owner · Dev · UX thinking</span>
+          <span><strong>Rola</strong> Project Manager · UX/UI Designer</span>
           <span class="pm-meta-sep">·</span>
           <span><strong>Czas</strong> 6 miesięcy</span>
           <span class="pm-meta-sep">·</span>
@@ -528,6 +528,41 @@
           </svg>
         </a>
 
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2b. EXECUTIVE SUMMARY
+    ============================================================ -->
+    <div class="kwcs-sec" style="background:#f0f9ff;">
+      <div class="wrap">
+        <h2>Executive Summary</h2>
+        <div class="context-intro">
+          <p>
+            Drukarnia Raz Dwa obsługiwała ~50 zamówień dziennie, a każda wycena zajmowała 8 minut w Excelu. Projekt polegał na zaprojektowaniu i wdrożeniu kompleksowego systemu cyfrowego: kalkulatora B2B z 21 kategoriami cennikowymi, instalowanej PWA offline i strony internetowej — w 6 miesięcy, bez zewnętrznego IT.
+          </p>
+          <p>
+            Efekt: czas wyceny z 8 minut do 45 sekund (−90%), 178 testów automatycznych chroniących logikę cennikową, zero IT w utrzymaniu — właściciel zmienia ceny samodzielnie przez panel. System działa offline w warsztacie i synchronizuje zamówienia z Google Sheets.
+          </p>
+        </div>
+        <div class="razdwa-stats">
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">−90%</div>
+            <div class="razdwa-stat-label">czas wyceny zestawu 10 pozycji</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">6 mies.</div>
+            <div class="razdwa-stat-label">od discovery do wdrożenia produkcyjnego</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">178</div>
+            <div class="razdwa-stat-label">testów automatycznych — zero regresji</div>
+          </div>
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">0</div>
+            <div class="razdwa-stat-label">zależności od zewnętrznego IT</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -755,6 +790,65 @@
           <div class="result-next">
             <h3>Co dalej?</h3>
             <p>Planowane rozszerzenia: <strong>tryb klienta</strong> (ukryte ustawienia cen, tylko kalkulator), integracja <strong>Stripe / Przelewy24</strong> do płatności online, <strong>parser DWG/DXF</strong> do odczytywania rzeczywistych wymiarów z pliku CAD, <strong>historia zamówień</strong> z filtrowaniem i eksportem zbiorczym.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         7. LESSONS LEARNED
+    ============================================================ -->
+    <div class="kwcs-sec" style="background:#f8fafc;">
+      <div class="wrap">
+        <h2>Lessons Learned</h2>
+        <p class="section-lead">
+          Każdy projekt uczy czegoś, czego nie ma w dokumentacji. Zapisuję to, żeby nie powtarzać tych samych błędów.
+        </p>
+        <div class="pm-decisions">
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 01</div>
+            <h3>Właściciel mówi jedno, pracownicy wiedzą drugie</h3>
+            <p>Discovery z jedną osobą to za mało. Pracownicy obsługujący zamówienia ujawnili kluczowe bóle (błędy w fakturach, offline w warsztacie), których właściciel nie artykułował. Zawsze rozmawiaj z końcowym użytkownikiem systemu.</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 02</div>
+            <h3>TypeScript od dnia 1 — nie "jak będzie czas"</h3>
+            <p>Decyzja o TypeScript + testach od pierwszego commita kosztowała wolniejszy start, ale uratowała projekt trzy razy przy aktualizacjach cennika. Koszt naprawy regresji w prod jest 10× wyższy niż koszt testu napisanego przed.</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Lekcja 03</div>
+            <h3>Kryterium "właściciel zrobi to sam" jako definicja sukcesu</h3>
+            <p>Akceptacja wdrożenia dopiero gdy właściciel zaktualizował cennik bez mojej pomocy — to był najlepszy test akceptacyjny w projekcie. Nie "czy działa", ale "czy docelowy użytkownik potrafi z tego korzystać samodzielnie".</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         8. ARTIFACTS
+    ============================================================ -->
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <h2>Artifacts</h2>
+        <p class="section-lead">Deliverables dostarczone w projekcie.</p>
+        <div class="pm-decisions">
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 01</div>
+            <h3>Kalkulator B2B — PWA offline</h3>
+            <p>TypeScript + Vitest · 21 kategorii · 178 testów · eksport PDF + Google Sheets · globalny toggle Ekspres · panel ustawień cen z PIN</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożony produkcyjnie</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 02</div>
+            <h3>Strona internetowa drukarni</h3>
+            <p>Strona informacyjna z ofertą, lokalizacją i kontaktem. Responsywna, zoptymalizowana pod PageSpeed i SEO lokalne.</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożona produkcyjnie</p>
+          </div>
+          <div class="pm-decision">
+            <div class="pm-decision-label">Artifact 03</div>
+            <h3>Architektura systemu + Google Apps Script</h3>
+            <p>Dwukierunkowa integracja z Google Sheets: endpointy getState (pobieranie cen) i saveOrder (agregacja zamówień). Trójwarstwowy fallback offline. Dokumentacja dla właściciela.</p>
+            <p class="pm-decision-outcome"><strong>Status:</strong> wdrożony, zero regresji po wdrożeniu</p>
           </div>
         </div>
       </div>
