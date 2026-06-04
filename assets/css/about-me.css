@@ -11,6 +11,16 @@
     align-items: center;
 }
 
+.about-me-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: var(--space-3);
+    opacity: 0.85;
+}
+
 .about-me-text h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-family: var(--font-heading);
@@ -18,9 +28,9 @@
 }
 
 .about-me-text .subtitle {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-light);
     margin-bottom: var(--space-8);
 }
 
