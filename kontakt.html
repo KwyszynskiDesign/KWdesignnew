@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kontakt – Karol Wyszyński | UX/UI Designer</title>
-    <meta name="description" content="Skontaktuj się ze mną w sprawie projektu UX/UI, strony internetowej lub brandingu. Odpowiadam w ciągu 24h. Bezpłatna konsultacja." />
+    <title>Kontakt – Karol Wyszyński | Digital Product Designer</title>
+    <meta name="description" content="Napisz w sprawie projektu cyfrowego, automatyzacji procesu lub usprawnienia procesu biznesowego. Odpowiadam w ciągu 24 godzin. Współpraca od 8 000 zł." />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-    
+
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
-    
+
     <!-- Android Chrome Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/images/android-chrome-512x512.png">
@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-    
+
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -44,43 +44,63 @@
     <!-- Hero section for contact page -->
     <section class="hero" style="background-image: url('assets/images/automation.png');">
         <div class="hero-overlay">
-            <h1>Skontaktuj się ze mną</h1>
-            <p>Masz pytania lub chcesz rozpocząć współpracę? Napisz – odpowiem w ciągu 24h.</p>
+            <h1>Porozmawiajmy o Twoim procesie</h1>
+            <p>Masz proces, który zjada za dużo czasu, albo pomysł na produkt cyfrowy? Napisz — odpowiadam w ciągu 24 godzin.</p>
         </div>
     </section>
 
     <section class="contact">
         <div class="contact-info">
             <h2>Dane kontaktowe</h2>
-            <p><strong>Email:</strong> <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a></p>
-            <p><strong>Telefon:</strong> <a href="tel:+48123456789">+48 123 456 789</a></p>
-            <p>Odpowiadam na wiadomości w ciągu 24 godzin (dni robocze).</p>
+            <p><strong>Email:</strong> <a href="mailto:wyszynski.k@onet.pl">wyszynski.k@onet.pl</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karol-wyszynski/" target="_blank" rel="noopener">linkedin.com/in/karol-wyszynski</a></p>
+            <p>Odpowiadam na wiadomości w ciągu 24 godzin w dni robocze.</p>
+
+            <h3>Zanim napiszesz</h3>
+            <ul>
+                <li>Współpracę zaczynam od <strong>8 000 zł</strong>.</li>
+                <li>Większe projekty trwają zwykle <strong>4–5 miesięcy</strong>.</li>
+                <li>Najlepiej działam z firmami, które mają już działające procesy i chcą je uporządkować, uprościć albo zautomatyzować.</li>
+                <li>Pierwsza rozmowa nic nie kosztuje — sprawdzimy, czy w ogóle warto się brać.</li>
+            </ul>
         </div>
 
         <div class="contact-form">
             <h2>Formularz kontaktowy</h2>
-            <form id="contactForm" method="POST" action="mailto:kontakt@kwyszynski.pl" enctype="text/plain">
+            <form id="contactForm" method="POST" action="mailto:wyszynski.k@onet.pl" enctype="text/plain">
                 <label for="name">Imię i nazwisko*</label>
                 <input type="text" id="name" name="name" required placeholder="Jan Kowalski" />
 
                 <label for="email">Adres e-mail*</label>
                 <input type="email" id="email" name="email" required placeholder="jan@firma.pl" />
 
-                <label for="phone">Telefon</label>
-                <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789" />
+                <label for="company">Firma</label>
+                <input type="text" id="company" name="company" placeholder="Nazwa firmy" />
 
-                <label for="subject">Temat</label>
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="opcjonalnie" />
+
+                <label for="subject">Czego potrzebujesz</label>
                 <select id="subject" name="subject">
                     <option value="">-- wybierz --</option>
-                    <option value="projekt-strony">Projekt strony internetowej</option>
-                    <option value="branding">Logo i branding</option>
-                    <option value="sklep">Sklep internetowy</option>
-                    <option value="wspolpraca">Współpraca długoterminowa</option>
-                    <option value="inne">Inne</option>
+                    <option value="aplikacja">Aplikacja biznesowa</option>
+                    <option value="strona">Strona internetowa</option>
+                    <option value="automatyzacja">Automatyzacja procesu</option>
+                    <option value="usprawnienie">Analiza i usprawnienie procesu</option>
+                    <option value="nie-wiem">Nie wiem — pomóż mi to nazwać</option>
                 </select>
 
-                <label for="message">Wiadomość*</label>
-                <textarea id="message" name="message" required rows="6" placeholder="Opisz swój projekt lub pytanie..."></textarea>
+                <label for="budget">Budżet (opcjonalnie)</label>
+                <select id="budget" name="budget">
+                    <option value="">-- wybierz --</option>
+                    <option value="8000-15000">8 000 – 15 000 zł</option>
+                    <option value="15000-30000">15 000 – 30 000 zł</option>
+                    <option value="30000+">30 000 zł +</option>
+                    <option value="do-ustalenia">Do ustalenia</option>
+                </select>
+
+                <label for="message">Opis problemu lub procesu*</label>
+                <textarea id="message" name="message" required rows="6" placeholder="Opisz, co dziś nie działa, zajmuje za dużo czasu albo generuje błędy. Im konkretniej, tym lepiej."></textarea>
 
                 <button type="submit">Wyślij wiadomość</button>
             </form>
@@ -88,7 +108,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025&nbsp;Karol&nbsp;Wyszyński&nbsp;&ndash; kontakt: <a href="mailto:kontakt@kwyszynski.pl">kontakt@kwyszynski.pl</a></p>
+        <p>&copy; 2026&nbsp;Karol&nbsp;Wyszyński&nbsp;&ndash; kontakt: <a href="mailto:wyszynski.k@onet.pl">wyszynski.k@onet.pl</a></p>
     </footer>
 
     <script src="assets/js/scripts.js"></script>
