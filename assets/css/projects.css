@@ -2111,3 +2111,123 @@ body.lightbox-open {
 @media (max-width: 480px) {
   .contribution-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   FLOATING PROJECT NAVIGATION (Previous / Next)
+   ============================================================ */
+#project-floating-nav {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  pointer-events: auto;
+  animation: pfnFadeIn 0.4s ease;
+}
+
+@keyframes pfnFadeIn {
+  from { opacity: 0; transform: translate(20px, -50%); }
+  to   { opacity: 1; transform: translate(0, -50%); }
+}
+
+.pfn-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+  transition: all 0.25s ease;
+  max-width: 240px;
+  font-family: inherit;
+  text-align: left;
+}
+
+.pfn-btn:hover {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  box-shadow: 0 14px 36px rgba(6, 182, 212, 0.35);
+}
+
+.pfn-btn.pfn-prev:hover { transform: translateX(-4px); }
+.pfn-btn.pfn-next:hover { transform: translateX(4px); }
+
+.pfn-btn svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.pfn-btn:hover svg { opacity: 1; }
+
+.pfn-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.pfn-btn.pfn-next .pfn-label { text-align: right; }
+
+.pfn-label small {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+.pfn-label strong {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tablet: smaller buttons */
+@media (max-width: 1100px) and (min-width: 769px) {
+  #project-floating-nav { right: 16px; gap: 10px; }
+  .pfn-btn { padding: 12px 14px; max-width: 200px; }
+  .pfn-label strong { font-size: 12px; }
+}
+
+/* Mobile: stick to bottom, side by side */
+@media (max-width: 768px) {
+  #project-floating-nav {
+    top: auto;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    transform: none;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    animation: pfnFadeInMobile 0.4s ease;
+  }
+  @keyframes pfnFadeInMobile {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .pfn-btn {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .pfn-label small { display: none; }
+  .pfn-label strong { font-size: 12px; }
+  .pfn-btn.pfn-prev:hover,
+  .pfn-btn.pfn-next:hover { transform: translateY(-2px); }
+}

@@ -727,15 +727,22 @@
 }
 
 .btn-large {
-    padding: 18px 48px;
-    font-size: 1.125rem;
+    padding: 18px 40px;
+    font-size: 1.0625rem;
     background: #ffffff;
     color: var(--color-primary);
     font-weight: 600;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: visible;
+    min-height: auto;
+    max-width: 90vw;
 }
 
 .btn-large:hover {

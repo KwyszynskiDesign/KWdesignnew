@@ -25,6 +25,77 @@ document.addEventListener('DOMContentLoaded', () => {
      'cyfradruk' : 'projects/cyfradruk.html',
   };
 
+  // Kolejność i etykiety projektów dla pływającej nawigacji
+  const projectOrder = ['RazDwa', 'karoma', 'power-of-mind', 'cyfradruk', 'KW-Design', 'sir-roger', 'savage', 'voucher-magdy'];
+  const projectLabels = {
+    'voucher-magdy': 'Voucher Salon u Magdy',
+    'karoma': 'Karoma',
+    'power-of-mind': 'Power of Mind',
+    'KW-Design': 'KW Design',
+    'sir-roger': 'Sir Roger',
+    'savage': 'Savage',
+    'RazDwa': 'Raz Dwa Druk',
+    'cyfradruk': 'CyfraDruk'
+  };
+
+  function getAdjacentProjects(currentId) {
+    const idx = projectOrder.indexOf(currentId);
+    if (idx === -1) return { prev: null, next: null };
+    const len = projectOrder.length;
+    return {
+      prev: projectOrder[(idx - 1 + len) % len],
+      next: projectOrder[(idx + 1) % len]
+    };
+  }
+
+  function renderProjectNavigation(currentId) {
+    const existing = document.getElementById('project-floating-nav');
+    if (existing) existing.remove();
+
+    const { prev, next } = getAdjacentProjects(currentId);
+    if (!prev && !next) return;
+
+    const nav = document.createElement('div');
+    nav.id = 'project-floating-nav';
+    nav.setAttribute('aria-label', 'Nawigacja między projektami');
+
+    nav.innerHTML = `
+      ${prev ? `
+        <button class="pfn-btn pfn-prev" data-target="${prev}" aria-label="Poprzedni projekt: ${projectLabels[prev]}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          <span class="pfn-label">
+            <small>Poprzedni</small>
+            <strong>${projectLabels[prev]}</strong>
+          </span>
+        </button>
+      ` : ''}
+      ${next ? `
+        <button class="pfn-btn pfn-next" data-target="${next}" aria-label="Następny projekt: ${projectLabels[next]}">
+          <span class="pfn-label">
+            <small>Następny</small>
+            <strong>${projectLabels[next]}</strong>
+          </span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      ` : ''}
+    `;
+    document.body.appendChild(nav);
+
+    nav.querySelectorAll('.pfn-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+        if (target && window.showProjectDetails) {
+          window.showProjectDetails(target);
+        }
+      });
+    });
+  }
+
+  function removeProjectNavigation() {
+    const existing = document.getElementById('project-floating-nav');
+    if (existing) existing.remove();
+  }
+
   window.showProjectDetails = async function(projectId) {
     const container = document.getElementById('project-details-container');
     const content = document.getElementById('project-details-content');
@@ -74,6 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       history.pushState({ project: projectId }, '', `#${projectId}`);
+
+      // Renderuj pływającą nawigację Poprzedni/Następny
+      renderProjectNavigation(projectId);
 
     } catch (error) {
       content.innerHTML = `
@@ -168,6 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.portfolio-new-card').forEach(card => {
       card.classList.remove('active');
     });
+
+    // Usuń pływającą nawigację
+    removeProjectNavigation();
 
     history.pushState('', document.title, window.location.pathname);
   };
