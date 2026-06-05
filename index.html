@@ -90,26 +90,13 @@
 
    <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="hero-bg-animation">
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-dot"></div>
-            <div class="floating-element floating-line"></div>
-            <div class="floating-element floating-line"></div>
-            <div class="floating-element floating-line"></div>
-            <div class="floating-element floating-line"></div>
-            <div class="floating-element floating-circle"></div>
-            <div class="floating-element floating-circle"></div>
-        </div>
+        <div class="hero-bg-animation" aria-hidden="true"></div>
 
         <div class="container hero-section-content">
             <div class="hero-main-title">
                 <p class="hero-eyebrow">Digital Product Designer · Automatyzacje · Procesy</p>
                 <h1 class="hero-title">
-                    Projektuję i wdrażam produkty cyfrowe,<span class="highlight-digits-tyt"> które porządkują procesy w firmie.</span>
+                    Produkty cyfrowe,<span class="highlight-digits-tyt"> które porządkują pracę w firmie.</span>
                 </h1>
             </div>
 
@@ -143,7 +130,7 @@
 
             <div class="hero-bottom-content">
                 <p class="hero-subtitle">
-                    Pomagam firmom zamienić ręczne, powtarzalne procesy w aplikacje, strony i automatyzacje. Pracuję od analizy problemu po działający produkt — sam projektuję i sam wdrażam.
+                    Aplikacje, strony i automatyzacje — od analizy procesu po działający produkt.
                 </p>
                 <div class="cta-group">
                     <a href="portfolio.html" class="btn btn-primary">Zobacz projekty →</a>
@@ -513,7 +500,7 @@
                 </ul>
                 <div class="service-meta">
                     <p class="service-time">Czas większych projektów: 4–5 miesięcy</p>
-                    <p class="service-price">współpraca od 8 000 zł</p>
+                    <p class="service-price">wycena indywidualna</p>
                 </div>
                 <a href="uslugi.html" class="service-btn">Więcej informacji</a>
             </div>
@@ -535,7 +522,7 @@
                 </ul>
                 <div class="service-meta">
                     <p class="service-time">Realny efekt: z godziny do kilku minut</p>
-                    <p class="service-price">współpraca od 8 000 zł</p>
+                    <p class="service-price">wycena indywidualna</p>
                 </div>
                 <a href="uslugi.html" class="service-btn">Więcej informacji</a>
             </div>
@@ -556,7 +543,7 @@
                 </ul>
                 <div class="service-meta">
                     <p class="service-time">Zakres ustalany po analizie</p>
-                    <p class="service-price">współpraca od 8 000 zł</p>
+                    <p class="service-price">wycena indywidualna</p>
                 </div>
                 <a href="uslugi.html" class="service-btn">Więcej informacji</a>
             </div>
@@ -571,7 +558,21 @@
     <section id="social-proof" class="social-proof-section">
         <div class="container">
             <h2 class="section-title">Co wnoszę do projektu</h2>
-            <p class="section-subtitle">Dlaczego współpraca ze mną wygląda inaczej niż z agencją albo freelancerem od jednej rzeczy</p>
+            <p class="section-subtitle benefits-subtitle">Dlaczego współpraca ze mną wygląda inaczej niż z agencją albo freelancerem od jednej rzeczy</p>
+            <style>
+                .social-proof-section .benefits-subtitle { color: #cbd5e1; opacity: 1; }
+                .social-proof-section .benefits-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1.5rem;
+                }
+                @media (max-width: 900px) {
+                    .social-proof-section .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+                }
+                @media (max-width: 600px) {
+                    .social-proof-section .benefits-grid { grid-template-columns: 1fr; }
+                }
+            </style>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -631,9 +632,9 @@
             <h2 class="section-title">Najczęstsze pytania</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <button class="faq-question">Od jakiego budżetu zaczynamy rozmowę? <span class="faq-icon">+</span></button>
+                    <button class="faq-question">Jak wyceniacie projekty? <span class="faq-icon">+</span></button>
                     <div class="faq-answer">
-                        <p>Minimum to <strong>8 000 zł</strong>. Przy tym poziomie ma sens zrobić projekt dobrze — z analizą procesu, projektem, wdrożeniem i testami. Mniejsze, jednorazowe zlecenia po prostu nie są moją specjalizacją i nie dam tam wartości, której się ode mnie oczekuje.</p>
+                        <p>Każdy projekt wyceniam <strong>indywidualnie</strong>, po pierwszej rozmowie i wstępnej analizie zakresu. Nie pracuję na pakietach z półki, bo każda firma ma inny proces i inną gotowość do zmiany — to przekłada się na realną pracę, którą trzeba wykonać. Dlatego wycena jest precyzyjna, a nie szacowana „na oko".</p>
                     </div>
                 </div>
 
@@ -718,9 +719,9 @@
                             <label for="budget">Budżet (opcjonalnie)</label>
                             <select id="budget" name="budget">
                                 <option value="">-- wybierz --</option>
-                                <option value="8000-15000">8 000 – 15 000 zł</option>
+                                <option value="do-15000">do 15 000 zł</option>
                                 <option value="15000-30000">15 000 – 30 000 zł</option>
-                                <option value="30000+">30 000 zł +</option>
+                                <option value="30000+">powyżej 30 000 zł</option>
                                 <option value="do-ustalenia">Do ustalenia</option>
                             </select>
                         </div>
