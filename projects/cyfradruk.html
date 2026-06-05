@@ -453,7 +453,7 @@
 
           <div class="kwcs-item">
             <button class="kwcs-header" aria-expanded="false" aria-controls="content-cyfra-1" id="header-cyfra-1" type="button">
-              <span class="num">1</span> Discovery — mapowanie procesu DTP w drukarni
+              <span class="num">1</span> Analiza — mapowanie procesu DTP w drukarni
               <span class="icon" aria-hidden="true">+</span>
             </button>
             <div class="kwcs-content" id="content-cyfra-1" role="region" aria-labelledby="header-cyfra-1">
@@ -478,8 +478,8 @@
                 <li>Wireframe w Figmie — układ zakładek: "Obiekty" / "Kolory" / "Ustawienia"</li>
                 <li>System kolorów błędów: czerwony (krytyczny, &lt; progu), żółty (ostrzeżenie, blisko progu), zielony (OK)</li>
                 <li>Tabela wyników z kolumnami: Min. wymiar, Szerokość × Wysokość, Warstwa</li>
-                <li>Przycisk "Skanuj plik" jako jedyna akcja główna — zero learning curve dla operatora</li>
-                <li>Stan "Brak właściwości kształtu" dla zaznaczenia wielu obiektów — obsługa edge case</li>
+                <li>Przycisk „Skanuj plik" jako jedyna akcja główna — bez progu wejścia dla operatora</li>
+                <li>Stan „Brak właściwości kształtu" dla zaznaczenia wielu obiektów — obsługa skrajnego przypadku</li>
               </ul>
             </div>
           </div>
@@ -523,10 +523,10 @@
               <span class="icon" aria-hidden="true">+</span>
             </button>
             <div class="kwcs-content" id="content-cyfra-5" role="region" aria-labelledby="header-cyfra-5">
-              <p><strong>Testowanie na realnych plikach:</strong> Wtyczka była testowana na plikach produkcyjnych drukarni — etykiety, ulotki, wizytówki, projekty z wykrojnikiem. Każdy typ pliku wymagał innego edge case w algorytmie.</p>
+              <p><strong>Testowanie na realnych plikach:</strong> Wtyczka była testowana na plikach produkcyjnych drukarni — etykiety, ulotki, wizytówki, projekty z wykrojnikiem. Każdy typ pliku wymagał obsłużenia innego skrajnego przypadku w algorytmie.</p>
               <ul>
                 <li>Testy na plikach z &gt;5000 obiektów — weryfikacja czasu skanowania i stabilności</li>
-                <li>Edge cases: obiekty z <code>strokeWidth = 0</code> (brak obrysu), obiekty ukryte, obiekty na zablokowanych warstwach</li>
+                <li>Skrajne przypadki: obiekty z <code>strokeWidth = 0</code> (brak obrysu), obiekty ukryte, obiekty na zablokowanych warstwach</li>
                 <li>Szkolenie operatorów — 30-minutowa sesja zamiast tygodniowego onboardingu</li>
                 <li>Zbieranie feedbacku po 2 tygodniach użytkowania — dodanie filtru warstw i sortowania na życzenie zespołu</li>
                 <li>Pakiet instalacyjny — folder <code>.zxp</code> instalowany przez Adobe Extension Manager bez uprawnień administratora</li>
