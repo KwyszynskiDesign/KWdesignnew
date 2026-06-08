@@ -187,7 +187,7 @@ function getCurrentStatus() {
     if (hour >= 6 && hour < 22) {
         return {
             status: 'available',
-            text: 'Otwarty na rozmowy'
+            text: 'Otwarty na współpracę — odpowiadam w 24h'
         };
     }
     // Noc (22:00 - 6:00) - żółty
