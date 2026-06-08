@@ -1,0 +1,53 @@
+# Cloudflare Pages – Redirects & Rewrites
+# Repo: kwyszynskidesign/KWdesignnew
+# Data: 08.06.2026
+#
+# Format: [source] [destination] [HTTP code]
+# Kod 301 = stałe przekierowanie
+# Kod 302 = tymczasowe
+# Kod 200 = rewrite (bez zmiany URL w pasku)
+
+###############################################################################
+# STRONY, KTÓRE MOGĄ BYĆ POD STARYMI URL-AMI
+###############################################################################
+
+# Stare/alternatywne nazwy → właściwe (jeśli były kiedyś używane)
+/omnie.html        /portfolio.html    301
+/kontakt.html      /index.html#contact 301
+
+###############################################################################
+# APLIKACJA GOOGLE APPS SCRIPT – PROXY FORMULARZA
+###############################################################################
+# UWAGA: Cloudflare Pages jest statyczny. Nie obsłuży PHP.
+# Plik formHandler.php z repo NIE zadziała na Pages.
+# Rozwiązania:
+#   A) Zostawić obecny kod JS z GET do Apps Script (działa, ale dane w URL)
+#   B) Użyć Cloudflare Workers jako proxy do Apps Script (POST)
+#   C) Użyć zewnętrznego serwisu (Formspree, FormSubmit, Netlify Forms)
+#
+# Jeśli wybierzesz opcję B (Workers), poniższa reguła przekieruje
+# ruch z /api/contact na Twojego Workera:
+# /api/contact/*  https://twoj-worker.nazwa.workers.dev/:splat  200
+
+###############################################################################
+# SPA FALLBACK (gdybyś w przyszłości przeszedł na React/Vue/Svelte)
+###############################################################################
+# /app/*  /app/index.html  200
+
+###############################################################################
+# PRZEKIEROWANIA ZE STAREGO GITHUB PAGES (opcjonalnie – gdy domena już działa)
+###############################################################################
+# Jeśli podpinasz własną domenę kwyszynski.pl, Cloudflare automatycznie
+# obsłuży przekierowanie z github.io. Te reguły są tylko na wszelki wypadek.
+
+###############################################################################
+# SEO – trailing slash consistency (używamy BEZ slasha na końcu)
+###############################################################################
+# Cloudflare Pages domyślnie nie wymusza slasha – to jest ok dla .html
+
+###############################################################################
+# 404 FALLBACK
+###############################################################################
+# Cloudflare Pages automatycznie serwuje 404.html jeśli istnieje.
+# Jeśli nie masz 404.html – możesz go dodać.
+# /404.html  200
