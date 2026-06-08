@@ -3835,8 +3835,8 @@ header * {
 
 /* h1 w lewej kolumnie: zmniejszony – było clamp(3.15rem,…,5.6rem) */
 .hero-text .hero-title {
-    font-size: clamp(1.875rem, 2.5vw + 0.75rem, 3rem);
-    line-height: 1.15;
+    font-size: clamp(1.875rem, 2.5vw + 0.75rem, 3.5rem);
+    line-height: 1.2;
     margin-bottom: 0;  /* gap w hero-text obsługuje odstęp */
 }
 
