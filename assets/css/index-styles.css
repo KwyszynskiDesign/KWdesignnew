@@ -3817,3 +3817,78 @@ header * {
 .ghost-danger:hover {
     background: #fef2f2;
 }
+
+/* ========== HERO RESTRUCTURE – scalona lewa kolumna ========== */
+
+/* Lewa kolumna hero: usuń ograniczenie szerokości, dopasuj odstępy */
+.hero-text {
+    max-width: none;
+    padding-top: var(--space-8);
+    gap: var(--space-5);
+}
+
+/* Eyebrow jest pierwszym dzieckiem flex – usuń dodatkowy margines z góry */
+.hero-text .hero-eyebrow {
+    margin-top: 0;
+}
+
+/* WCAG AA dla akcentu w h1: #0891b2 ma kontrast 3.2:1 na #f8fafc (duży tekst ✓) */
+.highlight-digits-tyt {
+    color: #0891b2;
+}
+
+/* Zdanie-pomost pod h1: bez automatycznego centrowania (to robi flex-col) */
+.hero-text .hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* Tekstowy link CV – wizualnie lżejszy niż przycisk */
+.hero-cv-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: var(--transition-fast);
+    align-self: flex-start;
+}
+.hero-cv-link:hover {
+    color: var(--color-primary);
+}
+
+/* Desktop: CTA wyrównane do lewej */
+@media (min-width: 1025px) {
+    .hero-text .cta-group {
+        justify-content: flex-start;
+    }
+}
+
+/* Tablet i mobile (≤768px): jeden pionowy stos, centrowanie treści */
+@media (max-width: 768px) {
+    .hero-main-content {
+        grid-template-columns: 1fr !important;
+    }
+    .hero-text {
+        padding-top: var(--space-4);
+        text-align: center;
+    }
+    .hero-text .hero-eyebrow {
+        text-align: center;
+    }
+    .hero-text .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 520px;
+    }
+    .hero-text .cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .hero-cv-link {
+        align-self: center;
+    }
+}
