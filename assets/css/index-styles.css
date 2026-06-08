@@ -3820,24 +3820,32 @@ header * {
 
 /* ========== HERO RESTRUCTURE – scalona lewa kolumna ========== */
 
-/* Lewa kolumna hero: usuń ograniczenie szerokości, dopasuj odstępy */
+/* Lewa kolumna hero: kompaktowe odstępy zamiast domyślnych dużych */
 .hero-text {
     max-width: none;
-    padding-top: var(--space-8);
-    gap: var(--space-5);
+    padding-top: var(--space-6);   /* 1.5rem – było space-8 (2rem) */
+    gap: var(--space-4);           /* 1rem między elementami – było space-5 (1.25rem) */
 }
 
-/* Eyebrow jest pierwszym dzieckiem flex – usuń dodatkowy margines z góry */
+/* Zerujemy marginesy na flex-dzieciach; gap w hero-text wystarczy */
 .hero-text .hero-eyebrow {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
-/* WCAG AA dla akcentu w h1: #0891b2 ma kontrast 3.2:1 na #f8fafc (duży tekst ✓) */
+/* h1 w lewej kolumnie: zmniejszony – było clamp(3.15rem,…,5.6rem) */
+.hero-text .hero-title {
+    font-size: clamp(1.875rem, 2.5vw + 0.75rem, 3rem);
+    line-height: 1.15;
+    margin-bottom: 0;  /* gap w hero-text obsługuje odstęp */
+}
+
+/* WCAG AA dla akcentu w h1: #0891b2 daje kontrast 3.2:1 na #f8fafc ✓ */
 .highlight-digits-tyt {
     color: #0891b2;
 }
 
-/* Zdanie-pomost pod h1: bez automatycznego centrowania (to robi flex-col) */
+/* Zdanie-pomost: bez auto-marginesów (flex-col je kontroluje) */
 .hero-text .hero-subtitle {
     margin-left: 0;
     margin-right: 0;
@@ -3860,14 +3868,25 @@ header * {
     color: var(--color-primary);
 }
 
-/* Desktop: CTA wyrównane do lewej */
+/* CTA w hero: poziomy rząd na wszystkich szerokościach (override globalnego flex-direction:column) */
+.hero-text .cta-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/* override globalnego .btn { width:100%; max-width:300px } */
+.hero-text .cta-group .btn {
+    width: auto;
+    max-width: none;
+}
+
+/* Desktop (≥1025px): wyrównanie do lewej */
 @media (min-width: 1025px) {
     .hero-text .cta-group {
         justify-content: flex-start;
     }
 }
 
-/* Tablet i mobile (≤768px): jeden pionowy stos, centrowanie treści */
+/* Tablet i mobile (≤768px): pionowy stos kolumn, centrowanie treści */
 @media (max-width: 768px) {
     .hero-main-content {
         grid-template-columns: 1fr !important;
@@ -3886,7 +3905,7 @@ header * {
     }
     .hero-text .cta-group {
         justify-content: center;
-        flex-wrap: wrap;
+        gap: var(--space-3);
     }
     .hero-cv-link {
         align-self: center;
