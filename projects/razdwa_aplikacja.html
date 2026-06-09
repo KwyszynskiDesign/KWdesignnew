@@ -489,7 +489,7 @@
           </p>
         </div>
 
-        <h3>Jak rozpoznałem problem</h3>
+        <h3 style="text-align:center">Jak rozpoznałem problem</h3>
         <div class="ux-decision-grid">
           
             <h4>Forma rozpoznania potrzeb</h4>
@@ -508,26 +508,26 @@
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;">Kluczowe decyzje produktowe</h3>
+        <h3 style="margin-top:3rem;text-align:center">Kluczowe decyzje produktowe</h3>
 
         <div class="ux-decision-grid">
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 1 · Architektura</div>
             <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
             <p><strong>Dlaczego:</strong> obecnie drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B fizycznie/telefonicznie/mailowo. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny przy ladzie. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient sam chciał aplikację, czy to Ty zaproponowałeś takie rozwiązanie zamiast alternatyw? Co odrzuciliście razem (Excel z makrami, sklep online, gotowy SaaS)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Rozwiązanie zaproponowałem sam. Wiedziałem, że drukarnia potrzebuje czegoś prostego i intuicyjnego — a koszt utrzymania musiał być niski. Dla klienta to był pierwszy tego rodzaju system, więc bariera wejścia musiała być na tyle niska, żeby nie zniechęcić do wdrożenia.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 2 · Zaplecze</div>
             <h4>Google Sheets + Apps Script zamiast własnej bazy danych</h4>
             <p><strong>Dlaczego:</strong> wybór tej technologii oznacza zero nowego narzędzia do nauki, darmowy hosting (Google), darmową kopię zapasową i pełną kontrolę po stronie klienta. Apps Script obsługuje zapis zamówień, edycję cennika i bramkę PIN — bez utrzymywania własnego API.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient już używał Sheetów przed projektem, czy to była Twoja propozycja? Czy rozważaliście alternatywy (Airtable, własna baza, gotowy CRM)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Klient nie korzystał wcześniej z Google Sheets — to była moja propozycja. W drukarni funkcjonowały już drobne bazy danych, ale żadna nie łączyła prostoty z łatwością dostępu. Google Sheets okazało się naturalnym wyborem: znany interfejs, zero kosztu, pełna kontrola po stronie klienta.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 3 · Utrzymanie</div>
             <h4>Cennik edytowalny w aplikacji zamiast „wdrażanego" przez programistę</h4>
             <p><strong>Dlaczego:</strong> ceny się zmieniają. Gdyby każda zmiana wymagała kontaktu z programistą, drukarnia szybko porzuciłaby aplikację. Panel administracyjny z bramką PIN pozwala właścicielowi zmienić cenę w 30 sekund — bez ryzyka przypadkowej zmiany przez recepcję.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Panel był w pierwotnym planie czy doszedł później? Bramka PIN — preventywnie czy po jakimś incydencie (np. przypadkowa zmiana ceny)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Panel administracyjny nie był częścią pierwotnego planu — wyłonił się w trakcie iteracji, gdy rozważania nad bezpieczeństwem danych cennika wskazały na potrzebę oddzielonego dostępu dla właściciela.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 4 · Frontend</div>
@@ -536,7 +536,7 @@
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później</h3>
+        <h3 style="margin-top:3rem;text-align:center">Co weszło do MVP, co odłożyłem na później</h3>
         <div class="kwcs-trio">
           <article class="kwcs-card">
             <h3>MVP (must-have)</h3>
@@ -563,7 +563,7 @@
               <li>Parser DWG/DXF dla wektorów CAD</li>
               <li>Tryb klienta końcowego z ukrytymi marżami</li>
               <li>Integracja płatności</li>
-              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;"><strong>⚠ Pytanie do autora:</strong> Co świadomie wyciąłeś z zakresu, mimo że klient o to prosił lub sam chciałeś to zrobić? I dlaczego?</li>
+              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;">Żadnej funkcji nie wyciąłem na prośbę klienta ani z własnej inicjatywy. Ograniczyłem natomiast liczbę kategorii — powiązane typy usług zostały połączone, żeby zredukować szum i przyspieszyć nawigację do właściwej pozycji cennika.</li>
             </ul>
           </article>
         </div>
@@ -593,14 +593,7 @@
         </div>
 
         <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
-          <strong style="color:#92400e;">⚠ Pytania do autora — wzmocnienie person:</strong>
-          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
-            <li><strong>Operator:</strong> opisz konkretną osobę (można zanonimizować) — wiek, staż, komfort z technologią, ulubione/znienawidzone narzędzia. Np. „Pani Anna, 45 lat, 8 lat w drukarni".</li>
-            <li><strong>Operator:</strong> ile osób z recepcji korzysta z aplikacji? Czy jest rotacja w zespole?</li>
-            <li><strong>Operator:</strong> typowy dzień — ile zamówień, jak długie pojedyncze zlecenie, kiedy są piki (np. poniedziałek rano)?</li>
-            <li><strong>Administrator:</strong> gdzie i jak korzysta z panelu — z biura w drukarni, z domu, z telefonu? Jak często wchodzi do panelu?</li>
-            <li><strong>Zespół:</strong> czy są osoby, dla których aplikacja jest barierą technologiczną? Jak sobie z tym poradziłeś w projekcie?</li>
-          </ul>
+          <p style="color:#475569;font-size:0.9rem;line-height:1.7;margin:0;">Główny operator to osoba po 40. roku życia, ze stażem ok. 1,5 roku w drukarni. Nowe, skomplikowane narzędzia mogą być przyjmowane z rezerwą — dlatego prostota obsługi i krótka krzywa uczenia były wymaganiem, nie tylko życzeniem.</p>
         </div>
       </div>
     </div>
@@ -783,7 +776,7 @@
           <p>Drukarnia, która musi dzwonić do programisty, żeby podnieść cenę wydruku o 10 groszy, szybko porzuci aplikację. Panel administracyjny to <strong>jedna z najważniejszych decyzji produktowych całego projektu</strong>: oddaje kontrolę nad cennikiem właścicielowi i likwiduje koszt utrzymania.</p>
         </div>
 
-        <h3>Co panel pozwala zrobić</h3>
+        <h3 style="text-align:center">Co panel pozwala zrobić</h3>
         <div class="ux-decision-grid">
           <div class="ux-decision-box">
             <div class="ux-label">Funkcja 1</div>
@@ -807,7 +800,7 @@
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;">Bezpieczeństwo: bramka PIN</h3>
+        <h3 style="margin-top:3rem;text-align:center">Bezpieczeństwo: bramka PIN</h3>
         <p style="max-width:760px;margin:0 auto 1rem;color:#475569;">Cennik to wrażliwy zasób — przypadkowa edycja przez recepcjonistę kosztuje realne pieniądze. Wprowadziłem bramkę PIN, ale w sposób, który nie utrudnia codziennej pracy:</p>
         <ul style="max-width:760px;margin:0 auto;color:#475569;line-height:1.7;">
           <li><strong>PIN przechowywany po stronie Google Apps Script</strong> (PropertiesService) — nie w kodzie aplikacji, nie w przeglądarce. Zmiana PIN-u nie wymaga wdrażania nowej wersji.</li>
@@ -825,7 +818,7 @@
             <li>Ekran bramki PIN (z fallbackiem offline)</li>
             <li>Arkusz <code>cennik</code> w Google Sheets po synchronizacji</li>
           </ul>
-          <p style="margin:0.75rem 0 0;color:#92400e;font-size:0.85rem;"><strong>⚠ Pytanie do autora:</strong> Czy klient samodzielnie dodał już jakieś pozycje przez panel? Ile? Czy zgłaszał problemy z tą funkcją?</p>
+          <p style="margin:0.75rem 0 0;color:#92400e;font-size:0.85rem;">Klient nie dodał jeszcze własnych pozycji przez panel. Informacja zostanie uzupełniona po zebraniu danych.</p>
         </div>
       </div>
     </div>
@@ -839,7 +832,7 @@
           <p>W trakcie pracy z drukarnią okazało się, że <strong>nie wystarczy jeden cennik</strong>: ten sam produkt (np. wizytówki) ma kilka odmian, które klient zamawia po imieniu („Wizytówki Premium", „Wizytówki ekspresowe"). Zaprojektowałem osobny system wariantów, niezależny od cennika bazowego.</p>
         </div>
 
-        <h3>Dlaczego warianty są osobno od cennika</h3>
+        <h3 style="text-align:center">Dlaczego warianty są osobno od cennika</h3>
         <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Cennik bazowy odpowiada na pytanie „ile kosztuje druk koloru A4 w nakładzie 100 sztuk". Wariant odpowiada na pytanie „co dokładnie zamawia klient i pod jaką nazwą zapisać to w systemie". Rozdzielenie tych dwóch warstw oznacza, że dodanie nowego wariantu nie wymaga modyfikacji cennika, a zmiana ceny nie wymaga modyfikacji nazw wariantów.</p>
 
         <div class="ux-decision-grid">
@@ -870,7 +863,7 @@
           <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
             <li><strong>Materiał graficzny (P0):</strong> screenshot tworzenia własnej podgrupy (np. „Wizytówki Premium") w panelu</li>
             <li><strong>Pytanie do autora:</strong> Dlaczego ta funkcja w ogóle powstała? Jakie konkretne zlecenie / rozmowa z drukarnią ją wywołały? 2–3 zdania historii.</li>
-            <li><strong>Pytanie do autora:</strong> Czy klient samodzielnie utworzył już własne warianty po wdrożeniu? Ile, jakie?</li>
+            <li>Klient nie utworzył jeszcze własnych wariantów po wdrożeniu. Informacja zostanie uzupełniona.</li>
           </ul>
         </div>
       </div>
