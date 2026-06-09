@@ -515,33 +515,33 @@
             <div class="ux-label">Decyzja 1 · Architektura</div>
             <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
             <p><strong>Dlaczego:</strong> obecnie drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B fizycznie/telefonicznie/mailowo. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny przy ladzie. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient sam chciał aplikację, czy to Ty zaproponowałeś takie rozwiązanie zamiast alternatyw? Co odrzuciliście razem (Excel z makrami, sklep online, gotowy SaaS)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient sam chciał aplikację, czy to Ty zaproponowałeś takie rozwiązanie zamiast alternatyw? Co odrzuciliście razem (Excel z makrami, sklep online, gotowy SaaS)?-odpowiedź: sam zapropnowałem takie rozwiązanie,gdyż rozwiązanie miało być proste, łatwe i nie kosztować ogromnej sumy </p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 2 · Zaplecze</div>
             <h4>Google Sheets + Apps Script zamiast własnej bazy danych</h4>
             <p><strong>Dlaczego:</strong> wybór tej technologii oznacza zero nowego narzędzia do nauki, darmowy hosting (Google), darmową kopię zapasową i pełną kontrolę po stronie klienta. Apps Script obsługuje zapis zamówień, edycję cennika i bramkę PIN — bez utrzymywania własnego API.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient już używał Sheetów przed projektem, czy to była Twoja propozycja? Czy rozważaliście alternatywy (Airtable, własna baza, gotowy CRM)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient już używał Sheetów przed projektem, czy to była Twoja propozycja? Czy rozważaliście alternatywy (Airtable, własna baza, gotowy CRM)?odpowiedź w drukarni nie istniała zbytnio żadna baza danych, aktualne rozwiązanie ma na celu budowę łatwej i prostej bazy danych z czasem będzie można to miejsce rozbudować o bardziej zaawansowany system </p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 3 · Utrzymanie</div>
             <h4>Cennik edytowalny w aplikacji zamiast „wdrażanego" przez programistę</h4>
             <p><strong>Dlaczego:</strong> ceny się zmieniają. Gdyby każda zmiana wymagała kontaktu z programistą, drukarnia szybko porzuciłaby aplikację. Panel administracyjny z bramką PIN pozwala właścicielowi zmienić cenę w 30 sekund — bez ryzyka przypadkowej zmiany przez recepcję.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Panel był w pierwotnym planie czy doszedł później? Bramka PIN — preventywnie czy po jakimś incydencie (np. przypadkowa zmiana ceny)?</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Panel był w pierwotnym planie czy doszedł później? Bramka PIN — preventywnie czy po jakimś incydencie (np. przypadkowa zmiana ceny)?Cała aplikacja została napisana od 0, w trakcie budowania aplikacji doszły elementy, które mają za zadanie chronić np klucze cenowe- jak zabezpieczenie pin, co utrudni dostawanie się nieproszonym gościom</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 4 · Frontend</div>
             <h4>TypeScript + esbuild, bez Reacta/Vue</h4>
-            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.</p>
+            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.- to trzeba opisać bardziej po polsku</p>
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później</h3>
+        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później- w tym przypadku nie ma MVP- jest już działający w pełni produkt z wielu perspektyw </h3>
         <div class="kwcs-trio">
           <article class="kwcs-card">
             <h3>MVP (must-have)</h3>
             <ul>
-              <li>Kalkulator dla najczęstszych kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
+              <li>Kalkulator dla wszystkich  kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
               <li>Koszyk z sumą bieżącą i trybem EXPRESS</li>
               <li>Eksport PDF zamówienia</li>
               <li>Wysyłka do arkusza Google jako baza zamówień</li>
@@ -563,7 +563,7 @@
               <li>Parser DWG/DXF dla wektorów CAD</li>
               <li>Tryb klienta końcowego z ukrytymi marżami</li>
               <li>Integracja płatności</li>
-              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;"><strong>⚠ Pytanie do autora:</strong> Co świadomie wyciąłeś z zakresu, mimo że klient o to prosił lub sam chciałeś to zrobić? I dlaczego?</li>
+              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;"><strong>⚠ Pytanie do autora:</strong> Co świadomie wyciąłeś z zakresu, mimo że klient o to prosił lub sam chciałeś to zrobić? I dlaczego?-nic, wszystko co klient chciał, zostało dodane, narzędzie-ta aplikacja ma być przyśpieszeniem wycen i uławieniem tego procesu </li>
             </ul>
           </article>
         </div>
@@ -599,7 +599,7 @@
             <li><strong>Operator:</strong> ile osób z recepcji korzysta z aplikacji? Czy jest rotacja w zespole?</li>
             <li><strong>Operator:</strong> typowy dzień — ile zamówień, jak długie pojedyncze zlecenie, kiedy są piki (np. poniedziałek rano)?</li>
             <li><strong>Administrator:</strong> gdzie i jak korzysta z panelu — z biura w drukarni, z domu, z telefonu? Jak często wchodzi do panelu?</li>
-            <li><strong>Zespół:</strong> czy są osoby, dla których aplikacja jest barierą technologiczną? Jak sobie z tym poradziłeś w projekcie?</li>
+            <li><strong>Zespół:</strong> czy są osoby, dla których aplikacja jest barierą technologiczną? Jak sobie z tym poradziłeś w projekcie?</li>- nie ma danych do tych pytań, trzeba opowiedzieć że są role i tyle, to co jest w drukarni to wielka niewiadoma z uwagi że nie ma reguły na pik zamówień czy pore 
           </ul>
         </div>
       </div>
@@ -655,7 +655,7 @@
       <div class="wrap">
         <div class="showcase-stack">
           <div class="showcase-section">
-            <h3>🏗️ Wielokolumnowy layout PWA</h3>
+            <h3>🏗️ Wielokolumnowy layout</h3>
             <p class="tab-description">Zdecydowano się na stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
             <div class="showcase-row">
               <div class="showcase-item">
@@ -717,7 +717,7 @@
     <div class="kwcs-sec">
       <div class="wrap">
         <div class="context-intro">
-          <p>Najtrudniejszą kategorią do wyceny w drukarni był druk inżynieryjny (CAD). Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
+          <p>Najtrudniejszą kategorią do wyceny w drukarni były wdyruki architektoniczne CAD. Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
         </div>
 
         <h3>Iteracje interfejsu kalkulatora plików</h3>
