@@ -405,7 +405,8 @@
 
         <div class="context-intro">
           <p>
-            <strong>Drukarnia Raz Dwa</strong> obsługuje klientów biznesowych zamawiających wydruki wielkoformatowe — projekty CAD, plakaty A0–A1, banery i folie. Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzenia tabeli w Excelu, przeliczenia metrów bieżących i zsumowania dopłat. Cały proces zajmował <strong>około godziny</strong>.
+            <strong>Drukarnia Raz Dwa</strong> obsługuje klientów biznesowych jak i prywatnych zamawiane są wydruki wielkoformatowe,projekty CAD, plakaty A0–A3, banery i folie, wizytówki i wiele innych.
+            Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzenia tabeli w cenniku fizycznym, przeliczenia metrów bieżących i zsumowania dopłat. Cały proces zajmował <strong>od 10 minut do ok. 1 godziny</strong>.
           </p>
           <p>
             Zaprojektowałem i zbudowałem od zera całe rozwiązanie: <strong>interfejs z koszykiem</strong>, dedykowany <strong>kalkulator druku CAD</strong>, <strong>panel administracyjny do edycji cennika</strong> oraz architekturę aplikacji PWA z testami i integracjami. Drukarnia nie utrzymuje własnej infrastruktury serwerowej — rolę zaplecza pełni Google Apps Script + Google Sheets.
@@ -415,7 +416,7 @@
         <div class="razdwa-stats">
           <div class="razdwa-stat">
             <div class="razdwa-stat-num">~5 min</div>
-            <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)<br><em style="font-size:0.7rem;color:#f59e0b;">⚠ pytanie: skąd ta liczba? pomiar własny, deklaracja drukarni, średnia z X zamówień?</em></div>
+            <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)<br></div>
           </div>
           <div class="razdwa-stat">
             <div class="razdwa-stat-num">22</div>
@@ -449,14 +450,14 @@
             <div class="eco-node">
               <div class="eco-node-icon">🛒</div>
               <div class="eco-node-label">Koszyk i Interfejs</div>
-              <div class="eco-node-sub">Rabat, express, suma bieżąca, UX PWA</div>
+              <div class="eco-node-sub">Rabat, express, suma bieżąca</div>
             </div>
           </div>
           <div class="razdwa-ecosystem-row">
             <div class="eco-node">
               <div class="eco-node-icon">📄</div>
               <div class="eco-node-label">PDF Export</div>
-              <div class="eco-node-sub">pdf-lib — zamówienie gotowe do druku</div>
+              <div class="eco-node-sub">pdf-lib —  podsumowanie zamówienia w formie raportu PDF</div>
             </div>
             <div class="eco-arrow">↔</div>
             <div class="eco-node">
@@ -469,7 +470,7 @@
             <div class="eco-node">
               <div class="eco-node-icon">⚙️</div>
               <div class="eco-node-label">System Cenników</div>
-              <div class="eco-node-sub">localStorage + singleton — bez dotykania kodu</div>
+              <div class="eco-node-sub">localStorage + singleton — aktualizacja cen z poziomu użytkownika</div>
             </div>
           </div>
         </div>
@@ -477,13 +478,14 @@
     </div>
 
 
-    <h2 class="section-divider">Discovery i decyzje produktowe</h2>
+    <h2 class="section-divider">Decyzje produktowe</h2>
 
     <div class="kwcs-sec">
       <div class="wrap">
         <div class="context-intro">
           <p>
-            Zanim powstała pierwsza linia kodu, trzeba było ustalić, <strong>co właściwie należy zbudować</strong> — i co świadomie wykluczyć. Aplikacja zastępuje proces, który drukarnia wykonywała od lat: warto było rozumieć go zanim zaproponowałem alternatywę.
+            Zanim powstała pierwsza linia kodu, trzeba było ustalić, <strong>co właściwie należy zbudować</strong> — i co świadomie wykluczyć.
+            Aplikacja zastępuje proces, który drukarnia wykonywała od lat: warto było rozumieć go zanim zaproponowałem alternatywę.
           </p>
         </div>
 
@@ -492,12 +494,16 @@
           <div class="ux-decision-box" style="border-left-color:#f59e0b;background:#fffbeb;">
             <div class="ux-label" style="color:#f59e0b;">⚠ Do uzupełnienia — pytanie do autora</div>
             <h4>Forma rozpoznania potrzeb</h4>
-            <p><strong>W jakiej formie poznałem obecny proces wyceny w drukarni?</strong><br>Rozmowa z właścicielem, obserwacja recepcji na żywo, analiza starych arkuszy Excel, własne doświadczenie jako klient? Ile spotkań/rozmów przed pierwszą linią kodu?</p>
-            <p style="font-size:0.8rem;color:#94a3b8;margin-top:0.5rem;"><em>Zastąp ten tekst 2–4 zdaniami opisującymi rzeczywisty przebieg discovery.</em></p>
+            <p><strong>Zatrudniłem się w firmie i poznałem proces od środka.</strong>
+              <br>Rozmowa z właścicielem, obserwacja pracowników na żywo, analiza starych metod kalkulacji oraz własne doświadczenie jako klient. </p>
+            <p>Wywiad z pracownikami i analiza sytuacji, gdy ilość klientów przekracza możliwość obsłużenia </p>
           </div>
           <div class="ux-decision-box" style="border-left-color:#f59e0b;background:#fffbeb;">
-            <div class="ux-label" style="color:#f59e0b;">⚠ Do uzupełnienia — pytanie do autora</div>
+            <div class="ux-label" style="color:#f59e0b;"></div>
             <h4>Główne bóle, które usłyszałem</h4>
+            Obliczanie dużej ilości plików jest czasochłonne i żmudne. 
+            Gdy klient zamawia "to samo co ostatnio" nie zawsze wiadomo jak go policzyć i na jakim materiale był robiony wydruk.
+            Nie raz pomylona wycena spotykała się z niezadowoleniem klienta lub właścicielki drukarni
             <p><strong>Jedna konkretna historia/anegdota od drukarni, która pokazała, że problem jest realny i pilny?</strong><br>Np. kosztowna pomyłka w wycenie, klient odchodzący przez czas oczekiwania, nowy pracownik gubiący się w Excelu, niespójne ceny u różnych osób z zespołu.</p>
             <p style="font-size:0.8rem;color:#94a3b8;margin-top:0.5rem;"><em>Zastąp 1–2 konkretnymi historiami z rozmów z drukarnią.</em></p>
           </div>
