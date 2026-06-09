@@ -510,7 +510,7 @@
             <div class="ux-label">Decyzja 1 · Architektura</div>
             <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
             <p><strong>Dlaczego:</strong> obecnie drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B fizycznie/telefonicznie/mailowo. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny przy ladzie. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Rozwiązanie zaproponowałem sam. Wiedziałem, że drukarnia potrzebuje czegoś prostego i intuicyjnego — a koszt utrzymania musiał być niski. Dla klienta to był pierwszy tego rodzaju system, więc bariera wejścia musiała być na tyle niska, żeby nie zniechęcić do wdrożenia.</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient sam chciał aplikację, czy to Ty zaproponowałeś takie rozwiązanie zamiast alternatyw? Co odrzuciliście razem (Excel z makrami, sklep online, gotowy SaaS)?-odpowiedź: sam zapropnowałem takie rozwiązanie,gdyż rozwiązanie miało być proste, łatwe i nie kosztować ogromnej sumy </p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 2 · Zaplecze</div>
@@ -527,16 +527,16 @@
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 4 · Frontend</div>
             <h4>TypeScript + esbuild, bez Reacta/Vue</h4>
-            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.</p>
+            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.- to trzeba opisać bardziej po polsku</p>
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;text-align:center">Co weszło do MVP, co odłożyłem na później</h3>
+        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później- w tym przypadku nie ma MVP- jest już działający w pełni produkt z wielu perspektyw </h3>
         <div class="kwcs-trio">
           <article class="kwcs-card">
             <h3>MVP (must-have)</h3>
             <ul>
-              <li>Kalkulator dla najczęstszych kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
+              <li>Kalkulator dla wszystkich  kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
               <li>Koszyk z sumą bieżącą i trybem EXPRESS</li>
               <li>Eksport PDF zamówienia</li>
               <li>Wysyłka do arkusza Google jako baza zamówień</li>
@@ -558,6 +558,7 @@
               <li>Parser DWG/DXF dla wektorów CAD</li>
               <li>Tryb klienta końcowego z ukrytymi marżami</li>
               <li>Integracja płatności</li>
+              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;"><strong>⚠ Pytanie do autora:</strong> Co świadomie wyciąłeś z zakresu, mimo że klient o to prosił lub sam chciałeś to zrobić? I dlaczego?-nic, wszystko co klient chciał, zostało dodane, narzędzie-ta aplikacja ma być przyśpieszeniem wycen i uławieniem tego procesu </li>
             </ul>
             <p>Żadnej funkcji nie wyciąłem na prośbę klienta ani z własnej inicjatywy. Ograniczyłem natomiast liczbę kategorii — powiązane typy usług zostały połączone, żeby zredukować szum i przyspieszyć nawigację do właściwej pozycji cennika.</p>
           </article>
@@ -643,8 +644,8 @@
       <div class="wrap">
         <div class="showcase-stack">
           <div class="showcase-section">
-            <h3>🏗️ Wielokolumnowy layout PWA</h3>
-            <p class="tab-description">Zdecydowałem się na stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
+            <h3>🏗️ Wielokolumnowy layout</h3>
+            <p class="tab-description">Zdecydowano się na stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
             <div class="showcase-row">
               <div class="showcase-item">
                 <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
@@ -705,7 +706,7 @@
     <div class="kwcs-sec">
       <div class="wrap">
         <div class="context-intro">
-          <p>Najtrudniejszą kategorią do wyceny w drukarni był druk inżynieryjny (CAD). Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
+          <p>Najtrudniejszą kategorią do wyceny w drukarni były wdyruki architektoniczne CAD. Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
         </div>
 
         <h3 style="text-align:center">Iteracje interfejsu kalkulatora plików</h3>
