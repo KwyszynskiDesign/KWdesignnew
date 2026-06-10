@@ -195,6 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    initializeChapterRail();
+
     const accordionHeaders = document.querySelectorAll('.kwcs-header');
     if (accordionHeaders.length > 0) {
       accordionHeaders.forEach(header => {
@@ -220,6 +222,50 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       });
+    }
+  }
+
+  function initializeChapterRail() {
+    const rail = document.getElementById('razdwa-chapter-rail');
+    if (!rail) return;
+
+    const links = Array.from(rail.querySelectorAll('.razdwa-chapter-link'));
+    if (!links.length) return;
+
+    const detailsContainer = document.getElementById('project-details-container');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.dataset.railTarget || link.getAttribute('href').replace('#', '');
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        links.forEach(l => l.classList.remove('is-active'));
+        link.classList.add('is-active');
+      });
+    });
+
+    const targets = links
+      .map(link => document.getElementById(link.dataset.railTarget || link.getAttribute('href').replace('#', '')))
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window && targets.length) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          links.forEach(l => {
+            const targetId = l.dataset.railTarget || l.getAttribute('href').replace('#', '');
+            l.classList.toggle('is-active', targetId === id);
+          });
+        });
+      }, {
+        root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
+        rootMargin: '-30% 0px -60% 0px',
+        threshold: 0
+      });
+      targets.forEach(t => observer.observe(t));
     }
   }
 
