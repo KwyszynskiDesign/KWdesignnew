@@ -234,6 +234,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const detailsContainer = document.getElementById('project-details-container');
 
+    const setActive = (activeLink) => {
+      links.forEach(l => {
+        const isActive = l === activeLink;
+        l.classList.toggle('is-active', isActive);
+        if (isActive) {
+          l.setAttribute('aria-current', 'true');
+        } else {
+          l.removeAttribute('aria-current');
+        }
+      });
+    };
+
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -241,8 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.getElementById(id);
         if (!target) return;
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        links.forEach(l => l.classList.remove('is-active'));
-        link.classList.add('is-active');
+        setActive(link);
       });
     });
 
@@ -255,14 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
           const id = entry.target.id;
-          links.forEach(l => {
-            const targetId = l.dataset.railTarget || l.getAttribute('href').replace('#', '');
-            l.classList.toggle('is-active', targetId === id);
-          });
+          const match = links.find(l => (l.dataset.railTarget || l.getAttribute('href').replace('#', '')) === id);
+          if (match) setActive(match);
         });
       }, {
         root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
-        rootMargin: '-30% 0px -60% 0px',
+        rootMargin: '-25% 0px -65% 0px',
         threshold: 0
       });
       targets.forEach(t => observer.observe(t));
