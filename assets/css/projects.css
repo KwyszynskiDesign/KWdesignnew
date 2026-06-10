@@ -2551,73 +2551,134 @@ body.lightbox-open {
 }
 
 /* ========================================
-   RAZDWA — Chapter rail (sticky TOC)
+   RAZDWA — Sticky chapter rail (boczny)
+   Desktop >= 1280px: pełna lista rozdziałów po lewej.
+   Poniżej 1280px: slim pasek z kropkami przy lewej krawędzi.
+   Nigdy nie wraca do "TOC na górze".
    ======================================== */
 .razdwa-chapter-rail {
-  position: sticky;
-  top: 16px;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  position: fixed;
+  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  padding: 0.6rem 0.85rem;
-  margin: 1.25rem auto 2rem;
-  max-width: 1100px;
-  box-shadow: 0 8px 24px -12px rgba(15, 23, 42, 0.12);
+  border-radius: 0.85rem;
+  box-shadow: 0 10px 30px -15px rgba(15, 23, 42, 0.25);
+  padding: 0.5rem 0.4rem;
+  margin: 0;
+  max-width: 2.4rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 }
+.razdwa-chapter-rail::-webkit-scrollbar { width: 4px; }
+.razdwa-chapter-rail::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+
 .razdwa-chapter-rail-label {
+  display: none;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #06b6d4;
   font-weight: 700;
-  padding: 0.1rem 0.25rem;
-  margin-bottom: 0.4rem;
+  padding: 0.1rem 0.6rem;
+  margin-bottom: 0.5rem;
 }
+
 .razdwa-chapter-rail-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 .razdwa-chapter-rail-list li { margin: 0; }
 .razdwa-chapter-rail-list li::before { content: none !important; }
+
 .razdwa-chapter-link {
-  display: inline-block;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  color: #0f172a;
-  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #475569;
+  font-size: 0;
+  line-height: 1.2;
   font-weight: 500;
-  padding: 0.3rem 0.7rem;
-  border-radius: 9999px;
+  padding: 0.45rem;
+  border-radius: 0.5rem;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
 }
+.razdwa-chapter-link::before {
+  content: '';
+  flex-shrink: 0;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
 .razdwa-chapter-link:hover {
-  background: #06b6d4;
-  border-color: #06b6d4;
-  color: #fff;
+  background: #f0f9ff;
+  color: #0f172a;
+  border-color: #e0f2fe;
+}
+.razdwa-chapter-link:hover::before { background: #06b6d4; }
+.razdwa-chapter-link:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 2px;
 }
 .razdwa-chapter-link.is-active {
-  background: #0284c7;
-  border-color: #0284c7;
-  color: #fff;
+  background: #ecfeff;
+  color: #0f172a;
+  border-color: #a5f3fc;
+  font-weight: 600;
 }
-@media (max-width: 600px) {
+.razdwa-chapter-link.is-active::before {
+  background: #06b6d4;
+  transform: scale(1.4);
+}
+
+/* Desktop: pełna lista rozdziałów z etykietami */
+@media (min-width: 1280px) {
   .razdwa-chapter-rail {
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.6rem;
-    margin: 1rem 0.5rem 1.5rem;
+    left: max(0.85rem, calc(50vw - 820px));
+    max-width: 230px;
+    width: 230px;
+    padding: 0.85rem 0.7rem;
   }
-  .razdwa-chapter-rail-list { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  .razdwa-chapter-link { white-space: nowrap; }
+  .razdwa-chapter-rail-label { display: block; }
+  .razdwa-chapter-link {
+    font-size: 0.82rem;
+    padding: 0.42rem 0.7rem;
+  }
 }
+
+/* Bardzo małe ekrany — przyklejony do krawędzi, nieco mniejszy */
+@media (max-width: 480px) {
+  .razdwa-chapter-rail {
+    left: 0.35rem;
+    padding: 0.4rem 0.3rem;
+    max-height: 70vh;
+  }
+  .razdwa-chapter-link { padding: 0.4rem; }
+}
+
+/* Przy aktywnym lightboxie chowamy rail, żeby nie zasłaniał zdjęcia */
+body.lightbox-open .razdwa-chapter-rail { display: none; }
 
 /* ========================================
    RAZDWA — Contribution grid
