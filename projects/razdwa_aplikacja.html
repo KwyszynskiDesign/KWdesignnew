@@ -12,10 +12,10 @@
   <meta name="robots" content="index, follow">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/razdwa-pelne.html">
+  <meta property="og:url" content="https://kwyszynskidesign.github.io/KWdesignnew/projects/razdwa_aplikacja.html">
   <meta property="og:title" content="Raz Dwa Druk — aplikacja, która skróciła wycenę z godziny do ok. 5 minut">
   <meta property="og:description" content="Aplikacja zastąpiła ręczne liczenie cen i papierowe cenniki: kalkulator druku, koszyk, eksport PDF i automatyczne zamówienia w Google Sheets.">
-  <meta property="og:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/kalkulator-cad-hero.png">
+  <meta property="og:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/strona startowa_RAZDWA.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="pl_PL">
@@ -23,7 +23,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Raz Dwa Druk — aplikacja, która skróciła wycenę z godziny do ok. 5 minut">
-  <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/kalkulator-cad-hero.png">
+  <meta name="twitter:image" content="https://kwyszynskidesign.github.io/KWdesignnew/assets/images/strona startowa_RAZDWA.webp">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/KWdesignnew/assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/KWdesignnew/assets/images/favicon-16x16.png">
@@ -497,9 +497,9 @@
               Rozmowa z właścicielem, obserwacja pracowników na żywo, analiza starych metod kalkulacji oraz własne doświadczenie jako klient.</p>
             <p>Wywiad z pracownikami i analiza sytuacji, gdy liczba klientów przekracza możliwości obsługi.</p>
           </div>
-          <div class="ux-decision-box" style="border-left-color:#f59e0b;background:#fffbeb;">
+          <div class="ux-decision-box" style="border-left-color:#dc2626;background:#fef2f2;">
             <h4>Główne bóle, które usłyszałem</h4>
-            <p>Obliczanie dużej ilości plików jest czasochłonne i żmudne. Gdy klient zamawia „to samo co ostatnio", nie zawsze wiadomo jak go policzyć i na jakim materiale był robiony wydruk. Pomylona wycena skutkowała niezadowoleniem klienta lub właścicielki drukarni.</p>
+            <p>Obliczanie dużej ilości plików było czasochłonne i żmudne. Gdy klient zamawiał „to samo co ostatnio", nie zawsze wiadomo było, jak go policzyć i na jakim materiale był robiony wydruk. Pomylona wycena skutkowała niezadowoleniem klienta lub właścicielki drukarni.</p>
           </div>
         </div>
 
@@ -510,28 +510,29 @@
             <div class="ux-label">Decyzja 1 · Architektura</div>
             <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
             <p><strong>Dlaczego:</strong> obecnie drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B fizycznie/telefonicznie/mailowo. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny przy ladzie. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;"><strong style="color:#92400e;">⚠ Pytanie do autora:</strong> Czy klient sam chciał aplikację, czy to Ty zaproponowałeś takie rozwiązanie zamiast alternatyw? Co odrzuciliście razem (Excel z makrami, sklep online, gotowy SaaS)?-odpowiedź: sam zapropnowałem takie rozwiązanie,gdyż rozwiązanie miało być proste, łatwe i nie kosztować ogromnej sumy </p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> wybór PWA wyszedł z mojej inicjatywy. Rozwiązanie miało być proste, tanie we wdrożeniu i nie obciążać drukarni utrzymaniem dodatkowych narzędzi.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 2 · Zaplecze</div>
             <h4>Google Sheets + Apps Script zamiast własnej bazy danych</h4>
             <p><strong>Dlaczego:</strong> wybór tej technologii oznacza zero nowego narzędzia do nauki, darmowy hosting (Google), darmową kopię zapasową i pełną kontrolę po stronie klienta. Apps Script obsługuje zapis zamówień, edycję cennika i bramkę PIN — bez utrzymywania własnego API.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Klient nie korzystał wcześniej z Google Sheets — to była moja propozycja. W drukarni funkcjonowały już drobne bazy danych, ale żadna nie łączyła prostoty z łatwością dostępu. Google Sheets okazało się naturalnym wyborem: znany interfejs, zero kosztu, pełna kontrola po stronie klienta.</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> klient nie korzystał wcześniej z Google Sheets — to była moja propozycja. W drukarni funkcjonowały drobne bazy danych, ale żadna nie łączyła prostoty z łatwością dostępu. Google Sheets okazało się naturalnym wyborem: znany interfejs, zero kosztu, pełna kontrola po stronie klienta.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 3 · Utrzymanie</div>
             <h4>Cennik edytowalny w aplikacji zamiast „wdrażanego" przez programistę</h4>
             <p><strong>Dlaczego:</strong> ceny się zmieniają. Gdyby każda zmiana wymagała kontaktu z programistą, drukarnia szybko porzuciłaby aplikację. Panel administracyjny z bramką PIN pozwala właścicielowi zmienić cenę w 30 sekund — bez ryzyka przypadkowej zmiany przez recepcję.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#fffbeb;border-left:3px solid #f59e0b;border-radius:4px;font-size:0.85rem;">Panel administracyjny nie był częścią pierwotnego planu — wyłonił się w trakcie iteracji, gdy rozważania nad bezpieczeństwem danych cennika wskazały na potrzebę oddzielonego dostępu dla właściciela.</p>
+            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> panel administracyjny nie był częścią pierwotnego planu — wyłonił się w trakcie iteracji, gdy rozważania nad bezpieczeństwem danych cennika wskazały na potrzebę oddzielonego dostępu dla właściciela.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Decyzja 4 · Frontend</div>
             <h4>TypeScript + esbuild, bez Reacta/Vue</h4>
-            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.- to trzeba opisać bardziej po polsku</p>
+            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Rezygnacja z dużego frameworka oznacza lżejszy pakiet, brak dodatkowej warstwy startowej w przeglądarce i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.</p>
           </div>
         </div>
 
-        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później- w tym przypadku nie ma MVP- jest już działający w pełni produkt z wielu perspektyw </h3>
+        <h3 style="margin-top:3rem;">Zakres dostarczony: od MVP po dzisiejszy stan produktu</h3>
+        <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Projekt nie zatrzymał się na minimalnej wersji — aplikacja jest dziś w pełni wdrożonym produktem. Poniższy podział pokazuje, w jakiej kolejności powstawały kolejne warstwy funkcjonalne.</p>
         <div class="kwcs-trio">
           <article class="kwcs-card">
             <h3>MVP (must-have)</h3>
@@ -558,7 +559,6 @@
               <li>Parser DWG/DXF dla wektorów CAD</li>
               <li>Tryb klienta końcowego z ukrytymi marżami</li>
               <li>Integracja płatności</li>
-              <li style="color:#92400e;background:#fffbeb;padding:0.5rem;border-left:3px solid #f59e0b;border-radius:4px;"><strong>⚠ Pytanie do autora:</strong> Co świadomie wyciąłeś z zakresu, mimo że klient o to prosił lub sam chciałeś to zrobić? I dlaczego?-nic, wszystko co klient chciał, zostało dodane, narzędzie-ta aplikacja ma być przyśpieszeniem wycen i uławieniem tego procesu </li>
             </ul>
             <p>Żadnej funkcji nie wyciąłem na prośbę klienta ani z własnej inicjatywy. Ograniczyłem natomiast liczbę kategorii — powiązane typy usług zostały połączone, żeby zredukować szum i przyspieszyć nawigację do właściwej pozycji cennika.</p>
           </article>
@@ -588,8 +588,8 @@
           </div>
         </div>
 
-        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
-          <p style="color:#475569;font-size:0.9rem;line-height:1.7;margin:0;">Główny operator to osoba po 40. roku życia, ze stażem ok. 1,5 roku w drukarni. Nowe, skomplikowane narzędzia mogą być przyjmowane z rezerwą — dlatego prostota obsługi i krótka krzywa uczenia były wymaganiem, nie tylko życzeniem.</p>
+        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:0.75rem;">
+          <p style="color:#475569;font-size:0.9rem;line-height:1.7;margin:0;"><strong style="color:#0f172a;">Kontekst operacyjny:</strong> główny operator to osoba po 40. roku życia, ze stażem ok. 1,5 roku w drukarni. Nowe, skomplikowane narzędzia mogą być przyjmowane z rezerwą — dlatego prostota obsługi i krótka krzywa uczenia były wymaganiem, nie tylko życzeniem.</p>
         </div>
       </div>
     </div>
@@ -645,30 +645,26 @@
         <div class="showcase-stack">
           <div class="showcase-section">
             <h3>🏗️ Wielokolumnowy layout</h3>
-            <p class="tab-description">Zdecydowano się na stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
+            <p class="tab-description">Stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
             <div class="showcase-row">
               <div class="showcase-item">
                 <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
                 <p>Desktop — stały dostęp do koszyka</p>
               </div>
-              <div class="showcase-item showcase-mobile">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/kalkulator-upload-mobile.png" alt="Layout mobilny" loading="lazy" data-caption="Mobile — nawigacja ukryta, koszyk jako overlay">
-                <p>Mobile — responsywność</p>
-              </div>
             </div>
           </div>
 
           <div class="showcase-section">
-            <h3>🛒 Dynamiczny Koszyk i Kafelki</h3>
-            <p class="tab-description">Koszyk z sumą bieżącą uaktualnia się przy każdej zmianie pozycji lub włączeniu trybu EXPRESS. Kafelki na stronie głównej eliminują wielowarstwowe menu.</p>
+            <h3>🛒 Dynamiczny koszyk i dodawanie produktów</h3>
+            <p class="tab-description">Koszyk z sumą bieżącą uaktualnia się przy każdej zmianie pozycji lub włączeniu trybu EXPRESS. Dodawanie kolejnych pozycji nie wymaga przechodzenia na osobny ekran — kontekst zamówienia jest cały czas widoczny.</p>
             <div class="showcase-row">
               <div class="showcase-item">
                 <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
                 <p>Koszyk — natychmiastowe przeliczanie</p>
               </div>
-              <div class="showcase-item showcase-mobile">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/kalkulator-cad-hero.png" alt="Kafelki kategorii" loading="lazy" data-caption="Strona główna — szybka nawigacja ikonami">
-                <p>Strona główna (Kafelki)</p>
+              <div class="showcase-item">
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Dodawanie produktu do zamówienia" loading="lazy" data-caption="Dodawanie produktu — dwa kolejne ekrany w toku zamówienia">
+                <p>Dodawanie produktu w toku zamówienia</p>
               </div>
             </div>
           </div>
@@ -706,22 +702,18 @@
     <div class="kwcs-sec">
       <div class="wrap">
         <div class="context-intro">
-          <p>Najtrudniejszą kategorią do wyceny w drukarni były wdyruki architektoniczne CAD. Wyzwaniem było stworzenie mechanizmu, który analizuje uploadowany plik, samodzielnie rozpoznaje czy to format (A0-A3) czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
+          <p>Najtrudniejszą kategorią do wyceny w drukarni były wydruki architektoniczne CAD. Wyzwaniem było stworzenie mechanizmu, który analizuje przesłany plik, samodzielnie rozpoznaje, czy to format (A0–A3), czy metry bieżące, przelicza piksele na milimetry i sprawdza szerokości zwojów (rolek papieru).</p>
         </div>
 
-        <h3 style="text-align:center">Iteracje interfejsu kalkulatora plików</h3>
+        <h3 style="text-align:center">Kalkulator druku w działaniu</h3>
         <div class="kwcs-gallery-grid">
           <div class="gallery-item">
-            <img src="/KWdesignnew/assets/images/kalkulator-cad-v1.png" alt="Iteracja 1" loading="lazy">
-            <p class="img-desc">Wersja 1: Zbyt skomplikowana tabela masowa</p>
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ekran_obliczen_RAZDWA.webp" alt="Ekran obliczeń kalkulatora" loading="lazy" data-caption="Ekran obliczeń — szczegółowa wycena per plik">
+            <p class="img-desc">Ekran obliczeń: model per-plik — każdy wydruk wyceniany niezależnie, co eliminuje pomyłki zbiorcze.</p>
           </div>
           <div class="gallery-item">
-            <img src="/KWdesignnew/assets/images/kalkulator-cad-v2.png" alt="Iteracja 2" loading="lazy">
-            <p class="img-desc">Wersja finalna: Model per-plik (zabezpiecza przed pomyłką)</p>
-          </div>
-          <div class="gallery-item">
-            <img src="/KWdesignnew/assets/images/panel drukA4-A4skan_RAZDWA.webp" alt="Panel z przełącznikiem" loading="lazy">
-            <p class="img-desc">Progi cenowe: Natychmiastowe przeliczanie przy zmianie CZB/Kolor, ilości sztuk, czy rabatu</p>
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/panel drukA4-A4skan_RAZDWA.webp" alt="Panel druku i skanowania A4" loading="lazy" data-caption="Panel druku — natychmiastowe przeliczanie ceny">
+            <p class="img-desc">Panel druku/skanowania: cena aktualizuje się natychmiast przy zmianie CZB/kolor, ilości sztuk lub rabatu.</p>
           </div>
         </div>
       </div>
@@ -772,6 +764,13 @@
           <p>Drukarnia, która musi dzwonić do programisty, żeby podnieść cenę wydruku o 10 groszy, szybko porzuci aplikację. Panel administracyjny to <strong>jedna z najważniejszych decyzji produktowych całego projektu</strong>: oddaje kontrolę nad cennikiem właścicielowi i likwiduje koszt utrzymania.</p>
         </div>
 
+        <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ustawienia_cen_RAZDWA.webp" alt="Panel ustawień cen" loading="lazy" data-caption="Panel ustawień cen — edycja in-place dla wszystkich kategorii">
+            <p class="img-desc">Panel ustawień cen — edycja pozycji bezpośrednio w tabeli.</p>
+          </div>
+        </div>
+
         <h3 style="text-align:center">Co panel pozwala zrobić</h3>
         <div class="ux-decision-grid">
           <div class="ux-decision-box">
@@ -797,25 +796,21 @@
         </div>
 
         <h3 style="margin-top:3rem;text-align:center">Bezpieczeństwo: bramka PIN</h3>
-        <p style="max-width:760px;margin:0 auto 1rem;color:#475569;">Cennik to wrażliwy zasób — przypadkowa edycja przez recepcjonistę kosztuje realne pieniądze. Wprowadziłem bramkę PIN, ale w sposób, który nie utrudnia codziennej pracy:</p>
+        <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Cennik to wrażliwy zasób — przypadkowa edycja przez recepcjonistę kosztuje realne pieniądze. Wprowadziłem bramkę PIN, ale w sposób, który nie utrudnia codziennej pracy:</p>
+
+        <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PIN_EKRAN_RAZDWA.webp" alt="Ekran bramki PIN" loading="lazy" data-caption="Bramka PIN — wejście do panelu administracyjnego">
+            <p class="img-desc">Bramka PIN — minimalny, czytelny ekran wejścia do panelu administracyjnego.</p>
+          </div>
+        </div>
+
         <ul style="max-width:760px;margin:0 auto;color:#475569;line-height:1.7;">
           <li><strong>PIN przechowywany po stronie Google Apps Script</strong> (PropertiesService) — nie w kodzie aplikacji, nie w przeglądarce. Zmiana PIN-u nie wymaga wdrażania nowej wersji.</li>
           <li><strong>Weryfikacja serwerowa</strong> przy pierwszej próbie wejścia do panelu — uniknięcie ataków na panel offline.</li>
           <li><strong>Sesja w przeglądarce</strong> — raz wpisany PIN nie pyta się o niego przy każdym kliknięciu.</li>
           <li><strong>Fallback offline</strong> — jeśli aplikacja nie ma sieci, panel pokazuje czytelny komunikat zamiast zawodzić cicho.</li>
         </ul>
-
-        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
-          <strong style="color:#92400e;">⚠ Materiały graficzne do wykonania (P0):</strong>
-          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
-            <li>Panel ustawień — widok zakładek kategorii z licznikami pozycji</li>
-            <li>Panel ustawień — edycja pozycji in-place</li>
-            <li>Panel ustawień — modal dodawania nowej pozycji</li>
-            <li>Ekran bramki PIN (z fallbackiem offline)</li>
-            <li>Arkusz <code>cennik</code> w Google Sheets po synchronizacji</li>
-          </ul>
-          <p style="margin:0.75rem 0 0;color:#92400e;font-size:0.85rem;">Klient nie dodał jeszcze własnych pozycji przez panel. Informacja zostanie uzupełniona po zebraniu danych.</p>
-        </div>
       </div>
     </div>
 
@@ -854,13 +849,16 @@
           </div>
         </div>
 
-        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
-          <strong style="color:#92400e;">⚠ Do uzupełnienia:</strong>
-          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
-            <li><strong>Materiał graficzny (P0):</strong> screenshot tworzenia własnej podgrupy (np. „Wizytówki Premium") w panelu</li>
-            <li><strong>Pytanie do autora:</strong> Dlaczego ta funkcja w ogóle powstała? Jakie konkretne zlecenie / rozmowa z drukarnią ją wywołały? 2–3 zdania historii.</li>
-            <li><strong>Status:</strong> Klient nie utworzył jeszcze własnych wariantów po wdrożeniu. Informacja zostanie uzupełniona.</li>
-          </ul>
+        <h3 style="margin-top:3rem;text-align:center">System wariantów w działaniu</h3>
+        <div class="kwcs-gallery-grid">
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dodawanie_wariantu_RAZDWA.webp" alt="Dodawanie wariantu produktu" loading="lazy" data-caption="Dodawanie wariantu — operator pracuje na polskich nazwach">
+            <p class="img-desc">Dodawanie wariantu — operator wpisuje polską nazwę, aplikacja buduje techniczny klucz w tle.</p>
+          </div>
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/nowy_wariant_RAZDWA.webp" alt="Nowy wariant w cenniku" loading="lazy" data-caption="Nowy wariant — gotowa pozycja w odpowiedniej zakładce">
+            <p class="img-desc">Nowy wariant — pozycja trafia do właściwej zakładki kategorii i jest gotowa do użycia w koszyku.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -908,15 +906,20 @@
           </div>
         </div>
 
-        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
-          <strong style="color:#92400e;">⚠ Materiały graficzne do wykonania:</strong>
-          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
-            <li>[P1] Koszyk z włączonym EXPRESS — widoczny przelicznik +20% per pozycja i w sumie</li>
-            <li>[P0] Formularz danych klienta B2B z walidacją (Firma, NIP, Telefon, Email)</li>
-            <li>[P1] Wygenerowany PDF zamówienia (otwarty w podglądzie)</li>
-            <li>[P1] Plik Excel z koszykiem</li>
-            <li>[P0] Arkusz <code>orders</code> w Google Sheets z 5–10 zamówieniami</li>
-          </ul>
+        <h3 style="margin-top:3rem;text-align:center">Etapy drogi zamówienia w aplikacji</h3>
+        <div class="kwcs-gallery-grid">
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/tryb_express_RAZDWA.webp" alt="Tryb EXPRESS w koszyku" loading="lazy" data-caption="Tryb EXPRESS — globalne doliczenie +20% do całego zamówienia">
+            <p class="img-desc">Tryb EXPRESS: jeden przełącznik dolicza +20% do każdej pozycji i przelicza sumę na żywo.</p>
+          </div>
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Formularz_RAZDWA.webp" alt="Formularz danych klienta B2B" loading="lazy" data-caption="Formularz B2B — firma, NIP, telefon, e-mail i osoba kontaktowa">
+            <p class="img-desc">Formularz danych klienta B2B z walidacją wymaganych pól przed wysyłką zamówienia.</p>
+          </div>
+          <div class="gallery-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie zamówienia">
+            <p class="img-desc">Raport PDF zamówienia generowany w przeglądarce — gotowy do wysyłki klientowi.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1007,7 +1010,7 @@
         </div>
 
         <h3 style="margin-top:3rem;text-align:center">Niezawodność — testy automatyczne</h3>
-        <p>Każda zmiana w cenniku jest krytyczna biznesowo: błąd kropki w stawce za m² oznacza realną stratę na fakturze. Dlatego zbudowałem <strong>~50 plików testowych</strong> obejmujących nie tylko kalkulacje, ale też zachowania interfejsu i scenariusze regresji. <em style="color:#94a3b8;">Łączna liczba przypadków — wymaga weryfikacji przed publikacją (uruchom <code>npm test</code>).</em></p>
+        <p>Każda zmiana w cenniku jest krytyczna biznesowo: błąd kropki w stawce za m² oznacza realną stratę na fakturze. Dlatego zbudowałem <strong>~50 plików testowych</strong> obejmujących nie tylko kalkulacje, ale też zachowania interfejsu i scenariusze regresji.</p>
         <div class="test-grid">
           <div class="test-item">
             <div class="test-item-name">Kalkulacje per kategoria</div>
@@ -1133,7 +1136,7 @@
             <li><strong>Automatyzacja CAD:</strong> Precyzyjne wykrywanie rozmiarów z plików z odchyłkami.</li>
             <li><strong>Szybkość:</strong> Czas wyceny i złożenia koszyka skrócony do około 5 minut (wcześniej ok. godziny).</li>
             <li><strong>Niezależność:</strong> Aplikacja PWA, brak bazy danych, edytowalny z panelu cennik localStorage.</li>
-            <li><strong>Bezpieczeństwo biznesowe:</strong> 178 testów jednostkowych zapobiegających błędom na fakturach.</li>
+            <li><strong>Bezpieczeństwo biznesowe:</strong> dziesiątki scenariuszy testów jednostkowych i regresji UI, zapobiegających błędom na fakturach.</li>
           </ul>
         </article>
 
@@ -1193,104 +1196,6 @@
       </div>
     </div>
 
-    <h2 class="section-divider">Pytania do autora projektu</h2>
-
-    <div class="kwcs-sec" style="background:#fffbeb;">
-      <div class="wrap">
-        <div class="context-intro">
-          <p style="color:#92400e;"><strong>Sekcja robocza — do usunięcia przed publikacją.</strong> Poniższe pytania pozwolą uzupełnić fragmenty oznaczone „Wymaga uzupełnienia przez autora". Każdą odpowiedź można wkleić w odpowiednie miejsce w treści powyżej.</p>
-        </div>
-
-        <div style="max-width:820px;margin:0 auto;">
-
-          <h3 style="margin-top:2rem;">1. Discovery i rozpoznanie potrzeb</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Jak doszło do współpracy z drukarnią Raz Dwa? Sami się zgłosili, znajomość, polecenie?</li>
-            <li>Ile spotkań/rozmów odbyło się przed pierwszą linią kodu? W jakiej formie (osobiście, telefon, e-mail)?</li>
-            <li>Czy obserwowałeś pracę recepcji na żywo? Co cię najbardziej zaskoczyło w obecnym procesie?</li>
-            <li>Czy widziałeś arkusze Excel, których drukarnia używała wcześniej? Co było w nich najbardziej kruchego?</li>
-            <li>Skąd liczba „około godziny" na wycenę i „około 5 minut" po wdrożeniu? Pomiar własny, deklaracja drukarni, średnia z kilku zamówień?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">2. Bóle, które usłyszałeś</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Jaka była najbardziej kosztowna pomyłka, o której opowiedziała ci drukarnia (pomyłka wyceny, zgubione zamówienie, błąd cennika)?</li>
-            <li>Czy klient zgłaszał problem z onboardingiem nowych pracowników?</li>
-            <li>Czy zdarzały się różne ceny tego samego zlecenia u różnych osób z zespołu?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">3. Decyzje produktowe — motywacja biznesowa</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Dlaczego klient zaakceptował PWA, a nie chciał np. sklepu online? Czy w ogóle rozważał inne opcje?</li>
-            <li>Czy decyzja o Google Sheets jako bazie była twoją propozycją, czy klient już używał Sheetów?</li>
-            <li>Czy panel administracyjny był w pierwszym założeniu, czy doszedł później po prośbie klienta?</li>
-            <li>Czy bramka PIN powstała po jakimś incydencie (przypadkowa edycja cennika), czy preventywnie?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">4. Persony</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Imię/wiek/staż konkretnego operatora recepcji, dla którego projektowałeś interfejs (można zanonimizować)</li>
-            <li>Typowy dzień pracy operatora (ile zamówień, jak długie zlecenia, częste przerwy?)</li>
-            <li>Czy administrator (właściciel) korzysta z panelu z biura, z domu, z telefonu?</li>
-            <li>Czy operatorzy zmieniają się w zespole (rotacja) — i czy to wpłynęło na decyzje o prostocie UI?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">5. Iteracje i lekcje wyniesione z projektu</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Co w pierwszej wersji nie zadziałało i musiałeś przeprojektować? (Kalkulator CAD ma 2 iteracje pokazane — co jeszcze?)</li>
-            <li>Jaka funkcja, którą zaplanowałeś, okazała się niepotrzebna i została wycięta?</li>
-            <li>Jaka funkcja, której nie planowałeś, okazała się kluczowa po wdrożeniu (np. eksport Excel)?</li>
-            <li>Co byś dziś zrobił inaczej, gdybyś zaczynał projekt od nowa?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">6. Metryki sukcesu (po wdrożeniu)</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Ile zamówień miesięcznie przechodzi przez aplikację?</li>
-            <li>Czy spadła liczba reklamacji lub błędnych faktur? Jeśli tak — o ile?</li>
-            <li>Czas onboardingu nowego pracownika — jak długo zajmuje teraz vs przed aplikacją?</li>
-            <li>Czy klient sam wprowadził jakieś nowe kategorie/pozycje cennika bez twojego udziału? Ile?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">7. Współpraca z klientem</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Jak wyglądała pętla feedbacku — pokazywałeś prototypy, klient testował na żywo, sam zgłaszał potrzeby?</li>
-            <li>Czy klient brał udział w decyzjach UX, czy oddał ci pełną swobodę?</li>
-            <li>Czy umowa była ryczałtowa, godzinowa, projektowa?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">8. Liczby do zweryfikowania przed publikacją</h3>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>Rzeczywista łączna liczba przypadków testowych (uruchom <code>npm test</code> i wpisz wynik)</li>
-            <li>Rzeczywisty rozmiar bundle JS po build (sprawdź <code>docs/assets/app.js</code>)</li>
-            <li>Rzeczywista liczba pozycji cennikowych w arkuszu Google (po ostatniej synchronizacji)</li>
-            <li>Czas trwania projektu — czy „ok. 6 miesięcy" to do MVP, do dzisiaj, czy tylko aktywnej pracy?</li>
-          </ul>
-
-          <h3 style="margin-top:2rem;">9. Materiały graficzne — checklist</h3>
-          <p style="color:#475569;">Lista priorytetowych screenshotów (P0 = potrzebne do publikacji):</p>
-          <ul style="line-height:1.8;color:#475569;">
-            <li>[P0] Panel ustawień — widok zakładek z licznikami</li>
-            <li>[P0] Panel ustawień — modal dodawania nowej pozycji</li>
-            <li>[P0] Ekran wprowadzenia PIN-u</li>
-            <li>[P0] Tworzenie podgrupy „Wizytówki Premium" (warianty)</li>
-            <li>[P0] Formularz danych klienta B2B z walidacją</li>
-            <li>[P0] Arkusz <code>orders</code> w Google Sheets z prawdziwymi zamówieniami</li>
-            <li>[P0] Diagram architektury 5-warstwowej (zastępuje obecny 4-warstwowy)</li>
-            <li>[P0] Schemat „stary proces" (telefon → Excel → ręczna wycena → telefon zwrotny)</li>
-            <li>[P0] Tabela mapowania modułów aplikacji na branże B2B</li>
-            <li>[P1] Koszyk z włączonym EXPRESS</li>
-            <li>[P1] Wygenerowany PDF zamówienia</li>
-            <li>[P1] Plik Excel z koszykiem</li>
-            <li>[P1] Arkusz <code>cennik</code> w Sheets po synchronizacji</li>
-            <li>[P1] Mobilna wersja z otwartym sidebarem</li>
-            <li>[P1] Upload wielu plików CAD jednocześnie</li>
-            <li>[P1] Metryki przed/po wdrożeniu</li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
-
   </section>
 
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększony obraz">
@@ -1302,5 +1207,3 @@
   <script src="/KWdesignnew/assets/js/projects.js" defer></script>
 </body>
 </html>
-
-```
