@@ -2551,14 +2551,17 @@ body.lightbox-open {
 }
 
 /* ========================================
-   RAZDWA — Chapter rail jako pełnej długości timeline
+   CHAPTER RAIL — uniwersalny sticky timeline dla case studies
+   - Klasa .kwcs-chapter-rail (uniwersalna) + .razdwa-chapter-rail
+     (alias zachowany dla istniejącego RAZDWA case study)
    - Fixed, top:0 / bottom:0 → linia biegnie przez cały viewport
    - Kropki rozłożone równomiernie wzdłuż linii (justify-content: space-between)
    - Desktop >= 1280px: pełne etykiety rozdziałów obok kropek
    - Poniżej 1280px: slim timeline z samymi kropkami przy lewej krawędzi
    - Zawsze widoczny przy scrollu — to persistent navigation case study
    ======================================== */
-.razdwa-chapter-rail {
+.razdwa-chapter-rail,
+.kwcs-chapter-rail {
   position: fixed;
   left: 0.5rem;
   top: 0;
@@ -2573,7 +2576,8 @@ body.lightbox-open {
   background: transparent;
 }
 
-.razdwa-chapter-rail-label {
+.razdwa-chapter-rail-label,
+.kwcs-chapter-rail-label {
   display: none;
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -2585,7 +2589,8 @@ body.lightbox-open {
   pointer-events: auto;
 }
 
-.razdwa-chapter-rail-list {
+.razdwa-chapter-rail-list,
+.kwcs-chapter-rail-list {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2600,7 +2605,8 @@ body.lightbox-open {
 }
 
 /* Pionowa linia timeline biegnąca przez całą wysokość */
-.razdwa-chapter-rail-list::before {
+.razdwa-chapter-rail-list::before,
+.kwcs-chapter-rail-list::before {
   content: '';
   position: absolute;
   left: 0.55rem;
@@ -2620,15 +2626,18 @@ body.lightbox-open {
   pointer-events: none;
 }
 
-.razdwa-chapter-rail-list li {
+.razdwa-chapter-rail-list li,
+.kwcs-chapter-rail-list li {
   position: relative;
   z-index: 1;
   margin: 0;
   display: flex;
 }
-.razdwa-chapter-rail-list li::before { content: none !important; }
+.razdwa-chapter-rail-list li::before,
+.kwcs-chapter-rail-list li::before { content: none !important; }
 
-.razdwa-chapter-link {
+.razdwa-chapter-link,
+.kwcs-chapter-link {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -2650,7 +2659,8 @@ body.lightbox-open {
 }
 
 /* Kropka-marker na linii */
-.razdwa-chapter-link::before {
+.razdwa-chapter-link::before,
+.kwcs-chapter-link::before {
   content: '';
   flex-shrink: 0;
   display: block;
@@ -2663,21 +2673,26 @@ body.lightbox-open {
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.razdwa-chapter-link:hover { color: #0f172a; }
-.razdwa-chapter-link:hover::before {
+.razdwa-chapter-link:hover,
+.kwcs-chapter-link:hover { color: #0f172a; }
+.razdwa-chapter-link:hover::before,
+.kwcs-chapter-link:hover::before {
   border-color: #06b6d4;
   background: #ecfeff;
 }
-.razdwa-chapter-link:focus-visible {
+.razdwa-chapter-link:focus-visible,
+.kwcs-chapter-link:focus-visible {
   outline: 2px solid #06b6d4;
   outline-offset: 2px;
 }
 
-.razdwa-chapter-link.is-active {
+.razdwa-chapter-link.is-active,
+.kwcs-chapter-link.is-active {
   color: #0f172a;
   font-weight: 700;
 }
-.razdwa-chapter-link.is-active::before {
+.razdwa-chapter-link.is-active::before,
+.kwcs-chapter-link.is-active::before {
   background: #06b6d4;
   border-color: #06b6d4;
   transform: scale(1.25);
@@ -2686,22 +2701,27 @@ body.lightbox-open {
 
 /* Desktop: pełne etykiety obok kropek, więcej oddechu */
 @media (min-width: 1280px) {
-  .razdwa-chapter-rail {
+  .razdwa-chapter-rail,
+  .kwcs-chapter-rail {
     left: max(0.85rem, calc(50vw - 820px));
     max-width: 240px;
     width: 240px;
     padding: 5.5rem 0.5rem 4rem;
   }
-  .razdwa-chapter-rail-label { display: block; }
-  .razdwa-chapter-rail-list::before { left: 0.7rem; }
-  .razdwa-chapter-link {
+  .razdwa-chapter-rail-label,
+  .kwcs-chapter-rail-label { display: block; }
+  .razdwa-chapter-rail-list::before,
+  .kwcs-chapter-rail-list::before { left: 0.7rem; }
+  .razdwa-chapter-link,
+  .kwcs-chapter-link {
     font-size: 0.82rem;
     padding: 0.25rem 0.6rem 0.25rem 0.3rem;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
   }
-  .razdwa-chapter-link.is-active {
+  .razdwa-chapter-link.is-active,
+  .kwcs-chapter-link.is-active {
     background: rgba(236, 254, 255, 0.95);
     border-color: #a5f3fc;
   }
@@ -2709,21 +2729,26 @@ body.lightbox-open {
 
 /* Bardzo małe ekrany — przyklejony do krawędzi */
 @media (max-width: 480px) {
-  .razdwa-chapter-rail {
+  .razdwa-chapter-rail,
+  .kwcs-chapter-rail {
     left: 0.3rem;
     padding: 4rem 0.25rem 3.5rem;
   }
 }
 
-/* Bardzo niskie viewporty — żeby 14 kropek się nie nachodziło, pozwól na scroll */
+/* Bardzo niskie viewporty — żeby kropki się nie nachodziły, pozwól na scroll */
 @media (max-height: 560px) {
-  .razdwa-chapter-rail { overflow-y: auto; }
-  .razdwa-chapter-rail-list { justify-content: flex-start; gap: 0.4rem; }
-  .razdwa-chapter-rail-list::before { bottom: auto; height: 100%; }
+  .razdwa-chapter-rail,
+  .kwcs-chapter-rail { overflow-y: auto; }
+  .razdwa-chapter-rail-list,
+  .kwcs-chapter-rail-list { justify-content: flex-start; gap: 0.4rem; }
+  .razdwa-chapter-rail-list::before,
+  .kwcs-chapter-rail-list::before { bottom: auto; height: 100%; }
 }
 
 /* Przy aktywnym lightboxie chowamy rail, żeby nie zasłaniał zdjęcia */
-body.lightbox-open .razdwa-chapter-rail { display: none; }
+body.lightbox-open .razdwa-chapter-rail,
+body.lightbox-open .kwcs-chapter-rail { display: none; }
 
 /* ========================================
    RAZDWA — Contribution grid
