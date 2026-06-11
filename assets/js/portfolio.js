@@ -225,19 +225,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function removeChapterRail() {
+    document.querySelectorAll('#razdwa-chapter-rail').forEach(el => el.remove());
+    if (window.__razdwaRailObserver) {
+      window.__razdwaRailObserver.disconnect();
+      window.__razdwaRailObserver = null;
+    }
+  }
+
   function initializeChapterRail() {
+    // Sprzątanie po poprzednim projekcie / przeładowaniu
+    removeChapterRail();
+
     const rail = document.getElementById('razdwa-chapter-rail');
     if (!rail) return;
+
+    // .project-details-container ma transform → tworzy containing block
+    // dla position:fixed. Przenosimy rail do body, żeby pozostał przyklejony
+    // do viewportu podczas scrollowania całego case study.
+    document.body.appendChild(rail);
 
     const links = Array.from(rail.querySelectorAll('.razdwa-chapter-link'));
     if (!links.length) return;
 
-    const detailsContainer = document.getElementById('project-details-container');
+    const getTargetId = (link) =>
+      link.dataset.railTarget || (link.getAttribute('href') || '').replace('#', '');
 
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        const id = link.dataset.railTarget || link.getAttribute('href').replace('#', '');
+        const id = getTargetId(link);
         const target = document.getElementById(id);
         if (!target) return;
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -247,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const targets = links
-      .map(link => document.getElementById(link.dataset.railTarget || link.getAttribute('href').replace('#', '')))
+      .map(link => document.getElementById(getTargetId(link)))
       .filter(Boolean);
 
     if ('IntersectionObserver' in window && targets.length) {
@@ -256,16 +273,15 @@ document.addEventListener('DOMContentLoaded', () => {
           if (!entry.isIntersecting) return;
           const id = entry.target.id;
           links.forEach(l => {
-            const targetId = l.dataset.railTarget || l.getAttribute('href').replace('#', '');
-            l.classList.toggle('is-active', targetId === id);
+            l.classList.toggle('is-active', getTargetId(l) === id);
           });
         });
       }, {
-        root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
         rootMargin: '-30% 0px -60% 0px',
         threshold: 0
       });
       targets.forEach(t => observer.observe(t));
+      window.__razdwaRailObserver = observer;
     }
   }
 
@@ -291,6 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Usuń pływającą nawigację
     removeProjectNavigation();
+
+    // Usuń sticky chapter rail (przeniesiony do body w initializeChapterRail)
+    removeChapterRail();
 
     history.pushState('', document.title, window.location.pathname);
   };
