@@ -25,10 +25,10 @@ body {
 :root {
     /* Updated Color System - Turkusowy jako primary */
     --color-primary: #06b6d4;
-    --color-primary-light: #22d3ee;
-    --color-primary-dark: #0891b2;
-    --color-secondary: #64748b;
-    --color-accent: #14b8a6;
+    --color-primary-light: #C4EBF2;
+    --color-primary-dark: #0292AA;
+    --color-secondary: #2266D1; 
+    --color-accent: #CC2408; 
     
     /* Dark Theme Colors */
     --color-dark: #1e293b;
@@ -36,19 +36,33 @@ body {
     --color-dark-lighter: #475569;
     
     /* Sophisticated Neutrals */
-    --color-text: #0f172a;
+    --color-text: #1A2B2E;
     --color-text-light: #64748b;
     --color-text-muted: #94a3b8;
-    --color-background: #ffffff;
+    --color-background: #F6F8F8;
     --color-background-light: #f8fafc;
     --color-background-darker: #f1f5f9;
     --color-border: #e2e8f0;
     --color-border-light: #f1f5f9;
+
+    
     
     /* Status Colors */
     --color-success: #10b981;
     --color-warning: #f59e0b;
     --color-error: #ef4444;
+
+     /*Dodaj nowe linie poniżej (tonal scale primary)*/
+    --color-primary-50: #F3FAFB;
+    --color-primary-100: #C4EBF2;
+    --color-primary-200: #90E0ED;
+    --color-primary-300: #57D9EE;
+    --color-primary-400: #19D5F4;
+    --color-primary-500: #02B4D2;
+    --color-primary-600: #0292AA;
+    --color-primary-700: #017082;
+    --color-primary-800: #014E5A;
+    --color-primary-900: #012B32;
     
     /* Premium Typography Stack */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
