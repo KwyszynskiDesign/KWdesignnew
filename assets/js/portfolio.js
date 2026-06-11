@@ -226,56 +226,60 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initializeChapterRail() {
-    const rail = document.getElementById('razdwa-chapter-rail');
-    if (!rail) return;
-
-    const links = Array.from(rail.querySelectorAll('.razdwa-chapter-link'));
-    if (!links.length) return;
+    // Uniwersalny handler — obsługuje zarówno .razdwa-chapter-rail (legacy)
+    // jak i .kwcs-chapter-rail (nowy standard dla wszystkich case studies).
+    const rails = document.querySelectorAll('.kwcs-chapter-rail, .razdwa-chapter-rail');
+    if (!rails.length) return;
 
     const detailsContainer = document.getElementById('project-details-container');
 
-    const setActive = (activeLink) => {
-      links.forEach(l => {
-        const isActive = l === activeLink;
-        l.classList.toggle('is-active', isActive);
-        if (isActive) {
-          l.setAttribute('aria-current', 'true');
-        } else {
-          l.removeAttribute('aria-current');
-        }
-      });
-    };
+    rails.forEach(rail => {
+      const links = Array.from(rail.querySelectorAll('.kwcs-chapter-link, .razdwa-chapter-link'));
+      if (!links.length) return;
 
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const id = link.dataset.railTarget || link.getAttribute('href').replace('#', '');
-        const target = document.getElementById(id);
-        if (!target) return;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setActive(link);
-      });
-    });
-
-    const targets = links
-      .map(link => document.getElementById(link.dataset.railTarget || link.getAttribute('href').replace('#', '')))
-      .filter(Boolean);
-
-    if ('IntersectionObserver' in window && targets.length) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const id = entry.target.id;
-          const match = links.find(l => (l.dataset.railTarget || l.getAttribute('href').replace('#', '')) === id);
-          if (match) setActive(match);
+      const setActive = (activeLink) => {
+        links.forEach(l => {
+          const isActive = l === activeLink;
+          l.classList.toggle('is-active', isActive);
+          if (isActive) {
+            l.setAttribute('aria-current', 'true');
+          } else {
+            l.removeAttribute('aria-current');
+          }
         });
-      }, {
-        root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
-        rootMargin: '-25% 0px -65% 0px',
-        threshold: 0
+      };
+
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const id = link.dataset.railTarget || link.getAttribute('href').replace('#', '');
+          const target = document.getElementById(id);
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActive(link);
+        });
       });
-      targets.forEach(t => observer.observe(t));
-    }
+
+      const targets = links
+        .map(link => document.getElementById(link.dataset.railTarget || link.getAttribute('href').replace('#', '')))
+        .filter(Boolean);
+
+      if ('IntersectionObserver' in window && targets.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            const match = links.find(l => (l.dataset.railTarget || l.getAttribute('href').replace('#', '')) === id);
+            if (match) setActive(match);
+          });
+        }, {
+          root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
+          rootMargin: '-25% 0px -65% 0px',
+          threshold: 0
+        });
+        targets.forEach(t => observer.observe(t));
+      }
+    });
   }
 
   window.closeProjectDetails = function() {
