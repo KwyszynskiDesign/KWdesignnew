@@ -261,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         links.forEach(l => l.classList.remove('is-active'));
         link.classList.add('is-active');
       });
+    });
 
     const targets = links
       .map(link => document.getElementById(getTargetId(link)))
@@ -274,10 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
           links.forEach(l => {
             l.classList.toggle('is-active', getTargetId(l) === id);
           });
-        }, {
-          root: detailsContainer && detailsContainer.style.overflow === 'auto' ? detailsContainer : null,
-          rootMargin: '-25% 0px -65% 0px',
-          threshold: 0
         });
       }, {
         rootMargin: '-30% 0px -60% 0px',
