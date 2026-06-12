@@ -62,29 +62,10 @@
     <div class="kwcs-hero-body">
       <div class="wrap inner">
         <div class="hero-content-grid">
-          <div class="hero-buttons-vertical">
-            <div class="kwcs-chip chip-zakres">
-              <strong>Zakres</strong><br>
-              Aplikacja biznesowa, projekt UX/UI, architektura, testy ręczne i automatyczne
-            </div>
-            <div class="kwcs-chip chip-stack">
-              <strong>Technologie</strong><br>
-              TypeScript, esbuild, Vitest, PWA, pdf-lib, Google Apps Script, Google Sheets
-            </div>
-            <div class="kwcs-chip chip-automatyzacje">
-              <strong>Branża</strong><br>
-              Drukarnia wielkoformatowa · proces B2B
-            </div>
-            <div class="kwcs-chip chip-dostarczone">
-              <strong>Co dostarczyłem</strong><br>
-              Kalkulator, koszyk, eksport PDF, integracja z Google Sheets
-            </div>
-          </div>
-
           <div class="hero-image">
             <img
               class="cover"
-              src="/KWdesignnew/assets/images/strona startowa_RAZDWA.webp" 
+              src="/KWdesignnew/assets/images/strona startowa_RAZDWA.webp"
               alt="Raz Dwa Druk — system cyfrowy drukarni"
               loading="lazy"
               decoding="async"
@@ -134,12 +115,64 @@
     </div>
 
     <!-- ============================================================
+         Moja rola — przeniesiona pod hero/summary jako wczesny sygnał
+         end-to-end ownership. ID razdwa-contribution zachowane.
+    ============================================================ -->
+    <h2 class="section-divider" id="razdwa-contribution">
+      <span class="razdwa-contribution-eyebrow">Zakres odpowiedzialności</span>
+      Moja rola w projekcie
+    </h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>Prowadziłem ten projekt samodzielnie — od analizy procesu, przez projekt UX/UI, po wdrożenie aplikacji obsługującej dziś zamówienia drukarni. Trzy kolumny niżej rozdzielają mój zakres, decyzje konsultowane z klientem i zasoby wniesione przez firmę.</p>
+        </div>
+
+        <div class="contribution-grid">
+          <div class="contribution-cell contribution-cell--solo">
+            <h4><span class="dot"></span>Mój zakres</h4>
+            <ul>
+              <li>Analiza procesu wyceny i identyfikacja problemów operacyjnych</li>
+              <li>Projekt architektury produktu i przepływów użytkownika</li>
+              <li>Projekt UX/UI wszystkich ekranów i funkcji systemu</li>
+              <li>Opracowanie kalkulatora wycen, koszyka oraz panelu administracyjnego</li>
+              <li>Zaprojektowanie systemu zarządzania cennikiem i wariantami produktów</li>
+              <li>Implementacja oraz wdrożenie rozwiązania produkcyjnego</li>
+              <li>Zapewnienie niezawodności rozwiązania poprzez testy i walidację działania</li>
+            </ul>
+          </div>
+          <div class="contribution-cell contribution-cell--shared">
+            <h4><span class="dot"></span>Wspólnie z klientem</h4>
+            <ul>
+              <li>Mapowanie kategorii produktów i struktury cennika</li>
+              <li>Definicja reguł wyceny oraz dopłat</li>
+              <li>Walidacja kalkulatora na rzeczywistych zamówieniach</li>
+              <li>Testy akceptacyjne i iteracyjne poprawki</li>
+              <li>Decyzje dotyczące zarządzania cennikiem i dostępem administracyjnym</li>
+            </ul>
+          </div>
+          <div class="contribution-cell contribution-cell--external">
+            <h4><span class="dot"></span>Zasoby drukarni</h4>
+            <ul>
+              <li>Istniejący cennik i dokumentacja procesów</li>
+              <li>Środowisko Google wykorzystywane przez firmę</li>
+              <li>Komputer warsztatowy do testów i wdrożenia</li>
+              <li>Materiały oraz dane potrzebne do konfiguracji systemu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          Chapter rail — sticky TOC z internal anchors
     ============================================================ -->
     <nav class="razdwa-chapter-rail" id="razdwa-chapter-rail" aria-label="Spis treści case study">
       <div class="razdwa-chapter-rail-label">Rozdziały</div>
       <ul class="razdwa-chapter-rail-list">
         <li><a class="razdwa-chapter-link" href="#razdwa-summary" data-rail-target="razdwa-summary" title="W skrócie" aria-label="W skrócie">W skrócie</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-contribution" data-rail-target="razdwa-contribution" title="Moja rola" aria-label="Moja rola">Moja rola</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-kontekst" data-rail-target="razdwa-kontekst" title="Kontekst" aria-label="Kontekst">Kontekst</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-architektura-ekosystem" data-rail-target="razdwa-architektura-ekosystem" title="Architektura ekosystemu" aria-label="Architektura ekosystemu">Architektura ekosystemu</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Decyzje produktowe" aria-label="Decyzje produktowe">Decyzje produktowe</a></li>
@@ -163,7 +196,6 @@
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-integracje" data-rail-target="razdwa-architektura-integracje" title="Integracje" aria-label="Integracje">Integracje</a></li>
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-testy" data-rail-target="razdwa-architektura-testy" title="Testy automatyczne" aria-label="Testy automatyczne">Testy automatyczne</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-systemui" data-rail-target="razdwa-systemui" title="System UI" aria-label="System UI">System UI</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-contribution" data-rail-target="razdwa-contribution" title="Moja rola" aria-label="Moja rola">Moja rola</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-potencjal" data-rail-target="razdwa-potencjal" title="Potencjał B2B" aria-label="Potencjał B2B">Potencjał B2B</a></li>
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-poligrafia" data-rail-target="razdwa-potencjal-poligrafia" title="Specyficzne dla poligrafii" aria-label="Specyficzne dla poligrafii">Specyficzne dla poligrafii</a></li>
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-uniwersalne" data-rail-target="razdwa-potencjal-uniwersalne" title="Uniwersalne moduły" aria-label="Uniwersalne moduły">Uniwersalne moduły</a></li>
@@ -964,56 +996,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ============================================================
-         Contribution grid — co robiłem ja, co podzielone, co poza zakresem
-    ============================================================ -->
-    <h2 class="section-divider" id="razdwa-contribution">Moja rola w projekcie</h2>
-
-    <div class="kwcs-sec">
-      <div class="wrap">
-        <div class="context-intro">
-          <p>Aplikację zaprojektowałem i zbudowałem samodzielnie — od analizy procesu po wdrożenie. Poniższa siatka rozdziela to, co było wyłącznie moją odpowiedzialnością, od tego, co konsultowałem z właścicielką drukarni, i od zasobów, które wniosła sama firma.</p>
-        </div>
-
-        <div class="contribution-grid">
-          <div class="contribution-cell contribution-cell--solo">
-            <h4><span class="dot"></span>Solo — ja</h4>
-            <ul>
-              <li>Analiza procesu wyceny w warsztacie</li>
-              <li>Architektura aplikacji (5 warstw)</li>
-              <li>Projekt UX/UI wszystkich ekranów</li>
-              <li>TypeScript: kalkulatory, koszyk, panel admina</li>
-              <li>System wariantów i slugifikacja PL → klucze</li>
-              <li>Integracja Google Apps Script + PIN</li>
-              <li>~50 plików testów (Vitest)</li>
-              <li>PWA, Service Worker, eksport PDF (pdf-lib)</li>
-              <li>Wdrożenie produkcyjne i dokumentacja</li>
-            </ul>
-          </div>
-          <div class="contribution-cell contribution-cell--shared">
-            <h4><span class="dot"></span>Wspólnie z klientem</h4>
-            <ul>
-              <li>Mapa 22 kategorii cennikowych</li>
-              <li>Reguły dopłat (składanie, skanowanie, EXPRESS)</li>
-              <li>Walidacja kalkulatora CAD na rzeczywistych plikach</li>
-              <li>Test akceptacyjny: samodzielna aktualizacja cennika</li>
-              <li>Decyzja o panelu admina i bramce PIN</li>
-            </ul>
-          </div>
-          <div class="contribution-cell contribution-cell--external">
-            <h4><span class="dot"></span>Zasoby drukarni</h4>
-            <ul>
-              <li>Konto Google + arkusze (orders / cennik / variants)</li>
-              <li>Stary cennik papierowy jako źródło danych</li>
-              <li>Komputer warsztatowy do testów PWA offline</li>
-              <li>Zdjęcia i materiały do strony Raz Dwa</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <h2 class="section-divider" id="razdwa-potencjal">Potencjał poza poligrafią</h2>
 
