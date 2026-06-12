@@ -193,6 +193,7 @@
         <li><a class="razdwa-chapter-link" href="#razdwa-potencjal" data-rail-target="razdwa-potencjal" title="Potencjał B2B" aria-label="Potencjał B2B">Potencjał B2B</a></li>
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-poligrafia" data-rail-target="razdwa-potencjal-poligrafia" title="Specyficzne dla poligrafii" aria-label="Specyficzne dla poligrafii">Specyficzne dla poligrafii</a></li>
         <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-uniwersalne" data-rail-target="razdwa-potencjal-uniwersalne" title="Uniwersalne moduły" aria-label="Uniwersalne moduły">Uniwersalne moduły</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Lessons learned" aria-label="Lessons learned">Lessons learned</a></li>
         <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Rezultat" aria-label="Rezultat">Rezultat</a></li>
       </ul>
     </nav>
@@ -906,6 +907,34 @@
           <li><strong>Stabilność rdzenia:</strong> Warstwy interfejsu, logiki i persystencji pozostają nienaruszone.</li>
         </ul>
       </article>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-divider" id="razdwa-lessons">Lessons learned</h2>
+
+<div class="kwcs-sec" style="background:#f8fafc;">
+  <div class="wrap">
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      Trzy rzeczy, które zostały po dostarczeniu produktu i które zabieram do następnego projektu.
+    </p>
+
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <div class="ux-label">Co zrobiłbym inaczej</div>
+        <h4>Zacząć od shadowingu operatora, nie od rozmowy z klientem</h4>
+        <p>Wymagania właścicielki dotyczyły funkcji („chcę panelu z PIN"), a operator pokazywał blokery procesu („przepisuję ten sam wymiar trzy razy"). Gdybym zaczynał ponownie, jedna zmiana w drukarni przed pierwszą rozmową z klientem skróciłaby fazę odkrywania o około miesiąc.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Co zaskoczyło</div>
+        <h4>Środowisko wymusza architekturę bardziej niż preferencje techniczne</h4>
+        <p>Brak stabilnego internetu w warsztacie i klient czekający przy ladzie wymusiły decyzje, które inaczej trudno byłoby uzasadnić — PWA offline, panel z PIN, eksport PDF lokalnie. Ograniczenia środowiska okazały się silniejszym argumentem niż czysta inżynieria.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Co zmieniło się w iteracji 2</div>
+        <h4>System wariantów własnych powstał z obserwacji, nie z briefu</h4>
+        <p>„Wizytówki Premium" jako odrębna pozycja w cenniku — to wynik obserwacji, że klient zamawia z nazwy produktu, a nie ze specyfikacji. Zmiana architektury wariantów, której nie przewidziałem w MVP, ale która okazała się kluczowa dla codziennej obsługi zleceń.</p>
+      </div>
     </div>
   </div>
 </div>
