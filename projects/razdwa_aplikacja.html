@@ -203,208 +203,185 @@
 
     <div class="kwcs-sec kwcs-context-section" id="razdwa-kontekst">
       <div class="wrap">
-       <h2>Kontekst projektu</h2>
+<h2>Kontekst projektu</h2>
 
-<div class="context-intro">
-  <p>
-    <strong>Drukarnia Raz Dwa</strong> obsługuje klientów B2B oraz indywidualnych. Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzania fizycznych tabel i liczenia parametrów zamówień – proces ten był powolny i generował pomyłki rachunkowe.
-  </p>
-  
-  <p><strong>Moje zadanie:</strong> Zaprojektowanie i zbudowanie od zera kompletnego ekosystemu produktowego:</p>
-  <ul>
-    <li><strong>UI/UX:</strong> System dynamicznego koszyka oraz automatyczny kalkulator druku CAD.</li>
-    <li><strong>Product Management:</strong> Panel dający właścicielowi pełną kontrolę nad cennikami.</li>
-    <li><strong>Infrastruktura Serverless:</strong> Architektura PWA oparta o Google Apps Script + Sheets (0 zł kosztów utrzymania serwerów).</li>
-  </ul>
-</div>
-
-<div class="razdwa-stats">
-  <div class="razdwa-stat">
-    <div class="razdwa-stat-num">~5 min</div>
-    <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)</div>
-  </div>
-  <div class="razdwa-stat">
-    <div class="razdwa-stat-num">22</div>
-    <div class="razdwa-stat-label">kategorie produktowe + panel ustawień</div>
-  </div>
-  <div class="razdwa-stat">
-    <div class="razdwa-stat-num">2</div>
-    <div class="razdwa-stat-label">role użytkowników (operator, administrator)</div>
-  </div>
-  <div class="razdwa-stat">
-    <div class="razdwa-stat-num">0 zł</div>
-    <div class="razdwa-stat-label">kosztów własnej infrastruktury serwerowej</div>
-  </div>
-</div>
-
-    <div class="kwcs-sec" style="background: #f8fafc;" id="razdwa-architektura-ekosystem">
+<div class="kwcs-sec">
   <div class="wrap">
-    <h2>Architektura ekosystemu</h2>
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      Przed wdrożeniem systemu każda wycena w drukarni wymagała ręcznego sprawdzania fizycznych tabel. Proces był powolny i generował błędy rachunkowe, szczególnie przy skomplikowanych zamówieniach CAD.
+    </p>
+
+    <div class="razdwa-stats">
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">~5 min</div>
+        <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">22</div>
+        <div class="razdwa-stat-label">kategorie produktowe w panelu</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">2</div>
+        <div class="razdwa-stat-label">role użytkowników (operator / admin)</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">0 zł</div>
+        <div class="razdwa-stat-label">kosztów utrzymania serwerów</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kwcs-sec" style="background: #f8fafc;" id="razdwa-architektura-ekosystem">
+  <div class="wrap">
+    <h2 style="text-align:center; margin-bottom:2rem;">Architektura ekosystemu</h2>
 
     <div class="razdwa-ecosystem">
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
           <div class="eco-node-icon">🖨️</div>
-          <div class="eco-node-label">Kalkulatory (np. CAD)</div>
-          <div class="eco-node-sub">Upload pliku → automatyczna detekcja formatu i natychmiastowa wycena</div>
+          <div class="eco-node-label">Kalkulatory CAD</div>
+          <div class="eco-node-sub">Upload pliku, automatyczna detekcja formatu i natychmiastowa wycena.</div>
         </div>
         <div class="eco-arrow">→</div>
         <div class="eco-node">
           <div class="eco-node-icon">🛒</div>
           <div class="eco-node-label">Koszyk i Interfejs</div>
-          <div class="eco-node-sub">Obsługa rabatów, trybu EXPRESS oraz sumowanie koszyka na żywo</div>
+          <div class="eco-node-sub">Obsługa rabatów, trybu EXPRESS oraz przeliczanie sumy na żywo.</div>
         </div>
       </div>
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
           <div class="eco-node-icon">📄</div>
           <div class="eco-node-label">Eksport raportów PDF</div>
-          <div class="eco-node-sub">Generowanie gotowego podsumowania zamówienia dla klienta bezpośrednio w przeglądarce</div>
+          <div class="eco-node-sub">Generowanie gotowego podsumowania dla klienta bezpośrednio w przeglądarce.</div>
         </div>
         <div class="eco-arrow">↔</div>
         <div class="eco-node">
           <div class="eco-node-icon">📊</div>
           <div class="eco-node-label">Zintegrowany Google Sheets</div>
-          <div class="eco-node-sub">Automatyczna baza zamówień i synchronizacja danych w chmurze</div>
+          <div class="eco-node-sub">Automatyczna rejestracja transakcji i replikacja danych w chmurze.</div>
         </div>
       </div>
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
           <div class="eco-node-icon">⚙️</div>
           <div class="eco-node-label">Dynamiczny System Cenników</div>
-          <div class="eco-node-sub">Przechowywanie danych offline i błyskawiczna aktualizacja stawek z poziomu UI</div>
+          <div class="eco-node-sub">Bezserwerowe przechowywanie stawek i szybka edycja z poziomu UI.</div>
         </div>
       </div>
     </div>
   </div>
 </div>
-    <h2 class="section-divider" id="razdwa-decyzje">Decyzje produktowe</h2>
+
+<h2 class="section-divider" id="razdwa-decyzje">Decyzje produktowe</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    
-    <h3 style="text-align:center" id="razdwa-decyzje-problem">Jak rozpoznałem problem</h3>
+    <h3 style="text-align:center" id="razdwa-decyzje-problem">Rozpoznanie problemu</h3>
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
-        <h4>Forma rozpoznania potrzeb</h4>
-        <p><strong>Zatrudniłem się w drukarni, aby poznać proces od środka.</strong> Przeprowadziłem wywiady z pracownikami, obserwowałem obsługę przy ladzie w momentach największego ruchu oraz przeanalizowałem dotychczasowe, manualne metody kalkulacji.</p>
+        <h4>Analiza procesów (UX Research)</h4>
+        <p>Spędziłem czas bezpośrednio w drukarni, obserwując pracę zespołu przy ladzie w momentach największego ruchu. Przeprowadziłem wywiady z pracownikami i przeanalizowałem dotychczasowe, manualne metody wycen.</p>
       </div>
-      <div class="ux-decision-box" style="border-left-color:#dc2626;background:#fef2f2;">
-        <h4>Główne bóle (Pain points)</h4>
-        <p>Wycena plików CAD była żmudna i powolna. Brak historii zamówień utrudniał obsługę stałych klientów („to samo co ostatnio”), a częste pomyłki w wycenach generowały bezpośrednie straty finansowe dla drukarni.</p>
+      <div class="ux-decision-box">
+        <h4>Główne bóle (Pain Points)</h4>
+        <p>Kalkulacja niestandardowych rysunków CAD była żmudna, brak historii utrudniał obsługę stałych klientów pod hasłem „to samo co ostatnio”, a powtarzające się pomyłki w obliczeniach przynosiły straty finansowe.</p>
       </div>
     </div>
 
-    <h3 style="margin-top:3rem;text-align:center" id="razdwa-decyzje-kluczowe">Kluczowe decyzje produktowe</h3>
-
+    <h3 style="margin-top:3rem;text-align:center" id="razdwa-decyzje-kluczowe">Kluczowe decyzje projektowe</h3>
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 1 · Architektura</div>
-        <h4>PWA zamiast sklepu na WooCommerce/Shoper</h4>
-        <p>Drukarnia obsługuje klientów stacjonarnie i mailowo (B2B) – klasyczny e-commerce generowałby zbędne koszty hostingu i wtyczek, nie rozwiązując problemu wyceny na miejscu. PWA działa offline, uruchamia się bezpośrednio z pulpitu i generuje 0 zł kosztów utrzymania.</p>
+        <h4>Dedykowane PWA zamiast SaaS</h4>
+        <p>Klasyczny e-commerce (WooCommerce/Shoper) generowałby zbędne koszty hostingu i wtyczek. Lekka aplikacja PWA działa offline, uruchamia się z pulpitu i redukuje koszty utrzymania do zera.</p>
       </div>
-      
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 2 · Zaplecze</div>
-        <h4>Google Sheets + Apps Script zamiast bazy SQL</h4>
-        <p>Zaproponowałem darmowe środowisko Google, które eliminuje koszty serwerów i API. Klient zyskał automatyczny backup oraz bezproblemowy dostęp do bazy danych zamówień za pomocą doskonale znanego mu interfejsu arkusza.</p>
+        <h4>Ekosystem Google zamiast baz SQL</h4>
+        <p>Połączenie Google Sheets i Apps Script wyeliminowało wydatki na infrastrukturę. Klient zyskał darmowy backup i dostęp do bazy zamówień z poziomu znanego mu arkusza.</p>
       </div>
-      
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 3 · Utrzymanie</div>
-        <h4>Edytowalny cennik z poziomu UI aplikacji</h4>
-        <p>Ceny w branży zmieniają się dynamicznie. Zamiast angażować programistę do każdej korekty stawek, wdrożyłem zabezpieczony kodem PIN panel administracyjny. Właściciel zmienia ceny w 30 sekund bez ryzyka pomyłki ze strony recepcji.</p>
+        <h4>Autonomiczny panel administracyjny</h4>
+        <p>Ceny w branży zmieniają się dynamicznie. Wdrożenie panelu z bramką PIN pozwoliło właścicielowi na samodzielną modyfikację stawek w 30 sekund, bez angażowania programisty.</p>
       </div>
-      
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 4 · Frontend</div>
-        <h4>TypeScript + esbuild (Bez Reacta/Vue)</h4>
-        <p>Aplikacja musiała ładować się natychmiast na starszych komputerach warsztatowych. Rezygnacja z ciężkich frameworków zapewniła lekkość i niezawodne działanie offline. TypeScript zabezpieczył złożoną logikę matematyczną cennika przed błędami.</p>
+        <h4>Vanilla TypeScript + esbuild</h4>
+        <p>System musiał ładować się natychmiast na starszych komputerach warsztatowych. Rezygnacja z ciężkich frameworków (React/Vue) zapewniła szybkość działania, a TypeScript zabezpieczył matematykę cennika.</p>
       </div>
     </div>
 
-    <h3 style="margin-top:3rem; text-align:center;" id="razdwa-decyzje-zakres">Zakres dostarczony: od MVP po dzisiejszy stan produktu</h3>
-    
+    <h3 style="margin-top:3rem; text-align:center;" id="razdwa-decyzje-zakres">Ewolucja produktu: od MVP do stanu obecnego</h3>
     <div class="kwcs-trio">
       <article class="kwcs-card">
-        <h3>MVP (must-have)</h3>
+        <h3>MVP (Must-Have)</h3>
         <ul>
-          <li>Kalkulator dla głównych kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
-          <li>Koszyk z sumą bieżącą i trybem EXPRESS</li>
-          <li>Eksport podsumowania do pliku PDF</li>
-          <li>Zapis zamówień w arkuszu Google Sheets</li>
+          <li>Kalkulator głównych kategorii (druk, CAD, banery, laminowanie).</li>
+          <li>Dynamiczny koszyk z modyfikatorem EXPRESS.</li>
+          <li>Eksport specyfikacji zamówienia do plików PDF.</li>
+          <li>Zapis historii zleceń w Google Sheets.</li>
         </ul>
       </article>
-      
       <article class="kwcs-card">
-        <h3>Iteracja 2 (should-have)</h3>
+        <h3>Iteracja 2 (Should-Have)</h3>
         <ul>
-          <li>Pełne obsłużenie 22 kategorii cennikowych</li>
-          <li>Panel administracyjny zabezpieczony kodem PIN</li>
-          <li>System wariantów dla produktów własnych</li>
-          <li>Eksport danych koszyka do formatu Excel</li>
+          <li>Pełne wdrożenie wszystkich 22 kategorii cennikowych.</li>
+          <li>Panel administracyjny zabezpieczony kodem PIN.</li>
+          <li>Architektura wariantów dla produktów własnych.</li>
+          <li>Eksport danych koszyka do formatu Excel.</li>
         </ul>
       </article>
-      
       <article class="kwcs-card">
-        <h3>Backlog (could-have)</h3>
+        <h3>Backlog (Could-Have)</h3>
         <ul>
-          <li>Parser plików DWG/DXF (automatyczny odczyt wektorów CAD)</li>
-          <li>Tryb prezentacji dla klienta końcowego (ukryte marże)</li>
-          <li>Integracja z bramką płatności online</li>
+          <li>Parser plików DWG/DXF (odczyt wektorów CAD w przeglądarce).</li>
+          <li>Tryb prezentacji dla klienta z maskowaniem marży operacyjnej.</li>
+          <li>Integracja z bramką płatności online.</li>
         </ul>
       </article>
     </div>
-
   </div>
 </div>
 
-    <h2 class="section-divider" id="razdwa-role">Role i persony</h2>
+<h2 class="section-divider" id="razdwa-role">Role i persony</h2>
 
 <div class="kwcs-sec" style="background:#f8fafc;">
   <div class="wrap">
-    <div class="context-intro">
-      <p>System obsługuje <strong>dwie role</strong> o skrajnie różnych potrzebach. Wyzwaniem było rozdzielenie uprawnień wewnątrz jednego interfejsu, bez wprowadzania skomplikowanego, podwójnego procesu logowania.</p>
-    </div>
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      System obsługuje dwie role o skrajnie różnych potrzebach. Wyzwaniem było rozdzielenie uprawnień wewnątrz jednego interfejsu bez wprowadzania skomplikowanych procedur logowania.
+    </p>
 
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Persona 1 · Główny użytkownik</div>
-        <h4>Operator recepcji drukarni</h4>
-        <p><strong>Zadania:</strong> Przyjmowanie zleceń (w salonie, tel, mail), szybka wycena i generowanie PDF.</p>
-        <p><strong>Potrzeby:</strong> Błyskawiczne działanie offline, prosty interfejs odporny na przypadkowe błędy (brak dostępu do edycji stawek).</p>
-        <p><strong>Środowisko:</strong> Stary komputer na warsztacie, jasne oświetlenie, stres wynikający z obsługi klienta czekającego przy ladzie.</p>
+        <h4>Operator recepcji</h4>
+        <p><strong>Zadania:</strong> Przyjmowanie zleceń stacjonarnych i mailowych, szybka wycena i generowanie PDF.</p>
+        <p><strong>Potrzeby:</strong> Interfejs odporny na błędy (zablokowana edycja stawek) i stabilne działanie w warunkach stresu przy ladzie.</p>
       </div>
-      
       <div class="ux-decision-box">
         <div class="ux-label">Persona 2 · Administrator</div>
-        <h4>Właściciel / kierownik</h4>
-        <p><strong>Zadania:</strong> Dynamiczna aktualizacja cen, dodawanie nowych usług i kontrola historii zamówień.</p>
-        <p><strong>Potrzeby:</strong> Samodzielne zarządzanie biznesem z dowolnego miejsca bez angażowania i opłacania programisty.</p>
-        <p><strong>Zabezpieczenie:</strong> Dedykowany panel administracyjny odblokowywany kodem PIN, weryfikowany po stronie serwera.</p>
+        <h4>Właściciel / Kierownik</h4>
+        <p><strong>Zadania:</strong> Dynamiczna aktualizacja cenników, zarządzanie usługami i kontrola historii finansowej.</p>
+        <p><strong>Potrzeby:</strong> Pełna kontrola nad marżami z dowolnego urządzenia, bez konieczności edycji kodu aplikacji.</p>
       </div>
     </div>
 
     <div style="max-width:760px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:#fff; border:1px solid #e2e8f0; border-left:4px solid #06b6d4; border-radius:0.75rem;">
       <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin:0;">
-        <strong style="color:#0f172a;">Kontekst inkluzywności (UX):</strong> Główny pracownik to osoba 40+ przyzwyczajona do starych procedur. Aby uniknąć oporu przed nowym systemem, priorytetem projektowym była **zerowa krzywa uczenia się** – aplikacja prowadzi użytkownika za rękę krok po kroku.
+        <strong style="color:#0f172a;">Kontekst inkluzywności (UX):</strong> Ponieważ personel był przyzwyczajony do tradycyjnych metod, priorytetem projektowym była <strong>zerowa krzywa uczenia się</strong>. Interfejs prowadzi użytkownika liniowo, eliminując ryzyko pominięcia parametrów.
       </p>
     </div>
   </div>
 </div>
 
-
-    <h2 class="section-divider" id="razdwa-ux">Część 1: Interfejs i UX</h2>
+<h2 class="section-divider" id="razdwa-ux">Część 1: Interfejs i UX</h2>
     
 <div class="kwcs-sec">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        Głównym celem projektowym było skrócenie czasu obsługi klienta przy ladzie. Interfejs musiał eliminować przełączanie się między kartami i minimalizować liczbę kliknięć niezbędnych do zamknięcia zamówienia.
-      </p>
-    </div>
-
-    <h3 style="text-align:center">User flow — zoptymalizowana ścieżka</h3>
+    <h3 style="text-align:center">User Flow — zoptymalizowana ścieżka</h3>
     <div class="user-flow">
       <div class="flow-step">
         <div class="flow-step-icon">🏠</div>
@@ -415,48 +392,47 @@
       <div class="flow-step">
         <div class="flow-step-icon">🖨️</div>
         <div class="flow-step-label">Kalkulator</div>
-        <div class="flow-step-sub">Zredukowana liczba pól</div>
+        <div class="flow-step-sub">Minimalna liczba pól</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
         <div class="flow-step-icon">💰</div>
         <div class="flow-step-label">Wycena</div>
-        <div class="flow-step-sub">Automatyczny wynik na żywo</div>
+        <div class="flow-step-sub">Wynik kalkulacji na żywo</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
         <div class="flow-step-icon">🛒</div>
         <div class="flow-step-label">Koszyk</div>
-        <div class="flow-step-sub">Modyfikacja (rabat / express)</div>
+        <div class="flow-step-sub">Modyfikacja rabatów</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
         <div class="flow-step-icon">📄</div>
         <div class="flow-step-label">Finalizacja</div>
-        <div class="flow-step-sub">Jednoczesny zapis i eksport</div>
+        <div class="flow-step-sub">Zapis i eksport raportu</div>
       </div>
     </div>
   </div>
 </div>
 
-    <div class="kwcs-sec kwcs-website-showcase">
+<div class="kwcs-sec kwcs-website-showcase">
   <div class="wrap">
     <div class="showcase-stack">
-      
       <div class="showcase-section">
         <h3>🏗️ Wielokolumnowy layout (Desktop)</h3>
-        <p class="tab-description">Architektura interfejsu oparta na podziale ekranu, który zapewnia stały dostęp do kluczowych modułów bez konieczności przewijania strony.</p>
+        <p class="tab-description">Architektura interfejsu zapewnia stały dostęp do kluczowych modułów bez konieczności uciążliwego przewijania ekranu.</p>
         <div class="showcase-row">
           <div class="showcase-item">
             <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
-            <p>Trzy sekcje: nawigacja kategorii, aktywny kalkulator oraz podgląd zamówienia.</p>
+            <p>Podział ekranu: nawigacja kategorii, aktywny kalkulator oraz podgląd zamówienia.</p>
           </div>
         </div>
       </div>
 
       <div class="showcase-section">
         <h3>🛒 Dynamiczny proces zamówienia</h3>
-        <p class="tab-description">Praca na jednym ekranie – dodawanie kolejnych pozycji i modyfikacja parametrów odbywają się bezpośrednio w kontekście bieżącego zlecenia.</p>
+        <p class="tab-description">Dodawanie kolejnych pozycji i modyfikacja parametrów odbywają się płynnie w kontekście bieżącego zlecenia.</p>
         <div class="showcase-row">
           <div class="showcase-item">
             <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
@@ -464,11 +440,10 @@
           </div>
           <div class="showcase-item">
             <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Dodawanie produktu do zamówienia" loading="lazy" data-caption="Dodawanie produktu — dwa kolejne ekrany w toku zamówienia">
-            <p>Płynne dodawanie nowych pozycji bez przeładowania interfejsu.</p>
+            <p>Płynne rozbudowywanie koszyka bez przeładowania widoku.</p>
           </div>
         </div>
       </div>
-      
     </div>
 
     <h3 style="text-align:center" id="razdwa-ux-decyzje">Kluczowe decyzje UX</h3>
@@ -476,27 +451,26 @@
       <div class="ux-decision-box">
         <div class="ux-label">Problem → Rozwiązanie</div>
         <h4>Koszyk zawsze w zasięgu wzroku</h4>
-        <p>Stały panel boczny eliminuje potrzebę scrollowania. Pracownik ma nieprzerwany podgląd listy wycenionych plików i łącznej kwoty.</p>
+        <p>Stały panel boczny eliminuje potrzebę ciągłego przewijania. Pracownik ma nieprzerwany podgląd wycenionych plików i łącznej kwoty.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Problem → Rozwiązanie</div>
-        <h4>Reaktywny kalkulator (Real-time)</h4>
-        <p>Cena końcowa aktualizuje się automatycznie przy zmianie dowolnego parametru – bez wymuszania klikania w przycisk „Przelicz”.</p>
+        <h4>Reaktywny kalkulator (Real-Time)</h4>
+        <p>Cena końcowa aktualizuje się automatycznie przy zmianie dowolnego parametru, bez wymuszania klikania w przyciski pomocnicze.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Problem → Rozwiązanie</div>
         <h4>Toast notifications zamiast modali</h4>
-        <p>Inwazyjne okna pop-up przerywały płynność pracy. Zastąpiłem je subtelnymi, bezobsługowymi komunikatami w rogu ekranu.</p>
+        <p>Agresywne okna pop-up przerywały pracę. Zastąpiłem je subtelnymi, automatycznie znikającymi komunikatami w rogu ekranu.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Problem → Rozwiązanie</div>
-        <h4>Niezawodność offline (Standard PWA)</h4>
-        <p>Aplikacja instaluje się bezpośrednio na pulpicie. Działa stabilnie bez względu na jakość połączenia internetowego na warsztacie.</p>
+        <h4>Niezawodność offline (PWA)</h4>
+        <p>Aplikacja instaluje się bezpośrednio na pulpicie maszyn warsztatowych, gwarantując stabilność bez względu na jakość sieci Wi-Fi.</p>
       </div>
     </div>
   </div>
 </div>
-
 <h2 class="section-divider" id="razdwa-cad">Część 2: Kalkulator Druku CAD</h2>
 
 <div class="kwcs-sec">
@@ -511,11 +485,11 @@
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ekran_obliczen_RAZDWA.webp" alt="Ekran obliczeń kalkulatora" loading="lazy" data-caption="Ekran obliczeń — szczegółowa wycena per plik">
-        <p class="img-desc"><strong>Model per-plik:</strong> Niezależna wycena każdego wgranego rysunku technicznego, eliminująca błędy przy zamówieniach zbiorczych.</p>
+        <p class="img-desc"><strong>Model per-plik:</strong> Niezależna wycena każdego rysunku technicznego, eliminująca błędy w zamówieniach zbiorczych.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/panel drukA4-A4skan_RAZDWA.webp" alt="Panel druku i skanowania A4" loading="lazy" data-caption="Panel druku — natychmiastowe przeliczanie ceny">
-        <p class="img-desc"><strong>Konfiguracja parametrów:</strong> Reaktywne przełączanie między trybami (mono/kolor), nakładaniem rabatów i usługami dodatkowymi.</p>
+        <p class="img-desc"><strong>Konfiguracja parametrów:</strong> Reaktywne przełączanie trybów (mono/kolor), naliczanie rabatów i usług dodatkowych w czasie rzeczywistym.</p>
       </div>
     </div>
   </div>
@@ -527,29 +501,29 @@
     <div class="kwcs-accordion">
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
-          <span class="num">1</span> Algorytm detekcji formatu i roli: detectFormat()
+          <span class="num">1</span> Algorytm detekcji formatu: detectFormat()
           <span class="icon" aria-hidden="true">+</span>
         </button>
         <div class="kwcs-content" id="content-cad-3" role="region" aria-labelledby="header-cad-3">
-          <p>Zaprojektowałem logikę, która prawidłowo identyfikuje parametry pliku niezależnie od orientacji i niweluje drobne błędy wymiarowe:</p>
+          <p>Logika automatycznie identyfikuje parametry pliku i niweluje błędy wymiarowe:</p>
           <ul>
-            <li><strong>Konwersja px → mm:</strong> Wykorzystanie zmiennej DPI do precyzyjnego mapowania wymiarów fizycznych arkusza.</li>
-            <li><strong>Automatyczna orientacja:</strong> Krótsza krawędź pliku systemowo definiuje minimalną szerokość rolki papieru potrzebnej do druku.</li>
-            <li><strong>Tolerancja błędu (±5 mm):</strong> Margines bezpieczeństwa eliminujący odchyłki generowane przez starsze skanery wielkoformatowe.</li>
-            <li><strong>Tryb nienormowany:</strong> W przypadku braku standardowego formatu (np. długie wstęgi), system automatycznie przełącza się na rozliczenie z metra bieżącego (mb).</li>
+            <li><strong>Konwersja px → mm:</strong> Precyzyjne mapowanie fizycznego arkusza na podstawie DPI.</li>
+            <li><strong>Automatyczna orientacja:</strong> Krótsza krawędź definiuje minimalną szerokość rolki papieru.</li>
+            <li><strong>Tolerancja błędu (±5 mm):</strong> Margines bezpieczeństwa dla odchyłek ze starszych skanerów.</li>
+            <li><strong>Tryb nienormowany:</strong> Automatyczne przełączenie na metry bieżące (mb) przy niestandardowych formatach.</li>
           </ul>
         </div>
       </div>
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-1" id="header-cad-1" type="button">
-          <span class="num">2</span> Obsługa wykończenia i usług dodatkowych
+          <span class="num">2</span> Wykończenie i usługi dodatkowe
           <span class="icon" aria-hidden="true">+</span>
         </button>
         <div class="kwcs-content" id="content-cad-1" role="region" aria-labelledby="header-cad-1">
-          <p>Zapewniłem operatorom możliwość elastycznej konfiguracji dodatkowych usług introligatorskich bezpośrednio w widoku pozycji:</p>
+          <p>Elastyczna konfiguracja usług introligatorskich bezpośrednio w pozycji zamówienia:</p>
           <ul>
-            <li><strong>Składanie rysunków:</strong> Nalicza stałą stawkę dla formatów arkuszowych lub dynamiczną stawkę z metra kwadratowego ($m^2$) dla wydruków z rolki.</li>
-            <li><strong>Skanowanie wielkoformatowe:</strong> Automatyczne profilowanie kosztów na podstawie dłuższego boku dokumentu, aktywowane jednym kliknięciem.</li>
+            <li><strong>Składanie rysunków:</strong> Stała stawka dla arkuszy lub dynamiczna z m² dla wydruków z rolki.</li>
+            <li><strong>Skanowanie wielkoformatowe:</strong> Profilowanie kosztów na podstawie dłuższego boku dokumentu za pomocą jednego kliknięcia.</li>
           </ul>
         </div>
       </div>
@@ -557,20 +531,18 @@
   </div>
 </div>
 
-    <h2 class="section-divider" id="razdwa-panel">Część 3: Panel administracyjny cennika</h2>
+<h2 class="section-divider" id="razdwa-panel">Część 3: Panel administracyjny cennika</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        Zależność od programisty przy każdej zmianie stawek o kilka groszy to najczęstszy powód porzucania dedykowanych aplikacji. Wdrożenie panelu administracyjnego było kluczową decyzją produktową – oddało pełną kontrolę nad biznesem w ręce właściciela i zredukowało koszty utrzymania systemu do zera.
-      </p>
-    </div>
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      Uniezależnienie klienta od programisty przy każdej zmianie cen było kluczowym celem. Panel administracyjny oddał pełną kontrolę nad biznesem w ręce właściciela i zredukował koszty utrzymania systemu do zera.
+    </p>
 
     <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ustawienia_cen_RAZDWA.webp" alt="Panel ustawień cen" loading="lazy" data-caption="Panel ustawień cen — edycja in-place dla wszystkich kategorii">
-        <p class="img-desc"><strong>Zarządzanie stawkami:</strong> System edycji in-place umożliwiający natychmiastową modyfikację cen bezpośrednio w poziomie tabeli.</p>
+        <p class="img-desc"><strong>Zarządzanie stawkami:</strong> System edycji in-place umożliwia natychmiastową modyfikację cen bezpośrednio w tabeli.</p>
       </div>
     </div>
 
@@ -578,81 +550,73 @@
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 1</div>
-        <h4>Centralne zarządzanie danymi</h4>
-        <p>Baza danych obejmuje około 300 kluczy cennikowych skonsolidowanych w jednym, czytelnym widoku tabelarycznym. Zmiana ceny i jej walidacja odbywają się bez przeładowania strony.</p>
+        <h4>Centralne zarządzanie</h4>
+        <p>Około 300 kluczy cennikowych w jednym widoku tabelarycznym. Zmiana ceny i jej walidacja odbywają się asynchronicznie, bez przeładowania strony.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 2</div>
-        <h4>Kategoryzacja z licznikami pozycji</h4>
-        <p>Aby zapobiec przeciążeniu poznawczemu przy 300+ pozycjach, wprowadziłem architekturę opartą na asynchronicznych zakładkach. Liczniki pozycji obok nazw kategorii pozwalają na błyskawiczną orientację w strukturze.</p>
+        <h4>Asynchroniczne zakładki</h4>
+        <p>Podział na kategorie z licznikami pozycji zapobiega przeciążeniu informacyjnemu i ułatwia szybką orientację w strukturze cennika.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 3</div>
         <h4>Autonomiczne dodawanie usług</h4>
-        <p>Właściciel może samodzielnie rozbudowywać cennik. System automatycznie generuje techniczny, unikalny klucz bazy danych na podstawie wprowadzonej nazwy, dba o brak duplikatów i przypisuje usługę do właściwej sekcji.</p>
+        <p>System automatycznie generuje unikalny klucz techniczny w bazie na podstawie wprowadzanej nazwy, dbając o brak duplikatów.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 4</div>
-        <h4>Dwuaspektowa synchronizacja</h4>
-        <p>Zapis danych natychmiastowo aktualizuje arkusz Google Sheets. Zapewnia to darmową kopię zapasową oraz daje możliwość bezpiecznej edycji stawek bezpośrednio w chmurze (np. z poziomu telefonu komórkowego).</p>
+        <h4>Synchronizacja z Google Sheets</h4>
+        <p>Zapis danych natychmiast aktualizuje arkusz Google, co zapewnia darmową kopię zapasową i możliwość edycji stawek np. z telefonu.</p>
       </div>
     </div>
 
     <h3 style="margin-top:3rem;text-align:center" id="razdwa-panel-pin">Bezpieczeństwo: bramka PIN</h3>
-    <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569; text-align: center;">Cennik to wrażliwy zasób biznesowy – przypadkowa modyfikacja przez recepcję generuje straty. Dostęp do panelu zabezpieczyłem dedykowaną, bezkontekstową bramką autoryzacji:</p>
+    <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569; text-align: center;">Dostęp do wrażliwych danych cennika został zabezpieczony bezkontekstową bramką autoryzacji:</p>
 
     <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PIN_EKRAN_RAZDWA.webp" alt="Ekran bramki PIN" loading="lazy" data-caption="Bramka PIN — wejście do panelu administracyjnego">
-        <p class="img-desc"><strong>Interfejs autoryzacji:</strong> Minimalistyczny i czytelny formularz logowania, dopasowany do szybkiej obsługi na ekranach dotykowych.</p>
+        <p class="img-desc"><strong>Interfejs autoryzacji:</strong> Minimalistyczny formularz logowania, zoptymalizowany pod kątem ekranów dotykowych.</p>
       </div>
     </div>
 
     <ul style="max-width:760px;margin:0 auto;color:#475569;line-height:1.7;">
-      <li><strong>Architektura Serverless (PropertiesService):</strong> Kod PIN jest przechowywany po stronie Google Apps Script – nie w kodzie aplikacji i nie w pamięci przeglądarki. Zmiana klucza nie wymaga aktualizacji oprogramowania.</li>
-      <li><strong>Weryfikacja serwerowa:</strong> Autoryzacja odbywa się po stronie chmury podczas pierwszej próby wywołania widoku, co skutecznie zabezpiecza panel przed próbami manipulacji offline.</li>
-      <li><strong>Zarządzanie stanem sesji:</strong> System zapamiętuje autoryzowanego użytkownika w ramach aktywnej sesji przeglądarki, eliminując potrzebę uciążliwego wpisywania PIN-u przy każdym kliknięciu.</li>
-      <li><strong>Obsługa błędów (Fallback):</strong> W przypadku braku stabilnego połączenia sieciowego panel natychmiast komunikuje brak dostępu, zapobiegając utracie wprowadzonych zmian.</li>
+      <li><strong>Architektura Serverless (PropertiesService):</strong> Kod PIN jest bezpiecznie przechowywany po stronie Google Apps Script – nie w kodzie aplikacji.</li>
+      <li><strong>Weryfikacja serwerowa:</strong> Autoryzacja odbywa się w chmurze przy pierwszej próbie wywołania widoku, chroniąc przed manipulacją offline.</li>
+      <li><strong>Zarządzanie stanem sesji:</strong> System zapamiętuje użytkownika w ramach aktywnej sesji, eliminując potrzebę ciągłego wpisywania PIN-u.</li>
+      <li><strong>Obsługa błędów (Fallback):</strong> Przy braku sieci panel natychmiast komunikuje brak dostępu, zapobiegając utracie zmian.</li>
     </ul>
   </div>
 </div>
 
-
-   <h2 class="section-divider" id="razdwa-warianty">Część 4: Architektura wariantów produktów</h2>
+<h2 class="section-divider" id="razdwa-warianty">Część 4: Architektura wariantów produktów</h2>
 
 <div class="kwcs-sec" style="background:#f8fafc;">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        W toku analizy operacyjnej zidentyfikowałem potrzebę separacji logiki kalkulatora od nazw handlowych produktów. Zaprojektowałem autonomiczny system wariantów, który pozwala na definiowanie specyficznych odmian produktów (np. „Wizytówki Premium”) bez konieczności modyfikacji bazowych reguł cennikowych.
-      </p>
-    </div>
-
-    <h3 style="text-align:center" id="razdwa-warianty-osobno">Separacja warstwy cenowej i produktowej</h3>
-    <p style="max-width:760px; margin:0 auto 1.5rem; color:#475569; text-align:center;">
-      Rozdzielenie struktury kosztów od reprezentacji produktowej zapewnia pełną elastyczność: zmiana stawek bazowych nie wpływa na nazewnictwo wariantów, a dodanie nowej odmiany produktu nie wymaga przebudowy algorytmów wyceny.
+    <p style="max-width:760px; margin:0 auto 2rem; color:#475569; text-align:center;">
+      Wydzielenie logiki kalkulatora od nazw handlowych (np. „Wizytówki Premium”) pozwala zmieniać stawki bazowe bez wpływu na nazewnictwo wariantów i odwrotnie.
     </p>
 
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Architektura</div>
-        <h4>Niezależne podgrupy asortymentowe</h4>
-        <p>W ramach głównych kategorii operator może tworzyć dedykowane podgrupy (np. „Premium”). System automatycznie generuje techniczne prefiksy izolujące, zapobiegając konfliktom danych.</p>
+        <h4>Izolowane podgrupy</h4>
+        <p>Operator może tworzyć dedykowane podgrupy asortymentowe. System generuje techniczne prefiksy izolujące, zapobiegając konfliktom danych.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Logika biznesowa</div>
-        <h4>Wzorce sterowane wolumenem</h4>
-        <p>Dla produktów nakładowych (ulotki, zaproszenia, wizytówki) klucz wariantu parametryzuje nakład. System inteligentnie dopasowuje strukturę klucza do konwencji danej kategorii (np. odwrócenie sekwencji parametrów dla voucherów).</p>
+        <h4>Weryfikacja wolumenu</h4>
+        <p>Dla produktów nakładowych klucz wariantu automatycznie parametryzuje nakład i dopasowuje strukturę do konwencji danej kategorii.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">UX / Usability</div>
-        <h4>Automatyczna translacja kluczy</h4>
-        <p>Pełna abstrakcja techniczna: operator posługuje się wyłącznie naturalnym językiem polskim (np. „Mat + lakier”). Aplikacja w tle bezgłośnie konwertuje wpis na znormalizowany, bezpieczny dla bazy danych ciąg znaków.</p>
+        <h4>Translacja kluczy</h4>
+        <p>Operator posługuje się naturalnym językiem (np. „Mat + lakier”). Aplikacja w tle bezgłośnie konwertuje wpis na znormalizowany ciąg znaków.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Integracja danych</div>
-        <h4>Semantyczna walidacja duplikatów</h4>
-        <p>System analizuje unikalne kombinacje parametrów (kategoria + prefiks + wolumen) przed zapisem. Zapobiega to powstawaniu redundantnych, identycznych pozycji pod różnymi nazwami handlowymi.</p>
+        <h4>Walidacja duplikatów</h4>
+        <p>Przed zapisem system analizuje kombinację parametrów (kategoria + prefiks + wolumen), zapobiegając powstawaniu redundantnych pozycji.</p>
       </div>
     </div>
 
@@ -660,57 +624,54 @@
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dodawanie_wariantu_RAZDWA.webp" alt="Dodawanie wariantu produktu" loading="lazy" data-caption="Dodawanie wariantu — operator pracuje na polskich nazwach">
-        <p class="img-desc"><strong>Tworzenie wariantu:</strong> Interfejs ukrywa złożoność technologiczną – transformacja ciągu tekstowego na klucz systemowy zachodzi w tle.</p>
+        <p class="img-desc"><strong>Tworzenie wariantu:</strong> Interfejs ukrywa złożoność techniczną – transformacja tekstu na klucz systemowy zachodzi automatycznie.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/nowy_wariant_RAZDWA.webp" alt="Nowy wariant w cenniku" loading="lazy" data-caption="Nowy wariant — gotowa pozycja w odpowiedniej zakładce">
-        <p class="img-desc"><strong>Dystrybucja danych:</strong> Nowo zdefiniowana pozycja automatycznie mapuje się do właściwej zakładki i jest natychmiast dostępna w module kasowym.</p>
+        <p class="img-desc"><strong>Dystrybucja danych:</strong> Nowa pozycja mapuje się do właściwej zakładki i jest natychmiast dostępna w module kasowym.</p>
       </div>
     </div>
   </div>
 </div>
 
-    <h2 class="section-divider" id="razdwa-droga">Część 5: Cykl życia i procesowanie zamówienia</h2>
+<h2 class="section-divider" id="razdwa-droga">Część 5: Cykl życia i procesowanie zamówienia</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        Przepływ danych od momentu dodania pierwszej pozycji do koszyka aż po archiwizację w bazie został podzielony na scentralizowane etapy. Każdy krok realizuje jeden sprecyzowany cel produktowy i posiada systemową walidację, co minimalizuje ryzyko błędu ludzkiego.
-      </p>
-    </div>
+    <p style="max-width:760px; margin:0 auto 2rem; color:#475569; text-align:center;">
+      Przepływ danych od koszyka po archiwizację podzielono na scentralizowane etapy. Każdy krok realizuje jeden cel produktowy i posiada automatyczną walidację.
+    </p>
 
-    <h3 style="text-align:center" id="razdwa-droga-etapy">Kluczowe etapy procesowania</h3>
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
-        <div class="ux-label">Logika obliczeniowa</div>
+        <div class="ux-label">Logika</div>
         <h4>Arytmetyka stałoprzecinkowa</h4>
-        <p>Wszystkie kalkulacje sumaryczne są wykonywane na liczbach całkowitych (w groszach), a konwersja na jednostki monetarne następuje dopiero w warstwie prezentacji. Eliminuje to błędy zaokrągleń zmiennoprzecinkowych, gwarantując pełną zgodność sumy w aplikacji z systemem fakturowym.</p>
+        <p>Kalkulacje wykonywane są na liczbach całkowitych (w groszach). Eliminuje to błędy zaokrągleń zmiennoprzecinkowych i zapewnia zgodność z systemem fakturowym.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Optymalizacja procesu</div>
+        <div class="ux-label">Optymalizacja</div>
         <h4>Globalny tryb EXPRESS</h4>
-        <p>Wdrożenie jednego, nadrzędnego przełącznika dla całego koszyka automatycznie implementuje narzut (+20%) do każdej składowej zamówienia. Rozwiązanie to skraca czas modyfikacji zlecenia priorytetowego i eliminuje potrzebę edycji pojedynczych pozycji.</p>
+        <p>Jeden przełącznik automatycznie dolicza narzut (+20%) do całego zamówienia, eliminując potrzebę czasochłonnej edycji pojedynczych pozycji.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Walidacja danych</div>
+        <div class="ux-label">Walidacja</div>
         <h4>Profilowany formularz B2B</h4>
-        <p>Scentralizowany moduł gromadzenia danych kontrahenta (NIP, dane kontaktowe, specyfikacja). Restrykcyjna walidacja frontendowa weryfikuje kompletność kluczowych pól przed inicjacją transferu danych.</p>
+        <p>Scentralizowany moduł danych kontrahenta (NIP, kontakt). Restrykcyjna walidacja frontendowa weryfikuje kompletność pól przed wysyłką.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Dystrybucja raportów</div>
-        <h4>Unifikacja formatów eksportu</h4>
-        <p>Integracja biblioteki pdf-lib umożliwia renderowanie dokumentów PDF z natywnym kodowaniem fontów bezpośrednio po stronie klienta. Równoległy eksport do struktur Excel działa na tym samym strumieniu danych, zapobiegając rozbieżnościom informacyjnym.</p>
+        <div class="ux-label">Raporty</div>
+        <h4>Eksport PDF i Excel</h4>
+        <p>Biblioteka pdf-lib renderuje dokumenty bezpośrednio po stronie klienta. Równoległy eksport do Excela działa na tym samym strumieniu danych.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Infrastruktura</div>
-        <h4>Chmurowy system zapisu (Mini-CRM)</h4>
-        <p>Dane transakcyjne (parametry, wolumeny, flagi priorytetów) są asynchronicznie mapowane do dedykowanego repozytorium w Google Sheets. Klient zyskał bezkosztowy, strukturyzowany system ewidencji zamówień i analityki biznesowej.</p>
+        <h4>Chmurowy Mini-CRM</h4>
+        <p>Dane transakcyjne są asynchronicznie zapisywane w Google Sheets. Klient zyskał bezkosztowy, strukturyzowany system ewidencji i analityki.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Niezawodność (Fault tolerance)</div>
-        <h4>Monitorowanie statusu żądań HTTP</h4>
-        <p>Mechanizm obsługi asynchronicznej wyposażony w limity czasu (timeout) oraz procedury obsługi wyjątków. W przypadku anomalii sieciowych lub błędów po stronie Apps Script, system generuje jawny komunikat diagnostyczny dla operatora.</p>
+        <div class="ux-label">Niezawodność</div>
+        <h4>Monitorowanie żądań HTTP</h4>
+        <p>Mechanizm wyposażony w timeouty i obsługę wyjątków. W przypadku błędów sieciowych system generuje jasny komunikat dla operatora.</p>
       </div>
     </div>
 
@@ -722,7 +683,7 @@
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Formularz_RAZDWA.webp" alt="Formularz danych klienta B2B" loading="lazy" data-caption="Formularz B2B — firma, NIP, telefon, e-mail i osoba kontaktowa">
-        <p class="img-desc"><strong>Segmentacja danych:</strong> Logiczne grupowanie pól formularza z natychmiastową informacją zwrotną o błędach.</p>
+        <p class="img-desc"><strong>Segmentacja danych:</strong> Logiczne grupowanie pól formularza z natychmiastowym feedbackiem walidacji.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie zamówienia">
@@ -732,26 +693,20 @@
   </div>
 </div>
 
-
- <h2 class="section-divider" id="razdwa-architektura">Część 6: Architektura i Integracje</h2>
+<h2 class="section-divider" id="razdwa-architektura">Część 6: Architektura i Integracje</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        System został zaprojektowany w architekturze **Serverless** jako lekka, reaktywna aplikacja webowa (TypeScript + esbuild). Rezygnacja z ciężkich frameworków frontendowych i baz SQL zredukowała koszty utrzymania infrastruktury do 0 zł, wykorzystując Google Apps Script jako warstwę API oraz Google Sheets jako elastyczną bazę danych.
-      </p>
-    </div>
+    <p style="max-width:760px; margin:0 auto 2rem; color:#475569; text-align:center;">
+      Lekka, reaktywna aplikacja webowa (TypeScript + esbuild) w architekturze <strong>Serverless</strong>. Rezygnacja z ciężkich frameworków i baz SQL zredukowała koszty utrzymania infrastruktury do <strong>0 zł</strong>, wykorzystując ekosystem Google jako API i bazę danych.
+    </p>
 
     <h3 style="text-align:center" id="razdwa-architektura-warstwy">Architektura: Rozdzielenie odpowiedzialności (SoC)</h3>
-    <p style="max-width:720px; margin:0 auto 1rem; color:#475569; text-align:center;">
-      Struktura kodu opiera się na pięciu niezależnych warstwach. Taka izolacja gwarantuje wysoką skalowalność – modyfikacje algorytmów obliczeniowych lub struktur danych nie wpływają na stabilność warstwy prezentacji.
-    </p>
     
     <div class="kwcs-accordion">
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-warstwy" id="header-arch-warstwy" type="button">
-          <span class="num">▸</span> Deep dive — Architektura wielowarstwowa systemu
+          <span class="num">▸</span> Architektura wielowarstwowa systemu
           <span class="icon" aria-hidden="true">+</span>
         </button>
         <div class="kwcs-content" id="content-arch-warstwy" role="region" aria-labelledby="header-arch-warstwy">
@@ -802,8 +757,8 @@
             </div>
           </div>
 
-          <p style="max-width:720px; margin:1rem auto 0; color:#64748b; font-size:0.875rem; line-height:1.6;">
-            <strong>Kluczowa korzyść architektoniczna:</strong> Wydzielenie dedykowanej warstwy logicznej (Domain Layer) od procesorów kategorii unifikuje zachowanie systemu. Wspólny silnik koszyka, walidacji i obliczeń obsługuje wszystkie obecne moduły i pozwala na bezproblemową implementację kolejnych usług bez powielania kodu (DRY principle).
+          <p style="max-width:720px; margin:1rem auto 0; color:#64748b; font-size:0.875rem; line-height:1.6; text-align:center;">
+            Wydzielenie warstwy logicznej (Domain Layer) pozwala na bezproblemową implementację kolejnych usług bez powielania kodu (zasada DRY).
           </p>
           
         </div>
@@ -812,15 +767,12 @@
   </div>
 </div>
 
-        <h<h3 style="margin-top:3rem; text-align:center" id="razdwa-architektura-integracje">Integracje ekosystemu</h3>
-<p style="max-width:720px; margin:0 auto 1rem; color:#475569; text-align:center;">
-  Architektura oparta na integracji trzech kluczowych komponentów, które w pełni eliminują potrzebę utrzymywania tradycyjnego backendu SQL.
-</p>
+<h3 style="margin-top:3rem; text-align:center" id="razdwa-architektura-integracje">Integracje ekosystemu</h3>
 
 <div class="kwcs-accordion">
   <div class="kwcs-item">
     <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-integ" id="header-arch-integ" type="button">
-      <span class="num">▸</span> Deep dive — Komponenty integracji (pdf-lib, GAS, Google Sheets)
+      <span class="num">▸</span> Komponenty integracji (pdf-lib, GAS, Google Sheets)
       <span class="icon" aria-hidden="true">+</span>
     </button>
     <div class="kwcs-content" id="content-arch-integ" role="region" aria-labelledby="header-arch-integ">
@@ -829,21 +781,21 @@
         <div class="int-card">
           <div class="int-card-icon">📄</div>
           <div class="int-card-title">pdf-lib</div>
-          <div class="int-card-desc">Autonomiczne renderowanie dokumentacji zamówień po stronie klienta (Client-side). Pakiet zawiera podsystem kodowania fontów, co umożliwia pełne działanie w trybie offline.</div>
+          <div class="int-card-desc">Autonomiczne renderowanie dokumentacji PDF po stronie klienta (Client-side). Pakiet działa w pełni w trybie offline.</div>
           <div class="int-card-code">Blob download / Client-side</div>
         </div>
         
         <div class="int-card">
           <div class="int-card-icon">📊</div>
           <div class="int-card-title">Google Apps Script</div>
-          <div class="int-card-desc">Bezserwerowa warstwa pośrednicząca (API). Przetwarza asynchroniczne żądania fetch() z frontendowej aplikacji i bezpiecznie przekazuje strumień danych do struktur arkusza.</div>
+          <div class="int-card-desc">Bezserwerowa warstwa API. Przetwarza żądania fetch() z frontendu i bezpiecznie przekazuje dane do struktur arkusza.</div>
           <div class="int-card-code">doPost() → REST API Wrapper</div>
         </div>
         
         <div class="int-card">
           <div class="int-card-icon">🗃️</div>
           <div class="int-card-title">Google Sheets API</div>
-          <div class="int-card-desc">Chmurowa persystencja danych działająca jako relacyjna baza zamówień, wariantów oraz globalnego cennika. Dane są pobierane reaktywnie przy inicjalizacji aplikacji.</div>
+          <div class="int-card-desc">Chmurowa baza zamówień, wariantów oraz cennika. Dane są pobierane reaktywnie przy inicjalizacji aplikacji.</div>
           <div class="int-card-code">SpreadsheetApp Cloud DB</div>
         </div>
       </div>
@@ -851,15 +803,16 @@
     </div>
   </div>
 </div>
+
 <h3 style="margin-top:3rem; text-align:center" id="razdwa-architektura-testy">Stabilność systemu: Testy automatyczne</h3>
 <p style="max-width:760px; margin:0 auto 1.5rem; color:#475569; text-align:center;">
-  Modyfikacje algorytmów obliczeniowych w systemie handlowym są krytyczne biznesowo – błąd zaokrągleń lub stawek oznacza straty finansowe. Integralność aplikacji zabezpiecza pakiet **około 50 skryptów testowych**, realizujących scenariusze regresyjne i integracyjne.
+  Modyfikacje cennika są krytyczne biznesowo. Integralność aplikacji zabezpiecza pakiet <strong>około 50 skryptów testowych</strong>, realizujących scenariusze regresyjne i integracyjne.
 </p>
 
 <div class="kwcs-accordion">
   <div class="kwcs-item">
     <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-testy" id="header-arch-testy" type="button">
-      <span class="num">▸</span> Deep dive — Architektura pokrycia testowego (8 kluczowych obszarów)
+      <span class="num">▸</span> Architektura pokrycia testowego (8 kluczowych obszarów)
       <span class="icon" aria-hidden="true">+</span>
     </button>
     <div class="kwcs-content" id="content-arch-testy" role="region" aria-labelledby="header-arch-testy">
@@ -868,65 +821,65 @@
         <div class="test-item">
           <div class="test-item-name">Algorytmy kalkulacyjne</div>
           <div class="test-item-count">22 pakiety testowe</div>
-          <div class="test-item-sub">Izolowane testy jednostkowe (Unit Tests) weryfikujące poprawność matematyczną wszystkich kategorii produktowych.</div>
+          <div class="test-item-sub">Izolowane testy jednostkowe (Unit Tests) weryfikujące poprawność matematyczną wszystkich kategorii.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Parser wektorów CAD</div>
           <div class="test-item-count">Moduły: upload / verify</div>
-          <div class="test-item-sub">Testy integracyjne dla tolerancji skanera, automatycznego doboru roli papieru oraz detekcji orientacji arkusza.</div>
+          <div class="test-item-sub">Testy integracyjne dla tolerancji skanera, doboru rolki papieru oraz detekcji orientacji arkusza.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Persystencja cennika</div>
           <div class="test-item-count">Moduł: price-persistence</div>
-          <div class="test-item-sub">Walidacja priorytetów zapisu danych, obsługi pamięci podręcznej i iniekcji stawek z panelu administratora.</div>
+          <div class="test-item-sub">Walidacja priorytetów zapisu danych, obsługi pamięci podręcznej i iniekcji stawek.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Silnik koszyka</div>
           <div class="test-item-count">Moduł: cart-core</div>
-          <div class="test-item-sub">Weryfikacja stałoprzecinkowych kalkulacji sumarycznych oraz globalnego narzutu dla trybu EXPRESS.</div>
+          <div class="test-item-sub">Weryfikacja stałoprzecinkowych kalkulacji sumarycznych oraz narzutu dla trybu EXPRESS.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Walidacja formularzy</div>
           <div class="test-item-count">Moduł: form-validator</div>
-          <div class="test-item-sub">Testowanie stanów brzegowych danych kontrahentów B2B oraz poprawnego renderowania komunikatów o błędach.</div>
+          <div class="test-item-sub">Testowanie stanów brzegowych danych kontrahentów B2B oraz komunikatów o błędach.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Regresja interfejsu (UI)</div>
           <div class="test-item-count">4 pakiety end-to-end</div>
-          <div class="test-item-sub">Automatyczna weryfikacja integralności drzewa DOM, dostępności panelu admina oraz bezpiecznej slugifikacji nazw.</div>
+          <div class="test-item-sub">Automatyczna weryfikacja integralności drzewa DOM oraz bezpiecznej konwersji nazw.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Routing i stany PWA</div>
           <div class="test-item-count">Moduł: client-router</div>
-          <div class="test-item-sub">Testy zachowania nawigacji, obsługi wyjątków (404) oraz stabilności renderowania widoków startowych.</div>
+          <div class="test-item-sub">Testy zachowania nawigacji, obsługi wyjątków (404) oraz stabilności renderowania widoków.</div>
         </div>
         <div class="test-item">
           <div class="test-item-name">Warianty produktowe</div>
           <div class="test-item-count">Moduł: variant-generator</div>
-          <div class="test-item-sub">Testy generowania kluczy na podstawie wolumenu oraz semantycznej deduplikacji sygnatur handlowych.</div>
+          <div class="test-item-sub">Testy generowania kluczy na podstawie wolumenu oraz deduplikacji sygnatur handlowych.</div>
         </div>
       </div>
       
-      <p style="max-width:720px; margin:1rem auto 0; color:#64748b; font-size:0.875rem; line-height:1.6;">
-        <strong>Strategia utrzymania jakości:</strong> Implementacja testów regresyjnych dla warstwy UI i rutingu była świadomą decyzją inżynierską. Wyeliminowała ryzyko powstawania błędów ubocznych (Side Effects) podczas refaktoryzacji niezależnych widoków. Zwrot z inwestycji w automatyzację QA następuje przy każdej asynchronicznej aktualizacji struktur cennika.
+      <p style="max-width:720px; margin:1rem auto 0; color:#64748b; font-size:0.875rem; line-height:1.6; text-align:center;">
+        Automatyzacja QA eliminuje ryzyko błędów ubocznych (Side Effects) podczas refaktoryzacji kodu i asynchronicznych aktualizacji struktur cennika.
       </p>
       
     </div>
   </div>
 </div>
-
    <!-- ============================================================
      System UI projektu
+============================================================ -->
+<!-- ============================================================
+      System UI projektu
 ============================================================ -->
 <h2 class="section-divider" id="razdwa-systemui">Część 7: System UI i Tokeny Projektowe</h2>
 
 <div class="kwcs-sec" style="background:#f8fafc;">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        Interfejs aplikacji opiera się na restrykcyjnie zdefiniowanej i minimalistycznej palecie tokenów UI. Architektura stylów bazuje na jednym kolorze przewodnim (Cyan), neutralnej palecie Slate dla zachowania odpowiedniego kontrastu oraz dedykowanych komponentach wielokrotnego użytku. Zapewnia to pełną spójność wizualną (Visual Consistency) i pozwala na natychmiastowe skalowanie systemu o nowe moduły cennikowe bez ryzyka regresji wizualnej.
-      </p>
-    </div>
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      Interfejs opiera się na minimalistycznej palecie tokenów UI. Architektura wykorzystuje jeden kolor przewodni (Cyan), neutralną paletę Slate dla kontrastu oraz komponenty wielokrotnego użytku, co zapewnia spójność wizualną i łatwe skalowanie cennika.
+    </p>
 
     <div class="razdwa-systemui">
       <div class="systemui-card">
@@ -979,63 +932,66 @@
     </div>
   </div>
 </div>
-          <<div class="systemui-card">
-        <h3 style="text-align:center; margin-bottom:2rem;">System typograficzny</h3>
-        <div class="systemui-typo">
-          <div class="systemui-typo-row">
-            <span class="systemui-typo-sample is-display">Aa</span>
-            <span class="systemui-typo-meta"><strong>Playfair Display (Bold 700)</strong> — Główna hierarchia wizualna (Nagłówki sekcji)</span>
-          </div>
-          <div class="systemui-typo-row">
-            <span class="systemui-typo-sample is-heading">Aa</span>
-            <span class="systemui-typo-meta"><strong>Inter (Bold 700)</strong> — Podnagłówki interfejsu, etykiety danych oraz komponenty akcji</span>
-          </div>
-          <div class="systemui-typo-row">
-            <span class="systemui-typo-sample is-body">Aa</span>
-            <span class="systemui-typo-meta"><strong>Inter (Regular 400)</strong> — Warstwa tekstowa, opisy funkcjonalne i komunikaty systemowe</span>
-          </div>
-          <div class="systemui-typo-row">
-            <span class="systemui-typo-sample is-mono">Aa</span>
-            <span class="systemui-typo-meta"><strong>Courier / Monospace</strong> — Dane strukturyzowane, sygnatury techniczne i klucze systemowe cennika</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="systemui-card" style="grid-column: 1 / -1; margin-top: 2rem;">
-        <h3 style="text-align:center; margin-bottom:1rem;">Zasoby modularne (Komponenty wielokrotnego użytku)</h3>
-        <p style="max-width:720px; margin:0 auto 2rem; color:#475569; text-align:center; font-size:0.95rem;">
-          Interfejs został oparty na atomowej strukturze klas CSS. Każdy moduł cennika wykorzystuje te same, zunifikowane klocki architektoniczne, co gwarantuje pełną reużywalność kodu (Component Reusability) i redukuje rozmiar pliku produkcyjnego ze stylami.
-        </p>
-        <div class="systemui-components" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-          <span class="arch-tag"><code>.razdwa-stat</code> (Metryki procesowe)</span>
-          <span class="arch-tag"><code>.eco-node</code> (Grafy przepływu danych)</span>
-          <span class="arch-tag"><code>.ux-decision-box</code> (Panele decyzji UX)</span>
-          <span class="arch-tag"><code>.kwcs-card</code> (Kontenery asortymentu)</span>
-          <span class="arch-tag"><code>.arch-layer / .arch-tag</code> (Warstwy architektury)</span>
-          <span class="arch-tag"><code>.int-card</code> (Karty integracji API)</span>
-          <span class="arch-tag"><code>.test-item</code> (Elementy statusu QA)</span>
-          <span class="arch-tag"><code>.kwcs-accordion</code> (Scentralizowane akordeony)</span>
-          <span class="arch-tag"><code>.razdwa-summary-cell</code> (Agregatory koszyka)</span>
-          <span class="arch-tag"><code>.contribution-cell</code> (Siatki podsumowań)</span>
-        </div>
-      </div>
-
- <h2 class="section-divider" id="razdwa-potencjal">Część 8: Skalowalność i Potencjał Biznesowy</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <div class="context-intro">
-      <p>
-        Choć system powstał na potrzeby konkretnej manufaktury poligraficznej, jego architektura rozwiązuje uniwersalny problem rynkowy: **jak dostarczyć mikroprzedsiębiorstwu zaawansowany silnik kalkulacyjny, moduł koszyka oraz system ewidencji zamówień bez kosztów utrzymania infrastruktury serwerowej**. Dzięki ścisłej separacji warstw kod ma charakter agnostyczny i może zostać zaadaptowany do dowolnej branży usługowej.
-      </p>
+    <div class="systemui-card">
+      <h3 style="text-align:center; margin-bottom:2rem;">System typograficzny</h3>
+      <div class="systemui-typo">
+        <div class="systemui-typo-row">
+          <span class="systemui-typo-sample is-display">Aa</span>
+          <span class="systemui-typo-meta"><strong>Playfair Display (Bold 700)</strong> — Nagłówki sekcji i główna hierarchia wizualna.</span>
+        </div>
+        <div class="systemui-typo-row">
+          <span class="systemui-typo-sample is-heading">Aa</span>
+          <span class="systemui-typo-meta"><strong>Inter (Bold 700)</strong> — Podnagłówki interfejsu, etykiety danych i komponenty akcji.</span>
+        </div>
+        <div class="systemui-typo-row">
+          <span class="systemui-typo-sample is-body">Aa</span>
+          <span class="systemui-typo-meta"><strong>Inter (Regular 400)</strong> — Opisy funkcjonalne, komunikaty systemowe i warstwa tekstowa.</span>
+        </div>
+        <div class="systemui-typo-row">
+          <span class="systemui-typo-sample is-mono">Aa</span>
+          <span class="systemui-typo-meta"><strong>Courier / Monospace</strong> — Dane strukturyzowane, sygnatury techniczne i klucze cennika.</span>
+        </div>
+      </div>
     </div>
+
+    <div class="systemui-card" style="grid-column: 1 / -1; margin-top: 2rem;">
+      <h3 style="text-align:center; margin-bottom:1rem;">Zasoby modularne (Komponenty wielokrotnego użytku)</h3>
+      <p style="max-width:720px; margin:0 auto 2rem; color:#475569; text-align:center; font-size:0.95rem;">
+        Interfejs bazuje na atomowej strukturze klas CSS. Każdy moduł cennika wykorzystuje te same, zunifikowane elementy, co upraszcza rozwój i redukuje wagę plików arkuszy stylów.
+      </p>
+      <div class="systemui-components" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+        <span class="arch-tag"><code>.razdwa-stat</code> (Metryki)</span>
+        <span class="arch-tag"><code>.eco-node</code> (Przepływ danych)</span>
+        <span class="arch-tag"><code>.ux-decision-box</code> (Decyzje UX)</span>
+        <span class="arch-tag"><code>.kwcs-card</code> (Kontenery asortymentu)</span>
+        <span class="arch-tag"><code>.arch-layer / .arch-tag</code> (Architektura)</span>
+        <span class="arch-tag"><code>.int-card</code> (Integracje API)</span>
+        <span class="arch-tag"><code>.test-item</code> (Statusy QA)</span>
+        <span class="arch-tag"><code>.kwcs-accordion</code> (Akordeony)</span>
+        <span class="arch-tag"><code>.razdwa-summary-cell</code> (Agregatory koszyka)</span>
+        <span class="arch-tag"><code>.contribution-cell</code> (Siatki podsumowań)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-divider" id="razdwa-potencjal">Część 8: Skalowalność i Potencjał Biznesowy</h2>
+
+<div class="kwcs-sec">
+  <div class="wrap">
+    <p style="max-width:760px; margin:0 auto 2rem; text-align:center; color:#475569;">
+      System rozwiązuje uniwersalny problem rynkowy: <strong>jak wdrożyć zaawansowany silnik kalkulacyjny i ewidencję zamówień bez kosztów utrzymania serwerów</strong>. Dzięki separacji warstw, rdzeń aplikacji jest agnostyczny i łatwy do adaptacji w innych branżach.
+    </p>
 
     <h3 style="text-align:center" id="razdwa-potencjal-poligrafia">Warstwa specyficzna dla domeny (Poligrafia)</h3>
     <ul style="max-width:760px; margin:0 auto 2rem; color:#475569; line-height:1.7;">
       <li><strong>Parser wektorowy CAD:</strong> Automatyczna detekcja formatu (A0–A3) z plików wejściowych.</li>
-      <li><strong>Kalkulator liniowy:</strong> Przeliczanie metrów bieżących z uwzględnieniem szerokości roli papieru.</li>
-      <li><strong>Algorytm tolerancji:</strong> Kompensacja niedokładności skanowania (zakres ±5 mm).</li>
-      <li><strong>Modyfikatory technologiczne:</strong> Narzuty za wykończenie (oczkowanie, składanie, gramatura, satynowanie).</li>
+      <li><strong>Kalkulator liniowy:</strong> Przeliczanie metrów bieżących na podstawie szerokości rolki papieru.</li>
+      <li><strong>Algorytm tolerancji:</strong> Kompensacja niedokładności skanowania w zakresie ±5 mm.</li>
+      <li><strong>Modyfikatory technologiczne:</strong> Narzuty za wykończenie (składanie, oczkowanie, gramatura).</li>
     </ul>
 
     <h3 style="text-align:center" id="razdwa-potencjal-uniwersalne">Skalowalność komponentów (Whitelabel Readiness)</h3>
@@ -1043,103 +999,98 @@
       <article class="kwcs-card">
         <h3>Reużywalne moduły jądra</h3>
         <ul>
-          <li><strong>Silnik koszyka:</strong> Stałoprzecinkowa arytmetyka z obsługą globalnych modyfikatorów (EXPRESS).</li>
-          <li><strong>Silnik cennika:</strong> Wielopoziomowe tabele regresji ilościowej i narzutów procentowych.</li>
-          <li><strong>Panel administracyjny:</strong> Bezserwerowe zarządzanie z bramką autoryzacyjną PIN.</li>
-          <li><strong>Abstrakcja danych:</strong> Automatyczna normalizacja i translacja struktur wejściowych na klucze bazodanowe.</li>
-          <li><strong>Moduł asynchroniczny:</strong> Eksport PDF/Excel oraz replikacja danych do Google Sheets.</li>
+          <li><strong>Silnik koszyka:</strong> Arytmetyka stałoprzecinkowa z obsługą trybu EXPRESS.</li>
+          <li><strong>Silnik cennika:</strong> Wielopoziomowe tabele regresji ilościowej i narzutów.</li>
+          <li><strong>Panel administracyjny:</strong> Bezserwerowe zarządzanie i autoryzacja bramką PIN.</li>
+          <li><strong>Eksport i replikacja:</strong> Generowanie PDF/Excel offline oraz zapis do Google Sheets.</li>
         </ul>
       </article>
       
       <article class="kwcs-card">
-        <h3>Potencjalne rynki wdrożeniowe</h3>
+        <h3>Potencjalne rynki</h3>
         <ul>
-          <li><strong>Sektor serwisowy (Automotive, naprawy):</strong> Wycena roboczogodzin, części i dynamicznych dopłat.</li>
-          <li><strong>Hurtownie i dystrybucja:</strong> Cenniki progresywne zależne od wolumenu zamówienia.</li>
-          <li><strong>Catering dietetyczny i cukiernie:</strong> Wizualny konfigurator specyfikacji z modułem logistycznym.</li>
-          <li><strong>Produkcja Custom (Stolarstwo, krawiectwo):</strong> Szacowanie kosztów materiałowych na podstawie wprowadzonych wymiarów.</li>
+          <li><strong>Usługi i warsztaty (Automotive):</strong> Wycena roboczogodzin, części i dopłat dynamicznych.</li>
+          <li><strong>Hurtownie i dystrybucja:</strong> Automatyczne cenniki progresywne zależne od wolumenu.</li>
+          <li><strong>Catering i cukiernie:</strong> Wizualny konfigurator specyfikacji zamówienia.</li>
+          <li><strong>Produkcja Custom (Stolarstwo):</strong> Szacowanie kosztów materiału na podstawie wymiarów.</li>
         </ul>
       </article>
       
       <article class="kwcs-card">
-        <h3>Procedura migracji systemu</h3>
+        <h3>Procedura migracji</h3>
         <ul>
-          <li><strong>Podmiana procesorów:</strong> Implementacja nowych klas kalkulacyjnych w warstwie Feature Layer.</li>
-          <li><strong>Aktualizacja schematu:</strong> Zmiana struktury pliku konfiguracyjnego JSON oraz mapowania bazy danych.</li>
-          <li><strong>Profilowanie widoków:</strong> Dostosowanie pól formularza do specyfiki modelu biznesowego (B2B / B2C).</li>
-          <li><strong>Stabilność rdzenia:</strong> Warstwy interfejsu, logiki domenowej, usług oraz persystencji pozostają nienaruszone.</li>
+          <li><strong>Podmiana procesorów:</strong> Wdrożenie nowych klas obliczeniowych w Feature Layer.</li>
+          <li><strong>Aktualizacja schematu:</strong> Zmiana konfiguracji JSON oraz mapowania bazy danych.</li>
+          <li><strong>Profilowanie widoków:</strong> Dostosowanie pól formularzy do modelu B2B lub B2C.</li>
+          <li><strong>Stabilność rdzenia:</strong> Warstwy interfejsu, logiki i persystencji pozostają nienaruszone.</li>
         </ul>
       </article>
     </div>
-
-    <p style="max-width:760px; margin:2rem auto 0; color:#475569; font-style:italic; text-align:center;">
-      Prezentowany wzorzec architektoniczny nie jest teoretyczną hipotezą. Wynika bezpośrednio ze ścisłej implementacji zasady Separation of Concerns — logika biznesowa konkretnej branży została zamknięta w izolowanym module, czyniąc cały silnik transakcyjny uniwersalną platformą gotową do redystrybucji.
-    </p>
   </div>
 </div>
 
-   <h2 class="section-divider" id="razdwa-rezultat">Część 9: Podsumowanie Projektu i Metryki Sukcesu</h2>
+<h2 class="section-divider" id="razdwa-rezultat">Część 9: Podsumowanie Projektu i Metryki Sukcesu</h2>
 
 <div class="kwcs-sec" id="zakres">
   <div class="wrap kwcs-trio">
     <article class="kwcs-card">
       <h3>Stan początkowy i wyzwania</h3>
       <ul>
-        <li><strong>Ryzyko operacyjne:</strong> Manualna wycena asortymentu w arkuszach kalkulacyjnych, generująca błędy ludzkie (szczególnie przy wielkoformatowych plikach CAD i rolkach).</li>
-        <li><strong>Silosy informacyjne:</strong> Brak scentralizowanego repozytorium zamówień oraz brak elastycznego mechanizmu dynamicznej aktualizacji stawek.</li>
-        <li><strong>Infrastruktura krytyczna:</strong> Środowisko produkcyjne o skrajnie niestabilnym połączeniu sieciowym (hala warsztatowa).</li>
-        <li><strong>Bariera wejścia:</strong> Wymóg dostarczenia interfejsu o zerowej krzywej uczenia się, eliminującego potrzebę prowadzenia szkoleń stanowiskowych dla operatorów.</li>
+        <li><strong>Ryzyko operacyjne:</strong> Ręczna wycena w arkuszach generująca błędy przy rysunkach CAD.</li>
+        <li><strong>Silosy informacyjne:</strong> Brak centralnego rejestru zamówień oraz trudna aktualizacja stawek.</li>
+        <li><strong>Infrastruktura:</strong> Praca w warunkach produkcyjnych o zmiennej stabilności sieci.</li>
+        <li><strong>Bariera wejścia:</strong> Wymóg prostego interfejsu niewymagającego szkoleń stanowiskowych.</li>
       </ul>
     </article>
 
     <article class="kwcs-card">
       <h3>Wdrożone rozwiązania i ROI</h3>
       <ul>
-        <li><strong>Automatyzacja procesów:</strong> Autorski parser wektorów CAD redukujący czas analizy formatowej plików z odchyłkami do zera.</li>
-        <li><strong>Efektywność czasowa:</strong> Skrócenie pełnego cyklu kalkulacji i finalizacji zamówienia z ok. 60 minut do poniżej 5 minut (optymalizacja o ponad 90%).</li>
-        <li><strong>Architektura Serverless:</strong> Implementacja standardu PWA offline-first, eliminująca koszty utrzymania baz danych i serwerów.</li>
-        <li><strong>Bezpieczeństwo finansowe:</strong> Redukcja błędów na dokumentach rozliczeniowych dzięki stałoprzecinkowej arytmetyce i regresyjnym testom QA.</li>
+        <li><strong>Automatyzacja:</strong> Parser CAD redukuje czas analizy formatu plików do zera.</li>
+        <li><strong>Efektywność:</strong> Skrócenie czasu kalkulacji z 60 minut do poniżej 5 minut (optymalizacja o 90%).</li>
+        <li><strong>Koszty:</strong> Standard PWA offline-first wyeliminował wydatki na serwery i bazy danych.</li>
+        <li><strong>Bezpieczeństwo:</strong> Redukcja pomyłek finansowych dzięki obliczeniom na groszach.</li>
       </ul>
     </article>
 
     <article class="kwcs-card">
-      <h3>Stack technologiczny w praktyce</h3>
+      <h3>Stack technologiczny</h3>
       <ul>
-        <li><strong>Vanilla TypeScript + esbuild:</strong> Ultra-lekki pakiet produkcyjny (Bundle) bez narzutu frameworków, gwarantujący natychmiastowe renderowanie interfejsu.</li>
-        <li><strong>Service Worker & CSS Grid:</strong> Pełna responsywność trójkolumnowego layoutu z natywnym wsparciem dla operacji w trybie offline.</li>
-        <li><strong>Zod & pdf-lib:</strong> Deklaratywna walidacja schematów danych konfiguracyjnych JSON oraz niezależne, szybkie generowanie raportów PDF (Client-side).</li>
-        <li><strong>Google Apps Script:</strong> Bezserwerowy interfejs API mapujący strumienie danych transakcyjnych bezpośrednio do struktur Google Sheets (Mini-CRM).</li>
+        <li><strong>Vanilla TypeScript + esbuild:</strong> Lekka paczka produkcyjna bez narzutu frameworków.</li>
+        <li><strong>Service Worker & Grid:</strong> Obsługa trybu offline i responsywny układ layoutu.</li>
+        <li><strong>Zod & pdf-lib:</strong> Walidacja schematów JSON i generowanie raportów PDF po stronie klienta.</li>
+        <li><strong>Google Apps Script:</strong> Bezserwerowe API przesyłające dane bezpośrednio do Google Sheets.</li>
       </ul>
     </article>
   </div>
 </div>
 
- <div class="kwcs-sec" id="rezultat">
+<div class="kwcs-sec" id="rezultat">
   <div class="wrap">
     <div class="kwcs-result">
       <h3 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Podsumowanie Wdrożenia</h3>
 
       <div class="result-lead">
         <p>
-          System <strong>Raz Dwa Druk</strong> został z powodzeniem zaimplementowany w środowisku produkcyjnym drukarni. Pięciowarstwowa architektura (SoC) w pełni zrealizowała cele biznesowe: personel operacyjny samodzielnie i bezinwazyjnie modyfikuje parametry cennika, transakcje generują spójne dokumenty PDF, a dane są asynchronicznie replikowane do struktur Google Sheets. Aplikacja PWA wyeliminowała błędy rachunkowe i drastycznie skróciła czas obsługi kontrahenta.
+          System <strong>Raz Dwa Druk</strong> pomyślnie wdrożono w środowisku produkcyjnym. Pięciowarstwowa architektura pozwoliła zrealizować cele biznesowe: personel samodzielnie zarządza cennikiem, transakcje generują powtarzalne dokumenty PDF, a zamówienia są automatycznie rejestrowane w Google Sheets. Aplikacja całkowicie wyeliminowała błędy rachunkowe i skróciła czas obsługi.
         </p>
       </div>
 
       <div class="result-cards">
         <div class="result-card">
           <div class="result-icon">⚡</div>
-          <h3>Optymalizacja czasu pracy</h3>
-          <p>Skrócenie czasu pełnej wyceny zaawansowanych pakietów inżynieryjnych i wielkoformatowych z 60 do poniżej 5 minut.</p>
+          <h3>Optymalizacja czasu</h3>
+          <p>Skrócenie wyceny złożonych pakietów inżynieryjnych z godziny do poniżej 5 minut.</p>
         </div>
         <div class="result-card">
           <div class="result-icon">📱</div>
-          <h3>Zerowy koszt wdrożenia</h3>
-          <p>Architektura Serverless uruchamiana bezpośrednio w przeglądarce operatora. Interfejs opanowany bez szkoleń stanowiskowych.</p>
+          <h3>Infrastruktura 0 zł</h3>
+          <p>Architektura Serverless działająca w przeglądarce. System wdrożony bez szkoleń personelu.</p>
         </div>
         <div class="result-card">
           <div class="result-icon">✅</div>
-          <h3>Eliminacja strat (Leakage)</h3>
-          <p>Automatyczne uwzględnianie odpadów materiałowych, kosztów wykończenia CAD oraz globalnych narzutów EXPRESS.</p>
+          <h3>Ochrona marży</h3>
+          <p>Automatyczne naliczanie odpadów, kosztów wykończenia CAD oraz dopłat za tryb EXPRESS.</p>
         </div>
       </div>
 
@@ -1153,7 +1104,7 @@
       <div class="result-next">
         <h4 id="razdwa-rezultat-dalej" style="font-size:1.5rem; margin-bottom:1rem;">Kierunki dalszego rozwoju (Roadmap)</h4>
         <p>
-          Kolejnym etapem rozwoju systemu jest integracja natywnego parsera plików DWG/DXF w celu bezpośredniej analizy wektorów inżynieryjnych w przeglądarce. Planowane jest również wdrożenie dedykowanego modułu klienckiego (Client Portal) z separacją uprawnień, maskowaniem marż operacyjnych oraz integracją z bramką płatności online.
+          Kolejnym krokiem jest integracja natywnego parsera plików DWG/DXF do bezpośredniej analizy rysunków technicznych w przeglądarce. Planowane jest także uruchomienie Portalu Klienta z systemem uprawnień, maskowaniem marż operacyjnych oraz integracją płatności online.
         </p>
       </div>
     </div>
