@@ -2645,6 +2645,42 @@ body.lightbox-open {
   font-weight: 600;
 }
 
+/* ── L2 (podsekcje) — wcięcie, mniejszy font, kropka-marker, lżejszy akcent ── */
+.razdwa-chapter-link[data-rail-level="2"] {
+  padding-left: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #64748b;
+  position: relative;
+}
+/* Kropka-marker — override globalnego resetu content: none !important */
+.razdwa-chapter-link[data-rail-level="2"]::before {
+  content: "" !important;
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: background 0.15s ease;
+}
+.razdwa-chapter-link[data-rail-level="2"]:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+.razdwa-chapter-link[data-rail-level="2"]:hover::before { background: #06b6d4; }
+/* L2 aktywny — sam akcent koloru, bez wypełnienia tła
+   (żeby L1 aktywny zawsze miał silniejszy sygnał wizualny niż L2) */
+.razdwa-chapter-link[data-rail-level="2"].is-active {
+  background: transparent;
+  border-color: transparent;
+  color: #0284c7;
+  font-weight: 600;
+}
+.razdwa-chapter-link[data-rail-level="2"].is-active::before { background: #0284c7; }
+
 /* Desktop ≥1280px — szerszy rail, content RAZDWA odsunięty w prawo,
    żeby rail nie nachodził na sekcje przy max-width 1200 wycentrowanych */
 @media (min-width: 1280px) {
@@ -2708,6 +2744,20 @@ body.lightbox-open {
     background: #06b6d4;
     border-color: #06b6d4;
     color: #fff;
+  }
+  /* Mobile L2 — mniejsza pigułka, słabszy kontrast (bez wcięcia, bo top bar
+     jest horyzontalny — wcięcie nie ma sensu, hierarchia przez rozmiar) */
+  .razdwa-chapter-link[data-rail-level="2"] {
+    padding: 0.2rem 0.55rem;
+    font-size: 0.7rem;
+    background: #f8fafc;
+    color: #64748b;
+  }
+  .razdwa-chapter-link[data-rail-level="2"]::before { content: none !important; }
+  .razdwa-chapter-link[data-rail-level="2"].is-active {
+    background: #e0f2fe;
+    color: #0284c7;
+    border-color: #bae6fd;
   }
   /* Mobile top bar nie wymaga marginesu sekcji */
   #case-razdwa-pelne { padding-left: 0; }
