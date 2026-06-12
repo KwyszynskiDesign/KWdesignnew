@@ -2821,6 +2821,20 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 /* ========================================
    RAZDWA — Contribution grid
    ======================================== */
+
+/* Eyebrow nad h2 sekcji "Moja rola" — sygnał kategorii sekcji */
+.razdwa-contribution-eyebrow {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #06b6d4;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
 .contribution-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
