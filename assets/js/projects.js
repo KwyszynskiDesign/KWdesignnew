@@ -235,14 +235,65 @@ function initWebsiteTabs() {
 // INITIALIZATION - MAIN FUNCTION
 // ========================================
 
+// ========================================
+// CHAPTER RAIL (standalone case study, np. razdwa_aplikacja.html)
+// W portfolio.html rail jest inicjalizowany przez portfolio.js
+// (z dodatkowym move-to-body, bo .project-details-container ma transform).
+// Tutaj minimalny wariant: bindowanie kliknięć + scroll-spy.
+// ========================================
+
+function initChapterRail() {
+  const rail = document.getElementById('razdwa-chapter-rail');
+  if (!rail) return;
+
+  const links = Array.from(rail.querySelectorAll('.razdwa-chapter-link'));
+  if (!links.length) return;
+
+  const getTargetId = (link) =>
+    link.dataset.railTarget || (link.getAttribute('href') || '').replace('#', '');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = getTargetId(link);
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      links.forEach(l => l.classList.remove('is-active'));
+      link.classList.add('is-active');
+    });
+  });
+
+  const targets = links
+    .map(link => document.getElementById(getTargetId(link)))
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && targets.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach(l => {
+          l.classList.toggle('is-active', getTargetId(l) === id);
+        });
+      });
+    }, {
+      rootMargin: '-30% 0px -60% 0px',
+      threshold: 0
+    });
+    targets.forEach(t => observer.observe(t));
+  }
+}
+
 function initAllFeatures() {
   console.log('🚀 Initializing KWCS interactive features...');
-  
+
   initAccordion();
   initLightbox();
   initWebsiteTabs();
   initCarousel(); // nowa funkcja dodana tutaj
-  
+  initChapterRail();
+
   console.log('✅ All features initialized successfully');
 }
 

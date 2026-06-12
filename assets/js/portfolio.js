@@ -226,7 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function removeChapterRail() {
-    document.querySelectorAll('#razdwa-chapter-rail').forEach(el => el.remove());
+    // Usuwaj tylko rail przeniesiony do body w poprzednim cyklu —
+    // świeżo wstrzyknięty rail w #project-details-content zostaje
+    document.querySelectorAll('body > #razdwa-chapter-rail').forEach(el => el.remove());
     if (window.__razdwaRailObserver) {
       window.__razdwaRailObserver.disconnect();
       window.__razdwaRailObserver = null;
