@@ -109,9 +109,6 @@
     <div class="razdwa-summary" id="razdwa-summary">
       <div class="wrap">
         <h2>W skrócie</h2>
-        <p class="razdwa-summary-lead">
-          Aplikacja PWA dla drukarni Raz Dwa, zastąpiła ręczne wyceny w Excelu i papierowy cennik. Operator wycenia zlecenie w ok. 5 minut, właściciel sam aktualizuje ceny przez panel, a zamówienia trafiają do PDF i Google Sheets bez własnego serwera.
-        </p>
         <div class="razdwa-summary-grid">
           <div class="razdwa-summary-cell">
             <div class="label">Problem</div>
@@ -174,300 +171,299 @@
 
     <div class="kwcs-sec kwcs-context-section" id="razdwa-kontekst">
       <div class="wrap">
-        <h2>Kontekst projektu</h2>
+       <h2>Kontekst projektu</h2>
 
-        <div class="context-intro">
-          <p>
-            <strong>Drukarnia Raz Dwa</strong> obsługuje klientów biznesowych i prywatnych: wydruki wielkoformatowe, projekty CAD, plakaty A0–A3, banery i folie, wizytówki i wiele innych.
-            Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzenia tabeli w cenniku fizycznym, przeliczenia metrów bieżących i zsumowania dopłat. Cały proces zajmował <strong>od 10 minut do ok. 1 godziny</strong>.
-          </p>
-          <p>
-            Zaprojektowałem i zbudowałem od zera całe rozwiązanie: <strong>interfejs z koszykiem</strong>, dedykowany <strong>kalkulator druku CAD</strong>, <strong>panel administracyjny do edycji cennika</strong> oraz architekturę aplikacji PWA z testami i integracjami. Drukarnia nie utrzymuje własnej infrastruktury serwerowej — rolę zaplecza pełni Google Apps Script + Google Sheets.
-          </p>
-        </div>
+<div class="context-intro">
+  <p>
+    <strong>Drukarnia Raz Dwa</strong> obsługuje klientów B2B oraz indywidualnych. Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzania fizycznych tabel i liczenia parametrów zamówień – proces ten był powolny i generował pomyłki rachunkowe.
+  </p>
+  
+  <p><strong>Moje zadanie:</strong> Zaprojektowanie i zbudowanie od zera kompletnego ekosystemu produktowego:</p>
+  <ul>
+    <li><strong>UI/UX:</strong> System dynamicznego koszyka oraz automatyczny kalkulator druku CAD.</li>
+    <li><strong>Product Management:</strong> Panel dający właścicielowi pełną kontrolę nad cennikami.</li>
+    <li><strong>Infrastruktura Serverless:</strong> Architektura PWA oparta o Google Apps Script + Sheets (0 zł kosztów utrzymania serwerów).</li>
+  </ul>
+</div>
 
-        <div class="razdwa-stats">
-          <div class="razdwa-stat">
-            <div class="razdwa-stat-num">~5 min</div>
-            <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)</div>
-          </div>
-          <div class="razdwa-stat">
-            <div class="razdwa-stat-num">22</div>
-            <div class="razdwa-stat-label">kategorie produktowe + panel ustawień</div>
-          </div>
-          <div class="razdwa-stat">
-            <div class="razdwa-stat-num">2</div>
-            <div class="razdwa-stat-label">role użytkowników (operator, administrator)</div>
-          </div>
-          <div class="razdwa-stat">
-            <div class="razdwa-stat-num">0</div>
-            <div class="razdwa-stat-label">własnej infrastruktury serwerowej</div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="razdwa-stats">
+  <div class="razdwa-stat">
+    <div class="razdwa-stat-num">~5 min</div>
+    <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)</div>
+  </div>
+  <div class="razdwa-stat">
+    <div class="razdwa-stat-num">22</div>
+    <div class="razdwa-stat-label">kategorie produktowe + panel ustawień</div>
+  </div>
+  <div class="razdwa-stat">
+    <div class="razdwa-stat-num">2</div>
+    <div class="razdwa-stat-label">role użytkowników (operator, administrator)</div>
+  </div>
+  <div class="razdwa-stat">
+    <div class="razdwa-stat-num">0 zł</div>
+    <div class="razdwa-stat-label">kosztów własnej infrastruktury serwerowej</div>
+  </div>
+</div>
 
     <div class="kwcs-sec" style="background: #f8fafc;" id="razdwa-architektura-ekosystem">
-      <div class="wrap">
-        <h2>Architektura ekosystemu</h2>
-        <p>Aplikacja łączy w sobie wiele funkcjonalności, które zastąpiły ręczne przepływy pracy w drukarni:</p>
+  <div class="wrap">
+    <h2>Architektura ekosystemu</h2>
 
-        <div class="razdwa-ecosystem">
-          <div class="razdwa-ecosystem-row">
-            <div class="eco-node">
-              <div class="eco-node-icon">🖨️</div>
-              <div class="eco-node-label">Kalkulatory (np. CAD)</div>
-              <div class="eco-node-sub">Upload pliku → detekcja formatu → wycena</div>
-            </div>
-            <div class="eco-arrow">→</div>
-            <div class="eco-node">
-              <div class="eco-node-icon">🛒</div>
-              <div class="eco-node-label">Koszyk i Interfejs</div>
-              <div class="eco-node-sub">Rabat, express, suma bieżąca</div>
-            </div>
-          </div>
-          <div class="razdwa-ecosystem-row">
-            <div class="eco-node">
-              <div class="eco-node-icon">📄</div>
-              <div class="eco-node-label">PDF Export</div>
-              <div class="eco-node-sub">pdf-lib — podsumowanie zamówienia w formie raportu PDF</div>
-            </div>
-            <div class="eco-arrow">↔</div>
-            <div class="eco-node">
-              <div class="eco-node-icon">📊</div>
-              <div class="eco-node-label">Google Sheets</div>
-              <div class="eco-node-sub">Apps Script — automatyczna baza zamówień</div>
-            </div>
-          </div>
-          <div class="razdwa-ecosystem-row">
-            <div class="eco-node">
-              <div class="eco-node-icon">⚙️</div>
-              <div class="eco-node-label">System Cenników</div>
-              <div class="eco-node-sub">localStorage + singleton — aktualizacja cen z poziomu użytkownika</div>
-            </div>
-          </div>
+    <div class="razdwa-ecosystem">
+      <div class="razdwa-ecosystem-row">
+        <div class="eco-node">
+          <div class="eco-node-icon">🖨️</div>
+          <div class="eco-node-label">Kalkulatory (np. CAD)</div>
+          <div class="eco-node-sub">Upload pliku → automatyczna detekcja formatu i natychmiastowa wycena</div>
+        </div>
+        <div class="eco-arrow">→</div>
+        <div class="eco-node">
+          <div class="eco-node-icon">🛒</div>
+          <div class="eco-node-label">Koszyk i Interfejs</div>
+          <div class="eco-node-sub">Obsługa rabatów, trybu EXPRESS oraz sumowanie koszyka na żywo</div>
+        </div>
+      </div>
+      <div class="razdwa-ecosystem-row">
+        <div class="eco-node">
+          <div class="eco-node-icon">📄</div>
+          <div class="eco-node-label">Eksport raportów PDF</div>
+          <div class="eco-node-sub">Generowanie gotowego podsumowania zamówienia dla klienta bezpośrednio w przeglądarce</div>
+        </div>
+        <div class="eco-arrow">↔</div>
+        <div class="eco-node">
+          <div class="eco-node-icon">📊</div>
+          <div class="eco-node-label">Zintegrowany Google Sheets</div>
+          <div class="eco-node-sub">Automatyczna baza zamówień i synchronizacja danych w chmurze</div>
+        </div>
+      </div>
+      <div class="razdwa-ecosystem-row">
+        <div class="eco-node">
+          <div class="eco-node-icon">⚙️</div>
+          <div class="eco-node-label">Dynamiczny System Cenników</div>
+          <div class="eco-node-sub">Przechowywanie danych offline i błyskawiczna aktualizacja stawek z poziomu UI</div>
         </div>
       </div>
     </div>
-
-
+  </div>
+</div>
     <h2 class="section-divider" id="razdwa-decyzje">Decyzje produktowe</h2>
 
-    <div class="kwcs-sec">
-      <div class="wrap">
-        <div class="context-intro">
-          <p>
-            Zanim powstała pierwsza linia kodu, trzeba było ustalić, <strong>co właściwie należy zbudować</strong> — i co świadomie wykluczyć.
-            Aplikacja zastępuje proces, który drukarnia wykonywała od lat: warto było rozumieć go zanim zaproponowałem alternatywę.
-          </p>
-        </div>
-
-        <h3 style="text-align:center" id="razdwa-decyzje-problem">Jak rozpoznałem problem</h3>
-        <div class="ux-decision-grid">
-          <div class="ux-decision-box">
-            <h4>Forma rozpoznania potrzeb</h4>
-            <p><strong>Zatrudniłem się w firmie i poznałem proces od środka.</strong><br>
-              Rozmowa z właścicielem, obserwacja pracowników na żywo, analiza starych metod kalkulacji oraz własne doświadczenie jako klient.</p>
-            <p>Wywiad z pracownikami i analiza sytuacji, gdy liczba klientów przekracza możliwości obsługi.</p>
-          </div>
-          <div class="ux-decision-box" style="border-left-color:#dc2626;background:#fef2f2;">
-            <h4>Główne bóle, które usłyszałem</h4>
-            <p>Obliczanie dużej ilości plików było czasochłonne i żmudne. Gdy klient zamawiał „to samo co ostatnio", nie zawsze wiadomo było, jak go policzyć i na jakim materiale był robiony wydruk. Pomylona wycena skutkowała niezadowoleniem klienta lub właścicielki drukarni.</p>
-          </div>
-        </div>
-
-        <h3 style="margin-top:3rem;text-align:center" id="razdwa-decyzje-kluczowe">Kluczowe decyzje produktowe</h3>
-
-        <div class="ux-decision-grid">
-          <div class="ux-decision-box">
-            <div class="ux-label">Decyzja 1 · Architektura</div>
-            <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
-            <p><strong>Dlaczego:</strong> obecnie drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B fizycznie/telefonicznie/mailowo. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny przy ladzie. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> wybór PWA wyszedł z mojej inicjatywy. Rozwiązanie miało być proste, tanie we wdrożeniu i nie obciążać drukarni utrzymaniem dodatkowych narzędzi.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Decyzja 2 · Zaplecze</div>
-            <h4>Google Sheets + Apps Script zamiast własnej bazy danych</h4>
-            <p><strong>Dlaczego:</strong> wybór tej technologii oznacza zero nowego narzędzia do nauki, darmowy hosting (Google), darmową kopię zapasową i pełną kontrolę po stronie klienta. Apps Script obsługuje zapis zamówień, edycję cennika i bramkę PIN — bez utrzymywania własnego API.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> klient nie korzystał wcześniej z Google Sheets — to była moja propozycja. W drukarni funkcjonowały drobne bazy danych, ale żadna nie łączyła prostoty z łatwością dostępu. Google Sheets okazało się naturalnym wyborem: znany interfejs, zero kosztu, pełna kontrola po stronie klienta.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Decyzja 3 · Utrzymanie</div>
-            <h4>Cennik edytowalny w aplikacji zamiast „wdrażanego" przez programistę</h4>
-            <p><strong>Dlaczego:</strong> ceny się zmieniają. Gdyby każda zmiana wymagała kontaktu z programistą, drukarnia szybko porzuciłaby aplikację. Panel administracyjny z bramką PIN pozwala właścicielowi zmienić cenę w 30 sekund — bez ryzyka przypadkowej zmiany przez recepcję.</p>
-            <p style="margin-top:0.75rem;padding:0.75rem;background:#f8fafc;border-left:3px solid #06b6d4;border-radius:4px;font-size:0.85rem;color:#475569;"><strong style="color:#0f172a;">Kontekst decyzji:</strong> panel administracyjny nie był częścią pierwotnego planu — wyłonił się w trakcie iteracji, gdy rozważania nad bezpieczeństwem danych cennika wskazały na potrzebę oddzielonego dostępu dla właściciela.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Decyzja 4 · Frontend</div>
-            <h4>TypeScript + esbuild, bez Reacta/Vue</h4>
-            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Rezygnacja z dużego frameworka oznacza lżejszy pakiet, brak dodatkowej warstwy startowej w przeglądarce i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.</p>
-          </div>
-        </div>
-
-        <h3 style="margin-top:3rem;" id="razdwa-decyzje-zakres">Zakres dostarczony: od MVP po dzisiejszy stan produktu</h3>
-        <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Projekt nie zatrzymał się na minimalnej wersji — aplikacja jest dziś w pełni wdrożonym produktem. Poniższy podział pokazuje, w jakiej kolejności powstawały kolejne warstwy funkcjonalne.</p>
-        <div class="kwcs-trio">
-          <article class="kwcs-card">
-            <h3>MVP (must-have)</h3>
-            <ul>
-              <li>Kalkulator dla wszystkich  kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
-              <li>Koszyk z sumą bieżącą i trybem EXPRESS</li>
-              <li>Eksport PDF zamówienia</li>
-              <li>Wysyłka do arkusza Google jako baza zamówień</li>
-            </ul>
-          </article>
-          <article class="kwcs-card">
-            <h3>Iteracja 2 (should-have)</h3>
-            <ul>
-              <li>Pełne 22 kategorie cennikowe</li>
-              <li>Panel administracyjny do edycji cennika</li>
-              <li>Bramka PIN dla panelu admina</li>
-              <li>System wariantów własnych produktów</li>
-              <li>Eksport koszyka do Excela</li>
-            </ul>
-          </article>
-          <article class="kwcs-card">
-            <h3>Backlog (could-have)</h3>
-            <ul>
-              <li>Parser DWG/DXF dla wektorów CAD</li>
-              <li>Tryb klienta końcowego z ukrytymi marżami</li>
-              <li>Integracja płatności</li>
-            </ul>
-            <p>Żadnej funkcji nie wyciąłem na prośbę klienta ani z własnej inicjatywy. Ograniczyłem natomiast liczbę kategorii — powiązane typy usług zostały połączone, żeby zredukować szum i przyspieszyć nawigację do właściwej pozycji cennika.</p>
-          </article>
-        </div>
+<div class="kwcs-sec">
+  <div class="wrap">
+    
+    <h3 style="text-align:center" id="razdwa-decyzje-problem">Jak rozpoznałem problem</h3>
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <h4>Forma rozpoznania potrzeb</h4>
+        <p><strong>Zatrudniłem się w drukarni, aby poznać proces od środka.</strong> Przeprowadziłem wywiady z pracownikami, obserwowałem obsługę przy ladzie w momentach największego ruchu oraz przeanalizowałem dotychczasowe, manualne metody kalkulacji.</p>
+      </div>
+      <div class="ux-decision-box" style="border-left-color:#dc2626;background:#fef2f2;">
+        <h4>Główne bóle (Pain points)</h4>
+        <p>Wycena plików CAD była żmudna i powolna. Brak historii zamówień utrudniał obsługę stałych klientów („to samo co ostatnio”), a częste pomyłki w wycenach generowały bezpośrednie straty finansowe dla drukarni.</p>
       </div>
     </div>
 
+    <h3 style="margin-top:3rem;text-align:center" id="razdwa-decyzje-kluczowe">Kluczowe decyzje produktowe</h3>
+
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <div class="ux-label">Decyzja 1 · Architektura</div>
+        <h4>PWA zamiast sklepu na WooCommerce/Shoper</h4>
+        <p>Drukarnia obsługuje klientów stacjonarnie i mailowo (B2B) – klasyczny e-commerce generowałby zbędne koszty hostingu i wtyczek, nie rozwiązując problemu wyceny na miejscu. PWA działa offline, uruchamia się bezpośrednio z pulpitu i generuje 0 zł kosztów utrzymania.</p>
+      </div>
+      
+      <div class="ux-decision-box">
+        <div class="ux-label">Decyzja 2 · Zaplecze</div>
+        <h4>Google Sheets + Apps Script zamiast bazy SQL</h4>
+        <p>Zaproponowałem darmowe środowisko Google, które eliminuje koszty serwerów i API. Klient zyskał automatyczny backup oraz bezproblemowy dostęp do bazy danych zamówień za pomocą doskonale znanego mu interfejsu arkusza.</p>
+      </div>
+      
+      <div class="ux-decision-box">
+        <div class="ux-label">Decyzja 3 · Utrzymanie</div>
+        <h4>Edytowalny cennik z poziomu UI aplikacji</h4>
+        <p>Ceny w branży zmieniają się dynamicznie. Zamiast angażować programistę do każdej korekty stawek, wdrożyłem zabezpieczony kodem PIN panel administracyjny. Właściciel zmienia ceny w 30 sekund bez ryzyka pomyłki ze strony recepcji.</p>
+      </div>
+      
+      <div class="ux-decision-box">
+        <div class="ux-label">Decyzja 4 · Frontend</div>
+        <h4>TypeScript + esbuild (Bez Reacta/Vue)</h4>
+        <p>Aplikacja musiała ładować się natychmiast na starszych komputerach warsztatowych. Rezygnacja z ciężkich frameworków zapewniła lekkość i niezawodne działanie offline. TypeScript zabezpieczył złożoną logikę matematyczną cennika przed błędami.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:3rem; text-align:center;" id="razdwa-decyzje-zakres">Zakres dostarczony: od MVP po dzisiejszy stan produktu</h3>
+    
+    <div class="kwcs-trio">
+      <article class="kwcs-card">
+        <h3>MVP (must-have)</h3>
+        <ul>
+          <li>Kalkulator dla głównych kategorii (druk A4/A3, CAD, banner, laminowanie)</li>
+          <li>Koszyk z sumą bieżącą i trybem EXPRESS</li>
+          <li>Eksport podsumowania do pliku PDF</li>
+          <li>Zapis zamówień w arkuszu Google Sheets</li>
+        </ul>
+      </article>
+      
+      <article class="kwcs-card">
+        <h3>Iteracja 2 (should-have)</h3>
+        <ul>
+          <li>Pełne obsłużenie 22 kategorii cennikowych</li>
+          <li>Panel administracyjny zabezpieczony kodem PIN</li>
+          <li>System wariantów dla produktów własnych</li>
+          <li>Eksport danych koszyka do formatu Excel</li>
+        </ul>
+      </article>
+      
+      <article class="kwcs-card">
+        <h3>Backlog (could-have)</h3>
+        <ul>
+          <li>Parser plików DWG/DXF (automatyczny odczyt wektorów CAD)</li>
+          <li>Tryb prezentacji dla klienta końcowego (ukryte marże)</li>
+          <li>Integracja z bramką płatności online</li>
+        </ul>
+      </article>
+    </div>
+
+  </div>
+</div>
 
     <h2 class="section-divider" id="razdwa-role">Role i persony</h2>
 
-    <div class="kwcs-sec" style="background:#f8fafc;">
-      <div class="wrap">
-        <div class="context-intro">
-          <p>System obsługuje <strong>dwie role</strong> o różnych potrzebach i różnym poziomie odpowiedzialności. Zaprojektowanie aplikacji „dla pracownika" i „dla administratora" w jednym interfejsie wymagało rozdzielenia uprawnień, ale bez tworzenia drugiego logowania.</p>
-        </div>
+<div class="kwcs-sec" style="background:#f8fafc;">
+  <div class="wrap">
+    <div class="context-intro">
+      <p>System obsługuje <strong>dwie role</strong> o skrajnie różnych potrzebach. Wyzwaniem było rozdzielenie uprawnień wewnątrz jednego interfejsu, bez wprowadzania skomplikowanego, podwójnego procesu logowania.</p>
+    </div>
 
-        <div class="ux-decision-grid">
-          <div class="ux-decision-box">
-            <div class="ux-label">Persona 1 · Główny użytkownik</div>
-            <h4>Operator recepcji drukarni</h4>
-            <p><strong>Co robi:</strong> przyjmuje zlecenia od klientów (telefon, e-mail, osobiście), wycenia, dodaje do koszyka, zbiera dane klienta, wysyła PDF i zapisuje zamówienie. <strong>Czego potrzebuje:</strong> szybkości, czytelnej ceny, braku możliwości popsucia cennika, działania bez internetu. <strong>Środowisko:</strong> komputer w warsztacie, jasne oświetlenie, klient czekający przy ladzie.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Persona 2 · Administrator</div>
-            <h4>Właściciel / kierownik drukarni</h4>
-            <p><strong>Co robi:</strong> aktualizuje ceny, dodaje nowe pozycje cennika, tworzy warianty produktów (np. „Wizytówki Premium"), kontroluje historię zamówień w Google Sheets. <strong>Czego potrzebuje:</strong> pewności, że zmiana ceny nie wymaga programisty, że recepcja nie zmieni cennika przypadkiem, że może zarządzać z domu. <strong>Zabezpieczenie:</strong> bramka PIN, weryfikowana po stronie Google Apps Script.</p>
-          </div>
-        </div>
-
-        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:0.75rem;">
-          <p style="color:#475569;font-size:0.9rem;line-height:1.7;margin:0;"><strong style="color:#0f172a;">Kontekst operacyjny:</strong> główny operator to osoba po 40. roku życia, ze stażem ok. 1,5 roku w drukarni. Nowe, skomplikowane narzędzia mogą być przyjmowane z rezerwą — dlatego prostota obsługi i krótka krzywa uczenia były wymaganiem, nie tylko życzeniem.</p>
-        </div>
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <div class="ux-label">Persona 1 · Główny użytkownik</div>
+        <h4>Operator recepcji drukarni</h4>
+        <p><strong>Zadania:</strong> Przyjmowanie zleceń (w salonie, tel, mail), szybka wycena i generowanie PDF.</p>
+        <p><strong>Potrzeby:</strong> Błyskawiczne działanie offline, prosty interfejs odporny na przypadkowe błędy (brak dostępu do edycji stawek).</p>
+        <p><strong>Środowisko:</strong> Stary komputer na warsztacie, jasne oświetlenie, stres wynikający z obsługi klienta czekającego przy ladzie.</p>
+      </div>
+      
+      <div class="ux-decision-box">
+        <div class="ux-label">Persona 2 · Administrator</div>
+        <h4>Właściciel / kierownik</h4>
+        <p><strong>Zadania:</strong> Dynamiczna aktualizacja cen, dodawanie nowych usług i kontrola historii zamówień.</p>
+        <p><strong>Potrzeby:</strong> Samodzielne zarządzanie biznesem z dowolnego miejsca bez angażowania i opłacania programisty.</p>
+        <p><strong>Zabezpieczenie:</strong> Dedykowany panel administracyjny odblokowywany kodem PIN, weryfikowany po stronie serwera.</p>
       </div>
     </div>
+
+    <div style="max-width:760px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:#fff; border:1px solid #e2e8f0; border-left:4px solid #06b6d4; border-radius:0.75rem;">
+      <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin:0;">
+        <strong style="color:#0f172a;">Kontekst inkluzywności (UX):</strong> Główny pracownik to osoba 40+ przyzwyczajona do starych procedur. Aby uniknąć oporu przed nowym systemem, priorytetem projektowym była **zerowa krzywa uczenia się** – aplikacja prowadzi użytkownika za rękę krok po kroku.
+      </p>
+    </div>
+  </div>
+</div>
 
 
     <h2 class="section-divider" id="razdwa-ux">Część 1: Interfejs i UX</h2>
     
-    <div class="kwcs-sec">
-      <div class="wrap">
-        <div class="context-intro">
-          <p>
-            Priorytetem w projektowaniu interfejsu była <strong>szybkość operacji</strong> i <strong>odporność na błędy</strong>. Drukarnia to jasne oświetlenie, szybka obsługa i pracownicy o różnym stopniu zaawansowania technicznego. 
-          </p>
-        </div>
+<div class="kwcs-sec">
+  <div class="wrap">
+    <div class="context-intro">
+      <p>
+        Głównym celem projektowym było skrócenie czasu obsługi klienta przy ladzie. Interfejs musiał eliminować przełączanie się między kartami i minimalizować liczbę kliknięć niezbędnych do zamknięcia zamówienia.
+      </p>
+    </div>
 
-        <h3 style="text-align:center">User flow — zoptymalizowana ścieżka</h3>
-        <div class="user-flow">
-          <div class="flow-step">
-            <div class="flow-step-icon">🏠</div>
-            <div class="flow-step-label">Strona główna</div>
-            <div class="flow-step-sub">Kafelki kategorii</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-step-icon">🖨️</div>
-            <div class="flow-step-label">Kalkulator</div>
-            <div class="flow-step-sub">Wybór parametrów</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-step-icon">💰</div>
-            <div class="flow-step-label">Wycena</div>
-            <div class="flow-step-sub">Cena na żywo</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-step-icon">🛒</div>
-            <div class="flow-step-label">Koszyk</div>
-            <div class="flow-step-sub">Rabat, express</div>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-step-icon">📄</div>
-            <div class="flow-step-label">PDF / Sheets</div>
-            <div class="flow-step-sub">Eksport zamówienia</div>
-          </div>
-        </div>
+    <h3 style="text-align:center">User flow — zoptymalizowana ścieżka</h3>
+    <div class="user-flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">🏠</div>
+        <div class="flow-step-label">Strona główna</div>
+        <div class="flow-step-sub">Szybki wybór kategorii</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🖨️</div>
+        <div class="flow-step-label">Kalkulator</div>
+        <div class="flow-step-sub">Zredukowana liczba pól</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">💰</div>
+        <div class="flow-step-label">Wycena</div>
+        <div class="flow-step-sub">Automatyczny wynik na żywo</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🛒</div>
+        <div class="flow-step-label">Koszyk</div>
+        <div class="flow-step-sub">Modyfikacja (rabat / express)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">📄</div>
+        <div class="flow-step-label">Finalizacja</div>
+        <div class="flow-step-sub">Jednoczesny zapis i eksport</div>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="kwcs-sec kwcs-website-showcase">
-      <div class="wrap">
-        <div class="showcase-stack">
-          <div class="showcase-section">
-            <h3>🏗️ Wielokolumnowy layout</h3>
-            <p class="tab-description">Stały podział na 3 kolumny: nawigacja kategorii (lewa), aktywny kalkulator (środek), koszyk zamówień (prawa) — dzięki temu użytkownik zawsze widzi stan zamówienia bez scrollowania.</p>
-            <div class="showcase-row">
-              <div class="showcase-item">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
-                <p>Desktop — stały dostęp do koszyka</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="showcase-section">
-            <h3>🛒 Dynamiczny koszyk i dodawanie produktów</h3>
-            <p class="tab-description">Koszyk z sumą bieżącą uaktualnia się przy każdej zmianie pozycji lub włączeniu trybu EXPRESS. Dodawanie kolejnych pozycji nie wymaga przechodzenia na osobny ekran — kontekst zamówienia jest cały czas widoczny.</p>
-            <div class="showcase-row">
-              <div class="showcase-item">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
-                <p>Koszyk — natychmiastowe przeliczanie</p>
-              </div>
-              <div class="showcase-item">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Dodawanie produktu do zamówienia" loading="lazy" data-caption="Dodawanie produktu — dwa kolejne ekrany w toku zamówienia">
-                <p>Dodawanie produktu w toku zamówienia</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3 style="text-align:center" id="razdwa-ux-decyzje">Kluczowe decyzje UX</h3>
-        <div class="ux-decision-grid">
-          <div class="ux-decision-box">
-            <div class="ux-label">Problem → Rozwiązanie</div>
-            <h4>Koszyk zawsze widoczny</h4>
-            <p>Stały panel po prawej eliminuje ciągłe scrollowanie góra/dół. Pracownik zawsze ma podgląd na wycenione pliki.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Problem → Rozwiązanie</div>
-            <h4>Cena na żywo</h4>
-            <p>Cena aktualizuje się natychmiast przy zmianie dowolnego parametru — bez zbędnego klikania przycisku „Przelicz".</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Problem → Rozwiązanie</div>
-            <h4>Powiadomienia zamiast okien</h4>
-            <p>Wyskakujące okna i modale przerywały pracę. Zastąpiłem je subtelnymi powiadomieniami w rogu ekranu.</p>
-          </div>
-          <div class="ux-decision-box">
-            <div class="ux-label">Problem → Rozwiązanie</div>
-            <h4>Działa offline jako PWA</h4>
-            <p>Brak serwera, brak problemu z internetem. Drukarnia instaluje aplikację z poziomu przeglądarki jako osobną ikonę na pulpicie i pracuje na niej także bez sieci.</p>
+  <div class="wrap">
+    <div class="showcase-stack">
+      
+      <div class="showcase-section">
+        <h3>🏗️ Wielokolumnowy layout (Desktop)</h3>
+        <p class="tab-description">Architektura interfejsu oparta na podziale ekranu, który zapewnia stały dostęp do kluczowych modułów bez konieczności przewijania strony.</p>
+        <div class="showcase-row">
+          <div class="showcase-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
+            <p>Trzy sekcje: nawigacja kategorii, aktywny kalkulator oraz podgląd zamówienia.</p>
           </div>
         </div>
       </div>
+
+      <div class="showcase-section">
+        <h3>🛒 Dynamiczny proces zamówienia</h3>
+        <p class="tab-description">Praca na jednym ekranie – dodawanie kolejnych pozycji i modyfikacja parametrów odbywają się bezpośrednio w kontekście bieżącego zlecenia.</p>
+        <div class="showcase-row">
+          <div class="showcase-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
+            <p>Bieżące przeliczanie kosztów i konfiguracja rabatów.</p>
+          </div>
+          <div class="showcase-item">
+            <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Dodawanie produktu do zamówienia" loading="lazy" data-caption="Dodawanie produktu — dwa kolejne ekrany w toku zamówienia">
+            <p>Płynne dodawanie nowych pozycji bez przeładowania interfejsu.</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
+
+    <h3 style="text-align:center" id="razdwa-ux-decyzje">Kluczowe decyzje UX</h3>
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <div class="ux-label">Problem → Rozwiązanie</div>
+        <h4>Koszyk zawsze w zasięgu wzroku</h4>
+        <p>Stały panel boczny eliminuje potrzebę scrollowania. Pracownik ma nieprzerwany podgląd listy wycenionych plików i łącznej kwoty.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Problem → Rozwiązanie</div>
+        <h4>Reaktywny kalkulator (Real-time)</h4>
+        <p>Cena końcowa aktualizuje się automatycznie przy zmianie dowolnego parametru – bez wymuszania klikania w przycisk „Przelicz”.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Problem → Rozwiązanie</div>
+        <h4>Toast notifications zamiast modali</h4>
+        <p>Inwazyjne okna pop-up przerywały płynność pracy. Zastąpiłem je subtelnymi, bezobsługowymi komunikatami w rogu ekranu.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Problem → Rozwiązanie</div>
+        <h4>Niezawodność offline (Standard PWA)</h4>
+        <p>Aplikacja instaluje się bezpośrednio na pulpicie. Działa stabilnie bez względu na jakość połączenia internetowego na warsztacie.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <h2 class="section-divider" id="razdwa-cad">Część 2: Kalkulator Druku CAD</h2>
