@@ -89,11 +89,29 @@
     ============================================================ -->
     <div class="razdwa-summary" id="razdwa-summary">
       <div class="wrap">
+<<<<<<< HEAD
         <h2>W skrócie</h2>
         <div class="razdwa-summary-grid">
           <div class="razdwa-summary-cell">
             <div class="label">Problem</div>
             <div class="value">Ręczne wyceny zajmowały do godziny, błędy wracały jako poprawione faktury.</div>
+=======
+        <h2>Kontekst projektu</h2>
+
+        <div class="context-intro">
+          <p>
+            <strong>Drukarnia Raz Dwa</strong> obsługuje klientów biznesowych zamawiających wydruki wielkoformatowe — projekty CAD, plakaty A0–A1, banery i folie. Przed wdrożeniem aplikacji każda wycena wymagała ręcznego sprawdzenia tabeli w Excelu, przeliczenia metrów bieżących i zsumowania dopłat. Cały proces zajmował <strong>około godziny</strong>.
+          </p>
+          <p>
+            Zaprojektowałem i zbudowałem od zera całe rozwiązanie: <strong>interfejs z koszykiem</strong>, dedykowany <strong>kalkulator druku CAD</strong>, <strong>panel administracyjny do edycji cennika</strong> oraz architekturę aplikacji PWA z testami i integracjami. Drukarnia nie utrzymuje własnej infrastruktury serwerowej — rolę zaplecza pełni Google Apps Script + Google Sheets.
+          </p>
+        </div>
+
+        <div class="razdwa-stats">
+          <div class="razdwa-stat">
+            <div class="razdwa-stat-num">~5 min</div>
+            <div class="razdwa-stat-label">czas wyceny (wcześniej ok. godziny)</div>
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
           </div>
           <div class="razdwa-summary-cell">
             <div class="label">Moja rola</div>
@@ -108,6 +126,7 @@
             <div class="value">~5 min zamiast godziny (ok. −90%), zero IT w utrzymaniu, ~50 testów automatycznych.</div>
           </div>
         </div>
+        <p style="max-width:900px;margin:0 auto 1.5rem;font-size:0.8125rem;color:#64748b;text-align:center;">Szacowany czas wynika z mojego własnego pomiaru. Wcześniej wycena dużego zamówienia map architektonicznych zajmowała około godziny, a po wdrożeniu aplikacji ten sam proces skrócił się do około 5 minut.</p>
       </div>
     </div>
 
@@ -126,9 +145,56 @@
           <p>Prowadziłem ten projekt samodzielnie — od analizy procesu, przez projekt UX/UI, po wdrożenie aplikacji obsługującej dziś zamówienia drukarni. Trzy kolumny niżej rozdzielają mój zakres, decyzje konsultowane z klientem i zasoby wniesione przez firmę.</p>
         </div>
 
+<<<<<<< HEAD
         <div class="contribution-grid">
           <div class="contribution-cell contribution-cell--solo">
             <h4><span class="dot"></span>Mój zakres</h4>
+=======
+        <h3>Jak rozpoznałem problem</h3>
+        <div class="ux-decision-grid">
+          <div class="ux-decision-box">
+            <div class="ux-label">Discovery · Rozpoznanie potrzeb</div>
+            <h4>Forma rozpoznania potrzeb</h4>
+            <p>Przez dwa miesiące pracowałem w firmie i poznawałem proces wyceny przez obserwację, rozmowy oraz analizę realnych zamówień. Przed rozpoczęciem kodowania odbyło się około pięciu rozmów, które pomogły mi lepiej zrozumieć potrzeby i ograniczenia zespołu. Po starcie prac pojawiły się kolejne rozmowy doprecyzowujące, co dokładnie ma znaleźć się w aplikacji.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Discovery · Zidentyfikowane problemy</div>
+            <h4>Główne bóle, które usłyszałem</h4>
+            <p>Największym problemem było ręczne liczenie cen przy większych projektach, zwłaszcza przy dużym ruchu w drukarni. To wydłużało realizację zamówień i zwiększało ryzyko błędów w wycenie oraz w samych zamówieniach.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:3rem;">Kluczowe decyzje produktowe (Make-or-Buy)</h3>
+        <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Decyzje opisane poniżej wynikają z faktów zaobserwowanych w repozytorium (stack, integracje, brak własnego backendu). Motywacje biznesowe oznaczone „wymaga uzupełnienia" warto dopowiedzieć z perspektywy rozmowy z klientem.</p>
+
+        <div class="ux-decision-grid">
+          <div class="ux-decision-box">
+            <div class="ux-label">Decyzja 1 · Architektura</div>
+            <h4>Aplikacja PWA zamiast sklepu na WooCommerce/Shoper</h4>
+            <p><strong>Dlaczego:</strong> drukarnia nie sprzedaje online klientowi końcowemu — obsługuje klientów B2B w okienku. Sklep e-commerce byłby kosztownym narzutem (hosting, wtyczki, aktualizacje), a nie rozwiązałby głównego problemu: czasu wyceny u recepcji. PWA daje aplikację „przyklejoną" do pulpitu bez instalacji i bez kosztu utrzymania serwera.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Decyzja 2 · Zaplecze</div>
+            <h4>Google Sheets + Apps Script zamiast własnej bazy danych</h4>
+            <p><strong>Dlaczego:</strong> wybór tej technologii oznacza zero nowego narzędzia do nauki, darmowy hosting (Google), darmową kopię zapasową i pełną kontrolę po stronie klienta. Apps Script obsługuje zapis zamówień, edycję cennika i bramkę PIN — bez utrzymywania własnego API.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Decyzja 3 · Utrzymanie</div>
+            <h4>Cennik edytowalny w aplikacji zamiast „wdrażanego" przez programistę</h4>
+            <p><strong>Dlaczego:</strong> ceny się zmieniają. Gdyby każda zmiana wymagała kontaktu z programistą, drukarnia szybko porzuciłaby aplikację. Panel administracyjny z bramką PIN pozwala właścicielowi zmienić cenę w 30 sekund — bez ryzyka przypadkowej zmiany przez recepcję.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Decyzja 4 · Frontend</div>
+            <h4>TypeScript + esbuild, bez Reacta/Vue</h4>
+            <p><strong>Dlaczego:</strong> aplikacja musi się ładować błyskawicznie i działać offline na średniej klasy komputerze w warsztacie. Brak frameworka oznacza mniejszy bundle, brak narzutu hydration i prostszy Service Worker. TypeScript zostaje — bez typów logika cennika byłaby pułapką na błędy.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:3rem;">Co weszło do MVP, co odłożyłem na później</h3>
+        <div class="kwcs-trio">
+          <article class="kwcs-card">
+            <h3>MVP (must-have)</h3>
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
             <ul>
               <li>Analiza procesu wyceny i identyfikacja problemów operacyjnych</li>
               <li>Projekt architektury produktu i przepływów użytkownika</li>
@@ -152,10 +218,17 @@
           <div class="contribution-cell contribution-cell--external">
             <h4><span class="dot"></span>Zasoby drukarni</h4>
             <ul>
+<<<<<<< HEAD
               <li>Istniejący cennik i dokumentacja procesów</li>
               <li>Środowisko Google wykorzystywane przez firmę</li>
               <li>Komputer warsztatowy do testów i wdrożenia</li>
               <li>Materiały oraz dane potrzebne do konfiguracji systemu</li>
+=======
+              <li>Parser DWG/DXF dla wektorów CAD</li>
+              <li>Tryb klienta końcowego z ukrytymi marżami</li>
+              <li>Integracja płatności</li>
+              <li>Parser DWG/DXF i tryb klienta końcowego odłożyłem świadomie — oba wymagały tygodni dodatkowej pracy, a nie odblokowywały głównego bólu: czasu wyceny przy ladzie.</li>
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
             </ul>
           </div>
         </div>
@@ -208,6 +281,7 @@
       Przed wdrożeniem systemu każda wycena w drukarni wymagała ręcznego sprawdzania fizycznych tabel. Proces był powolny i generował błędy rachunkowe, szczególnie przy skomplikowanych zamówieniach CAD.
     </p>
 
+<<<<<<< HEAD
     <div class="razdwa-stats">
       <div class="razdwa-stat">
         <div class="razdwa-stat-num">~5 min</div>
@@ -242,6 +316,8 @@
       <div class="ux-decision-box">
         <h4>Główne bóle (Pain Points)</h4>
         <p>Kalkulacja niestandardowych rysunków CAD była żmudna, brak historii utrudniał obsługę stałych klientów pod hasłem „to samo co ostatnio”, a powtarzające się pomyłki w obliczeniach przynosiły straty finansowe.</p>
+=======
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
       </div>
     </div>
 
@@ -886,6 +962,7 @@
           <li><strong>Panel administracyjny:</strong> Bezserwerowe zarządzanie i autoryzacja bramką PIN.</li>
           <li><strong>Eksport i replikacja:</strong> Generowanie PDF/Excel offline oraz zapis do Google Sheets.</li>
         </ul>
+<<<<<<< HEAD
       </article>
       
       <article class="kwcs-card">
@@ -895,6 +972,274 @@
           <li><strong>Hurtownie i dystrybucja:</strong> Automatyczne cenniki progresywne zależne od wolumenu.</li>
           <li><strong>Catering i cukiernie:</strong> Wizualny konfigurator specyfikacji zamówienia.</li>
           <li><strong>Produkcja Custom (Stolarstwo):</strong> Szacowanie kosztów materiału na podstawie wymiarów.</li>
+=======
+
+        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
+          <strong style="color:#92400e;">⚠ Materiały graficzne do wykonania (P0):</strong>
+          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
+            <li>Panel ustawień — widok zakładek kategorii z licznikami pozycji</li>
+            <li>Panel ustawień — edycja pozycji in-place</li>
+            <li>Panel ustawień — modal dodawania nowej pozycji</li>
+            <li>Ekran bramki PIN (z fallbackiem offline)</li>
+            <li>Arkusz <code>cennik</code> w Google Sheets po synchronizacji</li>
+          </ul>
+          <p style="margin:0.75rem 0 0;color:#92400e;font-size:0.85rem;"><strong>⚠ Pytanie do autora:</strong> Czy klient samodzielnie dodał już jakieś pozycje przez panel? Ile? Czy zgłaszał problemy z tą funkcją?</p>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 4: Warianty produktów</h2>
+
+    <div class="kwcs-sec" style="background:#f8fafc;">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>W trakcie pracy z drukarnią okazało się, że <strong>nie wystarczy jeden cennik</strong>: ten sam produkt (np. wizytówki) ma kilka odmian, które klient zamawia po imieniu („Wizytówki Premium", „Wizytówki ekspresowe"). Zaprojektowałem osobny system wariantów, niezależny od cennika bazowego.</p>
+        </div>
+
+        <h3>Dlaczego warianty są osobno od cennika</h3>
+        <p style="max-width:760px;margin:0 auto 1.5rem;color:#475569;">Cennik bazowy odpowiada na pytanie „ile kosztuje druk koloru A4 w nakładzie 100 sztuk". Wariant odpowiada na pytanie „co dokładnie zamawia klient i pod jaką nazwą zapisać to w systemie". Rozdzielenie tych dwóch warstw oznacza, że dodanie nowego wariantu nie wymaga modyfikacji cennika, a zmiana ceny nie wymaga modyfikacji nazw wariantów.</p>
+
+        <div class="ux-decision-grid">
+          <div class="ux-decision-box">
+            <div class="ux-label">Funkcja</div>
+            <h4>Własne podgrupy w kategorii</h4>
+            <p>Drukarnia może w kategorii „Wizytówki" stworzyć podgrupę „Premium" z własnymi wariantami nakładów. Aplikacja buduje unikalne prefiksy techniczne, żeby uniknąć kolizji z innymi podgrupami.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Funkcja</div>
+            <h4>Kategorie sterowane nakładem</h4>
+            <p>Dla wizytówek, voucherów, dyplomów, ulotek, zaproszeń i broszur klucz wariantu zawiera nakład (np. 100, 250, 500 sztuk). Aplikacja zna te wzorce i buduje klucze zgodnie z konwencją każdej kategorii — np. dla voucherów odwraca kolejność „nakład–strona", bo tak żąda specyfika rozliczeń.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Funkcja</div>
+            <h4>Polskie nazwy → techniczne klucze</h4>
+            <p>Operator wpisuje „Wizytówki ekspresowe Półmat", aplikacja zamienia to na technicznie poprawny klucz (bez polskich znaków, bez spacji, z prefiksem kategorii). Operator nigdy nie widzi technicznego klucza — widzi tylko swoją polską nazwę.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Funkcja</div>
+            <h4>Wykrywanie duplikatów po znaczeniu</h4>
+            <p>Aplikacja sprawdza, czy wariant o tej samej kombinacji (kategoria + prefiks + nakład/etykieta) już istnieje — żeby drukarnia nie miała dwóch identycznych pozycji pod różnymi nazwami.</p>
+          </div>
+        </div>
+
+        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid #06b6d4;border-radius:0.75rem;">
+          <strong>Do dodania:</strong>
+          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
+            <li><strong>Screenshot:</strong> tworzenie własnej podgrupy (np. „Wizytówki Premium") w panelu</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 5: Droga zamówienia</h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>Od momentu, gdy operator dodaje pierwszą pozycję do koszyka, do momentu, gdy zamówienie ląduje w bazie firmy — przepływ został podzielony na etapy, w których trudno popełnić błąd. Każdy etap ma jeden cel i jedno zabezpieczenie.</p>
+        </div>
+
+        <h3>Pięć etapów</h3>
+        <div class="ux-decision-grid">
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 1</div>
+            <h4>Koszyk z arytmetyką w groszach</h4>
+            <p>Sumy nie liczone w liczbach zmiennoprzecinkowych (które gubią grosze), tylko w pełnych groszach przeliczanych na końcu. Drobiazg techniczny, ale dla drukarni oznacza, że suma na PDF zawsze zgadza się z sumą na fakturze.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 2</div>
+            <h4>Tryb EXPRESS — jednym przełącznikiem dla całego zamówienia</h4>
+            <p>Klient chce „cały zamówienie na jutro"? Jeden przełącznik dolicza +20% do każdej pozycji, suma przelicza się na żywo. Operator nie zaznacza tego przy każdej pozycji osobno.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 3</div>
+            <h4>Formularz danych klienta B2B</h4>
+            <p>Firma, NIP, telefon (wymagany), e-mail, imię i nazwisko osoby kontaktowej, uwagi do zamówienia. Walidacja po stronie aplikacji — brakujące pole jest sygnalizowane przed próbą wysyłki.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 4</div>
+            <h4>Eksport: PDF dla klienta, Excel dla księgowej</h4>
+            <p>PDF generowany w przeglądarce (pdf-lib + polskie fonty) — gotowy do wysyłki klientowi. Excel — gdy drukarnia woli pracować z plikiem lokalnie. Oba eksporty z tych samych danych — bez ryzyka rozjazdu.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 5</div>
+            <h4>Wysyłka do Google Sheets jako baza firmy</h4>
+            <p>Każde wysłane zamówienie trafia jako wiersz do arkusza <code>orders</code>: data, godzina, firma, dane klienta, materiał, nakład, cena jednostkowa, suma, priorytet i flaga EXPRESS. Drukarnia ma firmowy „mini-CRM" bez kosztu utrzymania.</p>
+          </div>
+          <div class="ux-decision-box">
+            <div class="ux-label">Etap 5 · niezawodność</div>
+            <h4>Wysyłka z weryfikacją i obsługą błędów</h4>
+            <p>Wysyłka ma timeout, status zwrotny i tryb „dry run" do testów. Jeśli wysyłka się nie powiedzie (brak sieci, błąd Apps Script), operator widzi komunikat — nie cichy fail.</p>
+          </div>
+        </div>
+
+        <div style="max-width:760px;margin:2rem auto 0;padding:1.25rem 1.5rem;background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:0.75rem;">
+          <strong style="color:#92400e;">⚠ Materiały graficzne do wykonania:</strong>
+          <ul style="margin:0.75rem 0 0;color:#475569;font-size:0.9rem;line-height:1.7;">
+            <li>[P1] Koszyk z włączonym EXPRESS — widoczny przelicznik +20% per pozycja i w sumie</li>
+            <li>[P0] Formularz danych klienta B2B z walidacją (Firma, NIP, Telefon, Email)</li>
+            <li>[P1] Wygenerowany PDF zamówienia (otwarty w podglądzie)</li>
+            <li>[P1] Plik Excel z koszykiem</li>
+            <li>[P0] Arkusz <code>orders</code> w Google Sheets z 5–10 zamówieniami</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Część 6: Architektura i Integracje</h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>
+            Całość zbudowano jako <strong>aplikację webową bez ciężkiego frameworka</strong> (TypeScript + esbuild). Drukarnia nie utrzymuje własnego serwera — zaplecze tworzą Google Sheets (baza zamówień i cennik) oraz Google Apps Script (warstwa API). Sama aplikacja pracuje w przeglądarce jako PWA i działa również offline.
+          </p>
+        </div>
+
+        <h3>Architektura — pięć warstw odpowiedzialności</h3>
+        <p style="max-width:720px;margin:0 auto 1rem;color:#475569;">Każda warstwa ma jedno zadanie. Dzięki temu zmiana w jednej warstwie nie psuje pozostałych — np. zmiana ceny nie wymaga ruszania kodu, a dodanie nowej kategorii produktów nie wymaga ruszania interfejsu.</p>
+        <div class="arch-layers">
+          <div class="arch-layer">
+            <div class="arch-layer-label">Interfejs<br>Warstwa 1</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag">Ekrany kategorii</span>
+              <span class="arch-tag">Router (PWA)</span>
+              <span class="arch-tag">Koszyk</span>
+              <span class="arch-tag">Eksport PDF / Excel</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Kategorie<br>Warstwa 2</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag highlight">22 moduły kalkulacyjne</span>
+              <span class="arch-tag">Rozpoznawanie formatu CAD</span>
+              <span class="arch-tag">Naliczanie ceny per kategoria</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Logika domenowa<br>Warstwa 3</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag highlight">Koszyk</span>
+              <span class="arch-tag">Modyfikatory (EXPRESS, satyna...)</span>
+              <span class="arch-tag">Walidacje danych klienta</span>
+              <span class="arch-tag">Klucze i nazwy wariantów</span>
+              <span class="arch-tag">Arytmetyka w groszach</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Cennik<br>Warstwa 4</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag highlight">PriceService</span>
+              <span class="arch-tag">Cache w pamięci</span>
+              <span class="arch-tag">Nadpisania z panelu admina</span>
+              <span class="arch-tag">Synchronizacja z Google Sheets</span>
+            </div>
+          </div>
+          <div class="arch-layer">
+            <div class="arch-layer-label">Dane<br>Warstwa 5</div>
+            <div class="arch-layer-content">
+              <span class="arch-tag">Cennik znormalizowany (JSON)</span>
+              <span class="arch-tag">Walidacja schematu (Zod)</span>
+              <span class="arch-tag">Arkusze: orders / cennik / variants</span>
+            </div>
+          </div>
+        </div>
+        <p style="max-width:720px;margin:1rem auto 0;color:#64748b;font-size:0.875rem;">
+          <strong>Dlaczego pięć, a nie cztery?</strong> Wydzielenie warstwy „Logiki domenowej" (koszyk, modyfikatory, walidacje, klucze wariantów) od warstwy kategorii oznacza, że ta sama logika koszyka działa dla wszystkich 22 kategorii — i będzie działała dla 23. kategorii bez zmian. To także moduły, które najłatwiej przenieść do innej branży (patrz: sekcja „Potencjał B2B").
+        </p>
+
+        <h3 style="margin-top: 3rem;">Integracje ekosystemu</h3>
+        <div class="integration-flow">
+          <div class="int-card">
+            <div class="int-card-icon">📄</div>
+            <div class="int-card-title">pdf-lib</div>
+            <div class="int-card-desc">Generowanie PDF zamówienia całkowicie po stronie klienta — bez backendu. Zawiera pełne zestawienie i polskie fonty.</div>
+            <div class="int-card-code">Blob download / Offline</div>
+          </div>
+          <div class="int-card">
+            <div class="int-card-icon">📊</div>
+            <div class="int-card-title">Google Apps Script</div>
+            <div class="int-card-desc">fetch() → endpoint GAS wysyła i wpisuje nowe zamówienie do dedykowanego arkusza historii Google Sheets.</div>
+            <div class="int-card-code">doPost() → SpreadsheetApp</div>
+          </div>
+          <div class="int-card">
+            <div class="int-card-icon">⚙️</div>
+            <div class="int-card-title">Panel Cennika (localStorage)</div>
+            <div class="int-card-desc">Pracownicy modyfikują klucze cenowe przez UI. priceService nadpisuje JSON lokalnymi ustaleniami w czasie rzeczywistym.</div>
+            <div class="int-card-code">StorageEvent Broadcast</div>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Niezawodność — testy automatyczne</h3>
+        <p>Każda zmiana w cenniku jest krytyczna biznesowo: błąd kropki w stawce za m² oznacza realną stratę na fakturze. Dlatego zbudowałem <strong>~50 plików testowych</strong> obejmujących nie tylko kalkulacje, ale też zachowania interfejsu i scenariusze regresji. <em style="color:#94a3b8;">Łączna liczba przypadków — wymaga weryfikacji przed publikacją (uruchom <code>npm test</code>).</em></p>
+        <div class="test-grid">
+          <div class="test-item">
+            <div class="test-item-name">Kalkulacje per kategoria</div>
+            <div class="test-item-count">22 pliki</div>
+            <div class="test-item-sub">Banner, CAD, laminowanie, wizytówki, vouchery, ulotki, plakaty, folie, dyplomy…</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Detekcja formatu CAD</div>
+            <div class="test-item-count">cad-upload + cad_verify_final</div>
+            <div class="test-item-sub">Tolerancja skanera, formaty rolki, orientacja</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Trwałość cennika</div>
+            <div class="test-item-count">price-persistence</div>
+            <div class="test-item-sub">Nadpisania z panelu admina i synchronizacja</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Koszyk i suma</div>
+            <div class="test-item-count">cart + computeTotalPrice</div>
+            <div class="test-item-sub">Arytmetyka w groszach, EXPRESS dla wszystkich pozycji</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Walidacje formularzy</div>
+            <div class="test-item-count">customerValidation + form-validation-states</div>
+            <div class="test-item-sub">Dane klienta B2B, stany błędów</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Regresja interfejsu</div>
+            <div class="test-item-count">navigation, pin-panel, breakdown-layout, sanitize-names</div>
+            <div class="test-item-sub">Spójność nawigacji, dostępność panelu, slugifikacja PL znaków</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Router</div>
+            <div class="test-item-count">router-home + router-404</div>
+            <div class="test-item-sub">Strona startowa i obsługa nieznanych adresów</div>
+          </div>
+          <div class="test-item">
+            <div class="test-item-name">Warianty produktów</div>
+            <div class="test-item-count">variantKeys + variantLogger</div>
+            <div class="test-item-sub">Klucze quantity-based, deduplikacja po podpisie</div>
+          </div>
+        </div>
+        <p style="max-width:720px;margin:1rem auto 0;color:#64748b;font-size:0.875rem;">
+          <strong>Decyzja PM:</strong> testy regresji UI (nawigacja, dostępność panelu, walidacje) wprowadziłem po doświadczeniach z wcześniejszych iteracji, kiedy refaktoring jednego widoku potrafił przypadkiem zepsuć inny. Koszt utrzymania zwraca się przy każdej zmianie cennika.
+        </p>
+
+      </div>
+    </div>
+
+
+    <h2 class="section-divider">Potencjał poza poligrafią</h2>
+
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="context-intro">
+          <p>Raz Dwa Druk to <strong>aplikacja dla konkretnej drukarni</strong>, ale zbudowana z modułów, które rozwiązują problem znacznie szerszy: <em>jak małej firmie usługowej dać kalkulator + koszyk + bazę zamówień bez własnej infrastruktury</em>. Większość warstw architektury można przenieść do innej branży po podmianie definicji kategorii i cennika.</p>
+        </div>
+
+        <h3>Co jest specyficzne dla poligrafii</h3>
+        <ul style="max-width:760px;margin:0 auto 2rem;color:#475569;line-height:1.7;">
+          <li>Rozpoznawanie formatu CAD (A0–A3) z uploadowanych plików</li>
+          <li>Przeliczenia metr bieżący × szerokość rolki</li>
+          <li>Tolerancja skanera (±5 mm dla formatów)</li>
+          <li>Modyfikatory poligraficzne: oczkowanie, składanie, satyna, dwustronnie, gramatura papieru</li>
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
         </ul>
       </article>
       
@@ -970,6 +1315,7 @@
         </div>
       </div>
 
+<<<<<<< HEAD
       <a class="kwcs-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz aplikację Raz Dwa Druk">
         Uruchom aplikację na żywo
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -986,6 +1332,8 @@
     </div>
   </div>
 </div>
+=======
+>>>>>>> e54686e (content: finalize razdwa case study cleanup)
 
   </section>
 
