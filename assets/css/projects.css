@@ -2709,49 +2709,218 @@ body.lightbox-open {
   #case-razdwa-pelne { padding-left: 232px; }
 }
 
-/* Tablet i mobile ≤1100px — fixed top bar z poziomym scrollem pigułek */
+/* ── Desktop ≥1101px — collapsible groups w sticky sidebarze ── */
+.razdwa-rail-mobile-trigger { display: none; }
+.razdwa-rail-backdrop { display: none; }
+.razdwa-rail-close { display: none; }
+.razdwa-rail-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+.razdwa-rail-group-head {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+.razdwa-rail-group-head .razdwa-chapter-link { flex: 1 1 auto; min-width: 0; }
+.razdwa-rail-toggle {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.3rem 0.35rem;
+  border-radius: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+.razdwa-rail-toggle:hover { color: #06b6d4; background: #f1f5f9; }
+.razdwa-rail-toggle:focus-visible { outline: 2px solid #06b6d4; outline-offset: 1px; }
+.razdwa-rail-toggle[aria-expanded="true"] { transform: rotate(180deg); color: #0284c7; }
+
+.razdwa-rail-sub {
+  list-style: none;
+  padding: 0;
+  margin: 0.1rem 0 0.25rem;
+  display: none;
+}
+.razdwa-rail-sub li { margin: 0; }
+.razdwa-rail-sub li::before { content: none !important; }
+.razdwa-rail-group[data-open="true"] > .razdwa-rail-sub { display: block; }
+
+/* ── Mobile ≤1100px — floating button + bottom sheet drawer ── */
 @media (max-width: 1100px) {
+  /* Hostujący <nav> nie rysuje już żadnej pigułki — jest tylko kontenerem */
   .razdwa-chapter-rail {
-    left: 12px;
-    right: 12px;
-    top: 12px;
+    position: fixed;
+    inset: auto auto 16px 16px;
+    right: 16px;
+    top: auto;
     transform: none;
     width: auto;
     max-width: none;
     max-height: none;
-    padding: 0.55rem 0.7rem;
-    border-radius: 0.7rem;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
-  .razdwa-chapter-rail-label { display: none; }
+
+  /* Floating trigger button — prawy dolny róg z safe-area-inset */
+  .razdwa-rail-mobile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
+    background: #0284c7;
+    color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.6rem 1rem 0.6rem 0.8rem;
+    box-shadow: 0 14px 30px -10px rgba(2, 132, 199, 0.55);
+    cursor: pointer;
+    font-family: inherit;
+    margin-bottom: calc(env(safe-area-inset-bottom, 0px));
+  }
+  .razdwa-rail-mobile-trigger:focus-visible {
+    outline: 3px solid #06b6d4;
+    outline-offset: 3px;
+  }
+  .razdwa-rail-mobile-icon { font-size: 1.1rem; line-height: 1; }
+  .razdwa-rail-mobile-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.15;
+    max-width: 55vw;
+  }
+  .razdwa-rail-mobile-text small {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+  }
+  .razdwa-rail-mobile-text strong {
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  /* Bottom sheet (panel) — domyślnie schowany pod krawędzią */
+  .razdwa-rail-panel {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 1rem 1rem 0 0;
+    padding: 1rem 1.1rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    transform: translateY(100%);
+    transition: transform 0.32s cubic-bezier(0.16, 0.84, 0.44, 1);
+    z-index: 60;
+    box-shadow: 0 -20px 50px -16px rgba(15, 23, 42, 0.35);
+    visibility: hidden;
+  }
+  body.razdwa-rail-open .razdwa-rail-panel {
+    transform: translateY(0);
+    visibility: visible;
+  }
+  .razdwa-rail-panel-head {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .razdwa-chapter-rail-label {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: left;
+  }
+  .razdwa-rail-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #475569;
+    cursor: pointer;
+  }
+  .razdwa-rail-close:focus-visible { outline: 2px solid #06b6d4; outline-offset: 2px; }
+
+  /* Backdrop */
+  .razdwa-rail-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.24s ease, visibility 0.24s ease;
+    z-index: 55;
+  }
+  body.razdwa-rail-open .razdwa-rail-backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* W drawerze cała lista to pionowy układ pełnowymiarowych linków,
+     L2 ZAWSZE rozwinięte (brak toggle button) */
   .razdwa-chapter-rail-list {
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 0.35rem;
+    overflow: visible;
+    gap: 0.05rem;
   }
+  .razdwa-rail-toggle { display: none; }
+  .razdwa-rail-sub { display: block; padding-left: 0.5rem; margin: 0.1rem 0 0.4rem; border-left: 2px solid #e2e8f0; }
+  .razdwa-rail-group-head .razdwa-chapter-link { padding-right: 0.7rem; }
+
   .razdwa-chapter-link {
     flex-shrink: 0;
-    white-space: nowrap;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 9999px;
-    padding: 0.3rem 0.7rem;
-    font-size: 0.78rem;
+    display: block;
+    white-space: normal;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.92rem;
     color: #0f172a;
+    width: 100%;
+    text-align: left;
+    line-height: 1.35;
   }
   .razdwa-chapter-link:hover {
-    background: #06b6d4;
-    border-color: #06b6d4;
-    color: #fff;
+    background: #f1f5f9;
+    color: #0f172a;
   }
-  /* Mobile L2 — mniejsza pigułka, słabszy kontrast (bez wcięcia, bo top bar
-     jest horyzontalny — wcięcie nie ma sensu, hierarchia przez rozmiar) */
+  .razdwa-chapter-link.is-active {
+    background: #0284c7;
+    color: #fff;
+    border-color: #0284c7;
+  }
   .razdwa-chapter-link[data-rail-level="2"] {
-    padding: 0.2rem 0.55rem;
-    font-size: 0.7rem;
-    background: #f8fafc;
-    color: #64748b;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.82rem;
+    color: #475569;
   }
   .razdwa-chapter-link[data-rail-level="2"]::before { content: none !important; }
   .razdwa-chapter-link[data-rail-level="2"].is-active {
@@ -2759,7 +2928,8 @@ body.lightbox-open {
     color: #0284c7;
     border-color: #bae6fd;
   }
-  /* Mobile top bar nie wymaga marginesu sekcji */
+
+  /* Mobile drawer nie wymaga padding-left sekcji */
   #case-razdwa-pelne { padding-left: 0; }
 }
 

@@ -233,6 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
       window.__razdwaRailObserver.disconnect();
       window.__razdwaRailObserver = null;
     }
+    if (window.__razdwaRailEscHandler) {
+      document.removeEventListener('keydown', window.__razdwaRailEscHandler);
+      window.__razdwaRailEscHandler = null;
+    }
+    document.body.classList.remove('razdwa-rail-open');
   }
 
   function initializeChapterRail() {
@@ -253,6 +258,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const getTargetId = (link) =>
       link.dataset.railTarget || (link.getAttribute('href') || '').replace('#', '');
 
+    const trigger = rail.querySelector('.razdwa-rail-mobile-trigger');
+    const triggerLabel = trigger ? trigger.querySelector('[data-current-section]') : null;
+    const closeBtn = rail.querySelector('.razdwa-rail-close');
+    const backdrop = rail.querySelector('[data-rail-backdrop]');
+    const toggles = Array.from(rail.querySelectorAll('.razdwa-rail-toggle'));
+    const labelByTarget = Object.fromEntries(
+      links.map(l => [getTargetId(l), l.textContent.trim()])
+    );
+
+    // Drawer open/close (mobile)
+    const openDrawer = () => {
+      document.body.classList.add('razdwa-rail-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    };
+    const closeDrawer = () => {
+      document.body.classList.remove('razdwa-rail-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    };
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        if (document.body.classList.contains('razdwa-rail-open')) closeDrawer();
+        else openDrawer();
+      });
+    }
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeDrawer);
+    const escHandler = (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('razdwa-rail-open')) {
+        closeDrawer();
+      }
+    };
+    document.addEventListener('keydown', escHandler);
+    window.__razdwaRailEscHandler = escHandler;
+
+    // Toggle buttons (desktop collapsible groups)
+    toggles.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const group = btn.closest('.razdwa-rail-group');
+        if (!group) return;
+        const isOpen = group.getAttribute('data-open') === 'true';
+        group.setAttribute('data-open', isOpen ? 'false' : 'true');
+        btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+
+    // Link clicks — scroll, set active, close drawer
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -262,9 +315,11 @@ document.addEventListener('DOMContentLoaded', () => {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         links.forEach(l => l.classList.remove('is-active'));
         link.classList.add('is-active');
+        closeDrawer();
       });
     });
 
+    // Scroll spy
     const targets = links
       .map(link => document.getElementById(getTargetId(link)))
       .filter(Boolean);
@@ -277,6 +332,20 @@ document.addEventListener('DOMContentLoaded', () => {
           links.forEach(l => {
             l.classList.toggle('is-active', getTargetId(l) === id);
           });
+          // Update mobile trigger label
+          if (triggerLabel && labelByTarget[id]) {
+            triggerLabel.textContent = labelByTarget[id];
+          }
+          // Auto-expand parent group when L2 is active
+          const activeLink = links.find(l => getTargetId(l) === id);
+          if (activeLink && activeLink.dataset.railLevel === '2') {
+            const parentGroup = activeLink.closest('.razdwa-rail-group');
+            if (parentGroup) {
+              parentGroup.setAttribute('data-open', 'true');
+              const toggleBtn = parentGroup.querySelector('.razdwa-rail-toggle');
+              if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+            }
+          }
         });
       }, {
         rootMargin: '-30% 0px -60% 0px',
