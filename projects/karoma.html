@@ -63,14 +63,178 @@
     }
     .context-intro { max-width: 820px; margin: 0 auto 2.5rem; }
     .context-intro p { font-size: 1.0625rem; line-height: 1.8; color: #475569; margin-bottom: 1rem; }
+
+    .section-lead {
+      font-size: 1.0625rem;
+      color: #475569;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .kwcs-breadcrumb {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.75rem 1rem;
+    }
+    .kwcs-breadcrumb .wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .kwcs-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+      color: #0284c7;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .kwcs-back-btn:hover { color: #0369a1; }
+    .kwcs-breadcrumb-sep { color: #94a3b8; font-size: 0.9rem; }
+    .kwcs-breadcrumb-current { font-size: 0.9rem; color: #64748b; }
+
+    /* Stats bar */
+    .kwcs-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .kwcs-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    .kwcs-stat {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+    }
+    .kwcs-stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a3557;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .kwcs-stat-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.3;
+    }
+
+    /* Problem / Brief grid */
+    .pm-brief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .pm-brief-grid { grid-template-columns: 1fr; }
+    }
+    .pm-brief-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .pm-brief-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e8692a;
+      margin-bottom: 0.6rem;
+    }
+    .pm-brief-item p {
+      font-size: 0.9375rem;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Decision cards */
+    .pm-decisions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .pm-decisions { grid-template-columns: 1fr; max-width: 600px; }
+    }
+    .pm-decision {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .pm-decision-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #e8692a;
+      text-transform: uppercase;
+    }
+    .pm-decision h3 {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.3;
+    }
+    .pm-decision p {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .pm-decision-outcome {
+      padding-top: 0.5rem;
+      border-top: 1px solid #e2e8f0;
+    }
+    .pm-decision-outcome strong { color: #1a3557; }
   </style>
 
   <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+  <!-- Breadcrumb -->
+  <nav class="kwcs-breadcrumb" aria-label="Nawigacja">
+    <div class="wrap">
+      <a href="/KWdesignnew/portfolio.html" class="kwcs-back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Portfolio
+      </a>
+      <span class="kwcs-breadcrumb-sep">/</span>
+      <span class="kwcs-breadcrumb-current">Karoma — Sklep B2B i identyfikacja wizualna</span>
+    </div>
+  </nav>
+
   <!-- Case Study Content -->
   <section class="kwcs" id="case-karoma" aria-label="Case Study: Karoma — Sklep B2B i identyfikacja wizualna">
 
@@ -152,6 +316,59 @@
             Efekt: spójna identyfikacja we wszystkich kanałach, sklep z pływającym koszykiem i paskiem darmowej dostawy, wdrożenie produkcyjne i szkolenie klienta. Wszystkie etapy — analiza, projekt, budowa, wdrożenie — w jednym ręku.
           </p>
         </div>
+
+        <div class="kwcs-stats">
+          <div class="kwcs-stat">
+            <div class="kwcs-stat-num">3</div>
+            <div class="kwcs-stat-label">rundy iteracji logo</div>
+          </div>
+          <div class="kwcs-stat">
+            <div class="kwcs-stat-num">7</div>
+            <div class="kwcs-stat-label">nośników testowania marki</div>
+          </div>
+          <div class="kwcs-stat">
+            <div class="kwcs-stat-num">~8 tyg.</div>
+            <div class="kwcs-stat-label">od briefu do wdrożenia</div>
+          </div>
+          <div class="kwcs-stat">
+            <div class="kwcs-stat-num">1</div>
+            <div class="kwcs-stat-label">projektant — pełny zakres</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Problem i brief -->
+    <div class="kwcs-sec" style="background:#f8fafc;">
+      <div class="wrap">
+        <h2>Problem i brief</h2>
+        <p class="section-lead">Skąd wziął się projekt i co trzeba było rozwiązać.</p>
+
+        <div class="context-intro">
+          <p>
+            Firma zmieniła profil działalności — z kół gumowych na frezy i narzędzia CNC dla klientów B2B. Zmiana branży wymagała nowej tożsamości wizualnej od zera: marki odzwierciedlającej precyzję i specjalizację właściwą dla obróbki skrawaniem.
+          </p>
+          <p>
+            Jednocześnie firma potrzebowała działającego sklepu — z obsługą płatności, kategoryzacją dziesiątek produktów i profesjonalną prezentacją zdjęć. Brief obejmował pełen zakres: od logo do wdrożenia produkcyjnego.
+          </p>
+        </div>
+
+        <div class="pm-brief-grid">
+          <div class="pm-brief-item">
+            <span class="pm-brief-label">Punkt wyjścia</span>
+            <p>Firma z nową ofertą, bez identyfikacji wizualnej i bez sklepu internetowego.</p>
+          </div>
+          <div class="pm-brief-item">
+            <span class="pm-brief-label">Napięcie projektowe</span>
+            <p>Marka musi brzmieć poważnie dla odbiorcy B2B, przy ograniczonych możliwościach platformy e-commerce.</p>
+          </div>
+          <div class="pm-brief-item">
+            <span class="pm-brief-label">Oczekiwany efekt</span>
+            <p>Spójna identyfikacja we wszystkich kanałach i sklep gotowy do przyjmowania zamówień po 8 tygodniach.</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -244,8 +461,8 @@
     <div class="kwcs-sec kwcs-website-showcase">
       <div class="wrap">
         <h2>Realizacja strony internetowej</h2>
-        <p>
-          Sklep e-commerce Karoma został zaprojektowany z myślą o <strong>intuicyjnej nawigacji, minimalizmie i profesjonalnym wyglądzie</strong>. Projekt łączy nowoczesny design z dedykowanymi funkcjami B2B – responsywny na wszystkich urządzeniach i optymalizowany dla konwersji.
+        <p class="section-lead">
+          Sklep e-commerce Karoma — intuicyjna nawigacja, minimalizm i dedykowane funkcje B2B. Responsywny na wszystkich urządzeniach.
         </p>
         
         <!-- STACK VIEW - Wszystkie sekcje jedna pod drugą -->
@@ -253,7 +470,7 @@
           
           <!-- SEKCJA 1: HOMEPAGE -->
           <div class="showcase-section">
-            <h3>🏠 Homepage</h3>
+            <h3>Homepage</h3>
             <p class="tab-description">Strona główna — hero section z wartością propozycji i CTA</p>
             <div class="showcase-row">
               <div class="showcase-item">
@@ -277,8 +494,8 @@
 
           <!-- SEKCJA 2: O NAS -->
           <div class="showcase-section">
-            <h3>ℹ️ O nas</h3>
-            <p class="tab-description">Strona "O nas" — historia marki, wartości, certyfikaty</p>
+            <h3>O nas</h3>
+            <p class="tab-description">Strona "O nas" — historia marki, misja, wartości firmy</p>
             <div class="showcase-row">
               <div class="showcase-item">
                 <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ABOUT_KAROMA.jpg" alt="O nas - desktop view" loading="lazy" data-caption="O nas - Desktop view">
@@ -293,15 +510,15 @@
               <h4>Charakterystyka sekcji</h4>
               <ul class="features-list">
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Narracja marki:</strong> historia i misja</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Wartości:</strong> kluczowe elementy DNA marki</li>
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Zaufanie:</strong> certyfikaty, doświadczenie</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Wartości:</strong> jakość produktów, niska cena, łatwa dostępność</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Wiarygodność:</strong> specjalizacja w branży CNC i profesjonalna prezentacja oferty</li>
               </ul>
             </div>
           </div>
 
           <!-- SEKCJA 3: KONTAKT -->
           <div class="showcase-section">
-            <h3>📧 Kontakt</h3>
+            <h3>Kontakt</h3>
             <p class="tab-description">Strona kontaktu — formularz, dane, mapa, wsparcie</p>
             <div class="showcase-row">
               <div class="showcase-item">
@@ -316,7 +533,7 @@
             <div class="features-box">
               <h4>Charakterystyka sekcji</h4>
               <ul class="features-list">
-                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Formularz:</strong> integracja z CRM</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Formularz kontaktowy:</strong> bezpośrednie zapytania B2B</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Dane firmowe:</strong> adres, telefon, e-mail</li>
                 <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Mapa Google:</strong> lokalizacja firmy</li>
               </ul>
@@ -325,7 +542,7 @@
 
           <!-- SEKCJA 4: PRODUKT -->
           <div class="showcase-section">
-            <h3>📦 Produkt</h3>
+            <h3>Produkt</h3>
             <p class="tab-description">Strona produktu — szczegóły, specyfikacja, koszyk</p>
             <div class="showcase-row">
               <div class="showcase-item">
@@ -349,16 +566,12 @@
 
           <!-- SEKCJA 5: PŁYWAJĄCY KOSZYK - WIĘCEJ PRZESTRZENI -->
           <div class="showcase-section floating-cart-section">
-            <h3>🛒 Pływający koszyk</h3>
+            <h3>Pływający koszyk</h3>
             <p class="tab-description">Na stronie występuje dedykowany pływający koszyk z zaawansowanymi funkcjami</p>
             <div class="showcase-row">
               <div class="showcase-item">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PRODUCTS_KAROMA.jpg" alt="Pływający koszyk - desktop" loading="lazy" data-caption="Pływający koszyk - Desktop view">
-                <p>Desktop view</p>
-              </div>
-              <div class="showcase-item showcase-mobile">
-                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PRODUCT_KAROMA_MOBILE.jpg" alt="Pływający koszyk - mobile" loading="lazy" data-caption="Pływający koszyk - Mobile view">
-                <p>Mobile view</p>
+                <img class="lightbox-trigger" src="/KWdesignnew/assets/images/FLY_BASKET_KAROMA.jpg" alt="Pływający koszyk z paskiem darmowej dostawy" loading="lazy" data-caption="Pływający koszyk — pasek darmowej dostawy i lista produktów">
+                <p>Pływający koszyk</p>
               </div>
             </div>
             <div class="features-box">
@@ -435,9 +648,45 @@
             <li>Spójna <strong>kolorystyka</strong>, minimalizm</li>
             <li><strong>Logo + logotyp</strong>, papiery firmowe, mockupy</li>
             <li>Wiadomości etapowe (zakup, wysyłka, doręczenie)</li>
-            <li>Wsparcie techniczne i <strong>integracja z CRM</strong></li>
+            <li>Wsparcie techniczne i <strong>konfiguracja systemu zamówień</strong></li>
           </ul>
         </article>
+      </div>
+    </div>
+
+    <!-- Decyzje projektowe -->
+    <div class="kwcs-sec" style="background:#f8fafc;">
+      <div class="wrap">
+        <h2>Kluczowe decyzje projektowe</h2>
+        <p class="section-lead">Trzy decyzje, które ukształtowały wygląd marki i sposób działania sklepu.</p>
+
+        <div class="pm-decisions">
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 01</div>
+            <h3>Symbol geometryczny zamiast logotypu literniczego</h3>
+            <p><strong>Kontekst:</strong> Klient potrzebował znaku, który komunikuje specjalizację w branży CNC — nie ogólny logotyp firmowy.</p>
+            <p><strong>Kompromis:</strong> Literniczy logotyp byłby bezpieczniejszy i szybszy. Symbol geometryczny wymagał 3 rund iteracji i testów na 7 nośnikach.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Logo oparte na geometrii frezu CNC — kształt narzędzia jako element graficzny marki. Branżowe skojarzenie czytelne dla odbiorcy B2B od pierwszego kontaktu.</p>
+          </div>
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 02</div>
+            <h3>Dedykowane skrypty JS zamiast gotowych wtyczek</h3>
+            <p><strong>Kontekst:</strong> Platforma e-commerce miała ograniczone możliwości customizacji — standardowe wtyczki pływającego koszyka nie dawały wymaganej funkcjonalności.</p>
+            <p><strong>Kompromis:</strong> Gotowe wtyczki — szybszy start, ale brak kontroli nad zachowaniem i wyglądem. Własny kod — więcej pracy, pełna kontrola.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Dedykowane skrypty JavaScript "nad platformą": pływający koszyk z paskiem darmowej dostawy i kategoryzator produktów. Aktualizacje systemu nie psują funkcji.</p>
+          </div>
+
+          <div class="pm-decision">
+            <div class="pm-decision-label">Decyzja 03</div>
+            <h3>Informacja techniczna przed estetyką na stronach produktów</h3>
+            <p><strong>Kontekst:</strong> Wstępny kierunek zakładał minimalistyczny design inspirowany consumer e-commerce. Klienci B2B okazali się mieć inne potrzeby.</p>
+            <p><strong>Kompromis:</strong> Estetyczny minimalizm — lepiej wygląda, ale ukrywa dane, których szuka specjalista. Priorytet specyfikacji — mniej "piękne", ale użyteczne.</p>
+            <p class="pm-decision-outcome"><strong>Decyzja:</strong> Layout kart produktów priorytetyzuje specyfikację techniczną: wymiary, kod katalogowy, materiał. Klient B2B decyduje na podstawie danych, nie wrażenia wizualnego.</p>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -445,6 +694,7 @@
     <div class="kwcs-sec" id="dostarczone">
       <div class="wrap">
         <h2>Proces projektowy</h2>
+        <p class="section-lead">Pięć etapów — od wywiadu z klientem i benchmarkingu do uruchomienia sklepu i szkolenia.</p>
         <div class="kwcs-accordion">
 
           <!-- Accordion Item 1 -->
@@ -565,7 +815,7 @@
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </a>
-          
+
           <div class="result-next">
             <h3>Co dalej?</h3>
             <p>Możliwości dalszego rozwoju: <strong>optymalizacja konwersji</strong>, rozbudowa funkcji porównywania produktów, nowe kanały marketingowe (LinkedIn B2B, Google Ads).</p>
@@ -573,12 +823,12 @@
         </div>
       </div>
     </div>
-  </section>
 
     <!-- Lessons Learned -->
     <div class="kwcs-sec" style="background:#f8fafc;">
       <div class="wrap">
         <h2>Czego się nauczyłem</h2>
+        <p class="section-lead">Wnioski z projektu, które wpłynęły na mój sposób wyceniania, planowania i wdrażania kolejnych zleceń.</p>
         <div class="kwcs-trio" style="margin-top:1.5rem;">
           <article class="kwcs-card">
             <h3>Ograniczenia kreatora ≠ koniec świata</h3>
@@ -600,6 +850,7 @@
     <div class="kwcs-sec">
       <div class="wrap">
         <h2>Co dostarczyłem</h2>
+        <p class="section-lead">Kompletny zakres pracy — branding, sklep, wdrożenie produkcyjne i transfer wiedzy do klienta.</p>
         <div class="kwcs-trio" style="margin-top:1.5rem;">
           <article class="kwcs-card">
             <h3>Brand System Karoma</h3>
@@ -842,6 +1093,8 @@
 
       </div>
     </div>
+
+  </section>
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Powiększony obraz">
