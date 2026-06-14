@@ -39,6 +39,42 @@
 <body>
   <section class="kwcs" id="case-razdwa-pelne" aria-label="Pełne Case Study: Raz Dwa Druk">
 
+    <!-- ============================================================
+         Chapter rail — sticky TOC z internal anchors
+    ============================================================ -->
+    <nav class="razdwa-chapter-rail" id="razdwa-chapter-rail" aria-label="Spis treści case study">
+      <div class="razdwa-chapter-rail-label">Rozdziały</div>
+      <ul class="razdwa-chapter-rail-list">
+        <li><a class="razdwa-chapter-link" href="#razdwa-summary" data-rail-target="razdwa-summary" title="W skrócie" aria-label="W skrócie">W skrócie</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-contribution" data-rail-target="razdwa-contribution" title="Moja rola" aria-label="Moja rola">Moja rola</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-kontekst" data-rail-target="razdwa-kontekst" title="Kontekst" aria-label="Kontekst">Kontekst</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Decyzje produktowe" aria-label="Decyzje produktowe">Decyzje produktowe</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-problem" data-rail-target="razdwa-decyzje-problem" title="Rozpoznanie problemu" aria-label="Rozpoznanie problemu">Rozpoznanie problemu</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-kluczowe" data-rail-target="razdwa-decyzje-kluczowe" title="Kluczowe decyzje" aria-label="Kluczowe decyzje">Kluczowe decyzje</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-zakres" data-rail-target="razdwa-decyzje-zakres" title="Ewolucja MVP" aria-label="Ewolucja MVP">Ewolucja MVP</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-role" data-rail-target="razdwa-role" title="Role i persony" aria-label="Role i persony">Role i persony</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-ux" data-rail-target="razdwa-ux" title="Część 1: Interfejs i UX" aria-label="Część 1: Interfejs i UX">Część 1 · Interfejs i UX</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-ux-decyzje" data-rail-target="razdwa-ux-decyzje" title="Kluczowe decyzje UX" aria-label="Kluczowe decyzje UX">Kluczowe decyzje UX</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-cad" data-rail-target="razdwa-cad" title="Część 2: Kalkulator CAD" aria-label="Część 2: Kalkulator CAD">Część 2 · Kalkulator CAD</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-cad-logika" data-rail-target="razdwa-cad-logika" title="Logika kalkulatora CAD" aria-label="Logika kalkulatora CAD">Logika kalkulatora CAD</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-panel" data-rail-target="razdwa-panel" title="Część 3: Panel cennika" aria-label="Część 3: Panel cennika">Część 3 · Panel cennika</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-panel-funkcje" data-rail-target="razdwa-panel-funkcje" title="Funkcjonalności panelu" aria-label="Funkcjonalności panelu">Funkcjonalności panelu</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-panel-pin" data-rail-target="razdwa-panel-pin" title="Bramka PIN" aria-label="Bramka PIN">Bramka PIN</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-warianty" data-rail-target="razdwa-warianty" title="Część 4: Warianty produktów" aria-label="Część 4: Warianty produktów">Część 4 · Warianty produktów</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-droga" data-rail-target="razdwa-droga" title="Część 5: Droga zamówienia" aria-label="Część 5: Droga zamówienia">Część 5 · Droga zamówienia</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Część 6: Architektura i Integracje" aria-label="Część 6: Architektura i Integracje">Część 6 · Architektura</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-ekosystem" data-rail-target="razdwa-architektura-ekosystem" title="Ekosystem" aria-label="Ekosystem">Ekosystem</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-warstwy" data-rail-target="razdwa-architektura-warstwy" title="Warstwy systemu" aria-label="Warstwy systemu">Warstwy systemu</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-integracje" data-rail-target="razdwa-architektura-integracje" title="Integracje" aria-label="Integracje">Integracje</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-testy" data-rail-target="razdwa-architektura-testy" title="Testy automatyczne" aria-label="Testy automatyczne">Testy automatyczne</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-potencjal" data-rail-target="razdwa-potencjal" title="Część 7: Potencjał B2B" aria-label="Część 7: Potencjał B2B">Część 7 · Potencjał B2B</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-poligrafia" data-rail-target="razdwa-potencjal-poligrafia" title="Domena: Poligrafia" aria-label="Domena: Poligrafia">Domena: Poligrafia</a></li>
+        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-uniwersalne" data-rail-target="razdwa-potencjal-uniwersalne" title="Whitelabel readiness" aria-label="Whitelabel readiness">Whitelabel readiness</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Lessons learned" aria-label="Lessons learned">Lessons learned</a></li>
+        <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Podsumowanie" aria-label="Podsumowanie">Podsumowanie</a></li>
+      </ul>
+    </nav>
+
     <!-- Hero Head -->
     <div class="kwcs-hero-head">
       <div class="wrap">
@@ -108,7 +144,7 @@
             <div class="value">~5 min zamiast godziny (ok. −90%), zero IT w utrzymaniu, ~50 testów automatycznych.</div>
           </div>
         </div>
-        <p style="max-width:900px;margin:0 auto 1.5rem;font-size:0.8125rem;color:#64748b;text-align:center;">Szacowany czas wynika z mojego własnego pomiaru. Wcześniej wycena dużego zamówienia map architektonicznych zajmowała około godziny, a po wdrożeniu aplikacji ten sam proces skrócił się do około 5 minut.</p>
+        <p class="kwcs-footnote">Szacowany czas wynika z mojego własnego pomiaru. Wcześniej wycena dużego zamówienia map architektonicznych zajmowała około godziny, a po wdrożeniu aplikacji ten sam proces skrócił się do około 5 minut.</p>
       </div>
     </div>
 
@@ -127,7 +163,7 @@
           <p>Prowadziłem ten projekt samodzielnie — od analizy procesu, przez projekt UX/UI, po wdrożenie aplikacji obsługującej dziś zamówienia drukarni. Trzy kolumny niżej rozdzielają mój zakres, decyzje konsultowane z klientem i zasoby wniesione przez firmę.</p>
         </div>
 
-        <div class="contribution-grid">
+        <div class="contribution-grid--razdwa">
           <div class="contribution-cell contribution-cell--solo">
             <h4><span class="dot"></span>Mój zakres</h4>
             <ul>
@@ -162,42 +198,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ============================================================
-         Chapter rail — sticky TOC z internal anchors
-    ============================================================ -->
-    <nav class="razdwa-chapter-rail" id="razdwa-chapter-rail" aria-label="Spis treści case study">
-      <div class="razdwa-chapter-rail-label">Rozdziały</div>
-      <ul class="razdwa-chapter-rail-list">
-        <li><a class="razdwa-chapter-link" href="#razdwa-summary" data-rail-target="razdwa-summary" title="W skrócie" aria-label="W skrócie">W skrócie</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-contribution" data-rail-target="razdwa-contribution" title="Moja rola" aria-label="Moja rola">Moja rola</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-kontekst" data-rail-target="razdwa-kontekst" title="Kontekst" aria-label="Kontekst">Kontekst</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Decyzje produktowe" aria-label="Decyzje produktowe">Decyzje produktowe</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-problem" data-rail-target="razdwa-decyzje-problem" title="Rozpoznanie problemu" aria-label="Rozpoznanie problemu">Rozpoznanie problemu</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-kluczowe" data-rail-target="razdwa-decyzje-kluczowe" title="Kluczowe decyzje" aria-label="Kluczowe decyzje">Kluczowe decyzje</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-decyzje-zakres" data-rail-target="razdwa-decyzje-zakres" title="Ewolucja MVP" aria-label="Ewolucja MVP">Ewolucja MVP</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-role" data-rail-target="razdwa-role" title="Role i persony" aria-label="Role i persony">Role i persony</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-ux" data-rail-target="razdwa-ux" title="Część 1: Interfejs i UX" aria-label="Część 1: Interfejs i UX">Część 1 · Interfejs i UX</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-ux-decyzje" data-rail-target="razdwa-ux-decyzje" title="Kluczowe decyzje UX" aria-label="Kluczowe decyzje UX">Kluczowe decyzje UX</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-cad" data-rail-target="razdwa-cad" title="Część 2: Kalkulator CAD" aria-label="Część 2: Kalkulator CAD">Część 2 · Kalkulator CAD</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-cad-logika" data-rail-target="razdwa-cad-logika" title="Logika kalkulatora CAD" aria-label="Logika kalkulatora CAD">Logika kalkulatora CAD</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-panel" data-rail-target="razdwa-panel" title="Część 3: Panel cennika" aria-label="Część 3: Panel cennika">Część 3 · Panel cennika</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-panel-funkcje" data-rail-target="razdwa-panel-funkcje" title="Funkcjonalności panelu" aria-label="Funkcjonalności panelu">Funkcjonalności panelu</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-panel-pin" data-rail-target="razdwa-panel-pin" title="Bramka PIN" aria-label="Bramka PIN">Bramka PIN</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-warianty" data-rail-target="razdwa-warianty" title="Część 4: Warianty produktów" aria-label="Część 4: Warianty produktów">Część 4 · Warianty produktów</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-droga" data-rail-target="razdwa-droga" title="Część 5: Droga zamówienia" aria-label="Część 5: Droga zamówienia">Część 5 · Droga zamówienia</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Część 6: Architektura i Integracje" aria-label="Część 6: Architektura i Integracje">Część 6 · Architektura</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-ekosystem" data-rail-target="razdwa-architektura-ekosystem" title="Ekosystem" aria-label="Ekosystem">Ekosystem</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-warstwy" data-rail-target="razdwa-architektura-warstwy" title="Warstwy systemu" aria-label="Warstwy systemu">Warstwy systemu</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-integracje" data-rail-target="razdwa-architektura-integracje" title="Integracje" aria-label="Integracje">Integracje</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-architektura-testy" data-rail-target="razdwa-architektura-testy" title="Testy automatyczne" aria-label="Testy automatyczne">Testy automatyczne</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-potencjal" data-rail-target="razdwa-potencjal" title="Część 7: Potencjał B2B" aria-label="Część 7: Potencjał B2B">Część 7 · Potencjał B2B</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-poligrafia" data-rail-target="razdwa-potencjal-poligrafia" title="Domena: Poligrafia" aria-label="Domena: Poligrafia">Domena: Poligrafia</a></li>
-        <li><a class="razdwa-chapter-link" data-rail-level="2" href="#razdwa-potencjal-uniwersalne" data-rail-target="razdwa-potencjal-uniwersalne" title="Whitelabel readiness" aria-label="Whitelabel readiness">Whitelabel readiness</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Lessons learned" aria-label="Lessons learned">Lessons learned</a></li>
-        <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Podsumowanie" aria-label="Podsumowanie">Podsumowanie</a></li>
-      </ul>
-    </nav>
 
     <div class=”kwcs-sec kwcs-context-section” id=”razdwa-kontekst”>
       <div class=”wrap”>
@@ -323,8 +323,8 @@
       </div>
     </div>
 
-    <div style="max-width:760px; margin:2rem auto 0; padding:1.25rem 1.5rem; background:#fff; border:1px solid #e2e8f0; border-left:4px solid #06b6d4; border-radius:0.75rem;">
-      <p style="color:#475569; font-size:0.9rem; line-height:1.6; margin:0;">
+    <div class="kwcs-callout">
+      <p>
         <strong style="color:#0f172a;">Kontekst inkluzywności (UX):</strong> Ponieważ personel był przyzwyczajony do tradycyjnych metod, priorytetem projektowym była <strong>zerowa krzywa uczenia się</strong>. Interfejs prowadzi użytkownika liniowo, eliminując ryzyko pominięcia parametrów.
       </p>
     </div>
@@ -335,7 +335,7 @@
     
 <div class="kwcs-sec">
   <div class="wrap">
-    <h3 class="kwcs-h3-center" style="margin-top:0">User Flow — zoptymalizowana ścieżka</h3>
+    <h3 class="kwcs-h3-center mt-0">User Flow — zoptymalizowana ścieżka</h3>
     <div class="user-flow">
       <div class="flow-step">
         <div class="flow-step-icon">🏠</div>
@@ -435,7 +435,7 @@
       </p>
     </div>
 
-    <h3 class="kwcs-h3-center" style="margin-top:0">Kalkulator druku w działaniu</h3>
+    <h3 class="kwcs-h3-center mt-0">Kalkulator druku w działaniu</h3>
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ekran_obliczen_RAZDWA.webp" alt="Ekran obliczeń kalkulatora" loading="lazy" data-caption="Ekran obliczeń — szczegółowa wycena per plik">
@@ -451,7 +451,7 @@
 
 <div class="kwcs-sec kwcs-sec--alt">
   <div class="wrap">
-    <h3 class="kwcs-h3-center" style="margin-top:0" id="razdwa-cad-logika">Logika kalkulatora CAD — zasada działania</h3>
+    <h3 class="kwcs-h3-center mt-0" id="razdwa-cad-logika">Logika kalkulatora CAD — zasada działania</h3>
     <div class="kwcs-accordion">
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
@@ -493,7 +493,7 @@
       Uniezależnienie klienta od programisty przy każdej zmianie cen było kluczowym celem. Panel administracyjny oddał pełną kontrolę nad biznesem w ręce właściciela i zredukował koszty utrzymania systemu do zera.
     </p>
 
-    <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
+    <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ustawienia_cen_RAZDWA.webp" alt="Panel ustawień cen" loading="lazy" data-caption="Panel ustawień cen — edycja in-place dla wszystkich kategorii">
         <p class="img-desc"><strong>Zarządzanie stawkami:</strong> System edycji in-place umożliwia natychmiastową modyfikację cen bezpośrednio w tabeli.</p>
@@ -525,9 +525,9 @@
     </div>
 
     <h3 class="kwcs-h3-center" id="razdwa-panel-pin">Bezpieczeństwo: bramka PIN</h3>
-    <p class="kwcs-section-lead" style="margin-bottom:1.5rem;">Dostęp do wrażliwych danych cennika został zabezpieczony bezkontekstową bramką autoryzacji:</p>
+    <p class="kwcs-section-lead kwcs-section-lead--tight">Dostęp do wrażliwych danych cennika został zabezpieczony bezkontekstową bramką autoryzacji:</p>
 
-    <div class="kwcs-gallery-grid" style="margin-bottom:2rem;">
+    <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PIN_EKRAN_RAZDWA.webp" alt="Ekran bramki PIN" loading="lazy" data-caption="Bramka PIN — wejście do panelu administracyjnego">
         <p class="img-desc"><strong>Interfejs autoryzacji:</strong> Minimalistyczny formularz logowania, zoptymalizowany pod kątem ekranów dotykowych.</p>
@@ -655,7 +655,7 @@
       Lekka, reaktywna aplikacja webowa (TypeScript + esbuild) w architekturze <strong>Serverless</strong>. Rezygnacja z ciężkich frameworków i baz SQL zredukowała koszty utrzymania infrastruktury do <strong>0 zł</strong>, wykorzystując ekosystem Google jako API i bazę danych.
     </p>
 
-    <h3 class="kwcs-h3-center" style="margin-top:0" id="razdwa-architektura-ekosystem">Ekosystem — widok wysokopoziomowy</h3>
+    <h3 class="kwcs-h3-center mt-0" id="razdwa-architektura-ekosystem">Ekosystem — widok wysokopoziomowy</h3>
 
     <div class="razdwa-ecosystem">
       <div class="razdwa-ecosystem-row">
@@ -749,7 +749,7 @@
             </div>
           </div>
 
-          <p style="max-width:720px; margin:1rem auto 0; color:#64748b; font-size:0.875rem; line-height:1.6; text-align:center;">
+          <p class="kwcs-note">
             Wydzielenie warstwy logicznej (Domain Layer) pozwala na bezproblemową implementację kolejnych usług bez powielania kodu (zasada DRY).
           </p>
           
@@ -848,7 +848,7 @@
               <div class="test-item-sub">Testy generowania kluczy na podstawie wolumenu oraz deduplikacji sygnatur handlowych.</div>
             </div>
           </div>
-          <p class="kwcs-section-lead" style="font-size:0.875rem; color:#64748b; margin-top:1rem; margin-bottom:0;">
+          <p class="kwcs-section-lead kwcs-section-lead--sm">
             Automatyzacja QA eliminuje ryzyko błędów ubocznych (Side Effects) podczas refaktoryzacji kodu i asynchronicznych aktualizacji struktur cennika.
           </p>
         </div>
@@ -864,7 +864,7 @@
       System rozwiązuje uniwersalny problem rynkowy: <strong>jak wdrożyć zaawansowany silnik kalkulacyjny i ewidencję zamówień bez kosztów utrzymania serwerów</strong>. Dzięki separacji warstw, rdzeń aplikacji jest agnostyczny i łatwy do adaptacji w innych branżach.
     </p>
 
-    <h3 class="kwcs-h3-center" style="margin-top:0" id="razdwa-potencjal-poligrafia">Warstwa specyficzna dla domeny (Poligrafia)</h3>
+    <h3 class="kwcs-h3-center mt-0" id="razdwa-potencjal-poligrafia">Warstwa specyficzna dla domeny (Poligrafia)</h3>
     <ul class="kwcs-section-list">
       <li><strong>Parser wektorowy CAD:</strong> Automatyczna detekcja formatu (A0–A3) z plików wejściowych.</li>
       <li><strong>Kalkulator liniowy:</strong> Przeliczanie metrów bieżących na podstawie szerokości rolki papieru.</li>
@@ -940,7 +940,7 @@
 <div class="kwcs-sec" id="rezultat">
   <div class="wrap">
     <div class="kwcs-result">
-      <h3 style="text-align:center; font-size:2rem; margin-bottom:1.5rem;">Podsumowanie Wdrożenia</h3>
+      <h3 class="kwcs-result-title">Podsumowanie Wdrożenia</h3>
 
       <div class="result-lead">
         <p>
@@ -974,7 +974,7 @@
       </a>
 
       <div class="result-next">
-        <h4 style="font-size:1.5rem; margin-bottom:1rem;">Kierunki dalszego rozwoju (Roadmap)</h4>
+        <h4 class="kwcs-roadmap-title">Kierunki dalszego rozwoju (Roadmap)</h4>
         <p>
           Kolejnym krokiem jest integracja natywnego parsera plików DWG/DXF do bezpośredniej analizy rysunków technicznych w przeglądarce. Planowane jest także uruchomienie Portalu Klienta z systemem uprawnień, maskowaniem marż operacyjnych oraz integracją płatności online.
         </p>

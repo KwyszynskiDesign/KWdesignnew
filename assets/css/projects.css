@@ -418,10 +418,11 @@
   gap: 2.5rem;
   margin: 2rem auto 0;
   max-width: var(--wrap-max);
-  padding: 1rem;
+  padding: 0;
   overflow: visible;
   pointer-events: auto;
 }
+.kwcs-gallery-grid--mb { margin-bottom: 2rem; }
 
 .gallery-item {
   position: relative;
@@ -1807,6 +1808,58 @@ body.lightbox-open {
   margin-bottom: 2rem;
 }
 
+/* ========================================
+   SPRINT 2 — Typography utility classes
+   ======================================== */
+.mt-0 { margin-top: 0; }
+
+.kwcs-result-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.kwcs-roadmap-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.kwcs-footnote {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.8125rem;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.5;
+}
+.kwcs-callout {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #06b6d4;
+  border-radius: 0.75rem;
+}
+.kwcs-callout p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.kwcs-note {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: center;
+}
+.kwcs-section-lead--tight { margin-bottom: 1.5rem; }
+.kwcs-section-lead--sm {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
 /* ==========================================================================
    RESPONSYWNOŚĆ (RAZ DWA)
    ========================================================================== */
@@ -2864,7 +2917,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   text-align: center;
 }
 
-.contribution-grid {
+.contribution-grid--razdwa {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
@@ -2911,7 +2964,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 }
 .contribution-cell li::before { content: none !important; }
 @media (max-width: 900px) {
-  .contribution-grid { grid-template-columns: 1fr; }
+  .contribution-grid--razdwa { grid-template-columns: 1fr; }
 }
 
 /* ========================================
