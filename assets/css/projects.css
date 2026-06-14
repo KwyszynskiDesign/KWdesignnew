@@ -129,15 +129,16 @@
 .pm-hero-meta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 0.5rem 1rem;
-  margin-top: 1.25rem;
-  font-size: 0.875rem;
-  color: #64748b;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1.75rem;
+  font-size: 0.9rem;
+  color: #475569;
 }
 .pm-hero-meta strong { color: #0f172a; font-weight: 600; }
-.pm-meta-sep { color: #cbd5e1; }
-@media (max-width: 640px) {
+.pm-meta-sep { color: #cbd5e1; font-size: 1rem; }
+@media (max-width: 600px) {
   .pm-meta-sep { display: none; }
   .pm-hero-meta { flex-direction: column; gap: 0.4rem; }
 }
