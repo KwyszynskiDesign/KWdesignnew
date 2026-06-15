@@ -514,47 +514,52 @@
       </div>
     </div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-panel-funkcje">Funkcjonalności panelu</h3>
-    <div class="ux-decision-grid">
-      <div class="ux-decision-box">
-        <div class="ux-label">Zarządzanie</div>
-        <h4>Centralny widok cennika</h4>
-        <p>Około 300 kluczy cennikowych w jednym widoku. Zmiana ceny i walidacja odbywają się bez przeładowania strony.</p>
-      <div class="ux-decision-box">
-        <div class="ux-label">Nawigacja</div>
-        <h4>Podział na kategorie i zakładki</h4>
-       <p>Podział na kategorie i liczniki pozycji ułatwiają orientację w strukturze cennika i ograniczają przeciążenie informacyjne.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Rozszerzalność</div>
-        <h4>Samodzielne dodawanie usług</h4>
-     <p>Nowe usługi można dodać bez udziału developera, a system automatycznie tworzy unikalny klucz i pilnuje duplikatów.</p>
-      <div class="ux-decision-box">
-        <div class="ux-label">Synchronizacja</div>
-        <h4>Połączenie z Google Sheets</h4>
-        <p>Zapis natychmiast aktualizuje arkusz Google, co upraszcza backup i pozwala zarządzać stawkami także poza aplikacją.</p>
-      </div>
-    </div>
+   <h3 class="kwcs-h3-center" id="razdwa-panel-funkcje">Funkcjonalności panelu</h3>
 
-    <h3 class="kwcs-h3-center" id="razdwa-panel-pin">Bezpieczeństwo: bramka PIN</h3>
-    <p class="kwcs-section-lead kwcs-section-lead--tight"> Dostęp do panelu administracyjnego musiał być prosty dla właściciela, ale bezpieczny dla danych cennika.</p>
+<div class="ux-decision-grid">
+  <div class="ux-decision-box">
+    <div class="ux-label">Zarządzanie</div>
+    <h4>Centralny widok cennika</h4>
+    <p>Około 300 kluczy cennikowych w jednym widoku. Zmiana ceny i walidacja odbywają się bez przeładowania strony.</p>
+  </div>
 
-    <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
-      <div class="gallery-item">
-        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PIN_EKRAN_RAZDWA.webp" alt="Ekran bramki PIN" loading="lazy" data-caption="Bramka PIN — wejście do panelu administracyjnego">
-        <p class="img-desc"><strong>Interfejs autoryzacji:</strong> Minimalistyczny formularz logowania, zoptymalizowany pod kątem ekranów dotykowych.</p>
-      </div>
-    </div>
+  <div class="ux-decision-box">
+    <div class="ux-label">Nawigacja</div>
+    <h4>Podział na kategorie i zakładki</h4>
+    <p>Podział na kategorie i liczniki pozycji ułatwiają orientację w strukturze cennika i ograniczają przeciążenie informacyjne.</p>
+  </div>
 
-    <ul class="kwcs-section-list">
-      <ul class="kwcs-section-list">
+  <div class="ux-decision-box">
+    <div class="ux-label">Rozszerzalność</div>
+    <h4>Samodzielne dodawanie usług</h4>
+    <p>Nowe usługi można dodać bez udziału developera, a system automatycznie tworzy unikalny klucz i pilnuje duplikatów.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Synchronizacja</div>
+    <h4>Połączenie z Google Sheets</h4>
+    <p>Zapis natychmiast aktualizuje arkusz Google, co upraszcza backup i pozwala zarządzać stawkami także poza aplikacją.</p>
+  </div>
+</div>
+
+<h3 class="kwcs-h3-center" id="razdwa-panel-pin">Bezpieczeństwo: bramka PIN</h3>
+<p class="kwcs-section-lead kwcs-section-lead--tight">
+  Dostęp do panelu administracyjnego musiał być prosty dla właściciela, ale bezpieczny dla danych cennika.
+</p>
+
+<div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
+  <div class="gallery-item">
+    <img class="lightbox-trigger" src="/KWdesignnew/assets/images/PIN_EKRAN_RAZDWA.webp" alt="Ekran bramki PIN" loading="lazy" data-caption="Bramka PIN — wejście do panelu administracyjnego">
+    <p class="img-desc"><strong>Interfejs autoryzacji:</strong> minimalistyczny formularz logowania, zoptymalizowany pod kątem ekranów dotykowych.</p>
+  </div>
+</div>
+
+<ul class="kwcs-section-list">
   <li><strong>PIN poza frontendem:</strong> kod nie jest przechowywany w interfejsie aplikacji.</li>
   <li><strong>Weryfikacja po stronie serwera:</strong> dostęp do panelu jest sprawdzany przed wejściem do widoku administracyjnego.</li>
   <li><strong>Aktywna sesja:</strong> użytkownik nie musi wielokrotnie wpisywać PIN-u w trakcie pracy.</li>
   <li><strong>Bezpieczny fallback:</strong> przy braku sieci system jasno komunikuje brak dostępu do panelu.</li>
 </ul>
-  </div>
-</div>
 
 <h2 class="section-divider" id="razdwa-warianty">System wariantów produktów</h2>
 
@@ -804,88 +809,65 @@
 </div>
 
 
-
-    KONIEC 
-<h2 class="section-divider" id="razdwa-potencjal">Część 7: Skalowalność i Potencjał Biznesowy</h2>
+<h2 class="section-divider" id="razdwa-potencjal">Co w tym rozwiązaniu da się skalować</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      System rozwiązuje uniwersalny problem rynkowy: <strong>jak wdrożyć zaawansowany silnik kalkulacyjny i ewidencję zamówień bez kosztów utrzymania serwerów</strong>. Dzięki separacji warstw, rdzeń aplikacji jest agnostyczny i łatwy do adaptacji w innych branżach.
+      To rozwiązanie powstało dla drukarni, ale jego rdzeń można przenieść do innych procesów wyceny i obsługi zamówień. Największą wartością okazało się połączenie silnika kalkulacyjnego, prostego panelu administracyjnego i lekkiego zaplecza danych bez kosztownej infrastruktury.
     </p>
 
-    <h3 class="kwcs-h3-center mt-0" id="razdwa-potencjal-poligrafia">Warstwa specyficzna dla domeny (Poligrafia)</h3>
-    <ul class="kwcs-section-list">
-      <li><strong>Parser wektorowy CAD:</strong> Automatyczna detekcja formatu (A0–A3) z plików wejściowych.</li>
-      <li><strong>Kalkulator liniowy:</strong> Przeliczanie metrów bieżących na podstawie szerokości rolki papieru.</li>
-      <li><strong>Algorytm tolerancji:</strong> Kompensacja niedokładności skanowania w zakresie ±5 mm.</li>
-      <li><strong>Modyfikatory technologiczne:</strong> Narzuty za wykończenie (składanie, oczkowanie, gramatura).</li>
-    </ul>
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <div class="ux-label">Specyfika branży</div>
+        <h4>Elementy zbudowane pod poligrafię</h4>
+        <p>Do tej warstwy należą reguły CAD, kalkulacja metrów bieżących, tolerancje skanowania i dopłaty technologiczne związane z drukiem.</p>
+      </div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-potencjal-uniwersalne">Skalowalność komponentów (Whitelabel Readiness)</h3>
-    <div class="kwcs-trio">
-      <article class="kwcs-card">
-        <h3>Reużywalne moduły jądra</h3>
-        <ul>
-          <li><strong>Silnik koszyka:</strong> Arytmetyka stałoprzecinkowa z obsługą trybu EXPRESS.</li>
-          <li><strong>Silnik cennika:</strong> Wielopoziomowe tabele regresji ilościowej i narzutów.</li>
-          <li><strong>Panel administracyjny:</strong> Bezserwerowe zarządzanie i autoryzacja bramką PIN.</li>
-          <li><strong>Eksport i replikacja:</strong> Generowanie PDF/Excel offline oraz zapis do Google Sheets.</li>
-        </ul>
-      </article>
-      
-      <article class="kwcs-card">
-        <h3>Potencjalne rynki</h3>
-        <ul>
-          <li><strong>Usługi i warsztaty (Automotive):</strong> Wycena roboczogodzin, części i dopłat dynamicznych.</li>
-          <li><strong>Hurtownie i dystrybucja:</strong> Automatyczne cenniki progresywne zależne od wolumenu.</li>
-          <li><strong>Catering i cukiernie:</strong> Wizualny konfigurator specyfikacji zamówienia.</li>
-          <li><strong>Produkcja Custom (Stolarstwo):</strong> Szacowanie kosztów materiału na podstawie wymiarów.</li>
-        </ul>
-      </article>
-      
-      <article class="kwcs-card">
-        <h3>Procedura migracji</h3>
-        <ul>
-          <li><strong>Podmiana procesorów:</strong> Wdrożenie nowych klas obliczeniowych w Feature Layer.</li>
-          <li><strong>Aktualizacja schematu:</strong> Zmiana konfiguracji JSON oraz mapowania bazy danych.</li>
-          <li><strong>Profilowanie widoków:</strong> Dostosowanie pól formularzy do modelu B2B lub B2C.</li>
-          <li><strong>Stabilność rdzenia:</strong> Warstwy interfejsu, logiki i persystencji pozostają nienaruszone.</li>
-        </ul>
-      </article>
+      <div class="ux-decision-box">
+        <div class="ux-label">Rdzeń rozwiązania</div>
+        <h4>Moduły możliwe do ponownego użycia</h4>
+        <p>Silnik koszyka, panel administracyjny, logika cennika, eksport dokumentów i zapis do Google Sheets można przenieść do innych modeli zamówień.</p>
+      </div>
+
+      <div class="ux-decision-box">
+        <div class="ux-label">Potencjalne zastosowania</div>
+        <h4>Model gotowy do adaptacji w innych usługach</h4>
+        <p>Ten sam schemat może wspierać wyceny w usługach produkcyjnych, warsztatach, hurtowniach lub firmach pracujących na niestandardowych zamówieniach.</p>
+      </div>
     </div>
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-lessons">Lessons learned</h2>
+<h2 class="section-divider" id="razdwa-lessons">Wnioski po wdrożeniu</h2>
 
 <div class="kwcs-sec kwcs-sec--alt">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Trzy rzeczy, które zostały po dostarczeniu produktu i które zabieram do następnego projektu.
+     Trzy wnioski, które zostały ze mną po wdrożeniu produktu i które wykorzystam w kolejnych projektach.
     </p>
 
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Co zrobiłbym inaczej</div>
-        <h4>Zacząć od shadowingu operatora, nie od rozmowy z klientem</h4>
-        <p>Wymagania właścicielki dotyczyły funkcji („chcę panelu z PIN"), a operator pokazywał blokery procesu („przepisuję ten sam wymiar trzy razy"). Gdybym zaczynał ponownie, jedna zmiana w drukarni przed pierwszą rozmową z klientem skróciłaby fazę odkrywania o około miesiąc.</p>
+       <h4>Zacząć od obserwacji pracy operatora</h4>
+  <p>Wymagania właścicielki dotyczyły funkcji, ale operator pokazywał realne blokery procesu. Gdybym zaczynał od shadowingu w drukarni, faza odkrywania byłaby krótsza i bardziej precyzyjna.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Co zaskoczyło</div>
-        <h4>Środowisko wymusza architekturę bardziej niż preferencje techniczne</h4>
-        <p>Brak stabilnego internetu w warsztacie i klient czekający przy ladzie wymusiły decyzje, które inaczej trudno byłoby uzasadnić — PWA offline, panel z PIN, eksport PDF lokalnie. Ograniczenia środowiska okazały się silniejszym argumentem niż czysta inżynieria.</p>
+       <h4>Warunki pracy wpływają na architekturę bardziej niż technologia</h4>
+  <p>Brak stabilnego internetu i praca pod presją przy ladzie wymusiły decyzje takie jak PWA offline, lokalny eksport PDF i prostą autoryzację. Ograniczenia środowiska okazały się ważniejsze niż preferencje technologiczne.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Co zmieniło się w iteracji 2</div>
-        <h4>System wariantów własnych powstał z obserwacji, nie z briefu</h4>
-        <p>„Wizytówki Premium" jako odrębna pozycja w cenniku — to wynik obserwacji, że klient zamawia z nazwy produktu, a nie ze specyfikacji. Zmiana architektury wariantów, której nie przewidziałem w MVP, ale która okazała się kluczowa dla codziennej obsługi zleceń.</p>
+     <h4>System wariantów powstał z obserwacji codziennej pracy</h4>
+  <p>Klient operował nazwami produktów, a nie samą specyfikacją. To doprowadziło do przebudowy architektury wariantów, której nie było w MVP, ale okazała się kluczowa w codziennej obsłudze zamówień.</p>
       </div>
     </div>
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-rezultat">Część 8: Podsumowanie i Metryki Sukcesu</h2>
+<h2 class="section-divider" id="razdwa-rezultat">Podsumowanie wdrożenia</h2>
 
 <div class="kwcs-sec" id="rezultat">
   <div class="wrap">
@@ -893,41 +875,40 @@
       <h3 class="kwcs-result-title">Podsumowanie Wdrożenia</h3>
 
       <div class="result-lead">
-        <p>
-          System <strong>Raz Dwa Druk</strong> pomyślnie wdrożono w środowisku produkcyjnym. Pięciowarstwowa architektura pozwoliła zrealizować cele biznesowe: personel samodzielnie zarządza cennikiem, transakcje generują powtarzalne dokumenty PDF, a zamówienia są automatycznie rejestrowane w Google Sheets. Aplikacja całkowicie wyeliminowała błędy rachunkowe i skróciła czas obsługi.
-        </p>
+      <p>
+  System <strong>Raz Dwa Druk</strong> został wdrożony do codziennej pracy drukarni. Efektem było szybsze przygotowanie wycen, większa powtarzalność zamówień i oddanie klientowi kontroli nad cennikiem bez potrzeby angażowania developera.
+</p>
       </div>
 
       <div class="result-cards">
-        <div class="result-card">
-          <div class="result-icon">⚡</div>
-          <h3>Optymalizacja czasu</h3>
-          <p>Skrócenie wyceny złożonych pakietów inżynieryjnych z godziny do poniżej 5 minut.</p>
-        </div>
-        <div class="result-card">
-          <div class="result-icon">📱</div>
-          <h3>Infrastruktura 0 zł</h3>
-          <p>Architektura Serverless działająca w przeglądarce. System wdrożony bez szkoleń personelu.</p>
-        </div>
-        <div class="result-card">
-          <div class="result-icon">✅</div>
-          <h3>Ochrona marży</h3>
-          <p>Automatyczne naliczanie odpadów, kosztów wykończenia CAD oraz dopłat za tryb EXPRESS.</p>
-        </div>
-      </div>
+  <div class="result-card">
+    <h3>Szybsza wycena</h3>
+    <p>Skomplikowane zamówienia, które wcześniej wymagały ręcznych obliczeń, można przygotować w czasie poniżej 5 minut.</p>
+  </div>
+
+  <div class="result-card">
+    <h3>Niższy koszt utrzymania</h3>
+    <p>System działa bez dodatkowej infrastruktury serwerowej i nie wymaga osobnego zaplecza administracyjnego.</p>
+  </div>
+
+  <div class="result-card">
+    <h3>Większa kontrola operacyjna</h3>
+    <p>Cennik, historia zamówień i dokumenty są obsługiwane w jednym procesie, co ogranicza błędy i chroni marżę.</p>
+  </div>
+</div>
 
       <a class="kwcs-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz aplikację Raz Dwa Druk">
-        Uruchom aplikację na żywo
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </a>
+  Zobacz działającą aplikację
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</a>
 
       <div class="result-next">
-        <h4 class="kwcs-roadmap-title">Kierunki dalszego rozwoju (Roadmap)</h4>
-        <p>
-          Kolejnym krokiem jest integracja natywnego parsera plików DWG/DXF do bezpośredniej analizy rysunków technicznych w przeglądarce. Planowane jest także uruchomienie Portalu Klienta z systemem uprawnień, maskowaniem marż operacyjnych oraz integracją płatności online.
-        </p>
+        <h4 class="kwcs-roadmap-title">Dalszy rozwój</h4>
+       <p>
+  Kolejnym krokiem może być integracja parsera plików DWG/DXF oraz rozwój portalu klienta z uprawnieniami i płatnościami online. Te elementy były poza zakresem MVP, ale naturalnie wynikają z obecnej architektury rozwiązania.
+</p>
       </div>
     </div>
   </div>
