@@ -499,12 +499,12 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-panel">Część 3: Panel administracyjny cennika</h2>
+<h2 class="section-divider" id="razdwa-panel">Panel administracyjny cennika</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Uniezależnienie klienta od programisty przy każdej zmianie cen było kluczowym celem. Panel administracyjny oddał pełną kontrolę nad biznesem w ręce właściciela i zredukował koszty utrzymania systemu do zera.
+      Jednym z kluczowych celów projektu było uniezależnienie klienta od developera przy każdej zmianie cen. Panel administracyjny oddał właścicielowi pełną kontrolę nad cennikiem i uprościł utrzymanie systemu.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
@@ -517,29 +517,27 @@
     <h3 class="kwcs-h3-center" id="razdwa-panel-funkcje">Funkcjonalności panelu</h3>
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 1</div>
-        <h4>Centralne zarządzanie</h4>
-        <p>Około 300 kluczy cennikowych w jednym widoku tabelarycznym. Zmiana ceny i jej walidacja odbywają się asynchronicznie, bez przeładowania strony.</p>
+        <div class="ux-label">Zarządzanie</div>
+        <h4>Centralny widok cennika</h4>
+        <p>Około 300 kluczy cennikowych w jednym widoku. Zmiana ceny i walidacja odbywają się bez przeładowania strony.</p>
+      <div class="ux-decision-box">
+        <div class="ux-label">Nawigacja</div>
+        <h4>Podział na kategorie i zakładki</h4>
+       <p>Podział na kategorie i liczniki pozycji ułatwiają orientację w strukturze cennika i ograniczają przeciążenie informacyjne.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 2</div>
-        <h4>Asynchroniczne zakładki</h4>
-        <p>Podział na kategorie z licznikami pozycji zapobiega przeciążeniu informacyjnemu i ułatwia szybką orientację w strukturze cennika.</p>
-      </div>
+        <div class="ux-label">Rozszerzalność</div>
+        <h4>Samodzielne dodawanie usług</h4>
+     <p>Nowe usługi można dodać bez udziału developera, a system automatycznie tworzy unikalny klucz i pilnuje duplikatów.</p>
       <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 3</div>
-        <h4>Autonomiczne dodawanie usług</h4>
-        <p>System automatycznie generuje unikalny klucz techniczny w bazie na podstawie wprowadzanej nazwy, dbając o brak duplikatów.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 4</div>
-        <h4>Synchronizacja z Google Sheets</h4>
-        <p>Zapis danych natychmiast aktualizuje arkusz Google, co zapewnia darmową kopię zapasową i możliwość edycji stawek np. z telefonu.</p>
+        <div class="ux-label">Synchronizacja</div>
+        <h4>Połączenie z Google Sheets</h4>
+        <p>Zapis natychmiast aktualizuje arkusz Google, co upraszcza backup i pozwala zarządzać stawkami także poza aplikacją.</p>
       </div>
     </div>
 
     <h3 class="kwcs-h3-center" id="razdwa-panel-pin">Bezpieczeństwo: bramka PIN</h3>
-    <p class="kwcs-section-lead kwcs-section-lead--tight">Dostęp do wrażliwych danych cennika został zabezpieczony bezkontekstową bramką autoryzacji:</p>
+    <p class="kwcs-section-lead kwcs-section-lead--tight"> Dostęp do panelu administracyjnego musiał być prosty dla właściciela, ale bezpieczny dla danych cennika.</p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
       <div class="gallery-item">
@@ -549,11 +547,12 @@
     </div>
 
     <ul class="kwcs-section-list">
-      <li><strong>Architektura Serverless (PropertiesService):</strong> Kod PIN jest bezpiecznie przechowywany po stronie Google Apps Script – nie w kodzie aplikacji.</li>
-      <li><strong>Weryfikacja serwerowa:</strong> Autoryzacja odbywa się w chmurze przy pierwszej próbie wywołania widoku, chroniąc przed manipulacją offline.</li>
-      <li><strong>Zarządzanie stanem sesji:</strong> System zapamiętuje użytkownika w ramach aktywnej sesji, eliminując potrzebę ciągłego wpisywania PIN-u.</li>
-      <li><strong>Obsługa błędów (Fallback):</strong> Przy braku sieci panel natychmiast komunikuje brak dostępu, zapobiegając utracie zmian.</li>
-    </ul>
+      <ul class="kwcs-section-list">
+  <li><strong>PIN poza frontendem:</strong> kod nie jest przechowywany w interfejsie aplikacji.</li>
+  <li><strong>Weryfikacja po stronie serwera:</strong> dostęp do panelu jest sprawdzany przed wejściem do widoku administracyjnego.</li>
+  <li><strong>Aktywna sesja:</strong> użytkownik nie musi wielokrotnie wpisywać PIN-u w trakcie pracy.</li>
+  <li><strong>Bezpieczny fallback:</strong> przy braku sieci system jasno komunikuje brak dostępu do panelu.</li>
+</ul>
   </div>
 </div>
 
