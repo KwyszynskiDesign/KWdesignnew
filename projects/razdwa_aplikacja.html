@@ -601,274 +601,211 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-droga">Część 5: Droga zamówienia</h2>
+<h2 class="section-divider" id="razdwa-droga">Droga zamówienia</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Przepływ danych od koszyka po archiwizację podzielono na scentralizowane etapy. Każdy krok realizuje jeden cel produktowy i posiada automatyczną walidację.
-    </p>
+     Przepływ od wyceny do archiwizacji został podzielony na jasne etapy. Każdy z nich upraszcza obsługę zamówienia i ogranicza ryzyko błędów.
 
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
-        <div class="ux-label">Logika</div>
-        <h4>Arytmetyka stałoprzecinkowa</h4>
-        <p>Kalkulacje wykonywane są na liczbach całkowitych (w groszach). Eliminuje to błędy zaokrągleń zmiennoprzecinkowych i zapewnia zgodność z systemem fakturowym.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Optymalizacja</div>
-        <h4>Globalny tryb EXPRESS</h4>
-        <p>Jeden przełącznik automatycznie dolicza narzut (+20%) do całego zamówienia, eliminując potrzebę czasochłonnej edycji pojedynczych pozycji.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Walidacja</div>
-        <h4>Profilowany formularz B2B</h4>
-        <p>Scentralizowany moduł danych kontrahenta (NIP, kontakt). Restrykcyjna walidacja frontendowa weryfikuje kompletność pól przed wysyłką.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Raporty</div>
-        <h4>Eksport PDF i Excel</h4>
-        <p>Biblioteka pdf-lib renderuje dokumenty bezpośrednio po stronie klienta. Równoległy eksport do Excela działa na tym samym strumieniu danych.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Infrastruktura</div>
-        <h4>Chmurowy Mini-CRM</h4>
-        <p>Dane transakcyjne są asynchronicznie zapisywane w Google Sheets. Klient zyskał bezkosztowy, strukturyzowany system ewidencji i analityki.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Niezawodność</div>
-        <h4>Monitorowanie żądań HTTP</h4>
-        <p>Mechanizm wyposażony w timeouty i obsługę wyjątków. W przypadku błędów sieciowych system generuje jasny komunikat dla operatora.</p>
-      </div>
+  <div class="ux-label">Rozliczenia</div>
+  <h4>Arytmetyka stałoprzecinkowa</h4>
+  <p>Wszystkie kalkulacje wykonywane są w groszach, co eliminuje błędy zaokrągleń i zapewnia spójność z dokumentami sprzedażowymi.</p>
+</div>
+     <div class="ux-decision-box">
+  <div class="ux-label">Szybkość obsługi</div>
+  <h4>Globalny tryb EXPRESS</h4>
+  <p>Jeden przełącznik dolicza narzut do całego zamówienia, bez potrzeby ręcznej edycji każdej pozycji.</p>
+</div>
+     <div class="ux-decision-box">
+  <div class="ux-label">Walidacja</div>
+  <h4>Formularz danych kontrahenta</h4>
+  <p>Jedno miejsce na dane firmy i kontaktu ogranicza błędy i porządkuje proces finalizacji zamówienia.</p>
+</div>
+     <div class="ux-decision-box">
+  <div class="ux-label">Eksport</div>
+  <h4>PDF i Excel z tego samego źródła danych</h4>
+  <p>Podsumowania zamówienia są generowane bezpośrednio z tego samego modelu danych, co zmniejsza ryzyko rozjazdów.</p>
+</div>
+     <div class="ux-decision-box">
+  <div class="ux-label">Archiwizacja</div>
+  <h4>Mini-CRM w Google Sheets</h4>
+  <p>Zamówienia są zapisywane w chmurze, dzięki czemu klient zyskuje prostą historię transakcji i podstawę do dalszej analityki.</p>
+</div>
+    <div class="ux-decision-box">
+  <div class="ux-label">Niezawodność</div>
+  <h4>Obsługa błędów sieciowych</h4>
+  <p>System kontroluje timeouty i jasno komunikuje problemy z połączeniem, żeby operator wiedział, co się stało i co zrobić dalej.</p>
+</div>
     </div>
 
     <h3 class="kwcs-h3-center">Interfejs procesowania zamówień</h3>
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/tryb_express_RAZDWA.webp" alt="Tryb EXPRESS w koszyku" loading="lazy" data-caption="Tryb EXPRESS — globalne doliczenie +20% do całego zamówienia">
-        <p class="img-desc"><strong>Modyfikator priorytetu:</strong> Reaktywne, globalne przeliczanie kosztów koszyka po aktywacji trybu pilnego.</p>
+        <p class="img-desc"><strong>Tryb EXPRESS:</strong> jedno działanie aktualizuje wycenę całego zamówienia.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Formularz_RAZDWA.webp" alt="Formularz danych klienta B2B" loading="lazy" data-caption="Formularz B2B — firma, NIP, telefon, e-mail i osoba kontaktowa">
-        <p class="img-desc"><strong>Segmentacja danych:</strong> Logiczne grupowanie pól formularza z natychmiastowym feedbackiem walidacji.</p>
+        <p class="img-desc"><strong>Formularz B2B:</strong> logiczne grupowanie danych i natychmiastowa walidacja pól.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie zamówienia">
-        <p class="img-desc"><strong>Eksport lokalny:</strong> Podsumowanie specyfikacji technicznej wygenerowane w całości po stronie przeglądarki.</p>
+       <p class="img-desc"><strong>Eksport PDF:</strong> gotowe podsumowanie generowane bezpośrednio w przeglądarce.</p>
       </div>
     </div>
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-architektura">Część 6: Architektura i Integracje</h2>
+<h2 class="section-divider" id="razdwa-architektura">Architektura i Integracje</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <p class="kwcs-section-lead">
-      Lekka, reaktywna aplikacja webowa (TypeScript + esbuild) w architekturze <strong>Serverless</strong>. Rezygnacja z ciężkich frameworków i baz SQL zredukowała koszty utrzymania infrastruktury do <strong>0 zł</strong>, wykorzystując ekosystem Google jako API i bazę danych.
-    </p>
+   <p class="kwcs-section-lead">
+  Aplikację zbudowałem jako lekkie rozwiązanie serverless oparte na TypeScript, esbuild i ekosystemie Google. Taki układ uprościł utrzymanie, obniżył koszty infrastruktury i pozwolił zachować pełną kontrolę nad cennikiem oraz historią zamówień.
+</p>
 
     <h3 class="kwcs-h3-center mt-0" id="razdwa-architektura-ekosystem">Ekosystem — widok wysokopoziomowy</h3>
 
     <div class="razdwa-ecosystem">
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
-          <div class="eco-node-icon">🖨️</div>
-          <div class="eco-node-label">Kalkulatory CAD</div>
+          <div class="eco-node-icon">01</div>
+          <div class="eco-node-label">Kalkulatory i wycena</div>
           <div class="eco-node-sub">Upload pliku, automatyczna detekcja formatu i natychmiastowa wycena.</div>
         </div>
         <div class="eco-arrow">→</div>
         <div class="eco-node">
-          <div class="eco-node-icon">🛒</div>
-          <div class="eco-node-label">Koszyk i Interfejs</div>
+          <div class="eco-node-icon">02</div>
+          <div class="eco-node-label">Koszyk i obsługa zamówienia</div>
           <div class="eco-node-sub">Obsługa rabatów, trybu EXPRESS oraz przeliczanie sumy na żywo.</div>
         </div>
       </div>
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
-          <div class="eco-node-icon">📄</div>
-          <div class="eco-node-label">Eksport raportów PDF</div>
+          <div class="eco-node-icon">03</div>
+          <div class="eco-node-label">Eksport dokumentów</div>
           <div class="eco-node-sub">Generowanie gotowego podsumowania dla klienta bezpośrednio w przeglądarce.</div>
         </div>
         <div class="eco-arrow">↔</div>
         <div class="eco-node">
-          <div class="eco-node-icon">📊</div>
-          <div class="eco-node-label">Zintegrowany Google Sheets</div>
+          <div class="eco-node-icon">04</div>
+          <div class="eco-node-label">Google Sheets</div>
           <div class="eco-node-sub">Automatyczna rejestracja transakcji i replikacja danych w chmurze.</div>
         </div>
       </div>
       <div class="razdwa-ecosystem-row">
         <div class="eco-node">
-          <div class="eco-node-icon">⚙️</div>
-          <div class="eco-node-label">Dynamiczny System Cenników</div>
+          <div class="eco-node-icon">05</div>
+          <div class="eco-node-label">System Cenników</div>
           <div class="eco-node-sub">Bezserwerowe przechowywanie stawek i szybka edycja z poziomu UI.</div>
         </div>
       </div>
     </div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-architektura-warstwy">Architektura: Rozdzielenie odpowiedzialności (SoC)</h3>
-    
-    <div class="kwcs-accordion">
-      <div class="kwcs-item">
-        <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-warstwy" id="header-arch-warstwy" type="button">
-          <span class="num">▸</span> Architektura wielowarstwowa systemu
-          <span class="icon" aria-hidden="true">+</span>
-        </button>
-        <div class="kwcs-content" id="content-arch-warstwy" role="region" aria-labelledby="header-arch-warstwy">
-          
-          <div class="arch-layers">
-            <div class="arch-layer">
-              <div class="arch-layer-label">1. Interfejs<br>(UI Layer)</div>
-              <div class="arch-layer-content">
-                <span class="arch-tag">Ekrany kategorii</span>
-                <span class="arch-tag">Router (PWA)</span>
-                <span class="arch-tag">Widok koszyka</span>
-                <span class="arch-tag">Moduły pdf-lib / xlsx</span>
-              </div>
-            </div>
-            <div class="arch-layer">
-              <div class="arch-layer-label">2. Procesory<br>(Feature Layer)</div>
-              <div class="arch-layer-content">
-                <span class="arch-tag highlight">22 moduły kalkulacyjne</span>
-                <span class="arch-tag">Parser wektorów CAD</span>
-                <span class="arch-tag">Profile kategorii</span>
-              </div>
-            </div>
-            <div class="arch-layer">
-              <div class="arch-layer-label">3. Logika domenowa<br>(Domain Layer)</div>
-              <div class="arch-layer-content">
-                <span class="arch-tag highlight">Silnik koszyka</span>
-                <span class="arch-tag">Modyfikatory globalne</span>
-                <span class="arch-tag">Walidacja struktur B2B</span>
-                <span class="arch-tag">Stałoprzecinkowa arytmetyka</span>
-              </div>
-            </div>
-            <div class="arch-layer">
-              <div class="arch-layer-label">4. Usługi danych<br>(Service Layer)</div>
-              <div class="arch-layer-content">
-                <span class="arch-tag highlight">PriceService</span>
-                <span class="arch-tag">Pamięć podręczna (Cache)</span>
-                <span class="arch-tag">Iniekcja stawek admina</span>
-                <span class="arch-tag">Klient API (HTTP)</span>
-              </div>
-            </div>
-            <div class="arch-layer">
-              <div class="arch-layer-label">5. Persystencja<br>(Data Layer)</div>
-              <div class="arch-layer-content">
-                <span class="arch-tag">Znormalizowany JSON</span>
-                <span class="arch-tag">Weryfikacja schematów (Zod)</span>
-                <span class="arch-tag">Mapowanie Sheets API</span>
-              </div>
-            </div>
-          </div>
+  <h3 class="kwcs-h3-center" id="razdwa-architektura-warstwy">Jak uporządkowałem architekturę systemu</h3>
 
-          <p class="kwcs-note">
-            Wydzielenie warstwy logicznej (Domain Layer) pozwala na bezproblemową implementację kolejnych usług bez powielania kodu (zasada DRY).
-          </p>
-          
-        </div>
-      </div>
-    </div>
+<div class="ux-decision-grid">
+  <div class="ux-decision-box">
+    <div class="ux-label">Warstwa 1</div>
+    <h4>Interfejs</h4>
+    <p>Ekrany kategorii, koszyk i widoki PWA prowadzą użytkownika przez proces wyceny bez zbędnego przełączania kontekstu.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Warstwa 2</div>
+    <h4>Logika wycen</h4>
+    <p>Osobne moduły kalkulacyjne obsługują CAD, usługi dodatkowe, tryb EXPRESS i reguły koszyka.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Warstwa 3</div>
+    <h4>Usługi i integracje</h4>
+    <p>Eksport PDF, Excel, bramka PIN i komunikacja z Google Sheets działają jako oddzielne usługi systemowe.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Warstwa 4</div>
+    <h4>Dane</h4>
+    <p>Stawki, schematy i historia zamówień są przechowywane w uporządkowanej strukturze, którą można łatwo rozwijać.</p>
   </div>
 </div>
+
+<p class="kwcs-note">
+  Dzięki rozdzieleniu logiki wyceny od warstwy widoku system jest łatwiejszy w rozwoju, testowaniu i utrzymaniu.
+</p>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <h3 class="kwcs-h3-center" id="razdwa-architektura-integracje">Integracje ekosystemu</h3>
 
-    <div class="kwcs-accordion">
-      <div class="kwcs-item">
-        <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-integ" id="header-arch-integ" type="button">
-          <span class="num">▸</span> Komponenty integracji (pdf-lib, GAS, Google Sheets)
-          <span class="icon" aria-hidden="true">+</span>
-        </button>
-        <div class="kwcs-content" id="content-arch-integ" role="region" aria-labelledby="header-arch-integ">
-          <div class="integration-flow">
-            <div class="int-card">
-              <div class="int-card-icon">📄</div>
-              <div class="int-card-title">pdf-lib</div>
-              <div class="int-card-desc">Autonomiczne renderowanie dokumentacji PDF po stronie klienta (Client-side). Pakiet działa w pełni w trybie offline.</div>
-              <div class="int-card-code">Blob download / Client-side</div>
-            </div>
-            <div class="int-card">
-              <div class="int-card-icon">📊</div>
-              <div class="int-card-title">Google Apps Script</div>
-              <div class="int-card-desc">Bezserwerowa warstwa API. Przetwarza żądania fetch() z frontendu i bezpiecznie przekazuje dane do struktur arkusza.</div>
-              <div class="int-card-code">doPost() → REST API Wrapper</div>
-            </div>
-            <div class="int-card">
-              <div class="int-card-icon">🗃️</div>
-              <div class="int-card-title">Google Sheets API</div>
-              <div class="int-card-desc">Chmurowa baza zamówień, wariantów oraz cennika. Dane są pobierane reaktywnie przy inicjalizacji aplikacji.</div>
-              <div class="int-card-code">SpreadsheetApp Cloud DB</div>
-            </div>
-          </div>
+<p class="kwcs-section-lead kwcs-section-lead--tight">
+  System opiera się na lekkich integracjach, które upraszczają utrzymanie aplikacji i ograniczają koszty infrastruktury.
+</p>
+
+<div class="ux-decision-grid">
+  <div class="ux-decision-box">
+    <div class="ux-label">Dokumenty</div>
+    <h4>pdf-lib po stronie klienta</h4>
+    <p>Raporty PDF są generowane bezpośrednio w przeglądarce, dzięki czemu eksport działa szybko i nie wymaga osobnego backendu.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Warstwa pośrednia</div>
+    <h4>Google Apps Script jako API</h4>
+    <p>Aplikacja komunikuje się z danymi przez lekką warstwę pośrednią, która obsługuje zapis, walidację i autoryzację.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Baza operacyjna</div>
+    <h4>Google Sheets jako zaplecze danych</h4>
+    <p>Arkusze przechowują cennik, historię zamówień i dane wariantów, co daje klientowi łatwy dostęp do informacji bez dodatkowej infrastruktury.</p>
+  </div>
+</div>
         </div>
       </div>
     </div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-architektura-testy">Stabilność systemu: Testy automatyczne</h3>
-    <p class="kwcs-section-lead">
-      Modyfikacje cennika są krytyczne biznesowo. Integralność aplikacji zabezpiecza pakiet <strong>około 50 skryptów testowych</strong>, realizujących scenariusze regresyjne i integracyjne.
-    </p>
+   <h3 class="kwcs-h3-center" id="razdwa-architektura-testy">Stabilność systemu</h3>
 
-    <div class="kwcs-accordion">
-      <div class="kwcs-item">
-        <button class="kwcs-header" aria-expanded="false" aria-controls="content-arch-testy" id="header-arch-testy" type="button">
-          <span class="num">▸</span> Architektura pokrycia testowego (8 kluczowych obszarów)
-          <span class="icon" aria-hidden="true">+</span>
-        </button>
-        <div class="kwcs-content" id="content-arch-testy" role="region" aria-labelledby="header-arch-testy">
-          <div class="test-grid">
-            <div class="test-item">
-              <div class="test-item-name">Algorytmy kalkulacyjne</div>
-              <div class="test-item-count">22 pakiety testowe</div>
-              <div class="test-item-sub">Izolowane testy jednostkowe (Unit Tests) weryfikujące poprawność matematyczną wszystkich kategorii.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Parser wektorów CAD</div>
-              <div class="test-item-count">Moduły: upload / verify</div>
-              <div class="test-item-sub">Testy integracyjne dla tolerancji skanera, doboru rolki papieru oraz detekcji orientacji arkusza.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Persystencja cennika</div>
-              <div class="test-item-count">Moduł: price-persistence</div>
-              <div class="test-item-sub">Walidacja priorytetów zapisu danych, obsługi pamięci podręcznej i iniekcji stawek.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Silnik koszyka</div>
-              <div class="test-item-count">Moduł: cart-core</div>
-              <div class="test-item-sub">Weryfikacja stałoprzecinkowych kalkulacji sumarycznych oraz narzutu dla trybu EXPRESS.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Walidacja formularzy</div>
-              <div class="test-item-count">Moduł: form-validator</div>
-              <div class="test-item-sub">Testowanie stanów brzegowych danych kontrahentów B2B oraz komunikatów o błędach.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Regresja interfejsu (UI)</div>
-              <div class="test-item-count">4 pakiety end-to-end</div>
-              <div class="test-item-sub">Automatyczna weryfikacja integralności drzewa DOM oraz bezpiecznej konwersji nazw.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Routing i stany PWA</div>
-              <div class="test-item-count">Moduł: client-router</div>
-              <div class="test-item-sub">Testy zachowania nawigacji, obsługi wyjątków (404) oraz stabilności renderowania widoków.</div>
-            </div>
-            <div class="test-item">
-              <div class="test-item-name">Warianty produktowe</div>
-              <div class="test-item-count">Moduł: variant-generator</div>
-              <div class="test-item-sub">Testy generowania kluczy na podstawie wolumenu oraz deduplikacji sygnatur handlowych.</div>
-            </div>
-          </div>
-          <p class="kwcs-section-lead kwcs-section-lead--sm">
-            Automatyzacja QA eliminuje ryzyko błędów ubocznych (Side Effects) podczas refaktoryzacji kodu i asynchronicznych aktualizacji struktur cennika.
-          </p>
-        </div>
-      </div>
+<p class="kwcs-section-lead">
+  Ponieważ zmiany cennika bezpośrednio wpływają na wynik finansowy, krytyczne obszary aplikacji zabezpieczyłem zestawem około 50 testów automatycznych.
+</p>
+
+<div class="ux-decision-grid">
+  <div class="ux-decision-box">
+    <div class="ux-label">Kalkulacje</div>
+    <h4>Testy logiki wycen</h4>
+    <p>Automatyczne testy sprawdzają poprawność obliczeń dla wszystkich głównych kategorii i wariantów zamówień.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">CAD</div>
+    <h4>Weryfikacja parsera i formatów</h4>
+    <p>Scenariusze testowe obejmują rozpoznawanie wymiarów, orientacji i sposobu kalkulacji dla plików technicznych.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Koszyk i formularze</div>
+    <h4>Kontrola danych wejściowych</h4>
+    <p>Testy obejmują działanie koszyka, trybu EXPRESS, walidację danych klienta oraz poprawność komunikatów błędów.</p>
+  </div>
+
+  <div class="ux-decision-box">
+    <div class="ux-label">Integralność systemu</div>
+    <h4>Bezpieczne zmiany i refaktoryzacja</h4>
+    <p>Pakiet testów ogranicza ryzyko błędów ubocznych przy rozwijaniu aplikacji i aktualizowaniu struktur cennika.</p>
+  </div>
+</div>
     </div>
   </div>
 </div>
+
+
+
+    KONIEC 
 <h2 class="section-divider" id="razdwa-potencjal">Część 7: Skalowalność i Potencjał Biznesowy</h2>
 
 <div class="kwcs-sec">
