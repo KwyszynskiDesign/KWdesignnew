@@ -79,18 +79,15 @@
     <div class="kwcs-hero-head">
       <div class="wrap">
         <p class="eyebrow">Case Study · Aplikacja biznesowa dla drukarni</p>
-        <h1>Raz Dwa Druk<br>aplikacja, która skróciła wycenę z godziny do około 5 minut</h1>
+        <h1>Raz Dwa Druk — kalkulator wycen dla drukarni</h1>
         <p class="sub">
-          Kalkulator wycen, koszyk, eksport PDF i integracja z Google Sheets — wszystko w aplikacji PWA działającej offline w warsztacie.
+          Zaprojektowałem i wdrożyłem aplikację PWA, która skróciła proces wyceny w drukarni z około godziny do około 5 minut.
         </p>
         <div class="pm-hero-meta">
-          <span><strong>Rola</strong> Digital Product Designer</span>
-          <span class="pm-meta-sep">·</span>
-          <span><strong>Czas</strong> ok. 6 miesięcy</span>
-          <span class="pm-meta-sep">·</span>
-          <span><strong>Typ</strong> Aplikacja biznesowa — PWA</span>
-          <span class="pm-meta-sep">·</span>
-          <span><strong>Wynik</strong> ok. −90% czasu wyceny</span>
+         <span><strong>Rola:</strong> Product Designer end-to-end</span>
+  <span><strong>Czas:</strong> 6 miesięcy</span>
+  <span><strong>Zakres:</strong> UX, UI, logika produktu, wdrożenie</span>
+  <span><strong>Efekt:</strong> wycena krótsza o ok. 90%</span>
         </div>
       </div>
     </div>
@@ -111,8 +108,8 @@
           </div>
         </div>
 
-        <a class="hero-image-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Otwórz aplikację Raz Dwa Druk">
-          Otwórz aplikację na żywo
+        <a class="hero-image-cta" href="https://kwyszynskidesign.github.io/RAZDWA/" target="_blank" rel="noopener noreferrer" aria-label="Zobacz działającą aplikację Raz Dwa Druk">
+         Zobacz działającą aplikację
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -124,182 +121,195 @@
          Executive summary po hero
     ============================================================ -->
     <div class="razdwa-summary" id="razdwa-summary">
-      <div class="wrap">
-        <h2>W skrócie</h2>
-        <div class="razdwa-summary-grid">
-          <div class="razdwa-summary-cell">
-            <div class="label">Problem</div>
-            <div class="value">Ręczne wyceny zajmowały do godziny, błędy wracały jako poprawione faktury.</div>
-          </div>
-          <div class="razdwa-summary-cell">
-            <div class="label">Moja rola</div>
-            <div class="value">Digital Product Designer — analiza, projekt, kod, testy, wdrożenie.</div>
-          </div>
-          <div class="razdwa-summary-cell">
-            <div class="label">Co dostarczyłem</div>
-            <div class="value">Kalkulator 22 kategorii, koszyk, panel admina, PWA offline, integracja z Google Sheets.</div>
-          </div>
-          <div class="razdwa-summary-cell">
-            <div class="label">Wynik</div>
-            <div class="value">~5 min zamiast godziny (ok. −90%), zero IT w utrzymaniu, ~50 testów automatycznych.</div>
-          </div>
-        </div>
-        <p class="kwcs-footnote">Szacowany czas wynika z mojego własnego pomiaru. Wcześniej wycena dużego zamówienia map architektonicznych zajmowała około godziny, a po wdrożeniu aplikacji ten sam proces skrócił się do około 5 minut.</p>
+  <div class="wrap">
+    <h2>W skrócie</h2>
+    <div class="razdwa-summary-grid">
+      <div class="razdwa-summary-cell">
+        <div class="label">Problem</div>
+        <div class="value">Ręczna wycena dużych zamówień trwała nawet godzinę i generowała błędy.</div>
+      </div>
+      <div class="razdwa-summary-cell">
+        <div class="label">Rola</div>
+        <div class="value">Analiza procesu, projekt UX/UI, logika produktu, wdrożenie.</div>
+      </div>
+      <div class="razdwa-summary-cell">
+        <div class="label">Rozwiązanie</div>
+        <div class="value">Kalkulator wycen, koszyk, PDF, panel admina, integracja z Google Sheets.</div>
+      </div>
+      <div class="razdwa-summary-cell">
+        <div class="label">Efekt</div>
+        <div class="value">Proces skrócony do około 5 minut, bez potrzeby stałego wsparcia IT.</div>
       </div>
     </div>
+    <p class="kwcs-footnote">Wynik opieram na porównaniu czasu obsługi tego samego typu zamówienia przed i po wdrożeniu.</p>
+  </div>
+</div>
+    
+   
 
-    <!-- ============================================================
-         Moja rola — przeniesiona pod hero/summary jako wczesny sygnał
-         end-to-end ownership. ID razdwa-contribution zachowane.
-    ============================================================ -->
-    <h2 class="section-divider" id="razdwa-contribution">
-      <span class="razdwa-contribution-eyebrow">Zakres odpowiedzialności</span>
-      Moja rola w projekcie
-    </h2>
+<div class="kwcs-sec kwcs-context-section" id="razdwa-kontekst">
+  <div class="wrap">
+    <h2>Kontekst projektu</h2>
 
-    <div class="kwcs-sec">
-      <div class="wrap">
-        <div class="context-intro">
-          <p>Prowadziłem ten projekt samodzielnie — od analizy procesu, przez projekt UX/UI, po wdrożenie aplikacji obsługującej dziś zamówienia drukarni. Trzy kolumny niżej rozdzielają mój zakres, decyzje konsultowane z klientem i zasoby wniesione przez firmę.</p>
-        </div>
+    <p class="kwcs-section-lead">
+      Przed wdrożeniem systemu każda wycena w drukarni wymagała ręcznego sprawdzania fizycznych tabel. Proces był powolny i generował błędy rachunkowe, szczególnie przy bardziej złożonych zamówieniach CAD.
+    </p>
 
-        <div class="contribution-grid--razdwa">
-          <div class="contribution-cell contribution-cell--solo">
-            <h4><span class="dot"></span>Mój zakres</h4>
-            <ul>
-              <li>Analiza procesu wyceny i identyfikacja problemów operacyjnych</li>
-              <li>Projekt architektury produktu i przepływów użytkownika</li>
-              <li>Projekt UX/UI wszystkich ekranów i funkcji systemu</li>
-              <li>Opracowanie kalkulatora wycen, koszyka oraz panelu administracyjnego</li>
-              <li>Zaprojektowanie systemu zarządzania cennikiem i wariantami produktów</li>
-              <li>Implementacja oraz wdrożenie rozwiązania produkcyjnego</li>
-              <li>Zapewnienie niezawodności rozwiązania poprzez testy i walidację działania</li>
-            </ul>
-          </div>
-          <div class="contribution-cell contribution-cell--shared">
-            <h4><span class="dot"></span>Wspólnie z klientem</h4>
-            <ul>
-              <li>Mapowanie kategorii produktów i struktury cennika</li>
-              <li>Definicja reguł wyceny oraz dopłat</li>
-              <li>Walidacja kalkulatora na rzeczywistych zamówieniach</li>
-              <li>Testy akceptacyjne i iteracyjne poprawki</li>
-              <li>Decyzje dotyczące zarządzania cennikiem i dostępem administracyjnym</li>
-            </ul>
-          </div>
-          <div class="contribution-cell contribution-cell--external">
-            <h4><span class="dot"></span>Zasoby drukarni</h4>
-            <ul>
-              <li>Istniejący cennik i dokumentacja procesów</li>
-              <li>Środowisko Google wykorzystywane przez firmę</li>
-              <li>Komputer warsztatowy do testów i wdrożenia</li>
-              <li>Materiały oraz dane potrzebne do konfiguracji systemu</li>
-            </ul>
-          </div>
-        </div>
+    <p class="kwcs-section-body">
+      Problem nie dotyczył wyłącznie szybkości obsługi. Ręczna wycena zwiększała ryzyko błędów, utrudniała powtarzalność zamówień i blokowała właścicielowi możliwość samodzielnego zarządzania cennikiem.
+    </p>
+
+    <div class="razdwa-stats">
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">~5 min</div>
+        <div class="razdwa-stat-label">czas wyceny po wdrożeniu</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">22</div>
+        <div class="razdwa-stat-label">kategorie produktowe w panelu</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">2</div>
+        <div class="razdwa-stat-label">role użytkowników</div>
+      </div>
+      <div class="razdwa-stat">
+        <div class="razdwa-stat-num">0 zł</div>
+        <div class="razdwa-stat-label">dodatkowej infrastruktury serwerowej</div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class=”kwcs-sec kwcs-context-section” id=”razdwa-kontekst”>
-      <div class=”wrap”>
-        <h2>Kontekst projektu</h2>
+<h2 class="section-divider" id="razdwa-contribution">
+  <span class="razdwa-contribution-eyebrow">Zakres odpowiedzialności</span>
+  Zakres współpracy
+</h2>
 
-        <p class=”kwcs-section-lead”>
-          Przed wdrożeniem systemu każda wycena w drukarni wymagała ręcznego sprawdzania fizycznych tabel. Proces był powolny i generował błędy rachunkowe, szczególnie przy skomplikowanych zamówieniach CAD.
-        </p>
-
-        <div class=”razdwa-stats”>
-          <div class=”razdwa-stat”>
-            <div class=”razdwa-stat-num”>~5 min</div>
-            <div class=”razdwa-stat-label”>czas wyceny (wcześniej ok. godziny)</div>
-          </div>
-          <div class=”razdwa-stat”>
-            <div class=”razdwa-stat-num”>22</div>
-            <div class=”razdwa-stat-label”>kategorie produktowe w panelu</div>
-          </div>
-          <div class=”razdwa-stat”>
-            <div class=”razdwa-stat-num”>2</div>
-            <div class=”razdwa-stat-label”>role użytkowników (operator / admin)</div>
-          </div>
-          <div class=”razdwa-stat”>
-            <div class=”razdwa-stat-num”>0 zł</div>
-            <div class=”razdwa-stat-label”>kosztów utrzymania serwerów</div>
-          </div>
-        </div>
-      </div>
+<div class="kwcs-sec">
+  <div class="wrap">
+    <div class="context-intro">
+      <p>Projekt prowadziłem end-to-end, ale reguły wyceny i walidacja rozwiązania powstawały w ścisłej współpracy z klientem. Poniżej rozdzielam odpowiedzialność projektową, decyzje współdzielone i zasoby po stronie drukarni.</p>
     </div>
 
-<h2 class=”section-divider” id=”razdwa-decyzje”>Decyzje produktowe</h2>
-
-<div class=”kwcs-sec”>
-  <div class=”wrap”>
-    <h3 class=”kwcs-h3-center” style=”margin-top:0” id=”razdwa-decyzje-problem”>Rozpoznanie problemu</h3>
-    <div class=”ux-decision-grid”>
-      <div class=”ux-decision-box”>
-        <h4>Analiza procesów (UX Research)</h4>
-        <p>Spędziłem czas bezpośrednio w drukarni, obserwując pracę zespołu przy ladzie w momentach największego ruchu. Przeprowadziłem wywiady z pracownikami i przeanalizowałem dotychczasowe, manualne metody wycen.</p>
+    <div class="contribution-grid--razdwa">
+      <div class="contribution-cell contribution-cell--solo">
+        <h4><span class="dot"></span>Mój zakres</h4>
+        <ul>
+          <li>Analiza procesu wyceny i problemów operacyjnych</li>
+          <li>Architektura produktu i przepływy użytkownika</li>
+          <li>Projekt UX/UI kluczowych ekranów</li>
+          <li>Kalkulator wycen, koszyk i panel administracyjny</li>
+          <li>Logika cennika i wariantów produktów</li>
+          <li>Implementacja, wdrożenie i walidacja działania</li>
+        </ul>
       </div>
-      <div class=”ux-decision-box”>
-        <h4>Główne bóle (Pain Points)</h4>
-        <p>Kalkulacja niestandardowych rysunków CAD była żmudna, brak historii utrudniał obsługę stałych klientów pod hasłem „to samo co ostatnio”, a powtarzające się pomyłki w obliczeniach przynosiły straty finansowe.</p>
+
+      <div class="contribution-cell contribution-cell--shared">
+        <h4><span class="dot"></span>Wspólnie z klientem</h4>
+        <ul>
+          <li>Mapowanie kategorii i struktury cennika</li>
+          <li>Definicja reguł wyceny oraz dopłat</li>
+          <li>Walidacja na rzeczywistych zamówieniach</li>
+          <li>Testy akceptacyjne i iteracyjne poprawki</li>
+          <li>Decyzje dotyczące dostępu i utrzymania systemu</li>
+        </ul>
+      </div>
+
+      <div class="contribution-cell contribution-cell--external">
+        <h4><span class="dot"></span>Zasoby drukarni</h4>
+        <ul>
+          <li>Istniejący cennik i dokumentacja procesów</li>
+          <li>Środowisko Google używane w firmie</li>
+          <li>Komputer warsztatowy do testów i wdrożenia</li>
+          <li>Dane potrzebne do konfiguracji systemu</li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-decyzje-kluczowe">Kluczowe decyzje projektowe</h3>
+<h2 class="section-divider" id="razdwa-insights">Najważniejsze wnioski z analizy</h2>
+
+<div class="kwcs-sec">
+  <div class="wrap">
+    <div class="ux-decision-grid">
+      <div class="ux-decision-box">
+        <h4>Analiza procesów</h4>
+        <p>Obserwowałem pracę zespołu przy ladzie w godzinach największego ruchu, rozmawiałem z pracownikami i przeanalizowałem dotychczasowy sposób ręcznej wyceny.</p>
+      </div>
+      <div class="ux-decision-box">
+        <h4>Największe problemy</h4>
+        <p>Niestandardowe zamówienia CAD były czasochłonne, brak historii utrudniał obsługę stałych klientów, a błędy w obliczeniach powodowały poprawki i straty.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-divider" id="razdwa-decyzje">Kluczowe decyzje projektowe</h2>
+
+<div class="kwcs-sec">
+  <div class="wrap">
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 1 · Architektura</div>
         <h4>Dedykowane PWA zamiast SaaS</h4>
-        <p>Klasyczny e-commerce (WooCommerce/Shoper) generowałby zbędne koszty hostingu i wtyczek. Lekka aplikacja PWA działa offline, uruchamia się z pulpitu i redukuje koszty utrzymania do zera.</p>
+        <p>Lekka aplikacja działająca offline uruchamia się z pulpitu i eliminuje zbędne koszty hostingu oraz wtyczek.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 2 · Zaplecze</div>
-        <h4>Ekosystem Google zamiast baz SQL</h4>
-        <p>Połączenie Google Sheets i Apps Script wyeliminowało wydatki na infrastrukturę. Klient zyskał darmowy backup i dostęp do bazy zamówień z poziomu znanego mu arkusza.</p>
+        <h4>Google Sheets i Apps Script zamiast własnej bazy</h4>
+        <p>To rozwiązanie uprościło utrzymanie, dało klientowi dostęp do danych w znanym środowisku i pozwoliło uniknąć dodatkowej infrastruktury.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 3 · Utrzymanie</div>
-        <h4>Autonomiczny panel administracyjny</h4>
-        <p>Ceny w branży zmieniają się dynamicznie. Wdrożenie panelu z bramką PIN pozwoliło właścicielowi na samodzielną modyfikację stawek w 30 sekund, bez angażowania programisty.</p>
+        <h4>Panel administracyjny do samodzielnej edycji cen</h4>
+        <p>Właściciel może aktualizować stawki bez angażowania developera, co było kluczowe przy dynamicznie zmieniającym się cenniku.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 4 · Frontend</div>
         <h4>Vanilla TypeScript + esbuild</h4>
-        <p>System musiał ładować się natychmiast na starszych komputerach warsztatowych. Rezygnacja z ciężkich frameworków (React/Vue) zapewniła szybkość działania, a TypeScript zabezpieczył matematykę cennika.</p>
+        <p>Priorytetem było szybkie działanie na starszym sprzęcie i większe bezpieczeństwo logiki obliczeń.</p>
       </div>
     </div>
+  </div>
+</div>
 
-    <h3 class="kwcs-h3-center" id="razdwa-decyzje-zakres">Ewolucja produktu: od MVP do stanu obecnego</h3>
+<h2 class="section-divider" id="razdwa-roadmap">Rozwój produktu</h2>
+
+<div class="kwcs-sec">
+  <div class="wrap">
     <div class="kwcs-trio">
       <article class="kwcs-card">
-        <h3>MVP (Must-Have)</h3>
+        <h3>MVP</h3>
         <ul>
-          <li>Kalkulator głównych kategorii (druk, CAD, banery, laminowanie).</li>
-          <li>Dynamiczny koszyk z modyfikatorem EXPRESS.</li>
-          <li>Eksport specyfikacji zamówienia do plików PDF.</li>
+          <li>Kalkulator głównych kategorii.</li>
+          <li>Dynamiczny koszyk z EXPRESS.</li>
+          <li>Eksport specyfikacji zamówienia do PDF.</li>
           <li>Zapis historii zleceń w Google Sheets.</li>
         </ul>
       </article>
       <article class="kwcs-card">
-        <h3>Iteracja 2 (Should-Have)</h3>
+        <h3>Iteracja 2</h3>
         <ul>
-          <li>Pełne wdrożenie wszystkich 22 kategorii cennikowych.</li>
-          <li>Panel administracyjny zabezpieczony kodem PIN.</li>
-          <li>Architektura wariantów dla produktów własnych.</li>
-          <li>Eksport danych koszyka do formatu Excel.</li>
+          <li>Pełne wdrożenie 22 kategorii.</li>
+          <li>Panel administracyjny z PIN-em.</li>
+          <li>Warianty produktów własnych.</li>
+          <li>Eksport danych do Excela.</li>
         </ul>
       </article>
       <article class="kwcs-card">
-        <h3>Backlog (Could-Have)</h3>
+        <h3>Dalszy backlog</h3>
         <ul>
-          <li>Parser plików DWG/DXF (odczyt wektorów CAD w przeglądarce).</li>
-          <li>Tryb prezentacji dla klienta z maskowaniem marży operacyjnej.</li>
-          <li>Integracja z bramką płatności online.</li>
+          <li>Parser plików DWG/DXF.</li>
+          <li>Tryb prezentacji dla klienta.</li>
+          <li>Integracja z płatnościami online.</li>
         </ul>
       </article>
     </div>
   </div>
 </div>
 
+    
 <h2 class="section-divider" id="razdwa-role">Role i persony</h2>
 
 <div class="kwcs-sec kwcs-sec--alt">
