@@ -310,73 +310,73 @@
 </div>
 
     
-<h2 class="section-divider" id="razdwa-role">Role i persony</h2>
+<h2 class="section-divider" id="razdwa-role">Dwa tryby pracy w systemie</h2>
 
 <div class="kwcs-sec kwcs-sec--alt">
   <div class="wrap">
-    <p class="kwcs-section-lead">
-      System obsługuje dwie role o skrajnie różnych potrzebach. Wyzwaniem było rozdzielenie uprawnień wewnątrz jednego interfejsu bez wprowadzania skomplikowanych procedur logowania.
-    </p>
+  <p class="kwcs-section-lead">
+  System musiał obsłużyć dwa różne tryby pracy: szybką wycenę przy ladzie i zarządzanie cennikiem po stronie właściciela. Kluczowe było rozdzielenie uprawnień bez komplikowania codziennej obsługi.
+</p>
 
     <div class="ux-decision-grid">
       <div class="ux-decision-box">
-        <div class="ux-label">Persona 1 · Główny użytkownik</div>
+        <div class="ux-label">Tryb 1 · Codzienna obsługa</div>
         <h4>Operator recepcji</h4>
-        <p><strong>Zadania:</strong> Przyjmowanie zleceń stacjonarnych i mailowych, szybka wycena i generowanie PDF.</p>
-        <p><strong>Potrzeby:</strong> Interfejs odporny na błędy (zablokowana edycja stawek) i stabilne działanie w warunkach stresu przy ladzie.</p>
+    <p><strong>Zadania:</strong> szybka wycena zamówień stacjonarnych i mailowych, generowanie PDF i obsługa koszyka.</p>
+    <p><strong>Potrzeby:</strong> prosty interfejs, zablokowana edycja stawek i stabilne działanie w warunkach presji czasu.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Persona 2 · Administrator</div>
-        <h4>Właściciel / Kierownik</h4>
-        <p><strong>Zadania:</strong> Dynamiczna aktualizacja cenników, zarządzanie usługami i kontrola historii finansowej.</p>
-        <p><strong>Potrzeby:</strong> Pełna kontrola nad marżami z dowolnego urządzenia, bez konieczności edycji kodu aplikacji.</p>
+        <div class="ux-label">Tryb 2 · Zarządzanie systemem</div>
+        <h4>Właściciel / administrator</h4>
+    <p><strong>Zadania:</strong> aktualizacja cenników, zarządzanie usługami i kontrola historii zamówień.</p>
+    <p><strong>Potrzeby:</strong> szybka edycja stawek i pełna kontrola bez ingerencji w kod aplikacji.</p>
       </div>
     </div>
 
     <div class="kwcs-callout">
       <p>
-        <strong style="color:#0f172a;">Kontekst inkluzywności (UX):</strong> Ponieważ personel był przyzwyczajony do tradycyjnych metod, priorytetem projektowym była <strong>zerowa krzywa uczenia się</strong>. Interfejs prowadzi użytkownika liniowo, eliminując ryzyko pominięcia parametrów.
+        <strong style="color:#0f172a;">Założenie UX:</strong> Ponieważ personel był przyzwyczajony do tradycyjnych metod, priorytetem projektowym była <strong>zerowa krzywa uczenia się</strong>. Interfejs prowadzi użytkownika liniowo, eliminując ryzyko pominięcia parametrów.
       </p>
     </div>
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-ux">Część 1: Interfejs i UX</h2>
+<h2 class="section-divider" id="razdwa-ux">Interfejs i przepływ pracy</h2>
     
 <div class="kwcs-sec">
   <div class="wrap">
-    <h3 class="kwcs-h3-center mt-0">User Flow — zoptymalizowana ścieżka</h3>
-    <div class="user-flow">
-      <div class="flow-step">
-        <div class="flow-step-icon">🏠</div>
-        <div class="flow-step-label">Strona główna</div>
-        <div class="flow-step-sub">Szybki wybór kategorii</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-icon">🖨️</div>
-        <div class="flow-step-label">Kalkulator</div>
-        <div class="flow-step-sub">Minimalna liczba pól</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-icon">💰</div>
-        <div class="flow-step-label">Wycena</div>
-        <div class="flow-step-sub">Wynik kalkulacji na żywo</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-icon">🛒</div>
-        <div class="flow-step-label">Koszyk</div>
-        <div class="flow-step-sub">Modyfikacja rabatów</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="flow-step-icon">📄</div>
-        <div class="flow-step-label">Finalizacja</div>
-        <div class="flow-step-sub">Zapis i eksport raportu</div>
-      </div>
-    </div>
+    <h3 class="kwcs-h3-center mt-0">Główna ścieżka użytkownika</h3>
+<div class="user-flow">
+  <div class="flow-step">
+    <div class="flow-step-icon">01</div>
+    <div class="flow-step-label">Wybór kategorii</div>
+    <div class="flow-step-sub">Szybki start z ekranu głównego</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <div class="flow-step-icon">02</div>
+    <div class="flow-step-label">Uzupełnienie parametrów</div>
+    <div class="flow-step-sub">Minimalna liczba pól wejściowych</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <div class="flow-step-icon">03</div>
+    <div class="flow-step-label">Kalkulacja na żywo</div>
+    <div class="flow-step-sub">Natychmiastowy wynik wyceny</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <div class="flow-step-icon">04</div>
+    <div class="flow-step-label">Koszyk i rabaty</div>
+    <div class="flow-step-sub">Edycja pozycji w bieżącym kontekście</div>
+  </div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">
+    <div class="flow-step-icon">05</div>
+    <div class="flow-step-label">Zapis i eksport</div>
+    <div class="flow-step-sub">Finalizacja zamówienia i PDF</div>
+  </div>
+</div>
   </div>
 </div>
 
@@ -384,8 +384,8 @@
   <div class="wrap">
     <div class="showcase-stack">
       <div class="showcase-section">
-        <h3>🏗️ Wielokolumnowy layout (Desktop)</h3>
-        <p class="tab-description">Architektura interfejsu zapewnia stały dostęp do kluczowych modułów bez konieczności uciążliwego przewijania ekranu.</p>
+        <h3> Wielokolumnowy layout (Desktop)</h3>
+       <p class="tab-description">Układ ekranu zapewnia jednoczesny dostęp do kategorii, kalkulatora i podglądu zamówienia bez zbędnego przełączania widoków.</p>
         <div class="showcase-row">
           <div class="showcase-item">
             <img class="lightbox-trigger" src="/KWdesignnew/assets/images/strona 3kolumny_RAZDWA.webp" alt="Layout 3-kolumnowy — desktop" loading="lazy" data-caption="Layout 3-kolumnowy — nawigacja, kalkulator, koszyk">
@@ -395,8 +395,8 @@
       </div>
 
       <div class="showcase-section">
-        <h3>🛒 Dynamiczny proces zamówienia</h3>
-        <p class="tab-description">Dodawanie kolejnych pozycji i modyfikacja parametrów odbywają się płynnie w kontekście bieżącego zlecenia.</p>
+        <h3>Dynamiczny proces zamówienia</h3>
+        <p class="tab-description">Użytkownik może dodawać kolejne pozycje i aktualizować parametry bez wychodzenia z bieżącego kontekstu zamówienia.</p>
         <div class="showcase-row">
           <div class="showcase-item">
             <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Podsumowanie_dodawanie do koszyka_RAZDWA.png" alt="Koszyk z listą pozycji" loading="lazy" data-caption="Koszyk zamówień — bieżąca suma, rabat i podsumowanie">
@@ -418,42 +418,42 @@
         <p>Stały panel boczny eliminuje potrzebę ciągłego przewijania. Pracownik ma nieprzerwany podgląd wycenionych plików i łącznej kwoty.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Problem → Rozwiązanie</div>
-        <h4>Reaktywny kalkulator (Real-Time)</h4>
+        <div class="ux-label">Szybkość obsługi</div>
+<h4>Reaktywny kalkulator w czasie rzeczywistym</h4>
         <p>Cena końcowa aktualizuje się automatycznie przy zmianie dowolnego parametru, bez wymuszania klikania w przyciski pomocnicze.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Problem → Rozwiązanie</div>
-        <h4>Toast notifications zamiast modali</h4>
+        <div class="ux-label">Ciągłość pracy</div>
+      <h4>Toasty zamiast modali</h4>
         <p>Agresywne okna pop-up przerywały pracę. Zastąpiłem je subtelnymi, automatycznie znikającymi komunikatami w rogu ekranu.</p>
       </div>
       <div class="ux-decision-box">
-        <div class="ux-label">Problem → Rozwiązanie</div>
-        <h4>Niezawodność offline (PWA)</h4>
+        <div class="ux-label">Niezawodność</div>
+<h4>Tryb offline jako standard</h4>
         <p>Aplikacja instaluje się bezpośrednio na pulpicie maszyn warsztatowych, gwarantując stabilność bez względu na jakość sieci Wi-Fi.</p>
       </div>
     </div>
   </div>
 </div>
-<h2 class="section-divider" id="razdwa-cad">Część 2: Kalkulator Druku CAD</h2>
+<h2 class="section-divider" id="razdwa-cad">Kalkulator druku CAD</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <div class="context-intro">
-      <p>
-        Wydruki architektoniczne CAD były dotychczas najtrudniejsze do wyceny. Wyzwaniem projektowym było stworzenie mechanizmu automatycznej analizy pliku, który bezbłędnie rozpoznaje format (A0–A3) lub metry bieżące, przelicza piksele na milimetry oraz dobiera optymalną szerokość roli papieru.
-      </p>
+     <p>
+  Wydruki architektoniczne CAD były dotychczas najtrudniejsze do wyceny. Wyzwaniem projektowym było stworzenie mechanizmu automatycznej analizy pliku, który bezbłędnie rozpoznaje format (A0–A3) lub metry bieżące, przelicza piksele na milimetry oraz dobiera optymalną szerokość roli papieru.
+</p>
     </div>
 
     <h3 class="kwcs-h3-center mt-0">Kalkulator druku w działaniu</h3>
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ekran_obliczen_RAZDWA.webp" alt="Ekran obliczeń kalkulatora" loading="lazy" data-caption="Ekran obliczeń — szczegółowa wycena per plik">
-        <p class="img-desc"><strong>Model per-plik:</strong> Niezależna wycena każdego rysunku technicznego, eliminująca błędy w zamówieniach zbiorczych.</p>
+        <p class="img-desc"><strong>Model per plik:</strong> Każdy rysunek jest wyceniany osobno, co ogranicza błędy przy większych zamówieniach.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/panel drukA4-A4skan_RAZDWA.webp" alt="Panel druku i skanowania A4" loading="lazy" data-caption="Panel druku — natychmiastowe przeliczanie ceny">
-        <p class="img-desc"><strong>Konfiguracja parametrów:</strong> Reaktywne przełączanie trybów (mono/kolor), naliczanie rabatów i usług dodatkowych w czasie rzeczywistym.</p>
+      <p class="img-desc"><strong>Konfiguracja parametrów:</strong> Zmiana trybów, rabatów i usług dodatkowych aktualizuje wycenę w czasie rzeczywistym.</p>
       </div>
     </div>
   </div>
@@ -461,20 +461,22 @@
 
 <div class="kwcs-sec kwcs-sec--alt">
   <div class="wrap">
-    <h3 class="kwcs-h3-center mt-0" id="razdwa-cad-logika">Logika kalkulatora CAD — zasada działania</h3>
+    <h3 class="kwcs-h3-center mt-0" id="razdwa-cad-logika">Jak działa kalkulator CAD</h3>
     <div class="kwcs-accordion">
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
-          <span class="num">1</span> Algorytm detekcji formatu: detectFormat()
+          <span class="num">1</span> Automatyczne rozpoznawanie formatu
           <span class="icon" aria-hidden="true">+</span>
         </button>
         <div class="kwcs-content" id="content-cad-3" role="region" aria-labelledby="header-cad-3">
-          <p>Logika automatycznie identyfikuje parametry pliku i niweluje błędy wymiarowe:</p>
+         <p>System analizuje plik i ogranicza ryzyko błędów przy rozpoznawaniu formatu oraz sposobu wyceny.</p>
           <ul>
-            <li><strong>Konwersja px → mm:</strong> Precyzyjne mapowanie fizycznego arkusza na podstawie DPI.</li>
-            <li><strong>Automatyczna orientacja:</strong> Krótsza krawędź definiuje minimalną szerokość rolki papieru.</li>
-            <li><strong>Tolerancja błędu (±5 mm):</strong> Margines bezpieczeństwa dla odchyłek ze starszych skanerów.</li>
-            <li><strong>Tryb nienormowany:</strong> Automatyczne przełączenie na metry bieżące (mb) przy niestandardowych formatach.</li>
+           <ul>
+  <li><strong>Przeliczenie px → mm:</strong> wymiary są przeliczane na realny format wydruku.</li>
+  <li><strong>Automatyczna orientacja:</strong> system dobiera właściwą szerokość rolki papieru.</li>
+  <li><strong>Tolerancja błędu:</strong> uwzględnia niewielkie odchyłki ze starszych skanerów.</li>
+  <li><strong>Tryb nienormowany:</strong> dla niestandardowych plików przełącza kalkulację na metry bieżące.</li>
+</ul>
           </ul>
         </div>
       </div>
@@ -484,10 +486,12 @@
           <span class="icon" aria-hidden="true">+</span>
         </button>
         <div class="kwcs-content" id="content-cad-1" role="region" aria-labelledby="header-cad-1">
-          <p>Elastyczna konfiguracja usług introligatorskich bezpośrednio w pozycji zamówienia:</p>
+          <p>Dodatkowe usługi można dodać bezpośrednio w obrębie wycenianej pozycji.</p>
           <ul>
-            <li><strong>Składanie rysunków:</strong> Stała stawka dla arkuszy lub dynamiczna z m² dla wydruków z rolki.</li>
-            <li><strong>Skanowanie wielkoformatowe:</strong> Profilowanie kosztów na podstawie dłuższego boku dokumentu za pomocą jednego kliknięcia.</li>
+           <ul>
+  <li><strong>Składanie rysunków:</strong> stawka stała lub zależna od powierzchni wydruku.</li>
+  <li><strong>Skanowanie wielkoformatowe:</strong> koszt dobierany na podstawie rozmiaru dokumentu.</li>
+</ul>
           </ul>
         </div>
       </div>
