@@ -556,46 +556,46 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-warianty">Część 4: Warianty produktów</h2>
+<h2 class="section-divider" id="razdwa-warianty">System wariantów produktów</h2>
 
 <div class="kwcs-sec kwcs-sec--alt">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Wydzielenie logiki kalkulatora od nazw handlowych (np. „Wizytówki Premium”) pozwala zmieniać stawki bazowe bez wpływu na nazewnictwo wariantów i odwrotnie.
+      Rozdzielenie logiki kalkulatora od nazw handlowych pozwoliło swobodnie rozwijać ofertę bez psucia struktury cennika i bez ręcznego przepisywania danych.
     </p>
 
     <div class="ux-decision-grid">
-      <div class="ux-decision-box">
-        <div class="ux-label">Architektura</div>
-        <h4>Izolowane podgrupy</h4>
-        <p>Operator może tworzyć dedykowane podgrupy asortymentowe. System generuje techniczne prefiksy izolujące, zapobiegając konfliktom danych.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Logika biznesowa</div>
-        <h4>Weryfikacja wolumenu</h4>
-        <p>Dla produktów nakładowych klucz wariantu automatycznie parametryzuje nakład i dopasowuje strukturę do konwencji danej kategorii.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">UX / Usability</div>
-        <h4>Translacja kluczy</h4>
-        <p>Operator posługuje się naturalnym językiem (np. „Mat + lakier”). Aplikacja w tle bezgłośnie konwertuje wpis na znormalizowany ciąg znaków.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Integracja danych</div>
-        <h4>Walidacja duplikatów</h4>
-        <p>Przed zapisem system analizuje kombinację parametrów (kategoria + prefiks + wolumen), zapobiegając powstawaniu redundantnych pozycji.</p>
-      </div>
-    </div>
+  <div class="ux-decision-box">
+    <div class="ux-label">Struktura danych</div>
+    <h4>Izolowane podgrupy produktów</h4>
+    <p>System pozwala tworzyć osobne grupy wariantów bez ryzyka konfliktu danych między kategoriami.</p>
+  </div>
+  <div class="ux-decision-box">
+    <div class="ux-label">Logika biznesowa</div>
+    <h4>Obsługa nakładu i wolumenu</h4>
+    <p>Dla produktów nakładowych aplikacja dopasowuje strukturę wariantu do ilości i reguł konkretnej kategorii.</p>
+  </div>
+  <div class="ux-decision-box">
+    <div class="ux-label">Język interfejsu</div>
+    <h4>Naturalne nazwy zamiast kluczy technicznych</h4>
+    <p>Operator pracuje na zrozumiałych nazwach, a aplikacja w tle zamienia je na uporządkowany zapis systemowy.</p>
+  </div>
+  <div class="ux-decision-box">
+    <div class="ux-label">Kontrola jakości</div>
+    <h4>Walidacja duplikatów</h4>
+    <p>Przed zapisem system sprawdza kombinację parametrów i blokuje powielanie tych samych wariantów.</p>
+  </div>
+</div>
 
     <h3 class="kwcs-h3-center">System wariantów w działaniu</h3>
     <div class="kwcs-gallery-grid">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dodawanie_wariantu_RAZDWA.webp" alt="Dodawanie wariantu produktu" loading="lazy" data-caption="Dodawanie wariantu — operator pracuje na polskich nazwach">
-        <p class="img-desc"><strong>Tworzenie wariantu:</strong> Interfejs ukrywa złożoność techniczną – transformacja tekstu na klucz systemowy zachodzi automatycznie.</p>
+       <p class="img-desc"><strong>Tworzenie wariantu:</strong> operator pracuje na prostych nazwach, a system automatycznie zapisuje właściwy klucz.</p>
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/nowy_wariant_RAZDWA.webp" alt="Nowy wariant w cenniku" loading="lazy" data-caption="Nowy wariant — gotowa pozycja w odpowiedniej zakładce">
-        <p class="img-desc"><strong>Dystrybucja danych:</strong> Nowa pozycja mapuje się do właściwej zakładki i jest natychmiast dostępna w module kasowym.</p>
+        <p class="img-desc"><strong>Dystrybucja danych:</strong> nowa pozycja trafia do właściwej zakładki i od razu jest dostępna w module sprzedaży.</p>
       </div>
     </div>
   </div>
