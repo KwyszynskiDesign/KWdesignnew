@@ -3272,3 +3272,29 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   line-height: 1.5;
   text-align: center;
 }
+
+/* 7 · Trio grid: 3-kolumnowy układ na desktop dla galerii z 3 screenshotami. */
+#case-razdwa-pelne .kwcs-gallery-grid--trio {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  #case-razdwa-pelne .kwcs-gallery-grid--trio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #case-razdwa-pelne .kwcs-gallery-grid--trio .gallery-item:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 600px) {
+  #case-razdwa-pelne .kwcs-gallery-grid--trio {
+    grid-template-columns: 1fr;
+  }
+  #case-razdwa-pelne .kwcs-gallery-grid--trio .gallery-item:last-child:nth-child(odd) {
+    grid-column: auto;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
