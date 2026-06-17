@@ -41,23 +41,27 @@
 
 
 
-
-/* Przestrzeń 3D dla monitora */
+/* Przestrzeń 3D dla monitora (nadajemy kontekst perspektywy całemu hero-image) */
 .hero-image {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  perspective: 1500px;
+  /* Kluczowe: perspektywa ustawiona na całą sekcję */
+  perspective: 2000px;
 }
 
-/* Struktura monitora */
+/* GŁÓWNA STRUKTURA MONITORA */
 .css-monitor-mockup {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  transform: rotateX(4deg) rotateY(-4deg) rotateZ(0.5deg);
+  
+  /* Lepsze nachylenie: tylko w osi Y (boki), aby nie ściskać w pionie */
+  transform: rotateY(-3.5deg) rotateZ(0.2deg);
   transform-style: preserve-3d;
+  
+  /* Płynna przejście na hover */
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -65,42 +69,38 @@
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
-/* Ekran monitora (proporcje 16:9) */
+/* Ekran monitora (proporcje 16:9 dla nowoczesnych kalkulatorów) */
 .monitor-screen {
   width: 100%;
+  /* Definiujemy proporcje ekranu zewnętrznego */
   aspect-ratio: 16 / 9; 
   background: #141414;
   border: 14px solid #1a1a1a;
   border-radius: 12px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.35),
+    0 10px 20px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   position: relative;
 }
 
-/* MAGIA: Kontener tworzy wirtualną przestrzeń roboczą dla komputera */
-.iframe-wrapper {
+/* MAGIA: Kontener tworzy wirtualną przestrzeń roboczą dla dużego pulpitu */
+.iframe-scaler {
   position: absolute;
   top: 0;
   left: 0;
   /* Sztywna rozdzielczość desktopowa, w której Twój kalkulator wygląda dobrze */
   width: 1440px; 
-  height: 810px; /* Proporcja 16:9 dla 1440px */
+  height: 810px; /* Proporcje 16:9 dla 1440px */
   
-  /* Automatyczne skalowanie całej zawartości do rozmiaru monitora */
+  /* Automatyczne skalowanie całego pulpitu do rozmiaru monitora */
   transform-origin: top left;
-  transform: scale(calc(100vw / 1440)); 
+  /* Obliczamy skalę: szerokość okna (100vw) minus ramki (2*14px) podzielone przez szerokość wirtualną (1440px) */
+  transform: scale(calc((100vw - 28px) / 1440));
 }
 
-/* Dopasowanie skalowania przy responsywności (gdy ekran zewnętrzny się zmniejsza) */
-@media (min-width: 1200px) {
-  .iframe-wrapper {
-    /* Gdy strona osiągnie max-width (1200px minus ramki), blokujemy skalowanie */
-    transform: scale(calc((1200px - 28px) / 1440));
-  }
-}
-
-/* Właściwy iframe */
-.iframe-wrapper iframe {
+/* Właściwy iframe wewnątrz wirtualnego pulpitu */
+.iframe-scaler iframe {
   width: 100%;
   height: 100%;
   border: none;
@@ -108,18 +108,26 @@
   overflow: hidden;
 }
 
-/* Ukrywanie pasków przewijania dla pewności */
-.iframe-wrapper iframe::-webkit-scrollbar {
+/* Ukrywanie pasków przewijania (scrollbarów) dla pewności */
+.iframe-scaler iframe::-webkit-scrollbar {
   display: none;
 }
 
-/* Podstawka monitora */
+/* Dopasowanie skalowania przy responsywności (gdy ekran się zmniejsza) */
+@media (min-width: 1200px) {
+  .iframe-scaler {
+    /* Gdy strona osiągnie max-width (1200px minus ramki monitora), blokujemy skalowanie */
+    transform: scale(calc((1200px - 28px) / 1440));
+  }
+}
+
+/* PODSTAWKA MONITORA */
 .monitor-neck {
   width: 45px;
   height: 50px;
   background: linear-gradient(90deg, #e5e7eb 0%, #9ca3af 50%, #d1d5db 100%);
-  margin-top: -2px;
-  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+  margin-top: -2px; /* Likwiduje szparę między ekranem a nóżką */
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); /* Kształt trapezowy */
 }
 
 .monitor-base {
