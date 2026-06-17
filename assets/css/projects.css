@@ -38,7 +38,70 @@
 .kwcs-header:hover {
   background: #f1f5f9;
 }
+/* Kontener hero-image staje się przestrzenią 3D */
+.hero-image {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1500px; /* Nadaje głębię trójwymiaru */
+}
 
+/* Główna struktura monitora */
+.css-monitor-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Efekt nachylenia ekranu jak w prawdziwym mockupie */
+  transform: rotateX(4deg) rotateY(-4deg) rotateZ(0.5deg);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Po najechaniu myszką monitor płynnie się prostuje do interakcji */
+.css-monitor-mockup:hover {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+/* Ekran monitora z ramką */
+.monitor-screen {
+  width: 100%;
+  aspect-ratio: 1200 / 630; /* Trzyma identyczne proporcje co Twój stary obrazek */
+  background: #141414;
+  border: 14px solid #1a1a1a; /* Nowoczesna, ciemna ramka monitora */
+  border-radius: 12px;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.35), 
+    0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Działająca aplikacja wewnątrz ekranu */
+.monitor-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+}
+
+/* Elementy podstawki: Nóżka */
+.monitor-neck {
+  width: 45px;
+  height: 50px;
+  background: linear-gradient(90deg, #e5e7eb 0%, #9ca3af 50%, #d1d5db 100%);
+  margin-top: -2px; /* Likwiduje szparę między ekranem a nóżką */
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); /* Kształt trapezowy */
+}
+
+/* Elementy podstawki: Stopa */
+.monitor-base {
+  width: 220px;
+  height: 8px;
+  background: linear-gradient(180deg, #e5e7eb 0%, #9ca3af 100%);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
 .kwcs-header:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
