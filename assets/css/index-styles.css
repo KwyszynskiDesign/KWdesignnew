@@ -1711,6 +1711,7 @@ section {
 
 /* Premium Testimonials Carousel - Fixed Scrollbar Issue */
 .testimonials-section {
+    display: none;
     background: var(--color-dark);
     color: white;
     padding: var(--space-24) 0;
