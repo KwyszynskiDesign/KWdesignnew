@@ -3256,22 +3256,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
    (divider margin-bottom 1.25 + .kwcs-sec padding-top 3). */
 #case-razdwa-pelne .section-divider + .kwcs-sec { padding-top: 1.25rem; }
 
-/* 5 · Spójność H2: sekcja "Kontekst projektu" (.kwcs-context-section,
-   jedyny H2 w .kwcs-sec poza dividerami w tym case study) dostaje
-   ten sam wygląd co .section-divider — Playfair + podkreślenie. */
-#case-razdwa-pelne .kwcs-context-section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
-}
-#case-razdwa-pelne .kwcs-context-section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: #06b6d4;
-  margin: 1rem auto 0;
-  border-radius: 2px;
-}
+#case-razdwa-pelne .section-divider + .kwcs-context-section { padding-top: 4rem; }
 
 /* 6 · Podpisy pod obrazami — spójne w całym case study (bez italic,
    jednolity rozmiar/kolor/wyśrodkowanie). */
