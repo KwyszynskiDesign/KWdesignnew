@@ -38,63 +38,90 @@
 .kwcs-header:hover {
   background: #f1f5f9;
 }
-/* Kontener hero-image staje się przestrzenią 3D */
+
+
+
+
+/* Przestrzeń 3D dla monitora */
 .hero-image {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  perspective: 1500px; /* Nadaje głębię trójwymiaru */
+  perspective: 1500px;
 }
 
-/* Główna struktura monitora */
+/* Struktura monitora */
 .css-monitor-mockup {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  /* Efekt nachylenia ekranu jak w prawdziwym mockupie */
   transform: rotateX(4deg) rotateY(-4deg) rotateZ(0.5deg);
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Po najechaniu myszką monitor płynnie się prostuje do interakcji */
 .css-monitor-mockup:hover {
   transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
 }
 
-/* Ekran monitora z ramką */
+/* Ekran monitora (proporcje 16:9) */
 .monitor-screen {
   width: 100%;
-  aspect-ratio: 1200 / 630; /* Trzyma identyczne proporcje co Twój stary obrazek */
+  aspect-ratio: 16 / 9; 
   background: #141414;
-  border: 14px solid #1a1a1a; /* Nowoczesna, ciemna ramka monitora */
+  border: 14px solid #1a1a1a;
   border-radius: 12px;
-  box-shadow: 
-    0 30px 70px rgba(0, 0, 0, 0.35), 
-    0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   position: relative;
 }
 
-/* Działająca aplikacja wewnątrz ekranu */
-.monitor-screen iframe {
+/* MAGIA: Kontener tworzy wirtualną przestrzeń roboczą dla komputera */
+.iframe-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Sztywna rozdzielczość desktopowa, w której Twój kalkulator wygląda dobrze */
+  width: 1440px; 
+  height: 810px; /* Proporcja 16:9 dla 1440px */
+  
+  /* Automatyczne skalowanie całej zawartości do rozmiaru monitora */
+  transform-origin: top left;
+  transform: scale(calc(100vw / 1440)); 
+}
+
+/* Dopasowanie skalowania przy responsywności (gdy ekran zewnętrzny się zmniejsza) */
+@media (min-width: 1200px) {
+  .iframe-wrapper {
+    /* Gdy strona osiągnie max-width (1200px minus ramki), blokujemy skalowanie */
+    transform: scale(calc((1200px - 28px) / 1440));
+  }
+}
+
+/* Właściwy iframe */
+.iframe-wrapper iframe {
   width: 100%;
   height: 100%;
   border: none;
   background: #ffffff;
+  overflow: hidden;
 }
 
-/* Elementy podstawki: Nóżka */
+/* Ukrywanie pasków przewijania dla pewności */
+.iframe-wrapper iframe::-webkit-scrollbar {
+  display: none;
+}
+
+/* Podstawka monitora */
 .monitor-neck {
   width: 45px;
   height: 50px;
   background: linear-gradient(90deg, #e5e7eb 0%, #9ca3af 50%, #d1d5db 100%);
-  margin-top: -2px; /* Likwiduje szparę między ekranem a nóżką */
-  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); /* Kształt trapezowy */
+  margin-top: -2px;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
 }
 
-/* Elementy podstawki: Stopa */
 .monitor-base {
   width: 220px;
   height: 8px;
@@ -102,6 +129,11 @@
   border-radius: 4px 4px 2px 2px;
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
+
+
+
+
+
 .kwcs-header:focus-visible {
   outline: 3px solid #2563eb;
   outline-offset: 2px;
