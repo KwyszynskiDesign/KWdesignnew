@@ -3299,60 +3299,134 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   }
 }
 
-/* ========================================================
-   RAZDWA — UX/UI cleanup pass (5 sekcji)
-   Zakres ograniczony do #case-razdwa-pelne, żeby nie ruszać
-   innych projektów współdzielących te klasy.
-   ======================================================== */
+/* ============================================================
+   RAZ DWA — UX/UI cleanup pass 2
+   ============================================================ */
 
-/* 1. „Za co odpowiadałem" — świadome domknięcie sekcji
-   zamiast samotnego boksu w lewej kolumnie 3-col gridu. */
-#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) {
-  display: block;
-  max-width: 760px;
+/* 1 · Rezultat projektu — zredukowane whitespace */
+#case-razdwa-pelne .kwcs-result {
+  margin-top: 0;
+  padding: 2.5rem 2rem;
 }
-#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell {
-  padding: 1.75rem 2rem;
-}
-#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell ul {
-  columns: 2;
-  column-gap: 2.5rem;
-}
-#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell li {
-  break-inside: avoid;
-}
-@media (max-width: 600px) {
-  #case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell ul {
-    columns: 1;
-  }
+#case-razdwa-pelne .result-lead {
+  margin-bottom: 2rem;
 }
 
-/* 2. + 3. „Kluczowe decyzje" i „Zarządzanie cennikiem" —
-   zestaw trzech kart jako triada w jednym rzędzie,
-   bez orphana wiszącego po lewej. */
-#case-razdwa-pelne .ux-decision-grid--triad {
-  grid-template-columns: repeat(3, 1fr);
-}
-@media (max-width: 768px) {
-  #case-razdwa-pelne .ux-decision-grid--triad {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 4. „Jak współpracują główne moduły" — ostatni węzeł
-   ekosystemu wycentrowany i kompozycyjnie domknięty. */
-#case-razdwa-pelne .razdwa-ecosystem-row:has(.eco-node:only-child) {
-  grid-template-columns: minmax(0, 430px);
+/* 2 · Ekosystem solo row — ostatni węzeł wycentrowany */
+.razdwa-ecosystem-row--solo {
+  display: flex;
   justify-content: center;
 }
-
-/* 5. „Co zmieniło się po wdrożeniu" — lead i karty na wspólnej
-   szerokości kolumny, żeby krawędzie się pokrywały. */
-#case-razdwa-pelne .result-lead {
-  max-width: 820px;
+.razdwa-ecosystem-row--solo .eco-node {
+  max-width: calc(50% - 0.5rem);
+  width: 100%;
 }
-#case-razdwa-pelne .result-cards {
+@media (max-width: 600px) {
+  .razdwa-ecosystem-row--solo .eco-node {
+    max-width: 100%;
+  }
+}
+
+/* 3 · Gridy 3-elementowe — 2+1 centered */
+.ux-decision-grid--trio .ux-decision-box:last-child {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 0.75rem);
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .ux-decision-grid--trio .ux-decision-box:last-child {
+    grid-column: auto;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
+
+/* 4 · Za co odpowiadałem — full-width premium role layout */
+#case-razdwa-pelne .contribution-cell--solo {
+  grid-column: 1 / -1;
   max-width: 820px;
+  margin-inline: auto;
+  padding: 2rem 2.5rem;
+  display: grid;
+  grid-template-columns: minmax(160px, 200px) 1fr;
+  gap: 0 3rem;
+  align-items: start;
+}
+#case-razdwa-pelne .contribution-cell--solo h3 {
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding-top: 0.125rem;
+}
+#case-razdwa-pelne .contribution-cell--solo ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+#case-razdwa-pelne .contribution-cell--solo li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  #case-razdwa-pelne .contribution-cell--solo {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    padding: 1.5rem;
+  }
+  #case-razdwa-pelne .contribution-cell--solo h3 {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* ============================================================
+   RAZ DWA — UX/UI cleanup pass 3
+   ============================================================ */
+
+/* 1 · Za co odpowiadałem — domknięcie sekcji Kontekst */
+#case-razdwa-pelne .contribution-grid--razdwa {
+  margin-top: 0.75rem;
+}
+
+/* 2 · Trio gridy — 3 równe kolumny na desktopie */
+.ux-decision-grid--trio {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  gap: 1.25rem;
+}
+.ux-decision-grid--trio .ux-decision-box:last-child {
+  grid-column: auto;
+  max-width: 100%;
+  margin-inline: 0;
+}
+@media (max-width: 900px) {
+  .ux-decision-grid--trio {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+    gap: 1.5rem;
+  }
+  .ux-decision-grid--trio .ux-decision-box:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.75rem);
+    margin-inline: auto;
+  }
+}
+@media (max-width: 600px) {
+  .ux-decision-grid--trio {
+    grid-template-columns: 1fr;
+  }
+  .ux-decision-grid--trio .ux-decision-box:last-child {
+    grid-column: auto;
+    max-width: 100%;
+    margin-inline: 0;
+  }
+}
+
+/* 3 · Ekosystem solo — wyrównanie szerokości węzła */
+.razdwa-ecosystem-row--solo .eco-node {
+  max-width: calc(50% - 1.5rem);
+}
+
+/* 4 · Rezultat — przewidywalny 3-col zamiast auto-fit */
+#case-razdwa-pelne .result-cards {
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 768px) {
