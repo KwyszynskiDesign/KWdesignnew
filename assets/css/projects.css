@@ -3298,3 +3298,65 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
     margin-inline: 0;
   }
 }
+
+/* ========================================================
+   RAZDWA — UX/UI cleanup pass (5 sekcji)
+   Zakres ograniczony do #case-razdwa-pelne, żeby nie ruszać
+   innych projektów współdzielących te klasy.
+   ======================================================== */
+
+/* 1. „Za co odpowiadałem" — świadome domknięcie sekcji
+   zamiast samotnego boksu w lewej kolumnie 3-col gridu. */
+#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) {
+  display: block;
+  max-width: 760px;
+}
+#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell {
+  padding: 1.75rem 2rem;
+}
+#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell ul {
+  columns: 2;
+  column-gap: 2.5rem;
+}
+#case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell li {
+  break-inside: avoid;
+}
+@media (max-width: 600px) {
+  #case-razdwa-pelne .contribution-grid--razdwa:has(.contribution-cell:only-child) .contribution-cell ul {
+    columns: 1;
+  }
+}
+
+/* 2. + 3. „Kluczowe decyzje" i „Zarządzanie cennikiem" —
+   zestaw trzech kart jako triada w jednym rzędzie,
+   bez orphana wiszącego po lewej. */
+#case-razdwa-pelne .ux-decision-grid--triad {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 768px) {
+  #case-razdwa-pelne .ux-decision-grid--triad {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4. „Jak współpracują główne moduły" — ostatni węzeł
+   ekosystemu wycentrowany i kompozycyjnie domknięty. */
+#case-razdwa-pelne .razdwa-ecosystem-row:has(.eco-node:only-child) {
+  grid-template-columns: minmax(0, 430px);
+  justify-content: center;
+}
+
+/* 5. „Co zmieniło się po wdrożeniu" — lead i karty na wspólnej
+   szerokości kolumny, żeby krawędzie się pokrywały. */
+#case-razdwa-pelne .result-lead {
+  max-width: 820px;
+}
+#case-razdwa-pelne .result-cards {
+  max-width: 820px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 768px) {
+  #case-razdwa-pelne .result-cards {
+    grid-template-columns: 1fr;
+  }
+}
