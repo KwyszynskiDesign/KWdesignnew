@@ -3434,3 +3434,55 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   BREADCRUMB — case study nav back to portfolio
+   Używany w karoma.html i kolejnych case studies
+   ======================================== */
+.kwcs-breadcrumb {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+}
+.kwcs-breadcrumb .wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.kwcs-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #0284c7;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.kwcs-back-btn:hover { color: #0369a1; }
+.kwcs-breadcrumb-sep { color: #94a3b8; font-size: 0.9rem; }
+.kwcs-breadcrumb-current { font-size: 0.9rem; color: #64748b; }
+
+/* ========================================
+   #CASE-KAROMA — scoped overrides
+   Dopasowanie spacingu i layoutu do wzorca RazDwa
+   ======================================== */
+#case-karoma .section-divider + .kwcs-sec { padding-top: 1.25rem; }
+
+#case-karoma .result-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 768px) {
+  #case-karoma .result-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+#case-karoma .kwcs-sec--alt .kwcs-trio { margin-top: 1.5rem; }
