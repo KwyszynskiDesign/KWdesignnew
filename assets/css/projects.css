@@ -3486,3 +3486,21 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 }
 
 #case-karoma .kwcs-sec--alt .kwcs-trio { margin-top: 1.5rem; }
+
+/* "Za co odpowiadałem" — domknięcie kompozycji: full-width w 3-col gridzie,
+   max-width dopasowany do szerokości ux-decision-grid powyżej */
+#case-karoma .contribution-cell--solo {
+  grid-column: 1 / -1;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* Chapter rail — subtelniejszy, nie konkuruje z treścią */
+#karoma-chapter-rail {
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.07);
+  border-color: #edf0f4;
+  background: rgba(255, 255, 255, 0.90);
+}
+#karoma-chapter-rail .razdwa-chapter-rail-label {
+  color: #94a3b8;
+}
