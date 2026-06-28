@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initFAQ();
     initContactForm();
+    initLeadMagnetForm();
     initAnimations();
     initScrollEffects();
     initNotifications();
@@ -117,6 +118,53 @@ function setSubmitButtonState(loading, submitBtn, btnText, btnLoader) {
         btnLoader.style.display = 'none';
         submitBtn.disabled = false;
     }
+}
+
+function initLeadMagnetForm() {
+    const form = document.getElementById('leadMagnetForm');
+    if (!form) return;
+
+    const btn = form.querySelector('.lm-btn');
+    const btnText = btn?.querySelector('.lm-btn-text');
+    const btnLoader = btn?.querySelector('.lm-btn-loader');
+    const emailInput = form.querySelector('input[name="email"]');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = emailInput?.value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            emailInput?.classList.add('error');
+            emailInput?.focus();
+            return;
+        }
+        emailInput.classList.remove('error');
+
+        if (btn) btn.disabled = true;
+        if (btnText) btnText.style.display = 'none';
+        if (btnLoader) btnLoader.style.display = 'inline';
+
+        try {
+            const params = new URLSearchParams({
+                action: 'lead_magnet',
+                email: email,
+                source: 'narzedzie'
+            });
+            await fetch(`${CONTACT_API_URL}?${params}`, { method: 'GET' });
+        } catch (_) {}
+
+        const wrap = form.closest('.lm-form-wrap');
+        if (wrap) {
+            wrap.innerHTML = `
+                <div class="lm-success">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                    <h2>Gotowe.</h2>
+                    <p>Materiał zostanie wysłany na <strong>${email}</strong> w ciągu 24&nbsp;godzin. Sprawdź też folder spam, gdyby nie dotarł.</p>
+                    <p class="lm-success-sub">Masz konkretny proces do omówienia? <a href="uslugi.html">Przejdź do usług →</a></p>
+                </div>
+            `;
+        }
+    });
 }
 
 function initCounters() {
