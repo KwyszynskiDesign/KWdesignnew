@@ -1027,6 +1027,45 @@
     color: #555;
 }
 
+/* ========== SERVICE PROOF BLOCK ========== */
+.service-proof {
+    margin: 32px 0;
+    padding: 20px 24px;
+    background: rgba(6, 182, 212, 0.05);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0 10px 10px 0;
+}
+
+.proof-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.proof-desc {
+    font-size: 0.9375rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 14px;
+}
+
+.proof-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0891b2;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.proof-link:hover {
+    border-color: var(--color-primary);
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     /* Hero Responsive */

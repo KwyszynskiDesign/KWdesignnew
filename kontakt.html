@@ -85,7 +85,7 @@
 
         <div class="contact-form">
             <h2>Formularz kontaktowy</h2>
-            <form id="contactForm" method="POST" action="mailto:wyszynski.k@onet.pl" enctype="text/plain">
+            <form id="contactForm" class="contact-form">
                 <label for="name">Imię i nazwisko*</label>
                 <input type="text" id="name" name="name" required placeholder="Jan Kowalski" />
 
@@ -98,8 +98,8 @@
                 <label for="phone">Telefon</label>
                 <input type="tel" id="phone" name="phone" placeholder="opcjonalnie" />
 
-                <label for="subject">Czego potrzebujesz</label>
-                <select id="subject" name="subject">
+                <label for="projectType">Czego potrzebujesz</label>
+                <select id="projectType" name="projectType">
                     <option value="">-- wybierz --</option>
                     <option value="aplikacja">Aplikacja biznesowa</option>
                     <option value="strona">Strona internetowa</option>
@@ -120,7 +120,10 @@
                 <label for="message">Opis problemu lub procesu*</label>
                 <textarea id="message" name="message" required rows="6" placeholder="Opisz, co dziś nie działa, zajmuje za dużo czasu albo generuje błędy. Im konkretniej, tym lepiej."></textarea>
 
-                <button type="submit">Wyślij wiadomość</button>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Wyślij wiadomość</span>
+                    <span class="btn-loader">Wysyłam...</span>
+                </button>
             </form>
         </div>
     </section>
@@ -129,6 +132,6 @@
         <p>&copy; 2026&nbsp;Karol&nbsp;Wyszyński&nbsp;&ndash; kontakt: <a href="mailto:wyszynski.k@onet.pl">wyszynski.k@onet.pl</a></p>
     </footer>
 
-    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/index-scripts.js" defer></script>
 </body>
 </html>

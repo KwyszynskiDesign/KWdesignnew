@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
 
-      document.querySelectorAll('.portfolio-new-card').forEach(card => {
+      document.querySelectorAll('.portfolio-new-card, .nc-card[data-project]').forEach(card => {
         card.classList.remove('active');
       });
       const activeCard = document.querySelector(`[data-project="${projectId}"]`);
@@ -297,13 +297,13 @@ document.addEventListener('DOMContentLoaded', () => {
       container.style.display = 'none';
       document.getElementById('project-details-content').innerHTML = '';
 
-      const grid = document.querySelector('.portfolio-new-grid');
-      if (grid) {
-        grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const section = document.getElementById('portfolio-section');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }, 300);
 
-    document.querySelectorAll('.portfolio-new-card').forEach(card => {
+    document.querySelectorAll('.portfolio-new-card, .nc-card[data-project]').forEach(card => {
       card.classList.remove('active');
     });
 
@@ -316,13 +316,14 @@ document.addEventListener('DOMContentLoaded', () => {
     history.pushState('', document.title, window.location.pathname);
   };
 
-  const cards = document.querySelectorAll('.portfolio-new-card');
+  const cards = document.querySelectorAll('.portfolio-new-card, .nc-card[data-project]');
 
   cards.forEach(card => {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
 
     card.addEventListener('click', function(e) {
+      if (window.__ncDidDrag && window.__ncDidDrag()) return;
       e.preventDefault();
       e.stopPropagation();
       const id = this.getAttribute('data-project');
@@ -346,43 +347,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.carousel-nav.prev');
-  const nextBtn = document.querySelector('.carousel-nav.next');
+  const neonWrapper = document.getElementById('neonCarouselWrapper');
+  const neonTrack = document.getElementById('neonCarouselTrack');
 
-  if (track && prevBtn && nextBtn) {
-    const VISIBLE_COUNT = 3;
+  if (neonWrapper && neonTrack) {
+    let isDragging = false;
+    let didDrag = false;
+    let startX = 0;
+    let currentX = 0;
 
-    function getItemWidth() {
-      const firstItem = track.querySelector('.carousel-item');
-      if (!firstItem) return 0;
-      const gap = parseFloat(getComputedStyle(track).gap) || 0;
-      return firstItem.offsetWidth + gap;
+    function getNcTranslateX() {
+      return new DOMMatrix(window.getComputedStyle(neonTrack).transform).m41;
     }
 
-    function updateArrows() {
-      const buffer = 2;
-      const maxScroll = track.scrollWidth - track.clientWidth - buffer;
-      prevBtn.disabled = track.scrollLeft <= 0;
-      nextBtn.disabled = track.scrollLeft >= maxScroll;
+    function onNcDragStart(e) {
+      isDragging = true;
+      didDrag = false;
+      startX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
+      currentX = getNcTranslateX();
+      neonTrack.style.animation = 'none';
+      neonTrack.style.transform = `translateX(${currentX}px)`;
+      neonTrack.classList.add('nc-dragging');
+      e.preventDefault();
     }
 
-    function scrollByItems(count) {
-      track.scrollBy({ left: getItemWidth() * count, behavior: 'smooth' });
+    function onNcDragMove(e) {
+      if (!isDragging) return;
+      const x = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
+      const dx = x - startX;
+      if (Math.abs(dx) > 5) didDrag = true;
+      neonTrack.style.transform = `translateX(${currentX + dx}px)`;
     }
 
-    prevBtn.addEventListener('click', () => scrollByItems(-VISIBLE_COUNT));
-    nextBtn.addEventListener('click', () => scrollByItems(VISIBLE_COUNT));
-    track.addEventListener('scroll', updateArrows, { passive: true });
-    window.addEventListener('resize', updateArrows, { passive: true });
-    updateArrows();
+    function onNcDragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      neonTrack.classList.remove('nc-dragging');
+      const finalX = getNcTranslateX();
+      const cardW = parseFloat(getComputedStyle(neonTrack).getPropertyValue('--nc-card-w')) || 340;
+      const gap = parseFloat(getComputedStyle(neonTrack).getPropertyValue('--nc-gap')) || 32;
+      const singleSetW = 8 * (cardW + gap);
+      let norm = finalX % singleSetW;
+      if (norm > 0) norm -= singleSetW;
+      const progress = Math.abs(norm) / singleSetW;
+      neonTrack.style.transform = '';
+      neonTrack.style.animation = '';
+      neonTrack.style.animationDelay = `calc(${-progress} * var(--nc-speed))`;
+    }
 
-    track.addEventListener('click', (e) => {
-      const item = e.target.closest('.carousel-item[data-project]');
-      if (!item) return;
-      const projectId = item.getAttribute('data-project');
-      if (projectId) showProjectDetails(projectId.replace('.html', ''));
-    });
+    window.__ncDidDrag = () => didDrag;
+
+    neonWrapper.addEventListener('mousedown', onNcDragStart);
+    neonWrapper.addEventListener('mousemove', onNcDragMove);
+    neonWrapper.addEventListener('mouseup', onNcDragEnd);
+    neonWrapper.addEventListener('mouseleave', onNcDragEnd);
+    neonWrapper.addEventListener('touchstart', onNcDragStart, { passive: false });
+    neonWrapper.addEventListener('touchmove', onNcDragMove, { passive: true });
+    neonWrapper.addEventListener('touchend', onNcDragEnd);
   }
 
   const vizLink = document.getElementById('nav-wizualizacje');

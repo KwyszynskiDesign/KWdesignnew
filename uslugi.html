@@ -76,7 +76,7 @@
           <li><a href="index.html">Start</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="uslugi.html" class="active" aria-current="page">Usługi</a></li>
-          <li><a href="index.html#contact">Kontakt</a></li>
+          <li><a href="#contact">Kontakt</a></li>
           <li><a href="https://www.linkedin.com/in/karol-wyszynski/" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
         <button class="hamburger" aria-label="Otwórz menu nawigacji" aria-expanded="false" aria-controls="nav-menu">
@@ -252,9 +252,15 @@
         </div>
       </div>
 
+      <div class="service-proof">
+        <span class="proof-label">Przykład z realizacji</span>
+        <p class="proof-desc">Sklep internetowy dla producenta narzędzi CNC — od brandingu po wdrożenie. Spójna identyfikacja, dedykowane funkcje B2B i integracja płatności. Gotowy do przyjmowania zamówień od pierwszego dnia, bez podwykonawców, w jednym ręku.</p>
+        <a href="portfolio.html#karoma" class="proof-link">Case study: Karoma →</a>
+      </div>
+
       <div class="service-cta">
         <p class="meta-txt"><b>Czas większych projektów:</b> 4–5 miesięcy · Wycena indywidualna</p>
-        <a href="index.html#contact">Zapytaj o wycenę →</a>
+        <a href="#contact">Zapytaj o wycenę →</a>
       </div>
 
     </div>
@@ -324,9 +330,15 @@
         </div>
       </div>
 
+      <div class="service-proof">
+        <span class="proof-label">Przykład z realizacji</span>
+        <p class="proof-desc">Drukarnia wyceniała zlecenia ręcznie — nawet godzinę na jedno zamówienie, z ryzykiem pomyłki. Aplikacja z kalkulatorem, koszykiem i eksportem PDF skróciła ten czas do ok. 5 minut. Zero kosztów stałych utrzymania.</p>
+        <a href="portfolio.html#RazDwa" class="proof-link">Case study: Raz Dwa Druk →</a>
+      </div>
+
       <div class="service-cta">
         <p class="meta-txt"><b>Realny efekt:</b> z godziny do kilku minut · Wycena indywidualna</p>
-        <a href="index.html#contact">Zapytaj o wycenę →</a>
+        <a href="#contact">Zapytaj o wycenę →</a>
       </div>
 
     </div>
@@ -396,9 +408,15 @@
         </div>
       </div>
 
+      <div class="service-proof">
+        <span class="proof-label">Przykład z realizacji</span>
+        <p class="proof-desc">Marka coachingowa potrzebowała platformy sprzedażowej — ale najpierw decyzji, na czym ją zbudować. Przetestowaliśmy trzy rozwiązania (Webflow, Wix, WordPress), wybraliśmy jedno. Klientka zarządza systemem samodzielnie od pierwszego dnia po wdrożeniu.</p>
+        <a href="portfolio.html#power-of-mind" class="proof-link">Case study: Power of Mind →</a>
+      </div>
+
       <div class="service-cta">
         <p class="meta-txt"><b>Zakres ustalany po analizie</b> · Wycena indywidualna</p>
-        <a href="index.html#contact">Zapytaj o wycenę →</a>
+        <a href="#contact">Zapytaj o wycenę →</a>
       </div>
 
     </div>
@@ -545,18 +563,55 @@
     </div>
   </section>
 
-  <!-- ========== CTA ========== -->
-  <section class="services-cta" aria-labelledby="cta-title">
+  <!-- ========== KONTAKT ========== -->
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
     <div class="container">
-      <div class="cta-content">
-        <h2 id="cta-title">Masz proces, który zjada za dużo czasu?</h2>
-        <p>Pierwsza rozmowa nic nie kosztuje — sprawdzimy, czy w ogóle warto się brać i jaki obszar będzie najlepszym punktem wyjścia. Odpowiadam w ciągu 24 godzin.</p>
-        <a href="index.html#contact" class="btn btn-primary btn-large">
-          Porozmawiajmy
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M9.5 3.5h7v7m-7-7l7.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+      <div class="contact-content">
+        <h2 class="contact-title" id="contact-title">Opisz problem. Sprawdzę, czy da się go uprościć.</h2>
+        <p class="contact-subtitle">
+          Odpowiadam w ciągu 24 godzin. Pierwsza rozmowa pozwala ocenić, czy temat ma sens i jaki powinien być kolejny krok.
+        </p>
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Imię*</label>
+                <input type="text" id="name" name="name" placeholder="Jan" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" placeholder="jan@firma.pl" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Telefon (opcjonalnie)</label>
+                <input type="tel" id="phone" name="phone" placeholder="123 456 789" />
+              </div>
+              <div class="form-group">
+                <label for="projectType">Jak mogę pomóc?</label>
+                <select id="projectType" name="projectType">
+                  <option value="">-- wybierz --</option>
+                  <option value="aplikacja">Aplikacja biznesowa</option>
+                  <option value="strona">Strona internetowa</option>
+                  <option value="automatyzacja">Automatyzacja procesu</option>
+                  <option value="usprawnienie">Analiza i usprawnienie procesu</option>
+                  <option value="nie-wiem">Nie wiem — pomóż mi to nazwać</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Opis problemu lub procesu*</label>
+              <textarea id="message" name="message" rows="5" placeholder="Opisz, co dziś nie działa, zajmuje za dużo czasu albo generuje błędy. Im konkretniej, tym lepiej." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Wyślij wiadomość</span>
+              <span class="btn-loader">Wysyłam...</span>
+            </button>
+            <p class="form-note">Odezwę się w ciągu 24 godzin z pierwszą oceną i propozycją następnego kroku.</p>
+            <p class="form-privacy">Wysyłając formularz, zgadzasz się na kontakt w sprawie zapytania. Twoje dane nie trafią do żadnego newslettera.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -578,7 +633,7 @@
       <div class="footer-links">
         <a href="portfolio.html">Portfolio</a>
         <a href="uslugi.html">Usługi</a>
-        <a href="index.html#contact">Kontakt</a>
+        <a href="#contact">Kontakt</a>
       </div>
     </div>
     <div class="footer-bottom">
