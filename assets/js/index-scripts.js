@@ -159,7 +159,7 @@ function initLeadMagnetForm() {
                 <div class="lm-success">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
                     <h2>Gotowe.</h2>
-                    <p>Materiał zostanie wysłany na <strong>${email}</strong> w ciągu 24&nbsp;godzin. Sprawdź też folder spam, gdyby nie dotarł.</p>
+                    <p>Materiał za chwilę trafi na <strong>${email}</strong> — sprawdź skrzynkę (i folder spam, gdyby nie dotarł).</p>
                     <p class="lm-success-sub">Masz konkretny proces do omówienia? <a href="uslugi.html">Przejdź do usług →</a></p>
                 </div>
             `;
