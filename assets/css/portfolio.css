@@ -1357,7 +1357,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  background: #0a0a0a;
+  background: #0b0f19;
   padding: 60px 0 72px;
   overflow: hidden;
 }
@@ -1403,6 +1403,7 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
   outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .nc-card:hover,
@@ -1519,49 +1520,49 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 
 /* Card themes — dark-premium system */
 /* nc-card-1: RazDwa */
-.nc-card-1 .nc-bg { background: linear-gradient(135deg, #0b0317 0%, #1a0650 50%, #0b0317 100%); }
+.nc-card-1 .nc-bg { background: linear-gradient(135deg, #141228 0%, #2d1668 50%, #141228 100%); }
 .nc-card-1 .nc-number { color: #8b7de0; }
 .nc-card-1 .nc-glow { box-shadow: inset 0 0 20px rgba(139,92,246,0.08), 0 0 14px rgba(139,92,246,0.1); }
 .nc-card-1:hover { box-shadow: 0 8px 24px rgba(139,92,246,0.16); }
 
 /* nc-card-2: Karoma */
-.nc-card-2 .nc-bg { background: linear-gradient(135deg, #0e0604 0%, #2A1908 50%, #0e0604 100%); }
+.nc-card-2 .nc-bg { background: linear-gradient(135deg, #1c1408 0%, #3d2b12 50%, #1c1408 100%); }
 .nc-card-2 .nc-number { color: #C58B2B; }
 .nc-card-2 .nc-glow { box-shadow: inset 0 0 20px rgba(197,139,43,0.08), 0 0 14px rgba(197,139,43,0.1); }
 .nc-card-2:hover { box-shadow: 0 8px 24px rgba(197,139,43,0.16); }
 
 /* nc-card-3: Power of Mind */
-.nc-card-3 .nc-bg { background: linear-gradient(135deg, #04091a 0%, #0d2244 50%, #04091a 100%); }
+.nc-card-3 .nc-bg { background: linear-gradient(135deg, #0e1526 0%, #18366a 50%, #0e1526 100%); }
 .nc-card-3 .nc-number { color: #5b8fd4; }
 .nc-card-3 .nc-glow { box-shadow: inset 0 0 20px rgba(96,165,250,0.08), 0 0 14px rgba(96,165,250,0.1); }
 .nc-card-3:hover { box-shadow: 0 8px 24px rgba(96,165,250,0.16); }
 
 /* nc-card-4: CyfraDruk */
-.nc-card-4 .nc-bg { background: linear-gradient(135deg, #0c0a03 0%, #231A0B 50%, #0c0a03 100%); }
+.nc-card-4 .nc-bg { background: linear-gradient(135deg, #18140a 0%, #33260f 50%, #18140a 100%); }
 .nc-card-4 .nc-number { color: #A9782A; }
 .nc-card-4 .nc-glow { box-shadow: inset 0 0 20px rgba(169,120,42,0.08), 0 0 14px rgba(169,120,42,0.1); }
 .nc-card-4:hover { box-shadow: 0 8px 24px rgba(169,120,42,0.16); }
 
 /* nc-card-5: Sir Roger */
-.nc-card-5 .nc-bg { background: linear-gradient(135deg, #050e06 0%, #132114 50%, #050e06 100%); }
+.nc-card-5 .nc-bg { background: linear-gradient(135deg, #0e180f 0%, #1e3522 50%, #0e180f 100%); }
 .nc-card-5 .nc-number { color: #5E8E3E; }
 .nc-card-5 .nc-glow { box-shadow: inset 0 0 20px rgba(94,142,62,0.08), 0 0 14px rgba(94,142,62,0.1); }
 .nc-card-5:hover { box-shadow: 0 8px 24px rgba(94,142,62,0.16); }
 
 /* nc-card-6: KW Design */
-.nc-card-6 .nc-bg { background: linear-gradient(135deg, #0d0603 0%, #24130B 50%, #0d0603 100%); }
+.nc-card-6 .nc-bg { background: linear-gradient(135deg, #1a1008 0%, #342010 50%, #1a1008 100%); }
 .nc-card-6 .nc-number { color: #B86A2E; }
 .nc-card-6 .nc-glow { box-shadow: inset 0 0 20px rgba(184,106,46,0.08), 0 0 14px rgba(184,106,46,0.1); }
 .nc-card-6:hover { box-shadow: 0 8px 24px rgba(184,106,46,0.16); }
 
 /* nc-card-7: Savage */
-.nc-card-7 .nc-bg { background: linear-gradient(135deg, #080a14 0%, #14182B 50%, #080a14 100%); }
+.nc-card-7 .nc-bg { background: linear-gradient(135deg, #101320 0%, #1e2445 50%, #101320 100%); }
 .nc-card-7 .nc-number { color: #4B5FAE; }
 .nc-card-7 .nc-glow { box-shadow: inset 0 0 20px rgba(75,95,174,0.08), 0 0 14px rgba(75,95,174,0.1); }
 .nc-card-7:hover { box-shadow: 0 8px 24px rgba(75,95,174,0.16); }
 
 /* nc-card-8: Voucher Magdy */
-.nc-card-8 .nc-bg { background: linear-gradient(135deg, #0e0209 0%, #2a0820 50%, #0e0209 100%); }
+.nc-card-8 .nc-bg { background: linear-gradient(135deg, #180c14 0%, #351230 50%, #180c14 100%); }
 .nc-card-8 .nc-number { color: #c4607a; }
 .nc-card-8 .nc-glow { box-shadow: inset 0 0 20px rgba(196,96,122,0.08), 0 0 14px rgba(196,96,122,0.1); }
 .nc-card-8:hover { box-shadow: 0 8px 24px rgba(196,96,122,0.16); }
