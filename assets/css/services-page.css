@@ -1027,6 +1027,60 @@
     color: #555;
 }
 
+/* ========== MIKRO-CTA ========== */
+.micro-cta-section {
+    padding: 56px 0 48px;
+    background: #f8fafc;
+    border-top: 1px solid #e8ecf0;
+    text-align: center;
+}
+
+.micro-cta-block {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.micro-cta-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.35;
+    margin-bottom: 14px;
+}
+
+.micro-cta-desc {
+    font-size: 0.9375rem;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+
+.micro-cta-link {
+    display: inline-block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #0891b2;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(8, 145, 178, 0.35);
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.micro-cta-link:hover {
+    color: #0e7490;
+    border-color: #0e7490;
+}
+
+@media (max-width: 768px) {
+    .micro-cta-section {
+        padding: 40px 0 36px;
+    }
+
+    .micro-cta-title {
+        font-size: 1.2rem;
+    }
+}
+
 /* ========== SERVICE PROOF BLOCK ========== */
 .service-proof {
     margin: 32px 0;
