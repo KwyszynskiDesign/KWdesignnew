@@ -3879,6 +3879,10 @@ header * {
     white-space: nowrap;
 }
 
+.hero-text .hero-info-icons {
+    margin-top: 100px;
+}
+
 .highlight-digits-tyt {
     color: #0891b2;
 }
