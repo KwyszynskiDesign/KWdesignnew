@@ -3855,6 +3855,8 @@ header * {
     margin-bottom: 0;
     text-align: left;
     white-space: nowrap;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    letter-spacing: 0.06em;
 }
 
 .hero-text .hero-title {
