@@ -66,6 +66,9 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/index-styles.css" />
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TWOJ_TOKEN"}'></script>
 </head>
 
 <body>
@@ -111,18 +114,10 @@
                          Tworzę cyfrowe narzędzia, <span class="highlight-digits-tyt">które oszczędzają czas i porządkują procesy.</span>
                     </h1>
                     <p class="hero-subtitle">
-                        Aplikacje, automatyzacje i strony — od analizy procesu po działające wdrożenie. Bez pośredników i bez gotowych szablonów.
+                        Aplikacje, automatyzacje i strony — od analizy procesu po działające wdrożenie.
                     </p>
-                    <div class="hero-info-icons">
-                        <div class="info-icon">
-                            <span class="text">Jeden specjalista — projekt, technologia i&nbsp;wdrożenie</span>
-                        </div>
-                        <div class="info-icon">
-                            <span class="text"><span class="highlight-digits">10+</span> wdrożonych narzędzi i automatyzacji</span>
-                        </div>
-                    </div>
                     <div class="cta-group">
-                        <a href="#contact" class="btn btn-primary smooth">Porozmawiajmy o Twoim problemie</a>
+                        <a href="#contact" class="btn btn-primary smooth" data-track="cta_hero_contact">Porozmawiajmy o Twoim problemie</a>
                   <a href="portfolio.html" class="btn btn-secondary">Zobacz, jak pracuję</a>
                     </div>
                    
@@ -133,15 +128,13 @@
                     <div class="hero-image-container">
                         <img src="assets/images/ja-skupiony2.webp" alt="Karol Wyszyński – projektant i twórca produktów cyfrowych" />
                         <div class="gradient-overlay"></div>
-                        <div class="hero-floating-badge">
-                            <span class="badge-icon">✨</span>
-                            <div class="badge-text">
-                                <span class="badge-title">Projektuję i wdrażam narzędzia cyfrowe</span>
-                                <span class="badge-sub">mniej ręcznej pracy, prostsze procesy</span>
-
-                                
-
-                            </div>
+                    </div>
+                    <div class="hero-info-icons">
+                        <div class="info-icon">
+                            <span class="text">Jeden specjalista — projekt, technologia i&nbsp;wdrożenie</span>
+                        </div>
+                        <div class="info-icon">
+                            <span class="text"><span class="highlight-digits">10+</span> wdrożonych narzędzi i automatyzacji</span>
                         </div>
                     </div>
                 </div>
@@ -275,7 +268,7 @@
                         <span class="highlight">Zrozumienie problemu</span>
                     </h3>
                     <p class="step-desc">
-                 Najpierw rozpoznaje <strong>co realnie nie działa</strong> i co warto usprawnić.
+                 Najpierw rozpoznaję <strong>co realnie nie działa</strong> i co warto usprawnić.
                     </p>
                 </div>
             </div>
@@ -305,7 +298,7 @@
                         <span class="highlight">Projekt rozwiązania</span>
                     </h3>
                     <p class="step-desc">
-                        Projektuje rozwiązania <strong>dopasowane do firmy.</strong>
+                        Projektuję rozwiązania <strong>dopasowane do firmy.</strong>
                     </p>
                 </div>
             </div>
@@ -335,7 +328,7 @@
                         <span class="highlight">Testy i wdrożenie</span>
                     </h3>
                     <p class="step-desc">
-                        Testuje, poprawiam oraz <strong>wspieram w pierwszych etapach działania</strong>.
+                        Testuję, poprawiam oraz <strong>wspieram w pierwszych etapach działania</strong>.
                          
                     </p>
                 </div>
@@ -484,7 +477,7 @@
                     <img src="assets/images/KW_laptop.svg" alt="Ikona produkty cyfrowe" width="56" height="56">
                 </div>
                 <h3> Strony i Produkty cyfrowe</h3>
-               <p class="service-description">Projektuję i tworzę narzędzia cyfrowe, aby oferta była czytelna, a strona pomgała zarabiać. </p>
+               <p class="service-description">Projektuję i tworzę narzędzia cyfrowe, aby oferta była czytelna, a strona pomagała zarabiać. </p>
                <ul class="service-features">
     <li><strong>Aplikacje webowe</strong> projektowane pod konkretny proces</li>
     <li><strong>Strony i sklepy</strong> od prezentacji oferty po sprzedaż online</li>
@@ -631,7 +624,7 @@
             <div class="faq-item">
                 <button class="faq-question">Czy współpraca kończy się na projekcie, czy pomagasz też we wdrożeniu?<span class="faq-icon">+</span></button>
                 <div class="faq-answer">
-                    <p>Pomagam kompleksowo, projektuje rozwiąznie, wdrażam oraz wspieram po uruchomieniu, tak aby system był zaopiekowany z każdej strony. Często przy uruchomieniu wychodzą niedopatrzone fragmenty, które dopracowuje tak abyś miał do dyspozycji narzędzie które będzie nie tylko wyglądać ale i wspierać realnie.</p>
+                    <p>Pomagam kompleksowo, projektuję rozwiązanie, wdrażam oraz wspieram po uruchomieniu, tak aby system był zaopiekowany z każdej strony. Często przy uruchomieniu wychodzą niedopatrzone fragmenty, które dopracowuje tak abyś miał do dyspozycji narzędzie które będzie nie tylko wyglądać ale i wspierać realnie.</p>
                 </div>
             </div>
         </div>
@@ -691,7 +684,7 @@
                     </button>
 
                     <p class="form-note">Odezwę się w ciągu 24 godzin z pierwszą oceną i propozycją następnego kroku.</p>
-                    <p class="form-privacy">Wysyłając formularz, zgadzasz się na kontakt w sprawie zapytania. Twoje dane nie trafią do żadnego newslettera.</p>
+                    <p class="form-privacy">Wysyłając formularz, zgadzasz się na kontakt w sprawie zapytania. Twoje dane nie trafią do żadnego newslettera. <a href="polityka-prywatnosci.html">Polityka prywatności</a>.</p>
                 </form>
             </div>
         </div>
@@ -707,7 +700,7 @@
                     <h2 class="lm-teaser-title">Nie wiesz, czy Twój proces nadaje się do automatyzacji?</h2>
                     <p class="lm-teaser-desc">Przygotowałem krótką checklistę diagnostyczną — 7 konkretnych sygnałów, po których rozpoznasz, co warto usprawnić i od czego zacząć.</p>
                 </div>
-                <a href="narzedzie.html" class="lm-teaser-cta">Pobierz za darmo →</a>
+                <a href="narzedzie.html" class="lm-teaser-cta" data-track="cta_leadmagnet">Pobierz za darmo →</a>
             </div>
         </div>
     </section>
@@ -732,6 +725,7 @@
                 <a href="portfolio.html">Portfolio</a>
                 <a href="uslugi.html">Usługi</a>
                 <a href="#contact">Kontakt</a>
+                <a href="polityka-prywatnosci.html">Polityka prywatności</a>
             </div>
         </div>
         <div class="footer-bottom">

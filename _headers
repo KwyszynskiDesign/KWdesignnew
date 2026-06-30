@@ -7,39 +7,13 @@
 ###############################################################################
 
 /*
-  # ── Bezpieczeństwo ──
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-XSS-Protection: 1; mode=block
-  
-  # ── HSTS (tylko gdy działa na własnej domenie z SSL) ──
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  
-  # ── Content Security Policy ──
-  #   'self' – własne skrypty/style
-  #   fonts.googleapis.com / fonts.gstatic.com – Google Fonts
-  #   script.google.com – formularz kontaktowy (Apps Script)
-  #   unsafe-inline – potrzebne dla inline <script> na portfolio.html
-  #   Jeśli przeniesiesz WSZYSTKIE skrypty do osobnych plików, usuń unsafe-inline
-  Content-Security-Policy: >
-    default-src 'self';
-    script-src 'self' 'unsafe-inline' https://script.google.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src 'self' https://fonts.gstatic.com;
-    img-src 'self' data: blob: https://kwyszynski.pl https://kwyszynskidesign.github.io;
-    connect-src 'self' https://script.google.com https://script.googleusercontent.com;
-    frame-src 'none';
-    object-src 'none';
-    base-uri 'self';
-    form-action 'self' https://script.google.com;
-  
-  # ── Permissions Policy ──
-  Permissions-Policy: >
-    camera=(),
-    microphone=(),
-    geolocation=(),
-    interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://script.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://kwyszynski.pl https://kwyszynskidesign.github.io; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://cloudflareinsights.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://script.google.com;
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
 
 ###############################################################################
 # ASSETY STATYCZNE – długi cache (pliki z hashowaną nazwą/wersją)
@@ -80,8 +54,3 @@
 /robots.txt
   Cache-Control: public, max-age=3600
   Content-Type: text/plain; charset=utf-8
-
-/assets/CV_KarolWyszynski.pdf
-  Cache-Control: public, max-age=86400
-  Content-Type: application/pdf
-  Content-Disposition: inline; filename="CV_KarolWyszynski.pdf"

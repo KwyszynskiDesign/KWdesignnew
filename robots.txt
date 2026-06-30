@@ -1,18 +1,9 @@
 # robots.txt – Karol Wyszyński Portfolio
-# Aktualny plik w repo. Zastąp nim istniejący robots.txt.
-# ------------------------------------------------------------------
-# UWAGA: Gdy domena kwyszynski.pl będzie już podpięta,
-# zmień sitemap na https://kwyszynski.pl/sitemap.xml
-# ------------------------------------------------------------------
 
 User-agent: *
 Allow: /
 
-# Nie indeksuj skryptów i case studies (ładują się dynamicznie)
-Disallow: /assets/js/
-Disallow: /projects/
-
 # Nie indeksuj archiwalnej karuzeli
 Disallow: /assets/KARUZELAJ/
 
-Sitemap: https://kwyszynskidesign.github.io/KWdesignnew/sitemap.xml
+Sitemap: https://kwyszynski.pl/sitemap.xml

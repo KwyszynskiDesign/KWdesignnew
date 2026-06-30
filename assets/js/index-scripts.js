@@ -1,5 +1,7 @@
 // Enhanced Main JavaScript file
 document.addEventListener('DOMContentLoaded', function() {
+    initErrorTracking();
+    initCTATracking();
     initNavigation();
     initFAQ();
     initContactForm();
@@ -19,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // Configuration
 const CONTACT_API_URL = 'https://script.google.com/macros/s/AKfycbz7q6dEJrmXBq2WKjcVuLUub0nSTNV1I2F7a8n6UgieHmiESbaxHG-nxrx7sT3AJiCz/exec';
 
+window.cf = window.cf || function(){(window.cf.q=window.cf.q||[]).push(arguments)};
+function kwTrack(name, props) {
+    try { window.cf('track', name, props || {}); } catch(_) {}
+}
+
 // Contact form functionality
 // Contact form functionality - WERSJA GET (OMIJA CORS)
 function initContactForm() {
@@ -33,6 +40,7 @@ function initContactForm() {
         e.preventDefault();
 
         if (!validateContactForm(contactForm)) return;
+        kwTrack('form_submit', { form: 'contact' });
         setSubmitButtonState(true, submitBtn, btnText, btnLoader);
 
         try {
@@ -42,7 +50,6 @@ function initContactForm() {
                 email: formData.get('email'),
                 phone: formData.get('phone') || '',
                 projectType: formData.get('projectType') || '',
-                budget: formData.get('budget') || '',
                 message: formData.get('message')
             };
 
@@ -56,6 +63,7 @@ function initContactForm() {
 
             if (result === 'SUCCESS') {
                 showNotification('🎉 Dziękuję za wiadomość! Odezwę się w ciągu 24h.', 'success');
+                kwTrack('form_success', { form: 'contact' });
                 contactForm.reset();
             } else if (result.startsWith('ERROR:')) {
                 throw new Error(result.replace('ERROR: ', ''));
@@ -64,6 +72,7 @@ function initContactForm() {
             }
             
         } catch (error) {
+            window.logFormError?.('contactForm', error.message);
             showNotification(`❌ Błąd: ${error.message}. Spróbuj ponownie lub napisz bezpośrednio na email.`, 'error');
         } finally {
             setSubmitButtonState(false, submitBtn, btnText, btnLoader);
@@ -143,6 +152,9 @@ function initLeadMagnetForm() {
         if (btn) btn.disabled = true;
         if (btnText) btnText.style.display = 'none';
         if (btnLoader) btnLoader.style.display = 'inline';
+        kwTrack('form_submit', { form: 'lead_magnet' });
+
+        const wrap = form.closest('.lm-form-wrap');
 
         try {
             const params = new URLSearchParams({
@@ -150,19 +162,35 @@ function initLeadMagnetForm() {
                 email: email,
                 source: 'narzedzie'
             });
-            await fetch(`${CONTACT_API_URL}?${params}`, { method: 'GET' });
-        } catch (_) {}
+            const response = await fetch(`${CONTACT_API_URL}?${params}`, { method: 'GET' });
+            if (!response.ok) throw new Error('Błąd serwera (' + response.status + ')');
 
-        const wrap = form.closest('.lm-form-wrap');
-        if (wrap) {
-            wrap.innerHTML = `
-                <div class="lm-success">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-                    <h2>Gotowe.</h2>
-                    <p>Materiał za chwilę trafi na <strong>${email}</strong> — sprawdź skrzynkę (i folder spam, gdyby nie dotarł).</p>
-                    <p class="lm-success-sub">Masz konkretny proces do omówienia? <a href="uslugi.html">Przejdź do usług →</a></p>
-                </div>
-            `;
+            if (wrap) {
+                wrap.innerHTML = `
+                    <div class="lm-success">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                        <h2>Gotowe.</h2>
+                        <p>Materiał za chwilę trafi na <strong>${email}</strong> — sprawdź skrzynkę (i folder spam, gdyby nie dotarł).</p>
+                        <p class="lm-success-sub">Masz konkretny proces do omówienia? <a href="uslugi.html">Przejdź do usług →</a></p>
+                    </div>
+                `;
+            }
+            kwTrack('form_success', { form: 'lead_magnet' });
+        } catch (err) {
+            window.logFormError?.('leadMagnetForm', err.message);
+            if (btn) btn.disabled = false;
+            if (btnText) btnText.style.display = '';
+            if (btnLoader) btnLoader.style.display = 'none';
+            if (wrap) {
+                const existing = wrap.querySelector('.lm-error');
+                if (!existing) {
+                    const p = document.createElement('p');
+                    p.className = 'lm-error';
+                    p.style.cssText = 'color:#dc2626;margin-top:.75rem;font-size:.9rem;';
+                    p.textContent = 'Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na wyszynski.k@onet.pl.';
+                    wrap.appendChild(p);
+                }
+            }
         }
     });
 }
@@ -563,6 +591,34 @@ function initServiceCardsAnimation() {
   }, { threshold: 0.15 });
 
   cards.forEach(card => observer.observe(card));
+}
+
+// ========== CTA TRACKING ==========
+function initCTATracking() {
+    document.body.addEventListener('click', function(e) {
+        const el = e.target.closest('[data-track]');
+        if (!el) return;
+        kwTrack('cta_click', { label: el.getAttribute('data-track') });
+    });
+}
+
+// ========== ERROR TRACKING — localStorage log ==========
+function initErrorTracking() {
+    const KEY = '_kw_errors';
+    const MAX = 50;
+
+    window.logFormError = function(formId, msg) {
+        try {
+            const log = JSON.parse(localStorage.getItem(KEY) || '[]');
+            log.unshift({ ts: new Date().toISOString(), form: formId, msg: String(msg) });
+            if (log.length > MAX) log.length = MAX;
+            localStorage.setItem(KEY, JSON.stringify(log));
+        } catch (_) {}
+    };
+
+    window.addEventListener('unhandledrejection', function(e) {
+        window.logFormError('unhandled', e.reason);
+    });
 }
 
 // ========== ORDER TOOL – Dane Zamówienia ==========
