@@ -3855,18 +3855,24 @@ header * {
     margin-bottom: 0;
 }
 
+.hero-text .hero-eyebrow {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
 .hero-text .hero-title {
-    font-size: clamp(2.25rem, 3vw + 0.75rem, 4.25rem);
-    line-height: 1.15;
+    font-size: clamp(1.625rem, 2vw + 0.5rem, 2rem);
+    line-height: 1.2;
     margin-bottom: 0;
     text-align: right;
     width: 100%;
-    text-wrap: balance;
+    white-space: nowrap;
 }
 
 .highlight-digits-tyt {
     color: #0891b2;
-    font-size: 1.1em;
 }
 
 .hero-cv-link {
@@ -3906,13 +3912,14 @@ header * {
     }
     .hero-text {
         padding-top: var(--space-4);
-        text-align: center;
+        text-align: right;
     }
     .hero-text .hero-title {
-        text-align: center;
+        white-space: normal;
+        font-size: clamp(1.5rem, 5vw, 2rem);
     }
     .hero-text .hero-eyebrow {
-        text-align: center;
+        white-space: normal;
     }
     .hero-bottom-content .cta-group {
         flex-direction: column;
