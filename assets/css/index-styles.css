@@ -1070,10 +1070,9 @@ section {
 
 .hero-bottom-content {
     text-align: center;
-    margin-top: var(--space-16);
-    padding-top: var(--space-10);
-    border-top: 1px solid var(--color-border);
-    max-width: 720px;
+    margin-top: var(--space-10);
+    padding-top: var(--space-8);
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -3844,41 +3843,30 @@ header * {
 
 /* ========== HERO RESTRUCTURE – scalona lewa kolumna ========== */
 
-/* Lewa kolumna hero: kompaktowe odstępy zamiast domyślnych dużych */
+/* Hero: h1 prawostronne w lewej kolumnie, proof pointy lewostronnie, CTA pod gridem */
 .hero-text {
     max-width: none;
-    padding-top: var(--space-6);   /* 1.5rem – było space-8 (2rem) */
-    gap: var(--space-4);           /* 1rem między elementami – było space-5 (1.25rem) */
+    padding-top: var(--space-6);
+    gap: var(--space-6);
 }
 
-/* Zerujemy marginesy na flex-dzieciach; gap w hero-text wystarczy */
 .hero-text .hero-eyebrow {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-/* h1 w lewej kolumnie: zmniejszony – było clamp(3.15rem,…,5.6rem) */
 .hero-text .hero-title {
     font-size: clamp(1.875rem, 2.5vw + 0.75rem, 3.5rem);
     line-height: 1.2;
-    margin-bottom: 0;  /* gap w hero-text obsługuje odstęp */
+    margin-bottom: 0;
+    text-align: right;
+    width: 100%;
 }
 
-/* WCAG AA dla akcentu w h1: #0891b2 daje kontrast 3.2:1 na #f8fafc ✓ */
 .highlight-digits-tyt {
     color: #0891b2;
 }
 
-/* Zdanie-pomost: bez auto-marginesów (flex-col je kontroluje) */
-.hero-text .hero-subtitle {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-    font-size: 1.1rem;
-    margin-bottom: 0;
-}
-
-/* Tekstowy link CV – wizualnie lżejszy niż przycisk */
 .hero-cv-link {
     display: inline-block;
     font-size: 0.875rem;
@@ -3892,26 +3880,24 @@ header * {
     color: var(--color-primary);
 }
 
-/* CTA w hero: poziomy rząd na wszystkich szerokościach (override globalnego flex-direction:column) */
-.hero-text .cta-group {
+/* Subtitle i CTA pod gridem */
+.hero-bottom-content .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-6);
+}
+
+.hero-bottom-content .cta-group {
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: var(--space-8);
+    justify-content: center;
 }
-/* override globalnego .btn { width:100%; max-width:300px } */
-.hero-text .cta-group .btn {
+
+.hero-bottom-content .cta-group .btn {
     width: auto;
     max-width: none;
 }
 
-/* Desktop (≥1025px): wyrównanie do lewej */
-@media (min-width: 1025px) {
-    .hero-text .cta-group {
-        justify-content: flex-start;
-    }
-}
-
-/* Tablet i mobile (≤768px): pionowy stos kolumn, centrowanie treści */
+/* Mobile (≤768px) */
 @media (max-width: 768px) {
     .hero-main-content {
         grid-template-columns: 1fr !important;
@@ -3920,20 +3906,20 @@ header * {
         padding-top: var(--space-4);
         text-align: center;
     }
+    .hero-text .hero-title {
+        text-align: center;
+    }
     .hero-text .hero-eyebrow {
         text-align: center;
     }
-    .hero-text .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 520px;
-    }
-    .hero-text .cta-group {
-        justify-content: center;
+    .hero-bottom-content .cta-group {
+        flex-direction: column;
+        align-items: center;
         gap: var(--space-3);
     }
-    .hero-cv-link {
-        align-self: center;
+    .hero-bottom-content .cta-group .btn {
+        width: 100%;
+        max-width: 320px;
     }
 }
 
