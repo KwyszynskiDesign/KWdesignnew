@@ -3843,18 +3843,22 @@ header * {
 
 /* ========== HERO RESTRUCTURE – scalona lewa kolumna ========== */
 
+.hero-main-content {
+    align-items: start;
+}
+
 .hero-text {
     max-width: none;
-    padding-top: var(--space-6);
+    padding-top: 0;
     gap: var(--space-3);
     text-align: left;
     align-items: flex-start;
 }
 
 .hero-text .hero-eyebrow {
-    font-size: 0.6875rem;
+    font-size: clamp(0.9rem, 1.4vw, 1.15rem);
     line-height: 1.2;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     margin-top: 0;
     margin-bottom: 0;
     white-space: nowrap;
@@ -3868,15 +3872,10 @@ header * {
     font-size: unset;
 }
 
-.hero-title .ht-line1 {
-    font-size: clamp(2rem, 4vw, 2.875rem);
-    line-height: 1.1;
-    white-space: nowrap;
-}
-
+.hero-title .ht-line1,
 .hero-title .ht-line2 {
-    font-size: clamp(1.625rem, 3.2vw, 2.25rem);
-    line-height: 1.15;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    line-height: 1.1;
     white-space: nowrap;
 }
 
@@ -3929,6 +3928,7 @@ header * {
     .hero-title .ht-line1,
     .hero-title .ht-line2 {
         white-space: normal;
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
     }
     .hero-bottom-content .cta-group {
         flex-direction: column;
