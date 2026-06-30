@@ -740,7 +740,12 @@
                 var title = document.querySelector('.hero-text .hero-title');
                 var eyebrow = document.querySelector('.hero-text .hero-eyebrow');
                 if (!title || !eyebrow) return;
+
+                var prevInlineWidth = title.style.width;
+                title.style.width = 'max-content';
                 var targetWidth = title.getBoundingClientRect().width;
+                title.style.width = prevInlineWidth;
+
                 var lo = 8, hi = 80;
                 for (var i = 0; i < 30; i++) {
                     var mid = (lo + hi) / 2;
@@ -753,7 +758,12 @@
                 }
                 eyebrow.style.fontSize = ((lo + hi) / 2) + 'px';
             }
-            fitEyebrowToTitle();
+
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(fitEyebrowToTitle);
+            } else {
+                window.addEventListener('load', fitEyebrowToTitle);
+            }
             window.addEventListener('resize', fitEyebrowToTitle);
         })();
     </script>
