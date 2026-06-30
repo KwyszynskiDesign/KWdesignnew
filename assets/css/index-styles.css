@@ -1174,10 +1174,10 @@ section {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-10);
     margin-bottom: var(--space-20);
-    max-width: 1200px;
+    max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     align-items: stretch;
@@ -3297,7 +3297,7 @@ section {
 
     /* 2. BENEFITS - 3 kolumny (6 kart w 2 rzędach) */
     .benefits-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 
     /* 3. PORTFOLIO - 3 kolumny */
@@ -3856,15 +3856,17 @@ header * {
 }
 
 .hero-text .hero-title {
-    font-size: clamp(1.875rem, 2.5vw + 0.75rem, 3.5rem);
-    line-height: 1.2;
+    font-size: clamp(2.25rem, 3vw + 0.75rem, 4.25rem);
+    line-height: 1.15;
     margin-bottom: 0;
     text-align: right;
     width: 100%;
+    text-wrap: balance;
 }
 
 .highlight-digits-tyt {
     color: #0891b2;
+    font-size: 1.1em;
 }
 
 .hero-cv-link {
