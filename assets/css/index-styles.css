@@ -3861,11 +3861,23 @@ header * {
 }
 
 .hero-text .hero-title {
-    font-size: clamp(2.25rem, 4vw, 3rem);
-    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0;
     text-align: left;
-    white-space: normal;
+    font-size: unset;
+}
+
+.hero-title .ht-line1 {
+    font-size: clamp(2rem, 4vw, 2.875rem);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.hero-title .ht-line2 {
+    font-size: clamp(1.625rem, 3.2vw, 2.25rem);
+    line-height: 1.15;
+    white-space: nowrap;
 }
 
 .highlight-digits-tyt {
@@ -3911,14 +3923,12 @@ header * {
         padding-top: var(--space-4);
         text-align: left;
     }
-    .hero-text .hero-title {
-        font-size: clamp(1.75rem, 5vw, 2.25rem);
-    }
     .hero-text .hero-eyebrow {
         white-space: normal;
     }
-    .title-br {
-        display: none;
+    .hero-title .ht-line1,
+    .hero-title .ht-line2 {
+        white-space: normal;
     }
     .hero-bottom-content .cta-group {
         flex-direction: column;
