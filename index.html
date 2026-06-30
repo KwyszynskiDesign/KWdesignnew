@@ -734,5 +734,28 @@
 
     <script src="assets/js/availability.js"></script>
     <script src="assets/js/index-scripts.js"></script>
+    <script>
+        (function () {
+            function fitEyebrowToTitle() {
+                var title = document.querySelector('.hero-text .hero-title');
+                var eyebrow = document.querySelector('.hero-text .hero-eyebrow');
+                if (!title || !eyebrow) return;
+                var targetWidth = title.getBoundingClientRect().width;
+                var lo = 8, hi = 80;
+                for (var i = 0; i < 30; i++) {
+                    var mid = (lo + hi) / 2;
+                    eyebrow.style.fontSize = mid + 'px';
+                    if (eyebrow.getBoundingClientRect().width < targetWidth) {
+                        lo = mid;
+                    } else {
+                        hi = mid;
+                    }
+                }
+                eyebrow.style.fontSize = ((lo + hi) / 2) + 'px';
+            }
+            fitEyebrowToTitle();
+            window.addEventListener('resize', fitEyebrowToTitle);
+        })();
+    </script>
 </body>
 </html>
