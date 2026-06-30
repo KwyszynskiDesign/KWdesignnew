@@ -1594,3 +1594,45 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
 }
 
+/* === EXPERIENCE SECTION === */
+.experience-section {
+  padding: var(--space-20) 0;
+  background: var(--color-background);
+}
+
+.exp-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+  max-width: 860px;
+}
+
+.exp-credentials {
+  margin-top: var(--space-12);
+  max-width: 860px;
+  padding: var(--space-8);
+  background: var(--color-background-light);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-border);
+}
+
+.exp-credentials-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.exp-credentials-placeholder {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .exp-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
