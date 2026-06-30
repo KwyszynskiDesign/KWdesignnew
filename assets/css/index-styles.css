@@ -3853,12 +3853,7 @@ header * {
 .hero-text .hero-eyebrow {
     margin-top: 0;
     margin-bottom: 0;
-}
-
-.hero-text .hero-eyebrow {
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: right;
+    text-align: left;
     white-space: nowrap;
 }
 
