@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNotifications();
     initTestimonialsCarousel();
     initScrollToTop();
-    initAvailabilityStatus();
     initCounters();
     initServiceCardsAnimation();
     initOrderTool();
@@ -229,52 +228,6 @@ function initCounters() {
 
     counters.forEach(counter => observer.observe(counter));
 }
-
-function initAvailabilityStatus() {
-    const dot = document.getElementById('availability-dot');
-    const text = document.getElementById('availability-text');
-
-    if (!dot || !text) return;
-
-    function updateStatus() {
-        const status = getCurrentStatus();
-        dot.className = `dot ${status.status}`;
-        text.textContent = status.text;
-    }
-
-    updateStatus();
-    setInterval(updateStatus, 60000);
-}
-
-function getCurrentStatus() {
-    const now = new Date();
-    const hour = now.getHours();
-    const day = now.getDay(); // 0 = niedziela, 6 = sobota
-
-    // Weekend (sobota i niedziela)
-    if (day === 0 || day === 6) {
-        return {
-            status: 'away',
-            text: 'Odpiszę w poniedziałek'
-        };
-    }
-
-    // Godziny pracy (6:00 - 22:00) - zielony
-    if (hour >= 6 && hour < 22) {
-        return {
-            status: 'available',
-            text: 'Otwarty na współpracę — odpowiadam w 24h'
-        };
-    }
-    // Noc (22:00 - 6:00) - żółty
-    else {
-        return {
-            status: 'busy',
-            text: 'Odpowiadam w 24h'
-        };
-    }
-}
-
 
 function initNavigation() {
     const hamburger = document.querySelector('.hamburger');
