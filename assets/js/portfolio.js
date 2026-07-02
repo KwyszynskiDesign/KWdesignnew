@@ -287,6 +287,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function showNcOverlay(card, projectId) {
+    closeNcOverlay();
+
+    const cardNumClass = Array.from(card.classList).find(c => /^nc-card-\d+$/.test(c)) || '';
+    const contentEl = card.querySelector('.nc-content');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'nc-overlay';
+    overlay.id = 'nc-overlay';
+
+    overlay.innerHTML = `
+      <div class="nc-overlay-inner">
+        <div class="nc-card ${cardNumClass} nc-overlay-card">
+          <div class="nc-bg"></div>
+          <div class="nc-particles">
+            <span class="nc-particle"></span>
+            <span class="nc-particle"></span>
+            <span class="nc-particle"></span>
+            <span class="nc-particle"></span>
+            <span class="nc-particle"></span>
+          </div>
+          <div class="nc-glow"></div>
+          ${contentEl ? contentEl.outerHTML : ''}
+        </div>
+        <button class="nc-overlay-cta" id="nc-overlay-cta">
+          Zobacz projekt
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="nc-overlay-close" aria-label="Zamknij">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.classList.add('nc-overlay-open');
+
+    requestAnimationFrame(() => overlay.classList.add('active'));
+
+    overlay.querySelector('#nc-overlay-cta').addEventListener('click', () => {
+      closeNcOverlay();
+      showProjectDetails(projectId);
+    });
+
+    overlay.querySelector('.nc-overlay-close').addEventListener('click', closeNcOverlay);
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeNcOverlay();
+    });
+  }
+
+  function closeNcOverlay() {
+    const overlay = document.getElementById('nc-overlay');
+    if (!overlay) return;
+    overlay.classList.remove('active');
+    document.body.classList.remove('nc-overlay-open');
+    setTimeout(() => overlay.remove(), 300);
+  }
+
   window.closeProjectDetails = function() {
     const container = document.getElementById('project-details-container');
     if (!container) return;
@@ -327,7 +386,13 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       e.stopPropagation();
       const id = this.getAttribute('data-project');
-      if (id) showProjectDetails(id);
+      if (id) {
+        if (this.classList.contains('nc-card')) {
+          showNcOverlay(this, id);
+        } else {
+          showProjectDetails(id);
+        }
+      }
     });
 
     card.addEventListener('keydown', function(e) {
@@ -340,6 +405,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+      if (document.getElementById('nc-overlay')) {
+        closeNcOverlay();
+        return;
+      }
       const container = document.getElementById('project-details-container');
       if (container && container.classList.contains('active')) {
         closeProjectDetails();

@@ -1345,8 +1345,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
    NEON CAROUSEL — nc-* namespace
    ============================================================ */
 :root {
-  --nc-card-w: 340px;
-  --nc-card-h: 420px;
+  --nc-card-w: 306px;
+  --nc-card-h: 378px;
   --nc-gap: 32px;
   --nc-speed: 60s;
   --nc-track-items: 8;
@@ -1359,12 +1359,14 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   width: 100vw;
   background: #0b0f19;
   padding: 60px 0 72px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .nc-carousel-wrapper {
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -1570,8 +1572,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
 /* Responsive */
 @media (max-width: 768px) {
   :root {
-    --nc-card-w: 260px;
-    --nc-card-h: 340px;
+    --nc-card-w: 234px;
+    --nc-card-h: 306px;
     --nc-gap: 20px;
     --nc-speed: 45s;
   }
@@ -1591,6 +1593,108 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   .nc-particle {
     animation: none;
+  }
+}
+
+/* === NC OVERLAY === */
+body.nc-overlay-open { overflow: hidden; }
+
+.nc-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(11, 15, 25, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nc-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nc-overlay-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.nc-overlay-card {
+  width: 460px;
+  height: 540px;
+  flex-shrink: 0;
+  transform: scale(0.88) translateY(12px);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+}
+
+.nc-overlay.active .nc-overlay-card {
+  transform: scale(1) translateY(0);
+}
+
+.nc-overlay .nc-overlay-card .nc-glow {
+  opacity: 1;
+}
+
+.nc-overlay-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: #fff;
+  color: #0f172a;
+  border: none;
+  border-radius: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.nc-overlay-cta:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+}
+
+.nc-overlay-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.nc-overlay-close:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+@media (max-width: 540px) {
+  .nc-overlay-card {
+    width: 88vw;
+    height: 110vw;
+    max-height: 70vh;
   }
 }
 
