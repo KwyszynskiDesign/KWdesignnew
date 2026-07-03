@@ -527,6 +527,8 @@
     margin-bottom: 24px;
     padding-top: 16px;
     border-top: 1px solid #f0f0f0;
+    font-size: 0.875rem;
+    color: #666;
 }
 
 .meta-item {

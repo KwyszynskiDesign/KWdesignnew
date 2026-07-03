@@ -443,7 +443,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   padding: 32px 12px;
 }
 
-/* Karta portfolio - POPRAWIONA - 15% mniejsza */
 .portfolio-new-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(15px);
@@ -455,7 +454,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   text-decoration: none;
   color: inherit;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
+  box-shadow:
     0 8px 24px rgba(0, 0, 0, 0.08),
     0 4px 12px rgba(0, 0, 0, 0.06);
   position: relative;
@@ -464,9 +463,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   user-select: none;
   pointer-events: auto;
   z-index: 1;
-  transform: scale(0.85);
-  transform-origin: center;
-  margin: 12px;
 }
 
 .portfolio-new-card::before {
@@ -481,10 +477,9 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   pointer-events: none;
 }
 
-/* HOVER - Powiększenie o ~9% (z 0.85 do 0.93) */
 .portfolio-new-card:hover {
-  transform: scale(0.93) translateY(-8px); 
-  box-shadow: 
+  transform: translateY(-6px);
+  box-shadow:
     0 20px 48px rgba(37, 99, 235, 0.15),
     0 10px 24px rgba(37, 99, 235, 0.1);
   border-color: rgba(37, 99, 235, 0.3);
@@ -501,9 +496,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   border-radius: 20px;
 }
 
-/* ACTIVE (kliknięcie) - Zmniejszenie do 0.83 ← POPRAWIONE! */
 .portfolio-new-card:active {
-  transform: scale(0.83) translateY(-6px); /* ← BYŁO: scale(0.98) */
+  transform: translateY(-3px);
   transition: transform 0.1s ease;
 }
 
@@ -1206,260 +1200,8 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
 }
 
-/* ============================================================
-   NEON CAROUSEL — nc-* namespace
-   ============================================================ */
-:root {
-  --nc-card-w: 306px;
-  --nc-card-h: 378px;
-  --nc-gap: 32px;
-  --nc-speed: 60s;
-  --nc-track-items: 8;
-}
 
-.nc-carousel-outer {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  background: #0b0f19;
-  padding: 60px 0 72px;
-  overflow-x: hidden;
-  overflow-y: visible;
-}
 
-.nc-carousel-wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: visible;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.nc-carousel-wrapper:active {
-  cursor: grabbing;
-}
-
-.nc-track {
-  display: flex;
-  gap: var(--nc-gap);
-  width: max-content;
-  animation: nc-scroll-x var(--nc-speed) linear infinite;
-  will-change: transform;
-}
-
-.nc-track.nc-dragging {
-  animation: none;
-  cursor: grabbing;
-}
-
-@keyframes nc-scroll-x {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(-1 * var(--nc-track-items) * (var(--nc-card-w) + var(--nc-gap)))); }
-}
-
-/* Card base */
-.nc-card {
-  position: relative;
-  flex-shrink: 0;
-  width: var(--nc-card-w);
-  height: var(--nc-card-h);
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-  outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.nc-card:hover,
-.nc-card:focus-visible {
-  transform: translateY(-6px) scale(1.015);
-}
-
-.nc-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.nc-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.nc-particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  opacity: 0;
-  animation: nc-float-particle 4s ease-in-out infinite;
-}
-
-@keyframes nc-float-particle {
-  0%   { opacity: 0; transform: translateY(0) scale(1); }
-  20%  { opacity: 0.8; }
-  80%  { opacity: 0.4; }
-  100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
-}
-
-.nc-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 32px 28px 28px;
-}
-
-.nc-icon {
-  font-size: 2.4rem;
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.nc-number {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.5;
-  margin-bottom: 20px;
-}
-
-.nc-title {
-  font-size: 1.45rem;
-  font-weight: 800;
-  line-height: 1.2;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.nc-desc {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.65);
-  flex: 1;
-}
-
-.nc-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 20px;
-}
-
-.nc-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.18);
-}
-
-.nc-glow {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.nc-card:hover .nc-glow,
-.nc-card:focus-visible .nc-glow {
-  opacity: 1;
-}
-
-@keyframes nc-shine-sweep {
-  0%   { transform: translateX(-100%) rotate(25deg); }
-  100% { transform: translateX(300%) rotate(25deg); }
-}
-
-/* Card themes — dark-premium system */
-/* nc-card-1: RazDwa */
-.nc-card-1 .nc-bg { background: linear-gradient(135deg, #141228 0%, #2d1668 50%, #141228 100%); }
-.nc-card-1 .nc-number { color: #8b7de0; }
-.nc-card-1 .nc-glow { box-shadow: inset 0 0 20px rgba(139,92,246,0.08), 0 0 14px rgba(139,92,246,0.1); }
-.nc-card-1:hover { box-shadow: 0 8px 24px rgba(139,92,246,0.16); }
-
-/* nc-card-2: Karoma */
-.nc-card-2 .nc-bg { background: linear-gradient(135deg, #1c1408 0%, #3d2b12 50%, #1c1408 100%); }
-.nc-card-2 .nc-number { color: #C58B2B; }
-.nc-card-2 .nc-glow { box-shadow: inset 0 0 20px rgba(197,139,43,0.08), 0 0 14px rgba(197,139,43,0.1); }
-.nc-card-2:hover { box-shadow: 0 8px 24px rgba(197,139,43,0.16); }
-
-/* nc-card-3: Power of Mind */
-.nc-card-3 .nc-bg { background: linear-gradient(135deg, #0e1526 0%, #18366a 50%, #0e1526 100%); }
-.nc-card-3 .nc-number { color: #5b8fd4; }
-.nc-card-3 .nc-glow { box-shadow: inset 0 0 20px rgba(96,165,250,0.08), 0 0 14px rgba(96,165,250,0.1); }
-.nc-card-3:hover { box-shadow: 0 8px 24px rgba(96,165,250,0.16); }
-
-/* nc-card-4: CyfraDruk */
-.nc-card-4 .nc-bg { background: linear-gradient(135deg, #18140a 0%, #33260f 50%, #18140a 100%); }
-.nc-card-4 .nc-number { color: #A9782A; }
-.nc-card-4 .nc-glow { box-shadow: inset 0 0 20px rgba(169,120,42,0.08), 0 0 14px rgba(169,120,42,0.1); }
-.nc-card-4:hover { box-shadow: 0 8px 24px rgba(169,120,42,0.16); }
-
-/* nc-card-5: Sir Roger */
-.nc-card-5 .nc-bg { background: linear-gradient(135deg, #0e180f 0%, #1e3522 50%, #0e180f 100%); }
-.nc-card-5 .nc-number { color: #5E8E3E; }
-.nc-card-5 .nc-glow { box-shadow: inset 0 0 20px rgba(94,142,62,0.08), 0 0 14px rgba(94,142,62,0.1); }
-.nc-card-5:hover { box-shadow: 0 8px 24px rgba(94,142,62,0.16); }
-
-/* nc-card-6: KW Design */
-.nc-card-6 .nc-bg { background: linear-gradient(135deg, #1a1008 0%, #342010 50%, #1a1008 100%); }
-.nc-card-6 .nc-number { color: #B86A2E; }
-.nc-card-6 .nc-glow { box-shadow: inset 0 0 20px rgba(184,106,46,0.08), 0 0 14px rgba(184,106,46,0.1); }
-.nc-card-6:hover { box-shadow: 0 8px 24px rgba(184,106,46,0.16); }
-
-/* nc-card-7: Savage */
-.nc-card-7 .nc-bg { background: linear-gradient(135deg, #101320 0%, #1e2445 50%, #101320 100%); }
-.nc-card-7 .nc-number { color: #4B5FAE; }
-.nc-card-7 .nc-glow { box-shadow: inset 0 0 20px rgba(75,95,174,0.08), 0 0 14px rgba(75,95,174,0.1); }
-.nc-card-7:hover { box-shadow: 0 8px 24px rgba(75,95,174,0.16); }
-
-/* nc-card-8: Voucher Magdy */
-.nc-card-8 .nc-bg { background: linear-gradient(135deg, #180c14 0%, #351230 50%, #180c14 100%); }
-.nc-card-8 .nc-number { color: #c4607a; }
-.nc-card-8 .nc-glow { box-shadow: inset 0 0 20px rgba(196,96,122,0.08), 0 0 14px rgba(196,96,122,0.1); }
-.nc-card-8:hover { box-shadow: 0 8px 24px rgba(196,96,122,0.16); }
-
-/* Responsive */
-@media (max-width: 768px) {
-  :root {
-    --nc-card-w: 234px;
-    --nc-card-h: 306px;
-    --nc-gap: 20px;
-    --nc-speed: 45s;
-  }
-
-  .nc-content {
-    padding: 24px 20px 20px;
-  }
-
-  .nc-title {
-    font-size: 1.2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nc-track {
-    animation-play-state: paused;
-  }
-  .nc-particle {
-    animation: none;
-  }
-}
 
 /* === EXPERIENCE SECTION === */
 .experience-section {
@@ -1473,28 +1215,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   gap: var(--space-4);
   margin-top: var(--space-10);
   max-width: 860px;
-}
-
-.exp-credentials {
-  margin-top: var(--space-12);
-  max-width: 860px;
-  padding: var(--space-8);
-  background: var(--color-background-light);
-  border-radius: var(--radius-lg);
-  border: 1px dashed var(--color-border);
-}
-
-.exp-credentials-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: var(--space-3);
-}
-
-.exp-credentials-placeholder {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  margin: 0;
 }
 
 @media (max-width: 640px) {
