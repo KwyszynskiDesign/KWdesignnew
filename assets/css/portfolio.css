@@ -1206,141 +1206,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
 }
 
-/* === LOADING SPINNER === */
-.loading-spinner {
-  text-align: center;
-  padding: 80px 20px;
-  color: #64748b;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.loading-spinner::after {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border: 3px solid #e2e8f0;
-  border-top-color: #2563eb;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin-left: 12px;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* === ERROR MESSAGE === */
-.error-message {
-  text-align: center;
-  padding: 60px 20px;
-  background: rgba(255, 237, 237, 0.9);
-  border-radius: 16px;
-  margin: 40px 0;
-}
-
-.error-message h3 {
-  color: #d52b1e;
-  margin-bottom: 16px;
-}
-
-.error-message a {
-  color: #2563eb;
-  text-decoration: underline;
-}
-
-/* === PROJECT DETAILS - FINAL VERSION === */
-.project-details-container {
-  display: none;
-  margin-top: 60px;
-  padding: 0 !important;
-  background: transparent !important;
-  position: relative;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-details-container.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.close-details-btn {
-  position: sticky !important;
-  top: 80px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 100;
-  background: rgba(244, 247, 250, 0.95);
-  backdrop-filter: blur(15px);
-  border: none;
-  border-radius: 12px;
-  padding: 12px 24px;
-  margin: 0 auto 30px !important;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #133b7b;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(23, 91, 247, 0.15);
-}
-
-.close-details-btn:hover {
-  background: #e3ecff;
-  transform: translateX(-50%) translateY(-2px) !important;
-  box-shadow: 0 6px 24px rgba(23, 91, 247, 0.25);
-}
-
-.close-details-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-.project-details-content {
-  padding: 20px 0;
-  animation: fadeInUp 0.6s ease-out;
-}
-
-.project-details-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 12px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.project-details-category {
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #0ea5e9;
-  margin-bottom: 32px;
-}
-
-/* Responsywność dla mobile */
-@media (max-width: 768px) {
-  .close-details-btn {
-    position: static !important;
-    margin-bottom: 20px;
-    width: 100%;
-    justify-content: center;
-    transform: none !important;
-  }
-
-  .close-details-btn:hover {
-    transform: translateY(-2px) !important;
-  }
-}
-
 /* ============================================================
    NEON CAROUSEL — nc-* namespace
    ============================================================ */
@@ -1596,108 +1461,6 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
 }
 
-/* === NC OVERLAY === */
-body.nc-overlay-open { overflow: hidden; }
-
-.nc-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9000;
-  background: rgba(11, 15, 25, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.nc-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.nc-overlay-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-}
-
-.nc-overlay-card {
-  width: 460px;
-  height: 540px;
-  flex-shrink: 0;
-  transform: scale(0.88) translateY(12px);
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: default;
-}
-
-.nc-overlay.active .nc-overlay-card {
-  transform: scale(1) translateY(0);
-}
-
-.nc-overlay .nc-overlay-card .nc-glow {
-  opacity: 1;
-}
-
-.nc-overlay-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 36px;
-  background: #fff;
-  color: #0f172a;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-.nc-overlay-cta:hover {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-}
-
-.nc-overlay-close {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-}
-
-.nc-overlay-close:hover {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.1);
-}
-
-@media (max-width: 540px) {
-  .nc-overlay-card {
-    width: 88vw;
-    height: 110vw;
-    max-height: 70vh;
-  }
-}
-
 /* === EXPERIENCE SECTION === */
 .experience-section {
   padding: var(--space-20) 0;
@@ -1737,6 +1500,63 @@ body.nc-overlay-open { overflow: hidden; }
 @media (max-width: 640px) {
   .exp-stats-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* === CTA SECTION === */
+.cta-section {
+  padding: 80px 0 100px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+
+.cta-section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+
+.cta-section p {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 40px;
+  background: #fff;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 60px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cta:hover {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 60px 0 80px;
   }
 }
 
