@@ -243,7 +243,7 @@ function initWebsiteTabs() {
 // ========================================
 
 function initChapterRail() {
-  const rail = document.getElementById('razdwa-chapter-rail');
+  const rail = document.querySelector('.razdwa-chapter-rail');
   if (!rail) return;
 
   const links = Array.from(rail.querySelectorAll('.razdwa-chapter-link'));
