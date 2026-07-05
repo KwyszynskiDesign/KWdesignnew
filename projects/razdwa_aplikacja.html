@@ -61,9 +61,8 @@
   <li><a class="razdwa-chapter-link" href="#razdwa-kontekst" data-rail-target="razdwa-kontekst" title="Kontekst i moja rola" aria-label="Kontekst i moja rola">Kontekst i moja rola</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Kluczowe decyzje produktowe" aria-label="Kluczowe decyzje produktowe">Kluczowe decyzje</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-ux" data-rail-target="razdwa-ux" title="Interfejs i przepływ pracy" aria-label="Interfejs i przepływ pracy">Interfejs i przepływ pracy</a></li>
-  <li><a class="razdwa-chapter-link" href="#razdwa-logika" data-rail-target="razdwa-logika" title="Wycena i automatyzacja i zarządzanie" aria-label="Wycena i automatyzacja i zarządzanie">Wycena i automatyzacja</a></li>
-  <li><a class="razdwa-chapter-link" href="#razdwa-zarzadzanie" data-rail-target="razdwa-zarzadzanie" title="Zarządzanie cennikiem i ofertą" aria-label="Zarządzanie cennikiem i ofertą">Zarządzanie cennikiem</a></li>
-  <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Jak działa system" aria-label="Jak działa system">Jak działa system</a></li>
+  <li><a class="razdwa-chapter-link" href="#razdwa-logika" data-rail-target="razdwa-logika" title="Wycena CAD i zarządzanie cennikiem" aria-label="Wycena CAD i zarządzanie cennikiem">Wycena i cennik</a></li>
+  <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Strategia techniczna i ekosystem" aria-label="Strategia techniczna i ekosystem">Strategia techniczna</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Wnioski po wdrożeniu" aria-label="Wnioski po wdrożeniu">Wnioski</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Rezultat projektu" aria-label="Rezultat projektu">Rezultat</a></li>
 </ul>
@@ -294,22 +293,40 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-logika">Automatyzacja wycen i zarządzanie</h2>
+<div class="kwcs-sec">
+  <div class="wrap">
+    <h3 class="kwcs-h3-center" style="margin-top:0;">Jak zamówienie domyka się w systemie</h3>
+    <div class="kwcs-gallery-grid kwcs-gallery-grid--trio">
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/tryb_express_RAZDWA.webp" alt="Tryb EXPRESS aktywowany w koszyku zamówienia" loading="lazy" data-caption="Tryb EXPRESS — globalne doliczenie priorytetu do całego zamówienia">
+        <p class="img-desc"><strong>Tryb EXPRESS:</strong> Jeden przełącznik wpływa na całe zamówienie, bez ręcznej korekty każdej pozycji.</p>
+      </div>
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Formularz_RAZDWA.webp" alt="Formularz danych klienta B2B w aplikacji" loading="lazy" data-caption="Formularz B2B — dane firmy, kontakt i walidacja pól">
+        <p class="img-desc"><strong>Dane klienta:</strong> Formularz porządkuje informacje i wspiera poprawne domknięcie procesu.</p>
+      </div>
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie techniczne zamówienia">
+        <p class="img-desc"><strong>Gotowy dokument:</strong> Podsumowanie zamówienia powstaje bezpośrednio w aplikacji.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-divider" id="razdwa-logika">Wycena CAD i zarządzanie cennikiem</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Najbardziej wymagającą częścią systemu była automatyzacja wyceny plików CAD oraz stworzenie panelu, który pozwala właścicielowi samodzielnie zarządzać cenami bez wsparcia programisty.
+      Najbardziej wymagającą częścią systemu była automatyzacja wyceny plików CAD oraz panel, który pozwala właścicielowi samodzielnie zarządzać cenami, aktualizować stawki i rozwijać ofertę bez angażowania programisty.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
-      <div class="gallery-item" style="border: 2px dashed  min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/CADUpload_RAZDWA_KW2.webp" alt="Ekran wyniku kalkulacji CAD2" loading="lazy" data-caption=" — rozpoznany format (A0–A3), długość wydruku, szerokość rolki, wycena per plik lub per mb">
-    
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/CADUpload_RAZDWA_KW2.webp" alt="Ekran wyniku kalkulacji CAD — widok parametrów pliku" loading="lazy" data-caption="Wycena CAD — rozpoznany format (A0–A3), długość wydruku, szerokość rolki">
       </div>
-      <div class="gallery-item" style="border: 2px dashed  min-height: 220px; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/CADUpload_RAZDWA_KW3.webp" alt="Ekran wyniku kalkulacji CAD3" loading="lazy" data-caption=" — rozpoznany format (A0–A3), długość wydruku, szerokość rolki, wycena per plik lub per mb">
-    
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/CADUpload_RAZDWA_KW3.webp" alt="Ekran wyniku kalkulacji CAD — wycena per plik i per mb" loading="lazy" data-caption="Wycena CAD — stawka per plik lub per mb w zależności od formatu">
       </div>
     </div>
   </div>
@@ -355,14 +372,8 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-zarzadzanie">Zarządzanie cennikiem i ofertą</h2>
-
 <div class="kwcs-sec">
   <div class="wrap">
-    <p class="kwcs-section-lead">
-      Jednym z kluczowych celów było uniezależnienie klienta od programisty przy zmianach cen i rozwijaniu oferty. Dlatego zaprojektowałem panel, który pozwala samodzielnie aktualizować stawki, kontrolować dostęp do edycji i dodawać nowe warianty produktów bez psucia struktury systemu.
-    </p>
-
     <div class="ux-decision-grid ux-decision-grid--trio">
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 1</div>
@@ -387,9 +398,8 @@
         <p class="img-desc"><strong>Prosty model rozbudowy oferty:</strong> Nowe warianty można dodawać bez ręcznego pilnowania technicznej struktury zapisów.</p>
       </div>
       <div class="gallery-item">
-          <div class="gallery-item">
-        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Tworzenie nowego wariantu produktu w aplikacji" loading="lazy" data-caption="Dodawanie wariantu — użytkownik pracuje na prostych nazwach">
-<p class="img-desc"><strong>Łatwe dodawanie produktu:</strong> Administator jest informowany na bieżąco w trakcie dodawania na jakim etapie jest.</p>
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/dwa_ekranydodaneprodukt_RAZDWA.webp" alt="Tworzenie nowego wariantu produktu w aplikacji" loading="lazy" data-caption="Dodawanie wariantu — postęp etapów widoczny na bieżąco">
+        <p class="img-desc"><strong>Łatwe dodawanie produktu:</strong> Administrator jest informowany na bieżąco w trakcie dodawania, na jakim etapie jest.</p>
       </div>
     </div>
   </div>
@@ -442,22 +452,6 @@
       </p>
     </div>
 
-    <h3 class="kwcs-h3-center" style="margin-top:2.5rem;">Jak zamówienie domyka się w systemie</h3>
-    <div class="kwcs-gallery-grid kwcs-gallery-grid--trio">
-      <div class="gallery-item">
-        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/tryb_express_RAZDWA.webp" alt="Tryb EXPRESS aktywowany w koszyku zamówienia" loading="lazy" data-caption="Tryb EXPRESS — globalne doliczenie priorytetu do całego zamówienia">
-        <p class="img-desc"><strong>Tryb EXPRESS:</strong> Jeden przełącznik wpływa na całe zamówienie, bez ręcznej korekty każdej pozycji.</p>
-      </div>
-      <div class="gallery-item">
-        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/Formularz_RAZDWA.webp" alt="Formularz danych klienta B2B w aplikacji" loading="lazy" data-caption="Formularz B2B — dane firmy, kontakt i walidacja pól">
-        <p class="img-desc"><strong>Dane klienta:</strong> Formularz porządkuje informacje i wspiera poprawne domknięcie procesu.</p>
-      </div>
-      <div class="gallery-item">
-        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie techniczne zamówienia">
-        <p class="img-desc"><strong>Gotowy dokument:</strong> Podsumowanie zamówienia powstaje bezpośrednio w aplikacji.</p>
-      </div>
-    
-    </div>
   </div>
     <p class="kwcs-note">
   Pakiet testów automatycznych zabezpieczał logikę cenową i ograniczał ryzyko regresji przy każdej zmianie cennika.
@@ -476,6 +470,24 @@
     <p class="kwcs-section-lead">
       To wdrożenie utwierdziło mnie w trzech rzeczach: najpierw trzeba zobaczyć realną pracę użytkownika, architektura musi wynikać z warunków operacyjnych, a najlepsze funkcje często pojawiają się dopiero po uruchomieniu pierwszej wersji produktu.
     </p>
+
+    <div class="ux-decision-grid ux-decision-grid--trio">
+      <div class="ux-decision-box">
+        <div class="ux-label">Wniosek 1</div>
+        <h4>Obserwacja przed projektem</h4>
+        <p>Wyjątki w wycenie CAD — niestandardowe formaty, orientacja rolki, stawka per mb zamiast per plik — pojawiły się dopiero przy obserwacji pracy przy ladzie. Gdyby projekt oparł się wyłącznie na briefie, te przypadki zostałyby pominięte do pierwszej reklamacji.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Wniosek 2</div>
+        <h4>Architektura z warunków, nie z preferencji</h4>
+        <p>Google Sheets i Apps Script to nie był tańszy zamiennik serwera. To było jedyne rozwiązanie pasujące do środowiska: brak własnej infrastruktury, znane narzędzia po stronie klienta i zerowy koszt stały. Wybór wynikł z diagnozy, nie z nawyku.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Wniosek 3</div>
+        <h4>Kluczowe funkcje po uruchomieniu</h4>
+        <p>Tryb EXPRESS, zarządzanie wariantami produktów i automatyczny eksport PDF nie były w pierwotnym zakresie. Pojawiły się po uruchomieniu — jako odpowiedź na rzeczywisty przepływ pracy, którego nie było widać przed wdrożeniem.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -514,7 +526,15 @@
         </svg>
       </a>
 
-     
+      <div class="result-next">
+        <h3>Następny projekt</h3>
+        <a class="kwcs-cta" href="/KWdesignnew/projects/karoma.html" aria-label="Przejdź do projektu Karoma — identyfikacja wizualna i sklep B2B">
+          Karoma — identyfikacja wizualna i sklep B2B
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </div>
