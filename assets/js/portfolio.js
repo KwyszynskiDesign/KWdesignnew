@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const doc = parser.parseFromString(html, 'text/html');
         const section = doc.querySelector('section.kwcs');
 
+        if (section) {
+          section.querySelectorAll('img[src^="../"]').forEach(function(img) {
+            img.setAttribute('src', img.getAttribute('src').replace(/^\.\.\//, ''));
+          });
+        }
+
         if (!section) {
           viewer.innerHTML = '<div class="error-msg">Nie udało się wczytać projektu.</div>';
           return;
