@@ -61,7 +61,8 @@
   <li><a class="razdwa-chapter-link" href="#razdwa-kontekst" data-rail-target="razdwa-kontekst" title="Kontekst i moja rola" aria-label="Kontekst i moja rola">Kontekst i moja rola</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Kluczowe decyzje produktowe" aria-label="Kluczowe decyzje produktowe">Kluczowe decyzje</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-ux" data-rail-target="razdwa-ux" title="Interfejs i przepływ pracy" aria-label="Interfejs i przepływ pracy">Interfejs i przepływ pracy</a></li>
-  <li><a class="razdwa-chapter-link" href="#razdwa-logika" data-rail-target="razdwa-logika" title="Wycena CAD i zarządzanie cennikiem" aria-label="Wycena CAD i zarządzanie cennikiem">Wycena i cennik</a></li>
+  <li><a class="razdwa-chapter-link" href="#razdwa-logika" data-rail-target="razdwa-logika" title="Automatyzacja wycen CAD" aria-label="Automatyzacja wycen CAD">Automatyzacja CAD</a></li>
+  <li><a class="razdwa-chapter-link" href="#razdwa-cennik" data-rail-target="razdwa-cennik" title="Zarządzanie cennikiem i ofertą" aria-label="Zarządzanie cennikiem i ofertą">Zarządzanie cennikiem</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Strategia techniczna i ekosystem" aria-label="Strategia techniczna i ekosystem">Strategia techniczna</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Wnioski po wdrożeniu" aria-label="Wnioski po wdrożeniu">Wnioski</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Rezultat projektu" aria-label="Rezultat projektu">Rezultat</a></li>
@@ -313,12 +314,12 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-logika">Wycena CAD i zarządzanie cennikiem</h2>
+<h2 class="section-divider" id="razdwa-logika">Automatyzacja wycen CAD</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Najbardziej wymagającą częścią systemu była automatyzacja wyceny plików CAD oraz panel, który pozwala właścicielowi samodzielnie zarządzać cenami, aktualizować stawki i rozwijać ofertę bez angażowania programisty.
+      Najtrudniejszą technicznie częścią systemu była wycena plików CAD — obsługa parametrów pliku, orientacji wydruku i wyjątków formatowych, które przy ręcznym podejściu generowały największe ryzyko błędów.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
@@ -329,11 +330,7 @@
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/CADUpload_RAZDWA_KW3.webp" alt="Ekran wyniku kalkulacji CAD — wycena per plik i per mb" loading="lazy" data-caption="Wycena CAD — stawka per plik lub per mb w zależności od formatu">
       </div>
     </div>
-  </div>
-</div>
 
-<div class="kwcs-sec kwcs-sec--alt">
-  <div class="wrap">
     <div class="kwcs-accordion">
       <div class="kwcs-item">
         <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
@@ -348,42 +345,35 @@
           </ul>
         </div>
       </div>
-      <div class="kwcs-item">
-        <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-1" id="header-cad-1" type="button">
-          <span class="num">2</span> Jak właściciel zarządza systemem
-          <span class="icon" aria-hidden="true">+</span>
-        </button>
-        <div class="kwcs-content" id="content-cad-1" role="region" aria-labelledby="header-cad-1">
-          <ul>
-            <li><strong>Panel administracyjny:</strong> pozwala szybko aktualizować stawki bez zmian w kodzie.</li>
-            <li><strong>Samodzielność klienta:</strong> właściciel może reagować na zmiany cen i oferty bez angażowania developera.</li>
-            <li><strong>Mniejsze koszty utrzymania:</strong> codzienne zarządzanie systemem nie wymaga dodatkowej obsługi technicznej.</li>
-          </ul>
-        </div>
-      </div>
     </div>
+  </div>
+</div>
 
-    <div class="kwcs-gallery-grid kwcs-gallery-grid--single kwcs-gallery-grid--mb" style="margin-top:2rem;">
+<h2 class="section-divider" id="razdwa-cennik">Zarządzanie cennikiem i ofertą</h2>
+
+<div class="kwcs-sec">
+  <div class="wrap">
+    <p class="kwcs-section-lead">
+      Jeden z kluczowych celów projektu to uniezależnienie właściciela od programisty przy zarządzaniu cenami. Panel administracyjny pozwala samodzielnie aktualizować stawki, kontrolować dostęp do edycji i dodawać nowe warianty bez psucia struktury danych.
+    </p>
+
+    <div class="kwcs-gallery-grid kwcs-gallery-grid--single" style="margin-bottom:2rem;">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/ustawienia_cen_RAZDWA.webp" alt="Panel administracyjny do zarządzania cenami" loading="lazy" data-caption="Panel cen — szybka edycja stawek bezpośrednio w tabeli">
         <p class="img-desc"><strong>Panel cen:</strong> Stawki można zmieniać bezpośrednio w panelu, bez angażowania developera i bez przeładowania strony.</p>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="kwcs-sec">
-  <div class="wrap">
     <div class="ux-decision-grid ux-decision-grid--trio">
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 1</div>
         <h4>Jedno miejsce do zarządzania cenami</h4>
-        <p>Cały cennik został zebrany w jednym widoku, co przyspiesza aktualizację stawek i ułatwia orientację w strukturze usług.</p>
+        <p>Cały cennik zebrany w jednym widoku — szybsza aktualizacja stawek i lepsza orientacja w strukturze usług.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 2</div>
         <h4>Bezpieczna edycja w codziennej pracy</h4>
-        <p>Dostęp do zmian został oddzielony od pracy operatora, dzięki czemu system pozostaje prosty w obsłudze i bezpieczny biznesowo.</p>
+        <p>Dostęp do zmian oddzielony od pracy operatora — system pozostaje prosty w obsłudze i bezpieczny biznesowo.</p>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Funkcja 3</div>
