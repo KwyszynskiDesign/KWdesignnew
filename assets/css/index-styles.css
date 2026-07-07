@@ -3469,6 +3469,12 @@ section {
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Portrait/near-square screenshots (np. Raz Dwa) — pokaż cały obraz bez przycinania */
+.card-image-wrapper img.card-image--contain {
+    object-fit: contain;
+    padding: var(--space-3, 12px);
+}
+
 .portfolio-new-card:hover .card-image-wrapper img {
     transform: scale(1.05);
 }
