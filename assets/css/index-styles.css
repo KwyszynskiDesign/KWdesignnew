@@ -4353,3 +4353,180 @@ header * {
         padding: 18px 16px;
     }
 }
+
+/* ==========================================================================
+   HERO REFINEMENT 2026 — dopracowanie wyłącznie sekcji hero
+   (czytelność, hierarchia, trust cues, dominujący primary CTA)
+   ========================================================================== */
+
+/* Wyrównanie kolumn w pionie — tekst wyśrodkowany względem portretu */
+.hero-main-content {
+    align-items: center;
+}
+
+/* Eyebrow: pozwól zawijać dłuższy zestaw kategorii oferty */
+.hero-text .hero-eyebrow {
+    white-space: normal;
+}
+
+/* Proof points — lista, bez sztucznej 100px przerwy */
+ul.hero-info-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.hero-text .hero-info-icons {
+    margin-top: var(--space-6);
+    gap: 0.9rem;
+}
+.info-icon {
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+.info-icon .info-check {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+.info-icon--stat {
+    align-items: center;
+    gap: 0.75rem;
+}
+.info-icon .text {
+    white-space: normal;
+}
+
+/* Portret — bardziej adekwatny asset, kadr zbalansowany z kolumną tekstu */
+.hero-image-container {
+    max-width: 420px;
+}
+.hero-image img {
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+    object-position: center 22%;
+}
+
+/* Podpis pod zdjęciem — czytelny, 2 linie, buduje zaufanie */
+.hero-image-caption {
+    margin: var(--space-4) 0 0;
+    text-align: center;
+    max-width: 420px;
+    line-height: 1.4;
+}
+.hero-image-caption .caption-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+.hero-image-caption .caption-desc {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+/* Akcje — primary dominujący, secondary wspierający (link, nie przycisk) */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    margin-top: var(--space-7);
+}
+.btn.btn-hero-cta {
+    padding: var(--space-4) var(--space-8);
+    font-size: 1.0625rem;
+    min-height: 54px;
+    box-shadow: 0 10px 24px -8px rgba(6, 182, 212, 0.45);
+}
+.hero-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+.hero-secondary-link span {
+    transition: transform 0.2s ease;
+}
+.hero-secondary-link:hover {
+    color: var(--color-primary);
+}
+.hero-secondary-link:hover span {
+    transform: translateX(3px);
+}
+
+/* Mobile (≤768px) — jednoznaczna kolejność i lekki układ pionowy */
+@media (max-width: 768px) {
+    .hero-main-content {
+        align-items: stretch !important;
+    }
+    .hero-text .hero-eyebrow { order: 1 !important; }
+    .hero-text .hero-title   { order: 2 !important; }
+    .hero-image              { order: 3 !important; }
+    .hero-text .hero-subtitle {
+        order: 4 !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .hero-text .hero-info-icons { order: 5 !important; margin-top: 0 !important; }
+    .hero-actions            { order: 6 !important; }
+
+    .hero-image-container {
+        max-width: 340px !important;
+        margin: 0 auto !important;
+    }
+    .hero-image img {
+        aspect-ratio: 4 / 5;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-4);
+        margin-top: var(--space-6);
+    }
+    .btn.btn-hero-cta {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    .hero-secondary-link {
+        justify-content: center;
+    }
+}
+
+/* Tablet pośredni (769–900px) — ta sama uporządkowana kolejność co mobile */
+@media (min-width: 769px) and (max-width: 900px) {
+    .hero-main-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+    }
+    .hero-text { display: contents !important; }
+    .hero-text .hero-eyebrow  { order: 1 !important; text-align: left !important; white-space: normal !important; }
+    .hero-text .hero-title    { order: 2 !important; text-align: left !important; }
+    .hero-image {
+        order: 3 !important;
+        grid-column: auto !important;
+        margin: var(--space-6) auto var(--space-4) !important;
+    }
+    .hero-text .hero-subtitle {
+        order: 4 !important;
+        text-align: left !important;
+        margin: 0 !important;
+        max-width: none !important;
+    }
+    .hero-text .hero-info-icons {
+        order: 5 !important;
+        display: flex !important;
+        margin: var(--space-5) 0 0 !important;
+    }
+    .hero-actions { order: 6 !important; margin-top: var(--space-6) !important; }
+    .hero-image-container { max-width: 400px !important; }
+}
