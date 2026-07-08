@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'power-of-mind': 'projects/power-of-mind.html',
     'KW-Design': 'projects/KW-Design.html',
     'sir-roger': 'projects/sir-roger.html',
-    'savage': 'projects/savage.html',
+    // 'savage' wyłączone z publicznego flow do czasu dostarczenia finalnych grafik
     'RazDwa': 'projects/razdwa_aplikacja.html',
     'cyfradruk': 'projects/cyfradruk.html',
   };
