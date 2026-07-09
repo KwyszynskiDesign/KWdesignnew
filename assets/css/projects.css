@@ -173,6 +173,24 @@
 }
 .hero-content-grid > .hero-image:only-child { grid-column: 1 / -1; }
 
+/* Hero image (tylko Raz Dwa) — responsywny, bez zniekształceń: plik ma proporcje
+   ~1450x1306, a atrybuty width/height 1200x630 wymuszaly spłaszczenie; brakowało
+   reguły CSS. Scope #case-razdwa-pelne, żeby nie ruszać innych case studies. */
+#case-razdwa-pelne .kwcs-hero-body .hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#case-razdwa-pelne .kwcs-hero-body .hero-image .cover {
+  display: block;
+  width: 100%;
+  max-width: 1040px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.32);
+}
+
 .hero-buttons-vertical {
   display: flex;
   flex-direction: column;
