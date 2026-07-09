@@ -246,10 +246,13 @@
 
 
     
-<h2 class="section-divider" id="razdwa-ux">Interfejs i przepływ pracy</h2>
+<h2 class="section-divider" id="razdwa-ux">Wycena w kilku krokach, bez przełączania okien</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
+    <p class="kwcs-section-lead">
+      Obsługę zamówienia zaprojektowałem jako jedną, powtarzalną ścieżkę — operator przechodzi od wyboru usługi do gotowego dokumentu bez przeskakiwania między ekranami. Dzięki temu wycena przy ladzie jest szybka, a klient czeka krócej.
+    </p>
     <h3 class="kwcs-h3-center mt-0">Główna ścieżka obsługi zamówienia</h3>
     <div class="user-flow">
       <div class="flow-step">
@@ -317,18 +320,18 @@
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/raport_PDF_RAZDWA.webp" alt="Wygenerowany raport PDF zamówienia" loading="lazy" data-caption="Raport PDF — gotowe podsumowanie techniczne zamówienia">
-        <p class="img-desc"><strong>Gotowy dokument:</strong> Podsumowanie zamówienia powstaje bezpośrednio w aplikacji.</p>
+        <p class="img-desc"><strong>Gotowy dokument:</strong> Podsumowanie zamówienia powstaje bezpośrednio w aplikacji — klient dostaje czytelną wycenę od ręki, bez przepisywania danych.</p>
       </div>
     </div>
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-logika">Automatyzacja wycen CAD</h2>
+<h2 class="section-divider" id="razdwa-logika">Najtrudniejsze wyceny liczą się same</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Najtrudniejszą technicznie częścią systemu była wycena plików CAD — obsługa parametrów pliku, orientacji wydruku i wyjątków formatowych, które przy ręcznym podejściu generowały największe ryzyko błędów.
+      Najtrudniejszą technicznie częścią systemu była wycena plików CAD — obsługa parametrów pliku, orientacji wydruku i wyjątków formatowych, które przy ręcznym podejściu generowały największe ryzyko błędów. To właśnie tu znikała godzina liczenia: system rozpoznaje parametry i podaje cenę sam, więc operator nie musi liczyć ręcznie, a pomyłka wymiarowa jest znacznie mniej prawdopodobna.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
