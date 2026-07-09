@@ -2721,7 +2721,7 @@ body.lightbox-open {
   border-radius: 0.85rem;
   padding: 0.75rem 0.7rem;
   margin: 0;
-  width: 220px;
+  width: 180px;
   max-height: calc(100vh - 32px);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -2831,28 +2831,29 @@ body.lightbox-open {
    żeby rail nie nachodził na sekcje przy max-width 1200 wycentrowanych */
 @media (min-width: 1280px) {
   .razdwa-chapter-rail {
-    width: 232px;
+    width: 172px;
     padding: 0.8rem 0.7rem;
   }
   .razdwa-chapter-link {
     font-size: 0.79rem;
     padding: 0.38rem 0.65rem;
   }
-  /* Wypchnij content RAZDWA w prawo, żeby rail (16 + 232 + ~24 gap) nie nachodził */
-  #case-razdwa-pelne { padding-left: 272px; }
+  /* Odsuń content RAZDWA za rail (16 + ~196 wizualnie + gap) i poszerz kolumnę,
+     żeby treść dosunęła się w lewo i zmniejszył się prawy margines */
+  #case-razdwa-pelne { padding-left: 216px; --wrap-max: 1240px; }
 }
 
 /* Laptop 1101-1279px — węższy rail, mniejszy margin contentu */
 @media (min-width: 1101px) and (max-width: 1279px) {
   .razdwa-chapter-rail {
-    width: 190px;
+    width: 150px;
     padding: 0.6rem 0.55rem;
   }
   .razdwa-chapter-link {
     font-size: 0.74rem;
     padding: 0.32rem 0.5rem;
   }
-  #case-razdwa-pelne { padding-left: 232px; }
+  #case-razdwa-pelne { padding-left: 184px; --wrap-max: 1120px; }
 }
 
 /* Tablet i mobile ≤1100px — fixed top bar z poziomym scrollem pigułek */
