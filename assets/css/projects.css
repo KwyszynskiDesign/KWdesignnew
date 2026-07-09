@@ -3742,6 +3742,11 @@ body { overflow-x: hidden; }
   gap: 1rem;
   justify-content: center;
 }
+/* neutralizacja margin:auto z .kwcs-result .kwcs-cta, ktory w flexie
+   rozpychal przyciski na krawedzie */
+#case-razdwa-pelne .result-invite-actions .kwcs-cta {
+  margin: 0.5rem 0;
+}
 #case-razdwa-pelne .kwcs-cta--ghost {
   background: transparent;
   color: #0284c7;
