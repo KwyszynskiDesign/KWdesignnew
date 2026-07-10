@@ -3506,25 +3506,25 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 .kwcs-breadcrumb-current { font-size: 0.9rem; color: #64748b; }
 
 /* ========================================
-   #CASE-KAROMA — scoped overrides
+   #CASE-KAROMA-PELNE — scoped overrides
    Dopasowanie spacingu i layoutu do wzorca RazDwa
    ======================================== */
-#case-karoma .section-divider + .kwcs-sec { padding-top: 1.25rem; }
+#case-karoma-pelne .section-divider + .kwcs-sec { padding-top: 1.25rem; }
 
-#case-karoma .result-cards {
+#case-karoma-pelne .result-cards {
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 768px) {
-  #case-karoma .result-cards {
+  #case-karoma-pelne .result-cards {
     grid-template-columns: 1fr;
   }
 }
 
-#case-karoma .kwcs-sec--alt .kwcs-trio { margin-top: 1.5rem; }
+#case-karoma-pelne .kwcs-sec--alt .kwcs-trio { margin-top: 1.5rem; }
 
 /* "Za co odpowiadałem" — domknięcie kompozycji: full-width w 3-col gridzie,
    max-width dopasowany do szerokości ux-decision-grid powyżej */
-#case-karoma .contribution-cell--solo {
+#case-karoma-pelne .contribution-cell--solo {
   grid-column: 1 / -1;
   max-width: 900px;
   margin-inline: auto;
