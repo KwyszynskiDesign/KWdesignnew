@@ -3565,12 +3565,26 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 /* Desktop ≥1280px — content odsunięty w prawo za fixed rail, szersza kolumna */
 @media (min-width: 1280px) {
   #case-karoma-pelne { padding-left: 216px; --wrap-max: 1240px; }
+  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem,
+     żeby tło sięgało lewej krawędzi treści strony (rail pływa nad tłem).
+     Kompensujący padding-left utrzymuje treść w tym samym miejscu. */
+  #case-karoma-pelne > .razdwa-summary,
+  #case-karoma-pelne > .kwcs-sec--alt {
+    margin-left: -216px;
+    padding-left: calc(216px + 1rem);
+  }
 }
 /* Laptop 1101-1279px — węższy rail, mniejszy margines */
 @media (min-width: 1101px) and (max-width: 1279px) {
   #case-karoma-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-karoma-pelne > .razdwa-summary,
+  #case-karoma-pelne > .kwcs-sec--alt {
+    margin-left: -184px;
+    padding-left: calc(184px + 1rem);
+  }
 }
-/* Tablet i mobile ≤1100px — rail jako górny pasek, bez marginesu bocznego */
+/* Tablet i mobile ≤1100px — rail jako górny pasek, bez marginesu bocznego.
+   Sekcje są już pełnej szerokości, więc full-bleed nie jest potrzebny. */
 @media (max-width: 1100px) {
   #case-karoma-pelne { padding-left: 0; }
 }
