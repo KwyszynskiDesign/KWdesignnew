@@ -3735,26 +3735,6 @@ body { overflow-x: hidden; }
 }
 
 /* ============================================================
-   Raz Dwa — hero image: responsywne skalowanie i poprawne proporcje
-   (plik ma ~1450x1306; wcześniej wymuszone width=1200/height=630
-   zniekształcało obraz i powodowało overflow poza viewport)
-   Scope: #case-razdwa-pelne (nie wpływa na inne case studies)
-============================================================ */
-#case-razdwa-pelne .kwcs-hero-body .hero-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-#case-razdwa-pelne .kwcs-hero-body .cover {
-  display: block;
-  width: 100%;
-  max-width: 760px;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
-}
-
-/* ============================================================
    Raz Dwa — blok zaproszenia (CTA końcowe) + slot cytatu klienta
    Scope: #case-razdwa-pelne (nie wpływa na inne case studies)
 ============================================================ */
