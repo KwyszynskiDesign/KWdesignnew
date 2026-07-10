@@ -3735,6 +3735,18 @@ body { overflow-x: hidden; }
 }
 
 /* ============================================================
+   Raz Dwa — hero CTA: na mobile ma width:100% + padding, ale bez
+   box-sizing:border-box padding wychodzil poza szerokosc (overflow
+   ~16px na 390px). border-box wlacza padding w szerokosc.
+   Na desktopie przycisk ma width:fit-content, wiec bez zmian.
+   Scope: #case-razdwa-pelne (nie wpływa na inne case studies)
+============================================================ */
+#case-razdwa-pelne .hero-image-cta {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ============================================================
    Raz Dwa — blok zaproszenia (CTA końcowe) + slot cytatu klienta
    Scope: #case-razdwa-pelne (nie wpływa na inne case studies)
 ============================================================ */
