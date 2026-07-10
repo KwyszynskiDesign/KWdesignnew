@@ -3541,6 +3541,48 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 }
 
 /* ========================================
+   #CASE-KAROMA-PELNE — layout: kompensacja fixed railu + hero image
+   Analogicznie do #case-razdwa-pelne. Fixed .razdwa-chapter-rail nachodzi
+   na treść, jeśli kontener case'a nie dostanie padding-left. Hero image ma
+   realne proporcje 1144x975 (atrybuty w HTML skorygowane), więc contain nie
+   letterboxuje. Scope #case-karoma-pelne — nie rusza innych case studies.
+   ======================================== */
+#case-karoma-pelne .kwcs-hero-body .hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#case-karoma-pelne .kwcs-hero-body .hero-image .cover {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.32);
+}
+
+/* Desktop ≥1280px — content odsunięty w prawo za fixed rail, szersza kolumna */
+@media (min-width: 1280px) {
+  #case-karoma-pelne { padding-left: 216px; --wrap-max: 1240px; }
+}
+/* Laptop 1101-1279px — węższy rail, mniejszy margines */
+@media (min-width: 1101px) and (max-width: 1279px) {
+  #case-karoma-pelne { padding-left: 184px; --wrap-max: 1120px; }
+}
+/* Tablet i mobile ≤1100px — rail jako górny pasek, bez marginesu bocznego */
+@media (max-width: 1100px) {
+  #case-karoma-pelne { padding-left: 0; }
+}
+
+/* Hero CTA na mobile ma width:100% + padding — bez border-box padding wychodzi
+   poza kontener (~16px overflow na 390px). Fix jak w RazDwa. */
+#case-karoma-pelne .hero-image-cta {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ========================================
    KWCS-FOOTER — uproszczony footer case studies
    ======================================== */
 .kwcs-footer {
