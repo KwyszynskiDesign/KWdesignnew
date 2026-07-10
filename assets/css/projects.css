@@ -174,8 +174,10 @@
 .hero-content-grid > .hero-image:only-child { grid-column: 1 / -1; }
 
 /* Hero image (tylko Raz Dwa) — responsywny, bez zniekształceń: plik ma proporcje
-   ~1450x1306, a atrybuty width/height 1200x630 wymuszaly spłaszczenie; brakowało
-   reguły CSS. Scope #case-razdwa-pelne, żeby nie ruszać innych case studies. */
+   ~1450x1306, ale zrzut ma pusty, biały dół (formularz). Kadrujemy go wizualnie
+   przez aspect-ratio + object-fit:cover + object-position:top, żeby pokazać tylko
+   górną, treściwą część (nagłówek, siatka kategorii, panel podsumowania) i nie
+   robić niepotrzebnie wysokiego hero. Scope #case-razdwa-pelne. */
 #case-razdwa-pelne .kwcs-hero-body .hero-image {
   width: 100%;
   display: flex;
@@ -186,7 +188,9 @@
   width: 100%;
   max-width: 1040px;
   height: auto;
-  object-fit: contain;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
   border-radius: 14px;
   box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.32);
 }
