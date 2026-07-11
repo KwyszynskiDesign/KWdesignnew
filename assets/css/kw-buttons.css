@@ -1,5 +1,22 @@
 /* =============================================================================
-   KW BUTTONS — system przycisków (Etap 1: fundament)
+   KW BUTTONS — system przycisków · WERSJA v1.0 (zatwierdzona 2026-07-11)
+   =============================================================================
+   FINALNE USTALENIA WIZUALNE (Wariant B, premium, zmiękczony) — punkt
+   odniesienia dla etapu 2+. Każda zmiana poniższych tokenów to ŚWIADOMA
+   decyzja projektowa, nie przypadkowa regresja.
+
+     • Paleta:   głęboki teal (primary #10809d → #0c6076), akcent #0e7490.
+                 Bez jasnego „SaaS cyan", bez kolorowego glossy gradientu.
+     • Radius:   0.7rem (~11px) — miękkie, nie techniczne krawędzie.
+     • Gradient: subtelny, pionowy (near-flat) + wewnętrzny highlight
+                 górnej krawędzi (głębia, nie płaska naklejka).
+     • Cień:     neutralny (slate), miękki; hover = głębszy, większy blur.
+     • Hover:    lift -2px + pogłębienie cienia.
+     • Poświata: radialny JASNY CYJAN „zapalający się" ze środka na hover
+                 (intensywność 0.70), na primary, secondary i icon/utility.
+     • Tekst:    rozbłysk/podświetlenie napisu na hover.
+     • Typy (4): primary / secondary / tertiary / icon.
+     • Rozmiary: sm / md / lg. Stany: hover / active / focus-visible / disabled.
    -----------------------------------------------------------------------------
    Jeden komponent bazowy .kw-btn + 4 typy + 3 rozmiary + spójne stany.
    Plik SAMOWYSTARCZALNY: definiuje własne tokeny --kw-* z fallbackami,
@@ -41,6 +58,7 @@
      Radialny highlight nad tłem; jaśniejszy rdzeń + miękka otoczka. */
   --kw-btn-glow:        rgba(103, 232, 249, 0.70);  /* cyan-300, jasny rdzeń */
   --kw-btn-glow-soft:   rgba(103, 232, 249, 0.28);  /* miękkie rozejście */
+  --kw-btn-text-glow:   0 0 12px rgba(224, 252, 255, 0.55);  /* rozbłysk napisu na hover */
 
   /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
      żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
@@ -216,6 +234,7 @@
   color: #ffffff;
   transform: translateY(var(--kw-btn-hover-lift));
   box-shadow: var(--kw-btn-shadow-hover), var(--kw-btn-primary-highlight);
+  text-shadow: var(--kw-btn-text-glow);
 }
 .kw-btn--primary:active,
 .kw-btn.hero-cta:active,
@@ -252,6 +271,7 @@
   color: #ffffff;
   transform: translateY(var(--kw-btn-hover-lift));
   box-shadow: var(--kw-btn-shadow);
+  text-shadow: var(--kw-btn-text-glow);
 }
 .kw-btn--secondary:active,
 .kw-btn.btn-secondary:active,

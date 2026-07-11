@@ -7,6 +7,14 @@
 
 ---
 
+> ✅ **Styl wizualny zatwierdzony jako v1.0 (2026-07-11)** — punkt odniesienia dla etapu 2+.
+> Finalne tokeny i komponent: [`assets/css/kw-buttons.css`](../assets/css/kw-buttons.css)
+> (paleta teal, radius ~11px, poświata hover 0.70, rozbłysk tekstu). Żywa dokumentacja:
+> [`docs/button-system-demo.html`](./button-system-demo.html). Każda zmiana tokenów =
+> świadoma decyzja, nie regresja.
+
+---
+
 ## 1. Decyzja systemowa
 
 Wprowadzamy **jeden komponent bazowy** `.kw-btn` z modyfikatorami. Wszystkie przyciski i linki-CTA w projekcie sprowadzamy do **4 typów**:
