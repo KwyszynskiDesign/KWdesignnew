@@ -26,33 +26,42 @@
   /* Radius systemowy dla wszystkich przycisków CTA */
   --kw-btn-radius: 0.5rem;
 
-  /* Jedna paleta CTA (cyan) — spójna z .ui-demo-btn i większością projektów */
-  --kw-btn-primary-from:        #06b6d4;
-  --kw-btn-primary-to:          #0284c7;
-  --kw-btn-primary-from-hover:  #0284c7;
-  --kw-btn-primary-to-hover:    #0369a1;
+  /* WARIANT B (premium) — JEDYNE ŹRÓDŁO PRAWDY dla wyglądu przycisków.
+     Głęboki, prawie flat teal (nie jasny "SaaS cyan"): pewność + premium.
+     Gradient bardzo subtelny (pionowy, kilka % różnicy), nie glossy. */
+  --kw-btn-primary-from:        #0e7490;  /* cyan-700 */
+  --kw-btn-primary-to:          #0c5f77;  /* subtelnie ciemniejszy = near-flat */
+  --kw-btn-primary-from-hover:  #0c5f77;
+  --kw-btn-primary-to-hover:    #0a4f63;
 
-  /* Kolor akcentu (obrys/tekst dla secondary/tertiary) z fallbackiem */
-  --kw-btn-accent:       var(--color-primary, #06b6d4);
-  --kw-btn-accent-dark:  var(--color-primary-dark, #0284c7);
+  /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
+     żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
+  --kw-btn-accent:       #0e7490;
+  --kw-btn-accent-dark:  #0a4f63;
+  --kw-btn-accent-tint:  rgba(14, 116, 144, 0.08);  /* delikatne tło hover tertiary */
+  --kw-btn-accent-tint-strong: rgba(14, 116, 144, 0.14);
 
-  /* Cienie */
-  --kw-btn-shadow:        0 4px 12px rgba(6, 182, 212, 0.30);
-  --kw-btn-shadow-hover:  0 8px 20px rgba(6, 182, 212, 0.40);
+  /* Cienie — eleganckie, NEUTRALNE (slate), niska rozpiętość, bez kolorowej poświaty.
+     Premium: cień „unosi" powierzchnię, nie świeci. */
+  --kw-btn-shadow:        0 1px 2px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.06);
+  --kw-btn-shadow-hover:  0 2px 4px rgba(15, 23, 42, 0.10), 0 6px 16px rgba(15, 23, 42, 0.12);
 
-  /* Focus ring */
-  --kw-btn-focus-ring:    #2563eb;
+  /* Focus ring — czytelny, harmonijny z paletą (jaśniejszy teal) */
+  --kw-btn-focus-ring:    #0891b2;
+
+  /* Subtelny ruch hover (premium = powściągliwy, nie „bouncy") */
+  --kw-btn-hover-lift:    -1px;
 
   /* Typografia / stan disabled */
   --kw-btn-font:              var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   --kw-btn-font-weight:       600;
-  --kw-btn-disabled-opacity:  0.5;
+  --kw-btn-disabled-opacity:  0.45;
 
-  /* Utility / icon */
+  /* Utility / icon — neutralne, premium (nie kolorowa poświata) */
   --kw-btn-icon-bg:        #ffffff;
-  --kw-btn-icon-color:     #334155;
+  --kw-btn-icon-color:     #1e293b;   /* slate-800: mocniejszy kontrast */
   --kw-btn-icon-border:    #e2e8f0;
-  --kw-btn-icon-bg-hover:  #f1f5f9;
+  --kw-btn-icon-bg-hover:  #f8fafc;
 }
 
 /* -----------------------------------------------------------------------------
@@ -144,7 +153,7 @@
 .kw-btn.btn-hero-cta,
 .kw-btn.submit-btn,
 .kw-btn.lm-btn {
-  background: linear-gradient(135deg, var(--kw-btn-primary-from) 0%, var(--kw-btn-primary-to) 100%);
+  background: linear-gradient(180deg, var(--kw-btn-primary-from) 0%, var(--kw-btn-primary-to) 100%);
   color: #ffffff;
   border-color: transparent;
   box-shadow: var(--kw-btn-shadow);
@@ -159,9 +168,9 @@
 .kw-btn.btn-hero-cta:hover:not(:disabled),
 .kw-btn.submit-btn:hover:not(:disabled),
 .kw-btn.lm-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--kw-btn-primary-from-hover) 0%, var(--kw-btn-primary-to-hover) 100%);
+  background: linear-gradient(180deg, var(--kw-btn-primary-from-hover) 0%, var(--kw-btn-primary-to-hover) 100%);
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(var(--kw-btn-hover-lift));
   box-shadow: var(--kw-btn-shadow-hover);
 }
 .kw-btn--primary:active,
@@ -197,7 +206,7 @@
 .kw-btn.btn-large:hover:not(:disabled) {
   background: var(--kw-btn-accent);
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(var(--kw-btn-hover-lift));
   box-shadow: var(--kw-btn-shadow);
 }
 .kw-btn--secondary:active,
@@ -231,7 +240,7 @@
 .kw-btn.lm-teaser-cta:hover:not(:disabled),
 .kw-btn.kwcs-cta-link:hover:not(:disabled) {
   color: var(--kw-btn-accent-dark);
-  background: rgba(6, 182, 212, 0.08);
+  background: var(--kw-btn-accent-tint);
   border-radius: 0.375rem;
 }
 .kw-btn--tertiary:active,
@@ -239,7 +248,7 @@
 .kw-btn.card-cta:active,
 .kw-btn.lm-teaser-cta:active,
 .kw-btn.kwcs-cta-link:active {
-  background: rgba(6, 182, 212, 0.14);
+  background: var(--kw-btn-accent-tint-strong);
 }
 /* Strzałka „→" w tertiary lekko przesuwa się na hover */
 .kw-btn--tertiary:hover .kw-btn__arrow,
@@ -262,12 +271,14 @@
   background: var(--kw-btn-icon-bg);
   color: var(--kw-btn-icon-color);
   border-color: var(--kw-btn-icon-border);
-  box-shadow: var(--kw-btn-shadow-hover);
+  box-shadow: var(--kw-btn-shadow);
   font-size: 1.25rem;
 }
 .kw-btn--icon:hover:not(:disabled):not(.is-disabled) {
   background: var(--kw-btn-icon-bg-hover);
-  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow-hover);
 }
 .kw-btn--icon:active {
   transform: translateY(0);
