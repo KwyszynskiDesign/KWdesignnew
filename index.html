@@ -66,6 +66,8 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/index-styles.css" />
+    <!-- KW Buttons — system przycisków v1.0 (po index-styles.css, żeby aliasy .kw-btn wygrywały w kaskadzie) -->
+    <link rel="stylesheet" href="assets/css/kw-buttons.css" />
 
 
 </head>
@@ -138,7 +140,7 @@
                 </ul>
 
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary btn-hero-cta smooth" data-track="cta_hero_contact">Umów konsultację</a>
+                    <a href="#contact" class="btn btn-primary btn-hero-cta smooth kw-btn kw-btn--lg" data-track="cta_hero_contact">Umów konsultację</a>
                     <a href="portfolio.html" class="hero-secondary-link">Zobacz, jak pracuję <span aria-hidden="true">→</span></a>
                 </div>
             </div>
@@ -426,7 +428,7 @@
     </div>
 
     <div class="process-cta">
-        <a href="#contact" class="btn btn-primary smooth">
+        <a href="#contact" class="btn btn-primary smooth kw-btn kw-btn--lg">
             <span class="highlight">Porozmawiajmy o Twoim procesie</span>
         </a>
     </div>
@@ -652,7 +654,7 @@
                     <h2 class="lm-teaser-title">Nie wiesz, czy Twój proces nadaje się do automatyzacji?</h2>
                     <p class="lm-teaser-desc">Przygotowałem krótką checklistę diagnostyczną — 7 konkretnych sygnałów, po których rozpoznasz, co warto usprawnić i od czego zacząć.</p>
                 </div>
-                <a href="narzedzie.html" class="lm-teaser-cta" data-track="cta_leadmagnet">Pobierz za darmo →</a>
+                <a href="narzedzie.html" class="lm-teaser-cta kw-btn kw-btn--inverse kw-btn--md" data-track="cta_leadmagnet">Pobierz za darmo →</a>
             </div>
         </div>
     </section>
@@ -702,7 +704,7 @@
                         <textarea id="message" name="message" rows="5" placeholder="Napisz, co dziś nie działa, co chcesz uprościć i jaki efekt chcesz osiągnąć." required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn kw-btn kw-btn--inverse kw-btn--lg">
                         <span class="btn-text">Umów pierwszy krok</span>
                         <span class="btn-loader">Wysyłam...</span>
                     </button>

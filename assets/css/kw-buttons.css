@@ -1,0 +1,417 @@
+/* =============================================================================
+   KW BUTTONS — system przycisków · WERSJA v1.0 (zatwierdzona 2026-07-11)
+   =============================================================================
+   FINALNE USTALENIA WIZUALNE (Wariant B, premium, zmiękczony) — punkt
+   odniesienia dla etapu 2+. Każda zmiana poniższych tokenów to ŚWIADOMA
+   decyzja projektowa, nie przypadkowa regresja.
+
+     • Paleta:   głęboki teal (primary #10809d → #0c6076), akcent #0e7490.
+                 Bez jasnego „SaaS cyan", bez kolorowego glossy gradientu.
+     • Radius:   0.7rem (~11px) — miękkie, nie techniczne krawędzie.
+     • Gradient: subtelny, pionowy (near-flat) + wewnętrzny highlight
+                 górnej krawędzi (głębia, nie płaska naklejka).
+     • Cień:     neutralny (slate), miękki; hover = głębszy, większy blur.
+     • Hover:    lift -2px + pogłębienie cienia.
+     • Poświata: radialny JASNY CYJAN „zapalający się" ze środka na hover
+                 (intensywność 0.70), na primary, secondary i icon/utility.
+     • Tekst:    rozbłysk/podświetlenie napisu na hover.
+     • Typy (4): primary / secondary / tertiary / icon.
+     • Rozmiary: sm / md / lg. Stany: hover / active / focus-visible / disabled.
+   -----------------------------------------------------------------------------
+   Jeden komponent bazowy .kw-btn + 4 typy + 3 rozmiary + spójne stany.
+   Plik SAMOWYSTARCZALNY: definiuje własne tokeny --kw-* z fallbackami,
+   więc działa niezależnie od tego, czy strona ładuje index-styles.css,
+   style.css czy projects.css.
+
+   BEZPIECZEŃSTWO / BRAK BIG-BANG:
+   - Wszystkie reguły komponentu wymagają klasy bazowej .kw-btn.
+   - ALIASY starych klas są OPT-IN — działają tylko, gdy element ma
+     JEDNOCZEŚNIE .kw-btn (np. class="kw-btn hero-cta"). Same stare klasy
+     (bez .kw-btn), używane dziś w całym serwisie, pozostają NIETKNIĘTE.
+   - Dopóki żaden produkcyjny element nie dostanie .kw-btn (etap 2+),
+     ten plik nie zmienia wyglądu żadnej strony.
+
+   Migracja (etap 2+): do elementu dodajemy .kw-btn — stara nazwa klasy
+   automatycznie mapuje się na właściwy typ. Potem można podmienić nazwę na
+   .kw-btn--primary/... i usunąć starą. Krok jest odwracalny (usuń .kw-btn).
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   TOKENY
+   -------------------------------------------------------------------------- */
+:root {
+  /* Radius systemowy — miększe, mniej „techniczne" krawędzie (~11px) */
+  --kw-btn-radius: 0.7rem;
+
+  /* WARIANT B (premium, zmiękczony) — JEDYNE ŹRÓDŁO PRAWDY.
+     Głęboki teal, ale z leciutkim niuansem tonalnym (kilka % jasności,
+     góra jaśniejsza od dołu) + wewnętrzny highlight na górnej krawędzi
+     = odczucie głębi, nie płaskiej naklejki. Wciąż NIE glossy/kolorowy. */
+  --kw-btn-primary-from:        #10809d;  /* góra: odrobinę jaśniej/cieplej */
+  --kw-btn-primary-to:          #0c6076;  /* dół: głębszy teal */
+  --kw-btn-primary-from-hover:  #0d6d86;
+  --kw-btn-primary-to-hover:    #0a5265;
+  /* Wewnętrzny highlight górnej krawędzi (miękka głębia) */
+  --kw-btn-primary-highlight:   inset 0 1px 0 rgba(255, 255, 255, 0.16);
+
+  /* Poświata hover — jasny, błyszczący cyjan „zapalający się" ze środka.
+     Radialny highlight nad tłem; jaśniejszy rdzeń + miękka otoczka. */
+  --kw-btn-glow:        rgba(103, 232, 249, 0.70);  /* cyan-300, jasny rdzeń */
+  --kw-btn-glow-soft:   rgba(103, 232, 249, 0.28);  /* miękkie rozejście */
+  --kw-btn-text-glow:   0 0 12px rgba(224, 252, 255, 0.55);  /* rozbłysk napisu na hover */
+
+  /* Wariant --inverse (CTA na ciemnym/teal tle): biały fill + teal tekst */
+  --kw-btn-inverse-bg:        #ffffff;
+  --kw-btn-inverse-color:     #0a4f63;   /* mocny teal na białym (kontrast) */
+  --kw-btn-inverse-bg-hover:  #ecfeff;   /* cyan-50 na hover */
+
+  /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
+     żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
+  --kw-btn-accent:       #0e7490;
+  --kw-btn-accent-dark:  #0a4f63;
+  --kw-btn-accent-tint:  rgba(14, 116, 144, 0.08);  /* delikatne tło hover tertiary */
+  --kw-btn-accent-tint-strong: rgba(14, 116, 144, 0.14);
+
+  /* Cienie — eleganckie, NEUTRALNE (slate), miękkie, bez kolorowej poświaty.
+     Premium: cień „unosi" powierzchnię, nie świeci. Hover = wyraźniejsza,
+     miękka głębia (większy blur), żeby ruch był widoczny. */
+  --kw-btn-shadow:        0 1px 2px rgba(15, 23, 42, 0.08), 0 3px 8px rgba(15, 23, 42, 0.07);
+  --kw-btn-shadow-hover:  0 2px 4px rgba(15, 23, 42, 0.10), 0 10px 24px rgba(15, 23, 42, 0.15);
+
+  /* Focus ring — czytelny, harmonijny z paletą (jaśniejszy teal) */
+  --kw-btn-focus-ring:    #0891b2;
+
+  /* Ruch hover — lekki, ale wyczuwalny lift */
+  --kw-btn-hover-lift:    -2px;
+
+  /* Typografia / stan disabled */
+  --kw-btn-font:              var(--font-primary, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  --kw-btn-font-weight:       600;
+  --kw-btn-disabled-opacity:  0.45;
+
+  /* Utility / icon — neutralne, premium (nie kolorowa poświata) */
+  --kw-btn-icon-bg:        #ffffff;
+  --kw-btn-icon-color:     #1e293b;   /* slate-800: mocniejszy kontrast */
+  --kw-btn-icon-border:    #e2e8f0;
+  --kw-btn-icon-bg-hover:  #f8fafc;
+}
+
+/* -----------------------------------------------------------------------------
+   KOMPONENT BAZOWY
+   -------------------------------------------------------------------------- */
+.kw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--kw-btn-font);
+  font-weight: var(--kw-btn-font-weight);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 2px solid transparent;
+  border-radius: var(--kw-btn-radius);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;          /* przycina poświatę hover do zaokrąglenia */
+  isolation: isolate;        /* poświata (z-index:-1) zostaje w obrębie przycisku */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  /* domyślny rozmiar = md */
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  min-height: 48px;
+}
+
+.kw-btn svg {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   POŚWIATA HOVER — jasny cyjan „zapala się" ze środka (typy wypełnione)
+   Radialny highlight nad tłem, pod tekstem; wchodzi płynnie na hover.
+   -------------------------------------------------------------------------- */
+.kw-btn--primary::before,
+.kw-btn.hero-cta::before, .kw-btn.hero-image-cta::before, .kw-btn.kwcs-cta::before,
+.kw-btn.btn-cta::before, .kw-btn.btn-case::before, .kw-btn.btn-primary::before,
+.kw-btn.btn-hero-cta::before, .kw-btn.submit-btn::before, .kw-btn.lm-btn::before,
+.kw-btn--secondary::before, .kw-btn.btn-secondary::before,
+.kw-btn.kwcs-cta--ghost::before, .kw-btn.btn-large::before,
+.kw-btn--icon::before,
+.kw-btn.kw-btn--inverse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 45%,
+              var(--kw-btn-glow) 0%,
+              var(--kw-btn-glow-soft) 35%,
+              transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.kw-btn--primary:hover:not(:disabled):not(.is-disabled)::before,
+.kw-btn.hero-cta:hover::before, .kw-btn.hero-image-cta:hover::before, .kw-btn.kwcs-cta:hover::before,
+.kw-btn.btn-cta:hover::before, .kw-btn.btn-case:hover::before, .kw-btn.btn-primary:hover::before,
+.kw-btn.btn-hero-cta:hover::before, .kw-btn.submit-btn:hover::before, .kw-btn.lm-btn:hover::before,
+.kw-btn--secondary:hover:not(:disabled):not(.is-disabled)::before, .kw-btn.btn-secondary:hover::before,
+.kw-btn.kwcs-cta--ghost:hover::before, .kw-btn.btn-large:hover::before,
+.kw-btn--icon:hover:not(:disabled):not(.is-disabled)::before,
+.kw-btn.kw-btn--inverse:hover:not(:disabled):not(.is-disabled)::before {
+  opacity: 1;
+}
+
+/* Wspólny stan FOCUS-VISIBLE (wszystkie typy) */
+.kw-btn:focus-visible {
+  outline: 3px solid var(--kw-btn-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Wspólny stan DISABLED (wszystkie typy) */
+.kw-btn:disabled,
+.kw-btn.is-disabled,
+.kw-btn[aria-disabled="true"] {
+  opacity: var(--kw-btn-disabled-opacity);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+}
+
+/* Modyfikator: pełna szerokość (np. przyciski w kartach cennika) */
+.kw-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------------------
+   ROZMIARY (sm / md / lg)
+   -------------------------------------------------------------------------- */
+.kw-btn--sm {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.875rem;
+  min-height: 40px;
+}
+.kw-btn--md {
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  min-height: 48px;
+}
+.kw-btn--lg {
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  min-height: 56px;
+}
+
+/* =============================================================================
+   TYP 1 — PRIMARY
+   Aliasy opt-in: hero-cta, hero-image-cta, kwcs-cta, btn-cta, btn-case,
+                  btn-primary, submit-btn, lm-btn, btn-hero-cta
+   ============================================================================= */
+.kw-btn--primary,
+.kw-btn.hero-cta,
+.kw-btn.hero-image-cta,
+.kw-btn.kwcs-cta,
+.kw-btn.btn-cta,
+.kw-btn.btn-case,
+.kw-btn.btn-primary,
+.kw-btn.btn-hero-cta,
+.kw-btn.submit-btn,
+.kw-btn.lm-btn {
+  background: linear-gradient(180deg, var(--kw-btn-primary-from) 0%, var(--kw-btn-primary-to) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: var(--kw-btn-shadow), var(--kw-btn-primary-highlight);
+}
+.kw-btn--primary:hover:not(:disabled):not(.is-disabled),
+.kw-btn.hero-cta:hover:not(:disabled),
+.kw-btn.hero-image-cta:hover:not(:disabled),
+.kw-btn.kwcs-cta:hover:not(:disabled),
+.kw-btn.btn-cta:hover:not(:disabled),
+.kw-btn.btn-case:hover:not(:disabled),
+.kw-btn.btn-primary:hover:not(:disabled),
+.kw-btn.btn-hero-cta:hover:not(:disabled),
+.kw-btn.submit-btn:hover:not(:disabled),
+.kw-btn.lm-btn:hover:not(:disabled) {
+  background: linear-gradient(180deg, var(--kw-btn-primary-from-hover) 0%, var(--kw-btn-primary-to-hover) 100%);
+  color: #ffffff;
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow-hover), var(--kw-btn-primary-highlight);
+  text-shadow: var(--kw-btn-text-glow);
+}
+.kw-btn--primary:active,
+.kw-btn.hero-cta:active,
+.kw-btn.hero-image-cta:active,
+.kw-btn.kwcs-cta:active,
+.kw-btn.btn-cta:active,
+.kw-btn.btn-case:active,
+.kw-btn.btn-primary:active,
+.kw-btn.btn-hero-cta:active,
+.kw-btn.submit-btn:active,
+.kw-btn.lm-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--kw-btn-shadow);
+}
+
+/* =============================================================================
+   TYP 2 — SECONDARY (obrys / ghost)
+   Aliasy opt-in: btn-secondary, kwcs-cta--ghost, btn-large
+   ============================================================================= */
+.kw-btn--secondary,
+.kw-btn.btn-secondary,
+.kw-btn.kwcs-cta--ghost,
+.kw-btn.btn-large {
+  background: transparent;
+  color: var(--kw-btn-accent);
+  border-color: var(--kw-btn-accent);
+  box-shadow: none;
+}
+.kw-btn--secondary:hover:not(:disabled):not(.is-disabled),
+.kw-btn.btn-secondary:hover:not(:disabled),
+.kw-btn.kwcs-cta--ghost:hover:not(:disabled),
+.kw-btn.btn-large:hover:not(:disabled) {
+  background: var(--kw-btn-accent);
+  color: #ffffff;
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow);
+  text-shadow: var(--kw-btn-text-glow);
+}
+.kw-btn--secondary:active,
+.kw-btn.btn-secondary:active,
+.kw-btn.kwcs-cta--ghost:active,
+.kw-btn.btn-large:active {
+  transform: translateY(0);
+}
+
+/* =============================================================================
+   TYP 3 — TERTIARY (link-akcja)
+   Aliasy opt-in: service-btn, card-cta, kwcs-cta-link
+   UWAGA: lm-teaser-cta USUNIĘTY z tertiary (2026-07-11) — na homepage to
+   prominentne, wypełnione CTA na ciemnej sekcji → obsługiwane wariantem
+   --inverse, nie jako link tertiary.
+   ============================================================================= */
+.kw-btn--tertiary,
+.kw-btn.service-btn,
+.kw-btn.card-cta,
+.kw-btn.kwcs-cta-link {
+  background: transparent;
+  color: var(--kw-btn-accent);
+  border-color: transparent;
+  box-shadow: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-height: 0;
+  font-weight: 600;
+}
+.kw-btn--tertiary:hover:not(:disabled):not(.is-disabled),
+.kw-btn.service-btn:hover:not(:disabled),
+.kw-btn.card-cta:hover:not(:disabled),
+.kw-btn.kwcs-cta-link:hover:not(:disabled) {
+  color: var(--kw-btn-accent-dark);
+  background: var(--kw-btn-accent-tint);
+  border-radius: 0.375rem;
+}
+.kw-btn--tertiary:active,
+.kw-btn.service-btn:active,
+.kw-btn.card-cta:active,
+.kw-btn.kwcs-cta-link:active {
+  background: var(--kw-btn-accent-tint-strong);
+}
+/* Strzałka „→" w tertiary lekko przesuwa się na hover */
+.kw-btn--tertiary:hover .kw-btn__arrow,
+.kw-btn.service-btn:hover .kw-btn__arrow {
+  transform: translateX(3px);
+}
+.kw-btn__arrow { transition: transform 0.25s ease; display: inline-block; }
+
+/* =============================================================================
+   TYP 4 — UTILITY / ICON (nie-marketingowe: hamburger, scroll-top,
+   strzałki karuzeli, lightbox-close, back)
+   Aliasy opt-in: (świadomie wąskie — utility zwykle ma własny layout)
+   ============================================================================= */
+.kw-btn--icon {
+  padding: 0;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.5rem;
+  background: var(--kw-btn-icon-bg);
+  color: var(--kw-btn-icon-color);
+  border-color: var(--kw-btn-icon-border);
+  box-shadow: var(--kw-btn-shadow);
+  font-size: 1.25rem;
+}
+.kw-btn--icon:hover:not(:disabled):not(.is-disabled) {
+  background: var(--kw-btn-icon-bg-hover);
+  border-color: #cbd5e1;
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow-hover);
+}
+.kw-btn--icon:active {
+  transform: translateY(0);
+}
+/* Wariant „ghost icon" — do back/breadcrumb (bez tła i cienia) */
+.kw-btn--icon.kw-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--kw-btn-accent);
+  width: auto;
+  padding: 0 0.25rem;
+}
+.kw-btn--icon.kw-btn--ghost:hover:not(:disabled) {
+  color: var(--kw-btn-accent-dark);
+  background: transparent;
+}
+
+/* =============================================================================
+   MODYFIKATOR --inverse — CTA na CIEMNYM / TEAL tle (v1.1, 2026-07-11)
+   -----------------------------------------------------------------------------
+   Tokeny v1.0 (primary/tertiary) są strojone pod JASNE tło. Na sekcjach
+   ciemnych (granat) lub teal potrzebny jest odwrócony wariant: biały fill +
+   teal tekst = mocny kontrast i prominencja (tak jak oryginalne białe/jasne
+   CTA na tych sekcjach). Świadoma decyzja projektowa, nie regresja.
+
+   Specyficzność .kw-btn.kw-btn--inverse (0,2,0) + pozycja PO blokach aliasów
+   => wygrywa z aliasami primary/tertiary (np. .kw-btn.submit-btn,
+   .kw-btn.lm-teaser-cta), więc element z aliasem + --inverse dostaje inverse.
+   ============================================================================= */
+.kw-btn.kw-btn--inverse {
+  background: var(--kw-btn-inverse-bg);
+  color: var(--kw-btn-inverse-color);
+  border-color: transparent;
+  box-shadow: var(--kw-btn-shadow);
+}
+.kw-btn.kw-btn--inverse:hover:not(:disabled):not(.is-disabled) {
+  background: var(--kw-btn-inverse-bg-hover);
+  color: var(--kw-btn-inverse-color);
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow-hover);
+}
+.kw-btn.kw-btn--inverse:active {
+  transform: translateY(0);
+  box-shadow: var(--kw-btn-shadow);
+}
+
+/* -----------------------------------------------------------------------------
+   Loader dla przycisków formularzy (spójny mechanizm)
+   Użycie: <button class="kw-btn kw-btn--primary kw-btn--lg is-loading">
+             <span class="kw-btn__text">Wyślij</span>
+             <span class="kw-btn__loader">Wysyłam…</span>
+           </button>
+   -------------------------------------------------------------------------- */
+.kw-btn__loader { display: none; }
+.kw-btn.is-loading .kw-btn__text { display: none; }
+.kw-btn.is-loading .kw-btn__loader { display: inline; }
+
+/* -----------------------------------------------------------------------------
+   Redukcja ruchu
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .kw-btn { transition: none; }
+  .kw-btn:hover { transform: none !important; }
+}

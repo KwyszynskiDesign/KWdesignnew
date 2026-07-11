@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KW Buttons — demo systemu (Etap 1)</title>
+  <link rel="stylesheet" href="../assets/css/kw-buttons.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 3rem 2rem 4rem; background: #fbfcfd; color: #0f172a; max-width: 980px; }
+    h1 { font-size: 1.7rem; letter-spacing: -0.01em; }
+    /* Rytm edytorski: dużo światła, bez twardych linii pod każdą sekcją */
+    h2 { margin-top: 4rem; margin-bottom: 0.25rem; font-size: 1.15rem; letter-spacing: -0.01em; color:#0f172a; }
+    h2 .eyebrow { display:block; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#0e7490; margin-bottom:.35rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: center; margin: 1.25rem 0; }
+    .label { width: 100%; font-size: .72rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .08em; margin-bottom:-.25rem; }
+    .note { color:#64748b; font-size:.9rem; line-height:1.6; }
+    /* Delikatny separator TYLKO tam, gdzie naprawdę zmienia się temat */
+    .soft-sep { border:0; border-top:1px solid #eef2f6; margin:3.5rem 0 0; }
+    .card-demo { width:100%; max-width: 320px; padding:1.5rem; background:#fff; border:1px solid #eef2f6; border-radius:1rem; box-shadow:0 1px 3px rgba(15,23,42,.04); }
+    /* Statyczny podgląd stanu hover (screenshot nie łapie :hover na żywo) */
+    .demo-hover.kw-btn--primary {
+      background: linear-gradient(180deg, var(--kw-btn-primary-from-hover) 0%, var(--kw-btn-primary-to-hover) 100%);
+      transform: translateY(var(--kw-btn-hover-lift));
+      box-shadow: var(--kw-btn-shadow-hover), var(--kw-btn-primary-highlight);
+    }
+    .demo-hover.kw-btn--primary::before { opacity: 1; }  /* pokaż poświatę na żywo */
+    .state-tag { font-size:.72rem; color:#94a3b8; margin-left:.15rem; }
+  </style>
+</head>
+<body>
+  <h1>KW Buttons — system przycisków · v1.0 <span style="font-weight:400;color:#94a3b8;font-size:.9rem">(żywa dokumentacja)</span></h1>
+  <p class="note"><strong>Wersja v1.0 — zatwierdzona 2026-07-11.</strong> Jedyny obowiązujący styl systemu <code>.kw-btn</code>. Źródło prawdy: <code>assets/css/kw-buttons.css</code>.</p>
+  <ul class="note" style="margin-top:.5rem;padding-left:1.1rem;line-height:1.9">
+    <li><strong>Paleta:</strong> głęboki teal (primary #10809d → #0c6076, akcent #0e7490) — premium, nie „SaaS cyan".</li>
+    <li><strong>Radius:</strong> ~11px (miękkie krawędzie). <strong>Typy:</strong> primary / secondary / tertiary / icon. <strong>Rozmiary:</strong> sm / md / lg.</li>
+    <li><strong>Stany:</strong> hover / active / focus-visible / disabled.</li>
+    <li><strong>Hover:</strong> lift −2px + głębszy, miękki cień; subtelny highlight górnej krawędzi.</li>
+    <li><strong>Poświata:</strong> jasny cyjan „zapalający się" ze środka (0.70) — primary, secondary, icon.</li>
+    <li><strong>Rozbłysk tekstu:</strong> delikatne podświetlenie napisu na hover (typy wypełnione).</li>
+    <li><strong>Wariant kontekstowy <code>--inverse</code></strong> (v1.1): CTA na ciemnym/teal tle — biały fill + teal tekst.</li>
+  </ul>
+
+  <h2><span class="eyebrow">Typ 1</span>Primary</h2>
+  <div class="row"><span class="label">Rozmiary — sm / md / lg</span>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--sm">Umów konsultację</a>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--md">Umów konsultację</a>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--lg">Umów konsultację</a>
+  </div>
+  <div class="row"><span class="label">Stany</span>
+    <button class="kw-btn kw-btn--primary kw-btn--md">Default</button>
+    <button class="kw-btn kw-btn--primary kw-btn--md demo-hover">Hover <span class="state-tag">(lift + głębszy cień)</span></button>
+    <button class="kw-btn kw-btn--primary kw-btn--md is-disabled">Disabled</button>
+    <button class="kw-btn kw-btn--primary kw-btn--md">Z ikoną
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <h2><span class="eyebrow">Typ 2</span>Secondary <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— ghost / obrys</span></h2>
+  <div class="row">
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--sm">Zobacz więcej</a>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--md">Zobacz więcej</a>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--lg">Zobacz więcej</a>
+    <button class="kw-btn kw-btn--secondary kw-btn--md is-disabled">Disabled</button>
+  </div>
+
+  <h2><span class="eyebrow">Typ 3</span>Tertiary <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— link-akcja</span></h2>
+  <div class="row">
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--sm">Więcej informacji <span class="kw-btn__arrow">→</span></a>
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--md">Więcej informacji <span class="kw-btn__arrow">→</span></a>
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--lg">Pobierz za darmo <span class="kw-btn__arrow">→</span></a>
+  </div>
+
+  <h2><span class="eyebrow">Typ 4</span>Utility / Icon</h2>
+  <div class="row">
+    <button class="kw-btn kw-btn--icon" aria-label="Wróć na górę">↑</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Poprzednie">←</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Następne">→</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Zamknij">×</button>
+    <a href="#" class="kw-btn kw-btn--icon kw-btn--ghost">← Wróć do portfolio</a>
+  </div>
+
+  <h2>5. Block (pełna szerokość — karta cennika)</h2>
+  <div class="card-demo">
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--md kw-btn--block">Zobacz szczegóły →</a>
+    <div style="height:.75rem"></div>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--md kw-btn--block">Zobacz szczegóły →</a>
+  </div>
+
+  <h2>6. Loader (formularz)</h2>
+  <div class="row">
+    <button class="kw-btn kw-btn--primary kw-btn--lg">
+      <span class="kw-btn__text">Wyślij wiadomość</span>
+      <span class="kw-btn__loader">Wysyłam…</span>
+    </button>
+    <button class="kw-btn kw-btn--primary kw-btn--lg is-loading">
+      <span class="kw-btn__text">Wyślij wiadomość</span>
+      <span class="kw-btn__loader">Wysyłam…</span>
+    </button>
+  </div>
+
+  <h2><span class="eyebrow">Wariant kontekstowy</span>--inverse <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— CTA na ciemnym / teal tle</span></h2>
+  <p class="note">Tokeny v1.0 są strojone pod jasne tło. Na sekcjach ciemnych/teal <code>.kw-btn--inverse</code> daje biały fill + teal tekst (mocny kontrast). Łączy się z aliasami (wygrywa specyficznością).</p>
+  <div class="dark" style="display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;margin-top:1rem;">
+    <a href="#" class="kw-btn kw-btn--inverse kw-btn--sm">Pobierz za darmo →</a>
+    <a href="#" class="kw-btn kw-btn--inverse kw-btn--md">Pobierz za darmo →</a>
+    <button class="kw-btn kw-btn--inverse kw-btn--lg">Umów pierwszy krok</button>
+  </div>
+
+  <hr class="soft-sep">
+  <h2><span class="eyebrow">Migracja</span>Aliasy opt-in <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— stara nazwa + .kw-btn = auto-mapowanie</span></h2>
+  <p class="note">Migracja etap 2: do elementu dodajemy tylko <code>.kw-btn</code>, stara klasa mapuje typ.</p>
+  <div class="row">
+    <a href="#" class="kw-btn hero-cta">.kw-btn.hero-cta → primary</a>
+    <a href="#" class="kw-btn kwcs-cta">.kw-btn.kwcs-cta → primary</a>
+    <a href="#" class="kw-btn kwcs-cta--ghost">.kwcs-cta--ghost → secondary</a>
+    <a href="#" class="kw-btn service-btn">.service-btn → tertiary</a>
+  </div>
+</body>
+</html>
