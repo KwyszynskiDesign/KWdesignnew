@@ -7,34 +7,46 @@
   <link rel="stylesheet" href="../assets/css/kw-buttons.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #0f172a; }
-    h1 { font-size: 1.6rem; } h2 { margin-top: 2.5rem; font-size: 1.2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: .4rem; }
-    .row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1rem 0; }
-    .label { width: 100%; font-size: .8rem; color: #64748b; text-transform: uppercase; letter-spacing: .04em; }
-    .note { color:#64748b; font-size:.85rem; }
-    .card-demo { width:100%; max-width: 320px; padding:1.5rem; background:#fff; border:1px solid #e2e8f0; border-radius:1rem; }
-    .dark { background:#0f172a; color:#fff; padding:1.5rem; border-radius:1rem; }
+    body { font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 3rem 2rem 4rem; background: #fbfcfd; color: #0f172a; max-width: 980px; }
+    h1 { font-size: 1.7rem; letter-spacing: -0.01em; }
+    /* Rytm edytorski: dużo światła, bez twardych linii pod każdą sekcją */
+    h2 { margin-top: 4rem; margin-bottom: 0.25rem; font-size: 1.15rem; letter-spacing: -0.01em; color:#0f172a; }
+    h2 .eyebrow { display:block; font-size:.72rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#0e7490; margin-bottom:.35rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 1.1rem; align-items: center; margin: 1.25rem 0; }
+    .label { width: 100%; font-size: .72rem; color: #94a3b8; text-transform: uppercase; letter-spacing: .08em; margin-bottom:-.25rem; }
+    .note { color:#64748b; font-size:.9rem; line-height:1.6; }
+    /* Delikatny separator TYLKO tam, gdzie naprawdę zmienia się temat */
+    .soft-sep { border:0; border-top:1px solid #eef2f6; margin:3.5rem 0 0; }
+    .card-demo { width:100%; max-width: 320px; padding:1.5rem; background:#fff; border:1px solid #eef2f6; border-radius:1rem; box-shadow:0 1px 3px rgba(15,23,42,.04); }
+    /* Statyczny podgląd stanu hover (screenshot nie łapie :hover na żywo) */
+    .demo-hover.kw-btn--primary {
+      background: linear-gradient(180deg, var(--kw-btn-primary-from-hover) 0%, var(--kw-btn-primary-to-hover) 100%);
+      transform: translateY(var(--kw-btn-hover-lift));
+      box-shadow: var(--kw-btn-shadow-hover), var(--kw-btn-primary-highlight);
+    }
+    .state-tag { font-size:.72rem; color:#94a3b8; margin-left:.15rem; }
   </style>
 </head>
 <body>
   <h1>KW Buttons — system przycisków (żywa dokumentacja)</h1>
-  <p class="note">Finalny, jedyny obowiązujący styl: <strong>Wariant B (premium)</strong> — głęboki teal, prawie flat/subtelny gradient, elegancki neutralny cień, powściągliwy hover. 4 typy × 3 rozmiary + stany hover/active/focus-visible/disabled. Radius 0.5rem. Źródło prawdy: <code>assets/css/kw-buttons.css</code>.</p>
+  <p class="note">Finalny, jedyny obowiązujący styl: <strong>Wariant B (premium, zmiękczony)</strong> — głęboki teal z leciutkim niuansem tonalnym i miękkim highlightem górnej krawędzi, elegancki neutralny cień, wyczuwalny lift na hover. 4 typy × 3 rozmiary + stany hover/active/focus-visible/disabled. Radius ~11px. Źródło prawdy: <code>assets/css/kw-buttons.css</code>.</p>
 
-  <h2>1. Primary</h2>
-  <div class="row"><span class="label">Rozmiary</span>
+  <h2><span class="eyebrow">Typ 1</span>Primary</h2>
+  <div class="row"><span class="label">Rozmiary — sm / md / lg</span>
     <a href="#" class="kw-btn kw-btn--primary kw-btn--sm">Umów konsultację</a>
     <a href="#" class="kw-btn kw-btn--primary kw-btn--md">Umów konsultację</a>
     <a href="#" class="kw-btn kw-btn--primary kw-btn--lg">Umów konsultację</a>
   </div>
   <div class="row"><span class="label">Stany</span>
     <button class="kw-btn kw-btn--primary kw-btn--md">Default</button>
+    <button class="kw-btn kw-btn--primary kw-btn--md demo-hover">Hover <span class="state-tag">(lift + głębszy cień)</span></button>
     <button class="kw-btn kw-btn--primary kw-btn--md is-disabled">Disabled</button>
     <button class="kw-btn kw-btn--primary kw-btn--md">Z ikoną
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </button>
   </div>
 
-  <h2>2. Secondary (ghost / obrys)</h2>
+  <h2><span class="eyebrow">Typ 2</span>Secondary <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— ghost / obrys</span></h2>
   <div class="row">
     <a href="#" class="kw-btn kw-btn--secondary kw-btn--sm">Zobacz więcej</a>
     <a href="#" class="kw-btn kw-btn--secondary kw-btn--md">Zobacz więcej</a>
@@ -42,14 +54,14 @@
     <button class="kw-btn kw-btn--secondary kw-btn--md is-disabled">Disabled</button>
   </div>
 
-  <h2>3. Tertiary (link-akcja)</h2>
+  <h2><span class="eyebrow">Typ 3</span>Tertiary <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— link-akcja</span></h2>
   <div class="row">
     <a href="#" class="kw-btn kw-btn--tertiary kw-btn--sm">Więcej informacji <span class="kw-btn__arrow">→</span></a>
     <a href="#" class="kw-btn kw-btn--tertiary kw-btn--md">Więcej informacji <span class="kw-btn__arrow">→</span></a>
     <a href="#" class="kw-btn kw-btn--tertiary kw-btn--lg">Pobierz za darmo <span class="kw-btn__arrow">→</span></a>
   </div>
 
-  <h2>4. Utility / Icon</h2>
+  <h2><span class="eyebrow">Typ 4</span>Utility / Icon</h2>
   <div class="row">
     <button class="kw-btn kw-btn--icon" aria-label="Wróć na górę">↑</button>
     <button class="kw-btn kw-btn--icon" aria-label="Poprzednie">←</button>
@@ -77,7 +89,8 @@
     </button>
   </div>
 
-  <h2>7. Aliasy opt-in (stara nazwa + .kw-btn = auto-mapowanie)</h2>
+  <hr class="soft-sep">
+  <h2><span class="eyebrow">Migracja</span>Aliasy opt-in <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— stara nazwa + .kw-btn = auto-mapowanie</span></h2>
   <p class="note">Migracja etap 2: do elementu dodajemy tylko <code>.kw-btn</code>, stara klasa mapuje typ.</p>
   <div class="row">
     <a href="#" class="kw-btn hero-cta">.kw-btn.hero-cta → primary</a>
