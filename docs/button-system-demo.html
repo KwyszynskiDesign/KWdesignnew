@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KW Buttons — demo systemu (Etap 1)</title>
+  <link rel="stylesheet" href="../assets/css/kw-buttons.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 2rem; background: #f8fafc; color: #0f172a; }
+    h1 { font-size: 1.6rem; } h2 { margin-top: 2.5rem; font-size: 1.2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: .4rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1rem 0; }
+    .label { width: 100%; font-size: .8rem; color: #64748b; text-transform: uppercase; letter-spacing: .04em; }
+    .note { color:#64748b; font-size:.85rem; }
+    .card-demo { width:100%; max-width: 320px; padding:1.5rem; background:#fff; border:1px solid #e2e8f0; border-radius:1rem; }
+    .dark { background:#0f172a; color:#fff; padding:1.5rem; border-radius:1rem; }
+  </style>
+</head>
+<body>
+  <h1>KW Buttons — demo systemu przycisków</h1>
+  <p class="note">Etap 1 — fundament. 4 typy × 3 rozmiary + stany hover/active/focus-visible/disabled. Paleta cyan, radius 0.5rem.</p>
+
+  <h2>1. Primary</h2>
+  <div class="row"><span class="label">Rozmiary</span>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--sm">Umów konsultację</a>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--md">Umów konsultację</a>
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--lg">Umów konsultację</a>
+  </div>
+  <div class="row"><span class="label">Stany</span>
+    <button class="kw-btn kw-btn--primary kw-btn--md">Default</button>
+    <button class="kw-btn kw-btn--primary kw-btn--md is-disabled">Disabled</button>
+    <button class="kw-btn kw-btn--primary kw-btn--md">Z ikoną
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <h2>2. Secondary (ghost / obrys)</h2>
+  <div class="row">
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--sm">Zobacz więcej</a>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--md">Zobacz więcej</a>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--lg">Zobacz więcej</a>
+    <button class="kw-btn kw-btn--secondary kw-btn--md is-disabled">Disabled</button>
+  </div>
+
+  <h2>3. Tertiary (link-akcja)</h2>
+  <div class="row">
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--sm">Więcej informacji <span class="kw-btn__arrow">→</span></a>
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--md">Więcej informacji <span class="kw-btn__arrow">→</span></a>
+    <a href="#" class="kw-btn kw-btn--tertiary kw-btn--lg">Pobierz za darmo <span class="kw-btn__arrow">→</span></a>
+  </div>
+
+  <h2>4. Utility / Icon</h2>
+  <div class="row">
+    <button class="kw-btn kw-btn--icon" aria-label="Wróć na górę">↑</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Poprzednie">←</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Następne">→</button>
+    <button class="kw-btn kw-btn--icon" aria-label="Zamknij">×</button>
+    <a href="#" class="kw-btn kw-btn--icon kw-btn--ghost">← Wróć do portfolio</a>
+  </div>
+
+  <h2>5. Block (pełna szerokość — karta cennika)</h2>
+  <div class="card-demo">
+    <a href="#" class="kw-btn kw-btn--primary kw-btn--md kw-btn--block">Zobacz szczegóły →</a>
+    <div style="height:.75rem"></div>
+    <a href="#" class="kw-btn kw-btn--secondary kw-btn--md kw-btn--block">Zobacz szczegóły →</a>
+  </div>
+
+  <h2>6. Loader (formularz)</h2>
+  <div class="row">
+    <button class="kw-btn kw-btn--primary kw-btn--lg">
+      <span class="kw-btn__text">Wyślij wiadomość</span>
+      <span class="kw-btn__loader">Wysyłam…</span>
+    </button>
+    <button class="kw-btn kw-btn--primary kw-btn--lg is-loading">
+      <span class="kw-btn__text">Wyślij wiadomość</span>
+      <span class="kw-btn__loader">Wysyłam…</span>
+    </button>
+  </div>
+
+  <h2>7. Aliasy opt-in (stara nazwa + .kw-btn = auto-mapowanie)</h2>
+  <p class="note">Migracja etap 2: do elementu dodajemy tylko <code>.kw-btn</code>, stara klasa mapuje typ.</p>
+  <div class="row">
+    <a href="#" class="kw-btn hero-cta">.kw-btn.hero-cta → primary</a>
+    <a href="#" class="kw-btn kwcs-cta">.kw-btn.kwcs-cta → primary</a>
+    <a href="#" class="kw-btn kwcs-cta--ghost">.kwcs-cta--ghost → secondary</a>
+    <a href="#" class="kw-btn service-btn">.service-btn → tertiary</a>
+  </div>
+</body>
+</html>
