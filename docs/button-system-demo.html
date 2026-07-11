@@ -24,12 +24,13 @@
       transform: translateY(var(--kw-btn-hover-lift));
       box-shadow: var(--kw-btn-shadow-hover), var(--kw-btn-primary-highlight);
     }
+    .demo-hover.kw-btn--primary::before { opacity: 1; }  /* pokaż poświatę na żywo */
     .state-tag { font-size:.72rem; color:#94a3b8; margin-left:.15rem; }
   </style>
 </head>
 <body>
   <h1>KW Buttons — system przycisków (żywa dokumentacja)</h1>
-  <p class="note">Finalny, jedyny obowiązujący styl: <strong>Wariant B (premium, zmiękczony)</strong> — głęboki teal z leciutkim niuansem tonalnym i miękkim highlightem górnej krawędzi, elegancki neutralny cień, wyczuwalny lift na hover. 4 typy × 3 rozmiary + stany hover/active/focus-visible/disabled. Radius ~11px. Źródło prawdy: <code>assets/css/kw-buttons.css</code>.</p>
+  <p class="note">Finalny, jedyny obowiązujący styl: <strong>Wariant B (premium, zmiękczony)</strong> — głęboki teal z leciutkim niuansem tonalnym i miękkim highlightem górnej krawędzi, elegancki neutralny cień, wyczuwalny lift na hover oraz jasna cyjanowa poświata „zapalająca się" ze środka na hover. 4 typy × 3 rozmiary + stany hover/active/focus-visible/disabled. Radius ~11px. Źródło prawdy: <code>assets/css/kw-buttons.css</code>.</p>
 
   <h2><span class="eyebrow">Typ 1</span>Primary</h2>
   <div class="row"><span class="label">Rozmiary — sm / md / lg</span>

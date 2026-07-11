@@ -37,6 +37,11 @@
   /* Wewnętrzny highlight górnej krawędzi (miękka głębia) */
   --kw-btn-primary-highlight:   inset 0 1px 0 rgba(255, 255, 255, 0.16);
 
+  /* Poświata hover — jasny, błyszczący cyjan „zapalający się" ze środka.
+     Radialny highlight nad tłem; jaśniejszy rdzeń + miękka otoczka. */
+  --kw-btn-glow:        rgba(103, 232, 249, 0.65);  /* cyan-300, jasny rdzeń */
+  --kw-btn-glow-soft:   rgba(103, 232, 249, 0.25);  /* miękkie rozejście */
+
   /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
      żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
   --kw-btn-accent:       #0e7490;
@@ -87,6 +92,8 @@
   cursor: pointer;
   user-select: none;
   position: relative;
+  overflow: hidden;          /* przycina poświatę hover do zaokrąglenia */
+  isolation: isolate;        /* poświata (z-index:-1) zostaje w obrębie przycisku */
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   /* domyślny rozmiar = md */
   padding: 0.85rem 2rem;
@@ -98,6 +105,39 @@
   width: 1.15em;
   height: 1.15em;
   flex-shrink: 0;
+}
+
+/* -----------------------------------------------------------------------------
+   POŚWIATA HOVER — jasny cyjan „zapala się" ze środka (typy wypełnione)
+   Radialny highlight nad tłem, pod tekstem; wchodzi płynnie na hover.
+   -------------------------------------------------------------------------- */
+.kw-btn--primary::before,
+.kw-btn.hero-cta::before, .kw-btn.hero-image-cta::before, .kw-btn.kwcs-cta::before,
+.kw-btn.btn-cta::before, .kw-btn.btn-case::before, .kw-btn.btn-primary::before,
+.kw-btn.btn-hero-cta::before, .kw-btn.submit-btn::before, .kw-btn.lm-btn::before,
+.kw-btn--secondary::before, .kw-btn.btn-secondary::before,
+.kw-btn.kwcs-cta--ghost::before, .kw-btn.btn-large::before,
+.kw-btn--icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 50% 45%,
+              var(--kw-btn-glow) 0%,
+              var(--kw-btn-glow-soft) 35%,
+              transparent 68%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.kw-btn--primary:hover:not(:disabled):not(.is-disabled)::before,
+.kw-btn.hero-cta:hover::before, .kw-btn.hero-image-cta:hover::before, .kw-btn.kwcs-cta:hover::before,
+.kw-btn.btn-cta:hover::before, .kw-btn.btn-case:hover::before, .kw-btn.btn-primary:hover::before,
+.kw-btn.btn-hero-cta:hover::before, .kw-btn.submit-btn:hover::before, .kw-btn.lm-btn:hover::before,
+.kw-btn--secondary:hover:not(:disabled):not(.is-disabled)::before, .kw-btn.btn-secondary:hover::before,
+.kw-btn.kwcs-cta--ghost:hover::before, .kw-btn.btn-large:hover::before,
+.kw-btn--icon:hover:not(:disabled):not(.is-disabled)::before {
+  opacity: 1;
 }
 
 /* Wspólny stan FOCUS-VISIBLE (wszystkie typy) */
