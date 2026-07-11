@@ -39,8 +39,8 @@
 
   /* Poświata hover — jasny, błyszczący cyjan „zapalający się" ze środka.
      Radialny highlight nad tłem; jaśniejszy rdzeń + miękka otoczka. */
-  --kw-btn-glow:        rgba(103, 232, 249, 0.65);  /* cyan-300, jasny rdzeń */
-  --kw-btn-glow-soft:   rgba(103, 232, 249, 0.25);  /* miękkie rozejście */
+  --kw-btn-glow:        rgba(103, 232, 249, 0.70);  /* cyan-300, jasny rdzeń */
+  --kw-btn-glow-soft:   rgba(103, 232, 249, 0.28);  /* miękkie rozejście */
 
   /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
      żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
