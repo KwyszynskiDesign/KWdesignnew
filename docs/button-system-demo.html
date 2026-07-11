@@ -38,6 +38,7 @@
     <li><strong>Hover:</strong> lift −2px + głębszy, miękki cień; subtelny highlight górnej krawędzi.</li>
     <li><strong>Poświata:</strong> jasny cyjan „zapalający się" ze środka (0.70) — primary, secondary, icon.</li>
     <li><strong>Rozbłysk tekstu:</strong> delikatne podświetlenie napisu na hover (typy wypełnione).</li>
+    <li><strong>Wariant kontekstowy <code>--inverse</code></strong> (v1.1): CTA na ciemnym/teal tle — biały fill + teal tekst.</li>
   </ul>
 
   <h2><span class="eyebrow">Typ 1</span>Primary</h2>
@@ -96,6 +97,14 @@
       <span class="kw-btn__text">Wyślij wiadomość</span>
       <span class="kw-btn__loader">Wysyłam…</span>
     </button>
+  </div>
+
+  <h2><span class="eyebrow">Wariant kontekstowy</span>--inverse <span style="font-weight:400;color:#94a3b8;font-size:.9rem">— CTA na ciemnym / teal tle</span></h2>
+  <p class="note">Tokeny v1.0 są strojone pod jasne tło. Na sekcjach ciemnych/teal <code>.kw-btn--inverse</code> daje biały fill + teal tekst (mocny kontrast). Łączy się z aliasami (wygrywa specyficznością).</p>
+  <div class="dark" style="display:flex;gap:1.1rem;flex-wrap:wrap;align-items:center;margin-top:1rem;">
+    <a href="#" class="kw-btn kw-btn--inverse kw-btn--sm">Pobierz za darmo →</a>
+    <a href="#" class="kw-btn kw-btn--inverse kw-btn--md">Pobierz za darmo →</a>
+    <button class="kw-btn kw-btn--inverse kw-btn--lg">Umów pierwszy krok</button>
   </div>
 
   <hr class="soft-sep">

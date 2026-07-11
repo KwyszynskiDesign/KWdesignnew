@@ -60,6 +60,11 @@
   --kw-btn-glow-soft:   rgba(103, 232, 249, 0.28);  /* miękkie rozejście */
   --kw-btn-text-glow:   0 0 12px rgba(224, 252, 255, 0.55);  /* rozbłysk napisu na hover */
 
+  /* Wariant --inverse (CTA na ciemnym/teal tle): biały fill + teal tekst */
+  --kw-btn-inverse-bg:        #ffffff;
+  --kw-btn-inverse-color:     #0a4f63;   /* mocny teal na białym (kontrast) */
+  --kw-btn-inverse-bg-hover:  #ecfeff;   /* cyan-50 na hover */
+
   /* Kolor akcentu (obrys/tekst dla secondary/tertiary) — pinowany do palety B,
      żeby secondary/tertiary też były głębokie i premium, niezależnie od strony */
   --kw-btn-accent:       #0e7490;
@@ -135,7 +140,8 @@
 .kw-btn.btn-hero-cta::before, .kw-btn.submit-btn::before, .kw-btn.lm-btn::before,
 .kw-btn--secondary::before, .kw-btn.btn-secondary::before,
 .kw-btn.kwcs-cta--ghost::before, .kw-btn.btn-large::before,
-.kw-btn--icon::before {
+.kw-btn--icon::before,
+.kw-btn.kw-btn--inverse::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -154,7 +160,8 @@
 .kw-btn.btn-hero-cta:hover::before, .kw-btn.submit-btn:hover::before, .kw-btn.lm-btn:hover::before,
 .kw-btn--secondary:hover:not(:disabled):not(.is-disabled)::before, .kw-btn.btn-secondary:hover::before,
 .kw-btn.kwcs-cta--ghost:hover::before, .kw-btn.btn-large:hover::before,
-.kw-btn--icon:hover:not(:disabled):not(.is-disabled)::before {
+.kw-btn--icon:hover:not(:disabled):not(.is-disabled)::before,
+.kw-btn.kw-btn--inverse:hover:not(:disabled):not(.is-disabled)::before {
   opacity: 1;
 }
 
@@ -282,12 +289,14 @@
 
 /* =============================================================================
    TYP 3 — TERTIARY (link-akcja)
-   Aliasy opt-in: service-btn, card-cta, lm-teaser-cta, kwcs-cta-link
+   Aliasy opt-in: service-btn, card-cta, kwcs-cta-link
+   UWAGA: lm-teaser-cta USUNIĘTY z tertiary (2026-07-11) — na homepage to
+   prominentne, wypełnione CTA na ciemnej sekcji → obsługiwane wariantem
+   --inverse, nie jako link tertiary.
    ============================================================================= */
 .kw-btn--tertiary,
 .kw-btn.service-btn,
 .kw-btn.card-cta,
-.kw-btn.lm-teaser-cta,
 .kw-btn.kwcs-cta-link {
   background: transparent;
   color: var(--kw-btn-accent);
@@ -301,7 +310,6 @@
 .kw-btn--tertiary:hover:not(:disabled):not(.is-disabled),
 .kw-btn.service-btn:hover:not(:disabled),
 .kw-btn.card-cta:hover:not(:disabled),
-.kw-btn.lm-teaser-cta:hover:not(:disabled),
 .kw-btn.kwcs-cta-link:hover:not(:disabled) {
   color: var(--kw-btn-accent-dark);
   background: var(--kw-btn-accent-tint);
@@ -310,7 +318,6 @@
 .kw-btn--tertiary:active,
 .kw-btn.service-btn:active,
 .kw-btn.card-cta:active,
-.kw-btn.lm-teaser-cta:active,
 .kw-btn.kwcs-cta-link:active {
   background: var(--kw-btn-accent-tint-strong);
 }
@@ -359,6 +366,35 @@
 .kw-btn--icon.kw-btn--ghost:hover:not(:disabled) {
   color: var(--kw-btn-accent-dark);
   background: transparent;
+}
+
+/* =============================================================================
+   MODYFIKATOR --inverse — CTA na CIEMNYM / TEAL tle (v1.1, 2026-07-11)
+   -----------------------------------------------------------------------------
+   Tokeny v1.0 (primary/tertiary) są strojone pod JASNE tło. Na sekcjach
+   ciemnych (granat) lub teal potrzebny jest odwrócony wariant: biały fill +
+   teal tekst = mocny kontrast i prominencja (tak jak oryginalne białe/jasne
+   CTA na tych sekcjach). Świadoma decyzja projektowa, nie regresja.
+
+   Specyficzność .kw-btn.kw-btn--inverse (0,2,0) + pozycja PO blokach aliasów
+   => wygrywa z aliasami primary/tertiary (np. .kw-btn.submit-btn,
+   .kw-btn.lm-teaser-cta), więc element z aliasem + --inverse dostaje inverse.
+   ============================================================================= */
+.kw-btn.kw-btn--inverse {
+  background: var(--kw-btn-inverse-bg);
+  color: var(--kw-btn-inverse-color);
+  border-color: transparent;
+  box-shadow: var(--kw-btn-shadow);
+}
+.kw-btn.kw-btn--inverse:hover:not(:disabled):not(.is-disabled) {
+  background: var(--kw-btn-inverse-bg-hover);
+  color: var(--kw-btn-inverse-color);
+  transform: translateY(var(--kw-btn-hover-lift));
+  box-shadow: var(--kw-btn-shadow-hover);
+}
+.kw-btn.kw-btn--inverse:active {
+  transform: translateY(0);
+  box-shadow: var(--kw-btn-shadow);
 }
 
 /* -----------------------------------------------------------------------------
