@@ -3574,6 +3574,21 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   line-height: 1.5;
 }
 
+/* Kontener rozciągnięty na pełną szerokość viewportu w OBU kontekstach
+   (standalone i #case-viewer w portfolio.html, gdzie .project-content ma
+   własny padding). Bez tego full-bleed sekcji sięgał tylko krawędzi
+   kontenera, nie viewportu — w portfolio zostawał biały pas z lewej.
+   margin: calc(50% - 50vw) => kontener [0, vw] niezależnie od kontekstu. */
+#case-karoma-pelne {
+  /* index-styles.css (ładowany w portfolio) ma section{max-width:100%!important;
+     width:100%}, co capuje kontener do szerokości rodzica i blokuje full-bleed.
+     Nadpisujemy: !important + width:auto, żeby marginesy rozciągnęły go do vw. */
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 /* Desktop ≥1280px — content odsunięty w prawo za fixed rail, szersza kolumna */
 @media (min-width: 1280px) {
   #case-karoma-pelne { padding-left: 216px; --wrap-max: 1240px; }
@@ -3605,15 +3620,27 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 
 /* Rezultat bez pływającej karty — zdejmujemy tło/radius/shadow/max-width,
    żeby sekcja była pełnowymiarowa i centrowała treść w tej samej kolumnie
-   .wrap co reszta sekcji (spójne wyśrodkowanie). text-align:center zostaje. */
+   .wrap co reszta sekcji (spójne wyśrodkowanie). text-align:center zostaje.
+   display:block + border/backdrop:none neutralizują kolizję z portfolio.css
+   (.kwcs-result{display:flex;border;backdrop-filter} — inny komponent o tej
+   samej nazwie klasy, ładowany tylko w portfolio, powodował shrink-wrap tytułu). */
 #case-karoma-pelne .kwcs-result {
+  display: block;
   background: none;
+  border: none;
+  backdrop-filter: none;
   border-radius: 0;
   box-shadow: none;
   max-width: none;
   margin: 0;
   padding: 0;
 }
+/* portfolio.css:800 .kwcs-result p{font-weight:600} pogrubiał tekst kart/leada
+   tylko w portfolio — reset do normalnej wagi (jak w standalone). */
+#case-karoma-pelne .kwcs-result p { font-weight: 400; }
+/* portfolio.css .kwcs-card{border;backdrop-filter} dawał kartom Wniosków border
+   i blur tylko w portfolio — neutralizacja do stanu standalone. */
+#case-karoma-pelne .kwcs-card { border: none; backdrop-filter: none; }
 
 /* Hero CTA na mobile ma width:100% + padding — bez border-box padding wychodzi
    poza kontener (~16px overflow na 390px). Fix jak w RazDwa. */
