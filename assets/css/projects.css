@@ -3779,11 +3779,28 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   line-height: 1.5;
 }
 
+/* Kontener rozciągnięty na pełną szerokość viewportu w OBU kontekstach
+   (standalone i #case-viewer w portfolio.html, gdzie .project-content ma
+   własny padding). Bez tego full-bleed sekcji sięgał tylko krawędzi
+   kontenera, nie viewportu — zostawał biały pas i efekt "kontener w
+   kontenerze". margin: calc(50% - 50vw) => kontener [0, vw] niezależnie
+   od kontekstu. Wzorzec z #case-karoma-pelne. */
+#case-power-of-mind-pelne {
+  /* index-styles.css (ładowany w portfolio) ma section{max-width:100%!important;
+     width:100%}, co capuje kontener do szerokości rodzica i blokuje full-bleed.
+     Nadpisujemy: !important + width:auto, żeby marginesy rozciągnęły go do vw. */
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 /* Desktop ≥1280px — content odsunięty za fixed rail + full-bleed teł */
 @media (min-width: 1280px) {
   #case-power-of-mind-pelne { padding-left: 216px; --wrap-max: 1240px; }
   #case-power-of-mind-pelne > .razdwa-summary,
-  #case-power-of-mind-pelne > .kwcs-sec--alt {
+  #case-power-of-mind-pelne > .kwcs-sec--alt,
+  #case-power-of-mind-pelne > .kwcs-logo-section {
     margin-left: -216px;
     padding-left: calc(216px + 1rem);
   }
@@ -3792,7 +3809,8 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 @media (min-width: 1101px) and (max-width: 1279px) {
   #case-power-of-mind-pelne { padding-left: 184px; --wrap-max: 1120px; }
   #case-power-of-mind-pelne > .razdwa-summary,
-  #case-power-of-mind-pelne > .kwcs-sec--alt {
+  #case-power-of-mind-pelne > .kwcs-sec--alt,
+  #case-power-of-mind-pelne > .kwcs-logo-section {
     margin-left: -184px;
     padding-left: calc(184px + 1rem);
   }
