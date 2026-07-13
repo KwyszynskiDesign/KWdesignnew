@@ -2861,6 +2861,19 @@ body.lightbox-open {
 }
 .razdwa-chapter-link[data-rail-level="2"].is-active::before { color: #0284c7; }
 
+/* Full-bleed kontenera RAZDWA — pełna szerokość viewportu w OBU kontekstach
+   (standalone i #case-viewer w portfolio.html, gdzie .project-content ma własny
+   padding). Bez tego tła kolorowych sekcji sięgały tylko krawędzi kontenera,
+   nie viewportu — z lewej (gdzie pływa fixed rail) zostawał biały pas.
+   margin: calc(50% - 50vw) => kontener [0, vw] niezależnie od kontekstu.
+   Wzorzec spójny z #case-karoma-pelne / #case-power-of-mind-pelne. */
+#case-razdwa-pelne {
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 /* Desktop ≥1280px — szerszy rail, content RAZDWA odsunięty w prawo,
    żeby rail nie nachodził na sekcje przy max-width 1200 wycentrowanych */
 @media (min-width: 1280px) {
@@ -2875,6 +2888,14 @@ body.lightbox-open {
   /* Odsuń content RAZDWA za rail (16 + ~196 wizualnie + gap) i poszerz kolumnę,
      żeby treść dosunęła się w lewo i zmniejszył się prawy margines */
   #case-razdwa-pelne { padding-left: 216px; --wrap-max: 1240px; }
+  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem,
+     żeby tło sięgało lewej krawędzi ekranu (rail pływa nad tłem).
+     Kompensujący padding-left utrzymuje treść w tej samej kolumnie. */
+  #case-razdwa-pelne > .razdwa-summary,
+  #case-razdwa-pelne > .kwcs-sec--alt {
+    margin-left: -216px;
+    padding-left: calc(216px + 1rem);
+  }
 }
 
 /* Laptop 1101-1279px — węższy rail, mniejszy margin contentu */
@@ -2888,6 +2909,11 @@ body.lightbox-open {
     padding: 0.32rem 0.5rem;
   }
   #case-razdwa-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-razdwa-pelne > .razdwa-summary,
+  #case-razdwa-pelne > .kwcs-sec--alt {
+    margin-left: -184px;
+    padding-left: calc(184px + 1rem);
+  }
 }
 
 /* Tablet i mobile ≤1100px — fixed top bar z poziomym scrollem pigułek */
