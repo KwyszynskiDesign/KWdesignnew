@@ -4202,6 +4202,22 @@ body { overflow-x: hidden; }
    Scope: #case-KW-Design-pelne (nie wpływa na inne case studies)
    ============================================================ */
 
+/* Kontener rozciągnięty na pełną szerokość viewportu w OBU kontekstach
+   (standalone i #case-viewer w portfolio.html, gdzie .project-content ma
+   własny padding). Bez tego full-bleed sekcji sięgał tylko krawędzi
+   kontenera, nie viewportu — w portfolio zostawał biały pas z lewej.
+   margin: calc(50% - 50vw) => kontener [0, vw] niezależnie od kontekstu.
+   Wzorzec z #case-karoma-pelne / #case-power-of-mind-pelne. */
+#case-KW-Design-pelne {
+  /* index-styles.css (ładowany w portfolio) ma section{max-width:100%!important;
+     width:100%}, co capuje kontener do szerokości rodzica i blokuje full-bleed.
+     Nadpisujemy: !important + width:auto, żeby marginesy rozciągnęły go do vw. */
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 /* Rail padding — odsunięcie contentu za fixed sidebar */
 @media (min-width: 1280px) {
   #case-KW-Design-pelne { padding-left: 216px; --wrap-max: 1240px; }
@@ -4213,17 +4229,21 @@ body { overflow-x: hidden; }
   #case-KW-Design-pelne { padding-left: 0; }
 }
 
-/* Full-bleed tła na sekcjach kolorowych */
+/* Full-bleed tła na sekcjach kolorowych (razdwa-summary + logo-section mają
+   własne tło). Cofamy padding railu marginesem, kompensujemy padding-leftem,
+   żeby tło sięgało krawędzi treści (rail pływa nad tłem). */
 @media (min-width: 1280px) {
   #case-KW-Design-pelne > .razdwa-summary,
-  #case-KW-Design-pelne > .kwcs-sec--alt {
+  #case-KW-Design-pelne > .kwcs-sec--alt,
+  #case-KW-Design-pelne > .kwcs-logo-section {
     margin-left: -216px;
     padding-left: calc(216px + 1rem);
   }
 }
 @media (min-width: 1101px) and (max-width: 1279px) {
   #case-KW-Design-pelne > .razdwa-summary,
-  #case-KW-Design-pelne > .kwcs-sec--alt {
+  #case-KW-Design-pelne > .kwcs-sec--alt,
+  #case-KW-Design-pelne > .kwcs-logo-section {
     margin-left: -184px;
     padding-left: calc(184px + 1rem);
   }
@@ -4275,10 +4295,30 @@ body { overflow-x: hidden; }
   #case-KW-Design-pelne .contribution-cell--solo { max-width: 100%; }
 }
 
-/* Result section */
+/* Result section — bez pływającej karty. Zdejmujemy tło/radius/shadow/border,
+   żeby sekcja była pełnowymiarowa i centrowała treść w tej samej kolumnie .wrap
+   co reszta sekcji (spójne wyśrodkowanie). display:block + border/backdrop:none
+   neutralizują kolizję z portfolio.css (.kwcs-result{display:flex;border;
+   backdrop-filter} — inny komponent o tej samej nazwie klasy, ładowany tylko
+   w portfolio, shrink-wrapował tytuł do lewej). Wzorzec z karoma/power-of-mind. */
 #case-KW-Design-pelne .kwcs-result {
+  display: block;
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
+/* portfolio.css .kwcs-result p{font-weight:600} pogrubiał tekst kart/leada
+   tylko w portfolio — reset do normalnej wagi (jak w standalone). */
+#case-KW-Design-pelne .kwcs-result p { font-weight: 400; }
+/* portfolio.css .kwcs-card{border;backdrop-filter} dawał kartom border i blur
+   tylko w portfolio — neutralizacja do stanu standalone. */
+#case-KW-Design-pelne .kwcs-card { border: none; backdrop-filter: none; }
 #case-KW-Design-pelne .result-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
