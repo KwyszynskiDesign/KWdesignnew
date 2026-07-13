@@ -3826,6 +3826,29 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   max-width: 100%;
 }
 
+/* Rezultat bez pływającej karty — zdejmujemy tło/radius/shadow/border,
+   żeby sekcja centrowała treść w tej samej kolumnie .wrap co reszta.
+   display:block neutralizuje kolizję z portfolio.css (.kwcs-result{
+   display:flex;border;backdrop-filter} — inny komponent o tej samej nazwie
+   klasy, ładowany tylko w portfolio, shrink-wrapował tytuł do lewej). */
+#case-power-of-mind-pelne .kwcs-result {
+  display: block;
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+/* portfolio.css .kwcs-result p{font-weight:600} pogrubiał lead/karty tylko
+   w portfolio — reset do normalnej wagi (jak w standalone). */
+#case-power-of-mind-pelne .kwcs-result p { font-weight: 400; }
+/* portfolio.css .kwcs-card{border;backdrop-filter} dawał kartom Rezultatu
+   border i blur tylko w portfolio — neutralizacja do stanu standalone. */
+#case-power-of-mind-pelne .kwcs-card { border: none; backdrop-filter: none; }
+
 /* Blok zaproszenia (CTA końcowe) + ghost CTA + slot cytatu */
 #case-power-of-mind-pelne .result-invite {
   margin-top: 2.5rem;
@@ -3854,14 +3877,16 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 #case-power-of-mind-pelne .result-invite-actions .kwcs-cta {
   margin: 0.5rem 0;
 }
+/* Ghost CTA — spójny z niebieskim standardem CTA w całym projekcie
+   (razdwa/karoma używają #0284c7), nie brandowe indygo POM. */
 #case-power-of-mind-pelne .kwcs-cta--ghost {
   background: transparent;
-  color: #4f46e5;
+  color: #0284c7;
   box-shadow: none;
-  border: 1px solid #4f46e5;
+  border: 1px solid #0284c7;
 }
 #case-power-of-mind-pelne .kwcs-cta--ghost:hover {
-  background: rgba(79, 70, 229, 0.08);
+  background: rgba(2, 132, 199, 0.08);
   box-shadow: none;
 }
 
