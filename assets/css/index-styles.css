@@ -4104,7 +4104,7 @@ header * {
 
 /* --- Landing page narzedzie.html --- */
 .lm-landing {
-    padding: 80px 0 64px;
+    padding: 140px 0 64px;
     min-height: 80vh;
 }
 
@@ -4337,7 +4337,7 @@ header * {
 
 @media (max-width: 640px) {
     .lm-landing {
-        padding: 48px 0 40px;
+        padding: 110px 0 40px;
     }
     .lm-form-wrap {
         padding: 24px 20px;
