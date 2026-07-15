@@ -3778,7 +3778,9 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   color: #94a3b8;
 }
 
-/* Hero image — realne proporcje 1573x1383, contain (bez letterboxa) */
+/* Hero image — plik ma proporcje 1573x1383, ale pod przyciskiem "Dowiedz się
+   więcej o mnie" zostaje pusty margines. Kadrujemy przez aspect-ratio +
+   object-fit:cover + object-position:top, jak w #case-KW-Design-pelne. */
 #case-power-of-mind-pelne .kwcs-hero-body .hero-image {
   width: 100%;
   display: flex;
@@ -3789,7 +3791,9 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   width: 100%;
   max-width: 860px;
   height: auto;
-  object-fit: contain;
+  aspect-ratio: 1573 / 1260;
+  object-fit: cover;
+  object-position: top;
   border-radius: 14px;
   box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.32);
 }
@@ -4388,6 +4392,21 @@ body { overflow-x: hidden; }
 }
 #case-KW-Design-pelne .result-invite-actions .kw-btn {
   margin: 0.5rem 0;
+}
+/* "Zobacz stronę" renderował się jako goły tekst zamiast obrysowanego
+   przycisku — inne case studies (karoma/power-of-mind/razdwa) mają własny
+   ID-scoped override na .kwcs-cta--ghost, KW-Design nie miał żadnego, więc
+   .kw-btn.kwcs-cta--ghost z kw-buttons.css nie dawało widocznego efektu.
+   Jawny fallback w palecie teal v1.0, spójny z primary powyżej. */
+#case-KW-Design-pelne .kwcs-cta--ghost {
+  background: transparent;
+  color: #0e7490;
+  border: 2px solid #0e7490;
+  box-shadow: none;
+}
+#case-KW-Design-pelne .kwcs-cta--ghost:hover {
+  background: #0e7490;
+  color: #fff;
 }
 
 /* Slot cytatu klienta */
