@@ -2461,7 +2461,7 @@ body.lightbox-open {
 .eco-node-sub { font-size: 0.8rem; color: #64748b; margin-top: 0.2rem; }
 .eco-arrow {
   font-size: 1.5rem;
-  color: #06b6d4;
+  color: #0292AA;
   text-align: center;
   font-weight: 700;
 }
@@ -2507,7 +2507,7 @@ body.lightbox-open {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #06b6d4;
+  color: #0292AA;
   margin-bottom: 0.35rem;
 }
 
@@ -2535,7 +2535,7 @@ body.lightbox-open {
   flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
   padding-top: 14px;
-  color: #06b6d4; font-size: 1.25rem; font-weight: 700;
+  color: #0292AA; font-size: 1.25rem; font-weight: 700;
 }
 @media (max-width: 768px) {
   .user-flow { flex-wrap: wrap; }
@@ -2708,7 +2708,7 @@ body.lightbox-open {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #06b6d4;
+  color: #0292AA;
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
@@ -2767,7 +2767,7 @@ body.lightbox-open {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #06b6d4;
+  color: #0292AA;
   font-weight: 700;
   padding: 0.15rem 0.45rem 0.5rem;
   margin: 0 0 0.4rem;
@@ -2850,7 +2850,7 @@ body.lightbox-open {
   background: #f1f5f9;
   color: #0f172a;
 }
-.razdwa-chapter-link[data-rail-level="2"]:hover::before { color: #06b6d4; }
+.razdwa-chapter-link[data-rail-level="2"]:hover::before { color: #0292AA; }
 /* L2 aktywny — sam akcent koloru, bez wypełnienia tła
    (żeby L1 aktywny zawsze miał silniejszy sygnał wizualny niż L2) */
 .razdwa-chapter-link[data-rail-level="2"].is-active {
@@ -3037,7 +3037,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #06b6d4;
+  color: #0292AA;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -3264,7 +3264,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #06b6d4;
+  color: #0292AA;
   font-weight: 700;
   margin-bottom: 0.4rem;
 }
@@ -3302,7 +3302,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 /* 2 · Ujednolicony akcent: cyan #06b6d4 w całym case study.
    .razdwa-stat-num był jedynym elementem na #0ea5e9 (rozjazd z
    summary / divider / callout, które używają #06b6d4). */
-#case-razdwa-pelne .razdwa-stat-num { color: #06b6d4; }
+#case-razdwa-pelne .razdwa-stat-num { color: #0292AA; }
 
 /* 3 · Pojedyncze obrazy nie zostawiają pustej połowy rzędu.
    Modyfikatory dodane tylko na blokach 1-obrazkowych w HTML;
@@ -3766,7 +3766,7 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 }
 
 /* Stat-num na cyan akcent marki (spójnie z RazDwa/Karoma) */
-#case-power-of-mind-pelne .razdwa-stat-num { color: #06b6d4; }
+#case-power-of-mind-pelne .razdwa-stat-num { color: #0292AA; }
 
 /* Chapter rail — subtelniejszy, nie konkuruje z treścią */
 #pom-chapter-rail {
@@ -4318,7 +4318,7 @@ body { overflow-x: hidden; }
 }
 
 /* Stat liczby — kolor akcentu */
-#case-KW-Design-pelne .razdwa-stat-num { color: #06b6d4; }
+#case-KW-Design-pelne .razdwa-stat-num { color: #0292AA; }
 
 /* Contribution cell solo — pełna szerokość */
 #case-KW-Design-pelne .contribution-cell--solo {
