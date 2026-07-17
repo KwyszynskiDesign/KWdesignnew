@@ -4467,15 +4467,15 @@ ul.hero-info-icons {
     }
     .hero-text .hero-eyebrow { order: 1 !important; }
     .hero-text .hero-title   { order: 2 !important; }
-    .hero-image              { order: 3 !important; }
     .hero-text .hero-subtitle {
-        order: 4 !important;
+        order: 3 !important;
         text-align: left !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    .hero-text .hero-info-icons { order: 5 !important; margin-top: 0 !important; }
-    .hero-actions            { order: 6 !important; }
+    .hero-text .hero-info-icons { order: 4 !important; margin-top: 0 !important; }
+    .hero-actions            { order: 5 !important; }
+    .hero-image              { order: 6 !important; }
 
     .hero-image-container {
         max-width: 340px !important;
@@ -4529,4 +4529,20 @@ ul.hero-info-icons {
     }
     .hero-actions { order: 6 !important; margin-top: var(--space-6) !important; }
     .hero-image-container { max-width: 400px !important; }
+}
+
+/* Skip link — a11y */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 10000;
+    background: var(--color-primary-dark);
+    color: #fff;
+    padding: 12px 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
 }
