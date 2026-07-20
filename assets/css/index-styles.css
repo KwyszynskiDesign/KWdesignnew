@@ -2498,7 +2498,7 @@ section {
 
  .hero-section {
     min-height: auto !important;
-    padding-top: 90px !important;
+    padding-top: 100px !important;
     padding-bottom: var(--space-16) !important;
   }
   
