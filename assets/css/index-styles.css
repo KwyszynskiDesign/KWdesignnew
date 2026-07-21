@@ -4033,35 +4033,20 @@ header * {
    ============================================================ */
 
 /* --- Teaser block na index.html --- */
-/* Loss aversion — koszt bezdziałania (blok przed lead magnetem) */
-.stakes-band {
-    background: var(--color-primary-50);
-    padding: 28px 0;
-}
-
-.stakes-text {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 20px 28px;
-    background: #fff;
-    border-left: 4px solid var(--color-primary);
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(1, 112, 130, 0.08);
-    text-align: left;
-    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-    line-height: 1.6;
-    color: var(--color-text);
-}
-
-.stakes-text strong {
-    color: var(--color-primary-700);
-    font-weight: 700;
-}
-
 .lm-teaser {
     background: #0b0f19;
     padding: 48px 0;
     border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Loss aversion — jednolinijkowy wstęp nad badge */
+.lm-teaser-hook {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+    margin: 0 0 14px;
+    max-width: 520px;
 }
 
 .lm-teaser-note {
