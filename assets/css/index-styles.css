@@ -4033,10 +4033,33 @@ header * {
    ============================================================ */
 
 /* --- Teaser block na index.html --- */
+/* Loss aversion — koszt bezdziałania (blok przed lead magnetem) */
+.stakes-band {
+    background: #f8fafc;
+    padding: 40px 0;
+}
+
+.stakes-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.65;
+    color: var(--color-text);
+}
+
 .lm-teaser {
     background: #0b0f19;
     padding: 48px 0;
     border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.lm-teaser-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    margin: 10px 0 0;
+    max-width: 520px;
 }
 
 .lm-teaser-inner {
