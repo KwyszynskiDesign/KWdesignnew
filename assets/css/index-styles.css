@@ -27,9 +27,10 @@ body {
     --color-primary: #06b6d4;
     --color-primary-light: #C4EBF2;
     --color-primary-dark: #0292AA;
-    --color-secondary: #2266D1; 
-    --color-accent: #CC2408; 
-    
+    --color-secondary: #2266D1;
+    --color-accent: #CC2408;
+    --hero-title-accent: #B5471F; /* rust (pociemniony z #C1502E - 3.96:1 nie spelnialo 4.5:1 na tle hero, zmierzone) */
+
     /* Dark Theme Colors */
     --color-dark: #1e293b;
     --color-dark-light: #334155;
@@ -4411,6 +4412,47 @@ header * {
 /* Eyebrow: pozwól zawijać dłuższy zestaw kategorii oferty */
 .hero-text .hero-eyebrow {
     white-space: normal;
+}
+
+/* H1 hero — Albert Sans zamiast Playfair (2026-07-21), tylko ta sekcja */
+.hero-text .hero-title {
+    font-family: 'Albert Sans', var(--font-heading);
+    font-weight: 800;
+}
+.hero-title .ht-line1,
+.hero-title .ht-line2 {
+    font-size: clamp(1.875rem, 3.8vw, 3.375rem); /* cel 52-56px, jak wczesniej z Playfair */
+}
+.hero-title .ht-line2 {
+    color: var(--hero-title-accent);
+}
+
+/* Wejście hero — kaskada H1 → eyebrow → subtitle, raz przy loadzie */
+@keyframes heroFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.hero-text .hero-title,
+.hero-text .hero-eyebrow,
+.hero-text .hero-subtitle {
+    animation: heroFadeInUp 450ms ease-out both;
+}
+.hero-text .hero-title { animation-delay: 0ms; }
+.hero-text .hero-eyebrow { animation-delay: 80ms; }
+.hero-text .hero-subtitle { animation-delay: 160ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-text .hero-title,
+    .hero-text .hero-eyebrow,
+    .hero-text .hero-subtitle {
+        animation: none;
+    }
 }
 
 /* Proof points — lista, bez sztucznej 100px przerwy */
