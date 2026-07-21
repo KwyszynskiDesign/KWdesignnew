@@ -607,6 +607,11 @@ section {
         radial-gradient(ellipse 50% 45% at 70% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
         radial-gradient(ellipse 45% 40% at 10% 90%, rgba(14, 165, 233, 0.14) 0%, transparent 60%);
     filter: blur(40px);
+    /* Animacja tylko przez transform (kompozytowana na GPU) — bez animowania
+       background-position, które wymuszało repaint pełnoekranowej warstwy
+       blur(40px) w każdej klatce i pinowało główny wątek (TBT). */
+    transform: translateZ(0);
+    will-change: transform;
     animation: meshDrift 24s ease-in-out infinite alternate;
 }
 
@@ -623,21 +628,35 @@ section {
 
 @keyframes meshDrift {
     0% {
-        background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
-        transform: scale(1);
+        transform: translate3d(-1.5%, -1%, 0) scale(1.04);
     }
     50% {
-        background-position: 10% 5%, 95% 8%, 90% 95%, 8% 90%;
-        transform: scale(1.05);
+        transform: translate3d(1.5%, 1%, 0) scale(1.08);
     }
     100% {
-        background-position: -5% -5%, 105% -5%, 105% 105%, -5% 105%;
-        transform: scale(1);
+        transform: translate3d(-1%, 1.5%, 0) scale(1.04);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .hero-bg-animation { animation: none; }
+    .testimonials-section::before,
+    .testimonials-section::after { animation: none; }
+}
+
+/* Pomijanie renderowania sekcji poniżej pierwszego ekranu, dopóki nie
+   wejdą w widok — odciąża główny wątek przy starcie (mniejszy TBT).
+   `contain-intrinsic-size: auto <h>` zapamiętuje realną wysokość po
+   pierwszym renderze, więc nie wprowadza CLS. Hero zostaje nietknięte. */
+.mini-portfolio-section-new,
+.services-section,
+.process-section,
+.testimonials-section,
+.social-proof-section,
+.faq-section,
+.lm-teaser {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
 }
 
 .floating-element {
@@ -1729,12 +1748,16 @@ section {
 .testimonials-section::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -40%;
+    left: -40%;
+    width: 160%;
+    height: 160%;
     background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(34, 211, 238, 0.06) 40%, transparent 70%);
     animation: rotate 25s linear infinite;
+    /* Izolacja warstwy: obrót jest kompozytowany na GPU, a repaint nie
+       propaguje na resztę strony — ogranicza koszt paintu przy scrollu. */
+    will-change: transform;
+    contain: strict;
     pointer-events: none;
 }
 
@@ -1743,10 +1766,12 @@ section {
     position: absolute;
     top: -30%;
     right: -30%;
-    width: 150%;
-    height: 150%;
+    width: 130%;
+    height: 130%;
     background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 60%);
     animation: rotate 30s linear infinite reverse;
+    will-change: transform;
+    contain: strict;
     pointer-events: none;
 }
 
