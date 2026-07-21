@@ -3862,7 +3862,8 @@ header * {
 }
 
 .hero-text .hero-eyebrow {
-    font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    font-weight: var(--font-weight-medium);
     line-height: 1.2;
     letter-spacing: 0.1em;
     margin-top: 0;
@@ -4036,6 +4037,24 @@ header * {
     background: #0b0f19;
     padding: 48px 0;
     border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Loss aversion — jednolinijkowy wstęp nad badge */
+.lm-teaser-hook {
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.4;
+    margin: 0 0 14px;
+    max-width: 520px;
+}
+
+.lm-teaser-note {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    margin: 10px 0 0;
+    max-width: 520px;
 }
 
 .lm-teaser-inner {
