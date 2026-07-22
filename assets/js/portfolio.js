@@ -27,6 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const viewer = document.getElementById('case-viewer');
   let activeProjectId = null;
   let activeCard = null;
+  let railObserver = null;
+
+  // .razdwa-chapter-rail jest `position: fixed` wzgledem calego viewportu
+  // (patrz projects.css), wiec bez tego obserwatora zostaje przyklejony
+  // do ekranu nawet po odscrollowaniu z powrotem do siatki "wszystkie
+  // projekty". Pokazujemy go tylko, gdy #case-viewer faktycznie jest w
+  // kadrze.
+  function watchRailVisibility() {
+    if (railObserver) railObserver.disconnect();
+    if (!('IntersectionObserver' in window)) return;
+
+    railObserver = new IntersectionObserver((entries) => {
+      const rail = document.querySelector('.razdwa-chapter-rail');
+      if (!rail) return;
+      entries.forEach(entry => {
+        rail.style.display = entry.isIntersecting ? '' : 'none';
+      });
+    }, { threshold: 0 });
+    railObserver.observe(viewer);
+  }
 
   function openProject(id, cardEl) {
     const url = projectPages[id];
@@ -81,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (typeof initAccordion === 'function') initAccordion();
         if (typeof initChapterRail === 'function') initChapterRail();
+        watchRailVisibility();
       })
       .catch(() => {
         viewer.innerHTML = '<div class="error-msg">Błąd wczytywania projektu. Spróbuj ponownie.</div>';
@@ -89,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeViewer() {
     if (!viewer) return;
+    if (railObserver) { railObserver.disconnect(); railObserver = null; }
     viewer.classList.add('hidden');
     viewer.innerHTML = '';
     if (activeCard) activeCard.classList.remove('active');
