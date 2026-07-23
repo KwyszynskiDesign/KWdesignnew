@@ -226,6 +226,13 @@
   padding: 0 0.3rem;
 }
 
+#case-razdwa-pelne .razdwa-miro { margin-bottom: 2rem; }
+#case-razdwa-pelne .razdwa-miro img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
 #case-razdwa-pelne .kwcs-hero-body .hero-image {
   width: 100%;
   display: flex;

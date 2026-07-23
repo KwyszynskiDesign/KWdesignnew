@@ -235,16 +235,18 @@
       Projekt prowadziłem etapami: od diagnozy realnej pracy (03.03.2026), przez decyzje o zakresie i architekturze, budowę z testami i pierwszą działającą wersję (02.04.2026), aż po iteracje i przekazanie narzędzia (04.06.2026).
     </p>
 
-    <!-- ARTEFAKT PM DO WKLEJENIA (asset od kandydata): zrzut z Miro / diagram procesu
-         AS-IS → TO-BE. Plik dostarczony przez kandydata: "Miro_RAZ DWA.webp".
-         KROK 1: wgraj plik do repo jako assets/images/razdwa/Miro_RAZDWA.webp
-                 (bez spacji w nazwie — spacje psują ścieżki na GitHub Pages).
-         KROK 2: sprawdź realne wymiary webp i wstaw poniższy snippet zamiast tego komentarza:
-         <div class="kwcs-gallery-grid kwcs-gallery-grid--single"><div class="gallery-item">
-         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/Miro_RAZDWA.webp"
-         width="W" height="H" alt="Mapa procesu wyceny AS-IS → TO-BE (Miro)" loading="lazy"
-         data-caption="Proces wyceny przed i po wdrożeniu narzędzia — bloki decyzyjne"></div></div>.
-         Nie wstawiam <img> teraz, bo pliku nie ma jeszcze w repo (byłby zepsuty link). -->
+    <!-- ARTEFAKT PM: mapa procesu AS-IS → TO-BE (tablica Miro).
+         UWAGA: plik binarny musi trafić do repo pod ścieżką w src poniżej,
+         inaczej obraz będzie zepsutym linkiem. Nazwa musi zgadzać się 1:1
+         (obecnie ze spacją, jak dostarczono). Po dodaniu pliku warto uzupełnić
+         width/height realnymi wymiarami (teraz responsywny bez sztywnych wymiarów). -->
+    <div class="kwcs-gallery-grid kwcs-gallery-grid--single razdwa-miro">
+      <div class="gallery-item">
+        <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/Miro_RAZ DWA.webp" alt="Mapa procesu wyceny AS-IS → TO-BE zbudowana w Miro" loading="lazy" data-caption="Proces wyceny przed i po wdrożeniu narzędzia — bloki decyzyjne w Miro">
+        <p class="img-desc"><strong>Mapa procesu (Miro):</strong> etapy i bloki decyzyjne, na których oparłem zakres pierwszej wersji — od diagnozy pracy przy ladzie po docelowy przepływ wyceny.</p>
+      </div>
+    </div>
+
     <div class="user-flow user-flow--6">
       <div class="flow-step">
         <div class="flow-step-icon">01</div>
