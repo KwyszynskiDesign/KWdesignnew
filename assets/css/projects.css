@@ -202,6 +202,30 @@
   color: #0c6076;
 }
 
+#case-razdwa-pelne .ux-decision-box ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.15rem;
+}
+#case-razdwa-pelne .ux-decision-box ul li {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 0.4rem;
+}
+#case-razdwa-pelne .ux-decision-box ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Przebieg projektu ma 6 etapów (o jeden więcej niż domyślny flow) —
+   nieco więcej miejsca i węższe kolumny, żeby ostatni etap się nie ucinał. */
+#case-razdwa-pelne .user-flow--6 {
+  max-width: 1060px;
+}
+#case-razdwa-pelne .user-flow--6 .flow-step {
+  min-width: 104px;
+  padding: 0 0.3rem;
+}
+
 #case-razdwa-pelne .kwcs-hero-body .hero-image {
   width: 100%;
   display: flex;

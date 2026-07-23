@@ -66,7 +66,7 @@
   <li><a class="razdwa-chapter-link" href="#razdwa-decyzje" data-rail-target="razdwa-decyzje" title="Trzy decyzje: tanie utrzymanie i prosta obsługa" aria-label="Trzy decyzje: tanie utrzymanie i prosta obsługa">Kluczowe decyzje</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-ux" data-rail-target="razdwa-ux" title="Wycena w kilku krokach" aria-label="Wycena w kilku krokach">Szybka wycena</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-logika" data-rail-target="razdwa-logika" title="Najtrudniejsze wyceny liczą się same" aria-label="Najtrudniejsze wyceny liczą się same">Automatyzacja CAD</a></li>
-  <li><a class="razdwa-chapter-link" href="#razdwa-cennik" data-rail-target="razdwa-cennik" title="Właściciel zmienia ceny sam" aria-label="Właściciel zmienia ceny sam">Samodzielny cennik</a></li>
+  <li><a class="razdwa-chapter-link" href="#razdwa-cennik" data-rail-target="razdwa-cennik" title="Właścicielka zmienia ceny sama" aria-label="Właścicielka zmienia ceny sama">Samodzielny cennik</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-architektura" data-rail-target="razdwa-architektura" title="Bez serwera i stałych opłat" aria-label="Bez serwera i stałych opłat">Lekka architektura</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-lessons" data-rail-target="razdwa-lessons" title="Czego nauczyło mnie to wdrożenie" aria-label="Czego nauczyło mnie to wdrożenie">Wnioski</a></li>
   <li><a class="razdwa-chapter-link" href="#razdwa-rezultat" data-rail-target="razdwa-rezultat" title="Co zmieniło się w drukarni" aria-label="Co zmieniło się w drukarni">Rezultat</a></li>
@@ -172,7 +172,7 @@
       </div>
       <div class="ux-decision-box">
         <h4>Dwóch interesariuszy, dwie różne potrzeby</h4>
-        <p><strong>Operator (codzienny użytkownik):</strong> potrzebował prostego, szybkiego interfejsu odpornego na błędy. <strong>Właściciel (decyzje o cenach i budżecie):</strong> potrzebował kontroli nad cennikiem i możliwości samodzielnej edycji stawek. Pogodzenie tych dwóch perspektyw wyznaczyło zakres projektu.</p>
+        <p><strong>Operator (codzienny użytkownik):</strong> potrzebował prostego, szybkiego interfejsu odpornego na błędy. <strong>Właścicielka (decyzje o cenach i budżecie):</strong> potrzebowała kontroli nad cennikiem i możliwości samodzielnej edycji stawek. Pogodzenie tych dwóch perspektyw wyznaczyło zakres projektu.</p>
       </div>
     </div>
   </div>
@@ -192,12 +192,12 @@
         <h3><span class="dot"></span>Za co odpowiadałem</h3>
         <ul>
           <li>Analiza procesu wyceny i identyfikacja problemów operacyjnych (obserwacja pracy przy ladzie)</li>
-          <li>Zebranie wymagań od właściciela i operatora oraz spięcie ich w jeden zakres projektu</li>
+          <li>Zebranie wymagań od właścicielki i operatora oraz spięcie ich w jeden zakres projektu</li>
           <li>Decyzje o architekturze i zakresie — trade-off: koszt utrzymania vs rozbudowa funkcji</li>
           <li>Projekt architektury produktu i głównych przepływów użytkownika</li>
           <li>Opracowanie panelu cen i struktury danych</li>
           <li>Implementacja produkcyjna, testy automatyczne logiki cenowej i wdrożenie</li>
-          <li>Przekazanie narzędzia i wdrożenie właściciela w samodzielną obsługę panelu cen</li>
+          <li>Przekazanie narzędzia i wdrożenie właścicielki w samodzielną obsługę panelu cen (instrukcja wideo mp4)</li>
         </ul>
       </div>
     </div>
@@ -217,7 +217,7 @@
       </div>
       <div class="razdwa-stat">
         <div class="razdwa-stat-num">2 role</div>
-        <div class="razdwa-stat-label">operator i właściciel obsłużeni jednym systemem</div>
+        <div class="razdwa-stat-label">operator i właścicielka obsłużeni jednym systemem</div>
       </div>
     </div>
   </div>
@@ -232,25 +232,24 @@
   <div class="wrap">
     <p class="razdwa-h2-sub">Jak w ok. 6 miesięcy proces przy ladzie zmienił się w działające narzędzie.</p>
     <p class="kwcs-section-lead">
-      Projekt prowadziłem etapami: najpierw diagnoza realnej pracy, potem decyzje o zakresie pierwszej wersji, budowa z testami, uruchomienie — a po starcie iteracje na podstawie tego, jak narzędzie faktycznie pracuje.
+      Projekt prowadziłem etapami: od diagnozy realnej pracy (03.03.2026), przez decyzje o zakresie i architekturze, budowę z testami i pierwszą działającą wersję (02.04.2026), aż po iteracje i przekazanie narzędzia (04.06.2026).
     </p>
 
-    <!-- DO UZUPEŁNIENIA (dane od kandydata): przybliżone ramy czasowe poszczególnych
-         etapów (np. diagnoza DD.MM.2025 → pierwsza działająca wersja DD.MM.2026 →
-         iteracje od DD.MM.2026 → przekazanie DD.MM.2026). Bez tych danych etapy celowo
-         pozostają bez dat, żeby niczego nie zmyślać. -->
     <!-- ARTEFAKT PM DO WKLEJENIA (asset od kandydata): zrzut z Miro / diagram procesu
-         AS-IS → TO-BE (bloki decyzyjne, etapy). Gdy będzie gotowy, wstaw jako:
+         AS-IS → TO-BE. Plik dostarczony przez kandydata: "Miro_RAZ DWA.webp".
+         KROK 1: wgraj plik do repo jako assets/images/razdwa/Miro_RAZDWA.webp
+                 (bez spacji w nazwie — spacje psują ścieżki na GitHub Pages).
+         KROK 2: sprawdź realne wymiary webp i wstaw poniższy snippet zamiast tego komentarza:
          <div class="kwcs-gallery-grid kwcs-gallery-grid--single"><div class="gallery-item">
-         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/PLIK.webp"
-         width="W" height="H" alt="Proces wyceny AS-IS → TO-BE" loading="lazy"
-         data-caption="Mapa procesu przed i po wdrożeniu narzędzia"></div></div>.
-         Bez realnego pliku nie tworzę makiety, żeby nie zmyślać artefaktu. -->
-    <div class="user-flow">
+         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/Miro_RAZDWA.webp"
+         width="W" height="H" alt="Mapa procesu wyceny AS-IS → TO-BE (Miro)" loading="lazy"
+         data-caption="Proces wyceny przed i po wdrożeniu narzędzia — bloki decyzyjne"></div></div>.
+         Nie wstawiam <img> teraz, bo pliku nie ma jeszcze w repo (byłby zepsuty link). -->
+    <div class="user-flow user-flow--6">
       <div class="flow-step">
         <div class="flow-step-icon">01</div>
         <div class="flow-step-label">Diagnoza</div>
-        <div class="flow-step-sub">Obserwacja pracy przy ladzie, rozmowy z właścicielem i operatorem</div>
+        <div class="flow-step-sub">03.03.2026 — obserwacja pracy przy ladzie, rozmowy z właścicielką i operatorem</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
@@ -268,25 +267,25 @@
       <div class="flow-step">
         <div class="flow-step-icon">04</div>
         <div class="flow-step-label">Działająca wersja</div>
-        <div class="flow-step-sub">Pierwsza działająca wersja gotowa do pracy przy ladzie</div>
+        <div class="flow-step-sub">02.04.2026 — pierwsza działająca wersja gotowa do pracy przy ladzie</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
         <div class="flow-step-icon">05</div>
-        <div class="flow-step-label">Iteracje na działającej wersji</div>
-        <div class="flow-step-sub">Tryb EXPRESS, warianty produktów, eksport PDF</div>
+        <div class="flow-step-label">Iteracje</div>
+        <div class="flow-step-sub">od 02.04.2026 — tryb EXPRESS, warianty produktów, eksport PDF</div>
       </div>
       <div class="flow-arrow">→</div>
       <div class="flow-step">
         <div class="flow-step-icon">06</div>
-        <div class="flow-step-label">Przekazanie i gotowość</div>
-        <div class="flow-step-sub">Szkolenie właściciela z panelu cen, gotowość do startu produkcyjnego</div>
+        <div class="flow-step-label">Przekazanie</div>
+        <div class="flow-step-sub">04.06.2026 — instrukcja wideo (mp4) dla obsługi i właścicielki</div>
       </div>
     </div>
 
     <div class="kwcs-callout">
       <p>
-        <strong>Zakres nie był zamrożony:</strong> potrzeby, które ujawniły się dopiero na działającej wersji (tryb EXPRESS, warianty produktów, eksport PDF), obsłużyłem jako kolejne iteracje jeszcze przed startem produkcyjnym. <strong>Największe ryzyko</strong> — błąd w logice cenowej, który kosztuje realne pieniądze — zabezpieczył pakiet testów automatycznych, uruchamiany przy każdej zmianie cennika.
+        <strong>Zakres nie był zamrożony:</strong> część potrzeb (jak tryb EXPRESS, warianty produktów czy eksport PDF) zgłaszała właścicielka dopiero na działającej wersji. Przekładałem je na konkretne rozwiązania, proponowałem realizację i wdrażałem jako kolejne iteracje jeszcze przed pełnym startem produkcyjnym. <strong>Największe ryzyko</strong> — błąd w logice cenowej, który kosztuje realne pieniądze — zabezpieczył pakiet testów automatycznych, uruchamiany przy każdej zmianie cennika.
       </p>
     </div>
   </div>
@@ -318,10 +317,9 @@
           <li>Klasyczny backend i dedykowany serwer (świadomie odrzucone — patrz Decyzja 2)</li>
           <li>Gotowy system e-commerce / sklep online (świadomie odrzucone — patrz Decyzja 1)</li>
           <li>Rozbudowana skalowalność ponad potrzeby jednej drukarni</li>
-          <!-- DO UZUPEŁNIENIA (dane od kandydata): jeśli świadomie odłożono też inne
-               obszary (np. płatności online, konta klientów, integracja z księgowością),
-               dopisz je tutaj jednym punktem każdy. Bez potwierdzenia nie dodaję,
-               żeby nie zmyślać granic zakresu. -->
+          <li>Płatności online — poza zakresem obecnej wersji</li>
+          <li>Konta klientów — poza zakresem obecnej wersji</li>
+          <li>Integracja z księgowością — poza zakresem obecnej wersji</li>
         </ul>
       </div>
     </div>
@@ -354,16 +352,17 @@
           <li>Logika wyceny (usługi + CAD) zaimplementowana i pokryta testami automatycznymi</li>
           <li>Panel administracyjny cen gotowy (edycja stawek, warianty)</li>
           <li>Eksport dokumentów PDF i zapis zamówień do Google Sheets</li>
-          <li>Szkolenie właściciela z obsługi panelu cen</li>
+          <li>Szkolenie właścicielki z obsługi panelu cen</li>
+          <li>Instrukcja obsługi nagrana jako wideo (mp4) i przekazana obsłudze oraz właścicielce</li>
         </ul>
       </div>
       <div class="ux-decision-box">
         <div class="ux-label">Pozostaje do startu</div>
         <h4>Przed / na starcie produkcyjnym</h4>
         <ul>
-          <li>Start produkcyjny przy ladzie — planowany na <strong>01.08.2026</strong></li>
-          <li>Przekazanie panelu cen właścicielowi do samodzielnej obsługi</li>
-          <!-- [CZEKA NA DANE] Po starcie produkcyjnym dopisz punkt potwierdzający odbiór:
+          <li>Pełny start produkcyjny przy ladzie — planowany na <strong>01.08.2026</strong></li>
+          <li>Narzędzie jest już częściowo wykorzystywane i realnie przyspiesza pracę</li>
+          <!-- [CZEKA NA DANE] Po pełnym starcie produkcyjnym dopisz punkt z metryką odbioru:
                np. "Potwierdzenie poprawnej pracy przy ladzie po pierwszym tygodniu (DD.MM.2026)".
                Bez realnego potwierdzenia nie publikujemy tego jako faktu. -->
         </ul>
@@ -397,7 +396,7 @@
       <div class="ux-decision-box">
         <div class="ux-label">Decyzja 3</div>
         <h4>Panel cen zamiast zależności od programisty</h4>
-        <p>Właściciel potrzebował samodzielnie aktualizować stawki, dlatego stworzyłem panel administracyjny do zmiany cennika. Dzięki temu firma nie czeka na developera i nie płaci za każdą korektę ceny.</p>
+        <p>Właścicielka potrzebowała samodzielnie aktualizować stawki, dlatego stworzyłem panel administracyjny do zmiany cennika. Dzięki temu firma nie czeka na developera i nie płaci za każdą korektę ceny.</p>
         <p class="razdwa-tradeoff"><strong>Kompromis:</strong> dodatkowa praca nad panelem administracyjnym w zamian za samodzielność klienta po przekazaniu narzędzia.</p>
       </div>
     </div>
@@ -522,19 +521,19 @@
   </div>
 </div>
 
-<h2 class="section-divider" id="razdwa-cennik">Cennik pod kontrolą właściciela</h2>
+<h2 class="section-divider" id="razdwa-cennik">Cennik pod kontrolą właścicielki</h2>
 
 <div class="kwcs-sec">
   <div class="wrap">
-    <p class="razdwa-h2-sub">Zmienia stawki sam, bez dzwonienia do programisty.</p>
+    <p class="razdwa-h2-sub">Zmienia stawki sama, bez dzwonienia do programisty.</p>
     <p class="kwcs-section-lead">
-      Panel administracyjny pozwala właścicielowi <strong>samodzielnie</strong> zmieniać stawki i dodawać warianty — bez psucia struktury danych i bez kosztu za każdą zmianę. Nowe warianty zapisywane są w bazie danych, więc dodane warianty cenowe dostępne są zaraz po dodaniu.
+      Panel administracyjny pozwala właścicielce <strong>samodzielnie</strong> zmieniać stawki i dodawać warianty — bez psucia struktury danych i bez kosztu za każdą zmianę. Nowe warianty zapisywane są w bazie danych, więc dodane warianty cenowe dostępne są zaraz po dodaniu.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--single" style="margin-bottom:2rem;">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/ustawienia_cen_RAZDWA.webp" width="676" height="519" alt="Panel administracyjny do zarządzania cenami" loading="lazy" data-caption="Panel cen — widok wszystkich kategorii cennika w panelu administracyjnym">
-        <p class="img-desc"><strong>Panel cen:</strong> Właściciel wybiera kategorię i edytuje stawki bezpośrednio w panelu.</p>
+        <p class="img-desc"><strong>Panel cen:</strong> Właścicielka wybiera kategorię i edytuje stawki bezpośrednio w panelu.</p>
       </div>
     </div>
 
@@ -613,7 +612,7 @@
 
     <div class="kwcs-callout">
       <p>
-        <strong>Efekt dla firmy:</strong> historia zamówień, cennik i codzienna obsługa w jednym miejscu, które właściciel utrzymuje sam — bez programistów i dodatkowych kosztów.
+        <strong>Efekt dla firmy:</strong> historia zamówień, cennik i codzienna obsługa w jednym miejscu, które właścicielka utrzymuje sama — bez programistów i dodatkowych kosztów.
       </p>
     </div>
 
@@ -665,13 +664,13 @@
 
       <div class="result-lead">
         <p>
-          Drukarnia dostała gotowe narzędzie, które skraca wycenę <strong>z godziny do około 5 minut</strong> i porządkuje obsługę zamówień. Mniej <strong>błędów rachunkowych</strong>, a właściciel — po przeszkoleniu — samodzielnie panuje nad cennikiem.
+          Drukarnia dostała gotowe narzędzie, które skraca wycenę <strong>z godziny do około 5 minut</strong> i porządkuje obsługę zamówień. Mniej <strong>błędów rachunkowych</strong>, a właścicielka — po przeszkoleniu — samodzielnie panuje nad cennikiem.
         </p>
       </div>
 
       <div class="kwcs-callout">
         <p>
-          <strong>Status:</strong> narzędzie dostarczone i gotowe do startu produkcyjnego. Start produkcyjny planowany na <strong>01.08.2026</strong>. Wartości czasowe (ok. 5 min, −90% przy CAD) pochodzą z porównania obsługi tego samego typu zamówienia przed i po zbudowaniu narzędzia — nie z długiego okresu użycia produkcyjnego.
+          <strong>Status:</strong> narzędzie jest już częściowo wykorzystywane w drukarni i realnie przyspiesza pracę oraz wspiera wyceny. Pełny start produkcyjny planowany na <strong>01.08.2026</strong>. Wartości czasowe (ok. 5 min, −90% przy CAD) pochodzą z porównania obsługi tego samego typu zamówienia przed i po zbudowaniu narzędzia — nie z długiego okresu pełnego użycia produkcyjnego.
         </p>
       </div>
 
@@ -686,20 +685,19 @@
         </div>
         <div class="result-card">
           <h4>Samodzielność po przekazaniu</h4>
-          <p>Właściciel został przeszkolony z obsługi panelu cen i po starcie produkcyjnym prowadzi cennik oraz rozbudowuje ofertę samodzielnie — bez rozbudowanej infrastruktury i bez powrotu do wykonawcy przy każdej zmianie.</p>
+          <p>Właścicielka została przeszkolona z obsługi panelu cen (instrukcja wideo mp4) i prowadzi cennik oraz rozbudowuje ofertę samodzielnie — bez rozbudowanej infrastruktury i bez powrotu do wykonawcy przy każdej zmianie.</p>
         </div>
       </div>
 
-      <!-- DO UZUPEŁNIENIA (dane od właściciela portfolio): twarde dane potwierdzające
-           adopcję po przekazaniu — np. jak długo narzędzie jest w codziennym użyciu,
-           ile zamówień/wycen przechodzi przez aplikację miesięcznie, ile zmian cennika
-           właściciel wprowadził samodzielnie. Dopóki brak realnych liczb, celowo nie
-           podajemy tu żadnych metryk adopcji, żeby nie zmyślać. -->
+      <!-- DO UZUPEŁNIENIA (dane od kandydata): twarde dane potwierdzające adopcję —
+           np. ile zamówień/wycen przechodzi przez aplikację miesięcznie, ile zmian
+           cennika właścicielka wprowadziła samodzielnie, od kiedy trwa częściowe użycie.
+           Dopóki brak realnych liczb, celowo nie podajemy tu żadnych metryk, żeby nie zmyślać. -->
 
       <!-- ============================================================
            SLOT NA CYTAT KLIENTA (proof)
            Celowo NIEWIDOCZNY do czasu uzyskania prawdziwej opinii
-           właściciela drukarni. Zero fikcyjnych nazwisk.
+           właścicielki drukarni. Zero fikcyjnych nazwisk.
            Aby aktywować: usuń znaczniki komentarza i uzupełnij treść
            oraz podpis (imię, rola, firma). Style .razdwa-quote są już
            gotowe w assets/css/projects.css (scope #case-razdwa-pelne).
