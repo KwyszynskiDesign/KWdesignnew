@@ -436,6 +436,7 @@
 .kwcs-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
@@ -449,6 +450,13 @@
   margin: 1.5rem 0;
   border: none;
   cursor: pointer;
+  /* Nie może przekroczyć szerokości kontenera — inaczej długi label (np.
+     "Karoma — identyfikacja wizualna i sklep B2B") rozpycha stronę na mobile.
+     min-width:0 pozwala tekstowi zawinąć się zamiast wypychać poza ekran. */
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .kwcs-cta:hover {
@@ -1730,6 +1738,9 @@ body.lightbox-open {
   align-items: center;
   gap: 0.5rem;
   width: fit-content;
+  /* fit-content nie może przekroczyć szerokości kontenera na mobile */
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 2rem auto 0;
   padding: 0.85rem 2rem;
   background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
@@ -1743,6 +1754,28 @@ body.lightbox-open {
   border: none;
   cursor: pointer;
   text-align: center;
+}
+
+/* Responsywne obrazy hero w starszej strukturze case studies
+   (sir-roger, voucher, cyfradruk mają <img class="cover" width="1200">).
+   Scoped reguły #case-*-pelne .cover są bardziej specyficzne i wygrywają. */
+.hero-image .cover,
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CTA case studies są też .kw-btn, który wymusza white-space:nowrap
+   (kw-buttons.css) — długi label (np. "Karoma — identyfikacja wizualna i
+   sklep B2B") zostawał w jednej linii i był ucinany przez overflow:hidden.
+   Podnosimy specyficzność (.kwcs-cta.kw-btn = 0,2,0 > .kw-btn = 0,1,0),
+   pozwalamy zawijać i rosnąć w pionie. overflow:hidden zostaje (przycina
+   poświatę hover do zaokrąglenia). */
+.kwcs-cta.kw-btn,
+.hero-image-cta.kw-btn {
+  white-space: normal;
+  line-height: 1.25;
+  height: auto;
 }
 
 .hero-image-cta:hover {
