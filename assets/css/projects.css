@@ -190,6 +190,18 @@
   line-height: 1.5;
 }
 
+#case-razdwa-pelne .razdwa-tradeoff {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #475569;
+}
+#case-razdwa-pelne .razdwa-tradeoff strong {
+  color: #0c6076;
+}
+
 #case-razdwa-pelne .kwcs-hero-body .hero-image {
   width: 100%;
   display: flex;
