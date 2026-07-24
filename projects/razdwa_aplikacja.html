@@ -290,6 +290,28 @@
         <strong>Zakres nie był zamrożony:</strong> część potrzeb (jak tryb EXPRESS, warianty produktów czy eksport PDF) zgłaszała właścicielka dopiero na działającej wersji. Przekładałem je na konkretne rozwiązania, proponowałem realizację i wdrażałem jako kolejne iteracje jeszcze przed pełnym startem produkcyjnym. <strong>Największe ryzyko</strong> — błąd w logice cenowej, który kosztuje realne pieniądze — zabezpieczył pakiet testów automatycznych, uruchamiany przy każdej zmianie cennika.
       </p>
     </div>
+
+    <h3 class="kwcs-h3-center">Jak porządkowałem zakres i kolejność wdrożeń</h3>
+    <p class="kwcs-section-lead">
+      Zamiast reagować na każdą prośbę od ręki, prowadziłem potrzeby jako uporządkowany backlog — od zgłoszenia, przez decyzję o zakresie, po kolejność wdrożenia.
+    </p>
+    <div class="ux-decision-grid ux-decision-grid--trio">
+      <div class="ux-decision-box">
+        <div class="ux-label">Krok 1 · Zbieranie sygnałów</div>
+        <h4>Potrzeby z realnej pracy</h4>
+        <p>Zgłoszenia od właścicielki i obserwacje pracy przy ladzie zbierałem w jednym miejscu, zamiast gubić je w bieżącej obsłudze.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Krok 2 · Przełożenie na zakres</div>
+        <h4>Z życzenia w konkretny zakres</h4>
+        <p>Każdy sygnał zamieniałem na wykonalny element zakresu — z jasnym „po co", zamiast luźnej listy życzeń.</p>
+      </div>
+      <div class="ux-decision-box">
+        <div class="ux-label">Krok 3 · Kolejność wdrożeń</div>
+        <h4>Iteracje przed startem</h4>
+        <p>Ustalałem, co wchodzi najpierw, i wdrażałem jako kolejne iteracje — tak, aby dodatkowe potrzeby nie blokowały dostarczenia pierwszej wersji.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -369,6 +391,12 @@
                Bez realnego potwierdzenia nie publikujemy tego jako faktu. -->
         </ul>
       </div>
+    </div>
+
+    <div class="kwcs-callout">
+      <p>
+        <strong>Puenta delivery:</strong> zaplanowany zakres pierwszej wersji dostarczyłem end-to-end od diagnozy (03.03.2026) do przekazania (04.06.2026), a dodatkowe potrzeby obsłużyłem jako kontrolowane iteracje — bez rozjechania zakresu. Narzędzie jest dostarczone, przekazane i przygotowane do startu produkcyjnego (01.08.2026).
+      </p>
     </div>
   </div>
 </div>
@@ -493,7 +521,7 @@
 <div class="kwcs-sec">
   <div class="wrap">
     <p class="kwcs-section-lead">
-      Najtrudniejsza technicznie była wycena plików CAD — parametry pliku, orientacja wydruku i wyjątki formatowe, które przy ręcznym liczeniu dawały największe ryzyko błędu. Teraz system <strong>rozpoznaje parametry i liczy cenę sam</strong> — znika godzina pracy, a o <strong>pomyłkę wymiarową znacznie trudniej</strong>.
+      <strong>Po co:</strong> wycena plików CAD była najtrudniejszym i najbardziej kosztownym punktem procesu. <strong>Jaki problem rozwiązuje:</strong> system sam rozpoznaje parametry i liczy cenę, więc znika godzina ręcznej pracy, a o pomyłkę wymiarową jest znacznie trudniej.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--mb">
@@ -502,22 +530,6 @@
       </div>
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/CADUpload_RAZDWA_KW3.webp" width="547" height="608" alt="Ekran wyniku kalkulacji CAD — wycena per plik i per mb" loading="lazy" data-caption="Wycena CAD — stawka per plik lub per mb w zależności od formatu">
-      </div>
-    </div>
-
-    <div class="kwcs-accordion">
-      <div class="kwcs-item">
-        <button class="kwcs-header" aria-expanded="false" aria-controls="content-cad-3" id="header-cad-3" type="button">
-          <span class="num">1</span> Jak system upraszcza wycenę CAD
-          <span class="icon" aria-hidden="true">+</span>
-        </button>
-        <div class="kwcs-content" id="content-cad-3" role="region" aria-labelledby="header-cad-3">
-          <ul>
-            <li><strong>Rozpoznawanie parametrów pliku:</strong> system ogranicza ryzyko błędów wymiarowych i pomaga dobrać właściwy sposób wyceny.</li>
-            <li><strong>Automatyczna orientacja:</strong> ułatwia dopasowanie formatu i szerokości roli papieru.</li>
-            <li><strong>Obsługa wyjątków:</strong> przy niestandardowych formatach wycena przechodzi na odpowiedni model rozliczenia.</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -529,31 +541,13 @@
   <div class="wrap">
     <p class="razdwa-h2-sub">Zmienia stawki sama, bez dzwonienia do programisty.</p>
     <p class="kwcs-section-lead">
-      Panel administracyjny pozwala właścicielce <strong>samodzielnie</strong> zmieniać stawki i dodawać warianty — bez psucia struktury danych i bez kosztu za każdą zmianę. Nowe warianty zapisywane są w bazie danych, więc dodane warianty cenowe dostępne są zaraz po dodaniu.
+      <strong>Po co:</strong> stawki zmieniają się w czasie, a firma nie powinna czekać na programistę przy każdej korekcie. <strong>Jaki problem rozwiązuje:</strong> właścicielka aktualizuje ceny i dodaje warianty samodzielnie — bez kosztu za każdą zmianę i bez psucia struktury danych.
     </p>
 
     <div class="kwcs-gallery-grid kwcs-gallery-grid--single" style="margin-bottom:2rem;">
       <div class="gallery-item">
         <img class="lightbox-trigger" src="/KWdesignnew/assets/images/razdwa/ustawienia_cen_RAZDWA.webp" width="676" height="519" alt="Panel administracyjny do zarządzania cenami" loading="lazy" data-caption="Panel cen — widok wszystkich kategorii cennika w panelu administracyjnym">
         <p class="img-desc"><strong>Panel cen:</strong> Właścicielka wybiera kategorię i edytuje stawki bezpośrednio w panelu.</p>
-      </div>
-    </div>
-
-    <div class="ux-decision-grid ux-decision-grid--trio">
-      <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 1</div>
-        <h4>Jedno miejsce do zarządzania cenami</h4>
-        <p>Cały cennik zebrany w jednym widoku — szybsza aktualizacja stawek i lepsza orientacja w strukturze usług.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 2</div>
-        <h4>Bezpieczna edycja w codziennej pracy</h4>
-        <p>Dostęp do zmian oddzielony od pracy operatora — system pozostaje prosty w obsłudze i bezpieczny biznesowo.</p>
-      </div>
-      <div class="ux-decision-box">
-        <div class="ux-label">Funkcja 3</div>
-        <h4>Dodawanie wariantów bez chaosu w danych</h4>
-        <p>Użytkownik pracuje na prostych nazwach produktów, a system dba o spójność zapisu i porządek po stronie danych.</p>
       </div>
     </div>
 
