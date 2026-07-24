@@ -228,9 +228,19 @@
 
 #case-razdwa-pelne .razdwa-miro { margin-bottom: 2rem; }
 #case-razdwa-pelne .razdwa-miro img {
-  max-width: 100%;
+  /* Miro to dowód, że było planowanie — wystarczy podgląd ~połowy rozmiaru,
+     pełny widok dostępny po kliknięciu (lightbox). width:100% + max-width
+     trzyma responsywność na mobile (nie przekroczy szerokości ekranu). */
+  display: block;
+  width: 100%;
+  max-width: 380px;
   height: auto;
+  margin: 0 auto;
   border-radius: 12px;
+  cursor: zoom-in;
+}
+#case-razdwa-pelne .razdwa-miro .img-desc {
+  text-align: center;
 }
 
 #case-razdwa-pelne .kwcs-hero-body .hero-image {
