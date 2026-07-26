@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounters();
     initServiceCardsAnimation();
     initOrderTool();
+    initHeroTextAnimation();
 });
 
 
@@ -425,6 +426,39 @@ function initTestimonialsCarousel() {
         }
     }
     
+}
+
+// Hero H1 — rozbicie na litery do animacji blur-in; eyebrow/subtitle/CTA dostają fade-up
+function initHeroTextAnimation() {
+    const heroTitle = document.querySelector('.hero-title');
+    const heroEyebrow = document.querySelector('.hero-text .hero-eyebrow');
+    const heroSubtitle = document.querySelector('.hero-text .hero-subtitle');
+    const heroActions = document.querySelector('.hero-actions');
+    if (!heroTitle) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reduceMotion) {
+        let i = 0;
+        heroTitle.querySelectorAll('.ht-line1, .ht-line2').forEach(function(line) {
+            const text = line.textContent;
+            line.setAttribute('aria-label', text);
+            line.textContent = '';
+            [...text].forEach(function(char) {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.setAttribute('aria-hidden', 'true');
+                span.style.setProperty('--i', i++);
+                span.textContent = char;
+                line.appendChild(span);
+            });
+        });
+    }
+
+    heroTitle.classList.add('is-visible');
+    if (heroEyebrow) heroEyebrow.classList.add('is-visible');
+    if (heroSubtitle) heroSubtitle.classList.add('is-visible');
+    if (heroActions) heroActions.classList.add('is-visible');
 }
 
 function initAnimations() {
