@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>KW Design — QA wizualne sekcji (case study)</title>
+<style>
+  :root{
+    --bg:#f6f8fb; --card:#ffffff; --ink:#0f172a; --muted:#64748b;
+    --line:#e2e8f0; --accent:#0ea5e9; --chip:#e0f2fe; --chip-ink:#0369a1;
+    --note-bg:#fff7ed; --note-line:#fdba74; --note-ink:#9a3412;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0b1220; --card:#111a2b; --ink:#e5edf7; --muted:#94a3b8;
+      --line:#22304a; --accent:#38bdf8; --chip:#0c2a3f; --chip-ink:#7dd3fc;
+      --note-bg:#2a1a0f; --note-line:#7c4a22; --note-ink:#fdba74;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:48px 20px 96px;}
+  header.head{margin-bottom:40px;}
+  h1{font-size:clamp(1.8rem,4vw,2.6rem); margin:0 0 10px; letter-spacing:-0.02em;}
+  .sub{color:var(--muted); font-size:1.05rem; max-width:70ch;}
+  .meta{margin-top:16px; font-size:.85rem; color:var(--muted);}
+  h2.group{
+    font-size:1.35rem; margin:56px 0 8px; padding-bottom:10px;
+    border-bottom:2px solid var(--line);
+  }
+  h2.group span{font-size:.8rem; font-weight:600; color:var(--accent); display:block; letter-spacing:.08em; text-transform:uppercase; margin-bottom:2px;}
+  figure{
+    margin:28px 0 0; background:var(--card); border:1px solid var(--line);
+    border-radius:16px; overflow:hidden;
+  }
+  .shot{padding:16px; background:repeating-conic-gradient(from 0deg, transparent 0 25%, rgba(128,128,128,.04) 0 50%) 0 0/24px 24px;}
+  figure img{
+    display:block; width:100%; height:auto; border-radius:8px;
+    box-shadow:0 6px 22px rgba(0,0,0,.14); background:#fff;
+  }
+  figcaption{padding:16px 20px 20px;}
+  .file{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem;
+    color:var(--chip-ink); background:var(--chip); display:inline-block;
+    padding:3px 10px; border-radius:999px; margin-bottom:10px;
+  }
+  .dims{color:var(--muted); font-size:.78rem; margin-left:8px; font-family:ui-monospace,monospace;}
+  .purpose{margin:0 0 12px;}
+  .purpose b{color:var(--ink);}
+  .note{
+    margin:0; padding:12px 14px; background:var(--note-bg);
+    border-left:3px solid var(--note-line); border-radius:8px;
+    color:var(--note-ink); font-size:.95rem;
+  }
+  .note b{color:var(--note-ink);}
+  .two{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:720px){ .two{grid-template-columns:1fr;} }
+  footer.foot{margin-top:64px; color:var(--muted); font-size:.85rem; border-top:1px solid var(--line); padding-top:20px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <h1>KW Design — QA wizualne sekcji</h1>
+    <p class="sub">Zestaw zrzutów dokumentujących kluczowe sekcje strony KW Design (Start i Portfolio) na desktopie 1440&nbsp;px i mobile 390&nbsp;px. Materiał do case study „jak powstawało KW Design" oraz do przeglądu układu, balansu i spójności między stronami.</p>
+    <p class="meta">Zakres: <code>index.html</code>, <code>portfolio.html</code> · Viewporty: 1440&nbsp;px (desktop), 390&nbsp;px (mobile) · Skala 2× (retina) · Pliki źródłowe: <code>docs/case-study/kwdesign/</code></p>
+  </header>
+
+  <!-- ===================== PRIORYTET 1 ===================== -->
+  <h2 class="group"><span>Priorytet 1</span>Rdzeń QA — hero i separacja tierów</h2>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/index-hero-desktop-1440.png" alt="Index hero, desktop 1440"></div>
+    <figcaption>
+      <span class="file">index-hero-desktop-1440.png<span class="dims">1440×940</span></span>
+      <p class="purpose"><b>Po co:</b> pokazać zawijanie eyebrow, balans tekst–foto i to, czy dwie statystyki nie wyglądają jak duplikat.</p>
+      <p class="note"><b>Obserwacja:</b> komplet elementów łapie się w jednym ekranie (eyebrow → H1 → lead → 2 metryki → CTA + foto z podpisem). Eyebrow mieści się w jednej linii, metryki <b>−90%</b> i <b>~10 tyg.</b> są wyraźnie różne — nie czytają się jak duplikat. Foto z podpisem dobrze równoważy kolumnę tekstu.</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/index-hero-mobile-390.png" alt="Index hero, mobile 390"></div>
+    <figcaption>
+      <span class="file">index-hero-mobile-390.png<span class="dims">390×1258</span></span>
+      <p class="purpose"><b>Po co:</b> sprawdzić łamanie eyebrow, pionowy stack elementów i brak poziomego scrolla.</p>
+      <p class="note"><b>Obserwacja:</b> elementy schodzą do jednego stacku, bez poziomego scrolla; eyebrow łamie się poprawnie. Hero jest dość wysokie — warto obserwować długość przy dłuższych metrykach.</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/portfolio-archive-desktop-1440.png" alt="Portfolio: koniec Tier 1 + Design archive, desktop 1440"></div>
+    <figcaption>
+      <span class="file">portfolio-archive-desktop-1440.png<span class="dims">1440×2407</span></span>
+      <p class="purpose"><b>Po co:</b> od ostatniej karty Tier 1 do końca sekcji archive — czy archive czyta się jako niższy tier, a nie dalszy ciąg głównej listy.</p>
+      <p class="note"><b>Obserwacja:</b> separacja tierów działa — zmiana tła (gradient → jednolite jasne) i węższy, wyśrodkowany 2-kartowy grid archive z uproszczonymi kartami (bez opisów/tagów) jasno komunikują niższy tier. <b>Uwaga:</b> ostatni rząd Tier 1 zostawia kartę „CyfraDruk" samą, z dwiema pustymi kolumnami obok — asymetria warta rozważenia (4 karty w gridzie 3-kolumnowym).</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/portfolio-archive-mobile-390.png" alt="Portfolio: koniec Tier 1 + Design archive, mobile 390"></div>
+    <figcaption>
+      <span class="file">portfolio-archive-mobile-390.png<span class="dims">390×1592</span></span>
+      <p class="purpose"><b>Po co:</b> zwijanie do 1 kolumny, odstęp przed nagłówkiem archive i wygląd uproszczonych kart na małym ekranie.</p>
+      <p class="note"><b>Obserwacja:</b> zwija się do 1 kolumny czysto; jest wyraźny oddech przed nagłówkiem „Design archive", a uproszczone karty (kategoria + tytuł + CTA) wyglądają kompletnie, nie „pusto".</p>
+    </figcaption>
+  </figure>
+
+  <!-- ===================== PRIORYTET 2 ===================== -->
+  <h2 class="group"><span>Priorytet 2</span>About i spójność footerów</h2>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/index-about-desktop-1440.png" alt="Index About, desktop 1440"></div>
+    <figcaption>
+      <span class="file">index-about-desktop-1440.png<span class="dims">1440×812</span></span>
+      <p class="purpose"><b>Po co:</b> ocenić 2-kolumnowy układ kart, spacing i przejście tła między sekcjami (kadr z odrobiną sąsiadów).</p>
+      <p class="note"><b>Obserwacja:</b> dwie karty („Jak pracuję" / „W jaką stronę idę") są zbalansowane i wyrównane, tytuł i lead wyśrodkowane. Spacing sekcji spokojny; tło płynnie przechodzi między sekcjami.</p>
+    </figcaption>
+  </figure>
+
+  <div class="two">
+    <figure>
+      <div class="shot"><img src="kwdesign/index-footer-desktop-1440.png" alt="Index footer, desktop 1440"></div>
+      <figcaption>
+        <span class="file">index-footer-desktop-1440.png<span class="dims">1440×368</span></span>
+        <p class="purpose"><b>Po co:</b> łamanie tekstu i czystość układu footera na stronie Start.</p>
+        <p class="note"><b>Obserwacja:</b> footer Start ma <b>dodatkową linię opisu</b> „Aplikacje, automatyzacje i strony — od analizy procesu po wdrożenie." pod linią roli.</p>
+      </figcaption>
+    </figure>
+    <figure>
+      <div class="shot"><img src="kwdesign/portfolio-footer-desktop-1440.png" alt="Portfolio footer, desktop 1440"></div>
+      <figcaption>
+        <span class="file">portfolio-footer-desktop-1440.png<span class="dims">1440×334</span></span>
+        <p class="purpose"><b>Po co:</b> porównać, czy footer wygląda spójnie na obu stronach.</p>
+        <p class="note"><b>Niespójność:</b> footer Portfolio <b>nie ma</b> tej linii opisu — poza tym struktura identyczna. Do ujednolicenia między stronami.</p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- ===================== OPCJONALNE ===================== -->
+  <h2 class="group"><span>Opcjonalne</span>Domknięcie QA</h2>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/index-about-mobile-390.png" alt="Index About, mobile 390"></div>
+    <figcaption>
+      <span class="file">index-about-mobile-390.png<span class="dims">390×825</span></span>
+      <p class="purpose"><b>Po co:</b> czy kolumny schodzą do jednego stacku i czy spacing nie siada na mobile.</p>
+      <p class="note"><b>Obserwacja:</b> kolumny schodzą do 1 stacku, karty pełnej szerokości, spacing zachowany — sekcja nie „siada".</p>
+    </figcaption>
+  </figure>
+
+  <figure>
+    <div class="shot"><img src="kwdesign/portfolio-archive-card-hover-desktop-1440.png" alt="Karta archive na hover"></div>
+    <figcaption>
+      <span class="file">portfolio-archive-card-hover-desktop-1440.png<span class="dims">stan :hover</span></span>
+      <p class="purpose"><b>Po co:</b> czy skrócona karta archive nie wygląda na pustą albo uszkodzoną w stanie hover.</p>
+      <p class="note"><b>Obserwacja:</b> hover działa poprawnie (podbicie kategorii, zoom podglądu) — skrócona karta jest kompletna, nie sprawia wrażenia pustej/uszkodzonej.</p>
+    </figcaption>
+  </figure>
+
+  <footer class="foot">
+    Zrzuty wygenerowane z lokalnych plików statycznych (Chromium/Playwright, DPR&nbsp;2×). Strona przeglądowa <code>noindex</code> — służy wyłącznie do QA/case study i nie jest linkowana z nawigacji.
+  </footer>
+
+</div>
+</body>
+</html>
