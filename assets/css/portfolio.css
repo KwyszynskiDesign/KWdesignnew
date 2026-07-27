@@ -91,20 +91,25 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
   margin:0 auto;
   padding:0 clamp(20px,4vw,40px);
   display:grid;
-  grid-template-columns:minmax(0,2.2fr) minmax(0,420px);
-  gap:clamp(90px,12vw,140px);
-  align-items:flex-start;
+  grid-template-columns:minmax(0,1.6fr) minmax(0,420px);
+  grid-template-rows:auto auto;
+  grid-template-areas:
+    "text  image"
+    "cta   image";
+  column-gap:clamp(48px,7vw,96px);
+  row-gap:clamp(28px,4vh,44px);
+  align-items:start;
   overflow:visible;
   position:relative;
   z-index:1;
-  min-height: 600px; 
 }
 
 /* === PREMIUM TEXT STYLING === */
 .about-me-text{
+  grid-area:text;
   overflow:visible;
   min-height:auto;
-  padding:30px 0 20px clamp(20px,4vw,120px);
+  padding:30px 0 0 clamp(20px,4vw,80px);
   position:relative;
 }
 
@@ -136,7 +141,7 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 }
 
 .about-me-text .subtitle{
-  margin-bottom:clamp(40px,6vh,60px);
+  margin-bottom:0;
   font-size:clamp(1.1rem,2.6vw,1.5rem);
   color:#0ea5e9;
   font-weight:600;
@@ -324,16 +329,17 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* === PREMIUM VISUAL SECTION - NAPRAWIONE MOBILE === */
 .about-me-visuals{
+  grid-area:image;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:clamp(40px,6vh,60px);
+  justify-content:center;
   max-width:420px;
   justify-self:center;
+  align-self:center;
   overflow:visible !important;
-  transform:translateY(-80px);
   position:relative;
-  padding:35px 25px 45px 25px;
+  padding:10px 25px;
 }
 
 .about-me-image{
@@ -383,13 +389,17 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-skupiony2.w
 
 /* === PREMIUM CTA BUTTON === */
 .cta-portfolio{
+  grid-area:cta;
+  justify-self:start;
+  align-self:start;
+  margin-left:clamp(20px,4vw,80px);
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:12px;
-  padding:20px 40px;
-  max-width:370px;
-  width:100%;
+  padding:20px 44px;
+  max-width:none;
+  width:auto;
   background:linear-gradient(135deg,#0ea5e9 0%,#3b82f6 50%,#2563eb 100%);
   color:#fff;
   text-decoration:none;
@@ -908,11 +918,11 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   
   .about-me-visuals{
-    order:1 !important;
+    order:2 !important;
     transform:none !important;
     -webkit-transform:none !important;
-    margin:0 auto 0 auto !important;
-    padding:0 15px 50px 15px !important;
+    margin:0 auto !important;
+    padding:0 15px !important;
     position:relative !important;
     max-width:100% !important;
     gap:0 !important;
@@ -922,20 +932,24 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     overflow:visible !important;
     visibility:visible !important;
   }
-  
+
   .about-me-image{
     max-width:240px !important;
     aspect-ratio:1 !important;
-    margin:0 auto 25px auto !important;
+    margin:0 auto !important;
     border-radius:22px !important;
     display:block !important;
     visibility:visible !important;
   }
-  
+
+  .about-me-grid > .cta-portfolio,
   .about-me-visuals .cta-portfolio{
-    order:999 !important;
+    order:3 !important;
+    align-self:center !important;
+    justify-self:center !important;
+    margin:32px auto 0 auto !important;
     max-width:280px !important;
-    margin:35px auto 0 auto !important;
+    width:100% !important;
     padding:16px 32px !important;
     font-size:1rem !important;
     overflow:visible !important;
@@ -943,10 +957,10 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     display:inline-flex !important;
     visibility:visible !important;
   }
-  
+
   .about-me-text{
-    order:2 !important;
-    padding:0 15px 20px 15px !important;
+    order:1 !important;
+    padding:0 15px 24px 15px !important;
     text-align:center !important;
     margin:0 !important;
     width:100% !important;
@@ -954,7 +968,13 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     flex-direction:column !important;
     visibility:visible !important;
   }
-  
+
+  .about-me-text .about-me-eyebrow{
+    order:0 !important;
+    text-align:center !important;
+    margin:0 0 10px 0 !important;
+  }
+
   .about-me-text h1{
     font-size:clamp(1.7rem,6vw,2.2rem) !important;
     margin:0 0 15px 0 !important;
@@ -1097,16 +1117,16 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
   }
   
   .about-me-visuals{
-    padding:0 10px 40px 10px !important;
+    padding:0 10px !important;
     overflow:visible !important;
     display:flex !important;
     flex-direction:column !important;
     visibility:visible !important;
   }
-  
+
   .about-me-image{
     max-width:220px !important;
-    margin-bottom:20px !important;
+    margin-bottom:0 !important;
     display:block !important;
     visibility:visible !important;
   }
@@ -1139,11 +1159,12 @@ body.portfolio-page.page-voucher-magdy .breadcrumbs a:hover{color:#0f44b7;}
     visibility:visible !important;
   }
   
+  .about-me-grid > .cta-portfolio,
   .about-me-visuals .cta-portfolio{
     max-width:260px !important;
     padding:14px 28px !important;
     font-size:0.95rem !important;
-    margin:30px auto 0 auto !important;
+    margin:28px auto 0 auto !important;
     overflow:visible !important;
     isolation:isolate;
     display:inline-flex !important;
