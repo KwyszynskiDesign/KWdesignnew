@@ -1,3 +1,39 @@
+/* === Design Archive (Tier 2 — poza głównym gridem, celowo skromniejsze) === */
+.archive-section {
+    padding: var(--space-16, 4rem) 0 var(--space-24, 6rem);
+}
+
+.archive-section .archive-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.archive-section .archive-note {
+    margin-bottom: var(--space-10, 2.5rem);
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.archive-grid .card-image-wrapper {
+    padding: 12px;
+}
+
+.archive-grid .card-content {
+    padding: 16px 20px;
+    gap: 4px;
+}
+
+.archive-grid .card-title {
+    font-size: 1.15rem;
+    margin: 0 0 4px 0;
+}
+
 /* === PORTFOLIO PAGE - PREMIUM EDITION 2025 === */
 
 /* === LOKALNE FONTY POPPINS === */

@@ -69,6 +69,8 @@
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/index-styles.css" />
+    <!-- About Me — reużywane klasy (about-details-grid) dla sekcji About na stronie głównej -->
+    <link rel="stylesheet" href="assets/css/about-me.css" />
     <!-- KW Buttons — system przycisków v1.0 (po index-styles.css, żeby aliasy .kw-btn wygrywały w kaskadzie) -->
     <link rel="stylesheet" href="assets/css/kw-buttons.css" />
 
@@ -86,6 +88,7 @@
                     <li><a href="#hero" class="smooth">Start</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="#about" class="smooth">O mnie</a></li>
                     <li><a href="#contact" class="smooth">Kontakt</a></li>
                 </ul>
                 <div class="hamburger">
@@ -118,11 +121,11 @@
                     <span class="ht-line2">odzyskaj czas.</span>
                 </h1>
 
-                <p class="hero-eyebrow">STRONY · AUTOMATYZACJE · USPRAWNIANIE PROCESÓW</p>
+                <p class="hero-eyebrow">DELIVERY · AUTOMATYZACJA PROCESÓW · WDROŻENIA CYFROWE</p>
 
                 <p class="hero-subtitle">
-                   Powtarzasz te same czynności, choć dawno mogłyby dziać się same? 
-                    Buduję rozwiązanie, które oddają Ci ten czas- bez chaosu i ręcznej roboty.
+                   Powtarzasz te same czynności, choć dawno mogłyby dziać się same?
+                    Buduję rozwiązanie, które oddaje Ci ten czas — bez chaosu i ręcznej roboty.
                 </p>
 
                 <ul class="hero-info-icons">
@@ -132,15 +135,13 @@
                         </svg>
                         <span class="text">Jeden partner od pomysłu do wdrożenia.</span>
                     </li>
-                    <li class="info-icon info-icon--full">
-                        <svg class="info-check" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                            <path d="M16.5 5.5L8 14l-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="text">Mniej ręcznej pracy i mniej chaosu.</span>
+                    <li class="info-icon info-icon--stat">
+                        <span class="highlight-digits">−90%</span>
+                        <span class="text">czasu wyceny — aplikacja B2B dla drukarni.</span>
                     </li>
                     <li class="info-icon info-icon--stat">
-                        <span class="highlight-digits">10+</span>
-                        <span class="text">wdrożeń, które realnie oszczędziły czas.</span>
+                        <span class="highlight-digits">~10 tyg.</span>
+                        <span class="text">od startu do wdrożenia produkcyjnego.</span>
                     </li>
                 </ul>
 
@@ -391,10 +392,10 @@
                 </div>
                 <div class="step-content">
                     <h3 class="step-title">
-                        <span class="highlight">Wdrażam i zostaję na start</span>
+                        <span class="highlight">Wdrażam i przekazuję</span>
                     </h3>
                     <p class="step-desc">
-                        Testuję, wdrażam i <strong>wspieram Cię w pierwszych etapach działania</strong>.
+                        Testuję, wdrażam i <strong>przekazuję gotowe narzędzie z instrukcją</strong> — żeby dało się działać samodzielnie od pierwszego dnia.
                     </p>
                 </div>
             </div>
@@ -408,125 +409,25 @@
     </div>
 </section>
 
-    
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials-section">
+    <!-- About -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">Opinie klientów</h2>
-            <div class="testimonials-carousel-wrapper">
-                <div class="testimonials-carousel">
-                    <div class="testimonials-track">
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                   Tu będzie opinia 
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">AK</div>
-                                    <div class="author-info">
-                                        <h4>Paulina Górska</h4>
-                                        <p>Właściciel drukarni, Raz Dwa Studio druku</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                   Tu będzie opinia 
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MD</div>
-                                    <div class="author-info">
-                                        <h4>Marian Andrzejczak</h4>
-                                        <p>Właściciel firmy Karoma</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                    Tu będzie opinia  
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MP</div>
-                                    <div class="author-info">
-                                        <h4>Ewa Bugaj</h4>
-                                        <p>Coach rozwoju osobistego</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Duplicate for smooth loop -->
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                   Tu będzie opinia 
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">AK</div>
-                                    <div class="author-info">
-                                        <h4>Anna Kowalska</h4>
-                                        <p>CEO, Beauty Studio</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                    Tu będzie opinia zobaczymy jak długa będzie 
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MD</div>
-                                    <div class="author-info">
-                                        <h4>Marcin Dąbrowski</h4>
-                                        <p>Właściciel agencji</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-card">
-                            <div class="testimonial-content">
-                                <p class="testimonial-quote">
-                                    Tu będzie opinia 
-                                </p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MP</div>
-                                    <div class="author-info">
-                                        <h4>Monika Pawlak</h4>
-                                        <p>Coach rozwoju osobistego</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <h2 class="section-title">Kim jestem</h2>
+            <p class="section-subtitle">
+                Projektuję i wdrażam rozwiązania cyfrowe od analizy procesu po działające narzędzie — aplikacje, automatyzacje i strony dla firm. Pracuję jako jeden odpowiedzialny wykonawca, bez przekazywania projektu między rękami.
+            </p>
+            <div class="about-details-grid">
+                <div class="adg-item">
+                    <span class="adg-label">Jak pracuję</span>
+                    <p>Zaczynam od diagnozy procesu, projektuję rozwiązanie dopasowane do zespołu, wdrażam je i przekazuję z instrukcją — gotowe do samodzielnego użycia.</p>
                 </div>
-                <div class="testimonials-nav-container">
-                    <button class="testimonials-nav testimonials-prev" aria-label="Poprzednia opinia">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <button class="testimonials-nav testimonials-next" aria-label="Następna opinia">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+                <div class="adg-item">
+                    <span class="adg-label">W jaką stronę idę</span>
+                    <p>Naturalnie rozwijam się w stronę Project &amp; Delivery Management — to już dziś robię przy każdym wdrożeniu: planuję zakres, adresuję ryzyko i odpowiadam za efekt końcowy.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-
- 
-
- 
 
 
    <!-- PM Competencies -->
@@ -700,7 +601,7 @@
         <div class="container footer-inner">
             <div class="footer-info">
                 <h3>Karol Wyszyński</h3>
-                <p>Digital Product Designer</p>
+                <p>Delivery · Automatyzacje · Wdrożenia cyfrowe</p>
                 <p>Aplikacje, automatyzacje i strony — od analizy procesu po wdrożenie.</p>
                 <a href="mailto:wyszynski.k@onet.pl" class="footer-email">wyszynski.k@onet.pl</a>
                 <div class="footer-social">

@@ -523,17 +523,21 @@ section {
     box-shadow: none !important;
 }
 
-.nav-list a:hover {
-    color: var(--color-primary);
-     text-shadow: none !important;
-    
-    /* ✅ USUŃ CIEŃ Z HOVER */
-    text-shadow: none !important;
-}
-
-.nav-list a:hover::after,
 .nav-list a:focus-visible::after {
     width: 100%;
+}
+
+/* Hover-only pod prawdziwą myszką — na dotyku ":hover" zostaje "przyklejony"
+   do ostatnio dotkniętego linku (stąd podkreślenie pod złym wyrazem na mobile) */
+@media (hover: hover) and (pointer: fine) {
+    .nav-list a:hover {
+        color: var(--color-primary);
+        text-shadow: none !important;
+    }
+
+    .nav-list a:hover::after {
+        width: 100%;
+    }
 }
 
 /* ✅ USUŃ CIEŃ Z FOCUS */
@@ -1152,6 +1156,27 @@ section {
 /* ========== BENEFITS SECTION ========== */
 
 /* Enhanced Social Proof Section */
+/* About Section (index.html) */
+.about-section {
+    padding: var(--space-24) 0;
+    background: var(--color-background-light);
+}
+
+.about-section .section-subtitle {
+    max-width: 720px;
+}
+
+.about-section .about-details-grid {
+    max-width: 900px;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+    .about-section .about-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .social-proof-section {
     /* ✅ JASNE TŁO - jak było na początku */
   background: linear-gradient(
@@ -3099,10 +3124,11 @@ section {
     }
     
     .nav-list a {
-        padding: var(--space-4) 0;
+        padding: var(--space-5) 0;
         border-bottom: 1px solid var(--color-dark-light);
         width: 100%;
         text-align: center;
+        font-size: 1.1rem;
     }
     
     .nav-list a:last-child { 
@@ -4581,14 +4607,14 @@ ul.hero-info-icons {
         align-items: stretch !important;
     }
     .hero-text .hero-title   { order: 1 !important; }
-    .hero-text .hero-eyebrow { order: 2 !important; }
+    .hero-text .hero-eyebrow { order: 2 !important; margin-top: var(--space-3) !important; }
     .hero-text .hero-subtitle {
         order: 3 !important;
         text-align: left !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
-    .hero-text .hero-info-icons { order: 4 !important; margin-top: 0 !important; }
+    .hero-text .hero-info-icons { order: 4 !important; margin-top: var(--space-6) !important; }
     .hero-actions            { order: 5 !important; }
     .hero-image              { order: 6 !important; }
 
