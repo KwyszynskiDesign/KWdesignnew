@@ -4388,11 +4388,11 @@ body { overflow-x: hidden; }
 #case-KW-Design-pelne .kwcs-hero-body .hero-image .cover {
   display: block;
   width: 100%;
-  max-width: 560px;
+  max-width: 640px;
   height: auto;
-  aspect-ratio: 1257 / 1235;
+  aspect-ratio: 1440 / 940;
   object-fit: cover;
-  object-position: top;
+  object-position: center top;
   border-radius: 14px;
   box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.32);
 }
