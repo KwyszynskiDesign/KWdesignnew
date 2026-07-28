@@ -19,7 +19,7 @@ const MIME = {
 };
 
 http.createServer((req, res) => {
-  let url = req.url.split('?')[0];
+  let url = decodeURIComponent(req.url.split('?')[0]);
   // strip /KWdesignnew prefix
   url = url.replace(/^\/KWdesignnew/, '');
   if (!url || url === '/') url = '/index.html';
