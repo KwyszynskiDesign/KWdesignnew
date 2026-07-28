@@ -2994,14 +2994,18 @@ body.lightbox-open {
   }
   /* Odsuń content RAZDWA za rail (16 + ~196 wizualnie + gap) i poszerz kolumnę,
      żeby treść dosunęła się w lewo i zmniejszył się prawy margines */
-  #case-razdwa-pelne { padding-left: 216px; --wrap-max: 1240px; }
-  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem,
-     żeby tło sięgało lewej krawędzi ekranu (rail pływa nad tłem).
-     Kompensujący padding-left utrzymuje treść w tej samej kolumnie. */
+  /* Symetryczny padding: treść wyśrodkowana na viewporcie (jak stopka/nav),
+     lewy padding robi miejsce na rail, prawy równoważy, by środek = środek strony */
+  #case-razdwa-pelne { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem po
+     obu stronach, żeby tło sięgało krawędzi ekranu (rail pływa nad tłem).
+     Kompensujący padding utrzymuje treść w tej samej wyśrodkowanej kolumnie. */
   #case-razdwa-pelne > .razdwa-summary,
   #case-razdwa-pelne > .kwcs-sec--alt {
     margin-left: -216px;
+    margin-right: -216px;
     padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
   }
 }
 
@@ -3015,11 +3019,13 @@ body.lightbox-open {
     font-size: 0.74rem;
     padding: 0.32rem 0.5rem;
   }
-  #case-razdwa-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-razdwa-pelne { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
   #case-razdwa-pelne > .razdwa-summary,
   #case-razdwa-pelne > .kwcs-sec--alt {
     margin-left: -184px;
+    margin-right: -184px;
     padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
   }
 }
 
@@ -3724,25 +3730,30 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 
 /* Desktop ≥1280px — content odsunięty w prawo za fixed rail, szersza kolumna */
 @media (min-width: 1280px) {
-  #case-karoma-pelne { padding-left: 216px; --wrap-max: 1240px; }
-  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem,
-     żeby tło sięgało lewej krawędzi treści strony (rail pływa nad tłem).
-     Kompensujący padding-left utrzymuje treść w tym samym miejscu. */
+  /* Symetryczny padding — treść wyśrodkowana na viewporcie (jak stopka/nav) */
+  #case-karoma-pelne { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  /* Full-bleed kolorowych sekcji: cofamy padding kontenera (216) marginesem po
+     obu stronach, żeby tło sięgało krawędzi ekranu (rail pływa nad tłem).
+     Kompensujący padding utrzymuje treść w tej samej wyśrodkowanej kolumnie. */
   #case-karoma-pelne > .razdwa-summary,
   #case-karoma-pelne > .kwcs-sec--alt,
   #case-karoma-pelne > .kwcs-logo-section {
     margin-left: -216px;
+    margin-right: -216px;
     padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
   }
 }
 /* Laptop 1101-1279px — węższy rail, mniejszy margines */
 @media (min-width: 1101px) and (max-width: 1279px) {
-  #case-karoma-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-karoma-pelne { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
   #case-karoma-pelne > .razdwa-summary,
   #case-karoma-pelne > .kwcs-sec--alt,
   #case-karoma-pelne > .kwcs-logo-section {
     margin-left: -184px;
+    margin-right: -184px;
     padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
   }
 }
 /* Tablet i mobile ≤1100px — rail jako górny pasek, bez marginesu bocznego.
@@ -3934,22 +3945,27 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
 
 /* Desktop ≥1280px — content odsunięty za fixed rail + full-bleed teł */
 @media (min-width: 1280px) {
-  #case-power-of-mind-pelne { padding-left: 216px; --wrap-max: 1240px; }
+  /* Symetryczny padding — treść wyśrodkowana na viewporcie (jak stopka/nav) */
+  #case-power-of-mind-pelne { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
   #case-power-of-mind-pelne > .razdwa-summary,
   #case-power-of-mind-pelne > .kwcs-sec--alt,
   #case-power-of-mind-pelne > .kwcs-logo-section {
     margin-left: -216px;
+    margin-right: -216px;
     padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
   }
 }
 /* Laptop 1101-1279px — węższy rail, mniejszy margines */
 @media (min-width: 1101px) and (max-width: 1279px) {
-  #case-power-of-mind-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-power-of-mind-pelne { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
   #case-power-of-mind-pelne > .razdwa-summary,
   #case-power-of-mind-pelne > .kwcs-sec--alt,
   #case-power-of-mind-pelne > .kwcs-logo-section {
     margin-left: -184px;
+    margin-right: -184px;
     padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
   }
 }
 /* Tablet i mobile ≤1100px — rail jako górny pasek, bez marginesu bocznego */
@@ -4355,12 +4371,13 @@ body { overflow-x: hidden; }
   margin-right: calc(50% - 50vw);
 }
 
-/* Rail padding — odsunięcie contentu za fixed sidebar */
+/* Rail padding — symetryczny, treść wyśrodkowana na viewporcie (jak stopka/nav);
+   lewy padding robi miejsce na rail, prawy równoważy do środka strony */
 @media (min-width: 1280px) {
-  #case-KW-Design-pelne { padding-left: 216px; --wrap-max: 1240px; }
+  #case-KW-Design-pelne { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
 }
 @media (min-width: 1101px) and (max-width: 1279px) {
-  #case-KW-Design-pelne { padding-left: 184px; --wrap-max: 1120px; }
+  #case-KW-Design-pelne { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
 }
 @media (max-width: 1100px) {
   #case-KW-Design-pelne { padding-left: 0; }
@@ -4374,7 +4391,9 @@ body { overflow-x: hidden; }
   #case-KW-Design-pelne > .kwcs-sec--alt,
   #case-KW-Design-pelne > .kwcs-logo-section {
     margin-left: -216px;
+    margin-right: -216px;
     padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
   }
 }
 @media (min-width: 1101px) and (max-width: 1279px) {
@@ -4382,7 +4401,9 @@ body { overflow-x: hidden; }
   #case-KW-Design-pelne > .kwcs-sec--alt,
   #case-KW-Design-pelne > .kwcs-logo-section {
     margin-left: -184px;
+    margin-right: -184px;
     padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
   }
 }
 
