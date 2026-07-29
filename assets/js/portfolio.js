@@ -95,6 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(closeBtn);
         wrapper.appendChild(section);
 
+        // Nawigacja prev/next projekt leży poza section.kwcs w standalone case
+        // study, więc inline viewer jej nie wstrzykiwał. Dokładamy ją i
+        // przepisujemy hrefy na sam hash (#slug), żeby klik otwierał kolejny
+        // projekt w tym samym viewerze przez handler hashchange — bez przeładowania.
+        const projNav = doc.querySelector('.kwcs-project-nav');
+        if (projNav) {
+          projNav.querySelectorAll('a[href*="#"]').forEach(function (a) {
+            const href = a.getAttribute('href');
+            a.setAttribute('href', href.slice(href.indexOf('#')));
+          });
+          wrapper.appendChild(projNav);
+        }
+
         viewer.innerHTML = '';
         viewer.appendChild(wrapper);
 
