@@ -169,6 +169,17 @@
     </div>
 
     <!-- ============================================================
+         One-liner wyniku biznesowego (spójny z kartą w portfolio)
+    ============================================================ -->
+    <div class="kwcs-sec">
+      <div class="wrap">
+        <div class="kwcs-callout">
+          <p><strong>Wynik biznesowy:</strong> kontrola pliku przed drukiem skrócona z ~15 min do ~1 s skanu (pełna kontrola pliku ~1 min), mniejsze ryzyko przedruków i brak reklamacji tego typu po wdrożeniu — narzędzie w codziennym użyciu od 01.05.2026.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
          W skrócie (executive summary)
     ============================================================ -->
     <div class="razdwa-summary" id="cyfra-summary">
@@ -189,7 +200,7 @@
           </div>
           <div class="razdwa-summary-cell">
             <div class="label">Efekt</div>
-            <div class="value">Inspekcja skrócona do ~1 s skanu i ~1 min pełnej kontroli. Onboarding operatora poniżej 30 minut. Adopcja 06.2026.</div>
+            <div class="value">Inspekcja skrócona do ~1 s skanu i ~1 min pełnej kontroli. Onboarding operatora poniżej 30 minut. W użyciu od 01.05.2026.</div>
           </div>
         </div>
         <p class="kwcs-footnote">„~1 s" to czas samego skanu; pełna kontrola pliku (skan + przejście raportu + naprawa) to około minuty. Dane o błędach i reklamacjach są jakościowe.</p>
@@ -264,46 +275,46 @@
 
     <div class="kwcs-sec">
       <div class="wrap">
-        <p class="razdwa-h2-sub">Jak od analizy realnej pracy (02.2026) proces kontroli zmienił się w działające narzędzie (adopcja 06.2026).</p>
+        <p class="razdwa-h2-sub">Od analizy realnej pracy (04.2026) do wdrożenia — narzędzie w użyciu od 01.05.2026, z domknięciem iteracji do 01.06.2026.</p>
         <p class="kwcs-section-lead">
-          Projekt prowadziłem etapami: od wywiadu i analizy procesu, przez reguły i progi grubości, budowę panelu ze skanerem, testy na plikach produkcyjnych, aż po szkolenie operatorów i adopcję.
+          Projekt prowadziłem etapami: od wywiadu i analizy procesu, przez reguły i progi grubości, budowę panelu ze skanerem, testy na plikach produkcyjnych, aż po szkolenie operatorów i wdrożenie. <strong>Scope stabilny</strong> — zakres zdefiniowany na starcie (skaner grubości + weryfikacja kolorów + klikalny raport) dostarczyłem bez scope creep.
         </p>
 
         <div class="user-flow user-flow--6">
           <div class="flow-step">
             <div class="flow-step-icon">01</div>
             <div class="flow-step-label">Wywiad i analiza</div>
-            <div class="flow-step-sub">02.2026 — realny workflow inspekcji, najczęstsze i najtrudniejsze błędy, koszt przedruku vs czas kontroli</div>
+            <div class="flow-step-sub">04.2026 — realny workflow inspekcji, najczęstsze i najtrudniejsze błędy, koszt przedruku vs czas kontroli</div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-step-icon">02</div>
             <div class="flow-step-label">Reguły i progi</div>
-            <div class="flow-step-sub">03.2026 — progi grubości pod technikę druku, reguła oceny obiektu (OK / ostrzeżenie / błąd)</div>
+            <div class="flow-step-sub">04.2026 — progi grubości pod technikę druku, reguła oceny obiektu (OK / ostrzeżenie / błąd)</div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-step-icon">03</div>
             <div class="flow-step-label">Build</div>
-            <div class="flow-step-sub">03–04.2026 — panel CEP + rekurencyjny skaner ExtendScript, klikalny raport „zaznacz w AI"</div>
+            <div class="flow-step-sub">04.2026 — panel CEP + rekurencyjny skaner ExtendScript, klikalny raport „zaznacz w AI"</div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-step-icon">04</div>
             <div class="flow-step-label">Testy</div>
-            <div class="flow-step-sub">05.2026 — pliki produkcyjne: etykiety, ulotki, wizytówki, wykrojnik; skrajne przypadki</div>
+            <div class="flow-step-sub">04.2026 — pliki produkcyjne: etykiety, ulotki, wizytówki, wykrojnik; skrajne przypadki</div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-step-icon">05</div>
-            <div class="flow-step-label">Szkolenie</div>
-            <div class="flow-step-sub">05–06.2026 — pakiet .zxp bez uprawnień IT, sesja ≤ 30 min dla 2 operatorów</div>
+            <div class="flow-step-label">Szkolenie i wdrożenie</div>
+            <div class="flow-step-sub">01.05.2026 — pakiet .zxp bez uprawnień IT, sesja ≤ 30 min dla 2 operatorów (go-live)</div>
           </div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">
             <div class="flow-step-icon">06</div>
-            <div class="flow-step-label">Adopcja</div>
-            <div class="flow-step-sub">06.2026 — narzędzie w codziennym użyciu obu operatorów</div>
+            <div class="flow-step-label">W użyciu</div>
+            <div class="flow-step-sub">01.05–01.06.2026 — w codziennym użyciu obu operatorów, domknięcie iteracji do 01.06.2026</div>
           </div>
         </div>
 
@@ -393,11 +404,11 @@
             <p class="tab-description">Rekurencyjne przeszukiwanie wszystkich warstw — grupy, maski, zagnieżdżone symbole. Czerwone wiersze oznaczają błędy wymagające interwencji.</p>
             <div class="showcase-row showcase-row--single">
               <div class="showcase-item">
-                <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: skaner obiektów i grubości linii">
+                <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: UI panelu progów">
                   <span class="asset-missing-icon" aria-hidden="true">📁</span>
                   <span class="asset-missing-label">Zrzut do wstawienia</span>
-                  <code class="asset-missing-filename">cyfradruk-skaner-obiektow.webp</code>
-                  <span>Panel „Obiekty" — lista wykrytych obiektów z błędami grubości (wymiar, warstwa)</span>
+                  <code class="asset-missing-filename">cyfradruk-panel-progow.webp</code>
+                  <span>UI panelu progów — ustawienie minimalnej grubości + lista wykrytych obiektów (wymiar, warstwa)</span>
                 </div>
               </div>
             </div>
@@ -414,17 +425,7 @@
 
           <div class="showcase-section">
             <h3>Weryfikacja kolorów CMYK i Pantone</h3>
-            <p class="tab-description">Panel sprawdza wypełnienia i obrysy wszystkich obiektów — wykrywa kolory RGB zamiast CMYK oraz niezatwierdzone Spot Colors (Pantone).</p>
-            <div class="showcase-row showcase-row--single">
-              <div class="showcase-item">
-                <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: weryfikacja kolorów CMYK i Pantone">
-                  <span class="asset-missing-icon" aria-hidden="true">📁</span>
-                  <span class="asset-missing-label">Zrzut do wstawienia</span>
-                  <code class="asset-missing-filename">cyfradruk-kolory-cmyk-pantone.webp</code>
-                  <span>Panel „Kolory" — osobny widok wypełnień i obrysów, alerty RGB i lista Spot Colors</span>
-                </div>
-              </div>
-            </div>
+            <p class="tab-description">Panel sprawdza wypełnienia i obrysy wszystkich obiektów — wykrywa kolory RGB zamiast CMYK oraz niezatwierdzone Spot Colors (Pantone). Widok kolorów zawiera się w zrzucie panelu progów i raportu poniżej.</p>
             <div class="features-box">
               <h4>Co sprawdza moduł kolorów</h4>
               <ul class="features-list">
@@ -441,11 +442,11 @@
             <p class="tab-description">Kliknięcie wiersza wykonuje skok do obiektu w Illustratorze — bez scrollowania, bez szukania w warstwach.</p>
             <div class="showcase-row showcase-row--single">
               <div class="showcase-item">
-                <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: interaktywny raport i zaznaczenie obiektu w Illustratorze">
+                <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: raport / lista błędów z inspekcji (zanonimizowany)">
                   <span class="asset-missing-icon" aria-hidden="true">📁</span>
                   <span class="asset-missing-label">Zrzut do wstawienia</span>
-                  <code class="asset-missing-filename">cyfradruk-raport-zaznacz-w-ai.webp</code>
-                  <span>Klik w raporcie → obiekt zaznaczony i wycentrowany w dokumencie Illustratora</span>
+                  <code class="asset-missing-filename">cyfradruk-raport-listabledow.webp</code>
+                  <span>Raport / lista błędów z inspekcji (zanonimizowany) — klik w wiersz zaznacza obiekt w Illustratorze</span>
                 </div>
               </div>
             </div>
@@ -471,13 +472,13 @@
 
     <div class="kwcs-sec">
       <div class="wrap">
-        <p class="razdwa-h2-sub">W codziennym użyciu 2 operatorów DTP od 06.2026.</p>
+        <p class="razdwa-h2-sub">W codziennym użyciu 2 operatorów DTP od 01.05.2026.</p>
 
         <div class="ux-decision-grid">
           <div class="ux-decision-box">
             <div class="ux-label">Adopcja</div>
-            <h4>W użyciu od czerwca 2026</h4>
-            <p>Narzędzie zastąpiło ręczną inspekcję jako standardowy krok kontroli pliku przed drukiem. To wewnętrzne usprawnienie procesu — zasięg dokładnie taki, jak opisano: 2 operatorów, jeden dział DTP.</p>
+            <h4>W użyciu od 01.05.2026</h4>
+            <p>Wdrożenie i szkolenie: 01.05.2026 (go-live), pierwszy miesiąc w użyciu i domknięcie iteracji do 01.06.2026. Narzędzie zastąpiło ręczną inspekcję jako standardowy krok kontroli pliku przed drukiem. To wewnętrzne usprawnienie procesu — zasięg dokładnie taki, jak opisano: 2 operatorów, jeden dział DTP.</p>
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Onboarding / Handover</div>
@@ -487,6 +488,28 @@
               <li>Szkolenie ≤ 30 min — jeden przycisk „Skanuj", czytelny raport, akcja naprawy.</li>
               <li>Krótkie przekazanie — jak ustawić próg grubości, jak czytać kolory raportu, jak zaznaczyć błąd.</li>
             </ul>
+          </div>
+        </div>
+
+        <h3 class="kwcs-h3-center">Kontrola pliku / GoLive</h3>
+        <div class="features-box">
+          <h4>Checklista kontroli pliku przed drukiem (wewnętrzny GoLive)</h4>
+          <ul class="features-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Skan grubości:</strong> zero linii poniżej progu ustawionego pod technikę druku danej pracy.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Mikro-obiekty:</strong> brak obiektów poniżej progu ukrytych w grupach, symbolach i maskach.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Kolory:</strong> brak wypełnień/obrysów w RGB; kolory Pantone zgodne z zatwierdzoną listą.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Raport:</strong> lista błędów pusta (lub każdy wpis naprawiony i ponownie przeskanowany).</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><strong>Decyzja GoLive:</strong> plik dopuszczony do druku dopiero po czystym skanie — jeden, powtarzalny krok przed wysyłką na maszynę.</li>
+          </ul>
+        </div>
+        <div class="showcase-row showcase-row--single">
+          <div class="showcase-item">
+            <div class="asset-missing" role="img" aria-label="Zrzut do wstawienia: checklista kontroli pliku / GoLive">
+              <span class="asset-missing-icon" aria-hidden="true">📁</span>
+              <span class="asset-missing-label">Zrzut do wstawienia</span>
+              <code class="asset-missing-filename">cyfradruk-checklista-golive.webp</code>
+              <span>Wewnętrzna checklista kontroli pliku / GoLive (dokument lub zrzut)</span>
+            </div>
           </div>
         </div>
 
@@ -504,8 +527,8 @@
           </div>
           <div class="ux-decision-box">
             <div class="ux-label">Materiał wizualny</div>
-            <h4>Zrzuty panelu</h4>
-            <p>Do przygotowania: co najmniej 2–3 zrzuty modułów panelu (skaner obiektów, kolory, interaktywny raport) — miejsca oznaczone wyżej jako „Zrzut do wstawienia". Zdjęcie przeglądowe panelu jest już w hero.</p>
+            <h4>Dowody do wstawienia</h4>
+            <p>Do przygotowania trzy artefakty — miejsca oznaczone w treści jako „Zrzut do wstawienia": <strong>UI panelu progów</strong>, <strong>raport / lista błędów</strong> (zanonimizowany) oraz <strong>checklista kontroli pliku / GoLive</strong>. Zdjęcie przeglądowe panelu jest już w hero.</p>
           </div>
         </div>
       </div>
@@ -568,7 +591,7 @@
             </div>
             <div class="razdwa-summary-cell">
               <div class="label">Rezultat</div>
-              <div class="value">~1 s skanu + ~1 min pełnej kontroli, brak reklamacji tego typu po wdrożeniu, onboarding ≤ 30 min, adopcja 06.2026.</div>
+              <div class="value">~1 s skanu + ~1 min pełnej kontroli, brak reklamacji tego typu po wdrożeniu, onboarding ≤ 30 min, w użyciu od 01.05.2026.</div>
             </div>
           </div>
 
