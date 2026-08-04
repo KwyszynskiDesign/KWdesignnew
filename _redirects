@@ -12,8 +12,31 @@
 ###############################################################################
 
 # Stare/alternatywne nazwy → właściwe (jeśli były kiedyś używane)
-/omnie.html        /portfolio.html    301
-/kontakt.html      /index.html#contact 301
+/omnie.html        /portfolio    301
+/kontakt.html      /#contact 301
+/omnie             /portfolio    301
+
+###############################################################################
+# CZYSTE URL-E – kanonizacja starych adresów z .html na wersje bez rozszerzenia
+###############################################################################
+# Cloudflare Pages i tak serwuje /portfolio.html pod adresem /portfolio,
+# ale te reguły 301 przenoszą stare zaindeksowane/zakładkowane linki *.html
+# na kanoniczną, czystą wersję (bez zmiany treści, tylko URL w pasku).
+
+/index.html                          /                                    301
+/portfolio.html                      /portfolio                          301
+/uslugi.html                         /uslugi                             301
+/narzedzie.html                      /narzedzie                          301
+/polityka-prywatnosci.html           /polityka-prywatnosci               301
+/404.html                            /404                                 301
+/projects/KW-Design.html             /projects/KW-Design                 301
+/projects/cyfradruk.html             /projects/cyfradruk                 301
+/projects/karoma.html                /projects/karoma                    301
+/projects/power-of-mind.html         /projects/power-of-mind             301
+/projects/razdwa_aplikacja.html      /projects/razdwa_aplikacja          301
+/projects/sir-roger.html             /projects/sir-roger                 301
+/projects/voucher-salon-magdy.html   /projects/voucher-salon-magdy       301
+/projects/wizualizacje.html          /projects/wizualizacje              301
 
 ###############################################################################
 # APLIKACJA GOOGLE APPS SCRIPT – PROXY FORMULARZA

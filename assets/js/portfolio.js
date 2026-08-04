@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const projectPages = {
-    'voucher-magdy': 'projects/voucher-salon-magdy.html',
-    'karoma': 'projects/karoma.html',
-    'power-of-mind': 'projects/power-of-mind.html',
-    'KW-Design': 'projects/KW-Design.html',
-    'sir-roger': 'projects/sir-roger.html',
-    'RazDwa': 'projects/razdwa_aplikacja.html',
-    'cyfradruk': 'projects/cyfradruk.html',
+    'voucher-magdy': 'projects/voucher-salon-magdy',
+    'karoma': 'projects/karoma',
+    'power-of-mind': 'projects/power-of-mind',
+    'KW-Design': 'projects/KW-Design',
+    'sir-roger': 'projects/sir-roger',
+    'RazDwa': 'projects/razdwa_aplikacja',
+    'cyfradruk': 'projects/cyfradruk',
   };
 
   const viewer = document.getElementById('case-viewer');
