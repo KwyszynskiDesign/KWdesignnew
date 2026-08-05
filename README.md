@@ -44,8 +44,6 @@ KWdesignnew/
 │   ├── sir-roger.html
 │   ├── savage.html
 │   └── voucher-salon-magdy.html
-│
-└── assets/KARUZELAJ/           # Obrazki do karuzeli (archiwalne)
 ```
 
 ---

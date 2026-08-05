@@ -2985,7 +2985,9 @@ body.lightbox-open {
    żeby rail nie nachodził na sekcje przy max-width 1200 wycentrowanych */
 @media (min-width: 1280px) {
   .razdwa-chapter-rail {
-    width: 172px;
+    /* 172 → 152: rail zwężony o 20px od prawej (left:16px bez zmian),
+       więcej oddechu między railem a wyśrodkowaną treścią. Oś treści bez zmian. */
+    width: 152px;
     padding: 0.8rem 0.7rem;
   }
   .razdwa-chapter-link {
@@ -3762,6 +3764,84 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   #case-karoma-pelne { padding-left: 0; }
 }
 
+/* ========================================
+   #CASE-SIR-ROGER — layout: kompensacja fixed railu (spis rozdziałów)
+   Analogicznie do #case-karoma-pelne. Fixed .razdwa-chapter-rail nachodzi na
+   treść, jeśli kontener nie dostanie paddingu. Symetryczny padding centruje
+   treść na osi viewportu (jak stopka/nav). Tylko .kwcs-logo-section ma tło
+   (gradient), więc tylko ona dostaje kompensację full-bleed.
+   ======================================== */
+#case-sir-roger {
+  /* index-styles.css capuje section do 100% rodzica; nadpisujemy, żeby
+     marginesy rozciągnęły kontener do pełnej szerokości viewportu (full-bleed) */
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* Desktop ≥1280px — symetryczny padding, treść wyśrodkowana na osi */
+@media (min-width: 1280px) {
+  #case-sir-roger { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  #case-sir-roger > .kwcs-logo-section {
+    margin-left: -216px;
+    margin-right: -216px;
+    padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
+  }
+}
+/* Laptop 1101-1279px — węższy margines */
+@media (min-width: 1101px) and (max-width: 1279px) {
+  #case-sir-roger { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
+  #case-sir-roger > .kwcs-logo-section {
+    margin-left: -184px;
+    margin-right: -184px;
+    padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
+  }
+}
+/* Tablet i mobile ≤1100px — rail jako górny pasek, sekcje pełnej szerokości */
+@media (max-width: 1100px) {
+  #case-sir-roger { padding-left: 0; }
+}
+
+/* ========================================
+   #CASE-VOUCHER-MAGDY — layout: kompensacja fixed railu (spis rozdziałów)
+   Analogicznie do #case-sir-roger. Trzy sekcje mają kolorowe tło i wymagają
+   kompensacji full-bleed: .kwcs-logo-section (gradient), .kwcs-contribution
+   (gradient), .kwcs-ui-system (#f8fafc).
+   ======================================== */
+#case-voucher-magdy {
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+@media (min-width: 1280px) {
+  #case-voucher-magdy { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  #case-voucher-magdy > .kwcs-logo-section,
+  #case-voucher-magdy > .kwcs-contribution,
+  #case-voucher-magdy > .kwcs-ui-system {
+    margin-left: -216px;
+    margin-right: -216px;
+    padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
+  }
+}
+@media (min-width: 1101px) and (max-width: 1279px) {
+  #case-voucher-magdy { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
+  #case-voucher-magdy > .kwcs-logo-section,
+  #case-voucher-magdy > .kwcs-contribution,
+  #case-voucher-magdy > .kwcs-ui-system {
+    margin-left: -184px;
+    margin-right: -184px;
+    padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
+  }
+}
+@media (max-width: 1100px) {
+  #case-voucher-magdy { padding-left: 0; }
+}
+
 /* Rezultat bez pływającej karty — zdejmujemy tło/radius/shadow/max-width,
    żeby sekcja była pełnowymiarowa i centrowała treść w tej samej kolumnie
    .wrap co reszta sekcji (spójne wyśrodkowanie). text-align:center zostaje.
@@ -4093,87 +4173,8 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   .kwcs-footer .wrap { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
 
-/* ─── Carousel (wizualizacje.html) ─── */
+/* Globalny bezpiecznik przed poziomym przewijaniem */
 body { overflow-x: hidden; }
-
-#carousel-container {
-  position: relative;
-  background: #262626;
-  width: 100%;
-  height: 74vh;
-  margin: 2rem auto 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  min-height: 320px;
-  max-height: 84vh;
-}
-
-#carousel-container img {
-  display: none;
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
-  margin: 0 auto;
-  border-radius: 8px;
-  background: #262626;
-  user-select: none;
-  -webkit-user-drag: none;
-  box-sizing: border-box;
-  padding: 3%;
-}
-
-#carousel-container img.active {
-  display: block;
-}
-
-#carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 1rem auto 0 auto;
-  width: fit-content;
-}
-
-#carousel-controls button {
-  background: #191919;
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  border-radius: 6px;
-  padding: 0.5rem 1.5rem;
-  opacity: 0.9;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  user-select: none;
-}
-
-#carousel-controls button:active,
-#carousel-controls button:focus,
-#carousel-controls button:hover {
-  background: #111;
-}
-
-@media (max-width: 700px) {
-  #carousel-container {
-    height: 45vh;
-    min-height: 190px;
-    max-height: 55vh;
-  }
-  #carousel-container img {
-    max-width: 100vw;
-    max-height: 98%;
-  }
-  #carousel-controls {
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-  }
-}
 
 /* ========================================
    PROJECT PREV/NEXT NAVIGATION
