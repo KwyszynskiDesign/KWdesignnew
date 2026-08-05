@@ -291,7 +291,6 @@ function initAllFeatures() {
   initAccordion();
   initLightbox();
   initWebsiteTabs();
-  initCarousel(); // nowa funkcja dodana tutaj
   initChapterRail();
 
   console.log('✅ All features initialized successfully');
@@ -327,69 +326,3 @@ if ('IntersectionObserver' in window) {
   lazyImages.forEach(img => imageObserver.observe(img));
 }
 
-// ========================================
-// NOWA FUNKCJA: PROSTA KARUZELA ZDJĘĆ Z ZAPĘTLOGIWANIEM
-// ========================================
-
-function initCarousel() {
-  const carouselContainer = document.getElementById('carousel-container');
-  if (!carouselContainer) {
-    // Nie ma karuzeli na stronie, nic nie rób
-    return;
-  }
-
-  const images = carouselContainer.querySelectorAll('img');
-  const btnPrev = document.getElementById('carousel-prev');
-  const btnNext = document.getElementById('carousel-next');
-
-  if (images.length === 0) return;
-
-  let currentIdx = 0;
-  let autoSlideInterval = null;
-
-  // Funkcja pokazująca aktywny obraz
-  function showImage(index) {
-    images.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-  }
-
-  // Obsługa przewijania w prawo
-  function nextImage() {
-    currentIdx = (currentIdx + 1) % images.length;
-    showImage(currentIdx);
-  }
-
-  // Obsługa przewijania w lewo
-  function prevImage() {
-    currentIdx = (currentIdx - 1 + images.length) % images.length;
-    showImage(currentIdx);
-  }
-
-  // Podpinamy eventy kliknięć
-  if (btnNext) btnNext.addEventListener('click', () => {
-    nextImage();
-    resetAutoSlide();
-  });
-  if (btnPrev) btnPrev.addEventListener('click', () => {
-    prevImage();
-    resetAutoSlide();
-  });
-
-  // Automatyczne przewijanie co 4 sekundy
-  function startAutoSlide() {
-    autoSlideInterval = setInterval(nextImage, 4000);
-  }
-  function resetAutoSlide() {
-    if (autoSlideInterval) {
-      clearInterval(autoSlideInterval);
-    }
-    startAutoSlide();
-  }
-
-  // Start
-  showImage(currentIdx);
-  startAutoSlide();
-
-  console.log('✅ Karuzela inicjalizowana:', images.length, 'zdjęć');
-}
