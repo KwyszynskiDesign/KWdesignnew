@@ -2985,7 +2985,9 @@ body.lightbox-open {
    żeby rail nie nachodził na sekcje przy max-width 1200 wycentrowanych */
 @media (min-width: 1280px) {
   .razdwa-chapter-rail {
-    width: 172px;
+    /* 172 → 152: rail zwężony o 20px od prawej (left:16px bez zmian),
+       więcej oddechu między railem a wyśrodkowaną treścią. Oś treści bez zmian. */
+    width: 152px;
     padding: 0.8rem 0.7rem;
   }
   .razdwa-chapter-link {
