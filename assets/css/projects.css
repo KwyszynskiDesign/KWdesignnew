@@ -3764,6 +3764,84 @@ body.lightbox-open .kwcs-chapter-rail { display: none; }
   #case-karoma-pelne { padding-left: 0; }
 }
 
+/* ========================================
+   #CASE-SIR-ROGER — layout: kompensacja fixed railu (spis rozdziałów)
+   Analogicznie do #case-karoma-pelne. Fixed .razdwa-chapter-rail nachodzi na
+   treść, jeśli kontener nie dostanie paddingu. Symetryczny padding centruje
+   treść na osi viewportu (jak stopka/nav). Tylko .kwcs-logo-section ma tło
+   (gradient), więc tylko ona dostaje kompensację full-bleed.
+   ======================================== */
+#case-sir-roger {
+  /* index-styles.css capuje section do 100% rodzica; nadpisujemy, żeby
+     marginesy rozciągnęły kontener do pełnej szerokości viewportu (full-bleed) */
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* Desktop ≥1280px — symetryczny padding, treść wyśrodkowana na osi */
+@media (min-width: 1280px) {
+  #case-sir-roger { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  #case-sir-roger > .kwcs-logo-section {
+    margin-left: -216px;
+    margin-right: -216px;
+    padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
+  }
+}
+/* Laptop 1101-1279px — węższy margines */
+@media (min-width: 1101px) and (max-width: 1279px) {
+  #case-sir-roger { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
+  #case-sir-roger > .kwcs-logo-section {
+    margin-left: -184px;
+    margin-right: -184px;
+    padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
+  }
+}
+/* Tablet i mobile ≤1100px — rail jako górny pasek, sekcje pełnej szerokości */
+@media (max-width: 1100px) {
+  #case-sir-roger { padding-left: 0; }
+}
+
+/* ========================================
+   #CASE-VOUCHER-MAGDY — layout: kompensacja fixed railu (spis rozdziałów)
+   Analogicznie do #case-sir-roger. Trzy sekcje mają kolorowe tło i wymagają
+   kompensacji full-bleed: .kwcs-logo-section (gradient), .kwcs-contribution
+   (gradient), .kwcs-ui-system (#f8fafc).
+   ======================================== */
+#case-voucher-magdy {
+  max-width: none !important;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+@media (min-width: 1280px) {
+  #case-voucher-magdy { padding-left: 216px; padding-right: 216px; --wrap-max: 1240px; }
+  #case-voucher-magdy > .kwcs-logo-section,
+  #case-voucher-magdy > .kwcs-contribution,
+  #case-voucher-magdy > .kwcs-ui-system {
+    margin-left: -216px;
+    margin-right: -216px;
+    padding-left: calc(216px + 1rem);
+    padding-right: calc(216px + 1rem);
+  }
+}
+@media (min-width: 1101px) and (max-width: 1279px) {
+  #case-voucher-magdy { padding-left: 184px; padding-right: 184px; --wrap-max: 1120px; }
+  #case-voucher-magdy > .kwcs-logo-section,
+  #case-voucher-magdy > .kwcs-contribution,
+  #case-voucher-magdy > .kwcs-ui-system {
+    margin-left: -184px;
+    margin-right: -184px;
+    padding-left: calc(184px + 1rem);
+    padding-right: calc(184px + 1rem);
+  }
+}
+@media (max-width: 1100px) {
+  #case-voucher-magdy { padding-left: 0; }
+}
+
 /* Rezultat bez pływającej karty — zdejmujemy tło/radius/shadow/max-width,
    żeby sekcja była pełnowymiarowa i centrowała treść w tej samej kolumnie
    .wrap co reszta sekcji (spójne wyśrodkowanie). text-align:center zostaje.
