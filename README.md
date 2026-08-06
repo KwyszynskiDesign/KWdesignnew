@@ -87,6 +87,29 @@ Zobacz pełny audyt: [`audyt-strony-KW.txt`](./audyt-strony-KW.txt)
 
 ---
 
+## 📊 Google Analytics (pomiar ruchu)
+
+Strona jest przygotowana pod **Google Analytics 4 (GA4)**. Kod pomiarowy jest
+scentralizowany w jednym pliku `assets/js/analytics.js`, dołączanym na każdej
+podstronie — identyfikator zmieniasz więc **tylko w jednym miejscu**.
+
+**Jak włączyć:**
+
+1. Załóż usługę GA4 w [analytics.google.com](https://analytics.google.com)
+   (*Administracja → Utwórz usługę*).
+2. Skopiuj **identyfikator pomiaru** w formacie `G-XXXXXXXXXX`.
+3. Wklej go w `assets/js/analytics.js` w zmiennej `MEASUREMENT_ID`.
+4. `git commit` + `git push` na `main` → auto-deploy (GitHub / Cloudflare Pages).
+
+Dopóki `MEASUREMENT_ID` ma wartość-zaślepkę `G-XXXXXXXXXX`, skrypt jest
+nieaktywny (nie wysyła żadnych żądań). Domeny GA są już dopisane do CSP w
+`_headers`, a IP jest maskowane (`anonymize_ip`) zgodnie z dobrą praktyką RODO.
+
+> ⚠️ Po uruchomieniu pomiaru uzupełnij informację o Google Analytics
+> w `polityka-prywatnosci.html`.
+
+---
+
 ## 👤 Autor
 
 **Karol Wyszyński** – Digital Product Designer  
