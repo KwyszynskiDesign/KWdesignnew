@@ -350,10 +350,8 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-biznesowy-v
   border-radius:28px;
   overflow:hidden;
   position:relative;
-  filter:
-    drop-shadow(0 20px 45px rgba(0,0,0,0.15))
-    drop-shadow(0 12px 28px rgba(0,0,0,0.1))
-    drop-shadow(0 6px 12px rgba(0,0,0,0.08));
+  /* Delikatny, miękki cień (wariant 3) zamiast poprzedniego mocnego potrójnego. */
+  filter:drop-shadow(0 14px 28px rgba(30,41,59,0.14));
   transition:none;
 }
 
