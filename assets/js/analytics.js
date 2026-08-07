@@ -17,7 +17,7 @@
 (function () {
   'use strict';
 
-  var MEASUREMENT_ID = 'G-XXXXXXXXXX'; // ← wklej tutaj swój identyfikator GA4
+  var MEASUREMENT_ID = 'G-TG0HE09DE7'; // ← wklej tutaj swój identyfikator GA4
 
   // Nie uruchamiaj, dopóki nie wpisano prawdziwego ID.
   if (!MEASUREMENT_ID || MEASUREMENT_ID === 'G-XXXXXXXXXX') {
