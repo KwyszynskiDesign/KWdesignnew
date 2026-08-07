@@ -347,43 +347,37 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-biznesowy-v
   width:100%;
   max-width:370px;
   aspect-ratio:4/5;
-  border-radius:28px;
-  overflow:hidden;
   position:relative;
-  /* Delikatny, miękki cień (wariant 3) zamiast poprzedniego mocnego potrójnego. */
-  filter:drop-shadow(0 14px 28px rgba(30,41,59,0.14));
+  /* Efekt wyniesionej sylwetki: zdjęcie to przezroczysta wycinka (bez tła),
+     więc rezygnujemy z prostokątnej ramki (bez border-radius/overflow/tła)
+     — biały obrys i cień idą po konturze postaci (filtr na <img> niżej). */
   transition:none;
 }
 
-.about-me-image::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05));
-  z-index:2;
-  pointer-events:none;
-  border-radius:28px;
-  opacity:0.8;
-}
-
+/* Rectangularne overlaye wyłączone — psułyby efekt sylwetki. */
+.about-me-image::before,
 .about-me-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom,transparent 0%,transparent 60%,rgba(0,0,0,0.05) 100%);
-  z-index:1;
-  pointer-events:none;
-  border-radius:28px;
+  content:none;
 }
 
 .about-me-image img{
   width:100%;
   height:100%;
-  object-fit:cover;
-  object-position:center 15%;
+  object-fit:contain;
+  object-position:center bottom;
   transition:none;
   position:relative;
   z-index:0;
+  /* Nadpisanie prostokątnej ramki z about-me.css (border-radius + box-shadow),
+     żeby został tylko efekt sylwetki. */
+  border-radius:0;
+  box-shadow:none;
+  /* Biały obrys sylwetki (naklejka) + bliski, grounded cień (wariant C). */
+  filter:
+    drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
+    drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+    drop-shadow(2px 2px 0 #fff) drop-shadow(-2px 2px 0 #fff)
+    drop-shadow(0 9px 12px rgba(15,23,42,0.40));
 }
 
 /* === PREMIUM CTA BUTTON === */
