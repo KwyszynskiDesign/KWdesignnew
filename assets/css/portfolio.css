@@ -350,9 +350,6 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-biznesowy-v
   border-radius:28px;
   overflow:hidden;
   position:relative;
-  /* Granatowy backdrop pod przezroczystą wycinką postaci (zdjęcie hero jest PNG
-     bez tła) — spójny ze studyjnym podglądem i ciemnym headerem strony. */
-  background:radial-gradient(75% 65% at 50% 32%,#43617e 0%,#33495f 55%,#253749 100%);
   filter:
     drop-shadow(0 20px 45px rgba(0,0,0,0.15))
     drop-shadow(0 12px 28px rgba(0,0,0,0.1))
