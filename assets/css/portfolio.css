@@ -380,6 +380,24 @@ body.portfolio-page .hero-section{background-image:url('../images/ja-biznesowy-v
     drop-shadow(0 9px 12px rgba(15,23,42,0.40));
 }
 
+/* Hover: zdjęcie z uśmiechem nakłada się na wersję bazową i płynnie pojawia
+   przy najechaniu. Dziedziczy efekt sylwetki z reguły .about-me-image img. */
+.about-me-image .ami-hover{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.about-me-image:hover .ami-hover,
+.about-me-image:focus-within .ami-hover{
+  opacity:1;
+}
+@media (hover:none){
+  /* Na dotyku brak hovera — nie rezerwujemy zachowania, zostaje wersja bazowa. */
+  .about-me-image .ami-hover{display:none;}
+}
+
 /* === PREMIUM CTA BUTTON === */
 .cta-portfolio{
   grid-area:cta;
